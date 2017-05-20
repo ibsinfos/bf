@@ -1,0 +1,370 @@
+@media only screen and (max-width: 768px) {
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+	input, textarea{
+	   -webkit-appearance: none;
+	   -moz-appearance: none;
+	   appearance: none;
+	   outline: none;
+	   box-shadow: none !important;
+	}
+	.container{
+		position: relative;
+	}
+	.site-container{
+		padding-top: 15px;
+		border:0;
+	}
+	.modal-open
+
+	div.desktop-only,
+	.desktop-only,
+	ul li.desktop-only{
+		display: none;
+	}
+	.mobile-only{
+		display: block;
+	}
+	div.col-nav{
+		z-index: 10;
+		position: relative;
+		position: absolute;
+		width: 74%;
+		left: -75%;
+	}
+	div.row-nav{
+		border:none;
+	}
+	div.col-nav.visible{
+		overflow: visible;
+		transition: left 0.3s;
+		left: -1px;
+		padding: 0;
+		z-index: 15;
+	}
+	div.col-nav.visible.default{
+		transition: left 0.3s;
+		left: -75%;
+	}
+	.main-navigation .menu-header{
+		width: 100%;
+		float: left;
+	}
+
+	.main-navigation{
+	    margin: 0;
+	    padding: 0 0 0;
+	    min-width: 200px;
+	    width: 100%;
+	    list-style: none;
+	    text-align: left;
+	    overflow: visible;
+	}
+	.header{
+		position: relative;
+		padding-top: 5px;
+	}
+	.header ul.menu{
+		float: left;
+		position: relative;
+		width: 100%;
+		padding-bottom: 0px;
+		background: #ffffff;
+		border-top: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+	}
+	.header .menu-header ul li {
+		display: block;
+		border-bottom: 1px solid #ccc;
+	}
+	.menu-header ul li a {
+	    display: block;
+	    line-height: 23px;
+	    padding: 10px 30px;
+	    margin: 0 4px;
+	    font-size: 13px;
+	    color: #383838;
+	    height: 40px;
+	}
+	div.col-search{
+		padding: 0 10px 10px 10px;
+		margin-top: 0;
+	}
+	.frm-search .search-icon{
+		display: none;
+	}
+	.frm-search{
+		width: 100%;
+	}
+	.frm-search select{
+		width: 95px;
+		float: left;
+		margin-right: 10px;
+		z-index: 10;
+		padding-left: 5;
+		left: 0;
+		top:6px;
+		display: none;
+	}
+	.frm-search .search-icon1{
+		z-index: 10;
+		right: 10px;
+		left: auto;
+	}
+	input.keyword{
+		text-indent: 10px;
+		padding-top: 0px;
+		display: block;
+		height: 35px;
+		line-height: 35px;
+	}
+	.frm-search button.mobile-only{
+		position: absolute;
+		right: 0px;
+		top:0;
+		width: 40px;
+		height: 30px;
+		z-index: 10;
+		background: transparent;
+		border:none !important;
+	}
+	.frm-search button.mobile-only span{
+		top: 0;
+	}
+	.main-banner{
+		min-height: 520px;
+	}
+	.heading-aligner h1{
+		margin-top: 0;
+	}
+	.main-navigation .menu-hamburger{
+		width: 45px;
+	    height: 30px;
+	    font-size: 28px;
+	    float: left;
+	    top: 8px;
+	    right: -45px;
+	    position: absolute;
+	    float: right;
+	    cursor: pointer;
+	    padding: 0px 0 0 10px;
+	    background: #fff;
+
+	}
+	.main-login .login-icon{
+		font-size: 23px;
+		padding-right: 10px;
+	}
+	div.col-nav .menu-hamburger:before,
+	div.col-nav.visible.default .menu-hamburger:before {
+	 content:"\e236";
+	}
+
+	div.col-nav.visible .menu-hamburger:before{
+		1content: "\e014";
+	}
+	.col-logo{
+		width: 100%;
+		text-align: center;
+		float: left;
+		padding: 0;
+	}
+	a.logo img{
+		max-width: 80%;
+		vertical-align: top;
+		padding-top: 0px;
+		height: 39px;
+	}
+	.header-action{
+		position: absolute;
+		top:3px;
+		right: 0;
+		padding-right: 0;
+		z-index: 10;
+	}
+	.main-login {
+		display: block;
+	}
+	div.no-padding-left{
+		padding-left: 15px;
+	}
+	.archive-profile-item  .skills{
+		white-space:normal;
+	}
+	.list-project{
+		padding: 10px 0px 0px;
+		border:0;
+	}
+	.col-md-6.archive-profile-item .full{
+		border:0;
+		border-bottom: 1px solid #eee;
+		overflow: hidden;
+	}
+	.col-md-6.archive-profile-item .bottom-row{
+		padding-left: 0;
+	}
+	.col-md-6.archive-profile-item .bottom-row div{
+		padding-left: 0;
+	}
+	.col-md-6.archive-profile-item .bottom-row div.count-job{
+		padding-left: 5px;
+	}
+	.col-md-6.archive-profile-item .bottom-row div.country-profile{
+		padding-right: 0;
+	}
+	.archive-profile-item .hour-rate{
+		top:47px;
+		right: 0;
+		font-weight: normal;
+	}
+	.archive-profile-item  .skills a{
+		font-size: 13px;
+	}
+	.col-md-6.archive-profile-item .avatar{
+		width: 88px;
+		height: 88px;
+	}
+	.alert-danger{
+		display: none;
+	}
+	#loginModal .modal-content{
+		margin-top: 70px;
+
+	}
+	#loginModal .modal-dialog input {
+	    box-shadow: none;
+	    border: 1px solid #E7EAEE;
+	    background: rgba(34,58,101,0.1);
+	}
+	#loginModal .modal-dialog h6 {
+	    margin: 5px 0;
+	    font-size: 20px;
+	}
+
+	#loginModal .modal-dialog h6 {
+	    margin: 0;
+	    padding: 0;
+	    font-size: 18px;
+	    font-weight: 600;
+	    font-family: "Raleway", sans-serif;
+	    display: inline-block;
+	}
+	#loginModal .modal-dialog .login-via .pull-left,
+	#loginModal .modal-dialog .login-via .pull-right {
+	    float: none!important;
+	    display: block;
+	    text-align: center;
+	    margin-top: 15px;
+	}
+	#loginModal .modal-dialog .modal-content a {
+	    cursor: pointer;
+	}
+	.login-via{
+		padding-top: 10px;
+	}
+	.link-signup{
+
+	}
+	.btn-login{
+		background: transparent;
+	}
+	.modal-content{
+		border-radius: 0 !important;
+	}
+	.modal-dialog a {
+	    color: #222;
+	}
+	.mt10 {
+	    margin-top: 10px !important;
+	}
+	.mt20{
+		margin-top: 20px !important;
+	}
+	.mt30{
+		margin-top: 30px !important;
+	}
+	.btn-go {
+	    background: #B0A376;
+	    color: #fff!important;
+	}
+	.main-login li.avatar{
+		position: absolute;
+		top:0;
+		z-index: 1;
+		right: 5px;
+	}
+	.main-login img.avatar{
+		width: 30px;
+		height: 30px;
+		margin-top: 0;
+		border:1px solid #f7f7f7;
+		border-radius: 50%;
+	}
+	.main-login li.profile-account a.account-name{
+		opacity: 0;
+		z-index: 100;
+		padding: 0;
+		margin-top: 0;
+		width: 36px;
+		height: 36px;
+		position: relative;
+	}
+	.main-login li.profile-account a.account-name .caret{
+		opacity: 1;
+	}
+	.main-login li.profile-account .dropdown-menu{
+		top:40px;
+
+	}
+	ul.list-checkbox{
+		display: none;
+		max-height: 250px;
+		overflow-y: scroll;
+	}
+	.search-adv{
+		display: none;
+	}
+	.account-dropdown .account-name{
+		opacity: 0;
+		z-index: 11;
+	}
+	.account-dropdown img.avatar{
+		top:0;
+		right: 0;
+	}
+	.account-dropdown{
+		position: relative;
+		padding-top: 0;
+	}
+	ul.account-dropdown li.first-sub{
+		padding-top: 0;
+	}
+	ul.account-dropdown li.profile-account{
+		position1: absolute;
+		z-index: 5;
+	}
+	ul.account-dropdown li.avatar {
+		position: absolute;
+		top: 5px;
+		right: 0;
+	}
+	ul.account-dropdown li.icon-bell{
+		position: absolute;
+		top: 0;
+		right: 25px;
+	}
+	li.icon-bell span.toggle-msg{
+		font-size: 23px;
+	}
+	footer{
+		font-size: 13px;
+	}
+	footer .col-xs-4, footer .col-xs-12{
+		padding: 0;
+	}
+	.pre-footer{
+		padding: 2em 0 0.5em 0;
+	}
+}

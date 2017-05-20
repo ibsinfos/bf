@@ -1,0 +1,135 @@
+@media only screen and (max-width: 768px) {
+	* {
+	  margin: 0;
+	  padding: 0;
+	}
+	.container{
+		position: relative;
+	}
+
+
+	div.col-nav{
+		z-index: 10;
+		position: relative;
+		position: absolute;
+		width: 74%;
+		left: -75%;
+	}
+	div.col-nav.visible{
+		overflow: visible;
+		transition: left 0.3s;
+		left: -1px;
+		padding: 0;
+	}
+	div.col-nav.visible.default{
+		transition: left 0.3s;
+		left: -75%;
+	}
+	.main-navigation .menu-header{
+		width: 100%;
+		float: left;
+	}
+
+	.main-navigation{
+	    margin: 0;
+	    padding: 0 0 0;
+	    min-width: 200px;
+	    width: 100%;
+	    list-style: none;
+	    text-align: left;
+	    overflow: visible;
+	}
+
+	.header ul.menu{
+		float: left;
+		position: relative;
+		width: 100%;
+		padding-bottom: 0px;
+		background: #23282d;
+	}
+	.header .menu-header ul li {
+		display: block;
+		border-bottom: 1px solid #777;
+	}
+	.menu-header ul li a {
+	    display: block;
+	    line-height: 23px;
+	    padding: 10px 30px;
+	    margin: 0 4px;
+	    font-size: 13px;
+	    color: #eee;
+	    height: 40px;
+	}
+	.frm-search{
+		width: 100%;
+	}
+	.main-banner{
+		min-height: 520px;
+	}
+	.heading-aligner h1{
+		margin-top: 0;
+	}
+	.main-navigation .menu-hamburger{
+		width: 30px;
+	    height: 30px;
+	    font-size: 28px;
+	    float: left;
+	    top: 8px;
+	    right: -30px;
+	    position: absolute;
+	    float: right;
+	    cursor: pointer;
+	    padding: 0px;
+	    border:1px solid #eee;
+	}
+
+	div.col-nav .menu-hamburger:before,
+	div.col-nav.visible.default .menu-hamburger:before {
+	 content:"\e236";
+	}
+
+	div.col-nav.visible .menu-hamburger:before{
+		content: "\e014";
+	}
+	.col-logo{
+		width: 80%;
+		float: left;
+		padding-left: 35px;
+	}
+	a.logo img{
+		max-width: 100%;
+		vertical-align: top;
+		padding-top: 0px;
+		height: 39px;
+	}
+	.header-action{
+		display: none;
+	}
+
+	div.no-padding-left{
+		padding-left: 15px;
+	}
+	.archive-profile-item  .skills{
+		white-space:normal;
+	}
+	.list-project{
+		padding: 10px 0px 0px;
+		border:0;
+	}
+	.col-md-6.archive-profile-item{
+		padding: 0;
+	}
+	.col-md-6.archive-profile-item .full{
+		border:0;
+		border-bottom: 1px solid #eee;
+		overflow: hidden;
+	}
+	.archive-profile-item .hour-rate{
+		top:47px;
+		right: 0;
+		font-weight: normal;
+	}
+	.archive-profile-item  .skills a{
+		font-size: 13px;
+	}
+}

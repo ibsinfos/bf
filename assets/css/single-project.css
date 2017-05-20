@@ -1,0 +1,105 @@
+.detail-project{
+	float: left;
+	width: 100%;
+	margin-top: 10px;
+	overflow: hidden;
+}
+.full.heading{
+	background: #fff;
+	border-bottom: 1px solid #f4f6f8;
+	overflow: hidden;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.wrap-content{
+	background: #fff;
+	overflow: hidden;
+	width: 100%;
+	padding-top: 10px;
+}
+.full.heading div{
+	padding: 8px auto;
+}
+.list-bid .row{
+	padding-bottom: 15px;
+}
+.tooltip{
+	display: none;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	border:1px solid #ccc;
+}
+.bid-content p {
+	padding: 0;
+	margin-bottom: 5px;
+	font-size:14px;
+}
+.bid-title{
+	position: relative;
+	margin-top: 0;
+}
+.bid-title:hover .tooltip{
+	display: block;
+	opacity: 1;
+}
+.row-bid-item {
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 15px 0 0 0;
+}
+.row-bid-item .avatar{
+	width: 96px;
+	height: 96px;
+}
+
+.status-awarded  .btn-status-display{
+	display: none;
+}
+#container_msg{
+	height: 150px;
+	overflow-x: hidden;
+	overflow-y:scroll;
+	margin-bottom:20px;
+	padding-top: 10px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+}
+.msg-author{
+	width: 50px;
+}
+.send-message{
+	position: relative;
+}
+.btn-send-message{
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	background: none;
+}
+.bid-form{
+	overflow: hidden;
+}
+/** WORKSPACE *****************/
+.list-attach li{
+	margin-right: 10px;
+}
+.btn-del-attachment{
+	cursor: pointer;
+	color: red;
+}
+.btn-close-modal{
+	position: absolute;
+	bottom: 29px;
+	right: 131px;
+}
+.ws-project-des{
+	padding: 15px 0;
+}
+.review-section{
+	padding-bottom: 15px;
+}
+.rating-line{
+	padding-top: 10px;
+}
+/* END WORKSPACE **************/

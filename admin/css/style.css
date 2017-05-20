@@ -1,0 +1,30 @@
+.align-right{
+	text-align: right;
+}
+
+.heading-tab ul li{
+	display: inline-block;
+	padding: 10px 20px;
+	border: 1px solid #ccc;
+	float: left;
+	text-transform: uppercase;
+
+}
+.heading-tab ul li a{
+	text-decoration: none;
+	text-transform: uppercase;
+}
+li.block{
+	display: block;
+	clear: both;
+	width: 100%;
+}
+form.frm-add-package{
+	border: 1px solid #ccc;
+	padding: 20px;
+	display: block;
+	overflow: hidden;
+}
+.btn-delete{
+	cursor: pointer;
+}

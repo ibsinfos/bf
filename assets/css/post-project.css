@@ -1,0 +1,104 @@
+.file-uploader-area {
+    display: table;
+    width: 100%;
+    padding: 20px 28px;
+    border-color: #BEC0C2;
+    background-color: transparent;
+}
+ .PostProject .file-uploader-area {
+    display: table;
+    width: 100%;
+    padding: 20px 28px;
+    border-color: #BEC0C2;
+    background-color: transparent;
+}
+
+.file-uploader-area {
+    position: relative;
+    padding: 6px;
+    background: #fff;
+    border: 1px dashed #DEDEDE;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    border-radius: 3px 3px 3px 3px;
+    background-clip: padding-box;
+}
+.file-uploader-area {
+    position: relative;
+    padding: 6px;
+    background: #fff;
+    border: 1px dashed #DEDEDE;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    border-radius: 3px 3px 3px 3px;
+    background-clip: padding-box;
+}
+
+.file-uploader-area input[type=file] {
+    height: 100%;
+}
+
+.file-uploader-area input[type=file] {
+    text-indent: -9999px;
+}
+
+.file-uploader-area input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    border: solid transparent;
+    cursor: pointer;
+    opacity: 0;
+}
+.file-uploader-area .file-upload-text {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 20px;
+    color: #1f2836;
+}
+
+ .file-uploader-area .file-upload-text,
+ .txt-term {
+    color: #1f2836;
+    line-height: 1.43;
+    font-size: 13px;
+}
+
+ .btn-file-uploader {
+    display: table-cell;
+    vertical-align: middle;
+    width: 35%;
+}
+
+.btn.btn-plain, .btn.btn-plain-alt {
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.btn-plain {
+    border: 1px solid #75787d;
+    font-weight: 700;
+    color: #4D525B;
+    background: -webkit-linear-gradient(top,transparent 0,transparent 100%);
+    background: linear-gradient(to bottom,transparent 0,transparent 100%);
+    text-shadow: 0 -1px transparent;
+}
+.frm-submit-project label{
+    text-transform: uppercase;
+    padding-bottom: 15px;
+}
+.frm-submit-project .form-group{
+    padding-bottom: 20px;
+}
+.frm-submit-project input.form-control{
+    height: 40px;
+}
+.frm-submit-project .chosen-container-multi .chosen-choices{
+    height: 40px;
+    padding: 6px 12px;
+}

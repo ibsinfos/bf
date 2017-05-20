@@ -1,0 +1,210 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+	class BX_Post {
+
+		private static $instance;
+		protected $post_type;
+		function __construct(){
+			$this->post_type = 'post';
+			//add_filter( 'query_vars',array( $this, 'add_query_vars_filter' ) );
+			add_filter( "template_include", array($this, "custom_template_redirect" ) );
+			add_action( 'template_redirect', array($this, 'jb_template_redirect' ));
+
+		}
+
+		function custom_template_redirect($template){
+			return $template;
+		}
+		function jb_template_redirect(){
+			if ( is_page_template( 'page-signup.php' ) && is_user_logged_in() ) {
+				wp_redirect( home_url());
+        		exit();
+			}
+		}
+		static function get_instance(){
+
+			if (null === static::$instance) {
+            	static::$instance = new static();
+        	}
+        	return static::$instance;
+		}
+		function sync( $method, $args){
+			return $this->$method($args);
+		}
+
+		/**
+		 * check security
+		 * @since   1.0
+		 * @author danng
+		 * @param   [type]    $request [description]
+		 * @return  [type]             [description]
+		 */
+		function check_security($method, $request){
+			$name = "nonce_insert_job";
+			if($method == 'edit')
+				$name = "nonce_edit_job";
+	    	if(! wp_verify_nonce( $request[$name], 'jb_submit_job' ) ){
+	    		return  new WP_Error( 'unsecurity', __( "Has something wrong", "boxtheme" ) );
+	    	}
+	    	return true;
+		}
+		function get_meta_fields(){
+			return array();
+		}
+		function get_static_meta_fields(){
+			return array();
+		}
+		function get_taxonomy_fields(){
+			return array();
+		}
+
+		function insert($args){
+			die('parrent');
+			global $user_ID;
+			// check security
+			if( !empty( $args['ID'] ) ){
+				return $this->update($args);
+
+			}
+			$check = $this->check_before_insert($args);
+			if( is_wp_error($check) ){
+				return $check;
+			}
+			$args['post_type'] 		= $this->post_type;
+			$args['post_status']	= 'publish';
+			if ( is_wp_error( $check ) ){
+				return $check;
+			}
+
+			$metas 		= $this->get_meta_fields();
+			foreach ($metas as $key) {
+				if ( !empty ( $args[$key] )  ){
+					$args['meta_input'][$key] = $args[$key];
+				}
+			}
+			$args 		= apply_filters( 'args_pre_insert_'.$this->post_type, $args );
+			$post_id 	= wp_insert_post( $args );
+
+			//https://developer.wordpress.org/reference/functions/wp_insert_post/
+			if ( ! is_wp_error( $post_id ) ) {
+				$this->update_post_taxonomies($post_id, $args);
+			}
+			return $post_id;
+		}
+		function update($args){
+
+			global $user_ID;
+			// check security
+			$check = $this->check_before_update($args);
+
+			if( is_wp_error($check) ){
+				return $check;
+			}
+
+
+			$metas 		= $this->get_meta_fields();
+			foreach ($metas as $key) {
+				if ( !empty ( $args[$key] )  ){
+					$args['meta_input'][$key] = $args[$key];
+				}
+			}
+			$args 		= apply_filters( 'args_pre_update_'.$this->post_type, $args );
+
+			$post_id 	= wp_update_post( $args );
+
+			//https://developer.wordpress.org/reference/functions/wp_insert_post/
+
+			if ( ! is_wp_error( $post_id ) ) {
+
+				$this->update_post_taxonomies($post_id, $args);
+			}
+			return $post_id;
+		}
+		function update_post_taxonomies( $post_id, $args ){
+
+			$taxonomies =$this->get_taxonomy_fields();
+			foreach ($taxonomies as $tax) {
+				if( !empty( $args[$tax]) ){
+					$t = wp_set_post_terms($post_id, $args[$tax], $tax);
+				}
+			}
+
+		}
+		/**
+			check validte when post a job vai front-end.
+		*/
+		function check_before_update($request){
+			$validate = true;
+			if( empty($request['post_title']) ){
+				return  new WP_Error('empty_title',__('Empty post title','boxtheme'));
+			}
+			if( empty($request['post_content']) ){
+				return new WP_Error('empty_content',__('Empty job content','boxtheme'));
+			}
+
+			return $validate;
+		}
+
+		function check_before_insert($request){
+			$validate = true;
+			if( empty($request['post_title']) ){
+				return  new WP_Error('empty_title',__('Empty post title','boxtheme'));
+			}
+			if( empty($request['post_content']) ){
+				return new WP_Error('empty_content',__('Empty job content','boxtheme'));
+			}
+
+			return $validate;
+		}
+		/**
+		 * depend on the setting , use this method to get the post_status when insert new job.
+		 * only use this method in step -2 of submit job page.
+		 * @since   1.0
+		 * @author danng
+		 * @return  string post_status
+		 */
+		function get_post_status_step_2(){
+			$post_status = 'draft';
+
+			if( current_user_can('manager_options') )
+				return 'publish';
+
+			if( is_free_submit_job() ) {
+				if ( is_admin_role() )
+					return  'publish';
+				if( is_pending_job() ){
+					return 'pending';
+				}
+				return 'publish';
+			}
+			return $post_status;
+		}
+
+		public static function get_post_status_check_out(){
+			if( is_admin_role() )
+				return 'publish';
+			if( is_pending_job() ){
+					return 'pending';
+			}
+			return 'publish';
+		}
+
+		function convert($post){
+
+			if( is_numeric($post) ){
+				$post = get_post($post);
+			}
+
+			$metas = $this->get_meta_fields();
+			foreach ( $metas as $key ) {
+				$post->$key = get_post_meta( $post->ID, $key, true);
+			}
+			$static_metas = $this->get_static_meta_fields();
+			foreach ( $static_metas as $key ) {
+				$post->$key = get_post_meta( $post->ID, $key, true);
+			}
+
+			return $post;
+		}
+	}
+?>
