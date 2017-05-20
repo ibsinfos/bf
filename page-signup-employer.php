@@ -11,8 +11,8 @@
 			<form id="signup" class="frm-signup">
 				<div class="row" id="heading_signup">
 				    <div class="col-md-12 align-center">
-				        <h1>SIGN UP</h1>
-				    <h3>Create a employer account in seconds and post a job right now</h3>
+				        <h1><?php _e('SIGN UP','boxtheme');?></h1>
+				    	<h3>Create a employer account in seconds and post a job right now</h3>
 				    </div>
 				</div>
 				<div class="row">
