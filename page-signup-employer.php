@@ -45,6 +45,7 @@
 				    </div>
 				</div>
 				<input type="hidden" name="role" value="<?php echo EMPLOYER;?>">
+				<?php signup_nonce_fields(); ?>
 
 				<div class="form-group row">
 				<div class="col-md-12">

@@ -40,6 +40,7 @@
 						        <input class="form-control"  name="user_pass" required  type="password" placeholder="<?php _e('Password','boxtheme');?> ">
 						    </div>
 						</div>
+						<?php signup_nonce_fields(); ?>
 						<input type="hidden" name="role" value="<?php echo FREELANCER;?>">
 
 						<div class="form-group row">

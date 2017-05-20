@@ -12,7 +12,7 @@ $project = BX_Project::get_instance()->convert($post);
 		    <span>Fixed-Price</span>
             <span >
 	            <span class="js-budget">- <span>Budget:</span>
-	           	 <span  data-itemprop="baseSalary"><?php bx_price($project->_budget, false);?> </span>
+	           		<span  data-itemprop="baseSalary"><?php bx_price($project->_budget, false);?> </span>
 				</span>
 			</span>
 			<span class="js-posted"> - <time><?php bx_show_time($post);?></time></span>

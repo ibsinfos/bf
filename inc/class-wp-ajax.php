@@ -89,7 +89,7 @@ class BX_AJAX {
 		// woocommerce_EVENT => nopriv
 		$ajax_events = array(
 			'sync_bid' 				=> false,
-			'bx_signin'         	=> true,
+			'bxsign_in'         	=> true,
 			'bx_signup' 			=> true,
 			'apply_coupon'     		=> true,
 			'jb_signout' 			=> false,
@@ -200,6 +200,9 @@ class BX_AJAX {
 		wp_send_json($response );
 	}
 	public static function bx_signup(){
+
+		signup_nonce_check(true); // auto die if uncorrect nonce fields
+
 		$response = array(
 				'success' 	=> false,
 				'msg' 		=> __('Has something wrong', 'boxtheme'),
@@ -210,6 +213,7 @@ class BX_AJAX {
 
 		if ( empty($request['user_pass']) )
 			$request['user_pass'] = wp_generate_password( 12, true );
+
 
 		$user_id = $user->sync( $request, 'insert');
 
