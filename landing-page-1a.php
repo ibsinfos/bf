@@ -34,7 +34,7 @@ get_header(); ?>
 	        </div>
 	        <!-- POST A PROJECT BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="" class="btn   review-btn find-btn btn-action">Post a Project</a>
+	            <a href="<?php echo home_url("submit-project");?>" class="btn   review-btn find-btn btn-action">Post a Project</a>
 	        </div>
 	    </div>
 	</div>

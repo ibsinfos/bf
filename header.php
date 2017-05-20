@@ -70,7 +70,7 @@ global $user_ID;
 				<?php get_template_part( 'template-parts/navigation', 'top' ); ?>
 			<?php } ?>
 			</div>
-			<div class="col-md-3 no-padding col-xs-12 col-search">
+			<div class="col-md-3 no-padding col-xs-12 col-search hide">
 				<?php
 				$project_link = $default =  get_post_type_archive_link(PROJECT);
 				$placeholder = __('Find a job','boxtheme');
@@ -96,8 +96,8 @@ global $user_ID;
 			</div>
 			<div class="col-md-3 f-right align-right no-padding-left header-action">
 				<?php
-					if( is_user_logged_in() ){
-					global $user_ID;
+					if ( is_user_logged_in() ) {
+						global $user_ID;
       				$current_user = wp_get_current_user();
 				?>
 

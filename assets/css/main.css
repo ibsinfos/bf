@@ -825,9 +825,13 @@ form#signup .btn {
 }
 form#signup {
 	padding-top: 50px;
+	background-color: #fff;
+	padding: 30px 30px 15px 30px;
+	border:1px solid #eee;
+	margin: 50px auto;
 }
 form #heading_signup{
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 }
 #verify_content{
 	max-width: 80%;

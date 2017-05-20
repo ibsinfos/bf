@@ -364,8 +364,9 @@ class BX_AJAX {
 	}
 	static function box_upload_file(){
 		$request 		= $_REQUEST;
-		$uploadedfile 	= $_FILES['file'];
+		$uploaded_file 	= $_FILES['file'];
 		$upload_overrides = array( 'test_form' => false );
+		$post_parent_id = $request['post_parent'];
 
 	    $filename 	= $uploaded_file['url'];
 		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
