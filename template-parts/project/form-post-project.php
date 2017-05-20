@@ -1,6 +1,6 @@
    <form id="submit_project" class="frm-submit-project">
       <div class="form-group ">
-         <h1> Submit project</h1>
+         <h1 class="page-title"><?php the_title(); ?></h1>
       </div>
       <div class="form-group">
         <label for="example-text-input" class="col-3  col-form-label"><?php _e('PROJECT NAME:','boxtheme');?></label>

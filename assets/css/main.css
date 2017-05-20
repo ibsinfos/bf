@@ -73,7 +73,8 @@ img{
 .site-container{
 	padding-top: 30px;
 	padding-bottom: 30px;
-	min-height: 550px
+	min-height: 550px;
+	background-color:#fff;
 }
 
 footer .container{
