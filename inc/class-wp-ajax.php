@@ -187,6 +187,12 @@ class BX_AJAX {
 		}
 		wp_send_json( $response );
 	}
+	/**
+	 *  process all action of bidding.
+	 * @author danng
+	 * @version 1.0
+	 * @return  void
+	 */
 	public static function sync_bid(){
 		$request 	= $_REQUEST;
 		$data 		= $_REQUEST['request'];
