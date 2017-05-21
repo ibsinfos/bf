@@ -45,7 +45,7 @@ function show_bid_buton($post){
    	$terms = get_the_terms( $project, 'skill' );
    	if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
    		echo '<ul>';
-   		echo '<h3>'.__('Skills','boxtheme').'</h3>';
+   		echo '<h3>'.__('SKILLS REQUIRED','boxtheme').'</h3>';
         foreach ( $terms as $term ) {
           echo '<li><a href="' . get_term_link($term).'">' . $term->name . '</a></li>';
         }
