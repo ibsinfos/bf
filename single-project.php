@@ -37,39 +37,39 @@ global $wp_query;
 
        			</div> <!-- full !-->
 
-               <div class="col-md-8">
+               	<div class="col-md-8">
                		<h3> <?php _e('Job details','boxtheme');?> </h3>
           			<?php the_content(); ?>
                     <?php
-	                    $args = array(
-	                        'post_status' => 'any',
-	                        'post_type'   => 'attachment',
-	                        'post_parent' => $project->ID,
-	                    );
-	                    $att_query = new WP_Query( $args );
-	                    if( $att_query-> have_posts() ){
-	                        echo '<p>';
-	                        echo '<h3>'.__('Files attach: ','boxtheme').'</h3>';
-	                        $files = array();
-	                        while ( $att_query-> have_posts()  ) {
-	                            global $post;
-	                            $att_query->the_post();
-	                            $feat_image_url = wp_get_attachment_url( $post->ID );
-	                            $files[] = '<span> <a href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
-	                        }
-	                        echo join(",",$files);
-	                        echo '</p>';
-	                    }
+	                    // $args = array(
+	                    //     'post_status' => 'any',
+	                    //     'post_type'   => 'attachment',
+	                    //     'post_parent' => $project->ID,
+	                    // );
+	                    // $att_query = new WP_Query( $args );
+	                    // if( $att_query-> have_posts() ){
+	                    //     echo '<p>';
+	                    //     echo '<h3>'.__('Files attach: ','boxtheme').'</h3>';
+	                    //     $files = array();
+	                    //     while ( $att_query-> have_posts()  ) {
+	                    //         global $post;
+	                    //         $att_query->the_post();
+	                    //         $feat_image_url = wp_get_attachment_url( $post->ID );
+	                    //         $files[] = '<span> <a href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
+	                    //     }
+	                    //     echo join(",",$files);
+	                    //     echo '</p>';
+	                    // }
                     ?>
 
-          		</div> <!-- .col-md-8 !-->
-
+          		</div> <!-- .col-md-8  Job details !-->
+          		<?php  if( !$is_workspace){ get_template_part( 'template-parts/list', 'bid' ); } ?>
    		       <?php  get_sidebar('project');?>
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
 		<?php } ?>
 
-		<?php  if( !$is_workspace){ get_template_part( 'template-parts/list', 'bid' ); } ?>
+
 	</div>
 </div>
 <script type="text/template" id="json_project"><?php global $convs_id; $project->convs_id = $convs_id; echo json_encode($project); ?></script>

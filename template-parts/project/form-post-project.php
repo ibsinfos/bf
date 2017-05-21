@@ -41,7 +41,7 @@
 	           		'hide_empty' => false,
 	          	)
 	       	);
-	       if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
+	       if ( ! empty( $skills ) && ! is_wp_error( $skills ) ) {
 	            foreach ( $skills as $skill ) {
 	              echo '<option value="' . $skill->name . '">' . $skill->name . '</option>';
 	            }

@@ -21,7 +21,6 @@ function show_bid_buton($post){
 			// emp, fre
 			$role = bx_get_user_role( $user_ID );
 			if ( is_owner_project( $project ) ) {
-
 			}
 		}
 	} else if($project->post_status == 'publish') {

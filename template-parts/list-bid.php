@@ -1,5 +1,5 @@
-<div class="col-md-8">
-<?php
+<div class="col-md-8 list-bid">
+	<?php
 	global $user_ID, $project;
 	$paged = isset($_GET['pid']) ? $_GET['pid'] : 1;
 	$args = array(
@@ -10,10 +10,7 @@
 
 	$query = new WP_Query($args);
 	//show_conversation($user_ID, $project->ID);
-?>
-</div>
-
-<div class="col-md-8 list-bid">
+	?>
 	<h3><?php printf(__('List bid (%s)','boxtheme'), $query->found_posts); ?></h3>
 	<?php
 	if( $query->have_posts() ) :

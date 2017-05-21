@@ -54,7 +54,7 @@ if( $bidding ){
       	</select>
    	</div>
    	<?php wp_nonce_field( 'sync_bid', 'nonce_bid_field' ); ?>
-   	<div class="form-group">
+   	<div class="form-group hide">
       	<label for="attach_file"><?php _e('Attachments (optional)','boxtheme');?></label>
       	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
       	<small id="fileHelp" class="form-text text-muted"><?php _e('Send this file to project\'s owner.','boxtheme');?></small>
