@@ -408,13 +408,13 @@ class BX_AJAX {
 		}
 		*/
 
-		if ( !isset( $request['post_parent_id']) )
+		if ( isset( $request['post_parent']) )
 			$post_parent_id = $request['post_parent'];
 
 		if ( ! wp_verify_nonce( $request['nonce_upload_field'], 'box_upload_file' ) ) {
 			wp_die( __('secutiry issues','boxtheme') );
 		}
-	    $filename 	= $tmp_file['url'];
+
 
 	    $upload_overrides = array( 'test_form' => false );
 		$uploaded_file 	= wp_handle_upload( $tmp_file, $upload_overrides );
@@ -471,7 +471,8 @@ class BX_AJAX {
 		$upload_overrides = array( 'test_form' => false );
 		$post_parent_id = $request['post_parent'];
 		$convs_id 	= $request['convs_id'];
-	    $filename 	= $uploadedfile['url'];
+
+
 		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
 
 		// Get the path to the upload directory.
