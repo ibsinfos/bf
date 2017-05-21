@@ -58,20 +58,19 @@
 	 	<div id="fileupload-container" class="file-uploader-area">
 		    <span class="btn btn-plain btn-file-uploader">
 		      	<span class="fl-icon-plus"></span>
-		      	<span id="file-upload-button-text">+ <?php _e('Upload Files','boxtheme');?></span>
+		      	<input type="hidden" class="nonce_upload_field" name="nonce_upload_field" value="<?php echo wp_create_nonce( 'box_upload_file' ); ?>" />
+		      	<span id="file-upload-button-text"><span class="glyphicon glyphicon-plus"></span> <?php _e('Upload Files','boxtheme');?></span>
 		      	<input type="file" name="upload[]" id="sp-upload" multiple="" class="fileupload-input">
 		      	<input type="hidden" name="fileset" class="upload-fileset">
 		  	</span>
 	  		<p class="file-upload-text txt-term">Drag &amp; drop any images or documents that might be helpful in explaining your project brief here</p>
-	 	</div>
 
+	 	</div>
+	 	<ul class="list-attach"></ul>
 	 	<div id="fileupload-error" class="alert alert-error upload-alert fileupload-error hide">You have uploaded this file before</div>
 
-	 	<table class="file-uploader-table default-table table-alt-row fileupload-item-list" role="presentation">
-	     	<tbody class="files"></tbody>
-	 	</table>
 	</div>
-	<?php wp_nonce_field( 'submit_project', 'nonce_post_project' ); ?>
+	<?php wp_nonce_field( 'sync_project', 'nonce_insert_project' ); ?>
 	<div class="form-group row">
 
 	 	<div class="col-md-7">

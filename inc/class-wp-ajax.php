@@ -164,8 +164,9 @@ class BX_AJAX {
 		$args 		= $request['request'];
 		$method 	= $_REQUEST['method'];
 		$response 	= array('success' => false, 'msg' => __('Insert project fail'), 'data' => array() );
+
 		if( $method == 'insert' ) {
-			if ( ! wp_verify_nonce( $request['nonce_post_project'], 'submit_project' ) ) {
+			if ( ! wp_verify_nonce( $args['nonce_insert_project'], 'sync_project' ) ) {
 				wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
 		    }
 		}
@@ -387,13 +388,36 @@ class BX_AJAX {
 		wp_send_json(array('success' => false,'msg' => __('Remove attachment fail','boxtheme')) );
 	}
 	static function box_upload_file(){
-		$request 		= $_REQUEST;
-		$uploaded_file 	= $_FILES['file'];
-		$upload_overrides = array( 'test_form' => false );
-		$post_parent_id = $request['post_parent'];
 
-	    $filename 	= $uploaded_file['url'];
-		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
+		$post_parent_id = 0;
+		$request 		= $_REQUEST;
+		$tmp_file 	= $_FILES['file'];
+		//$tmp_file['name'] = abc.jpg
+		//var_dump($tmp_file);
+		/*array(5) {
+		  ["name"]=>
+		  string(7) "abc.jpg"
+		  ["type"]=>
+		  string(10) "image/jpeg"
+		  ["tmp_name"]=>
+		  string(24) "D:\Xampp\tmp\php6193.tmp"
+		  ["error"]=>
+		  int(0)
+		  ["size"]=>
+		  int(220445)
+		}
+		*/
+
+		if ( !isset( $request['post_parent_id']) )
+			$post_parent_id = $request['post_parent'];
+
+		if ( ! wp_verify_nonce( $request['nonce_upload_field'], 'box_upload_file' ) ) {
+			wp_die( __('secutiry issues','boxtheme') );
+		}
+	    $filename 	= $tmp_file['url'];
+
+	    $upload_overrides = array( 'test_form' => false );
+		$uploaded_file 	= wp_handle_upload( $tmp_file, $upload_overrides );
 
 		// Get the path to the upload directory.
 		$wp_upload_dir = wp_upload_dir();
@@ -406,12 +430,12 @@ class BX_AJAX {
             // Generate a title for the image that'll be used in the media library
             $file_kb = (float)  round( $uploadedfile['size']/1024, 1);
             if( $file_kb >= 1024 ){
-            	$file_kb = round($uploadedfile['size']/1024/1024, 1) . ' mb';
+            	$file_kb = round($uploaded_file['size']/1024/1024, 1) . ' mb';
             } else{
             	$file_kb .= ' kb';
             }
 
-            $file_title_for_media_library = sanitize_file_name($uploadedfile['name']) . '('. $file_kb.')';
+            $file_title_for_media_library = sanitize_file_name($tmp_file['name']) . '('. $file_kb.')';
             $wp_upload_dir = wp_upload_dir();
 
             // Set up options array to add this file as an attachment
@@ -447,15 +471,17 @@ class BX_AJAX {
 		$upload_overrides = array( 'test_form' => false );
 		$post_parent_id = $request['post_parent'];
 		$convs_id 	= $request['convs_id'];
-	    $filename 	= $uploaded_file['url'];
+	    $filename 	= $uploadedfile['url'];
 		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
 
 		// Get the path to the upload directory.
 		$wp_upload_dir = wp_upload_dir();
         //if there was an error quit early
         if ( isset( $uploaded_file['error'] ) ) {
+
         	wp_send_json( array('success'=> false, 'msg' => $uploaded_file['error'] ) );
-        } elseif ( isset($uploaded_file['file']) ) {
+
+        } elseif ( isset( $uploaded_file['file'] ) ) {
 
             // The wp_insert_attachment function needs the literal system path, which was passed back from wp_handle_upload
             $file_name_and_location = $uploaded_file['file'];
@@ -505,6 +531,7 @@ class BX_AJAX {
 	function sync_search(){
 
 		$request = $_REQUEST['request'];
+
 		$paged = isset($request['paged']) ? $request['paged'] : 1;
 		$args = array(
 			'paged' => $paged,

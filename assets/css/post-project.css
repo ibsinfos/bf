@@ -63,16 +63,30 @@
  .file-uploader-area .file-upload-text,
  .txt-term {
     color: #1f2836;
-    line-height: 1.43;
+    line-height: 1.6;
     font-size: 13px;
 }
 
  .btn-file-uploader {
     display: table-cell;
     vertical-align: middle;
+    padding:10px 12px;
     width: 35%;
 }
-
+ul.list-attach{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	clear: both;
+}
+ul.list-attach li{
+	display: block;
+	list-style: none;
+	border: 1px dashed #DEDEDE;
+	padding: 10px 0;
+	text-indent: 20px;
+	margin-top: 10px;
+}
 .btn.btn-plain, .btn.btn-plain-alt {
     border-width: 1px;
     border-style: solid;

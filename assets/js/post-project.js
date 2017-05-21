@@ -7,7 +7,7 @@
 			this.postsubmit = [];
 			this.attach_ids = [];
 			var view = this;
-
+			var nonce = $("#fileupload-container").find('.nonce_upload_field').val();
 			var uploader = new plupload.Uploader({
 			    runtimes: 'html5,gears,flash,silverlight,browserplus,html4',
                 multiple_queues: true,
@@ -27,10 +27,12 @@
 			    },
 			    multipart_params: {
 			    	action: 'box_upload_file',
+			    	nonce_upload_field: nonce,
 
 			    },
 			    init: {
 			        PostInit: function() {
+
 
 			        },
 			        FilesAdded: function(up, files) {
@@ -41,15 +43,21 @@
 			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
 			        },
 			        FileUploaded : function(up, file, response){
+			        	console.log('FileUploaded');
+			        	console.log(file);
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
-						    var new_record =  '<li class="inline f-left">' + file.name + ' (' + plupload.formatSize(file.size) + ')<span id ="'+obj.attach_id+'" class="btn-del-attachment hide">(x)</span></li>';
-				            $("ul.list-attach").prepend(new_record);
+
+					    	console.log('success');
+						    var new_record =  '<li class="">' + file.name +  '<span id ="'+obj.attach_id+'" class="btn-del-attachment hide">(x)</span></li>';
+						    console.log(new_record);
+				            $("ul.list-attach").append(new_record);
 				            console.log(obj);
 				            console.log(obj.attach_id);
 				            view.attach_ids.push(obj.attach_id);
 				            console.log(view.attach_ids);
 					    } else{
+					    	console.log('False');
 					    	container.log(obj);
 					    	//alert(obj.msg);
 					    }
