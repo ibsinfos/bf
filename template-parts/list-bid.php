@@ -1,4 +1,4 @@
-<div class="col-md-8 list-bid">
+<div class="full list-bid">
 	<?php
 	global $user_ID, $project;
 	$paged = isset($_GET['pid']) ? $_GET['pid'] : 1;

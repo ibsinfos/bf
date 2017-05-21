@@ -5,7 +5,7 @@ function show_bid_buton($post){
 	echo '<a class ="btn btn-login" href ="'.$back_url.'">'.__('Login to bid','boxtheme').'</a>';
 }
 ?>
-<div class="col-md-4 sidebar" id="single_sidebar">
+
 	<?php
 	if( $access_workspace && !$is_workspace && $winner_id && in_array($project->post_status,array( 'awarded','done','finish','disputing','disputed')) ){
 		?><a href="?workspace=1"><?php _e('Workspace','boxtheme');?></a><?php
@@ -51,4 +51,3 @@ function show_bid_buton($post){
         echo '</ul>';
     }
     ?>
-</div>

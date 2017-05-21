@@ -61,10 +61,14 @@ global $wp_query;
 	                        echo '</p>';
 	                    }
                     ?>
+                    <?php  if( !$is_workspace){ get_template_part( 'template-parts/list', 'bid' ); } ?>
 
           		</div> <!-- .col-md-8  Job details !-->
-          		<?php  if( !$is_workspace){ get_template_part( 'template-parts/list', 'bid' ); } ?>
-   		       <?php  get_sidebar('project');?>
+          		<div class="col-md-4 sidebar" id="single_sidebar">
+          		<?php  get_sidebar('project');?>
+          		</div>
+
+
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
 		<?php } ?>
