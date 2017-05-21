@@ -55,12 +55,14 @@ global $wp_query;
                     if( $att_query-> have_posts() ){
                         echo '<p>';
                         echo '<h3>'.__('Files attach: ','boxtheme').'</h3>';
+                        $files = array();
                         while ( $att_query-> have_posts()  ) {
                             global $post;
                             $att_query->the_post();
                             $feat_image_url = wp_get_attachment_url( $post->ID );
-                            echo '<span><a href="'.$feat_image_url.'">'.get_the_title().'</a></span>';
+                            $files[] = '<span> <a href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
                         }
+                        echo join(",",$files);
                         echo '</p>';
                     }
                     ?>
