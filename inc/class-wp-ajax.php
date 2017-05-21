@@ -89,10 +89,10 @@ class BX_AJAX {
 		// woocommerce_EVENT => nopriv
 		$ajax_events = array(
 			'sync_bid' 				=> false,
-			'bxsign_in'         	=> true,
+			'bx_signin'         	=> true,
 			'bx_signup' 			=> true,
 			'apply_coupon'     		=> true,
-			'jb_signout' 			=> false,
+			'fb_signout' 			=> false,
 			'sync_project' 		 	=> false,
 			'bj_plupload_action' 	=> true,
 			'sync_profile' 			=> true,
@@ -134,8 +134,8 @@ class BX_AJAX {
 		/*
 		 * check security
 		 */
-		if( !wp_verify_nonce( $info['nonce_login_field'], 'bx_login_action' ) ) {
-			wp_send_json(array( 'success' => false, 'msg'=> 'The nonce field is incorrect','boxtheme') ) ;
+		if( !wp_verify_nonce( $info['nonce_login_field'], 'bx_signin' ) ) {
+			wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
 	    }
 	    $response = bx_signon($info);
 	    wp_send_json( $response );
@@ -147,7 +147,7 @@ class BX_AJAX {
 	 * @author danng
 	 * @return  json
 	 */
-	public static function jb_signout(){
+	public static function fb_signout(){
 		wp_logout();
 		$response = array( 'success' => true, 'msg' => __( 'You have logout successful', 'boxtheme') );
 		wp_send_json( $response );
@@ -164,6 +164,12 @@ class BX_AJAX {
 		$args 		= $request['request'];
 		$method 	= $_REQUEST['method'];
 		$response 	= array('success' => false, 'msg' => __('Insert project fail'), 'data' => array() );
+		if( $method == 'insert' ) {
+			if ( ! wp_verify_nonce( $request['nonce_post_project'], 'submit_project' ) ) {
+				wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
+		    }
+		}
+		var_dump($method);
 		$project 	= BX_Project::get_Instance();
 		$return 	= $project->sync($method, $args);
 

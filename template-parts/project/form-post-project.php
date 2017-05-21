@@ -71,6 +71,7 @@
 	     	<tbody class="files"></tbody>
 	 	</table>
 	</div>
+	<?php wp_nonce_field( 'submit_project', 'nonce_post_project' ); ?>
 	<div class="form-group row">
 
 	 	<div class="col-md-7">

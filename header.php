@@ -136,8 +136,7 @@ global $user_ID;
 												<input type="checkbox" value="1" class="remember" id="remember"><span>Remember me</span>
 											</label>
 										</div>
-										<?php wp_nonce_field( 'bx_login_action', 'nonce_login_field' ); ?>
-
+										<?php wp_nonce_field( 'bx_signin', 'nonce_login_field' ); ?>
 										<button type="submit" class="btn btn-raised btn-success btn-block no-radius" ><?php _e('Sign in','boxtheme');?></button>
 										<div class="divider"></div>
 										<div class="form-group pad-0-top mar-0-top align-right">
