@@ -9,6 +9,9 @@
  * @subpackage Twenty_Seventeen
  * @since 1.0
  */
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 if( !defined ('BX_VERSION') ){
 	define('BX_VERSION', '1.0');
 }

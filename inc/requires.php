@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 require get_parent_theme_file_path( '/inc/define.php' );
 require get_parent_theme_file_path( '/inc/class-bx-install.php' );
 require get_parent_theme_file_path( '/inc/plugable.php' );

@@ -309,6 +309,7 @@ class BX_AJAX {
 		}
 		wp_send_json( $response );
 	}
+
 	/**
 	 * Employer mark as close this project and review freelancer
 	*/

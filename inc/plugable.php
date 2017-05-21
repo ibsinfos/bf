@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! function_exists( 'bx_get_user_role') ){
 	function bx_get_user_role($user = ''){
 		if( empty($user) ){

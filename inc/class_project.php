@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 Class BX_Project extends BX_Post{
 	static protected $instance;
 	function __construct(){

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 class BX_User{
 	static protected $instance;
 	function __construct(){

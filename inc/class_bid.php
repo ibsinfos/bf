@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 class BX_Bid extends BX_Post{
 	static private $instance;
 	protected $post_type;

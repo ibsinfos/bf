@@ -1,4 +1,7 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class BX_Profile extends BX_Post{
 	static protected $instance;
 	protected $post_type;
