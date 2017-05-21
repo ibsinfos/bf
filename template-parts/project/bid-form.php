@@ -11,7 +11,7 @@ if( $bidding ){
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
     <h2> <?php _e('Bid on project','boxtheme');?></h2>
    	<div class="form-group row">
-      	<label  class="col-sm-8 col-form-label"><?php _e('Total amount <span class="f-right">$</span','boxtheme');?>></label>
+      	<label  class="col-sm-8 col-form-label"><?php _e('Price <span class="f-right">$</span','boxtheme');?>></label>
       	<div class="col-sm-4">
         <?php
         if($bidding){
@@ -53,7 +53,7 @@ if( $bidding ){
 	        <?php } ?>
       	</select>
    	</div>
-   	<?php wp_nonce_field( 'bx_bid', 'insert_bid' ); ?>
+   	<?php wp_nonce_field( 'sync_bid', 'nonce_bid_field' ); ?>
    	<div class="form-group">
       	<label for="attach_file"><?php _e('Attachments (optional)','boxtheme');?></label>
       	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">

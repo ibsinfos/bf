@@ -202,8 +202,9 @@ class BX_AJAX {
 		$response 	= array('success' => true, 'msg'=> __('You have bid successful','boxtheme') );
 
 		if( $method == 'insert' ) {
+
 			// check secutiry
-			if ( ! wp_verify_nonce( $request['nonce_bid_form'], 'insert_bid' ) ) {
+			if ( ! wp_verify_nonce( $data['nonce_bid_field'], 'sync_bid' ) ) {
 				wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
 		    }
 		}
