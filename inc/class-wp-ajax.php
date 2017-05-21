@@ -169,7 +169,7 @@ class BX_AJAX {
 				wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
 		    }
 		}
-		var_dump($method);
+
 		$project 	= BX_Project::get_Instance();
 		$return 	= $project->sync($method, $args);
 
@@ -199,6 +199,13 @@ class BX_AJAX {
 
 		$method 	= isset($request['method']) ? $request['method'] : '';
 		$response 	= array('success' => true, 'msg'=> __('You have bid successful','boxtheme') );
+
+		if( $method == 'insert' ) {
+			// check secutiry
+			if ( ! wp_verify_nonce( $request['nonce_bid_form'], 'insert_bid' ) ) {
+				wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
+		    }
+		}
 
 		$bid 		= BX_Bid::get_instance();
 		$bid_id 	= $bid->sync( $method, $data);

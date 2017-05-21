@@ -53,7 +53,7 @@ if( $bidding ){
 	        <?php } ?>
       	</select>
    	</div>
-   	<?php wp_nonce_field( 'bx_bid', 'nonce_bid_form' ); ?>
+   	<?php wp_nonce_field( 'bx_bid', 'insert_bid' ); ?>
    	<div class="form-group">
       	<label for="attach_file"><?php _e('Attachments (optional)','boxtheme');?></label>
       	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
