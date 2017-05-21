@@ -529,7 +529,7 @@ class BX_AJAX {
        	    wp_send_json( array('success' => false, 'msg' => $attach_id->get_error_message() ) );
 		}
 	}
-	function sync_search(){
+	static function sync_search(){
 
 		$request = $_REQUEST['request'];
 
