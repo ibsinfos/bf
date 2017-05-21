@@ -43,23 +43,15 @@
 			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
 			        },
 			        FileUploaded : function(up, file, response){
-			        	console.log('FileUploaded');
-			        	console.log(file);
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
 
-					    	console.log('success');
 						    var new_record =  '<li class="">' + file.name +  '<span id ="'+obj.attach_id+'" class="btn-del-attachment hide">(x)</span></li>';
-						    console.log(new_record);
 				            $("ul.list-attach").append(new_record);
-				            console.log(obj);
-				            console.log(obj.attach_id);
 				            view.attach_ids.push(obj.attach_id);
-				            console.log(view.attach_ids);
+
 					    } else{
-					    	console.log('False');
 					    	container.log(obj);
-					    	//alert(obj.msg);
 					    }
 			        }
 			    }

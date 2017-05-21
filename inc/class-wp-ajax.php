@@ -428,9 +428,9 @@ class BX_AJAX {
             // The wp_insert_attachment function needs the literal system path, which was passed back from wp_handle_upload
             $file_name_and_location = $uploaded_file['file'];
             // Generate a title for the image that'll be used in the media library
-            $file_kb = (float)  round( $uploadedfile['size']/1024, 1);
+            $file_kb = (float)  round( $tmp_file['size']/1024, 1);
             if( $file_kb >= 1024 ){
-            	$file_kb = round($uploaded_file['size']/1024/1024, 1) . ' mb';
+            	$file_kb = round($tmp_file['size']/1024/1024, 0) . ' mb';
             } else{
             	$file_kb .= ' kb';
             }
