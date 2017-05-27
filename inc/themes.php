@@ -178,7 +178,7 @@ function box_price($price,$echo = true){
 
 	echo  $string;
 }
-function box_get_price($price){
+function get_box_price($price){
 	global $currency_code,$currency_sign;
 	return $price.' <span>('.$currency_sign.') </span>';
 }

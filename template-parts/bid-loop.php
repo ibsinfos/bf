@@ -33,7 +33,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 		</div>
 		<div class="full clear">
 			<small><?php _e('Deadline: ','boxtheme'); echo isset( $list_bid[$bid->_dealine]) ? $list_bid[$bid->_dealine] : '';?> </small>
-			<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price) ); ?></small>
+			<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
 			<small><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></small>
 		</div>
 		<?php if($user_ID == $project->post_author && $project->post_status == 'publish'){?>
