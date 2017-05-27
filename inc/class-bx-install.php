@@ -74,4 +74,4 @@ class BX_Install{
 		return $tables;
 	}
 }
-BX_Install::init();
+//BX_Install::init();
