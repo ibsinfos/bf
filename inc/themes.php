@@ -174,13 +174,13 @@ function countr_of_user($profile){
 function box_price($price,$echo = true){
 
 	global $currency_code,$currency_sign;
-	$string = $price.' <span>('.$currency_sign.') </span>';
+	$string = $price.'<span class="currency-icon">('.$currency_sign.') </span>';
 
 	echo  $string;
 }
 function get_box_price($price){
 	global $currency_code,$currency_sign;
-	return $price.' <span>('.$currency_sign.') </span>';
+	return $price.'<span class="currency-icon">('.$currency_sign.') </span>';
 }
 function bx_list_start($score){?>
 	<start class="rating-score clear block core-<?php echo $score;?>">

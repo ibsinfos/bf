@@ -29,6 +29,10 @@
 	    padding: 2.5em 0;
 	}
 }
+.currency-icon{
+	position: relative;
+	top:-3px;
+}
 .pointer{
 	cursor: pointer;
 }
