@@ -47,8 +47,10 @@ class BX_Admin{
     function payment(){
         $group_option = "payment";
         $option = BX_Option::get_instance();
-        $payment = $option->get_option($group_option,'paypal');
-        $t = BX_Option::get_instance()->get_option('payment','paypal')->email;
+        $payment = $option->get_group_option($group_option);
+        $payment = (object)$payment['paypal'];
+        $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
+        var_dump($t->email);
 
         ?>
         <div class="section" id="<?php echo $group_option;?>">

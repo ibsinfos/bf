@@ -13,19 +13,21 @@ class BX_Option {
 	}
 	function get_option($group, $name){
 		$current = get_option($group);
-		return (object)$current[$name];
+		return $current[$name];
 	}
 	function get_group_option($group){
-		return get_option($group);
+		$group_args = array(
+			'payment' => array(
+				'paypal' => array(
+					'email' => '',
+					'enable' => false,
+				),
+			),
+		);
+		return get_option($group, $group_args[$group]);
 	}
 	function set_option($group,$section,$name,$new_value){
-		// payment, paypal,'emai', 'danhoat@gmail.com'
-		// $group = array(
-		// 	$section =>  array(
-		// 		$name => $new_value
-		// 		'enable' => 1,
-		// 	)
-		// );
+
 
 		$current = get_option($group);
 		$current[$section][$name] = $new_value;

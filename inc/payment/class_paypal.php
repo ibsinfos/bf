@@ -102,7 +102,8 @@ Class BX_Paypal {
      * @return  paypal email of admin settings.
      */
     function get_receiver_email(){
-        return BX_Option::get_instance()->get_option('payment','paypal')->email;
+        $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
+        return $t->email;
     }
     function get_amout($package_id){
         $order = BX_Order::get_instance()->get_package($package_id);
