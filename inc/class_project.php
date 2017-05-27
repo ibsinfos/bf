@@ -151,6 +151,7 @@ Class BX_Project extends BX_Post{
 				WINNER_ID => $freelancer_id,
 				BID_ID_WIN => $bid_id,
 			);
+
 			$res = wp_update_post($request);
 			if($res){
 
@@ -181,11 +182,11 @@ Class BX_Project extends BX_Post{
 			}
 
 
-			$pid = wp_update_post($request);
+			$project_id = wp_update_post($request);
 
-			if( !is_wp_error($pid) ){
+			if( !is_wp_error($project_id) ){
 				global $current_user;
-				$bid_win_id = get_post_meta($pid, BID_ID_WIN, true);
+				$bid_win_id = get_post_meta($project_id, BID_ID_WIN, true);
 				$review_msg = $request[REVIEW_MSG];
 				$rating_score = (int) $request[RATING_SCORE];
 				if($rating_score > 5){
@@ -195,14 +196,24 @@ Class BX_Project extends BX_Post{
 					$rating_score = 1;
 				}
 
-				$winner_id 	= get_post_meta($pid, WINNER_ID, true);
-				$budget 	= (float) get_post_meta($pid, BUDGET, true);
+				$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
+
+				$bid_price 	= (float) get_post_meta($bid_win_id, BID_PRICE, true);
+				// var_dump($bid_win_id);
+				// var_dump($budget);
+				// var_dump($winner_id);
+				$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
+
+				$emp_pay = $bid_price;
+				$amout_fre_receive = $bid_price - $commision_fee;
 
 				$project_worked = (int) get_user_meta($winner_id,PROJECTS_WORKED, true) + 1;
-				$earned = (float) get_user_meta( $winner_id,EARNED, true) + $budget;
+				$earned = (float) get_user_meta( $winner_id,EARNED, true) + $amout_fre_receive;
 
 				update_user_meta($winner_id, PROJECTS_WORKED , $project_worked);
 				update_user_meta($winner_id, EARNED , $earned);
+				//approve credit
+				BX_Credit::get_instance()->approve_credit_pending($winner_id, $amout_fre_receive);
 
 				$bid_args = array(
 					'ID' 	=> $bid_win_id,
@@ -210,6 +221,11 @@ Class BX_Project extends BX_Post{
 
 				);
 				$bid = wp_update_post( $bid_args);
+
+
+
+
+
 				$current_user = wp_get_current_user();
 				$time = current_time('mysql');
 				$data = array(
@@ -250,6 +266,7 @@ Class BX_Project extends BX_Post{
 				return $check;
 			}
 
+
 			$time = current_time('mysql');
 			$project = get_post($project_id);
 			$current_user = wp_get_current_user();
@@ -271,6 +288,7 @@ Class BX_Project extends BX_Post{
 				update_post_meta( $project_id, 'is_fre_review', 1);
 				$rating_score = count_rating( $project->post_author );
 				update_user_meta( $project->post_author,RATING_SCORE,$rating_score );
+
 			}
 
 		}

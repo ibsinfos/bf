@@ -104,6 +104,10 @@ Class BX_Credit {
 		$new_pending = $this->get_credit_pending($user_id) + (float)$available;
 		return update_user_meta($user_id, $this->meta_pending, $new_pending);
 	}
+	function approve_credit_pending($user_id, $value){
+		$this->subtract_credit_pending($user_id,$value);
+		$this->increase_credit_available($user_id, $value);
+	}
 	//deduct
 	function subtract_credit_available($user_id, $value){
 		$current = $this->get_credit_available($user_id);
