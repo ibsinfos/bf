@@ -24,8 +24,9 @@
 			          			'author'=> $user_ID,
 			          		);
 			          		$query = new WP_Query($args);
-
+			          		$loadmore = false;
 			          		if( $query-> have_posts() ){
+			          			$loadmore = true;
 			          			echo '<ul class="db-list-project">';
 			          			echo '<li class="heading row list-style-none padding-bottom-10">';
 				          				echo '<div class ="col-md-7">';
@@ -52,6 +53,9 @@
 				          				echo '</div>';
 				          				echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
 			          				echo '</li>';
+			          			}
+			          			if($loadmore){
+			          				echo '<li class="row list-style-none padding-bottom-10"><center> <button class="load-more" page ="1">Load more</button> </center></li>';
 			          			}
 			          			echo '</ul>';
 			          		}
