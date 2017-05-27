@@ -32,7 +32,7 @@ global $wp_query;
        			<div class="full heading">
        				<div class ="col-md-2 no-padding-right"><?php printf(__('Status: %s','boxtheme'),$project->post_status); ?></div>
                   	<div class="col-md-3"><?php printf(__('Post date: %s','boxtheme'),get_the_date() );?></div>
-                  	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),bx_price($project->_budget,true) ); ?> </div>
+                  	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),box_price($project->_budget,true) ); ?> </div>
                   	<div class="col-md-3"><?php _e('Need urgent finish','boxtheme');?> </div>
 
        			</div> <!-- full !-->

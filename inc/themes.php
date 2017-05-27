@@ -171,14 +171,16 @@ function is_current_user_bidded($project_id){
 }
 function countr_of_user($profile){
 }
-function bx_price($price,$return = true){
+function box_price($price,$echo = true){
 
 	global $currency_code,$currency_sign;
 	$string = $price.' <span>('.$currency_sign.') </span>';
-	if($return){
-		return $string;
-	}
+
 	echo  $string;
+}
+function box_get_price($price){
+	global $currency_code,$currency_sign;
+	return $price.' <span>('.$currency_sign.') </span>';
 }
 function bx_list_start($score){?>
 	<start class="rating-score clear block core-<?php echo $score;?>">

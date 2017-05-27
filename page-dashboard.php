@@ -29,9 +29,21 @@
 			          		if( $query-> have_posts() ){
 			          			echo '<ul>';
 			          			while ($query->have_posts()) {
+			          				global $post;
 			          				$query->the_post();
-			          				echo '<li>';
-			          				the_title();
+
+			          				$project = BX_Project::get_instance()->convert($post);
+			          				echo '<li class="row">';
+			          				echo '<div class ="col-md-5">';
+			          				echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';
+			          				echo '</div>';
+			          				echo '<div class ="col-md-3">';
+			          				the_date();
+			          				echo '</div>';
+			          				echo '<div class ="col-md-3">';
+			          				box_price($project->_budget);
+			          				echo '</div>';
+
 			          				echo '</li>';
 			          			}
 			          			echo '</ul>';
