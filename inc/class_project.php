@@ -126,7 +126,7 @@ Class BX_Project extends BX_Post{
 			$project_id = $request['project_id'];
 			$freelancer_id = $request['freelancer_id'];
 
-			$bid = get_post($bid_id);
+
 			$project = get_post($project_id);
 
 			$check = $this->check_before_award($project, $freelancer_id);
@@ -140,7 +140,7 @@ Class BX_Project extends BX_Post{
 
 			$credit = BX_Credit::get_instance();
 			// perform the action deposite - transfer credit from employer to freelancer account.
-			$transfered = $credit->deposit( $employer_id, $bid );
+			$transfered = $credit->deposit( $employer_id, $bid_id );
 
 			if ( is_wp_error($transfered) ){
 				return $transfered;

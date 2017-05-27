@@ -32,9 +32,10 @@ Class BX_Credit {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit($employer_id, $bidding) {
-
+	function deposit($employer_id, $bid_id) {
+		$bidding = get_post($bid_id);
 		$freelaner_id = $bidding->post_author;
+		var_dump($freelaner_id);
 		$ballance = $this->get_ballance($employer_id);
 		$bid_price = (float) get_post_meta($bidding->ID, BID_PRICE, true);
 
