@@ -1,0 +1,23 @@
+#heading_dashboard{
+	padding: 10px 0 1px 0;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+ul.db-list-project li{
+	border-bottom: 1px solid #f3f3f3;
+	padding-top: 10px;
+	overflow: hidden;
+}
+ul.db-list-project li div{
+	overflow: hidden;
+}
+ul.db-list-project li a{
+	white-space:nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	float: left;
+	max-width: 100%;
+}
+ul.db-list-project .heading{
+	font-weight: 600;
+}

@@ -379,6 +379,7 @@ function boxtheme_scripts() {
 	}
 
 	if( is_page_template( 'page-post-project.php') ){
+
 		wp_enqueue_style( 'post-project', get_theme_file_uri( '/assets/css/post-project.css' ), array( 'boxtheme-style' ), rand() );
 		wp_enqueue_script( 'chosen-js', get_theme_file_uri( '/assets/chosen/chosen.jquery.min.js' ), array( 'jquery' ), BX_VERSION, true );
 		wp_enqueue_script( 'post-project1', get_theme_file_uri( '/assets/js/post-project.js' ), array( 'jquery','chosen-js','plupload', 'define' ), BX_VERSION, true );
@@ -400,6 +401,9 @@ function boxtheme_scripts() {
 	}
 	if( is_page_template('page-buy-credit.php' ) ){
 		wp_enqueue_script( 'buy-credit', get_theme_file_uri( '/assets/js/buy_credit.js' ), array( 'front' ), BX_VERSION, true );
+	}
+	if( is_page_template('page-dashboard.php' ) ){
+		wp_enqueue_style( 'dashboard-css', get_theme_file_uri( '/assets/css/dashboard.css' ), array( 'boxtheme-style' ), BX_VERSION );
 	}
 
 	if( is_post_type_archive( PROJECT ) ){
