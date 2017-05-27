@@ -32,12 +32,12 @@
                           </div>
                         </div>
                         <?php
-                        if( ! empty( $_GET['redirect'] ) ){
-                            echo '<input type ="hidden" name="redirect_url" value ="'.$_GET['redirect'].'" />';
-                        }
+	                        if( ! empty( $_GET['redirect'] ) ){
+	                            echo '<input type ="hidden" name="redirect_url" value ="'.$_GET['redirect'].'" />';
+	                        }
 
-                        ?>
-                        <?php wp_nonce_field( 'bx_login_action', 'nonce_login_field' ); ?>
+	                        wp_nonce_field( 'bx_login_action', 'nonce_login_field' );
+	                    ?>
                         <div style="margin-top:10px" class="form-group">
                             <!-- Button -->
                             <div class="col-sm-12 controls">

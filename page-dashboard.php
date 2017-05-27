@@ -16,7 +16,27 @@
 
 				<div class="tab-content clearfix">
 					<div class="tab-pane active" id="1a">
-			          <h3>Content's background color is the same for the tab</h3>
+			          	<h3> List job </h3>
+			          	<?php
+			          		global $user_ID;
+			          		$args = array(
+			          			'post_status' => 'publish',
+			          			'post_type' => 'project',
+			          			'author'=> $user_ID,
+			          		);
+			          		$query = new WP_Query($args);
+
+			          		if( $query-> have_posts() ){
+			          			echo '<ul>';
+			          			while ($query->have_posts()) {
+			          				$query->the_post();
+			          				echo '<li>';
+			          				the_title();
+			          				echo '</li>';
+			          			}
+			          			echo '</ul>';
+			          		}
+			          	?>
 					</div>
 
 			        <div class="tab-pane" id="tab_credit">

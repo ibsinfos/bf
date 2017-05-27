@@ -9,23 +9,22 @@
 		<div class="row site-content" id="content" >
 			<div id="profile" class="col-md-8">
 				<?php
+					global $current_user, $profile, $profile_id, $user_ID, $current_user;
+					$role = bx_get_user_role();
+					$profile_id = get_user_meta($user_ID,'profile_id', true);
+					$current_user = wp_get_current_user();
+					if( $profile_id ){
 
-				global $current_user, $profile, $profile_id, $user_ID, $current_user;
-				$role = bx_get_user_role();
-				$profile_id = get_user_meta($user_ID,'profile_id', true);
-				$current_user = wp_get_current_user();
-				if( $profile_id ){
-
-					$profile = BX_Profile::get_instance()->convert($profile_id);
-					if( $role == FREELANCER ){
-						get_template_part( 'template-parts/profile/profile', 'overview' );
-						get_template_part( 'template-parts/profile/profile', 'freelancer' );
-					} else {
-						// global $employer_type;
-						// $employer_type = get_user_meta($user_ID,EMPLOYER_TYPE, true);
-						// get_template_part( 'template-parts/profile/profile', 'employer' );
+						$profile = BX_Profile::get_instance()->convert($profile_id);
+						if( $role == FREELANCER ){
+							get_template_part( 'template-parts/profile/profile', 'overview' );
+							get_template_part( 'template-parts/profile/profile', 'freelancer' );
+						} else {
+							// global $employer_type;
+							// $employer_type = get_user_meta($user_ID,EMPLOYER_TYPE, true);
+							// get_template_part( 'template-parts/profile/profile', 'employer' );
+						}
 					}
-				}
 
 				?>
 			</div> <!-- end left !-->

@@ -72,13 +72,13 @@ global $user_ID;
 			</div>
 			<div class="col-md-3 no-padding col-xs-12 col-search hide">
 				<?php
-				$project_link = $default =  get_post_type_archive_link(PROJECT);
-				$placeholder = __('Find a job','boxtheme');
-				$profile_link = get_post_type_archive_link(PROFILE);
-				if( is_post_type_archive(PROFILE) ){
-					$default = $profile_link;
-					$placeholder = __('Find a freelancer','boxtheme');
-				}
+					$project_link = $default =  get_post_type_archive_link(PROJECT);
+					$placeholder = __('Find a job','boxtheme');
+					$profile_link = get_post_type_archive_link(PROFILE);
+					if( is_post_type_archive(PROFILE) ){
+						$default = $profile_link;
+						$placeholder = __('Find a freelancer','boxtheme');
+					}
 				?>
 				<form class="frm-search" action="<?php echo $default;?>">
 					<span class="glyphicon glyphicon-search absolute search-icon"></span>
@@ -94,6 +94,7 @@ global $user_ID;
 					<button class="mobile-only" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 				</form>
 			</div>
+
 			<div class="col-md-3 f-right align-right no-padding-left header-action">
 				<?php
 					if ( is_user_logged_in() ) {
@@ -101,23 +102,23 @@ global $user_ID;
       				$current_user = wp_get_current_user();
 				?>
 
-					<ul class="account-dropdown">
-						<li class="inline profile-account dropdown text-center first-sub">
-							<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"> <?php echo $current_user->user_login;?> <span class="caret"></span></a>
-							<ul class="dropdown-menu  ">
-								<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>">Update profile</a></li>
-								<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>">Dashboard</a></li>
-								<li> <span class="glyphicon glyphicon-envelope"></span> <a href="<?php echo bx_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a></li>
-								<li> <span class="glyphicon glyphicon-log-out"></span>  <a href="<?php echo wp_logout_url( home_url() ); ?>">Logout</a></li>
-							</ul>
-						</li>
-						<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
+				<ul class="account-dropdown">
+					<li class="inline profile-account dropdown text-center first-sub">
+						<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"> <?php echo $current_user->user_login;?> <span class="caret"></span></a>
+						<ul class="dropdown-menu  ">
+							<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>">Update profile</a></li>
+							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>">Dashboard</a></li>
+							<li> <span class="glyphicon glyphicon-envelope"></span> <a href="<?php echo bx_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a></li>
+							<li> <span class="glyphicon glyphicon-log-out"></span>  <a href="<?php echo wp_logout_url( home_url() ); ?>">Logout</a></li>
+						</ul>
+					</li>
+					<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
 
-						<li class="icon-bell first-sub">
-							<span class="glyphicon glyphicon-bell toggle-msg"></span>
-							<?php box_get_notify(); ?>
-						</li>
-					</ul>
+					<li class="icon-bell first-sub">
+						<span class="glyphicon glyphicon-bell toggle-msg"></span>
+						<?php box_get_notify(); ?>
+					</li>
+				</ul>
 				<?php } else { ?>
 					<ul class="main-login">
 						<li class="login text-center dropdown desktop-only ">
