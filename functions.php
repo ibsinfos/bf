@@ -406,4 +406,13 @@ add_filter( 'frontpage_template',  'boxtheme_front_page_template' );
 
 require get_parent_theme_file_path( '/inc/requires.php' );
 if( is_admin() )
-require get_parent_theme_file_path( '/admin/requires.php' );
+	require get_parent_theme_file_path( '/admin/requires.php' );
+function init_theme() {
+  	if ( isset( $_GET['activated'] ) ) { // Test if theme is activated
+
+  		if( wp_get_theme()->get('TextDomain')== 'boxtheme' ) {
+  			BX_Install::init();
+  		}
+  	}
+}
+add_action( 'load-themes.php', 'init_theme' );
