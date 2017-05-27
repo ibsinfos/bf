@@ -30,7 +30,7 @@ class BX_Admin{
 
     static function bx_custom_wp_admin_style($hook) {
         // Load only on ?page=theme-options
-
+    	$credit_page = self::BOX_MAIN_SETTING.'_page_credit-setting';
         $sub_page = array(self::BOX_MAIN_SETTING.'_page_credit-setting');
 
         if( $hook == 'toplevel_page_'.self::BOX_MAIN_SETTING || in_array($hook, $sub_page ) ) {
@@ -41,6 +41,9 @@ class BX_Admin{
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
 	        wp_enqueue_script('box-js',get_theme_file_uri('admin/js/admin.js') );
+	        if($hook == $credit_page){
+	        	wp_enqueue_script('credit-js',get_theme_file_uri('admin/js/credit.js') );
+	        }
 	    }
 
     }
@@ -146,7 +149,7 @@ class BX_Admin{
         </div>
         <?php
     }
-    static function my_custom_menu_page($hook){ ?>
+    static function my_custom_menu_page(){ ?>
         <script type="text/javascript">
             var bx_global = {
                 'home_url' : '<?php echo home_url() ?>',

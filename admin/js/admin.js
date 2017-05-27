@@ -41,7 +41,7 @@ var ajaxSend = {};
 	        },
 	        success  : function(event){
 	        	console.log('Success msg');
-	        	window.location.reload(true);
+	        	//window.location.reload(true);
 	        },
 	        beforeSend  : function(event){
 	        	console.log('Insert message');

@@ -51,11 +51,14 @@ Class BX_Order {
 		);
 	}
 
-	function get_order($order_id) {
-		$post = get_post($order_id);
+	function get_order($post) {
+
+		if(is_numeric($post)){
+			$post = get_post($post);
+		}
 		$metas = $this->meta_fields();
 		foreach ($metas as $meta) {
-			$post->$meta = get_post_meta($order_id, $meta, true);
+			$post->$meta = get_post_meta($post->ID, $meta, true);
 		}
 		return (object)$post;
 	}
@@ -88,4 +91,5 @@ Class BX_Order {
 			);
 		return $this->create($args);
 	}
+
 }

@@ -11,6 +11,7 @@ class BX_ajax_backend{
 		add_action( 'wp_ajax_save-option', array( __CLASS__, 'save_option' ) );
 		add_action( 'wp_ajax_create-packge',array( __CLASS__, 'create_package' ) );
 		add_action( 'wp_ajax_del-post',array( __CLASS__, 'del_post' ) );
+		add_action( 'wp_ajax_approve-order', array( __CLASS__, 'approve_order' ) );
 
 	}
 
@@ -60,6 +61,26 @@ class BX_ajax_backend{
 			'msg' => 'DONE'
 			)
 		);
+	}
+	static function check_permission(){
+		if( current_user_can('manage_options' ) ){
+			return true;
+		}
+		return false;
+	}
+	static function approve_order(){
+		if( ! self::check_permission() ){
+			wp_send_json( array('success' => false, 'msg' => 'Security delince') );
+			die();
+		}
+
+		$request= $_REQUEST['request'];
+		$order_id = $request['order_id'];
+		$credit = BX_Credit::get_instance()->approve($order_id);
+		if($credit){
+			wp_send_json(array('success'=> true,'msg' => 'Update ok') );
+		}
+		wp_send_json(array('success'=> false,'msg' => 'Update fail') );
 	}
 }
 BX_ajax_backend::get_instance()->init();

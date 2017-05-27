@@ -13,9 +13,9 @@ class BX_Cash extends BX_Order{
     	}
     	return static::$instance;
 	}
-	function get_redirect_link(){
+	function get_redirect_link($order_id = 0){
 
-		return add_query_arg( array('type'=>'cash'), $this->redirect_link );
+		return add_query_arg( array('type'=>'cash','order_id'=>$order_id), $this->redirect_link );
 	}
 
 }

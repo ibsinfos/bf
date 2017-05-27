@@ -1,6 +1,5 @@
 <?php
-$t = new BX_Cash();
-var_dump($t->get_redirect_link());
+
 
 global $wpdb;
 global $user_ID;

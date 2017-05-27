@@ -100,6 +100,11 @@ Class BX_Credit {
 		$new_available = $current_available + (float) $available;
 		return update_user_meta($user_id, $this->meta_available, $new_available);
 	}
+	function increase_credit_pending( $user_id, $available ){
+		$new_pending = $this->get_credit_pending($user_id) + (float)$available;
+		return update_user_meta($user_id, $this->meta_pending, $new_pending);
+	}
+	//deduct
 	function subtract_credit_available($user_id, $value){
 		$current = $this->get_credit_available($user_id);
 		$new_available = $this->get_credit_available($user_id) - (float)$value;
@@ -113,10 +118,7 @@ Class BX_Credit {
 	function get_credit_pending($user_id){
 		return (float) get_user_meta($user_id, $this->meta_pending, true);
 	}
-	function increase_credit_pending( $user_id, $available ){
-		$new_pending = $this->get_credit_pending($user_id) + (float)$available;
-		return update_user_meta($user_id, $this->meta_pending, $new_pending);
-	}
+
 	/**
 	 * [subtract_credit_pending description]
 	 * This is a cool function
@@ -133,5 +135,31 @@ Class BX_Credit {
 			return update_user_meta( $user_id, $this->meta_pending, $new_available);
 		}
 		return 0;
+	}
+	function approve($order_id){
+		try{
+			$order = BX_Order::get_instance()->get_order($order_id);
+			$order_access = BX_Order::get_instance()->approve($order_id);
+
+			if( !$order_access ){
+				throw new Exception("Some error message", 101);
+			}
+
+			$this->subtract_credit_pending($order->post_author, $order->amout);
+			$this->increase_credit_available($order->post_author, $order->amout);
+
+		} catch(Exception  $e){
+
+			$code = $e->getCode();
+			var_dump($code);
+			if($code == 101){
+				// update order to pending
+			}
+			if($code == 100){
+
+			}
+			return false;
+		}
+		return true;
 	}
 }
