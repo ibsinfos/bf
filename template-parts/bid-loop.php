@@ -38,10 +38,10 @@ if($bid->post_author == $project->{WINNER_ID}){
 		</div>
 		<?php if($user_ID == $project->post_author && $project->post_status == 'publish'){?>
 		<div class="full clear align-right">
-			<!--
+	
 			<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('Send a message','boxtheme');?></button>
 		 	<button class="btn inline btn-status-display no-radius btn-toggle-award"><?php _e('Award job','boxtheme');?></button>
-		 	!-->
+	
 		</div>
 		<?php } else { ?>
 

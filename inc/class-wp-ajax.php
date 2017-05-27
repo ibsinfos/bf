@@ -618,7 +618,6 @@ class BX_AJAX {
 		$package_id = $request['package_id'];
 
 		if( $gateway == 'paypal' ){
-
 			$url = BX_PayPal::get_instance()->create_pending_order($package_id);
 			wp_send_json( array(
 				'msg' => 'Check done',
@@ -627,6 +626,17 @@ class BX_AJAX {
 				)
 			);
 			exit;
+		}
+		if($gateway == 'cash'){
+			$pending_order = BX_Cash::get_instance()->create_pending_order($package_id);
+
+			wp_send_json( array(
+				'msg' => 'Check done',
+				'success'=> true,
+				'redirect_url' => BX_Cash::get_instance()->get_redirect_link(),
+				)
+			);
+
 		}
 	}
 	static function sync_msg(){

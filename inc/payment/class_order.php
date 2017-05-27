@@ -2,7 +2,10 @@
 Class BX_Order {
 	public $mode;
 	public $post_type;
+	public $post_status;
 	public static $instance;
+	public $redirect_link;
+	public $order_title;
 	static function get_instance(){
 		if (null === static::$instance) {
         	static::$instance = new static();
@@ -13,6 +16,14 @@ Class BX_Order {
 	function __construct(){
 		$this->post_type = ORDER;
 		$this->post_status = 'pending';
+		$this->mode = 'sandbox';
+		$this->order_title = 'Buy credit';
+
+		$this->redirect_link = bx_get_static_link('process-payment');
+
+	}
+	function get_redirect_link(){
+		return $this->redirect_link;
 	}
 	function create($args) {
 		$args['post_type'] = $this->post_type;
@@ -55,5 +66,25 @@ Class BX_Order {
 			$post->$meta = get_post_meta($packge_id, $meta, true);
 		}
 		return (object)$post;
+	}
+	function get_amout($package_id){
+       	return (float) get_post_meta($package_id, 'price', true);
+    }
+    function create_pending_order($package_id){
+		$curren_user = wp_get_current_user();
+		$args = array(
+			'post_title' => $this->order_title,
+			'meta_input' => array(
+				'amout' => $this->get_amout( $package_id ),
+				'payer_id' => $curren_user->ID,
+				'payer_email' => $curren_user->user_email ,
+				'payment_type' => 'paypal',
+				'order_type' 	=>'buy_credit',
+				//'receiver_id' => 1,// need to update - default is admin.
+				'receiver_email' => '', //$receiver_email,
+				'order_mode' => $this->mode,
+				)
+			);
+		return BX_Order::get_instance()->create($args);
 	}
 }

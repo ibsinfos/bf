@@ -36,7 +36,6 @@ Class BX_Paypal {
 	function __construct(){
 		$this->mode = 'sandbox';
 		$this->use_sandbox = true;
-
 	}
 
 	 /**
