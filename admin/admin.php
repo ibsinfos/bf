@@ -1,6 +1,9 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 class BX_Admin{
     static $instance;
+    const BOX_MAIN_SETTING = 'box-settings';
+
     function __construct(){
         add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ));
         add_action( 'admin_enqueue_scripts', array($this, 'bx_custom_wp_admin_style' ) );
@@ -14,25 +17,31 @@ class BX_Admin{
     static function bx_register_my_custom_menu_page() {
         add_menu_page(
             __( 'Theme Options', 'boxtheme' ),
-            'Theme Options',
+          	self::BOX_MAIN_SETTING, // use to check the sub menu
             'manage_options',
-            'theme-options',
+            self::BOX_MAIN_SETTING,
             array('BX_Admin','my_custom_menu_page'),
             plugins_url( 'myplugin/images/icon.png' ),
             6
         );
-    }
+
+
+	}
 
     static function bx_custom_wp_admin_style($hook) {
         // Load only on ?page=theme-options
-        if($hook != 'toplevel_page_theme-options') {
-                return;
-        }
-        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ) );
-        wp_enqueue_style( 'custom_wp_admin_css', get_theme_file_uri('admin/css/style.css') );
-        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
-        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
-        wp_enqueue_script('box-js',get_theme_file_uri('admin/js/admin.js') );
+
+        $sub_page = array(self::BOX_MAIN_SETTING.'_page_credit-setting');
+
+        if( $hook == 'toplevel_page_'.self::BOX_MAIN_SETTING || in_array($hook, $sub_page ) ) {
+
+
+	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ) );
+	        wp_enqueue_style( 'custom_wp_admin_css', get_theme_file_uri('admin/css/style.css') );
+	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
+	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
+	        wp_enqueue_script('box-js',get_theme_file_uri('admin/js/admin.js') );
+	    }
 
     }
     function install(){
@@ -50,7 +59,7 @@ class BX_Admin{
         $payment = $option->get_group_option($group_option);
         $payment = (object)$payment['paypal'];
         $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
-        var_dump($t->email);
+
 
         ?>
         <div class="section" id="<?php echo $group_option;?>">
@@ -155,7 +164,7 @@ class BX_Admin{
                 <div class="heading-tab">
                     <ul>
                         <?php
-                        $main_page = admin_url('admin.php?page=theme-options');
+                        $main_page = admin_url('admin.php?page='.self::BOX_MAIN_SETTING);
                         $escrow_link = add_query_arg('section','escrow', $main_page);
                         $general_link = add_query_arg('section','general', $main_page);
                         $install_link = add_query_arg('section','install', $main_page);

@@ -74,6 +74,7 @@ Class BX_Order {
 		$curren_user = wp_get_current_user();
 		$args = array(
 			'post_title' => $this->order_title,
+			'author' => $curren_user->ID,
 			'meta_input' => array(
 				'amout' => $this->get_amout( $package_id ),
 				'payer_id' => $curren_user->ID,
@@ -85,6 +86,6 @@ Class BX_Order {
 				'order_mode' => $this->mode,
 				)
 			);
-		return BX_Order::get_instance()->create($args);
+		return $this->create($args);
 	}
 }
