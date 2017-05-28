@@ -30,7 +30,7 @@ var ajaxSend = {};
 	    return false;
 	};
 
-	window.ajaxSend.Custom = function(data, action){
+	window.ajaxSend.Custom = function(data, action, _this){
 	    $.ajax({
 	        emulateJSON: true,
 	        method :'post',
@@ -41,6 +41,7 @@ var ajaxSend = {};
 	        },
 	        success  : function(event){
 	        	console.log('Success msg');
+	        	_this.attr('value',data.value);
 	        	//window.location.reload(true);
 	        },
 	        beforeSend  : function(event){
@@ -60,7 +61,17 @@ var ajaxSend = {};
 			data.section = _this.closest('.one-item').attr('id');
 			data.name = _this.attr('name');
 			data.value = _this.val();
-			window.ajaxSend.Custom(data, action);
+			if( _this.attr('data-toggle') == 'toggle'){
+				console.log(data.value);
+				if(data.value == '1'){
+					console.log('set 0');
+					data.value = 0;
+				} else {
+					data.value = 1;
+				}
+			}
+			console.log(data);
+			window.ajaxSend.Custom(data, action, _this);
 		});
 		$(".frm-add-package").submit(function(event){
 			var _this = $(event.currentTarget);
@@ -77,7 +88,7 @@ var ajaxSend = {};
 			var action = 'del-post';
 			var data = {id: ''};
 			data.id = _this.attr('id');
-			window.ajaxSend.Custom(data, action);
+			window.ajaxSend.Custom(data, action, _this);
 			return false;
 		})
 	});

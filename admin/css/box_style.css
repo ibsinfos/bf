@@ -28,3 +28,25 @@ form.frm-add-package{
 .btn-delete{
 	cursor: pointer;
 }
+ul.box-table{
+
+}
+ul.box-table{
+	max-width: 1024px;
+}
+ul.box-table li{
+	border:1px solid #ccc;
+	border-top:0px;
+	padding: 5px 0;
+	margin: 0;
+}
+ul.box-table li.li-heading{
+	border:1px solid #ccc;
+	font-weight: bold;
+}
+.section-title{
+	padding: 20px 0;
+}
+.box-section{
+	max-width: 1024px;
+}

@@ -7,8 +7,8 @@ class BX_Credit_Setting{
 	static function wpdocs_register_my_custom_submenu_page() {
 	    add_submenu_page(
 	        BX_Admin::$main_setting_slug,
-	        'Credit',
-	        'Credit settings',
+	        'Credit order',
+	        'Credit order',
 	        'manage_options',
 	        'credit-setting',
 	        array($this,'wpdocs_my_custom_submenu_page_callback') );
@@ -17,20 +17,25 @@ class BX_Credit_Setting{
 
 		$args = array(
 			'post_type' => '_order',
-			'post_status' => 'pending'
+			'posts_per_page' => 35,
+
 		);
 		$query = new WP_query($args);
 		if( $query->have_posts() ){
 			echo '<h3>List credit pending</h3>';
-			echo '<ul>';
-			echo '<li>';
+			echo '<ul class="box-table">';
+			echo '<li class="row li-heading">';
 			echo '<div class="col-md-3">Buyer</div>';
-			echo '<div class="col-md-3">Type</div>';
+			echo '<div class="col-md-2">Type</div>';
 
 			echo '<div class="col-md-2">';
 			echo "Price";
 			echo '</div>';
+
 			echo '<div class="col-md-2">Date</div>';
+			echo '<div class="col-md-1">';
+			echo "Status";
+			echo '</div>';
 			echo '<div class="col-md-2">Action</div>';
 			echo '</li>';
 			$bx_order = BX_Order::get_instance();
@@ -40,22 +45,26 @@ class BX_Credit_Setting{
 				$order = $bx_order->get_order($post);
 
 				echo '<li class="row">';
-				echo '<div class="col-md-3">Buyer';
-				the_author();
-				echo '</div>';
-				echo '<div class="col-md-3">';
-				echo $order->payment_type;
-				echo '</div>';
+					echo '<div class="col-md-3">'.get_the_author();
+					echo '</div>';
+					echo '<div class="col-md-2">';
+					echo $order->payment_type;
+					echo '</div>';
 
-				echo '<div class="col-md-2">';
-				echo $order->amout;
-				echo '</div>';
-				echo '<div class="col-md-2">';
-				echo get_the_date();
-				echo '</div>';
+					echo '<div class="col-md-2">';
+					echo $order->amout;
+					echo '</div>';
+					echo '<div class="col-md-2">';
+					echo get_the_date();
+					echo '</div>';
+					echo '<div class="col-md-1">';
+					echo $order->post_status;
+					echo '</div>';
 
-
-				echo '<div class="col-md-2"><button class="btn-approve" id="'.get_the_ID().'">Approve</button></div>';
+					echo '<div class="col-md-2">';
+					if( $order->post_status != 'publish' )
+						echo '<button class="btn-approve" id="'.get_the_ID().'">Approve</button>';
+					echo '</div>';
 				echo '</li>';
 			}
 			echo '</ul>';

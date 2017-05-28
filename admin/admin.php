@@ -38,7 +38,7 @@ class BX_Admin{
 
 
 	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ) );
-	        wp_enqueue_style( 'custom_wp_admin_css', get_theme_file_uri('admin/css/style.css') );
+	        wp_enqueue_style( 'custom_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
 	        wp_enqueue_script('box-js',get_theme_file_uri('admin/js/admin.js') );
@@ -61,18 +61,18 @@ class BX_Admin{
         $group_option = "payment";
         $option = BX_Option::get_instance();
         $payment = $option->get_group_option($group_option);
-        $payment = (object)$payment['paypal'];
+        $paypal = (object)$payment['paypal'];
         $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
 
 
         ?>
-        <div class="section" id="<?php echo $group_option;?>">
+        <div class="section box-section" id="<?php echo $group_option;?>">
             <div class="package-plan">
 
                 <div class="row">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-9">
+
+                    <div class="col-sm-12 section">
+                     <h2 class="section-title">List Package plan</h2>
                         <?php
                         $args = array(
                             'post_type' => '_package',
@@ -84,7 +84,7 @@ class BX_Admin{
                         // The Loop
                         if ( $the_query->have_posts() ) {
                             echo '<div class="">';
-                            echo '<h3> List packge plan </h3>';
+
                             echo '<ul>';
                             while ( $the_query->have_posts() ) {
                                 $the_query->the_post();
@@ -108,9 +108,6 @@ class BX_Admin{
                         } else {
                             // no posts found
                         }
-
-
-
                         ?>
                         <form class="frm-add-package">
                             <h3> Insert new package </h3>
@@ -134,16 +131,24 @@ class BX_Admin{
                     </div>
                 </div>
             </div>
-
+            <h2 class="section-title"> Payment gateways</h2>
             <div class="form-group row one-item" id="paypal">
+
                 <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control auto-save" alt="payment" value="<?php echo $payment->email;?>" name="email" placeholder="Email">
+                    <input type="email" class="form-control auto-save" alt="payment" value="<?php echo $paypal->email;?>" name="email" placeholder="Email">
                 </div>
                 <div class="col-sm-9">
                 </div>
                 <div class="col-sm-3 align-right">
-                    <?php bx_buton_option('payment','paypal');?>
+                	<?php
+                	$check = 'checked';
+
+                	if( (int) $paypal->enable != 1){
+                		$check = '';
+                	}
+                	?>
+                    <?php bx_swap_button('payment','paypal', $check);?>
                 </div>
             </div>
 
@@ -183,8 +188,8 @@ class BX_Admin{
                         ?>
                         <li><a href="<?php echo $general_link;?>">General</a></li>
                         <li><a href="<?php echo $install_link;?>">Install</a></li>
-                        <li><a href="<?php echo $payment_link;?>">Payment</a></li>
-                        <li><a href="<?php echo $escrow_link;?>">Escrow</a></li>
+                        <li><a href="<?php echo $payment_link;?>">Config Payment</a></li>
+                        <li><a href="<?php echo $escrow_link;?>">Credit config</a></li>
 
                     </ul>
                     <div class="tab-content clear">
@@ -201,7 +206,10 @@ class BX_Admin{
     }
 }
 $admin = new BX_Admin();
-function bx_buton_option($group, $name, $checked = 'checked'){
-    echo '<input type="checkbox" class="auto-save" name="enable" value="1" '.$checked.' data-toggle="toggle">';
+function bx_swap_button($group, $name, $checked){
+	$value = 0;
+	if($checked == 'checked')
+		$value = 1;
+    echo '<input type="checkbox" class="auto-save" name="enable" value="'.$value.'" '.$checked.' data-toggle="toggle">';
 
 }
