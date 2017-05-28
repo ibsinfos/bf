@@ -1,11 +1,14 @@
 <?php
-Class BX_Paypal {
+Class BX_Paypal extends BX_Order {
 	//https://github.com/paypal/ipn-code-samples
 	// check IPN return
 	// IPN setup https://developer.paypal.com/docs/classic/ipn/integration-guide/IPNSetup/
-	public $mode;
+
     private $amout;
 	public $submit_url;
+	public $payment_type;
+	public $receiver_email;
+
 	 /**
      * @var bool $use_sandbox     Indicates if the sandbox endpoint is used.
      */
@@ -34,8 +37,9 @@ Class BX_Paypal {
 	}
 
 	function __construct(){
-		$this->mode = 'sandbox';
-		$this->use_sandbox = true;
+		parent::__construct();
+		$this->payment_type = 'paypal';
+		$this->order_title  = 'Buy credit via paypal';
 	}
 
 	 /**
@@ -56,7 +60,7 @@ Class BX_Paypal {
     }
 
 	function get_submit_url(){
-		if($this->mode == 'sandbox'){
+		if($this->use_sandbox){
 			return self::SANDBOX_SUBMIT_URI;
 		}
 		return self::SUBMIT_URI;
@@ -76,22 +80,9 @@ Class BX_Paypal {
         if( empty( $receiver_email) ){
             return new WP_Error( '_empty_receiver',__('Please set receiver email','boxtheme') );
         }
-		$curren_user = wp_get_current_user();
 
-		$args = array(
-			'post_title' => 'Buy Credit',
-			'meta_input' => array(
-				'amout' => $this->get_amout( $package_id ),
-				'payer_id' => $curren_user->ID,
-				'payer_email' => $curren_user->user_email ,
-				'payment_type' => 'paypal',
-				'order_type' 	=>'buy_credit',
-				//'receiver_id' => 1,// need to update - default is admin.
-				'receiver_email' => $receiver_email,
-				'order_mode' => $this->mode,
-				)
-			);
-		return BX_Order::get_instance()->create($args);
+		$this->receiver_email = $this->get_receiver_email();
+		return $this->create_draft_order($package_id);
 	}
     /**
      * get admin's paypal email in setting.
@@ -104,10 +95,7 @@ Class BX_Paypal {
         $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
         return $t->email;
     }
-    function get_amout($package_id){
-        $order = BX_Order::get_instance()->get_package($package_id);
-        return $order->price;
-    }
+
     /**
      * create a pending order and return the paypal redirect to check out this order.
      * @author danng
@@ -129,8 +117,7 @@ Class BX_Paypal {
 
         //https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/formbasics/
         $receiver_email =  $this->get_receiver_email();
-        $redirect_link = bx_get_static_link('process-payment');
-
+        $redirect_link = $this->get_redirect_link();
         $redirect_url = $this->get_submit_url().'?cmd=_xclick&currency_code=USD&business='.$receiver_email.'&item_name=abc act&item_number=123&amount='.$amount.'&invoice='.$order_id.'&return='.$redirect_link;
 
         return $redirect_url;

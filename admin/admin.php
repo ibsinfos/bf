@@ -2,11 +2,12 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 class BX_Admin{
     static $instance;
-    const BOX_MAIN_SETTING = 'box-settings';
+    static $main_setting_slug = 'box-settings';
 
     function __construct(){
         add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ));
         add_action( 'admin_enqueue_scripts', array($this, 'bx_custom_wp_admin_style' ) );
+        add_action( 'admin_footer', array($this,'box_admin_footer_html') );
     }
     static function get_instance(){
         if (null === static::$instance) {
@@ -17,9 +18,9 @@ class BX_Admin{
     static function bx_register_my_custom_menu_page() {
         add_menu_page(
             __( 'Theme Options', 'boxtheme' ),
-          	self::BOX_MAIN_SETTING, // use to check the sub menu
+          	'Box settings', // use to check the sub menu
             'manage_options',
-            self::BOX_MAIN_SETTING,
+            self::$main_setting_slug,
             array('BX_Admin','my_custom_menu_page'),
             plugins_url( 'myplugin/images/icon.png' ),
             6
@@ -30,10 +31,10 @@ class BX_Admin{
 
     static function bx_custom_wp_admin_style($hook) {
         // Load only on ?page=theme-options
-    	$credit_page = self::BOX_MAIN_SETTING.'_page_credit-setting';
-        $sub_page = array(self::BOX_MAIN_SETTING.'_page_credit-setting');
-
-        if( $hook == 'toplevel_page_'.self::BOX_MAIN_SETTING || in_array($hook, $sub_page ) ) {
+    	$credit_page = self::$main_setting_slug.'_page_credit-setting';
+        $sub_page = array(self::$main_setting_slug.'_page_credit-setting');
+        //var_dump($hook); //box-settings_page_credit-setting
+        if( $hook == 'toplevel_page_'.self::$main_setting_slug || in_array($hook, $sub_page ) ) {
 
 
 	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ) );
@@ -149,17 +150,23 @@ class BX_Admin{
         </div>
         <?php
     }
-    static function my_custom_menu_page(){ ?>
-        <script type="text/javascript">
-            var bx_global = {
-                'home_url' : '<?php echo home_url() ?>',
-                'admin_url': '<?php echo admin_url() ?>',
-                'ajax_url' : '<?php echo admin_url().'admin-ajax.php'; ?>',
-                'selected_local' : '',
-                'is_free_submit_job' : true,
+    static function box_admin_footer_html(){
+    	$page = isset($_GET['page']) ? $_GET['page'] : '';
+    	if( in_array($page, array('credit-setting','box-settings')) ) {	?>
+	    	<script type="text/javascript">
+	            var bx_global = {
+	                'home_url' : '<?php echo home_url() ?>',
+	                'admin_url': '<?php echo admin_url() ?>',
+	                'ajax_url' : '<?php echo admin_url().'admin-ajax.php'; ?>',
+	                'selected_local' : '',
+	                'is_free_submit_job' : true,
 
-            }
-        </script>
+	            }
+	        </script>
+    	<?php }
+    }
+    static function my_custom_menu_page(){ ?>
+
 
         <div class="wrap">
             <h1> Theme Options</h1>
@@ -167,7 +174,7 @@ class BX_Admin{
                 <div class="heading-tab">
                     <ul>
                         <?php
-                        $main_page = admin_url('admin.php?page='.self::BOX_MAIN_SETTING);
+                        $main_page = admin_url('admin.php?page='.self::$main_setting_slug);
                         $escrow_link = add_query_arg('section','escrow', $main_page);
                         $general_link = add_query_arg('section','general', $main_page);
                         $install_link = add_query_arg('section','install', $main_page);

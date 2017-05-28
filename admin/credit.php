@@ -6,7 +6,7 @@ class BX_Credit_Setting{
 
 	static function wpdocs_register_my_custom_submenu_page() {
 	    add_submenu_page(
-	        BX_Admin::BOX_MAIN_SETTING,
+	        BX_Admin::$main_setting_slug,
 	        'Credit',
 	        'Credit settings',
 	        'manage_options',
@@ -14,7 +14,7 @@ class BX_Credit_Setting{
 	        array($this,'wpdocs_my_custom_submenu_page_callback') );
 	}
 	static function wpdocs_my_custom_submenu_page_callback(){
-		BX_Admin::my_custom_menu_page();
+
 		$args = array(
 			'post_type' => '_order',
 			'post_status' => 'pending'
@@ -44,7 +44,7 @@ class BX_Credit_Setting{
 				the_author();
 				echo '</div>';
 				echo '<div class="col-md-3">';
-				echo $order->order_type;
+				echo $order->payment_type;
 				echo '</div>';
 
 				echo '<div class="col-md-2">';

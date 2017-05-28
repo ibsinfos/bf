@@ -1,11 +1,11 @@
 <?php
 class BX_Cash extends BX_Order{
 	//public $redirect_link;
-	public $order_title ;
+	public $payment_type;
 	function __construct(){
 		parent::__construct();
-		//var_dump($this->redirect_link);
-		$this->order_title = 'Buy credi via Cash';
+		$this->payment_type = 'cash';
+
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
