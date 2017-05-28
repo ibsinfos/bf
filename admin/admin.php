@@ -142,6 +142,7 @@ class BX_Admin{
                 </div>
                 <div class="col-sm-3 align-right">
                 	<?php
+
                 	$check = 'checked';
 
                 	if( (int) $paypal->enable != 1){
@@ -151,6 +152,28 @@ class BX_Admin{
                     <?php bx_swap_button('payment','paypal', $check);?>
                 </div>
             </div>
+            <div class="form-group row one-item" id="cash">
+            	<?php
+            	$cash = (object) array('description' => 'Cash payment',
+            		'enable' => 0);
+            	if( !empty($payment['cash']) ){
+            		$cash = (object) $payment['cash'];
+            	}
+            	?>
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
+                <div class="col-sm-9">
+                    <textarea name="description"> <?php echo $cash->description;?> </textarea>
+                </div>
+                <div class="col-sm-9">
+                </div>
+                <div class="col-sm-3 align-right">
+                	<?php
+                	$check = 'checked';
+                	if( (int) $cash->enable != 1) $check = '';               	?>
+                    <?php bx_swap_button('payment','cash', $check);?>
+                </div>
+            </div>
+
 
         </div>
         <?php
