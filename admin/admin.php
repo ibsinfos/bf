@@ -62,6 +62,7 @@ Class BX_Admin {
         $option = BX_Option::get_instance();
         $payment = $option->get_group_option($group_option);
         $paypal = (object)$payment['paypal'];
+
         $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
 
 
@@ -136,20 +137,51 @@ Class BX_Admin {
              		<div class="sub-item" id="paypal">
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
 		                <div class="col-sm-9">
-		                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php echo $paypal->email;?>" name="email" placeholder="Email">
+		                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php if(! empty($paypal->email) ) echo $paypal->email;?>" name="email" placeholder="Email">
 		                </div>
 		                <div class="col-sm-9">
 		                </div>
 		                <div class="col-sm-3 align-right">
 		                	<?php
-
 		                	$check = 'checked';
-
 		                	if( (int) $paypal->enable != 1){
 		                		$check = '';
 		                	}
 		                	?>
 		                    <?php bx_swap_button('payment','paypal', $check);?>
+		                </div>
+		            </div>
+
+		            <div class="sub-item" id="stripe">
+		            	<?php
+		            	$stripe = (object) array(
+		            		'api_key' => 'LDFJ',
+		            		'api_code' => 'LDFJ',
+		            		'enable' => 0
+		            	);
+		            	if( !empty($payment['stripe']) ){
+		            		$stripe = (object) $payment['stripe'];
+		            	}
+
+		            	?>
+		                <label for="inputEmail3" class="col-sm-3 col-form-label">Stripe</label>
+		                <div class="col-sm-9">
+		                    <input type="email" class="form-control auto-save" value="<?php  if(! empty($stripe->api_key) )  echo $stripe->api_key;?>" name="api_key" placeholder="API Key">
+		                </div>
+		                <label for="inputEmail3" class="col-sm-3 col-form-label">&nbsp;</label>
+		                <div class="col-sm-9" >
+		                    <input type="email" class="form-control auto-save" value="<?php if(! empty($stripe->api_code) ) echo $stripe->api_code;?>" name="api_code" placeholder="API Code">
+		                </div>
+		                <div class="col-sm-9">
+		                </div>
+		                <div class="col-sm-3 align-right">
+		                	<?php
+		                	$check = 'checked';
+		                	if( (int) $stripe->enable != 1){
+		                		$check = '';
+		                	}
+		                	?>
+		                    <?php bx_swap_button('payment','stripe', $check);?>
 		                </div>
 		            </div>
 
@@ -167,6 +199,7 @@ Class BX_Admin {
 		            	?>
 		                <div class="col-sm-9">
 		                    <textarea name="description" class="auto-save"><?php echo $cash->description;?></textarea>
+
 		                </div>
 		                <div class="col-sm-9">
 		                </div>
