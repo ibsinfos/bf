@@ -1,12 +1,12 @@
 <?php
 //if ( ! defined( 'ABSPATH' ) ) exit;
-class BX_Admin {
+Class BX_Admin {
     static $instance;
     static $main_setting_slug = 'box-settings';
 
     function __construct(){
         add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ));
-        add_action( 'admin_enqueue_scripts', array($this, 'bx_custom_wp_admin_style' ) );
+        add_action( 'admin_enqueue_scripts', array($this, 'enqueue_scripts' ) );
         add_action( 'admin_footer', array($this,'box_admin_footer_html') );
     }
     static function get_instance(){
@@ -29,7 +29,7 @@ class BX_Admin {
 
 	}
 
-    static function bx_custom_wp_admin_style($hook) {
+    function enqueue_scripts($hook) {
         // Load only on ?page=theme-options
     	$credit_page = self::$main_setting_slug.'_page_credit-setting';
         $sub_page = array(self::$main_setting_slug.'_page_credit-setting');
