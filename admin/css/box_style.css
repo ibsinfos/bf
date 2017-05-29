@@ -1,6 +1,9 @@
 .align-right{
 	text-align: right;
 }
+.f-right{
+	float: right;
+}
 
 .heading-tab ul li{
 	display: inline-block;

@@ -138,6 +138,7 @@ Class BX_Admin {
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
 		                <div class="col-sm-9">
 		                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php if(! empty($paypal->email) ) echo $paypal->email;?>" name="email" placeholder="Email">
+		                     <span class="f-right"> Set PayPal email</span>
 		                </div>
 		                <div class="col-sm-9">
 		                </div>
@@ -167,10 +168,12 @@ Class BX_Admin {
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">Stripe</label>
 		                <div class="col-sm-9">
 		                    <input type="email" class="form-control auto-save" value="<?php  if(! empty($stripe->api_key) )  echo $stripe->api_key;?>" name="api_key" placeholder="API Key">
+		                    <span class="f-right"> Set Sitrpe API key here </span>
 		                </div>
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">&nbsp;</label>
 		                <div class="col-sm-9" >
 		                    <input type="email" class="form-control auto-save" value="<?php if(! empty($stripe->api_code) ) echo $stripe->api_code;?>" name="api_code" placeholder="API Code">
+		                    <span class="f-right"> Set Sitrpe API code here </span>
 		                </div>
 		                <div class="col-sm-9">
 		                </div>
