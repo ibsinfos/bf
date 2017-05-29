@@ -67,113 +67,117 @@ class BX_Admin {
 
         ?>
         <div class="section box-section" id="<?php echo $group_option;?>">
-            <div class="package-plan">
+        	
+            <div class="sub-section " id="package_plan">
+            	<h2 class="section-title">List Package plan</h2>
+                <?php
+                    $args = array(
+                        'post_type' => '_package',
+                        'meta_key' => 'type',
+                        'meta_value' => 'buy_credit'
+                    );
+                    $the_query = new WP_Query($args);
 
-                <div class="row">
+                    // The Loop
+                    if ( $the_query->have_posts() ) {
+                        echo '<div class="">';
 
-                    <div class="col-sm-12 section">
-                     <h2 class="section-title">List Package plan</h2>
-                        <?php
-                        $args = array(
-                            'post_type' => '_package',
-                            'meta_key' => 'type',
-                            'meta_value' => 'buy_credit'
-                        );
-                        $the_query = new WP_Query($args);
-
-                        // The Loop
-                        if ( $the_query->have_posts() ) {
-                            echo '<div class="">';
-
-                            echo '<ul>';
-                            while ( $the_query->have_posts() ) {
-                                $the_query->the_post();
-                                echo '<li class="col-sm-12 block">';
-                                echo '<div class="col-sm-11">';
-                                $price = get_post_meta(get_the_ID(),'price', true);
-                                //echo $price;
-                                $sku = get_post_meta(get_the_ID(),'sku', true);
-                                echo $sku .' -'. $price .' - '.get_the_content();
-                                echo '</div>';
-                                echo '<div class="col-sm-1 align-right"><span id="'.get_the_ID().'" class="btn-delete">X</span>';
-
-                                echo '</div>';
-                                echo '</li>';
-
-                            }
-                            echo '</ul>';
+                        echo '<ul>';
+                        while ( $the_query->have_posts() ) {
+                            $the_query->the_post();
+                            echo '<li class="col-sm-12 block">';
+                            echo '<div class="col-sm-11">';
+                            $price = get_post_meta(get_the_ID(),'price', true);
+                            //echo $price;
+                            $sku = get_post_meta(get_the_ID(),'sku', true);
+                            echo $sku .' -'. $price .' - '.get_the_content();
                             echo '</div>';
-                            /* Restore original Post Data */
-                            wp_reset_postdata();
-                        } else {
-                            // no posts found
+                            echo '<div class="col-sm-1 align-right"><span id="'.get_the_ID().'" class="btn-delete">X</span>';
+
+                            echo '</div>';
+                            echo '</li>';
+
                         }
-                        ?>
-                        <form class="frm-add-package">
-                            <h3> Insert new package </h3>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
-                            </div>
-                            <div class="col-sm-12">
-                                <p> &nbsp; </p>
-                                <input type="text" class="form-control" name="post_content" placeholder="<?php _e('Desction of this package','boxtheme');?>">
-                            </div>
+                        echo '</ul>';
+                        echo '</div>';
+                        /* Restore original Post Data */
+                        wp_reset_postdata();
+                    } else {
+                        // no posts found
+                    }
+                    ?>
+                    <form class="frm-add-package">
+                        <div class="col-sm-12">
+                        <h3 class="form-heading"> Insert new package </h3>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
+                        </div>
+                        <div class="col-sm-12">
+                            <p> &nbsp; </p>
+                            <input type="text" class="form-control" name="post_content" placeholder="<?php _e('Desction of this package','boxtheme');?>">
+                        </div>
 
-                            <div class="col-sm-11">
-                            </div>
-                            <div class="col-sm-1 align-right">
-                            <button class="btn">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <h2 class="section-title"> Payment gateways</h2>
-            <div class="form-group row one-item" id="paypal">
+                        <div class="col-sm-11">
+                        </div>
+                        <div class="col-sm-1 align-right">
+                        <button class="btn">Save</button>
+                        </div>
+                    </form>
 
-                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
-                <div class="col-sm-9">
-                    <input type="email" class="form-control auto-save" alt="payment" value="<?php echo $paypal->email;?>" name="email" placeholder="Email">
-                </div>
-                <div class="col-sm-9">
-                </div>
-                <div class="col-sm-3 align-right">
-                	<?php
-
-                	$check = 'checked';
-
-                	if( (int) $paypal->enable != 1){
-                		$check = '';
-                	}
-                	?>
-                    <?php bx_swap_button('payment','paypal', $check);?>
-                </div>
-            </div>
-            <div class="form-group row one-item" id="cash">
-            	<?php
-            	$cash = (object) array('description' => 'Cash payment',
-            		'enable' => 0);
-            	if( !empty($payment['cash']) ){
-            		$cash = (object) $payment['cash'];
-            	}
-            	?>
-                <label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
-                <div class="col-sm-9">
-                    <textarea name="description"> <?php echo $cash->description;?> </textarea>
-                </div>
-                <div class="col-sm-9">
-                </div>
-                <div class="col-sm-3 align-right">
-                	<?php
-                	$check = 'checked';
-                	if( (int) $cash->enable != 1) $check = '';               	?>
-                    <?php bx_swap_button('payment','cash', $check);?>
-                </div>
             </div>
 
+
+           <div class=" sub-section " id="payment">
+	         	<h2 class="section-title"> Payment gateways</h2>
+             	<div class="sub-wrap col-sm-12">
+             		<div class="sub-item">
+		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
+		                <div class="col-sm-9">
+		                    <input type="email" class="form-control auto-save" alt="payment" value="<?php echo $paypal->email;?>" name="email" placeholder="Email">
+		                </div>
+		                <div class="col-sm-9">
+		                </div>
+		                <div class="col-sm-3 align-right">
+		                	<?php
+
+		                	$check = 'checked';
+
+		                	if( (int) $paypal->enable != 1){
+		                		$check = '';
+		                	}
+		                	?>
+		                    <?php bx_swap_button('payment','paypal', $check);?>
+		                </div>
+		            </div>
+
+	                <div class="sub-item" id="cash">
+	                	<label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
+		            	<?php
+		            	$cash = (object) array('description' => 'Cash payment',
+		            		'enable' => 0);
+		            	if( !empty($payment['cash']) ){
+		            		$cash = (object) $payment['cash'];
+		            	}
+		            	?>
+
+		                <div class="col-sm-9">
+		                    <textarea name="description"> <?php echo $cash->description;?> </textarea>
+		                </div>
+		                <div class="col-sm-9">
+		                </div>
+		                <div class="col-sm-3 align-right">
+		                	<?php
+		                	$check = 'checked';
+		                	if( (int) $cash->enable != 1) $check = '';               	?>
+		                    <?php bx_swap_button('payment','cash', $check);?>
+		                </div>
+	           		</div>
+	            </div><!-- .end sub-wrap !-->
+            </div>
 
         </div>
         <?php

@@ -6,13 +6,20 @@
 	display: inline-block;
 	padding: 10px 20px;
 	border: 1px solid #ccc;
+	border-right: 0;
 	float: left;
 	text-transform: uppercase;
 
 }
+.heading-tab ul li:last-child{
+	border-right: 1px solid #ccc;
+}
 .heading-tab ul li a{
 	text-decoration: none;
 	text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #686868;
 }
 li.block{
 	display: block;
@@ -24,6 +31,9 @@ form.frm-add-package{
 	padding: 20px;
 	display: block;
 	overflow: hidden;
+}
+form .form-heading{
+	padding-bottom:20px;
 }
 .btn-delete{
 	cursor: pointer;
@@ -46,9 +56,20 @@ ul.box-table li.li-heading{
 }
 .section-title{
 	padding: 20px 0;
+	text-transform: uppercase;
 }
 .box-section{
 	max-width: 1024px;
 	border: 1px solid #ccc;
-	padding: 0 50px;
+	padding: 0 30px 30px 30px;
+	overflow: hidden;
+}
+.sub-section{
+	padding: 0 15px;
+}
+.sub-wrap{
+	padding: 20px 0 20px 15px;
+	border:1px solid #ccc;
+	overflow: hidden;
+	display: block;
 }
