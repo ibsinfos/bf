@@ -67,7 +67,7 @@ class BX_Admin {
 
         ?>
         <div class="section box-section" id="<?php echo $group_option;?>">
-        	
+
             <div class="sub-section " id="package_plan">
             	<h2 class="section-title">List Package plan</h2>
                 <?php
@@ -108,23 +108,22 @@ class BX_Admin {
                     ?>
                     <form class="frm-add-package">
                         <div class="col-sm-12">
-                        <h3 class="form-heading"> Insert new package </h3>
+                        	<h3 class="form-heading"> Insert new package </h3>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 one-line">
                             <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 one-line">
                             <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
                         </div>
-                        <div class="col-sm-12">
-                            <p> &nbsp; </p>
-                            <input type="text" class="form-control" name="post_content" placeholder="<?php _e('Desction of this package','boxtheme');?>">
+                        <div class="col-sm-12 one-line">
+                            <input type="text" class="form-control" name="post_content" placeholder="<?php _e('Desction of this package','boxtheme');?>" >
                         </div>
 
-                        <div class="col-sm-11">
+                        <div class="col-sm-10 one-line">
                         </div>
-                        <div class="col-sm-1 align-right">
-                        <button class="btn">Save</button>
+                        <div class="col-sm-2 align-right one-line">
+                        	<button class="btn">Save</button>
                         </div>
                     </form>
 

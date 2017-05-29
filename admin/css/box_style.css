@@ -32,6 +32,9 @@ form.frm-add-package{
 	display: block;
 	overflow: hidden;
 }
+.frm-add-package .one-line{
+	padding-bottom: 15px;
+}
 form .form-heading{
 	padding-bottom:20px;
 }
@@ -72,4 +75,8 @@ ul.box-table li.li-heading{
 	border:1px solid #ccc;
 	overflow: hidden;
 	display: block;
+}
+textarea{
+	width: 100%;
+	height: 120px;
 }
