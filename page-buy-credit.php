@@ -58,33 +58,49 @@
 					<div class="step step-2">
 						<div class="form-group">
 						    <h3  class="col-sm-12 col-form-label"><span>2</span> Select your payment gateway</h3>
-						    <div class="col-sm-12  gateway-payment  record-line"">
-						    	<div class="col-sm-9">
-						    		<img src="<?php echo get_theme_file_uri('img/PayPal.jpg');?>" width="200">
-						    		<p>You will pay via paypal payment </p>
+						    <?php
+						    	global $has_payment;
+						    	$has_payment= 0;
+							    $option = BX_Option::get_instance();
+						        $payment = $option->get_group_option('payment');
+						        $paypal = (object)$payment['paypal'];
+						        $cash = (object)$payment['cash'];
+						        if( $paypal->enable ) {
+						        	$has_payment= 1;
+							 		?>
+								    <div class="col-sm-12  gateway-payment  record-line"">
+								    	<div class="col-sm-9">
+								    		<img src="<?php echo get_theme_file_uri('img/PayPal.jpg');?>" width="200">
+								    		<p>You will pay via paypal payment </p>
 
-						    	</div>
-						    	<div class="col-sm-3 align-right">
-						    		<label>
-						    		<input type="radio" class="required radio"  name="_gateway" required value="paypal">
-						    		<span class=" no-radius btn align-right btn-select " >Select</span>
-						    		</label>
-						    	</div>
-						    	<div class="full f-left"></div>
-						    </div>
-						    <div class="col-sm-12  gateway-payment record-line">
-						    	<div class="col-sm-9">
-						    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">
-						    		<p>You will pay via cash method </p>
-						    	</div>
-						    	<div class="col-sm-3 align-right">
-							    	<label>
-							    		<input type="radio" class="required radio" name="_gateway" required value="cash">
-							    		<span class=" no-radius btn align-right btn-select " >Select</span>
-							    	</label>
-						    	</div>
-						    	<div class="full f-left"></div>
-						    </div>
+								    	</div>
+								    	<div class="col-sm-3 align-right">
+								    		<label>
+								    		<input type="radio" class="required radio"  name="_gateway" required value="paypal">
+								    		<span class=" no-radius btn align-right btn-select " >Select</span>
+								    		</label>
+								    	</div>
+								    	<div class="full f-left"></div>
+								    </div>
+							   	<?php } ?>
+								<?php if( $cash->enable ){  $has_payment = 1;?>
+								    <div class="col-sm-12  gateway-payment record-line">
+								    	<div class="col-sm-9">
+								    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">
+								    		<p>You will pay via cash method </p>
+								    	</div>
+								    	<div class="col-sm-3 align-right">
+									    	<label>
+									    		<input type="radio" class="required radio" name="_gateway" required value="cash">
+									    		<span class=" no-radius btn align-right btn-select " >Select</span>
+									    	</label>
+								    	</div>
+								    	<div class="full f-left"></div>
+								    </div>
+								<?php } ?>
+							<?php if( !$has_payment){ ?>
+								<?php _e('The is not any payment gateways','boxtheme');?>
+							<?php } ?>
 					    </div>
 					</div>
 					<div class="form-group">
