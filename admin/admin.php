@@ -162,7 +162,7 @@ class BX_Admin {
 		            		$cash = (object) $payment['cash'];
 		            	}
 		            	if( empty($cash->description) ){
-		            		$cash->description = __("Please deposit to this account:\nNumber: XXXXXXXXXX.\nBank: ANZ Bank.\nAcount name: Johny Evans.\nAfter get your fund, we will approve your order and you can access your ballance",'boxtheme');
+		            		$cash->description = __("Please deposit to this account:\nNumber: XXXXXXXXXX.\nBank: ANZ Bank.\nAccount name: Johnny Cook.\nAfter get your fund, we will approve your order and you can access your balance.",'boxtheme');
 		            	}
 		            	?>
 		                <div class="col-sm-9">

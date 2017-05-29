@@ -39,7 +39,7 @@ if($type == 'paypal'){
 <div class="full-width">
 	<div class="container site-content-contain">
 		<div class="row site-content" id="content" >
-			<div class="col-md-12 detail-project text-justify" style="min-height: 350px; padding-top: 100px;">
+			<div class="col-md-12 detail-project text-justify" style="min-height: 500px; padding-top: 100px; padding-bottom: 250px;">
 				<div class="msg" style="width: 500px; margin: 0 auto; text-align: left;">
 					<?php
 					//echo '<pre>';
@@ -56,6 +56,17 @@ if($type == 'paypal'){
 									<?php _e('Your order is approved and 200 credit is depositted to your ballance','boxtheme');?>
 								<?php } else { ?>
 									<p> Your have credit 200 credit and waiting for admin approve this. </p>
+									<?php
+										$option = BX_Option::get_instance();
+        								$payment = $option->get_group_option('payment');
+        								if( !empty($payment['cash']) ){
+	        								$cash = (object) $payment['cash'];
+			            					if( ! empty($cash->description) ){
+			            						echo nl2br($cash->description);
+			            					}
+			            				}
+
+									?>
 							<?php } } ?>
 					<?php } else {
 						_e('This order it not available','boxtheme');
