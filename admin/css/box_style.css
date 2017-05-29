@@ -49,4 +49,6 @@ ul.box-table li.li-heading{
 }
 .box-section{
 	max-width: 1024px;
+	border: 1px solid #ccc;
+	padding: 0 50px;
 }

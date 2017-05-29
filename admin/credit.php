@@ -73,4 +73,3 @@ class BX_Credit_Setting{
 
 
 }
-new BX_Credit_Setting();

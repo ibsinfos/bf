@@ -1,6 +1,6 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
-class BX_Admin{
+//if ( ! defined( 'ABSPATH' ) ) exit;
+class BX_Admin {
     static $instance;
     static $main_setting_slug = 'box-settings';
 
@@ -212,12 +212,12 @@ class BX_Admin{
                         <li><a href="<?php echo $general_link;?>">General</a></li>
                         <li><a href="<?php echo $install_link;?>">Install</a></li>
                         <li><a href="<?php echo $payment_link;?>">Config Payment</a></li>
-                        <li><a href="<?php echo $escrow_link;?>">Credit config</a></li>
+                        <li><a href="<?php echo $escrow_link;?>">Config Credit</a></li>
 
                     </ul>
                     <div class="tab-content clear">
                         <?php
-                            $section = isset($_GET['section']) ? $_GET['section'] : 'install';
+                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
                             $admin = BX_Admin::get_instance();
                             $admin->$section();
                         ?>
@@ -228,7 +228,7 @@ class BX_Admin{
     <?php
     }
 }
-$admin = new BX_Admin();
+
 function bx_swap_button($group, $name, $checked){
 	$value = 0;
 	if($checked == 'checked')
