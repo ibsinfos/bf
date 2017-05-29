@@ -79,6 +79,7 @@ ul.box-table li.li-heading{
 textarea{
 	width: 100%;
 	height: 120px;
+	padding-top: 15px;
 }
 .sub-item{
 	display: block;

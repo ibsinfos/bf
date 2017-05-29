@@ -57,8 +57,8 @@ var ajaxSend = {};
 			var data = {section: '',group:'',name:'',value:''};
 
 
-			data.group  = _this.closest('.section').attr('id');
-			data.section = _this.closest('.one-item').attr('id');
+			data.group  = _this.closest('.sub-section').attr('id');
+			data.section = _this.closest('.sub-item').attr('id');
 			data.name = _this.attr('name');
 			data.value = _this.val();
 			if( _this.attr('data-toggle') == 'toggle'){

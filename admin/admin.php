@@ -130,13 +130,13 @@ class BX_Admin {
             </div>
 
 
-           <div class=" sub-section " id="payment">
+           <div class="sub-section " id="payment">
 	         	<h2 class="section-title"> Payment gateways</h2>
              	<div class="sub-wrap col-sm-12">
-             		<div class="sub-item">
+             		<div class="sub-item" id="paypal">
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
 		                <div class="col-sm-9">
-		                    <input type="email" class="form-control auto-save" alt="payment" value="<?php echo $paypal->email;?>" name="email" placeholder="Email">
+		                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php echo $paypal->email;?>" name="email" placeholder="Email">
 		                </div>
 		                <div class="col-sm-9">
 		                </div>
@@ -161,10 +161,12 @@ class BX_Admin {
 		            	if( !empty($payment['cash']) ){
 		            		$cash = (object) $payment['cash'];
 		            	}
+		            	if( empty($cash->description) ){
+		            		$cash->description = __("Please deposit to this account:\nNumber: XXXXXXXXXX.\nBank: ANZ Bank.\nAcount name: Johny Evans.\nAfter get your fund, we will approve your order and you can access your ballance",'boxtheme');
+		            	}
 		            	?>
-
 		                <div class="col-sm-9">
-		                    <textarea name="description"> <?php echo $cash->description;?> </textarea>
+		                    <textarea name="description" class="auto-save"><?php echo $cash->description;?></textarea>
 		                </div>
 		                <div class="col-sm-9">
 		                </div>

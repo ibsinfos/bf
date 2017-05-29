@@ -26,7 +26,7 @@ class BX_ajax_backend{
 
 
 		$option = BX_Option::get_instance();
-		$result = get_option('payment');
+
 		$option->set_option( $group, $section,$name, $value);
 		wp_send_json(array('success' => true, 'msg' => 'save done'));
 	}
