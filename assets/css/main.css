@@ -144,7 +144,9 @@ a.logo{
 a.logo img{
 	max-width: 135px;
 }
-
+.chosen-container{
+	max-width: 100%;
+}
 
 .main-navigation{
 	overflow: hidden;
