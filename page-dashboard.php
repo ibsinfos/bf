@@ -69,8 +69,8 @@
 			          	?>
 			          	<ul class="row none-style padding-bottom-20">
 			          		<li><?php printf(__('Your credit available: %s','boxtheme'),$credit->available);?></li>
-			          		<li><?php printf(__('Your credit pending: %s','boxtheme'),$credit->pending);?></li>
-			          		<li><a href="<?php echo home_url('buy-credit');?>">Buy Credit </a></li>
+			          		<li class="hide"><?php printf(__('Your credit pending: %s','boxtheme'),$credit->pending);?></li>
+			          		<li><a class="btn btn-buy-credit" href="<?php echo home_url('buy-credit');?>">Buy Credit </a></li>
 			          	</ul>
 			          	<h5> History </h5>
 			          	<ul class="none-style row">
@@ -89,6 +89,7 @@
 			          			'post_status' => array('pending','publish'),
 			          			'post_type' =>'_order',
 			          			'author' => $user_ID,
+			          			'posts_per_page' => -1,
 			          		);
 			          		$query = new WP_Query($args);
 			          		if( $query->have_posts() ){

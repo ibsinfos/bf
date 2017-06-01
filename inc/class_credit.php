@@ -32,10 +32,10 @@ Class BX_Credit {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit($employer_id, $bid_id) {
+	function deposit($employer_id, $bid_id, $project_id = 0) {
 		$bidding = get_post($bid_id);
 		$freelaner_id = $bidding->post_author;
-		var_dump($freelaner_id);
+
 		$ballance = $this->get_ballance($employer_id);
 		$bid_price = (float) get_post_meta($bidding->ID, BID_PRICE, true);
 
@@ -61,6 +61,15 @@ Class BX_Credit {
 			$this->increase_credit_available( $employer_id, $emp_pay);
 			return new WP_Error( 'increase_pending_1', __( "Can not increase the credit of freelancer", "boxtheme" ) );
 			die();
+		}
+		if( $result ){
+			// create order here
+			$order_args = array(
+				'order_type' => 'pay_service',
+				'project_id' => $project_id,
+				'amout' => $emp_pay,
+			);
+			$order  = BX_Order::get_instance()->create_order($order_args);
 		}
 		// update the number spent of this employer
 		$spent = (float) get_user_meta($employer_id, SPENT, true) + $emp_pay ;

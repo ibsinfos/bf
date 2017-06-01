@@ -140,7 +140,7 @@ Class BX_Project extends BX_Post{
 
 			$credit = BX_Credit::get_instance();
 			// perform the action deposite - transfer credit from employer to freelancer account.
-			$transfered = $credit->deposit( $employer_id, $bid_id );
+			$transfered = $credit->deposit( $employer_id, $bid_id, $project_id );
 
 			if ( is_wp_error($transfered) ){
 				return $transfered;
@@ -157,7 +157,6 @@ Class BX_Project extends BX_Post{
 
 				// create coversation
 				// update bid status to AWARDED
-
 				wp_update_post( array('ID' => $bid_id, 'post_status'=> AWARDED) );
 				$args  = array(
 					'cvs_content' => $request['cvs_content'],

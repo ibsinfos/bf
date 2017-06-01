@@ -91,11 +91,39 @@ Class BX_Order {
 				//'receiver_id' => 1,// need to update - default is admin.
 				'receiver_email' => $this->receiver_email,
 				'order_mode' => $this->mode,
-				)
-			);
+			)
+		);
 		return $this->create($args);
 	}
-	function create_draft_order($package_id){
+	function create_order( $args ){
+		$curren_user = wp_get_current_user();
+		$args_order = array(
+			'post_type' => $this->post_type,
+			'post_title' =>'Pay service',
+			'post_status' => 'publish',
+			'author' => $curren_user->ID,
+			'meta_input' => array(
+				'amout' => $args['amout'],
+				'project_id' => $args['project_id'],
+				'order_type' => $args['order_type'],
+				'order_mode' => $this->mode,
+				//'payer_id' => $curren_user->ID,
+				//'payer_email' => $curren_user->user_email ,
+				//'payment_type' => $args['payment_type'],
+				//'receiver_email' => $this->receiver_email,
+			)
+		);
+		return wp_insert_post($args_order);
+	}
+	/**
+	 * create orders
+	 * This is a cool function
+	 * @author danng
+	 * @version 1.0
+	 * @param   [type] $package_id [description]
+	 * @return  [type]             [description]
+	 */
+	function create_draft_order( $package_id ){
 		$curren_user = wp_get_current_user();
 		$args = array(
 			'post_title' => $curren_user->user_email . ' buy credit  via '.$this->payment_type . '(' .$this->get_amout( $package_id ) .')',
