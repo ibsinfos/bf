@@ -100,9 +100,27 @@ footer .container{
 	background: url('../../img/loading.gif') no-repeat center;
 	opacity: 0.1;
 }
+.main-color{
+	background-color: #92B558;
+	color: #fff;
+}
+.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#92B558}
+.btn{
+	background: #92B558;
+	border-radius: 5px;
+	padding: 5px 10px;
+	color: #fff;
+}
+.btn.btn-radius, .btn-radius{
+	border-radius: 20px;
+}
+
+.btn.btn-radius:hover, .btn-radius:hover{
+	color: #fff;
+}
 .btn-action,
 button.btn-action{
-	background-color: #09b509;
+	background-color: #92B558;
 	color: #fff;
 	font-size: 16px;
 	padding: 10px 20px;
