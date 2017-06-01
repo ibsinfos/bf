@@ -13,7 +13,6 @@
 					<li><a href="#tab_credit" data-toggle="tab">Credit</a>		</li>
 
 				</ul>
-
 				<div class="tab-content clearfix">
 					<div class="tab-pane active" id="1a">
 			          	<?php

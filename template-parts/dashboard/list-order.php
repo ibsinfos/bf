@@ -34,7 +34,7 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
   				global $post;
   				$query->the_post();
   				$order = BX_Order::get_instance()->get_order($post);
-  				if($order->order_type == 'withdraw')
+  				if( in_array($order->order_type, array('withdraw','pay_service') ) )
   					$check = '(-)';
   				?>
   				<div class="col-md-2"><?php echo get_the_date();?> </div>
