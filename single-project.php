@@ -55,7 +55,7 @@ global $wp_query;
 	                            global $post;
 	                            $att_query->the_post();
 	                            $feat_image_url = wp_get_attachment_url( $post->ID );
-	                            $files[] = '<span> <a href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
+	                            $files[] = '<span> <a class="text-color" href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
 	                        }
 	                        echo join(",",$files);
 	                        echo '</p>';

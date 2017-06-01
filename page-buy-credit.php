@@ -14,7 +14,7 @@
 				<form class="frm-buy-credit">
 					<div class="step step-1">
 						<div class="form-group">
-						    <h3  class="col-sm-12 col-form-label"><span>1</span> Select your package</h3>
+						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> Select your package</h3>
 					    	<?php
 					    	 $args = array(
 	                            'post_type' => '_package',
@@ -57,7 +57,7 @@
 					</div>
 					<div class="step step-2">
 						<div class="form-group">
-						    <h3  class="col-sm-12 col-form-label"><span>2</span> Select your payment gateway</h3>
+						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">2</span> Select your payment gateway</h3>
 						    <?php
 						    	global $has_payment;
 						    	$has_payment= 0;
@@ -155,22 +155,20 @@
 		line-height: 29px;
 		margin-bottom: 20px;
 	}
-	.frm-buy-credit h3 span{
-		border-radius: 50%;
-	    width: 20px;
-	    height: 20px;
-	    background: #09b509;
+	.frm-buy-credit h3 span {
+    border-radius: 50%;
+	    /* width: 20px; */
+	    /* height: 20px; */
 	    float: left;
 	    text-align: center;
 	    font-size: 14px;
 	    color: #fff;
 	    font-weight: bold;
-	    line-height: 18px;
+	    line-height: 15px;
 	    margin-top: 4px;
 	    margin-right: 10px;
-
+	    padding: 2px 6px;
 	}
-
 	.frm-buy-credit img{
 		background: #fff;
 	}
@@ -219,8 +217,8 @@
     	border-bottom: 1px solid #ddd;
 	}
 	.frm-buy-credit .btn-submit{
+		margin-top: 25px;
 		margin-right: 29px;
-		background: #09b509;
 		color: #fff;
 		text-transform: uppercase;
 	}
