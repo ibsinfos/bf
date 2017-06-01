@@ -67,9 +67,10 @@ Class BX_Credit {
 			$order_args = array(
 				'order_type' => 'pay_service',
 				'project_id' => $project_id,
+				'payment_type'=>'credit',
 				'amout' => $emp_pay,
 			);
-			var_dump($order_args);
+
 			$order  = BX_Order::get_instance()->create_order($order_args);
 		}
 		// update the number spent of this employer
