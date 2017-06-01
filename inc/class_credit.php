@@ -49,9 +49,9 @@ Class BX_Credit {
 			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
 		}
 
-		$emp_pay =  $this->subtract_credit_available( $employer_id, $emp_pay );// subtract credit in employer account.
+		$pay_ok =  $this->subtract_credit_available( $employer_id, $emp_pay );// subtract credit in employer account.
 
-		if( !$emp_pay ) {
+		if( !$pay_ok ) {
 			return new WP_Error( 'increase_pending_1', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
 			die();
 		}
@@ -69,6 +69,7 @@ Class BX_Credit {
 				'project_id' => $project_id,
 				'amout' => $emp_pay,
 			);
+			var_dump($order_args);
 			$order  = BX_Order::get_instance()->create_order($order_args);
 		}
 		// update the number spent of this employer
