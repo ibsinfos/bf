@@ -104,6 +104,9 @@ footer .container{
 	background-color: #92B558;
 	color: #fff;
 }
+.text-color{
+	color: #92B558;
+}
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#92B558}
 .btn{
 	background: #92B558;
