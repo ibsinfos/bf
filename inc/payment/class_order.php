@@ -107,9 +107,10 @@ Class BX_Order {
 				'project_id' => $args['project_id'],
 				'order_type' => $args['order_type'],
 				'order_mode' => $this->mode,
+				'payment_type' => $args['payment_type'],
 				//'payer_id' => $curren_user->ID,
 				//'payer_email' => $curren_user->user_email ,
-				//'payment_type' => $args['payment_type'],
+
 				//'receiver_email' => $this->receiver_email,
 			)
 		);
