@@ -133,7 +133,7 @@ get_header(); ?>
 				      	<li><a class="tooltips unavailable">Technical Support<span style="top: 25.9219px; left: 19.0156px;">Custom Scripts/Coding from our developers</span></a></li>
 
 					</ul>
-		            <a class="btn btn-primary btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">START FREE TRIAL NOW</a>
+		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">START FREE TRIAL NOW</a>
 
 				</div>
 			</div>
@@ -153,7 +153,7 @@ get_header(); ?>
 				      	<li><a class="tooltips unavailable">Technical Support<span style="top: 25.9219px; left: 19.0156px;">Custom Scripts/Coding from our developers</span></a></li>
 
 					</ul>
-		            <a class="btn btn-primary btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
+		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
 
 				</div>
 			</div>
@@ -173,7 +173,7 @@ get_header(); ?>
 				      	<li><a class="tooltips unavailable">Technical Support<span style="top: 25.9219px; left: 19.0156px;">Custom Scripts/Coding from our developers</span></a></li>
 
 					</ul>
-		            <a class="btn btn-primary btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">BUY NOW</a>
+		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">BUY NOW</a>
 
 				</div>
 			</div>

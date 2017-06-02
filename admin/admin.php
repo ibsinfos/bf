@@ -21,10 +21,8 @@ Class BX_Admin {
           	'Box settings', // use to check the sub menu
             'manage_options',
             self::$main_setting_slug,
-            array('BX_Admin','my_custom_menu_page'),
-            plugins_url( 'myplugin/images/icon.png' ),
-            6
-        );
+            array($this,'box_custom_menu_page'),
+            'url_img.png',6);
 
 
 	}
@@ -234,7 +232,7 @@ Class BX_Admin {
 	        </script>
     	<?php }
     }
-    static function my_custom_menu_page(){ ?>
+    static function box_custom_menu_page(){ ?>
 
 
         <div class="wrap">
