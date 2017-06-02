@@ -107,6 +107,9 @@ footer .container{
 .bg-color{
 	background-color: #92B558;
 }
+.border-color, .btn.border-color{
+	border-color: #92B558;
+}
 .text-color, .text-color:hover{
 	color: #92B558;
 }
