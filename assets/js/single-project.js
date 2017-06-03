@@ -139,7 +139,22 @@ var single_project = {
 	},
 	showAwardForm: function(event){
 		var _this = $(event.currentTarget);
-        _this.closest('.row').find('.frm-award').toggleClass('hide');
+       // _this.closest('.row').find('.frm-award').toggleClass('hide');
+        var cvs_id = _this.attr('id');
+			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
+			var content = '';
+			var success = function(res){
+				$.each( res.data, function( key, msg ) {
+					content = content + msg.msg_content + '<br />';
+				});
+				$("#frame_chat").html(content);
+			}
+			var beforeSend = function(event){
+				$('#frame_chat').toggleClass('nav-view');
+				$("#frame_chat").html(' Show information of this user here');
+				console.log('loading');
+			}
+        window.ajaxSend.customLoading(data,beforeSend,success);
 	},
 	createConversation: function(e){
 		var _this = $(event.currentTarget);
