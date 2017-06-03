@@ -35,7 +35,7 @@
 				$first_cvs = 0;
 
 				if( isset($conversations[0]) )
-					$first_cvs = $conversations[0]->ID;
+					$first_cvs = $conversations[0]->cvs_id;
 				echo '<input type="hidden" value="'.$first_cvs.'" id="first_cvs" />';
 				?>
 				<div id="container_msg">
