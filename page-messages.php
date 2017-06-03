@@ -12,7 +12,7 @@
 	    		$sql = "SELECT *
 						FROM  {$wpdb->prefix}box_messages msg
 						WHERE ( sender_id = {$user_ID} OR receiver_id = {$user_ID} )
-							AND msg_type = 'message' GROUP BY cvs_id ";
+							AND msg_type = 'message' GROUP BY cvs_id ORDER BY msg.msg_date DESC";
 
 				$conversations = $wpdb->get_results($sql); // list conversations
 				if($conversations) {

@@ -4,6 +4,8 @@ global $wp_query;
 <?php get_header(); ?>
 <?php
 	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id;
+	$cvs_id = 0;
+
 	the_post();
 	$role = bx_get_user_role();
 	$project = BX_Project::get_instance()->convert($post);
@@ -20,7 +22,7 @@ global $wp_query;
 <div <?php post_class('container single-project site-container');?>>
 	<div id="content" class="row">
 		<?php
-		$cvs_id = 0;
+
 		if( $is_workspace && $access_workspace ){
 			get_template_part( 'template-parts/workspace' );
 		} else { ?>
@@ -74,7 +76,7 @@ global $wp_query;
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
 		<?php } ?>
-		99999 <?php global $cvs_id; echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
+		<?php global $cvs_id; var_dump($cvs_id); echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
 	</div>
 
 </div>
