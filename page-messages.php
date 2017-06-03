@@ -66,11 +66,12 @@
 </script>
 <style type="text/css">
 	#list_msg{
-		height: 150px;
+		height: 200px;
 		padding-left: 15px;
 		padding-left: 15px;
 		overflow-x: hidden;
 		overflow-y: scroll;
+		border:1px solid #ccc;
 	}
 
 </style>
