@@ -115,8 +115,8 @@ var single_project = {
 			// create converstaion
 			console.log('Create convertsation')
 	    	var freelancer_id = _this.attr('alt');
-	        var bid_form = wp.template("bid_form");
 	        cvs_send.freelancer_id = freelancer_id;
+	        var bid_form = wp.template("bid_form");
 	        $("#frame_chat").html(bid_form);
 	        $('#frame_chat').addClass('nav-view');
 
@@ -125,13 +125,17 @@ var single_project = {
 	    	// send message
 	        var cvs_id = _this.attr('id');
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
-			var content = '';
+
 			var success = function(res){
-				console.log(res);
+				var content = '<div id="container_msg">';
 				$.each( res.data, function( key, msg ) {
 					content = content + msg.msg_content + '<br />';
 				});
-				$(".frm_content").html(content);
+				content = content + '</div>';
+
+				$(".frm_content").html( content );
+				var bid_form = wp.template("bid_form");
+				$(".reply_input").html(bid_form);
 				$('#frame_chat').addClass('nav-view');
 			}
 			var beforeSend = function(event){

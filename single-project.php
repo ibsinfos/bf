@@ -84,7 +84,8 @@ global $wp_query;
 	<button class="btn btn-close"> x </button>
 	<div class="frm_content">
 	</div>
-
+	<div class="reply_input">
+	</div>
 	<div class="right-scroll" style="padding: 30px;">
 	</div>
 </div>
@@ -93,9 +94,9 @@ global $wp_query;
 </script>
 <script type="text/html" id="tmpl-bid_form">
 	<form class="frm-conversation frm-send-message " >
-			<textarea name="cvs_content" class="full cvs_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
-			<br />
-			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+		<textarea name="cvs_content" class="full cvs_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
+		<br />
+		<button type="submit" class="btn btn-send-message f-right"><?php _e('Send','boxtheme');?></button>
 	</form>
 </script>
 
