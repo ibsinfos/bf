@@ -140,14 +140,15 @@ var single_project = {
 	showAwardForm: function(event){
 		var _this = $(event.currentTarget);
        // _this.closest('.row').find('.frm-award').toggleClass('hide');
-        var cvs_id = _this.attr('id');
-			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
+        var user_id = _this.attr('id');
+			var data = {action: 'sync_profile', method: 'get_full_info', user_id:user_id};
 			var content = '';
 			var success = function(res){
-				$.each( res.data, function( key, msg ) {
-					content = content + msg.msg_content + '<br />';
-				});
-				$("#frame_chat").html(content);
+
+				var full_info = wp.template("full_info");
+				console.log( res.result);
+				$("#frame_chat").html( full_info( res.result) );
+				//$("#frame_chat").html(content);
 			}
 			var beforeSend = function(event){
 				$('#frame_chat').toggleClass('nav-view');

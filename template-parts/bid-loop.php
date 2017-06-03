@@ -46,7 +46,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 				<?php } else { ?>
 					<button class="btn inline btn-status-display no-radius btn-toggle-message btn-scrol-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
-			 	<button class="btn inline btn-status-display no-radius btn-toggle-award"><?php _e('Award job','boxtheme');?></button>
+			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->post_author;?>"><?php _e('Award job','boxtheme');?></button>
 
 			</div>
 		<?php } else { ?>

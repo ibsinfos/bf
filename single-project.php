@@ -95,7 +95,18 @@ global $wp_query;
 			<br />
 			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 	</form>
+</script>
+<script type="text/html" id="tmpl-full_info">
+	<div class="full_info">
+	<div class="row">
+		<div class="col-md-12">
+			<center>{{{data.avatar}}}</center>
+			<center>{{{data.display_name}}}</center>
+			<center>{{{data.professional_title}}}</center>
+		</div>
 
+	</div>
+	</div>
 </script>
 <script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

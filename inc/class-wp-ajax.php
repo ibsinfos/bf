@@ -108,6 +108,7 @@ class BX_AJAX {
 			'buy_credit'            => false,
 			'box_upload_file' 		=> false,
 			'sync_msg' 				=> false,
+
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -266,12 +267,17 @@ class BX_AJAX {
 		$request 	= $_REQUEST;
 		$method 	= isset($request['method']) ? $request['method'] : '';
 		$args 		= $_REQUEST['request'];
-		$response 	= array('success' => true, 'msg'=> __('You have updated profile successfull','boxtheme') );
+
+
 		$profile 	= BX_Profile::get_instance();
-		$profile_id = $profile->sync($args, $method);
-		if( is_wp_error( $profile_id )){
+		$result = $profile->sync($args, $method);
+
+		$response 	= array('success' => true, 'msg'=> __('You have updated profile successfull','boxtheme'), 'result' => $result);
+
+		if( is_wp_error( $result ) ){
 			$response = array('success' => false,'msg' =>$profile_id->get_error_message());
 		}
+
 		wp_send_json($response );
 
 	}
@@ -659,6 +665,7 @@ class BX_AJAX {
 		wp_send_json( array('success'=> true, 'data'=>$messages) );
 
 	}
+
 
 }
 

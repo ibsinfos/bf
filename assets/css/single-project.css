@@ -130,3 +130,6 @@
     border-bottom: solid 1px rgba(255, 255, 255, 0.4);
     text-decoration: none;
 }
+.full_info{
+	padding-left: 15px;
+}

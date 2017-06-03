@@ -27,7 +27,7 @@ Class BX_Profile extends BX_Post{
 		return array('country','skill');
 	}
 	function sync($args, $method){
-		$this->$method($args);
+		return $this->$method($args);
 	}
 
 	function insert1($args){
@@ -76,6 +76,29 @@ Class BX_Profile extends BX_Post{
 
 
 		return $post;
+	}
+
+	function get_full_info($args){
+		$user_id = $args['user_id'];
+		$full_info = array();
+		$user = get_userdata( $user_id );
+		$full_info['user_ID'] = $user->ID;
+		$full_info['user_login'] = $user->user_login;
+		$full_info['user_nicename'] = $user->user_nicename;
+		//$full_info['user_email'] = $user->user_email;
+		$full_info['display_name'] = $user->display_name;
+		$full_info['first_name'] = $user->first_name;
+		$full_info['last_name'] = $user->last_name;
+		$full_info['description'] = $user->description;
+		$full_info['avatar'] =  get_avatar($user->user_email, 64 );
+
+		$profile_id = get_user_meta($user_id,'profile_id', true);
+		$profile_info = $this->convert($profile_id);
+		foreach ($profile_info as $key => $value) {
+			$full_info[$key] = $value;
+		}
+		return $full_info;
+
 	}
 	function update($args){
 
