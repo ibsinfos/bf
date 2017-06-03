@@ -104,9 +104,15 @@ global $wp_query;
 			<center>{{{data.display_name}}}</center>
 			<center>{{{data.professional_title}}}</center>
 		</div>
-		<div class="col-md-10 .col-md-offset-1">
+		<div class="col-md-12">
+			{{{data.skill_text}}}
+		</div>
+		<div class="col-md-12">
+			{{{data.post_content}}}
+		</div>
+
 		<# _.each( data.feedbacks, function( feeback ) { #>
-			<div class="col-md-10 .col-md-offset-1">{{{feeback.comment_content}}}
+			<div class="col-md-12">{{{feeback.comment_content}}}
 				<start class="rating-score clear block core-{{{feeback.rating}}}">
 					<span class="glyphicon glyphicon-star"></span>
 					<span class="glyphicon glyphicon-star"></span>
@@ -117,7 +123,7 @@ global $wp_query;
 			</div>
 		<#  }) #>
 
-	</div>
+
 	</div>
 </script>
 <script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>

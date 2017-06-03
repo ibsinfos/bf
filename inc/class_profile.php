@@ -94,8 +94,17 @@ Class BX_Profile extends BX_Post{
 
 		$profile_id = get_user_meta($user_id,'profile_id', true);
 		$profile_info = $this->convert($profile_id);
-
-
+		$full_info['skill_text'] = '';
+		$skills 	= get_the_terms( $profile_id, 'skill' );
+		$skill_text = '';
+		if ( $skills && ! is_wp_error( $skills ) ){
+			$draught_links = array();
+			foreach ( $skills as $term ) {
+				$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+			}
+			$skill_text = join( ", ", $draught_links );
+			$full_info['skill_text'] = $skill_text;
+		}
 		foreach ($profile_info as $key => $value) {
 			$full_info[$key] = $value;
 		}
