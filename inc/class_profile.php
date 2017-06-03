@@ -94,6 +94,7 @@ Class BX_Profile extends BX_Post{
 
 		$profile_id = get_user_meta($user_id,'profile_id', true);
 		$profile_info = $this->convert($profile_id);
+		$full_info['list_feedback'] = 'gooog';
 		foreach ($profile_info as $key => $value) {
 			$full_info[$key] = $value;
 		}

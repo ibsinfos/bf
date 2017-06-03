@@ -104,6 +104,9 @@ global $wp_query;
 			<center>{{{data.display_name}}}</center>
 			<center>{{{data.professional_title}}}</center>
 		</div>
+		<div class="col-md-10 .col-md-offset-1">
+			{{{data.list_feedback}}}
+		</div>
 
 	</div>
 	</div>
