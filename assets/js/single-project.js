@@ -1,7 +1,8 @@
 ( function( $ ) {
 var gproject;
 var cvs_send, msg_send;
-var full_profiles = []
+var full_profiles = [];
+var act_type = '';
 var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
@@ -22,6 +23,7 @@ var single_project = {
 		$( "span.btn-del-attachment").on('click', this.removeAttachment);
 		$( "form#frm_emp_review").on('submit', this.reviewFreelancer);
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
+		$("btn.btn-close").on('click',this.closeFrame);
 
 		console.log(full_profiles);
 		msg_send.cvs_id = $("#cvs_id").val();
@@ -110,7 +112,7 @@ var single_project = {
 		var _this = $(event.currentTarget);
 
 
-
+		console.log(act_type);
 		//if( _this.hasClass('.btn-toggle-message') ){
 			var cvs_id = _this.attr('id');
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
@@ -119,10 +121,20 @@ var single_project = {
 				$.each( res.data, function( key, msg ) {
 					content = content + msg.msg_content + '<br />';
 				});
-				$("#frame_chat").html(content);
+				$(".frm_content").html(content);
+				if(act_type!= 'cre_converstation' ){
+					act_type = 'cre_converstation';
+					$('#frame_chat').addClass('nav-view');
+				}
+				console.log('aaaa');
+
 			}
 			var beforeSend = function(event){
-				$('#frame_chat').toggleClass('nav-view');
+				if(act_type != 'cre_converstation'){
+					$('#frame_chat').removeClass('nav-view');
+
+
+				}
 				console.log('loading');
 			}
 			window.ajaxSend.customLoading(data,beforeSend,success);
@@ -138,6 +150,7 @@ var single_project = {
 
 	},
 	showAwardForm: function(event){
+		$('#frame_chat').remove('nav-view');
 		var _this = $(event.currentTarget);
        // _this.closest('.row').find('.frm-award').toggleClass('hide');
         var user_id = _this.attr('id');
@@ -146,23 +159,40 @@ var single_project = {
 		var full_info = wp.template("full_info");
 		var success = function(res){
 			full_profiles[user_id] = res.result;
-			$("#frame_chat").html( full_info( res.result) );
+			$(".frm_content").html( full_info( res.result) );
+			if( act_type != 'show_info' ){
+				$('#frame_chat').addClass('nav-view');
+				act_type = 'show_info';
+			}
+			console.log('bbb');
 
 		}
 		var beforeSend = function(event){
-			$('#frame_chat').toggleClass('nav-view');
-			$("#frame_chat").html(' Show information of this user here');
+			console.log(act_type);
+			if(act_type != 'show_info'){
+				$('#frame_chat').removeClass('nav-view');
+			} else {
+				console.log(' vo day');
+			}
+			$(".frm_content").html(' Show information of this user here');
 			console.log('loading');
 		}
 
 
 		if( typeof(full_profiles[user_id]) != "undefined" ){
 			console.log('exists');
-			$('#frame_chat').toggleClass('nav-view');
-			$("#frame_chat").html( full_info( full_profiles[user_id]) );
+			console.log(act_type);
+			if(act_type != 'show_info'){
+				$('#frame_chat').addClass('nav-view');
+				act_type = 'show_info';
+			}
+			$(".frm_content").html( full_info( full_profiles[user_id]) );
 			return false;
 		}
         window.ajaxSend.customLoading(data,beforeSend,success);
+	},
+	closeFrame: function(e){
+		$('#frame_chat').removeClass('nav-view');
 	},
 	createConversation: function(e){
 		var _this = $(event.currentTarget);

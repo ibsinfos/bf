@@ -81,6 +81,10 @@ global $wp_query;
 
 </div>
 <div id="frame_chat">
+	<button class="btn btn-close"> x </button>
+	<div class="frm_content">
+	</div>
+
 	<div class="right-scroll" style="padding: 30px;">
 	</div>
 </div>
@@ -108,6 +112,7 @@ global $wp_query;
 				{{{data.skill_text}}}
 			</div>
 			<div class="col-md-12">
+				<h3>Overviews:</h3>
 				{{{data.post_content}}}
 			</div>
 
