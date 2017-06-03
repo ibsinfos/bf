@@ -7,10 +7,10 @@
 			msg_submit = {action: 'sync_msg', msg_content: '', method: 'insert', cvs_id:0 };
 			msg_submit.cvs_id = $("#first_cvs").val();
 			$( '.render-conv' ).on('click', this.rederConversation);
-			$( "form.send-message").live('submit', this.sendMessage);
+			$( "form.frm-send-message").live('submit', this.sendMessage);
 
 			console.log('init MSG');
-			var textarea = document.getElementById('list_msg');
+			var textarea = document.getElementById('container_msg');
 				textarea.scrollTop = textarea.scrollHeight;
 
 		},
@@ -19,20 +19,20 @@
 			var id = element.attr('id');
 			msg_submit.cvs_id = id;
 			var success = function(res){
-				$("#list_msg").html('');
+				$("#container_msg").html('');
 				var template = wp.template( 'msg_record' );
 				$.each( res.data, function( key, value ) {
 					username_display = 'You: ';
 					if( value.sender_id != bx_global.user_ID){
 						username_display = 'Partner: ';
 					}
-					$("#list_msg").append('<div class="row">'+username_display+value.msg_content+'</div>');
+					$("#container_msg").append('<div class="row">'+username_display+value.msg_content+'</div>');
 
 				});
-				var textarea = document.getElementById('list_msg');
+				var textarea = document.getElementById('container_msg');
 				textarea.scrollTop = textarea.scrollHeight;
 
-				$("#form_reply").html('<form class="send-message" ><textarea name="msg_content" id="container_msg" class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
+				$("#form_reply").html('<form class="frm-send-message" ><textarea name="msg_content"  class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
 			};
 
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:id};
@@ -48,9 +48,9 @@
 			var success = function(res){
 		        console.log(res);
 	        	if ( res.success ){
-	        		$("#list_msg").append('<div class="row">You:' + msg_submit.msg_content + '</div>');
+	        		$("#container_msg").append('<div class="row">You:' + msg_submit.msg_content + '</div>');
 	        		$(".msg_content").html('');
-	        		var textarea = document.getElementById('list_msg');
+	        		var textarea = document.getElementById('container_msg');
 					textarea.scrollTop = textarea.scrollHeight;
 	        		$("form.send-message").trigger("reset");
 		        } else {

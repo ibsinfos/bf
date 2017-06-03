@@ -38,7 +38,7 @@
 					$first_cvs = $conversations[0]->ID;
 				echo '<input type="hidden" value="'.$first_cvs.'" id="first_cvs" />';
 				?>
-				<div id="list_msg">
+				<div id="container_msg">
 					<?php
 					if($first_cvs){
 						$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
@@ -54,7 +54,7 @@
 				</div>
 				<div id="form_reply">
 					<?php if($first_cvs){?>
-						<form class="send-message" ><textarea name="msg_content" id="container_msg" class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>
+						<form class="frm-send-message" ><textarea name="msg_content" class="full msg_content" rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>
 					<?php } ?>
 				</div>
 			</div>

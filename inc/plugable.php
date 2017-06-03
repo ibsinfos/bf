@@ -77,7 +77,6 @@ function show_conversation($freelancer_id, $project_id){
 	global $cvs_id;
 	if( isset($messages[0]) )
 		$cvs_id = $messages[0]->cvs_id;
-	var_dump($cvs_id);
 
 }
 function get_conversation($cvs_id){

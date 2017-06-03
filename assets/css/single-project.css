@@ -61,26 +61,7 @@
 .status-awarded  .btn-status-display{
 	display: none;
 }
-#container_msg{
-	height: 150px;
-	overflow-x: hidden;
-	overflow-y:scroll;
-	margin-bottom:20px;
-	padding-top: 10px;
-	border-radius: 5px;
-	border:1px solid #ccc;
-}
-.msg-author{
-	width: 50px;
-}
-.frm-send-message{
-	position: relative;
-}
-.btn-send-message{
-	position: absolute;
-	top: 20px;
-	right: 30px;
-}
+
 .bid-form{
 	overflow: hidden;
 }
@@ -110,6 +91,7 @@
 	margin-left: 1px;
 }
 /* END WORKSPACE **************/
+
 #frame_chat {
     position: fixed;
     right: 0;

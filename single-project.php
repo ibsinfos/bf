@@ -76,7 +76,7 @@ global $wp_query;
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
 		<?php } ?>
-		<?php global $cvs_id; var_dump($cvs_id); echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
+		<?php global $cvs_id;  echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
 	</div>
 
 </div>
