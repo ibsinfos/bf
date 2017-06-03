@@ -23,7 +23,7 @@ var single_project = {
 		$( "span.btn-del-attachment").on('click', this.removeAttachment);
 		$( "form#frm_emp_review").on('submit', this.reviewFreelancer);
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
-		$("btn.btn-close").on('click',this.closeFrame);
+		$(".btn-close").on('click',this.closeFrame);
 
 		console.log(full_profiles);
 		msg_send.cvs_id = $("#cvs_id").val();
@@ -186,12 +186,16 @@ var single_project = {
 				$('#frame_chat').addClass('nav-view');
 				act_type = 'show_info';
 			}
+			if( ! $('#frame_chat').hasClass("nav-view") )
+				$('#frame_chat').addClass('nav-view');
+
 			$(".frm_content").html( full_info( full_profiles[user_id]) );
 			return false;
 		}
         window.ajaxSend.customLoading(data,beforeSend,success);
 	},
 	closeFrame: function(e){
+		console.log('close');
 		$('#frame_chat').removeClass('nav-view');
 	},
 	createConversation: function(e){
