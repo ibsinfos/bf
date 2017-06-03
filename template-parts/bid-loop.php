@@ -39,7 +39,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 		<?php //if($user_ID == $project->post_author && $project->post_status == 'publish'){?>
 		<div class="full clear align-right">
 			<?php if( is_sent_msg($project->ID, $bid->post_author) ){ ?>
-				<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('View convertsation a message','boxtheme');?></button>
+				<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('View convertsation','boxtheme');?></button>
 			<?php } else { ?>
 				<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('Send message','boxtheme');?></button>
 			<?php } ?>
