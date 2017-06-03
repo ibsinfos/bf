@@ -110,6 +110,7 @@
     border:1px solid #ccc;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
+    z-index: 100;
 }
 .nav-view, #frame_chat.nav-view {
     transform: translateX(0);
@@ -130,6 +131,22 @@
     border-bottom: solid 1px rgba(255, 255, 255, 0.4);
     text-decoration: none;
 }
-.full_info{
+.full-info{
 	padding-left: 15px;
+}
+.full-info .col-md-12{
+	border-bottom: 1px solid #f1f1f1;
+	padding: 10px;
+}
+.full-info .project-link {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 180px;
+    float: left;
+    overflow: hidden;
+}
+.full-info .review{
+	padding-top:5px;
+	font-size: 13px;
+	float: left;
 }

@@ -97,34 +97,36 @@ global $wp_query;
 	</form>
 </script>
 <script type="text/html" id="tmpl-full_info">
-	<div class="full_info">
-	<div class="row">
-		<div class="col-md-12">
-			<center>{{{data.avatar}}}</center>
-			<center><h2 class="profile-title no-margin">{{{data.display_name}}}</h2></center>
-			<center><h4 class="professional-title no-margin">{{{data.professional_title}}}</h4></center>
-		</div>
-		<div class="col-md-12">
-			{{{data.skill_text}}}
-		</div>
-		<div class="col-md-12">
-			{{{data.post_content}}}
-		</div>
-
-		<# _.each( data.feedbacks, function( feeback ) { #>
-			<div class="col-md-12">{{{feeback.project_link}}}
-				<start class="rating-score clear block core-{{{feeback.rating}}}">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-				</start>
-				 <div class="">{{{feeback.comment_content}}}</div>
+	<div class="full-info">
+		<div class="row">
+			<div class="col-md-12">
+				<center>{{{data.avatar}}}</center>
+				<center><h2 class="profile-title no-margin">{{{data.display_name}}}</h2></center>
+				<center><h4 class="professional-title no-margin">{{{data.professional_title}}}</h4></center>
 			</div>
-		<#  }) #>
+			<div class="col-md-12">
+				{{{data.skill_text}}}
+			</div>
+			<div class="col-md-12">
+				{{{data.post_content}}}
+			</div>
 
-
+			<# _.each( data.feedbacks, function( feeback ) { #>
+				<div class="col-md-12">
+					<div class="col-md-9 no-padding">{{{feeback.project_link}}}</div>
+					<div class="col-md-3 no-padding">
+					<start class="rating-score clear block core-{{{feeback.rating}}}">
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+					</start>
+					</div>
+					<div class="review"><i>{{{feeback.comment_content}}}</i></div>
+				</div>
+			<#  }) #>
+		</div>
 	</div>
 </script>
 <script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>

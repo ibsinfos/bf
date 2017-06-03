@@ -111,6 +111,7 @@ Class BX_Profile extends BX_Post{
 		$args = array(
 			'user_id' => $user_id,
 			'type' => 'emp_review',
+			'number' => 5,
 		);
 		$feedback = array();
 
@@ -119,7 +120,7 @@ Class BX_Profile extends BX_Post{
 			$bid_id = $cmn->comment_post_ID;
 			$bid = get_post($bid_id);
 			$feedback[$key] = $cmn;
-			$feedback[$key]->project_link = '<a href="'.get_permalink($bid->post_parent).'">'. get_the_title($bid->post_parent) .'</a>';
+			$feedback[$key]->project_link = '<a class ="project-link" href="'.get_permalink($bid->post_parent).'">'. get_the_title($bid->post_parent) .'</a>';
 			$feedback[$key]->rating = get_comment_meta( $cmn->comment_ID, RATING_SCORE, true );
 		}
 		$full_info['feedbacks'] = $feedback;
