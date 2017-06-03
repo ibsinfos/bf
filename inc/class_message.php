@@ -3,6 +3,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 class BX_Message{
+	public $author_id;
+	public $receiver_id;
+	public $content;
 	static protected $instance;
 	function  __construct(){
 
@@ -23,11 +26,13 @@ class BX_Message{
 		$cvs_id = isset($args['cvs_id']) ? $args['cvs_id'] : 0;
 		$msg_sender_id = $args['msg_sender_id'];
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
-		$msg_type = isset($args['msg_type']) ? $args['msg_type']: '';
+		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
 
 		if( empty($args['cvs_id']) ){
 			$msg_sender_id = 0;
 		}
+		if(empty($msg_sender_id))
+			$msg_sender_id = $user_ID;
 
 		$t = $wpdb->insert(
 			$wpdb->prefix . 'box_messages', array(
@@ -39,14 +44,14 @@ class BX_Message{
 				'msg_status' => 'new',
 				'msg_link' => $msg_link,
 				'msg_type' => $msg_type,
-				'msg_receiver_id' => $args['msg_receiver_id']
+				//'msg_receiver_id' => $args['msg_receiver_id']
 			)
 		);
 		//var_dump($wpdb->last_query);
 		return $wpdb->insert_id;
 	}
 
-	function get_converstaion($args){
+	function get_converstaion1($args){
 		$group = $args['group'];
 
 		$gr = explode(",",$group);
@@ -63,8 +68,19 @@ class BX_Message{
 
 		$msg =  $wpdb->get_results($sql);
 		return $msg;
+	}
+	function get_converstaion($args){
+		$id = $args['id'];
+		global $wpdb;
 
+		$sql = "SELECT *
+				FROM {$wpdb->prefix}box_messages msg
+				WHERE cvs_id = {$id}
+					AND msg_type = 'message'
+				ORDER BY id DESC";
 
+		$msg =  $wpdb->get_results($sql);
+		return $msg;
 	}
 }
 class BX_Conversations{

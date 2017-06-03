@@ -65,6 +65,45 @@ function show_conversation($freelancer_id, $project_id){
 		<?php
 	}
 }
+function get_conversation($cvs_id){
+	global $wpdb, $user_ID, $convs_id;
+	$convs = get_conversation_id_of_user($freelancer_id, $project_id);
+
+	if(null !== $convs){
+		$convs_id  = $convs->ID;
+		$messages = $wpdb->get_results("
+			SELECT *
+			FROM {$wpdb->prefix}messages
+			WHERE cvs_id = {$convs_id}"
+		);
+
+		if ( $messages ){
+			$result .= '<div id="container_msg">';
+			foreach ( $messages as $msg ){
+				$result.= '<div class="msg-record msg-item row">';
+				$result.= '<div class="col-md-12">';
+
+				if($msg->msg_author == $user_ID){
+					$result.= '<span class="msg-author f-left col-md-2">You: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';
+				} else {
+					$result.= '<span class="msg-author f-left col-md-2">User: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';;
+				}
+				$result.= '</div>';
+				$result.= '</div>';
+			}
+			$result.= '</div>';
+		}
+		$result .= '
+		<form class="send-message"  >
+			<textarea name="msg_content" class="full" required rows="3" placeholder="Leave your message here"></textarea>
+			<br />
+			<input type="hidden" name="cvs_id" value="<?php echo $convs_id;?>">
+			<button type="submit" class="btn btn-send-message align-right f-right">'._e('Send','boxtheme').'</button>
+		</form>';
+		return $result;
+
+	}
+}
 /*
 * Mofify the column_date function in core WordPress
 */

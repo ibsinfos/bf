@@ -653,8 +653,9 @@ class BX_AJAX {
 		$msg 	= BX_Message::get_instance();
 		$args 	= $_REQUEST['request'];
 		$method = $args['method'];
-		$result 	= $msg->sync( $args,  $method );
-		wp_send_json( array('success'=> true, 'data'=>$result) );
+		$messages 	= $msg->sync( $args,  $method );
+
+		wp_send_json( array('success'=> true, 'data'=>$messages) );
 
 	}
 
