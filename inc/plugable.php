@@ -20,33 +20,43 @@ if ( ! function_exists( 'bx_get_user_role') ){
 }
 function get_conversation_id_of_user($freelancer_id, $project_id){
 	global $wpdb;
+	$check = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_conversations
+		 	WHERE receiver_id = %d
+		 	AND cvs_project_id = %d",
+	        $freelancer_id, $project_id
+        );
+	//var_dump($check);
 	$convs = $wpdb->get_row(
-		$wpdb->prepare( "SELECT * FROM {$wpdb->prefix}conversations
+		$wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_conversations
 		 	WHERE receiver_id = %d
 		 	AND cvs_project_id = %d",
 	        $freelancer_id, $project_id
         ) );
+
 	return  $convs;
 }
 function show_conversation($freelancer_id, $project_id){
 	global $wpdb, $user_ID, $convs_id;
-	$convs = get_conversation_id_of_user($freelancer_id, $project_id);
+	$check = $wpdb->prepare( "SELECT msg.* FROM {$wpdb->prefix}box_conversations cvs
+			INNER JOIN {$wpdb->prefix}box_messages msg ON  cvs.id = msg.cvs_id
+		 	WHERE cvs.receiver_id = %d
+		 	AND cvs.cvs_project_id = %d",
+	        $freelancer_id, $project_id
+        );
 
-	if(null !== $convs){
-		$convs_id  = $convs->ID;
-		$messages = $wpdb->get_results("
-			SELECT *
-			FROM {$wpdb->prefix}messages
-			WHERE cvs_id = {$convs_id}"
-		);
+
+	$messages = $wpdb->get_results($check);
+
+	if(null !== $messages){
 
 		if ( $messages ){
 			echo '<div id="container_msg">';
 			foreach ( $messages as $msg ){
+
 				echo '<div class="msg-record msg-item row">';
 				echo '<div class="col-md-12">';
 
-				if($msg->msg_author == $user_ID){
+				if($msg->sender_id == $user_ID){
 					echo '<span class="msg-author f-left col-md-2">You: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';
 				} else {
 					echo '<span class="msg-author f-left col-md-2">User: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';;
@@ -56,14 +66,18 @@ function show_conversation($freelancer_id, $project_id){
 			}
 			echo '</div>';
 		} ?>
-		<form class="send-message"  >
-			<textarea name="msg_content" class="full" required rows="3" placeholder="Leave your message here"></textarea>
+		<form class="frm-send-message"  >
+			<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="Leave your message here"></textarea>
 			<br />
 			<input type="hidden" name="cvs_id" value="<?php echo $convs_id;?>">
 			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 		</form>
 		<?php
 	}
+	global $cvs_id;
+	if( isset($messages[0]) )
+		$cvs_id = $messages[0]->cvs_id;
+
 }
 function get_conversation($cvs_id){
 	global $wpdb, $user_ID, $convs_id;

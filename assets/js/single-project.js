@@ -1,11 +1,14 @@
 ( function( $ ) {
 var gproject;
 var cvs_send, msg_send;
+
 var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
 		gproject = this.project;
 		cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,freelancer_id:0 };
+		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'' };
+
 		$( '#bid_form' ).on( 'submit', this.submitBid );
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
@@ -13,7 +16,7 @@ var single_project = {
 		$( ".btn-toggle-message").on('click',this.showSendMessageForm);
 		$( "form.frm-conversation").live('submit', this.createConversation);
 
-		//$( "form.send-message").on('submit', this.sendMessage);
+		$( "form.frm-send-message").on('submit', this.sendMessage); // in workspace section
 		$( ".btn-toggle-award").on('click',this.showAwardForm);
 		$( "form.frm-award").on('submit', this.awardProject);
 		$( "span.btn-del-attachment").on('click', this.removeAttachment);
@@ -21,7 +24,7 @@ var single_project = {
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
 
 
-
+		msg_send.cvs_id = $("#cvs_id").val();
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
 			textarea.scrollTop = textarea.scrollHeight;
@@ -151,7 +154,13 @@ var single_project = {
 	        	alert(res.msg);
 	        }
 		}
-		window.ajaxSend.Form(event, action, method, success);
+		var _this = $(event.currentTarget);
+		console.log(_this);
+		msg_send.msg_content = _this.find(".msg_content").val();
+		console.log(msg_send);
+		window.ajaxSend.Custom(msg_send, success);
+
+		//window.ajaxSend.Form(event, action, method, success);
 		return false;
 	},
 
