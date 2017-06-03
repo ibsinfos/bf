@@ -141,11 +141,11 @@ var single_project = {
 			var beforeSend = function(event){
 				if(act_type != 'cre_converstation'){
 					$('#frame_chat').removeClass('nav-view');
-
 				}
 				console.log('loading');
 			}
 			window.ajaxSend.customLoading(data,beforeSend,success);
+
 	    }
 
 
@@ -217,6 +217,7 @@ var single_project = {
 	},
 
 	sendMessage: function(e){
+		console.log('send messsage, line 220');
 		var action = 'sync_message', method = 'insert';
 		var success = function(res){
         	if ( res.success ){
