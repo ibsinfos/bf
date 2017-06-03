@@ -117,7 +117,7 @@ var single_project = {
 	    	var freelancer_id = _this.attr('alt');
 	        cvs_send.freelancer_id = freelancer_id;
 	        var bid_form = wp.template("bid_form");
-	        $("#frame_chat").html(bid_form);
+	        $(".frm_content").html(bid_form);
 	        $('#frame_chat').addClass('nav-view');
 
 	    } else {
