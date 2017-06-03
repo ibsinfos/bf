@@ -77,6 +77,19 @@ global $wp_query;
 </div>
 <div id="frame_chat">test
 </div>
+<script type="text/template" id="">
+
+</script>
+<script type="text/html" id="tmpl-bid_form">
+	<form class="frm-conversation  send-message" >
+			<textarea name="cvs_content" class="full cvs_content" rows="6" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
+			<!-- <input type="hidden" name="cvs_freelancer_id" value="{{{data.freelancer_id}}}">
+			<input type="hidden" name="cvs_project_id" value="{{{data.project_id}}}"> -->
+			<br />
+			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+	</form>
+
+</script>
 <script type="text/template" id="json_project"><?php global $convs_id; $project->convs_id = $convs_id; echo json_encode($project); ?></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">

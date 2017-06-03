@@ -115,6 +115,7 @@ class BX_Conversations{
 	}
 }
 function is_sent_msg($project_id, $receiver_id){
-	return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
+	return true;
+	//return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
 }
 ?>

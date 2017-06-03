@@ -1,15 +1,17 @@
 ( function( $ ) {
-
+var gproject;
+var conversation;
 var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
-
+		gproject = this.project;
+		conversation = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,bid_id:0 };
 		$( '#bid_form' ).on( 'submit', this.submitBid );
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
 		$( ".input-price").on('change keyup', this.generate_price);
 		$( ".btn-toggle-message").on('click',this.showSendMessageForm);
-		$( "form.frm-conversation").on('submit', this.createConversation);
+		$( "form.frm-conversation").live('submit', this.createConversation);
 
 		//$( "form.send-message").on('submit', this.sendMessage);
 		$( ".btn-toggle-award").on('click',this.showAwardForm);
@@ -103,7 +105,13 @@ var single_project = {
 	showSendMessageForm: function(event){
 		var _this = $(event.currentTarget);
         //_this.closest('.row').find('.frm-conversation').toggleClass('hide');
+        var bid_id = _this.attr('id');
+        var bid_form = wp.template("bid_form");
+        conversation.bid_id = bid_id;
+        //$("#frame_chat").append(bid_form);
+        $("#frame_chat").html(bid_form);
         $('#frame_chat').toggleClass('nav-view');
+
 
 	},
 	showAwardForm: function(event){
@@ -111,7 +119,9 @@ var single_project = {
         _this.closest('.row').find('.frm-award').toggleClass('hide');
 	},
 	createConversation: function(e){
-		var action = 'sync_conversations', method = 'insert';
+		var _this = $(event.currentTarget);
+		console.log(_this);
+		conversation.cvs_content = _this.find(".cvs_content").val();
 		var success = function(res){
 	        console.log(res);
         	if ( res.success ){
@@ -119,7 +129,9 @@ var single_project = {
 	        	alert(res.msg);
 	        }
 		}
-		window.ajaxSend.Form(event, action, method, success);
+		conversation.method = 'insert';
+
+		window.ajaxSend.Custom(conversation, success);
 		return false;
 	},
 

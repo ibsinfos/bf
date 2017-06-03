@@ -39,7 +39,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 		<?php //if($user_ID == $project->post_author && $project->post_status == 'publish'){?>
 		<div class="full clear align-right">
 			<?php if( is_sent_msg($project->ID, $bid->post_author) ){ ?>
-				<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('View convertsation','boxtheme');?></button>
+				<button class="btn inline btn-status-display no-radius btn-toggle-message" id="<?php echo $bid->ID;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
 			<?php } else { ?>
 				<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('Send message','boxtheme');?></button>
 			<?php } ?>
@@ -52,13 +52,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 	</div>
 
 	<div class="col-md-12">
-		<form class="frm-conversation  send-message" >
-			<textarea name="cvs_content" class="full " rows="6" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
-			<input type="hidden" name="cvs_freelancer_id" value="<?php echo $bid->post_author;?>">
-			<input type="hidden" name="cvs_project_id" value="<?php echo $bid->post_parent;?>">
-			<br />
-			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
-		</form>
+
 		<form class="frm-award " >
 			<div class="form-group row">
 		 		<label  class="col-sm-4 col-form-label"><?php _e('Total amount','boxtheme');?></label>
