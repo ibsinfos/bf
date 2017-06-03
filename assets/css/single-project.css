@@ -106,6 +106,9 @@
 .rating-line{
 	padding-top: 10px;
 }
+.btn-quit{
+	margin-left: 1px;
+}
 /* END WORKSPACE **************/
 #frame_chat {
     position: fixed;

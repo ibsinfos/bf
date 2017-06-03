@@ -4,8 +4,7 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 <div class="col-md-8">
 <?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
 <?php _e('Description:','boxtheme'); ?>
-<div class="ws-project-des">
-<?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?>
+<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?>
 </div>
 <p class="align-right"><a target="_blank" href="<?php echo get_permalink($project->ID);?>"> <?php _e('Project detail','boxtheme');?> </a> </p>
 <?php
@@ -65,11 +64,11 @@ if($project->post_status == DONE){
 <?php show_conversation($winner_id, $project->ID); ?>
 </div>
 <div class="col-md-4">
-	<div class="full align-right">
+	<div class="full align-right f-right">
 
 		<?php if($project->post_status =='awarded' && $user_ID == $project->post_author ){ ?>
-				<button class="btn   align-right "> &nbsp; <?php _e('Quit','boxtheme');?> &nbsp; </button>
-		<button type="button" class="btn  align-right" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
+				<button class="btn   align-right f-right btn-quit"> &nbsp; <?php _e('Quit','boxtheme');?> &nbsp; </button>
+		<button type="button" class="btn  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
 		 &nbsp; &nbsp; &nbsp;  &nbsp;
 		<?php } else if($project->post_status == 'done' && $role == FREELANCER && !$is_fre_review) { ?>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Review employer</button>
