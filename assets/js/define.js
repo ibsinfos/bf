@@ -65,6 +65,22 @@ var ajaxSend = {};
 	    });
 	    return false;
 	};
+
+	window.ajaxSend.customLoading = function(data, beforeSend, success){
+	    $.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: data.action,
+	                request: data,
+	                method : data.method,
+	        },
+	        beforeSend  : beforeSend,
+	        success: success,
+	    });
+	    return false;
+	};
 	window.ajaxSend.Search = function(data){
 
 		if( window.ajaxSend.template == null ){

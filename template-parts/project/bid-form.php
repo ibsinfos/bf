@@ -10,7 +10,7 @@ if( $bidding ){
 ?>
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
     <h2> <?php _e('Bid on project','boxtheme');?></h2>
-   	<div class="form-group row">
+   	<div class="form-group row bd-bottom">
       	<label  class="col-sm-8 col-form-label"><?php _e('Price <span class="f-right">$</span','boxtheme');?>></label>
       	<div class="col-sm-4">
         <?php
@@ -25,13 +25,13 @@ if( $bidding ){
         <input type="number" size="6" class="form-control inline input-price" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
       </div>
    	</div>
-   	<div class="form-group row">
+   	<div class="form-group row bd-bottom">
       	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="f-right">$</span></label>
       	<div class="col-sm-4">
          	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $fee;?>" />
       	</div>
    	</div>
-   	<div class="form-group row">
+   	<div class="form-group row bd-bottom">
       	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('You\'ll receive','boxtheme');?> <span class="f-right">$</span></label>
       	<div class="col-sm-4">
         	<input type="text" class="form-control input-price" id="_bid_receive" name="_bid_receive" value="<?php echo $receive;?>" />
@@ -59,7 +59,7 @@ if( $bidding ){
       	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
       	<small id="fileHelp" class="form-text text-muted"><?php _e('Send this file to project\'s owner.','boxtheme');?></small>
   	</div>
-  	<button type="submit" class="btn btn-primary f-right btn-bid"> &nbsp; <?php if($class_bidded) _e('Update','boxtheme'); else _e('Bid','boxtheme');?> &nbsp;</button>
+  	<button type="submit" class="btn f-right btn-bid"> &nbsp; <?php if($class_bidded) _e('Update','boxtheme'); else _e('Bid','boxtheme');?> &nbsp;</button>
   	<input type="hidden"  name="post_parent" value="<?php echo $project->ID; ?>" />
 </form>
 <?php

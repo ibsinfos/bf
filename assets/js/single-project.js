@@ -13,7 +13,7 @@ var single_project = {
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
 		$( ".input-price").on('change keyup', this.generate_price);
-		$( ".btn-toggle-message").on('click',this.showSendMessageForm);
+		$( ".btn-scrol-right").on('click',this.showSendMessageForm);
 		$( "form.frm-conversation").live('submit', this.createConversation);
 
 		$( "form.frm-send-message").on('submit', this.sendMessage); // in workspace section
@@ -108,14 +108,32 @@ var single_project = {
 
 	showSendMessageForm: function(event){
 		var _this = $(event.currentTarget);
-        //_this.closest('.row').find('.frm-conversation').toggleClass('hide');
-        var freelancer_id = _this.attr('alt');
-        var bid_form = wp.template("bid_form");
-        console.log(freelancer_id);
-        cvs_send.freelancer_id = freelancer_id;
-        //$("#frame_chat").append(bid_form);
-        $("#frame_chat").html(bid_form);
-        $('#frame_chat').toggleClass('nav-view');
+
+
+
+		//if( _this.hasClass('.btn-toggle-message') ){
+			var cvs_id = _this.attr('id');
+			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
+			var content = '';
+			var success = function(res){
+				$.each( res.data, function( key, msg ) {
+					content = content + msg.msg_content + '<br />';
+				});
+				$("#frame_chat").html(content);
+			}
+			var beforeSend = function(event){
+				$('#frame_chat').toggleClass('nav-view');
+				console.log('loading');
+			}
+			window.ajaxSend.customLoading(data,beforeSend,success);
+
+
+	        // var freelancer_id = _this.attr('alt');
+	        // var bid_form = wp.template("bid_form");
+	        // cvs_send.freelancer_id = freelancer_id;
+	        // $("#frame_chat").html(bid_form);
+	        // $('#frame_chat').toggleClass('nav-view');
+	    //}
 
 
 	},

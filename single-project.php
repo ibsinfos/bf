@@ -80,7 +80,9 @@ global $wp_query;
 	</div>
 
 </div>
-<div id="frame_chat">test
+<div id="frame_chat">
+	<div class="right-scroll" style="padding: 30px;">
+	</div>
 </div>
 <script type="text/template" id="">
 

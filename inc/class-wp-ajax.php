@@ -350,7 +350,7 @@ class BX_AJAX {
 		$request 	= $_REQUEST;
 		$method 	= isset($request['method']) ? $request['method'] : '';
 		$args 		= $_REQUEST['request'];
-		var_dump($args);
+
 		$response 	= array('success' => true, 'msg'=> __('Create conversation successful','boxtheme') );
 		$cvs 	= BX_Conversations::get_instance();
 

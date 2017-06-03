@@ -65,6 +65,14 @@
 .bid-form{
 	overflow: hidden;
 }
+.bid-form .bd-bottom{
+	border-bottom: 1px solid #e2e2e2;
+	padding-bottom: 20px;
+}
+.bid-form h2{
+	padding: 10px 0;
+	padding-bottom: 15px;
+}
 /** WORKSPACE *****************/
 .list-attach li{
 	margin-right: 10px;

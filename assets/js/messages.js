@@ -36,7 +36,7 @@
 			};
 
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:id};
-			console.log(data);
+
 			window.ajaxSend.Custom(data,success);
 			return false;
 		},

@@ -38,10 +38,13 @@ if($bid->post_author == $project->{WINNER_ID}){
 		</div>
 		<?php if($user_ID == $project->post_author && $project->post_status == 'publish'){ ?>
 			<div class="full clear align-right">
-				<?php if( is_sent_msg($project->ID, $bid->post_author) ){ ?>
-					<button class="btn inline btn-status-display no-radius btn-toggle-message" id="<?php echo $bid->ID;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
+				<?php
+				$cvs_id = is_sent_msg($project->ID, $bid->post_author);
+				var_dump($cvs_id);
+				if( $cvs_id ){ ?>
+					<button class="btn inline btn-status-display no-radius btn-scrol-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
 				<?php } else { ?>
-					<button class="btn inline btn-status-display no-radius btn-toggle-message" id="<?php echo $bid->ID;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
+					<button class="btn inline btn-status-display no-radius btn-toggle-message btn-scrol-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
 			 	<button class="btn inline btn-status-display no-radius btn-toggle-award"><?php _e('Award job','boxtheme');?></button>
 
@@ -53,7 +56,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 
 	<div class="col-md-12">
 
-		<form class="frm-award " >
+		<form class="frm-award hide" >
 			<div class="form-group row">
 		 		<label  class="col-sm-4 col-form-label"><?php _e('Total amount','boxtheme');?></label>
 	      		<div class="col-sm-8">

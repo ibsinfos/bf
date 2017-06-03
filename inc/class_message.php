@@ -126,13 +126,10 @@ class BX_Conversations{
 	}
 	function is_sent_msg($project_id, $receiver_id){
 		global $wpdb;
-		$sql = "SELECT * FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND receiver_id = {$receiver_id}";
-
-		return $wpdb->get_row( "SELECT * FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND receiver_id = {$receiver_id} " );
+		return $wpdb->get_var( "SELECT ID FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND receiver_id = {$receiver_id} " );
 	}
 }
 function is_sent_msg($project_id, $receiver_id){
-
 	return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
 }
 ?>
