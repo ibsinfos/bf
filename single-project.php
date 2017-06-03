@@ -101,8 +101,8 @@ global $wp_query;
 	<div class="row">
 		<div class="col-md-12">
 			<center>{{{data.avatar}}}</center>
-			<center>{{{data.display_name}}}</center>
-			<center>{{{data.professional_title}}}</center>
+			<center><h2 class="profile-title no-margin">{{{data.display_name}}}</h2></center>
+			<center><h4 class="professional-title no-margin">{{{data.professional_title}}}</h4></center>
 		</div>
 		<div class="col-md-12">
 			{{{data.skill_text}}}
@@ -112,7 +112,7 @@ global $wp_query;
 		</div>
 
 		<# _.each( data.feedbacks, function( feeback ) { #>
-			<div class="col-md-12">{{{feeback.comment_content}}}
+			<div class="col-md-12">{{{feeback.project_link}}}
 				<start class="rating-score clear block core-{{{feeback.rating}}}">
 					<span class="glyphicon glyphicon-star"></span>
 					<span class="glyphicon glyphicon-star"></span>
@@ -120,6 +120,7 @@ global $wp_query;
 					<span class="glyphicon glyphicon-star"></span>
 					<span class="glyphicon glyphicon-star"></span>
 				</start>
+				 <div class="">{{{feeback.comment_content}}}</div>
 			</div>
 		<#  }) #>
 

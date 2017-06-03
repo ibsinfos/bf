@@ -90,7 +90,7 @@ Class BX_Profile extends BX_Post{
 		$full_info['first_name'] = $user->first_name;
 		$full_info['last_name'] = $user->last_name;
 		$full_info['description'] = $user->description;
-		$full_info['avatar'] =  get_avatar($user->user_email, 64 );
+		$full_info['avatar'] =  get_avatar($user->user_email, 96 );
 
 		$profile_id = get_user_meta($user_id,'profile_id', true);
 		$profile_info = $this->convert($profile_id);
@@ -116,7 +116,10 @@ Class BX_Profile extends BX_Post{
 
 		$comments = get_comments( $args);
 		foreach ($comments as $key => $cmn) {
+			$bid_id = $cmn->comment_post_ID;
+			$bid = get_post($bid_id);
 			$feedback[$key] = $cmn;
+			$feedback[$key]->project_link = '<a href="'.get_permalink($bid->post_parent).'">'. get_the_title($bid->post_parent) .'</a>';
 			$feedback[$key]->rating = get_comment_meta( $cmn->comment_ID, RATING_SCORE, true );
 		}
 		$full_info['feedbacks'] = $feedback;
