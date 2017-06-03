@@ -65,7 +65,7 @@ class BX_Message{
 				WHERE sender_id = {$sender_id}
 					AND receiver_id = {$receiver_id}
 					AND msg_type = 'message'
-				ORDER BY id DESC";
+				ORDER BY id ASC";
 
 		$msg =  $wpdb->get_results($sql);
 		return $msg;
@@ -78,7 +78,7 @@ class BX_Message{
 				FROM {$wpdb->prefix}box_messages msg
 				WHERE cvs_id = {$id}
 					AND msg_type = 'message'
-				ORDER BY id DESC";
+				ORDER BY id ASC";
 
 		$msg =  $wpdb->get_results($sql);
 		return $msg;

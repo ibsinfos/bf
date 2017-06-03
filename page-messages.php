@@ -62,7 +62,16 @@
 </div>
 <script type="text/html" id="tmpl-msg_record">
 	<div class="row">{{{username_sender}}}: {{{msg_content}}} {{{msg_date}}}</div>
-
 </script>
+<style type="text/css">
+	#list_msg{
+		height: 130px;
+		padding-left: 15px;
+		padding-left: 15px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+</style>
 <?php get_footer();?>
 

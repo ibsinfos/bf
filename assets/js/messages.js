@@ -23,10 +23,14 @@
 					$("#list_msg").append('<div class="row">'+username_display+': '+value.msg_content+'</div>');
 
 				});
-				$("#form_reply").html('<form class="send-message" ><textarea name="msg_content" class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
+				var textarea = document.getElementById('list_msg');
+				textarea.scrollTop = textarea.scrollHeight;
+
+				$("#form_reply").html('<form class="send-message" ><textarea name="msg_content" id="container_msg" class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
 			};
 
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:id};
+			console.log(data);
 			window.ajaxSend.Custom(data,success);
 			return false;
 		},
@@ -38,7 +42,11 @@
 			var success = function(res){
 		        console.log(res);
 	        	if ( res.success ){
-	        		$("#list_msg").append(msg_submit.msg_content + '<br />');
+	        		$("#list_msg").append('<div class="row">You:' + msg_submit.msg_content + '</div>');
+	        		$(".msg_content").html('');
+	        		var textarea = document.getElementById('list_msg');
+					textarea.scrollTop = textarea.scrollHeight;
+	        		$("form.send-message").trigger("reset");
 		        } else {
 		        	alert(res.msg);
 		        }
