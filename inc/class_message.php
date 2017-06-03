@@ -29,7 +29,7 @@ class BX_Message{
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
 		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
 
-		if( empty($args['cvs_id']) ){
+		if( empty($args['sender_id']) ){
 			$sender_id = 0;
 		}
 		if( empty($sender_id) )

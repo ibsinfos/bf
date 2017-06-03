@@ -4,7 +4,7 @@
 	var msg_submit;
 	var msg = {
 		init: function(){
-			msg_submit = {action: 'sync_msg', msg_content: '', method: 'insert', id:0 };
+			msg_submit = {action: 'sync_msg', msg_content: '', method: 'insert', cvs_id:0 };
 			$( '.render-conv' ).on('click', this.rederConversation);
 			$( "form.send-message").live('submit', this.sendMessage);
 
@@ -14,7 +14,7 @@
 		rederConversation: function(event){
 			var element = $(event.currentTarget);
 			var id = element.attr('id');
-			msg_submit.id = id;
+			msg_submit.cvs_id = id;
 			var success = function(res){
 				$("#box_chat").html('');
 				var template = wp.template( 'msg_record' );
