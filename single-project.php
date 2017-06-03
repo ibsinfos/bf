@@ -95,7 +95,7 @@ global $wp_query;
 	</form>
 
 </script>
-<script type="text/template" id="json_project"><?php global $convs_id; $project->convs_id = $convs_id; echo json_encode($project); ?></script>
+<script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

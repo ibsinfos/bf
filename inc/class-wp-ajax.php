@@ -480,7 +480,7 @@ class BX_AJAX {
 		$uploadedfile 	= $_FILES['file'];
 		$upload_overrides = array( 'test_form' => false );
 		$post_parent_id = $request['post_parent'];
-		$convs_id 	= $request['convs_id'];
+		$cvs_id 	= $request['cvs_id'];
 
 
 		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
@@ -529,10 +529,10 @@ class BX_AJAX {
 
         	    $msg_arg = array(
 					'msg_content' 	=> sprintf(__('Upload new file: %s','boxtheme'), $file_title_for_media_library ),
-					'cvs_id' 		=> $convs_id,
+					'cvs_id' 		=> $cvs_id,
 				);
-				BX_Message::get_instance()->insert($msg_arg);
 
+				BX_Message::get_instance()->insert($msg_arg);
 
         	    wp_send_json( array('success' => true,'file' => $attachment, 'msg' => __('Uploaded is successful','box_theme') ,'attach_id' => $attach_id ));
         	}

@@ -33,6 +33,7 @@ var single_project = {
 
 		$("#frame_chat").css('height',height);
 		var view = this;
+
 		var uploader = new plupload.Uploader({
 		    runtimes : 'html5,flash,silverlight,html4',
 		    browse_button : 'pickfiles', // you can pass in id...
@@ -48,7 +49,7 @@ var single_project = {
 		    	action: 'upload_file',
 		    	post_parent: view.project.ID,
 		    	project_tile: view.project.post_title,
-		    	convs_id: view.project.convs_id
+		    	cvs_id: $("#cvs_id").val(),
 		    },
 		    init: {
 		        PostInit: function() {

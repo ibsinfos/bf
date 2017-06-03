@@ -69,7 +69,6 @@ function show_conversation($freelancer_id, $project_id){
 		<form class="frm-send-message"  >
 			<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="Leave your message here"></textarea>
 			<br />
-			<input type="hidden" name="cvs_id" value="<?php echo $convs_id;?>">
 			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 		</form>
 		<?php
@@ -111,7 +110,6 @@ function get_conversation($cvs_id){
 		<form class="send-message"  >
 			<textarea name="msg_content" class="full" required rows="3" placeholder="Leave your message here"></textarea>
 			<br />
-			<input type="hidden" name="cvs_id" value="<?php echo $convs_id;?>">
 			<button type="submit" class="btn btn-send-message align-right f-right">'._e('Send','boxtheme').'</button>
 		</form>';
 		return $result;
