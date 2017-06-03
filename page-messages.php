@@ -46,7 +46,7 @@
 							$user_label = 'You:';
 							$user_label = ($user_ID == $msg->sender_id) ? 'You: ':'Partner: ';
 
-							echo '<div class="row">'.$user_label.$msg->msg_content.'</div>';
+							echo '<div class="msg-record msg-item row">'.$user_label.$msg->msg_content.'</div>';
 						}
 
 					}
