@@ -48,7 +48,10 @@
 					}
 					?>
 				</div>
-				<div id="box_chat" class="col-md-8"></div>
+				<div id="box_chat" class="col-md-8">
+					<div id="list_msg"></div>
+					<div id="form_reply"></div>
+				</div>
 			</div> <!-- end left !-->
 			<div class="col-md-4">
 				<?php //get_sidebar('dashboard');?>

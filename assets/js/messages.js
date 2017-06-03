@@ -16,14 +16,14 @@
 			var id = element.attr('id');
 			msg_submit.cvs_id = id;
 			var success = function(res){
-				$("#box_chat").html('');
+				$("#list_msg").html('');
 				var template = wp.template( 'msg_record' );
 				$.each( res.data, function( key, value ) {
 
-					$("#box_chat").append('<div class="row">'+username_display+': '+value.msg_content+'</div>');
+					$("#list_msg").append('<div class="row">'+username_display+': '+value.msg_content+'</div>');
 
 				});
-				$("#box_chat").append('<form class="send-message" ><textarea name="msg_content" class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
+				$("#form_reply").html('<form class="send-message" ><textarea name="msg_content" class="full msg_content" rows="6" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
 			};
 
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:id};
@@ -38,7 +38,7 @@
 			var success = function(res){
 		        console.log(res);
 	        	if ( res.success ){
-	        		$("#box_chat").append(msg_submit.msg_content);
+	        		$("#list_msg").append(msg_submit.msg_content + '<br />');
 		        } else {
 		        	alert(res.msg);
 		        }
