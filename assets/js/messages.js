@@ -10,6 +10,8 @@
 			$( "form.send-message").live('submit', this.sendMessage);
 
 			console.log('init MSG');
+			var textarea = document.getElementById('list_msg');
+				textarea.scrollTop = textarea.scrollHeight;
 
 		},
 		rederConversation: function(event){

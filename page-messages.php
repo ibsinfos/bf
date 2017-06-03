@@ -66,7 +66,7 @@
 </script>
 <style type="text/css">
 	#list_msg{
-		min-height: 130px;
+		height: 150px;
 		padding-left: 15px;
 		padding-left: 15px;
 		overflow-x: hidden;
