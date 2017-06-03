@@ -53,6 +53,7 @@ global $user_ID;
 			'ajax_url' : '<?php echo admin_url().'admin-ajax.php'; ?>',
 			'selected_local' : '',
 			'is_free_submit_job' : true,
+			'user_ID':'<?php global $user_ID; echo $user_ID ?>',
 
 		}
 	</script>
