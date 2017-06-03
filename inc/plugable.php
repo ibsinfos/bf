@@ -95,7 +95,7 @@ function get_conversation($cvs_id){
 			$result .= '<div id="container_msg">';
 			foreach ( $messages as $msg ){
 				$result.= '<div class="msg-record msg-item row">';
-				$result.= '<div class="col-md-12">';
+				$result.= '<div class="row">';
 
 				if($msg->msg_author == $user_ID){
 					$result.= '<span class="msg-author f-left col-md-2">You: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';
