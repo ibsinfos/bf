@@ -92,14 +92,13 @@ global $wp_query;
 
 </script>
 <script type="text/html" id="tmpl-bid_form">
-	<form class="frm-conversation  send-message" >
-			<textarea name="cvs_content" class="full cvs_content" rows="6" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
-			<!-- <input type="hidden" name="receiver_id" value="{{{data.freelancer_id}}}">
-			<input type="hidden" name="cvs_project_id" value="{{{data.project_id}}}"> -->
+	<form class="frm-conversation frm-send-message " >
+			<textarea name="cvs_content" class="full cvs_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
 			<br />
 			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 	</form>
 </script>
+
 <script type="text/html" id="tmpl-full_info">
 	<div class="full-info">
 		<div class="row">

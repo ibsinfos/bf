@@ -42,9 +42,9 @@ if($bid->post_author == $project->{WINNER_ID}){
 				$cvs_id = is_sent_msg($project->ID, $bid->post_author);
 
 				if( $cvs_id ){ ?>
-					<button class="btn inline btn-status-display no-radius btn-scrol-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
+					<button class="btn btn-view-conversation btn-scroll-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
 				<?php } else { ?>
-					<button class="btn inline btn-status-display no-radius btn-toggle-message btn-scrol-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
+					<button class="btn btn-create-conversation btn-scroll-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
 			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->post_author;?>"><?php _e('Award job','boxtheme');?></button>
 

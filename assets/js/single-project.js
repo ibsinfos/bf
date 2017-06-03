@@ -14,7 +14,7 @@ var single_project = {
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
 		$( ".input-price").on('change keyup', this.generate_price);
-		$( ".btn-scrol-right").on('click',this.showSendMessageForm);
+		$( ".btn-scroll-right").on('click',this.showSendMessageForm);
 		$( "form.frm-conversation").live('submit', this.createConversation);
 
 		$( "form.frm-send-message").on('submit', this.sendMessage); // in workspace section
@@ -111,41 +111,38 @@ var single_project = {
 	showSendMessageForm: function(event){
 		var _this = $(event.currentTarget);
 
+		if(  _this.hasClass('btn-create-conversation') ){
+			// create converstaion
+			console.log('Create convertsation')
+	    	var freelancer_id = _this.attr('alt');
+	        var bid_form = wp.template("bid_form");
+	        cvs_send.freelancer_id = freelancer_id;
+	        $("#frame_chat").html(bid_form);
+	        $('#frame_chat').addClass('nav-view');
 
-		console.log(act_type);
-		//if( _this.hasClass('.btn-toggle-message') ){
-			var cvs_id = _this.attr('id');
+	    } else {
+	    	console.log('send message');
+	    	// send message
+	        var cvs_id = _this.attr('id');
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
 			var content = '';
 			var success = function(res){
+				console.log(res);
 				$.each( res.data, function( key, msg ) {
 					content = content + msg.msg_content + '<br />';
 				});
 				$(".frm_content").html(content);
-				if(act_type!= 'cre_converstation' ){
-					act_type = 'cre_converstation';
-					$('#frame_chat').addClass('nav-view');
-				}
-				console.log('aaaa');
-
+				$('#frame_chat').addClass('nav-view');
 			}
 			var beforeSend = function(event){
 				if(act_type != 'cre_converstation'){
 					$('#frame_chat').removeClass('nav-view');
 
-
 				}
 				console.log('loading');
 			}
 			window.ajaxSend.customLoading(data,beforeSend,success);
-
-
-	        // var freelancer_id = _this.attr('alt');
-	        // var bid_form = wp.template("bid_form");
-	        // cvs_send.freelancer_id = freelancer_id;
-	        // $("#frame_chat").html(bid_form);
-	        // $('#frame_chat').toggleClass('nav-view');
-	    //}
+	    }
 
 
 	},
