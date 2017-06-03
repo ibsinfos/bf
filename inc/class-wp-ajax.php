@@ -652,6 +652,7 @@ class BX_AJAX {
 
 		$msg 	= BX_Message::get_instance();
 		$args 	= $_REQUEST['request'];
+
 		$method = $args['method'];
 		$messages 	= $msg->sync( $args,  $method );
 

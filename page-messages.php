@@ -24,13 +24,13 @@
 
 					// $sql1 = "SELECT *, SUM(msg.msg_unread) as count_unread
 					// 		FROM  {$wpdb->prefix}box_messages msg
-					// 		WHERE ( msg_sender_id = {$user_ID} OR msg_receiver_id = {$user_ID} )
+					// 		WHERE ( sender_id = {$user_ID} OR receiver_id = {$user_ID} )
 					// 			AND msg_type = 'message'
-		   //  				 	GROUP BY msg.msg_receiver_id, msg.msg_sender_id";
+		   //  				 	GROUP BY msg.receiver_id, msg.sender_id";
 
 		    		$sql = "SELECT *
 							FROM  {$wpdb->prefix}box_messages msg
-							WHERE ( msg_sender_id = {$user_ID} OR msg_receiver_id = {$user_ID} )
+							WHERE ( sender_id = {$user_ID} OR receiver_id = {$user_ID} )
 								AND msg_type = 'message' GROUP BY cvs_id ";
 					//echo $sql;
 		    		//echo $sql;

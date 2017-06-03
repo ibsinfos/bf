@@ -11,7 +11,7 @@ global $user_ID;
 // 				'msg_date' 		=> current_time('mysql'),
 // 				'msg_is_read' => 0,
 // 				'msg_status' => 1,
-// 				'msg_receiver_id' => 25
+// 				'receiver_id' => 25
 // 			)
 // 		);
 // 		var_dump($t);

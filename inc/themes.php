@@ -233,7 +233,7 @@ function box_get_notify($user_ID = 0){
 	$sql = "SELECT *
 			FROM {$wpdb->prefix}box_messages msg
 					WHERE msg_unread = 1
-					AND	msg_receiver_id = {$user_ID}
+					AND	receiver_id = {$user_ID}
 					AND msg_type = 'notify' ";
 	//echo $sql;
 	$notifies = $wpdb->get_results($sql);

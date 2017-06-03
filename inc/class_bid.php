@@ -130,10 +130,10 @@ class BX_Bid extends BX_Post{
 			$project = get_post($project_id);
 
 			$args = array(
-				'msg_sender_id' => 0,
+				'sender_id' => 0,
 				'msg_content' => sprintf(__('%s just bid on project: %d','boxtheme'),$current_user->display_name, $project->post_title),
 				'msg_link' => get_permalink($project_id),
-				'msg_receiver_id' => $project->post_author,
+				'receiver_id' => $project->post_author,
 				'msg_is_read' => 0,
 				'msg_type' => 'notify',
 				);
@@ -168,10 +168,10 @@ class BX_Bid extends BX_Post{
 			$project = get_post($project_id);
 
 			$args = array(
-				'msg_sender_id' => 0,
+				'sender_id' => 0,
 				'msg_content' => sprintf(__('%s just updated bid','boxtheme'), $current_user->display_name ),
 				'msg_link' => get_permalink($project_id),
-				'msg_receiver_id' => $project->post_author,
+				'receiver_id' => $project->post_author,
 				'msg_is_read' => 0,
 				'msg_type' => 'notify',
 				);

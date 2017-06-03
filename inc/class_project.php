@@ -161,7 +161,7 @@ Class BX_Project extends BX_Post{
 				$args  = array(
 					'cvs_content' => $request['cvs_content'],
 					'cvs_project_id' => $request['project_id'],
-					'cvs_freelancer_id' => $request['freelancer_id']
+					'receiver_id' => $request['freelancer_id']
 				);
 				BX_Conversations::get_instance()->insert($args);
 

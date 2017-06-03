@@ -24,19 +24,20 @@ class BX_Message{
 		global $wpdb;
 		global $user_ID;
 		$cvs_id = isset($args['cvs_id']) ? $args['cvs_id'] : 0;
-		$msg_sender_id = $args['msg_sender_id'];
+		$sender_id = isset($args['sender_id'])? $args['sender_id']:0;
+		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']:0;
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
 		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
 
 		if( empty($args['cvs_id']) ){
-			$msg_sender_id = 0;
+			$sender_id = 0;
 		}
-		if(empty($msg_sender_id))
-			$msg_sender_id = $user_ID;
+		if( empty($sender_id) )
+			$sender_id = $user_ID;
 
 		$t = $wpdb->insert(
 			$wpdb->prefix . 'box_messages', array(
-				'msg_sender_id' => $msg_sender_id,
+				'sender_id' => $sender_id,
 				'msg_content' => $args['msg_content'],
 				'cvs_id' => $cvs_id,
 				'msg_date'	=> current_time('mysql'),
@@ -44,7 +45,7 @@ class BX_Message{
 				'msg_status' => 'new',
 				'msg_link' => $msg_link,
 				'msg_type' => $msg_type,
-				//'msg_receiver_id' => $args['msg_receiver_id']
+				'receiver_id' => $receiver_id
 			)
 		);
 		//var_dump($wpdb->last_query);
@@ -61,8 +62,8 @@ class BX_Message{
 
 		$sql = "SELECT *
 				FROM {$wpdb->prefix}box_messages msg
-				WHERE msg_sender_id = {$sender_id}
-					AND msg_receiver_id = {$receiver_id}
+				WHERE sender_id = {$sender_id}
+					AND receiver_id = {$receiver_id}
 					AND msg_type = 'message'
 				ORDER BY id DESC";
 
@@ -107,7 +108,7 @@ class BX_Conversations{
 			'cvs_author' => $user_ID,
 			'cvs_content' => $args['cvs_content'],
 			'cvs_project_id' => $args['project_id'],
-			'cvs_freelancer_id' => $args['freelancer_id'],
+			'receiver_id' => $args['freelancer_id'],
 			'cvs_status' => 1,
 			'cvs_date' => current_time('mysql'),
 			)
@@ -116,8 +117,8 @@ class BX_Conversations{
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
 			'cvs_id' 		=> $wpdb->insert_id,
-			'msg_receiver_id'=> $args['freelancer_id'],
-			'msg_sender_id' => $user_ID,
+			'receiver_id'=> $args['freelancer_id'],
+			'sender_id' => $user_ID,
 			'msg_type' => 'message',
 		);
 		BX_Message::get_instance()->insert($msg_arg);
@@ -125,9 +126,9 @@ class BX_Conversations{
 	}
 	function is_sent_msg($project_id, $receiver_id){
 		global $wpdb;
-		$sql = "SELECT * FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND cvs_freelancer_id = {$receiver_id}";
+		$sql = "SELECT * FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND receiver_id = {$receiver_id}";
 
-		return $wpdb->get_row( "SELECT * FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND cvs_freelancer_id = {$receiver_id} " );
+		return $wpdb->get_row( "SELECT * FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND receiver_id = {$receiver_id} " );
 	}
 }
 function is_sent_msg($project_id, $receiver_id){

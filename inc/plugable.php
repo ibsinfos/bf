@@ -22,7 +22,7 @@ function get_conversation_id_of_user($freelancer_id, $project_id){
 	global $wpdb;
 	$convs = $wpdb->get_row(
 		$wpdb->prepare( "SELECT * FROM {$wpdb->prefix}conversations
-		 	WHERE cvs_freelancer_id = %d
+		 	WHERE receiver_id = %d
 		 	AND cvs_project_id = %d",
 	        $freelancer_id, $project_id
         ) );
