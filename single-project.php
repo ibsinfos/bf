@@ -72,9 +72,10 @@ global $wp_query;
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
 		<?php } ?>
-
-
 	</div>
+
+</div>
+<div id="frame_chat">test
 </div>
 <script type="text/template" id="json_project"><?php global $convs_id; $project->convs_id = $convs_id; echo json_encode($project); ?></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

@@ -24,7 +24,9 @@ var single_project = {
 			var textarea = document.getElementById('container_msg');
 			textarea.scrollTop = textarea.scrollHeight;
 		}
+		var height = $("body").css("height")-100;
 
+		$("#frame_chat").css('height',height);
 		var view = this;
 		var uploader = new plupload.Uploader({
 		    runtimes : 'html5,flash,silverlight,html4',
@@ -100,7 +102,8 @@ var single_project = {
 
 	showSendMessageForm: function(event){
 		var _this = $(event.currentTarget);
-        _this.closest('.row').find('.frm-conversation').toggleClass('hide');
+        //_this.closest('.row').find('.frm-conversation').toggleClass('hide');
+        $('#frame_chat').toggleClass('nav-view');
 
 	},
 	showAwardForm: function(event){
