@@ -105,8 +105,17 @@ global $wp_query;
 			<center>{{{data.professional_title}}}</center>
 		</div>
 		<div class="col-md-10 .col-md-offset-1">
-			{{{data.list_feedback}}}
-		</div>
+		<# _.each( data.feedbacks, function( feeback ) { #>
+			<div class="col-md-10 .col-md-offset-1">{{{feeback.comment_content}}}
+				<start class="rating-score clear block core-{{{feeback.rating}}}">
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+					<span class="glyphicon glyphicon-star"></span>
+				</start>
+			</div>
+		<#  }) #>
 
 	</div>
 	</div>

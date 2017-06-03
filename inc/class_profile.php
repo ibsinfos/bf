@@ -94,10 +94,24 @@ Class BX_Profile extends BX_Post{
 
 		$profile_id = get_user_meta($user_id,'profile_id', true);
 		$profile_info = $this->convert($profile_id);
-		$full_info['list_feedback'] = 'gooog';
+
+
 		foreach ($profile_info as $key => $value) {
 			$full_info[$key] = $value;
 		}
+		$args = array(
+			'user_id' => $user_id,
+			'type' => 'emp_review',
+		);
+		$feedback = array();
+
+		$comments = get_comments( $args);
+		foreach ($comments as $key => $cmn) {
+			$feedback[$key] = $cmn;
+			$feedback[$key]->rating = get_comment_meta( $cmn->comment_ID, RATING_SCORE, true );
+		}
+		$full_info['feedbacks'] = $feedback;
+
 		return $full_info;
 
 	}

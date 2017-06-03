@@ -1,5 +1,20 @@
 <?php
+// $user_id = 3;
+// $args = array(
+// 		'user_id' => $user_id,
+// 		'type' => 'emp_review',
+// 	);
+// 	$feedback = array();
 
+// 	$comments = get_comments( $args);
+// 	foreach ($comments as $key => $cmn) {
+// 		var_dump($cmn->comment_ID);
+// 		$feedback[$key] = $cmn;
+// 		$feedback[$key]->rating = get_comment_meta( $cmn->comment_ID, RATING_SCORE, true );
+// 	}
+// 	echo '<pre>';
+// 	var_dump($feedback);
+// 	echo '</pre>';
 
 global $wpdb;
 global $user_ID;
