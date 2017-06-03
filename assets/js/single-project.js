@@ -1,7 +1,7 @@
 ( function( $ ) {
 var gproject;
 var cvs_send, msg_send;
-
+var full_profiles = []
 var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
@@ -23,7 +23,7 @@ var single_project = {
 		$( "form#frm_emp_review").on('submit', this.reviewFreelancer);
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
 
-
+		console.log(full_profiles);
 		msg_send.cvs_id = $("#cvs_id").val();
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
@@ -141,20 +141,27 @@ var single_project = {
 		var _this = $(event.currentTarget);
        // _this.closest('.row').find('.frm-award').toggleClass('hide');
         var user_id = _this.attr('id');
-			var data = {action: 'sync_profile', method: 'get_full_info', user_id:user_id};
-			var content = '';
-			var success = function(res){
+		var data = {action: 'sync_profile', method: 'get_full_info', user_id:user_id};
+		var content = '';
+		var full_info = wp.template("full_info");
+		var success = function(res){
+			full_profiles[user_id] = res.result;
+			$("#frame_chat").html( full_info( res.result) );
 
-				var full_info = wp.template("full_info");
-				console.log( res.result);
-				$("#frame_chat").html( full_info( res.result) );
-				//$("#frame_chat").html(content);
-			}
-			var beforeSend = function(event){
-				$('#frame_chat').toggleClass('nav-view');
-				$("#frame_chat").html(' Show information of this user here');
-				console.log('loading');
-			}
+		}
+		var beforeSend = function(event){
+			$('#frame_chat').toggleClass('nav-view');
+			$("#frame_chat").html(' Show information of this user here');
+			console.log('loading');
+		}
+
+
+		if( typeof(full_profiles[user_id]) != "undefined" ){
+			console.log('exists');
+			$('#frame_chat').toggleClass('nav-view');
+			$("#frame_chat").html( full_info( full_profiles[user_id]) );
+			return false;
+		}
         window.ajaxSend.customLoading(data,beforeSend,success);
 	},
 	createConversation: function(e){
