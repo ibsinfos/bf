@@ -103,9 +103,10 @@
 #frame_chat {
     position: fixed;
     right: 0;
-    top: 83px;
+    top: 0px;
+    padding-top: 50px;
     width: 450px;
-    min-height: calc(100vh - 70px);
+    min-height: calc(100vh - 25px);
     background-color: #fff;
     border:1px solid #ccc;
     transform: translateX(100%);
@@ -133,6 +134,7 @@
 }
 .full-info{
 	padding-left: 15px;
+	padding-right: 15px;
 }
 .full-info .col-md-12{
 	border-bottom: 1px solid #f1f1f1;
