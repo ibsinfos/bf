@@ -31,10 +31,10 @@ class BX_Message{
 
 		$t = $wpdb->insert(
 			$wpdb->prefix . 'box_messages', array(
-				'msg_sender_id'  	=> $msg_sender_id,
-				'msg_content' 	=> $args['msg_content'],
-				'cvs_id' 		=> $cvs_id,
-				'msg_date' 		=> current_time('mysql'),
+				'msg_sender_id' => $msg_sender_id,
+				'msg_content' => $args['msg_content'],
+				'cvs_id' => $cvs_id,
+				'msg_date'	=> current_time('mysql'),
 				'msg_unread' => 1,
 				'msg_status' => 'new',
 				'msg_link' => $msg_link,
@@ -69,8 +69,9 @@ class BX_Message{
 }
 class BX_Conversations{
 	static protected $instance;
+	private $table;
 	function  __construct(){
-
+		$this->table = 'box_conversations';
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -86,7 +87,7 @@ class BX_Conversations{
 		global $wpdb;
 		global $user_ID;
 
-		$wpdb->insert( $wpdb->prefix . 'conversations', array(
+		$wpdb->insert( $wpdb->prefix . $this->table, array(
 			'cvs_author' => $user_ID,
 			'cvs_content' => $args['cvs_content'],
 			'cvs_project_id' => $args['cvs_project_id'],
@@ -99,6 +100,9 @@ class BX_Conversations{
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
 			'cvs_id' 		=> $wpdb->insert_id,
+			'msg_receiver_id'=> $args['cvs_freelancer_id'],
+			'msg_sender_id' => $user_ID,
+			'msg_type' => 'message',
 		);
 		BX_Message::get_instance()->insert($msg_arg);
 		return $wpdb->insert_id;

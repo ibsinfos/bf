@@ -98,7 +98,6 @@ class BX_AJAX {
 			'sync_profile' 			=> true,
 			'sync_message' 			=> false,
 			'sync_conversations'	=> false,
-
 			//'sync_account' 			=> true,
 			'update_avatar'			=> false,
 			'award_project'			=> false,
@@ -276,10 +275,17 @@ class BX_AJAX {
 		wp_send_json($response );
 
 	}
+	/**
+	 * send a message to partner.
+	 * @author danng
+	 * @version 1.0
+	 * @return  void
+	 */
 	static function sync_message(){
+
 		$submit 	= $_REQUEST;
 		$method 	= isset($submit['method']) ? $submit['method'] : '';
-		$request 		= $submit['request'];
+		$request 	= $submit['request'];
 		$response 	= array('success' => true, 'msg'=> $request['msg_content'] );
 		$message 	= BX_Message::get_instance();
 		$msg_id = $message->sync($request, $method);
@@ -288,6 +294,7 @@ class BX_AJAX {
 		}
 		wp_send_json($response );
 	}
+
 	static function award_project(){
 		$request 	= $_REQUEST;
 		$args 		= $request['request'];
@@ -344,8 +351,8 @@ class BX_AJAX {
 		$method 	= isset($request['method']) ? $request['method'] : '';
 		$args 		= $_REQUEST['request'];
 		$response 	= array('success' => true, 'msg'=> __('Insert conversation ok','boxtheme') );
-		$message 	= BX_Conversations::get_instance();
-		$msg_id = $message->sync($args, $method);
+		$cvs 	= BX_Conversations::get_instance();
+		$msg_id = $cvs->sync($args, $method);
 		if( is_wp_error( $msg_id )){
 			$response = array('success' => false,'msg' =>$msg_id->get_error_message());
 		}

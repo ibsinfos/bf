@@ -115,7 +115,7 @@ footer .container{
 }
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#92B558}
 .btn{
-	background: #92B558;
+	background-color: #92B558;
 	border-radius: 5px;
 	padding: 5px 10px;
 	color: #fff;

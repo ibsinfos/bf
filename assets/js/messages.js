@@ -6,7 +6,6 @@
 
 		},
 		rederConversation: function(event){
-
 			var element = $(event.currentTarget);
 			var id = element.attr('id');
 			var success = function(res){

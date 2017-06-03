@@ -11,7 +11,7 @@ var single_project = {
 		$( ".btn-toggle-message").on('click',this.showSendMessageForm);
 		$( "form.frm-conversation").on('submit', this.createConversation);
 
-		$( "form.send-message").on('submit', this.sendMessage);
+		//$( "form.send-message").on('submit', this.sendMessage);
 		$( ".btn-toggle-award").on('click',this.showAwardForm);
 		$( "form.frm-award").on('submit', this.awardProject);
 		$( "span.btn-del-attachment").on('click', this.removeAttachment);
