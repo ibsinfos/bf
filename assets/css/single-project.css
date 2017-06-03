@@ -110,7 +110,7 @@
 #frame_chat {
     position: fixed;
     right: 0;
-    top: 70px;
+    top: 83px;
     width: 350px;
     min-height: calc(100vh - 70px);
     background-color: #fff;

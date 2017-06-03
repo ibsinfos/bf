@@ -350,8 +350,10 @@ class BX_AJAX {
 		$request 	= $_REQUEST;
 		$method 	= isset($request['method']) ? $request['method'] : '';
 		$args 		= $_REQUEST['request'];
-		$response 	= array('success' => true, 'msg'=> __('Insert conversation ok','boxtheme') );
+		var_dump($args);
+		$response 	= array('success' => true, 'msg'=> __('Create conversation successful','boxtheme') );
 		$cvs 	= BX_Conversations::get_instance();
+
 		$msg_id = $cvs->sync($args, $method);
 		if( is_wp_error( $msg_id )){
 			$response = array('success' => false,'msg' =>$msg_id->get_error_message());

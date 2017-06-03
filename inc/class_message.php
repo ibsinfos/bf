@@ -90,8 +90,8 @@ class BX_Conversations{
 		$wpdb->insert( $wpdb->prefix . $this->table, array(
 			'cvs_author' => $user_ID,
 			'cvs_content' => $args['cvs_content'],
-			'cvs_project_id' => $args['cvs_project_id'],
-			'cvs_freelancer_id' => $args['cvs_freelancer_id'],
+			'cvs_project_id' => $args['project_id'],
+			'cvs_freelancer_id' => $args['freelancer_id'],
 			'cvs_status' => 1,
 			'cvs_date' => current_time('mysql'),
 			)
@@ -100,7 +100,7 @@ class BX_Conversations{
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
 			'cvs_id' 		=> $wpdb->insert_id,
-			'msg_receiver_id'=> $args['cvs_freelancer_id'],
+			'msg_receiver_id'=> $args['freelancer_id'],
 			'msg_sender_id' => $user_ID,
 			'msg_type' => 'message',
 		);
@@ -115,7 +115,7 @@ class BX_Conversations{
 	}
 }
 function is_sent_msg($project_id, $receiver_id){
-	return true;
-	//return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
+
+	return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
 }
 ?>

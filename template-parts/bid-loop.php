@@ -36,19 +36,19 @@ if($bid->post_author == $project->{WINNER_ID}){
 			<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
 			<small><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></small>
 		</div>
-		<?php //if($user_ID == $project->post_author && $project->post_status == 'publish'){?>
-		<div class="full clear align-right">
-			<?php if( is_sent_msg($project->ID, $bid->post_author) ){ ?>
-				<button class="btn inline btn-status-display no-radius btn-toggle-message" id="<?php echo $bid->ID;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
-			<?php } else { ?>
-				<button class="btn inline btn-status-display no-radius btn-toggle-message" ><?php _e('Send message','boxtheme');?></button>
-			<?php } ?>
-		 	<button class="btn inline btn-status-display no-radius btn-toggle-award"><?php _e('Award job','boxtheme');?></button>
+		<?php if($user_ID == $project->post_author && $project->post_status == 'publish'){ ?>
+			<div class="full clear align-right">
+				<?php if( is_sent_msg($project->ID, $bid->post_author) ){ ?>
+					<button class="btn inline btn-status-display no-radius btn-toggle-message" id="<?php echo $bid->ID;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
+				<?php } else { ?>
+					<button class="btn inline btn-status-display no-radius btn-toggle-message" id="<?php echo $bid->ID;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
+				<?php } ?>
+			 	<button class="btn inline btn-status-display no-radius btn-toggle-award"><?php _e('Award job','boxtheme');?></button>
 
-		</div>
-		<?php //} else { ?>
+			</div>
+		<?php } else { ?>
 
-		<?php// }?>
+		<?php }?>
 	</div>
 
 	<div class="col-md-12">
