@@ -40,7 +40,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 			<div class="full clear align-right">
 				<?php
 				$cvs_id = is_sent_msg($project->ID, $bid->post_author);
-				var_dump($cvs_id);
+
 				if( $cvs_id ){ ?>
 					<button class="btn inline btn-status-display no-radius btn-scrol-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
 				<?php } else { ?>
