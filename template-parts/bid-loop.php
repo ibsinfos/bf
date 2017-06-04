@@ -13,7 +13,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 }
 
 ?>
-<div class ="col-md-12 row-bid-item <?php echo $bid_class;?>">
+<div class ="col-md-12 row-bid-item bid-item <?php echo $bid_class;?>">
 	<div class="col-md-2 no-padding-right">
 		<?php echo  get_avatar($bid->post_author); ?>
 		<label class="full"><center><?php  echo $winner_text;?></center></label>
@@ -21,10 +21,9 @@ if($bid->post_author == $project->{WINNER_ID}){
 	<div class ="col-md-10 padding-right-zero">
 		<?php
 		$list_bid  = list_dealine();
-		$toottip = '<span class="tooltip"><span> Rating: 5start</span> <br /><span>View history: <a> History</a>  <br /><span>Experience:5 </span> </span>';
 		?>
 		<div class="full clear block">
-			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> - <i><?php echo $bid->professional_title;?></i> <?php echo $toottip;?></h5>
+			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> - <i><?php echo $bid->professional_title;?></i> </h5>
 			<small class="inline f-left"> <i> &nbsp; </i>*****</small>
 			<small class="inline f-left"> <i> &nbsp; </i> Vietnam</small>
 		</div>
@@ -40,11 +39,15 @@ if($bid->post_author == $project->{WINNER_ID}){
 			<div class="full clear align-right">
 				<?php
 				$cvs_id = is_sent_msg($project->ID, $bid->post_author);
-
+				if( !$cvs_id || $cvs_id == null ){
+					$cvs_id = 0;
+				}
+				echo "<input type='hidden' name='cvs_id' class='cvs_id' value ='".$cvs_id."' />";
+				echo "<input type='hidden' name='bid_author' class='bid_author'  value ='".$bid->post_author."' />";
 				if( $cvs_id ){ ?>
-					<button class="btn btn-view-conversation btn-scroll-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('View convertsation','boxtheme');?></button>
+					<button class="btn btn-view-conversation btn-scroll-right" ><?php _e('View convertsation','boxtheme');?></button>
 				<?php } else { ?>
-					<button class="btn btn-create-conversation btn-scroll-right" id="<?php echo $cvs_id;?>" alt="<?php echo $bid->post_author;?>" ><?php _e('Send message','boxtheme');?></button>
+					<button class="btn btn-create-conversation btn-scroll-right" " ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
 			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->post_author;?>"><?php _e('Award job','boxtheme');?></button>
 

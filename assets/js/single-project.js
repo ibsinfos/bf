@@ -27,7 +27,7 @@ var single_project = {
 		$(".btn-close").on('click',this.closeFrame);
 
 		console.log(full_profiles);
-		msg_send.cvs_id = $("#cvs_id").val();
+		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
 			textarea.scrollTop = textarea.scrollHeight;
@@ -111,10 +111,13 @@ var single_project = {
 
 	showSendMessageForm: function(event){
 		var _this = $(event.currentTarget);
-        var cvs_id = _this.attr('id');
-        var user_id = _this.attr('alt');
+        var cvs_id = _this.closest(".bid-item").find(".cvs_id").val();
+        var bid_author = _this.closest(".bid-item").find(".bid_author").val();
+
+
 		var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
-		msg_send.receiver_id = user_id;
+		msg_send.receiver_id = bid_author;
+		msg_send.cvs_id = cvs_id;
 		var success = function(res){
 			var content = '<div id="container_msg">';
 			$.each( res.data, function( key, msg ) {

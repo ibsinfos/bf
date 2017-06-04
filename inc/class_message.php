@@ -22,16 +22,6 @@ class BX_Conversations{
 		global $wpdb;
 		global $user_ID;
 
-		// $wpdb->insert( $wpdb->prefix . $this->table, array(
-		// 	'cvs_author' => $user_ID,
-		// 	'project_id' => $args['project_id'],
-		// 	'receiver_id' => $args['receiver_id'],
-		// 	'cvs_content' => $args['cvs_content'],
-		// 	'cvs_status' => 1,
-		// 	'msg_unread' => 1,
-		// 	'cvs_date' => current_time('mysql'),
-		// 	)
-		// );
 		$wpdb->insert( $wpdb->prefix . 'box_conversations', array(
 				'cvs_author' => $user_ID,
 				'project_id' => $args['project_id'],
@@ -42,11 +32,6 @@ class BX_Conversations{
 				'cvs_date' => current_time('mysql'),
 			)
 		);
-
-		// $wpdb->query( $wpdb->prepare(
-		// 	"INSERT INTO $wpdb->postmeta ( ID, cvs_author, project_id, receiver_id, cvs_content,cvs_status,msg_unread,cvs_date )
-		// 	 VALUES ( %d, %s, %s,%s, %s,%s, %s )",NULL,10,$metakey,$metavalue) );
-		// triiger insert first message.
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
 			'cvs_id' 		=> $wpdb->insert_id,
@@ -140,7 +125,7 @@ class BX_Message{
 	function get_converstaion($args){
 		$id = $args['id'];
 		global $wpdb;
-		return 1;
+
 		$sql = "SELECT *
 				FROM {$wpdb->prefix}box_messages msg
 				WHERE cvs_id = {$id}
