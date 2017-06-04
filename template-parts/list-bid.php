@@ -34,7 +34,7 @@
 		wp_reset_query();
 	else:
 		echo '<div class="col-md-12 no-padding">';
-			_e('There is not any bid yet.','boxtheme');
+			_e('There is no any bid yet.','boxtheme');
 		echo '</div>';
 	endif;
 	?>
