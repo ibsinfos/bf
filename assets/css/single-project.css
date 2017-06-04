@@ -159,3 +159,14 @@
 .full-info .reply_input{
 	display: none;
 }
+ul.list-skill li{
+	display: inline-block;
+	overflow: hidden;
+	margin-bottom: 3px;
+	margin-right: 3px;
+}
+ul.list-skill li a{
+	padding: 0px 10px;
+	background-color: #eee;
+	border:1px solid #eee;
+}
