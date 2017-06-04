@@ -107,7 +107,7 @@ Class BX_Admin {
                     ?>
                     <form class="frm-add-package">
                         <div class="col-sm-12">
-                        	<h3 class="form-heading"> Insert new package </h3>
+                        	<h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
                         </div>
                         <div class="col-sm-6 one-line">
                             <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
@@ -116,8 +116,7 @@ Class BX_Admin {
                             <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
                         </div>
                         <div class="col-sm-12 one-line">
-                        	<textarea id="post_content" name="post_content"> text</textarea>
-                            <?php //wp_editor("Description of this package","post_content");?>
+                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of this package','boxtheme');?></textarea>
                         </div>
 
                         <div class="col-sm-10 one-line">
@@ -131,13 +130,13 @@ Class BX_Admin {
 
 
            <div class="sub-section " id="payment">
-	         	<h2 class="section-title"> Payment gateways</h2>
+	         	<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
              	<div class="sub-wrap col-sm-12">
              		<div class="sub-item" id="paypal">
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
 		                <div class="col-sm-9">
 		                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php if(! empty($paypal->email) ) echo $paypal->email;?>" name="email" placeholder="Email">
-		                     <span class="f-right"> Set PayPal email</span>
+		                     <span class="f-right"><?php _e('Set PayPal email','boxtheme');?></span>
 		                </div>
 		                <div class="col-sm-9">
 		                </div>
@@ -200,7 +199,7 @@ Class BX_Admin {
 		            	}
 		            	?>
 		                <div class="col-sm-9 wrap-auto-save">
-		                	 <textarea name="description" id="description"> <?php echo $cash->description;?></textarea>
+		                	 <textarea name="description" id="description" class="auto-save"> <?php echo $cash->description;?></textarea>
 		                	<div class="hide">
 		                	<?php wp_editor($cash->description,'call');?>
 		                	</div>

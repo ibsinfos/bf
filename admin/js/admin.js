@@ -97,41 +97,26 @@ var ajaxSend = {};
   			menubar: "insert",
   			link_assume_external_targets: true,
 		  	selector: 'textarea',
-		  	init_instance_callback: function (editor) {
-		    editor.on('click', function (e) {
-		    	console.log('Element clicked:', e.target.nodeName);
-		    	console.log(e);
-		    	console.log(e.target);
-		    });
-		},
-		setup : function(ed) {
+		 	//  init_instance_callback: function (editor) {
+			//     editor.on('click', function (e) {
+			//     });
+			// },
+			setup : function(ed) {
 		    	ed.onChange.add(function(ed, l) {
 
-		    		console.log(ed);
-		    		console.log(l);
 		        	var _this = $(document.getElementById(ed.id));
-					var action = 'save-option';
-					var data = {section: '',group:'',name:'',value:''};
-
-
-					data.group  = _this.closest('.sub-section').attr('id');
-					data.section = _this.closest('.sub-item').attr('id');
-					data.name = _this.attr('name');
-					data.value = tinyMCE.activeEditor.getContent();
-					if( _this.attr('data-toggle') == 'toggle'){
-						console.log(data.value);
-						if(data.value == '1'){
-							console.log('set 0');
-							data.value = 0;
-						} else {
-							data.value = 1;
-						}
+		        	if( _this.hasClass('auto-save') ){
+						var action = 'save-option';
+						var data = {section: '',group:'',name:'',value:''};
+						data.group  = _this.closest('.sub-section').attr('id');
+						data.section = _this.closest('.sub-item').attr('id');
+						data.name = _this.attr('name');
+						data.value = tinyMCE.activeEditor.getContent();
+						window.ajaxSend.Custom(data, action, _this);
 					}
-					console.log(data);
-					window.ajaxSend.Custom(data, action, _this);
 
-		        });
-		   }
+		 	    });
+		 	}
 		});
 
 
