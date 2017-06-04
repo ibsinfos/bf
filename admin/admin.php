@@ -5,9 +5,9 @@ Class BX_Admin {
     static $main_setting_slug = 'box-settings';
 
     function __construct(){
-        add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ));
-        add_action( 'admin_enqueue_scripts', array($this, 'enqueue_scripts' ) );
-        add_action( 'admin_footer', array($this,'box_admin_footer_html') );
+        add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ), 9);
+        add_action( 'admin_enqueue_scripts', array($this, 'enqueue_scripts' ), 9);
+        add_action( 'admin_footer', array($this,'box_admin_footer_html'), 9 );
     }
     static function get_instance(){
         if (null === static::$instance) {
@@ -15,7 +15,7 @@ Class BX_Admin {
         }
         return static::$instance;
     }
-    static function bx_register_my_custom_menu_page() {
+    public function bx_register_my_custom_menu_page() {
         add_menu_page(
             __( 'Theme Options', 'boxtheme' ),
           	'Box settings', // use to check the sub menu
@@ -24,7 +24,7 @@ Class BX_Admin {
 
 	}
 
-    function enqueue_scripts($hook) {
+    public function enqueue_scripts($hook) {
         // Load only on ?page=theme-options
     	$credit_page = self::$main_setting_slug.'_page_credit-setting';
         $sub_page = array(self::$main_setting_slug.'_page_credit-setting');
