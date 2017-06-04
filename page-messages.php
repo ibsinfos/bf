@@ -24,7 +24,7 @@
 					}
 					echo '</ul>';
 				} else {
-					_e('There is not any conversations yet.','boxtheme');
+					_e('There is no any conversations yet.','boxtheme');
 				}
 				?>
 			</div>

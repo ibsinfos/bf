@@ -19,10 +19,7 @@ Class BX_Admin {
         add_menu_page(
             __( 'Theme Options', 'boxtheme' ),
           	'Box settings', // use to check the sub menu
-            'manage_options',
-            self::$main_setting_slug,
-            array($this,'box_custom_menu_page'),
-            'url_img.png',6);
+            'manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),    'url_img.png',6);
 
 
 	}
