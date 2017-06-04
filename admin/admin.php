@@ -116,7 +116,7 @@ Class BX_Admin {
                             <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
                         </div>
                         <div class="col-sm-12 one-line">
-                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of this package','boxtheme');?></textarea>
+                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of new package','boxtheme');?></textarea>
                         </div>
 
                         <div class="col-sm-10 one-line">
