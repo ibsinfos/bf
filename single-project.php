@@ -92,9 +92,9 @@ global $wp_query;
 <script type="text/template" id="">
 
 </script>
-<script type="text/html" id="tmpl-bid_form">
-	<form class="frm-conversation frm-send-message " >
-		<textarea name="cvs_content" class="full cvs_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
+<script type="text/html" id="tmpl-send_message">
+	<form class="emp-send-message" >
+		<textarea name="cvs_content" class="full msg_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
 		<br />
 		<button type="submit" class="btn btn-send-message f-right"><?php _e('Send','boxtheme');?></button>
 	</form>

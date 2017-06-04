@@ -60,7 +60,7 @@ class BX_Install{
 			CREATE TABLE {$wpdb->prefix}box_conversations (
 			  	ID bigint(20) NOT NULL AUTO_INCREMENT,
 			  	cvs_author  bigint(20) NOT NULL,
-			  	cvs_project_id  bigint(20) NOT NULL,
+			  	project_id  bigint(20) NOT NULL,
 			  	receiver_id  bigint(20) NOT NULL,
 			  	cvs_content longtext NOT NULL,
 			  	cvs_date datetime NULL default null,

@@ -293,8 +293,39 @@ class BX_AJAX {
 		$method 	= isset($submit['method']) ? $submit['method'] : '';
 		$request 	= $submit['request'];
 		$response 	= array('success' => true, 'msg'=> $request['msg_content'] );
+		$cvs_id 	= isset($request['cvs_id']) ? $request['cvs_id'] : 0;
+		if( !$cvs_id && $method == 'insert'){
+			$cvs 	= BX_Conversations::get_instance();
+			$project_id = isset($request['project_id']) ? $request['project_id']:0;
+			$receiver_id = isset($request['receiver_id']) ? $request['receiver_id']:0;
+
+			$cvs_args = array(
+				'cvs_content' => $request['msg_content'],
+				'project_id' => $project_id,
+				'receiver_id' => $receiver_id
+			);
+
+			$msg_id = $cvs->sync($cvs_args, 'insert');
+
+			$response = array('success'=> true,'msg' => 'Createa converstaion done','boxtheme', 'result'=> array('msg_id' => $msg_id));
+			wp_send_json( $response );
+		}
 		$message 	= BX_Message::get_instance();
 		$msg_id = $message->sync($request, $method);
+		if( is_wp_error( $msg_id )){
+			$response = array('success' => false,'msg' =>$msg_id->get_error_message());
+		}
+		wp_send_json($response );
+	}
+	static function sync_conversations(){
+		$request 	= $_REQUEST;
+		$method 	= isset($request['method']) ? $request['method'] : '';
+		$args 		= $_REQUEST['request'];
+
+		$response 	= array('success' => true, 'msg'=> __('Create conversation successful','boxtheme') );
+		$cvs 	= BX_Conversations::get_instance();
+
+		$msg_id = $cvs->sync($args, $method);
 		if( is_wp_error( $msg_id )){
 			$response = array('success' => false,'msg' =>$msg_id->get_error_message());
 		}
@@ -352,20 +383,7 @@ class BX_AJAX {
 		wp_send_json( $response );
 	}
 
-	static function sync_conversations(){
-		$request 	= $_REQUEST;
-		$method 	= isset($request['method']) ? $request['method'] : '';
-		$args 		= $_REQUEST['request'];
 
-		$response 	= array('success' => true, 'msg'=> __('Create conversation successful','boxtheme') );
-		$cvs 	= BX_Conversations::get_instance();
-
-		$msg_id = $cvs->sync($args, $method);
-		if( is_wp_error( $msg_id )){
-			$response = array('success' => false,'msg' =>$msg_id->get_error_message());
-		}
-		wp_send_json($response );
-	}
 
 	static function sync_account(){
 		$request 	= $_REQUEST;

@@ -7,15 +7,16 @@ var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
 		gproject = this.project;
-		cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,freelancer_id:0 };
-		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'' };
+		cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
+		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'',receiver_id:0, project_id: this.project.ID };
 
 		$( '#bid_form' ).on( 'submit', this.submitBid );
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
 		$( ".input-price").on('change keyup', this.generate_price);
 		$( ".btn-scroll-right").on('click',this.showSendMessageForm);
-		$( "form.frm-conversation").live('submit', this.createConversation);
+		//$( "form.frm-create-conversation").live('submit', this.createConversation); // creater conversaion or reply
+		$( "form.emp-send-message").live('submit', this.empSendMessage); // in right scroll bar
 
 		$( "form.frm-send-message").on('submit', this.sendMessage); // in workspace section
 		$( ".btn-toggle-award").on('click',this.showAwardForm);
@@ -110,43 +111,31 @@ var single_project = {
 
 	showSendMessageForm: function(event){
 		var _this = $(event.currentTarget);
+        var cvs_id = _this.attr('id');
+        var user_id = _this.attr('alt');
+		var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
+		msg_send.receiver_id = user_id;
+		var success = function(res){
+			var content = '<div id="container_msg">';
+			$.each( res.data, function( key, msg ) {
+				content = content + msg.msg_content + '<br />';
+			});
+			content = content + '</div>';
 
-		if(  _this.hasClass('btn-create-conversation') ){
-			// create converstaion
-			console.log('Create convertsation')
-	    	var freelancer_id = _this.attr('alt');
-	        cvs_send.freelancer_id = freelancer_id;
-	        var bid_form = wp.template("bid_form");
-	        $(".frm_content").html(bid_form);
-	        $('#frame_chat').addClass('nav-view');
-
-	    } else {
-	    	console.log('send message');
-	    	// send message
-	        var cvs_id = _this.attr('id');
-			var data = {action: 'sync_msg', method: 'get_converstaion', id:cvs_id};
-
-			var success = function(res){
-				var content = '<div id="container_msg">';
-				$.each( res.data, function( key, msg ) {
-					content = content + msg.msg_content + '<br />';
-				});
-				content = content + '</div>';
-
-				$(".frm_content").html( content );
-				var bid_form = wp.template("bid_form");
-				$(".reply_input").html(bid_form);
-				$('#frame_chat').addClass('nav-view');
+			$(".frm_content").html( content );
+			var frm_send_message = wp.template("send_message");
+			$(".reply_input").html(frm_send_message({}));
+			$('#frame_chat').addClass('nav-view');
+		}
+		var beforeSend = function(event){
+			if(act_type != 'cre_converstation'){
+				$('#frame_chat').removeClass('nav-view');
 			}
-			var beforeSend = function(event){
-				if(act_type != 'cre_converstation'){
-					$('#frame_chat').removeClass('nav-view');
-				}
-				console.log('loading');
-			}
-			window.ajaxSend.customLoading(data,beforeSend,success);
+			console.log('loading');
+		}
+		window.ajaxSend.customLoading(data,beforeSend,success);
 
-	    }
+
 
 
 	},
@@ -181,8 +170,7 @@ var single_project = {
 
 
 		if( typeof(full_profiles[user_id]) != "undefined" ){
-			console.log('exists');
-			console.log(act_type);
+
 			if(act_type != 'show_info'){
 				$('#frame_chat').addClass('nav-view');
 				act_type = 'show_info';
@@ -199,10 +187,10 @@ var single_project = {
 		console.log('close');
 		$('#frame_chat').removeClass('nav-view');
 	},
-	createConversation: function(e){
+	empSendMessage: function(e){
 		var _this = $(event.currentTarget);
-		console.log(_this);
-		cvs_send.cvs_content = _this.find(".cvs_content").val();
+
+		msg_send.msg_content = _this.find(".msg_content").val();
 		var success = function(res){
 	        console.log(res);
         	if ( res.success ){
@@ -210,9 +198,10 @@ var single_project = {
 	        	alert(res.msg);
 	        }
 		}
-		cvs_send.method = 'insert';
-
-		window.ajaxSend.Custom(cvs_send, success);
+		msg_send.method = 'insert';
+		console.log('msg send');
+		console.log(msg_send);
+		window.ajaxSend.Custom(msg_send, success);
 		return false;
 	},
 
