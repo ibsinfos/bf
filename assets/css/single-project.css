@@ -153,3 +153,9 @@
 	font-size: 13px;
 	float: left;
 }
+.emp-send-message{
+	position: relative;
+}
+.full-info .reply_input{
+	display: none;
+}
