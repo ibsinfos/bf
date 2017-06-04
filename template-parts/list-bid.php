@@ -11,7 +11,7 @@
 	$query = new WP_Query($args);
 	//show_conversation($user_ID, $project->ID);
 	?>
-	<div class="col-md-5">
+	<div class="col-md-5 no-padding">
 		<h3><?php printf(__('List bid (%s)','boxtheme'), $query->found_posts); ?></h3>
 	</div>
 	<div class="col-md-5 f-right no-padding">
@@ -33,7 +33,9 @@
 		bx_pagenate($query, array('base'=>$projet_link), 1, 1 );
 		wp_reset_query();
 	else:
-		_e('There is not any bid yet.','boxtheme');
+		echo '<div class="col-md-12 no-padding">';
+			_e('There is not any bid yet.','boxtheme');
+		echo '</div>';
 	endif;
 	?>
 </div>

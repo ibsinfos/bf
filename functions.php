@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Twenty Seventeen functions and definitions
+ * BoxFreeancer Theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *

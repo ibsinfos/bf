@@ -1,36 +1,4 @@
 <?php
-// $user_id = 3;
-// $args = array(
-// 		'user_id' => $user_id,
-// 		'type' => 'emp_review',
-// 	);
-// 	$feedback = array();
-
-// 	$comments = get_comments( $args);
-// 	foreach ($comments as $key => $cmn) {
-// 		var_dump($cmn->comment_ID);
-// 		$feedback[$key] = $cmn;
-// 		$feedback[$key]->rating = get_comment_meta( $cmn->comment_ID, RATING_SCORE, true );
-// 	}
-// 	echo '<pre>';
-// 	var_dump($feedback);
-// 	echo '</pre>';
-
-global $wpdb;
-global $user_ID;
-
-// $t = $wpdb->insert(
-// 			$wpdb->prefix . 'box_messages', array(
-// 				'msg_content' 	=> 'test',
-// 				'cvs_id' 		=> 0,
-// 				'msg_date' 		=> current_time('mysql'),
-// 				'msg_is_read' => 0,
-// 				'msg_status' => 1,
-// 				'receiver_id' => 25
-// 			)
-// 		);
-// 		var_dump($t);
-// var_dump( $wpdb->last_query ) ;
 /**
  * The header for our theme
  *

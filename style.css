@@ -328,7 +328,7 @@ body .no-padding{
 }
 body .chosen-container-multi .chosen-choices{
 	border: 1px solid #ccc;
-	border-radius: 3px;
+	border-radius: 0px;
 	padding: 2px 12px;
 	background-image:none;
 }
