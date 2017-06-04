@@ -59,7 +59,7 @@ class BX_Conversations{
 	}
 	function is_sent_msg($project_id, $receiver_id){
 		global $wpdb;
-		return $wpdb->get_var( "SELECT ID FROM $wpdb->prefix{$this->table} WHERE cvs_project_id = {$project_id} AND receiver_id = {$receiver_id} " );
+		return $wpdb->get_var( "SELECT ID FROM $wpdb->prefix{$this->table} WHERE project_id = {$project_id} AND receiver_id = {$receiver_id} " );
 	}
 }
 
