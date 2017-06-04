@@ -195,7 +195,14 @@ var single_project = {
 
 		msg_send.msg_content = _this.find(".msg_content").val();
 		var success = function(res){
-	        console.log(res);
+	        var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
+        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
+        		record = record + '</span></div></div>';
+        		$("#container_msg").append( record );
+        		var textarea = document.getElementById('container_msg');
+				textarea.scrollTop = textarea.scrollHeight;
+        		$("form.emp-send-message").trigger("reset");
+
         	if ( res.success ){
 	        } else {
 	        	alert(res.msg);
