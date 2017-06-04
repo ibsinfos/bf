@@ -9,8 +9,9 @@ function bx_pre_get_filter( $query ) {
     if ( is_post_type_archive( PROJECT ) && !is_admin() ) {
         // Display 50 posts for a custom post type called 'movie'
         $query->set( 'post_status', 'publish' );
-        return;
+        return $query;
     }
+    return $query;
 }
 add_action( 'pre_get_posts', 'bx_pre_get_filter', 1 );
 
