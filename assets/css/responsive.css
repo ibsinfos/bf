@@ -358,6 +358,23 @@
 	li.icon-bell span.toggle-msg{
 		font-size: 23px;
 	}
+	.frm-submit-project .btn-file-uploader{
+		width: 100%;
+		clear: both;
+		float: left;
+	}
+	.frm-submit-project .file-uploader-area{
+		display: block;
+	}
+	.frm-submit-project .file-uploader-area{
+		padding: 0;
+	}
+	.frm-submit-project .file-uploader-area .file-upload-text{
+		width: 100%;
+		clear: both;
+		float: left;
+		padding-left: 0;
+	}
 	footer{
 		font-size: 13px;
 	}
@@ -367,4 +384,5 @@
 	.pre-footer{
 		padding: 2em 0 0.5em 0;
 	}
+
 }
