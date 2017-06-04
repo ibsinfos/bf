@@ -51,7 +51,7 @@ var ajaxSend = {};
 	    return false;
 	};
 	$(document).ready(function(){
-		$('.auto-save').change(function(event){
+		$('.auto-save, .wrap-auto-save textarea, iframe ').change(function(event){
 			var _this = $(event.currentTarget);
 			var action = 'save-option';
 			var data = {section: '',group:'',name:'',value:''};
@@ -90,7 +90,51 @@ var ajaxSend = {};
 			data.id = _this.attr('id');
 			window.ajaxSend.Custom(data, action, _this);
 			return false;
-		})
+		});
+		tinymce.init({
+			plugins: "lists",
+  			toolbar: "bold italic  link unlink numlist bullist alignleft aligncenter alignright",
+  			menubar: "insert",
+  			link_assume_external_targets: true,
+		  	selector: 'textarea',
+		  	init_instance_callback: function (editor) {
+		    editor.on('click', function (e) {
+		    	console.log('Element clicked:', e.target.nodeName);
+		    	console.log(e);
+		    	console.log(e.target);
+		    });
+		},
+		setup : function(ed) {
+		    	ed.onChange.add(function(ed, l) {
+
+		    		console.log(ed);
+		    		console.log(l);
+		        	var _this = $(document.getElementById(ed.id));
+					var action = 'save-option';
+					var data = {section: '',group:'',name:'',value:''};
+
+
+					data.group  = _this.closest('.sub-section').attr('id');
+					data.section = _this.closest('.sub-item').attr('id');
+					data.name = _this.attr('name');
+					data.value = tinyMCE.activeEditor.getContent();
+					if( _this.attr('data-toggle') == 'toggle'){
+						console.log(data.value);
+						if(data.value == '1'){
+							console.log('set 0');
+							data.value = 0;
+						} else {
+							data.value = 1;
+						}
+					}
+					console.log(data);
+					window.ajaxSend.Custom(data, action, _this);
+
+		        });
+		   }
+		});
+
+
 	});
 
 })(jQuery, window.ajaxSend);

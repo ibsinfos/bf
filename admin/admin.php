@@ -116,7 +116,8 @@ Class BX_Admin {
                             <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
                         </div>
                         <div class="col-sm-12 one-line">
-                            <input type="text" class="form-control" name="post_content" placeholder="<?php _e('Desction of this package','boxtheme');?>" >
+                        	<textarea id="post_content" name="post_content"> text</textarea>
+                            <?php //wp_editor("Description of this package","post_content");?>
                         </div>
 
                         <div class="col-sm-10 one-line">
@@ -198,10 +199,13 @@ Class BX_Admin {
 		            		$cash->description = __("Please deposit to this account:\nNumber: XXXXXXXXXX.\nBank: ANZ Bank.\nAccount name: Johnny Cook.\nAfter get your fund, we will approve your order and you can access your balance.",'boxtheme');
 		            	}
 		            	?>
-		                <div class="col-sm-9">
-		                    <textarea name="description" class="auto-save"><?php echo $cash->description;?></textarea>
-
+		                <div class="col-sm-9 wrap-auto-save">
+		                	 <textarea name="description" id="description"> <?php echo $cash->description;?></textarea>
+		                	<div class="hide">
+		                	<?php wp_editor($cash->description,'call');?>
+		                	</div>
 		                </div>
+
 		                <div class="col-sm-9">
 		                </div>
 		                <div class="col-sm-3 align-right">

@@ -62,7 +62,7 @@ if($type == 'paypal'){
         								if( !empty($payment['cash']) ){
 	        								$cash = (object) $payment['cash'];
 			            					if( ! empty($cash->description) ){
-			            						echo nl2br($cash->description);
+			            						echo $cash->description;
 			            					}
 			            				}
 
