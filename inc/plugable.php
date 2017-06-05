@@ -178,4 +178,11 @@ if (  ! function_exists( 'bx_pagenate' )):
 		}
 	endif;
 
+if ( ! function_exists( 'signup_nonce_fields')){
+	function signup_nonce_fields() {
+		$id = mt_rand();
+		echo "<input type='hidden' name='signup_form_id' value='{$id}' />";
+		wp_nonce_field('signup_form_' . $id, '_signup_form', false);
+	}
+}
 ?>
