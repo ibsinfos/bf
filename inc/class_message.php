@@ -34,14 +34,16 @@ class BX_Conversations{
 		);
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
-			'cvs_id' 		=> $wpdb->insert_id,
+			'cvs_id' 		=> $wpdb->insert_id, // cvs_id just inserted
 			'receiver_id'=> $args['receiver_id'],
 			'sender_id' => $user_ID,
 			'msg_type' => 'message',
 		);
-		return BX_Message::get_instance()->insert($msg_arg);
+		$msg_id =  BX_Message::get_instance()->insert($msg_arg); // msg_id
+		return BX_Message::get_instance()->get_message($msg_id);
 
 	}
+
 	function is_sent_msg($project_id, $receiver_id){
 		global $wpdb;
 		return $wpdb->get_var( "SELECT ID FROM $wpdb->prefix{$this->table} WHERE project_id = {$project_id} AND receiver_id = {$receiver_id} " );
@@ -102,6 +104,12 @@ class BX_Message{
 		);
 
 		return $wpdb->insert_id;
+	}
+	function get_message($msg_id){
+		global $wpdb;
+		$sql = " SELECT * FROM " . $wpdb->prefix . "box_messages WHERE ID = '$msg_id'";
+		return $wpdb->get_row($sql);
+
 	}
 
 	function get_converstaion1($args){

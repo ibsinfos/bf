@@ -23,7 +23,7 @@ var ajaxSend = {};
 	                method : method,
 	        },
 	        beforeSend  : function(event){
-	        	console.log('Insert message');
+	        	console.log('beforeSend');
 	        },
 	        success: success,
 	    });
@@ -41,7 +41,7 @@ var ajaxSend = {};
 	                method : method,
 	        },
 	        beforeSend  : function(event){
-	        	console.log('submit Project');
+	        	console.log('beforeSend submit Project');
 	        },
 	        success: successRes,
 	    });

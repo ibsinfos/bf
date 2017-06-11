@@ -305,10 +305,11 @@ class BX_AJAX {
 				'receiver_id' => $receiver_id
 			);
 
-			$msg_id = $cvs->sync($cvs_args, 'insert');
+			$msg = $cvs->sync($cvs_args, 'insert');
 
-			$response = array('success'=> true,'msg' => 'Createa converstaion done','boxtheme', 'result'=> array('msg_id' => $msg_id));
+			$response = array('success'=> true,'msg' => 'Createa converstaion done','boxtheme', 'result'=>  $msg);
 			wp_send_json( $response );
+			die('insert cvs end');
 		}
 		$message 	= BX_Message::get_instance();
 		$msg_id = $message->sync($request, $method);

@@ -7,7 +7,7 @@ var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
 		gproject = this.project;
-		cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
+		//cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
 		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'',receiver_id:0, project_id: this.project.ID };
 
 		$( '#bid_form' ).on( 'submit', this.submitBid );
@@ -196,7 +196,7 @@ var single_project = {
 		msg_send.msg_content = _this.find(".msg_content").val();
 		var success = function(res){
 	        var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
-        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
+        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + msg_send.msg_content;
         		record = record + '</span></div></div>';
         		$("#container_msg").append( record );
         		var textarea = document.getElementById('container_msg');
@@ -204,8 +204,12 @@ var single_project = {
         		$("form.emp-send-message").trigger("reset");
 
         	if ( res.success ){
+        		if(msg_send.cvs_id == 0 ){
+        			msg_send.cvs_id = res.result.cvs_id; // make sure, in the next msg will be not create conversation.
+        			console.log('assign cv_id');
+        		}
 	        } else {
-	        	alert(res.msg);
+
 	        }
 		}
 		msg_send.method = 'insert';
