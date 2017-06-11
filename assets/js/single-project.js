@@ -194,8 +194,10 @@ var single_project = {
 		var _this = $(event.currentTarget);
 
 		msg_send.msg_content = _this.find(".msg_content").val();
+
 		var success = function(res){
-	        var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
+        	if ( res.success ){
+        		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
         		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + msg_send.msg_content;
         		record = record + '</span></div></div>';
         		$("#container_msg").append( record );
@@ -203,57 +205,48 @@ var single_project = {
 				textarea.scrollTop = textarea.scrollHeight;
         		$("form.emp-send-message").trigger("reset");
 
-        	if ( res.success ){
         		if(msg_send.cvs_id == 0 ){
         			msg_send.cvs_id = res.result.cvs_id; // make sure, in the next msg will be not create conversation.
-        			console.log('assign cv_id');
-        		}
-	        } else {
-
+         		}
 	        }
 		}
 		msg_send.method = 'insert';
-		console.log('msg send');
-		console.log(msg_send);
 		window.ajaxSend.Custom(msg_send, success);
 		return false;
 	},
 
 	sendMessage: function(e){
-		console.log('send messsage, line 220');
-		var action = 'sync_message', method = 'insert';
-		var success = function(res){
-        	if ( res.success ){
-        		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
-        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
-        		record = record + '</span></div></div>';
-        		$("#container_msg").append( record );
-        		var textarea = document.getElementById('container_msg');
-				textarea.scrollTop = textarea.scrollHeight;
-        		$("form.send-message").trigger("reset");
-	        } else {
-	        	alert(res.msg);
-	        }
-		}
-		var _this = $(event.currentTarget);
-		console.log(_this);
-		msg_send.msg_content = _this.find(".msg_content").val();
-		console.log(msg_send);
-		window.ajaxSend.Custom(msg_send, success);
 
-		//window.ajaxSend.Form(event, action, method, success);
+			var success = function(res){
+	        	if ( res.success ){
+	        		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
+	        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
+	        		record = record + '</span></div></div>';
+	        		$("#container_msg").append( record );
+	        		var textarea = document.getElementById('container_msg');
+					textarea.scrollTop = textarea.scrollHeight;
+	        		$("form.send-message").trigger("reset");
+		        } else {
+		        	alert(res.msg);
+		        }
+			}
+
+		var _this = $(event.currentTarget);
+		msg_send.msg_content = _this.find(".msg_content").val();
+		window.ajaxSend.Custom(msg_send, success);
 		return false;
 	},
 
 	awardProject: function(event){
 		var action = 'award_project', method = 'award';
 		var success = function(res){
-	        console.log(res);
+
+
         	if ( res.success ){
-        		console.log('award');
+
         		window.location.reload(true);
 	        } else {
-	        	console.log('faile');
+
 	        	alert(res.msg);
 	        }
 		}
