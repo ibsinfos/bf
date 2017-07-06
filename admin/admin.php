@@ -1,12 +1,12 @@
 <?php
-//if ( ! defined( 'ABSPATH' ) ) exit;
-Class BX_Admin {
+
+class BX_Admin{
     static $instance;
     static $main_setting_slug = 'box-settings';
 
     function __construct(){
         add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ), 9);
-        add_action( 'admin_enqueue_scripts', array($this, 'enqueue_scripts' ), 9);
+       	add_action( 'admin_enqueue_scripts', array($this, 'box_enqueue_scripts' ) );
         add_action( 'admin_footer', array($this,'box_admin_footer_html'), 9 );
     }
     static function get_instance(){
@@ -16,24 +16,21 @@ Class BX_Admin {
         return static::$instance;
     }
     public function bx_register_my_custom_menu_page() {
-        add_menu_page(
-            __( 'Theme Options', 'boxtheme' ),
-          	'Box settings', // use to check the sub menu
-            'manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),    'url_img.png',6);
-
-
+        add_menu_page(__( 'Theme Options', 'boxtheme' ),'Box settings','manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),'url_img.png',6);
 	}
 
-    public function enqueue_scripts($hook) {
+    public function box_enqueue_scripts($hook) {
         // Load only on ?page=theme-options
-    	$credit_page = self::$main_setting_slug.'_page_credit-setting';
-        $sub_page = array(self::$main_setting_slug.'_page_credit-setting');
+    	$credit_page = 'box-settings_page_credit-setting';
+        $sub_page = array('box-settings_page_credit-setting');
         //var_dump($hook); //box-settings_page_credit-setting
+
+
         if( $hook == 'toplevel_page_'.self::$main_setting_slug || in_array($hook, $sub_page ) ) {
 
 
 	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ) );
-	        wp_enqueue_style( 'custom_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
+	        wp_enqueue_style( 'box_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
 	        wp_enqueue_script('box-js',get_theme_file_uri('admin/js/admin.js') );
@@ -267,11 +264,14 @@ Class BX_Admin {
     <?php
     }
 }
+if( class_exists( 'BX_Admin') )
+ 	new BX_Admin();
 
 function bx_swap_button($group, $name, $checked){
-	$value = 0;
-	if($checked == 'checked')
-		$value = 1;
-    echo '<input type="checkbox" class="auto-save" name="enable" value="'.$value.'" '.$checked.' data-toggle="toggle">';
+	// $value = 0;
+	// if($checked == 'checked')
+	// 	$value = 1;
+ //    echo '<input type="checkbox" class="auto-save" name="enable" value="'.$value.'" '.$checked.' data-toggle="toggle">';
 
 }
+?>

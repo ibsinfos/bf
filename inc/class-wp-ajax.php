@@ -1,7 +1,7 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+// if ( ! defined( 'ABSPATH' ) ) {
+// 	exit; // Exit if accessed directly
+// }
 
 /**
  * WooCommerce WC_AJAX.
@@ -20,8 +20,42 @@ class BX_AJAX {
 	 */
 	public static function init() {
 		//add_action( 'init', array( __CLASS__, 'define_ajax' ), 0 );
-		add_action( 'template_redirect', array( __CLASS__, 'do_wc_ajax' ), 0 );
-		self::add_ajax_events();
+		//add_action( 'template_redirect', array( __CLASS__, 'do_wc_ajax' ), 0 );
+		//self::add_ajax_events();
+		// woocommerce_EVENT => nopriv
+		$ajax_events = array(
+			'sync_bid' 				=> false,
+			'bx_signin'         	=> true,
+			'bx_signup' 			=> true,
+			'apply_coupon'     		=> true,
+			'fb_signout' 			=> false,
+			'sync_project' 		 	=> false,
+			'bj_plupload_action' 	=> true,
+			'sync_profile' 			=> true,
+			'sync_message' 			=> false,
+			'sync_conversations'	=> false,
+			//'sync_account' 			=> true,
+			'update_avatar'			=> false,
+			'award_project'			=> false,
+			'sync_review' 			=> false,
+			'sync_attachment'      	=> false,
+			'upload_file' 			=> false,
+			'sync_search' 			=> true,
+			'buy_credit'            => false,
+			'box_upload_file' 		=> false,
+			'sync_msg' 				=> false,
+
+		);
+
+		foreach ( $ajax_events as $ajax_event => $nopriv ) {
+
+			add_action( 'wp_ajax_' . $ajax_event, array( __CLASS__, $ajax_event ) );
+
+			if ( $nopriv ) {
+				// user no logged
+				add_action( 'wp_ajax_nopriv_' . $ajax_event, array( __CLASS__, $ajax_event ) );
+			}
+		}
 	}
 
 	/**
@@ -29,9 +63,9 @@ class BX_AJAX {
 	 * @param  string $request Optional
 	 * @return string
 	 */
-	public static function get_endpoint( $request = '' ) {
-		return esc_url_raw( add_query_arg( 'wc-ajax', $request, remove_query_arg( array( 'remove_item', 'add-to-cart', 'added-to-cart' ) ) ) );
-	}
+	// public static function get_endpoint( $request = '' ) {
+	// 	return esc_url_raw( add_query_arg( 'wc-ajax', $request, remove_query_arg( array( 'remove_item', 'add-to-cart', 'added-to-cart' ) ) ) );
+	// }
 
 	/**
 	 * Set WC AJAX constant and headers.
@@ -76,9 +110,9 @@ class BX_AJAX {
 		}
 
 		if ( $action = $wp_query->get( 'wc-ajax' ) ) {
-			self::wc_ajax_headers();
+			//self::wc_ajax_headers();
 			do_action( 'wc_ajax_' . sanitize_text_field( $action ) );
-			die();
+			//die();
 		}
 	}
 
@@ -86,40 +120,7 @@ class BX_AJAX {
 	 * Hook in methods - uses WordPress ajax handlers (admin-ajax).
 	 */
 	public static function add_ajax_events() {
-		// woocommerce_EVENT => nopriv
-		$ajax_events = array(
-			'sync_bid' 				=> false,
-			'bx_signin'         	=> true,
-			'bx_signup' 			=> true,
-			'apply_coupon'     		=> true,
-			'fb_signout' 			=> false,
-			'sync_project' 		 	=> false,
-			'bj_plupload_action' 	=> true,
-			'sync_profile' 			=> true,
-			'sync_message' 			=> false,
-			'sync_conversations'	=> false,
-			//'sync_account' 			=> true,
-			'update_avatar'			=> false,
-			'award_project'			=> false,
-			'sync_review' 			=> false,
-			'sync_attachment'      	=> false,
-			'upload_file' 			=> false,
-			'sync_search' 			=> true,
-			'buy_credit'            => false,
-			'box_upload_file' 		=> false,
-			'sync_msg' 				=> false,
 
-		);
-
-		foreach ( $ajax_events as $ajax_event => $nopriv ) {
-
-			add_action( 'wp_ajax_' . $ajax_event, array( __CLASS__, $ajax_event ) );
-
-			if ( $nopriv ) {
-				// user no logged
-				add_action( 'wp_ajax_nopriv_' . $ajax_event, array( __CLASS__, $ajax_event ) );
-			}
-		}
 	}
 	/**
 	 * ajax login after submit modal login form

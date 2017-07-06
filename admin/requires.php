@@ -1,8 +1,5 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
-require('admin.php');
-require('credit.php');
-require('ajax_register.php');
-if( class_exists( 'BX_Admin') )
-	new BX_Admin();
-new BX_Credit_Setting();
+	require_once dirname(__FILE__) . '/admin.php';
+	require_once dirname(__FILE__) . '/credit.php';
+	require_once dirname(__FILE__) . '/ajax_register.php';
+?>

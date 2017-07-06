@@ -406,7 +406,7 @@ add_filter( 'frontpage_template',  'boxtheme_front_page_template' );
 
 include_once ( 'inc/requires.php' );
 
-include_once ( 'admin/requires.php' );
+require_once ( 'admin/requires.php' );
 function init_theme() {
   	if ( isset( $_GET['activated'] ) ) { // Test if theme is activated
 
