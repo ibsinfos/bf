@@ -9,7 +9,13 @@
 		<div class="row site-content" id="content" >
 			<div class="col-md-8 col-md-offset-2 text-justify">
 				<?php the_post(); ?>
-				<?php get_template_part( 'template-parts/project/form-post', 'project' );?>
+				<?php
+					if( is_user_logged_in() ){
+						get_template_part( 'template-parts/project/form-post', 'project' );
+					} else {
+						_e('Please login to post project','boxtheme');
+					}
+				?>
 			</div>
 
 		</div>
