@@ -63,10 +63,16 @@
 						    	$has_payment= 0;
 							    $option = BX_Option::get_instance();
 						        $payment = $option->get_group_option('payment');
-						        $paypal = (object)$payment['paypal'];
-						        $cash = (object)$payment['cash'];
-						        if( $paypal->enable ) {
-						        	$has_payment= 1;
+						        $paypal = array();
+						        $cash =  array();
+
+						        if(isset($payment['paypal']))
+						        	$paypal = (object)$payment['paypal'];
+
+						        if( isset($payment['cash']) )
+						        	$cash = (object)$payment['cash'];
+
+						        if( !empty($paypal) && $paypal->enable ) { 	$has_payment= 1;
 							 		?>
 								    <div class="col-sm-12  gateway-payment  record-line"">
 								    	<div class="col-sm-9">
@@ -83,7 +89,8 @@
 								    	<div class="full f-left"></div>
 								    </div>
 							   	<?php } ?>
-								<?php if( $cash->enable ){  $has_payment = 1;?>
+
+								<?php if( !empty($cash) &&  $cash->enable ){  $has_payment = 1;?>
 								    <div class="col-sm-12  gateway-payment record-line">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">
@@ -186,7 +193,7 @@
 	.frm-buy-credit .step{
 		border: 1px solid #eee;
 		overflow: hidden;
-		margin-bottom: 0px;
+		margin-bottom: 15px;
 	}
 	.frm-buy-credit .step .form-group.row1{
 		border: 1px solid #eee;
