@@ -70,7 +70,7 @@ class BX_ajax_backend{
 	}
 	static function approve_order(){
 		if( ! self::check_permission() ){
-			wp_send_json( array('success' => false, 'msg' => 'Security delince') );
+			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
 			die();
 		}
 

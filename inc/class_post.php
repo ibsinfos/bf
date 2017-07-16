@@ -59,7 +59,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		}
 
 		function insert($args){
-			die('parrent');
 			global $user_ID;
 			// check security
 			if( !empty( $args['ID'] ) ){

@@ -3,7 +3,7 @@
 /**
  * BoxFreeancer Theme functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * @link https://boxthemes.net/
  *
  * @package WordPress
  * @subpackage Twenty_Seventeen
