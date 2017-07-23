@@ -15,7 +15,12 @@ function show_bid_buton($post){
 		if( current_user_can_bid( $project) && $project->post_author != $user_ID ){ // chec post_status = publish and freelancer role.
 			// is freelancer and logged
 			$bidding = is_current_user_bidded($project->ID);
-			get_template_part( 'template-parts/project/bid', 'form' );
+			if( ! $bidding){
+				get_template_part( 'template-parts/project/bid', 'form' ); //bid_form include bid-form.php file
+			} else {
+				echo '<div class="full"><button class="btn btn-cancel-bid">'.__('Cancel','boxtheme').' &nbsp;  <span class="glyphicon "></span></button></div>';
+				// show button cancel here.
+			}
 
 		} else {
 			// emp, fre

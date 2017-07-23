@@ -1,11 +1,10 @@
 <?php
+/**
+ * keyword bid-form.php,bid_form
+ */
+
 global $project, $class_bidded, $bidding;
 $budget = $project->_budget;
-
-if( $bidding ){
-  	//$class_bidded = ' style="display:none" ';
-  	echo '<div class="full"><button class="btn btn-toggle-bid-form no-radius full">'.__('Update your bidding','boxtheme').' &nbsp;  <span class="glyphicon glyphicon-chevron-down"></span></button></div>';
-}
 
 ?>
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
