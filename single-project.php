@@ -81,17 +81,58 @@ global $wp_query;
 
 </div>
 <div id="frame_chat">
+
 	<button class="btn btn-close"> x </button>
 	<div class="frm_content">
 	</div>
+	<!-- bid form !-->
+	<form id="frm_assign" class="frm-assign">
+		<div class="row">
+			<div class="col-md-12">
+				<h3> Assign task </h3>
+			</div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-6">
+		        <input class="form-control" type="text" name="first_name" placeholder="First name " id="example-text-input">
+		    </div>
+		    <div class="col-md-6 form-group">
+		        <input class="form-control" type="text" name="last_name" placeholder="Last name " id="example-text-input">
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="form-group col-md-12">
+		        <input class="form-control" name="user_login" required="" placeholder="User name " type="text">
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-12">
+		        <input class="form-control" name="user_email" required="" type="email" placeholder="Your email ">
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-12">
+		        <input class="form-control" name="user_pass" required="" type="password" placeholder="Password ">
+		    </div>
+		</div>
+		<input type="hidden" name="signup_form_id" value="1415545062"><input type="hidden" id="_signup_form" name="_signup_form" value="0e0be3f721">
+
+		<input type="hidden" name="role" value="freelancer">
+
+		<div class="form-group row">
+		<div class="col-md-12">
+		    <button class="btn btn-xlarge btn-action" type="submit">Assign task</button>
+		</div>
+
+		</div>
+	</form>
+	<!-- bid form !-->
 	<div class="reply_input">
 	</div>
 	<div class="right-scroll" style="padding: 30px;">
 	</div>
 </div>
-<script type="text/template" id="">
-
-</script>
 <script type="text/html" id="tmpl-send_message">
 	<form class="emp-send-message" >
 		<textarea name="cvs_content" class="full msg_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>

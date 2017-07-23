@@ -105,6 +105,8 @@
     right: 0;
     top: 0px;
     padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
     width: 550px;
     max-width: 100%;
     min-height: calc(100vh - 25px);
