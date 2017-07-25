@@ -1,7 +1,7 @@
 <?php
 	global $user_ID;
 	$args = array(
-		'post_status' => 'processing',
+		'post_status' => AWARDED,
 		'post_type' => 'project',
 		'author'=> $user_ID,
 	);
