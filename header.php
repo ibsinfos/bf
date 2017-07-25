@@ -69,11 +69,12 @@
 					<li class="inline profile-account dropdown text-center first-sub">
 						<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"> <?php echo $current_user->user_login;?> <span class="caret"></span></a>
 						<ul class="dropdown-menu  ">
-							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>">Dashboard</a></li>
-							<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>">Your profile</a></li>
+							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
+							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('credit');?>"><?php _e('Credit','boxtheme');?></a></li>
+							<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>"><?php _e('My profile','boxtheme');?></a></li>
 
 							<li> <span class="glyphicon glyphicon-envelope"></span> <a href="<?php echo bx_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a></li>
-							<li> <span class="glyphicon glyphicon-log-out"></span>  <a href="<?php echo wp_logout_url( home_url() ); ?>">Logout</a></li>
+							<li> <span class="glyphicon glyphicon-log-out"></span>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
 						</ul>
 					</li>
 					<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
@@ -86,7 +87,7 @@
 				<?php } else { ?>
 					<ul class="main-login">
 						<li class="login text-center dropdown desktop-only ">
-							<a rel="nofollow" class="dropdown-toggle sign-text btn" data-toggle="dropdown" href="#">Sign in <span class="caret"></span></a>
+							<a rel="nofollow" class="dropdown-toggle sign-text btn" data-toggle="dropdown" href="#"><?php _e('Sign in','boxtheme');?> <span class="caret"></span></a>
 							<div class="dropdown-menu width-7">
 								<div class="col-md-12">
 									<form method="post" class="sign-in form login-form">
@@ -98,25 +99,25 @@
 										</div>
 										<div class="form-group">
 											<label class="checkbox-inline checkbox-styled checkbox-primary lh-1-5">
-												<input type="checkbox" value="1" class="remember" id="remember"><span>Remember me</span>
+												<input type="checkbox" value="1" class="remember" id="remember"><span><?php _e('Remember me','boxthem');?></span>
 											</label>
 										</div>
 										<?php wp_nonce_field( 'bx_signin', 'nonce_login_field' ); ?>
 										<button type="submit" class="btn btn-raised btn-success btn-block no-radius" ><?php _e('Sign in','boxtheme');?></button>
 										<div class="divider"></div>
 										<div class="form-group pad-0-top mar-0-top align-right">
-											<span class="toggle-fgp pointer " href="#">Forgot password?</span>
+											<span class="toggle-fgp pointer " href="#"><?php _e('Forgot password','boxtheme');?></span>
 										</div>
 									</form>
 									<form method="post" class="forgot-pass">
 										<div class="form-group">
-											<input type="text" class="form-control no-radius" name="user_email" placeholder="Your emai" required />
+											<input type="text" class="form-control no-radius" name="user_email" placeholder="<?php _e('Your emai','boxtheme');?>" required />
 										</div>
 										<?php wp_nonce_field( 'bx_refresh_pass', 'nonce_login_field' ); ?>
 										<button type="submit" class="btn btn-raised btn-success btn-block no-radius" ><?php _e('Reset Password','boxtheme');?></button>
 										<div class="divider"></div>
 										<div class="form-group pad-0-top mar-0-top align-right">
-											<span class="toggle-signup pointer " href="#">Sign in</span>
+											<span class="toggle-signup pointer " href="#"><?php _e('Sign in','boxtheme');?></span>
 										</div>
 									</form>
 								</div>
