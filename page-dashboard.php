@@ -16,13 +16,13 @@
 				</ul>
 				<div class="tab-content clearfix">
 					<div class="tab-pane active" id="1a">
-						<?php get_template_part( 'template-parts/dashboard/list', 'project' ); ?>
+						<?php get_template_part( 'template-parts/dashboard/list', 'project-activate' ); ?>
 					</div>
 			        <div class="tab-pane" id="tab_working">
-			       		<?php get_template_part( 'template-parts/dashboard/list', 'order' ); ?>
+			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-working' ); ?>
 					</div>
 					<div class="tab-pane" id="tab_done">
-			       		<?php get_template_part( 'template-parts/dashboard/list', 'order' ); ?>
+			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-done' ); ?>
 					</div>
 
 				</div>
