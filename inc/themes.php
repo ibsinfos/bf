@@ -253,4 +253,8 @@ function box_get_notify($user_ID = 0){
 	}
 
 }
+function count_bids($project_id){
+	global $wpdb;
+	return $wpdb->get_var( " SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'bid' AND post_parent= {$project_id}" );
+}
 ?>

@@ -15,7 +15,7 @@
 				_e('Project Title','boxtheme');
 				echo '</div>';
 				echo '<div class ="col-md-2">';
-				_e('Bids','boxtheme');
+				_e('Bid(s)','boxtheme');
 				echo '</div>';
 				echo '<div class ="col-md-3">';
 				_e('Price','boxtheme');
@@ -34,7 +34,7 @@
 				echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';
 				echo '</div>';
 				echo '<div class ="col-md-2">';
-				echo '10';
+				echo count_bids($post->ID);
 				echo '</div>';
 				echo '<div class ="col-md-3">';
 				box_price($project->_budget);
