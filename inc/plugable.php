@@ -4,7 +4,7 @@ if ( ! function_exists( 'bx_get_user_role') ){
 	function bx_get_user_role($user = ''){
 		if( empty($user) ){
 			global $user_ID;
-			if(!$user_ID){
+			if( !$user_ID ){
 				return 'visitor';
 			}
 			$user = $user_ID;

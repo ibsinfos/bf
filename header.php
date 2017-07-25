@@ -10,6 +10,8 @@
  * @since 1.0
  * @version 1.0
  */
+global $role; // visitor, FREELANCER, EMPLOYER, administrator;
+$role = bx_get_user_role();
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
@@ -69,7 +71,11 @@
 					<li class="inline profile-account dropdown text-center first-sub">
 						<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"> <?php echo $current_user->user_login;?> <span class="caret"></span></a>
 						<ul class="dropdown-menu  ">
-							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
+							<?php if(in_array($role, array(EMPLOYER,'administrator')) ){ ?>
+								<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
+							<?php } else  if($role == FREELANCER){ ?>
+								<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
+							<?php } ?>
 							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('credit');?>"><?php _e('Credit','boxtheme');?></a></li>
 							<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>"><?php _e('My profile','boxtheme');?></a></li>
 
