@@ -70,6 +70,4 @@ class BX_Credit_Setting{
 			echo '</ul>';
 		}
 	}
-
-
 }

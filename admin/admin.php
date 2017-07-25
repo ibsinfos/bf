@@ -264,8 +264,7 @@ class BX_Admin{
     <?php
     }
 }
-if( class_exists( 'BX_Admin') )
- 	new BX_Admin();
+
 
 function bx_swap_button($group, $name, $checked){
 	// $value = 0;
