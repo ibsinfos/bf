@@ -16,10 +16,10 @@
 	</div>
 	<div class="col-md-5 f-right no-padding">
 		<select class="f-right">
-			<option>Filter by</option>
-			<option>Date</option>
-			<option>Price</option>
-			<option>Rating</option>
+			<option><?php _e('Filter by','boxtheme');?></option>
+			<option><?php _e('Date','boxtheme');?></option>
+			<option><?php _e('Price','boxtheme');?></option>
+			<option><?php _e('Rating','boxtheme');?></option>
 		</select>
 	</div>
 	<?php

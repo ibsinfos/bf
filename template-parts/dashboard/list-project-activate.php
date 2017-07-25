@@ -11,8 +11,11 @@
 		$loadmore = true;
 		echo '<ul class="db-list-project">';
 		echo '<li class="heading row list-style-none padding-bottom-10">';
-				echo '<div class ="col-md-7">';
+				echo '<div class ="col-md-5">';
 				_e('Project Title','boxtheme');
+				echo '</div>';
+				echo '<div class ="col-md-2">';
+				_e('Bids','boxtheme');
 				echo '</div>';
 				echo '<div class ="col-md-3">';
 				_e('Price','boxtheme');
@@ -27,8 +30,11 @@
 			$query->the_post();
 			$project = BX_Project::get_instance()->convert($post);
 			echo '<li class="row list-style-none padding-bottom-10">';
-				echo '<div class ="col-md-7">';
+				echo '<div class ="col-md-5">';
 				echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';
+				echo '</div>';
+				echo '<div class ="col-md-2">';
+				echo '10';
 				echo '</div>';
 				echo '<div class ="col-md-3">';
 				box_price($project->_budget);
