@@ -2,11 +2,12 @@
 var gproject;
 var cvs_send, msg_send;
 var full_profiles = [];
+var list_bid;
 var act_type = '';
 var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
-		this.list_bid =JSON.parse( jQuery('#json_list_bid').html() );
+		list_bid =JSON.parse( jQuery('#json_list_bid').html() );
 		console.log(this.list_bid);
 		gproject = this.project;
 		//cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
@@ -146,50 +147,29 @@ var single_project = {
 
 
 	},
+
 	showAwardForm: function(event){
 
 		$('#frame_chat').remove('nav-view');
 		var _this = $(event.currentTarget);
-       // _this.closest('.row').find('.frm-award').toggleClass('hide');
-        var user_id = _this.attr('id');
-		var data = {action: 'sync_profile', method: 'get_full_info', user_id:user_id};
-		var content = '';
-		//var full_info = wp.template("full_info");
+
+        var bid_id = _this.attr('id');
+        var data = {action: 'sync_profile', method: 'get_full_info', user_id:bid_id};
+
 		var award_form = wp.template("award_form");
+		console.log(list_bid[0]);
 
-		var success = function(res){
-			full_profiles[user_id] = res.result;
-			$(".frm_content").append( award_form( res.result) );
-			if( act_type != 'show_info' ){
-				$('#frame_chat').addClass('nav-view');
-				act_type = 'show_info';
-			}
-		}
+		$(".frm_content").html( award_form(list_bid ) );
+
+
 		var beforeSend = function(event){
-			console.log(act_type);
-			if(act_type != 'show_info'){
-				$('#frame_chat').removeClass('nav-view');
-			} else {
-				console.log(' vo day');
-			}
-			$(".frm_content").html(' Show information of this user here');
-			console.log('loading');
+			$('#frame_chat').addClass('nav-view');
 		}
+		var success = function(event){};
+
+ 		window.ajaxSend.customLoading(data,beforeSend,success);
 
 
-		if( typeof(full_profiles[user_id]) != "undefined" ){
-
-			if(act_type != 'show_info'){
-				$('#frame_chat').addClass('nav-view');
-				act_type = 'show_info';
-			}
-			if( ! $('#frame_chat').hasClass("nav-view") )
-				$('#frame_chat').addClass('nav-view');
-
-			//$(".frm_content").html( full_info( full_profiles[user_id]) );
-			return false;
-		}
-        window.ajaxSend.customLoading(data,beforeSend,success);
 	},
 	closeFrame: function(e){
 		console.log('close');
