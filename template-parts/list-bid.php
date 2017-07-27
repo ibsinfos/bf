@@ -1,6 +1,7 @@
 <div class="full list-bid">
 	<?php
-	global $user_ID, $project;
+	global $user_ID, $project, $all_bid;
+
 	$paged = isset($_GET['pid']) ? $_GET['pid'] : 1;
 	$args = array(
 		'post_type' => BID,
@@ -27,6 +28,8 @@
 		while( $query->have_posts() ):
 			$query->the_post();
 			get_template_part( 'template-parts/bid', 'loop' );
+			//$all_bid[] = $post;
+
 		endwhile;
 
 		$projet_link = get_the_permalink($project->ID);

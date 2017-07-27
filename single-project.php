@@ -3,9 +3,8 @@ global $wp_query;
 ?>
 <?php get_header(); ?>
 <?php
-	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $all_bid;
 	$cvs_id = 0;
-
 	the_post();
 	$role = bx_get_user_role();
 	$project = BX_Project::get_instance()->convert($post);
@@ -89,7 +88,7 @@ global $wp_query;
 	<form id="frm_assign" class="frm-assign">
 		<div class="row">
 			<div class="col-md-12">
-				<h3> Assign task </h3>
+				<h3> <?php _e('Assign task','boxtheme');?> </h3>
 			</div>
 		</div>
 		<div class="row">
@@ -176,6 +175,7 @@ global $wp_query;
 	</div>
 </script>
 <script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>
+<script type="text/template" id="json_all_bid"><?php   echo json_encode($all_bid); ?></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

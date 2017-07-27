@@ -157,8 +157,6 @@ var single_project = {
 				$('#frame_chat').addClass('nav-view');
 				act_type = 'show_info';
 			}
-			console.log('bbb');
-
 		}
 		var beforeSend = function(event){
 			console.log(act_type);

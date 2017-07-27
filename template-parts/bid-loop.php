@@ -1,7 +1,8 @@
 <?php
-global $project, $post, $user_ID;
+global $project, $post, $user_ID, $all_bid;
 $bid = new BX_Bid();
 $bid = $bid->convert( $post );
+$all_bid[] = $post;
 $winner = 0;
 $bid_class = '';
 $winner_text ='';
@@ -49,7 +50,8 @@ if($bid->post_author == $project->{WINNER_ID}){
 				<?php } else { ?>
 					<button class="btn btn-create-conversation btn-scroll-right" " ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
-			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->post_author;?>"><?php _e('Award job','boxtheme');?></button>
+			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->post_author;?>"><?php _e('Award','boxtheme');?></button>
+
 
 			</div>
 		<?php } else { ?>
