@@ -1,6 +1,6 @@
 <div class="full list-bid">
 	<?php
-	global $user_ID, $project, $all_bid;
+	global $user_ID, $project, $list_bid;
 
 	$paged = isset($_GET['pid']) ? $_GET['pid'] : 1;
 	$args = array(
@@ -28,7 +28,7 @@
 		while( $query->have_posts() ):
 			$query->the_post();
 			get_template_part( 'template-parts/bid', 'loop' );
-			//$all_bid[] = $post;
+			//$list_bid[] = $post;
 
 		endwhile;
 

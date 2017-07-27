@@ -3,7 +3,7 @@ global $wp_query;
 ?>
 <?php get_header(); ?>
 <?php
-	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $all_bid;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid;
 	$cvs_id = 0;
 	the_post();
 	$role = bx_get_user_role();
@@ -121,7 +121,7 @@ global $wp_query;
 
 		<div class="form-group row">
 		<div class="col-md-12">
-		    <button class="btn btn-xlarge btn-action" type="submit">Assign task</button>
+		    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('Assign task','boxtheme');?></button>
 		</div>
 
 		</div>
@@ -175,7 +175,7 @@ global $wp_query;
 	</div>
 </script>
 <script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>
-<script type="text/template" id="json_all_bid"><?php   echo json_encode($all_bid); ?></script>
+<script type="text/template" id="json_list_bid"><?php   echo json_encode($list_bid); ?></script>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

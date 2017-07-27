@@ -6,6 +6,8 @@ var act_type = '';
 var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
+		this.list_bid =JSON.parse( jQuery('#json_list_bid').html() );
+		console.log(this.list_bid);
 		gproject = this.project;
 		//cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
 		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'',receiver_id:0, project_id: this.project.ID };

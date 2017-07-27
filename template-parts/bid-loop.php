@@ -1,8 +1,8 @@
 <?php
-global $project, $post, $user_ID, $all_bid;
+global $project, $post, $user_ID, $list_bid;
 $bid = new BX_Bid();
 $bid = $bid->convert( $post );
-$all_bid[] = $post;
+$list_bid[] = $post;
 $winner = 0;
 $bid_class = '';
 $winner_text ='';
@@ -21,7 +21,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 	</div>
 	<div class ="col-md-10 padding-right-zero">
 		<?php
-		$list_bid  = list_dealine();
+		$list_dealine  = list_dealine();
 		?>
 		<div class="full clear block">
 			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> - <i><?php echo $bid->professional_title;?></i> </h5>
@@ -32,7 +32,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 			<?php the_content(); ?>
 		</div>
 		<div class="full clear">
-			<small><?php _e('Deadline: ','boxtheme'); echo isset( $list_bid[$bid->_dealine]) ? $list_bid[$bid->_dealine] : '';?> </small>
+			<small><?php _e('Deadline: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </small>
 			<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
 			<small><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></small>
 		</div>
