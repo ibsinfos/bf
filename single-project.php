@@ -143,32 +143,23 @@ global $wp_query;
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-6">
-		        <input class="form-control" type="text" name="first_name" placeholder="First name " id="example-text-input">
+		        <label> <?php _e('Number credit send: {{data.bid_price}}}','boxtheme');?>
 		    </div>
 		    <div class="col-md-6 form-group">
-		        <input class="form-control" type="text" name="last_name" placeholder="Last name " id="example-text-input">
+		        <label> <?php _e('Fee service: {{data.bid_price}}}','boxtheme');?>
 		    </div>
 		</div>
 
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <input class="form-control" name="user_login" required="" placeholder="User name " type="text">
+		         <label> <?php _e('Freelancer receive: {{data.bid_price}}}','boxtheme');?>
 		    </div>
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <input class="form-control" name="user_email" required="" type="email" placeholder="Your email ">
+		        <textarea  class="form-control" name="award_msg" required="" ><?php _e('Your message','boxtheme');?></textarea>
 		    </div>
 		</div>
-		<div class="row">
-		    <div class="form-group col-md-12">
-		        <input class="form-control" name="user_pass" required="" type="password" placeholder="Password ">
-		    </div>
-		</div>
-		<input type="hidden" name="signup_form_id" value="1415545062"><input type="hidden" id="_signup_form" name="_signup_form" value="0e0be3f721">
-
-		<input type="hidden" name="role" value="freelancer">
-
 		<div class="form-group row">
 		<div class="col-md-12">
 		    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('Assign task','boxtheme');?></button>
