@@ -8,7 +8,7 @@ var single_project = {
 	init: function() {
 		this.project =JSON.parse( jQuery('#json_project').html() );
 		list_bid =JSON.parse( jQuery('#json_list_bid').html() );
-		console.log(this.list_bid);
+		console.log(list_bid);
 		gproject = this.project;
 		//cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
 		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'',receiver_id:0, project_id: this.project.ID };
@@ -157,9 +157,8 @@ var single_project = {
         var data = {action: 'sync_profile', method: 'get_full_info', user_id:bid_id};
 
 		var award_form = wp.template("award_form");
-		console.log(list_bid[0]);
 
-		$(".frm_content").html( award_form(list_bid ) );
+		$(".frm_content").html( award_form(list_bid[bid_id] ) );
 
 
 		var beforeSend = function(event){

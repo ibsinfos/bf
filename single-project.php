@@ -143,23 +143,24 @@ global $wp_query;
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('Number credit send: {{data.bid_price}}}','boxtheme');?></label>
+		        <label> <?php _e('Number credit send: {{{data._bid_price}}}','boxtheme');?></label>
 		    </div>
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('Fee service: {{data.bid_price}}}','boxtheme');?></label>
+		        <label> <?php _e('Fee service: {{{data._bid_price}}}','boxtheme');?></label>
 		    </div>
 		</div>
 
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('Freelancer receive: {{data.bid_price}}}','boxtheme');?></label>
+		        <label> <?php _e('Freelancer receive: {{{data._bid_price}}}','boxtheme');?></label>
 		    </div>
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
 		        <textarea  class="form-control" name="award_msg" placeholder="Your message" ></textarea>
+		        <input type="hidden" name="bid_id" value="{{{data.ID}}}">
 		    </div>
 		</div>
 		<div class="form-group row">

@@ -2,7 +2,7 @@
 global $project, $post, $user_ID, $list_bid;
 $bid = new BX_Bid();
 $bid = $bid->convert( $post );
-$list_bid[] = $post;
+$list_bid[$post->ID] = $post;
 $winner = 0;
 $bid_class = '';
 $winner_text ='';
