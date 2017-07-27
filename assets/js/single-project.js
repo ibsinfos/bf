@@ -151,7 +151,7 @@ var single_project = {
         var user_id = _this.attr('id');
 		var data = {action: 'sync_profile', method: 'get_full_info', user_id:user_id};
 		var content = '';
-		var full_info = wp.template("full_info");
+		//var full_info = wp.template("full_info");
 		var award_form = wp.template("award_form");
 
 		var success = function(res){
@@ -242,7 +242,6 @@ var single_project = {
 	awardProject: function(event){
 		var action = 'award_project', method = 'award';
 		var success = function(res){
-
 
         	if ( res.success ){
 

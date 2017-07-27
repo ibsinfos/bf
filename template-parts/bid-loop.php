@@ -61,7 +61,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 
 	<div class="col-md-12">
 
-		<form class="frm-award hide" >
+		<form class="frm-award123 hide" >
 			<div class="form-group row">
 		 		<label  class="col-sm-4 col-form-label"><?php _e('Total amount','boxtheme');?></label>
 	      		<div class="col-sm-8">
