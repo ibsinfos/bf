@@ -3,6 +3,7 @@ var gproject;
 var cvs_send, msg_send;
 var full_profiles = [];
 var list_bid;
+var bid_select;
 var act_type = '';
 var single_project = {
 	init: function() {
@@ -223,23 +224,20 @@ var single_project = {
 
 	awardProject: function(event){
 
-		event.preventDefault();
-		alert('555');
+		var action = 'award_project', method = 'award';
+		var success = function(res){
 
-		// var action = 'award_project', method = 'award';
-		// var success = function(res){
+        	if ( res.success ){
 
-  //       	if ( res.success ){
+        		window.location.reload(true);
+	        } else {
 
-  //       		window.location.reload(true);
-	 //        } else {
+	        	alert(res.msg);
+	        }
+		}
 
-	 //        	alert(res.msg);
-	 //        }
-		// }
-		// alert('123');
-		// //window.ajaxSend.Form(event, action, method, success);
-		// return false;
+		window.ajaxSend.Form(event, action, method, success);
+		return false;
 	},
 	removeAttachment: function (event){
 		event.preventDefault();
@@ -309,10 +307,6 @@ var single_project = {
 
 	 $(document).ready(function(){
 		single_project.init();
-		$(".frm-award").submit(function(){
-			alert('123');
-			return false;
-		})
 	});
 
 })( jQuery,window.ajaxSend );
