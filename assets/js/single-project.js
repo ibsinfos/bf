@@ -223,8 +223,7 @@ var single_project = {
 	},
 
 	awardProject: function(event){
-
-		var action = 'award_project', method = 'award';
+		event.preventDefault();
 		var success = function(res){
 
         	if ( res.success ){
@@ -236,7 +235,7 @@ var single_project = {
 	        }
 		}
 
-		window.ajaxSend.Form(event, action, method, success);
+		window.ajaxSend.awardJob(event,gproject,success); //gproject == project id
 		return false;
 	},
 	removeAttachment: function (event){
@@ -266,6 +265,7 @@ var single_project = {
 	        }
 		}
 		window.ajaxSend.Form(event, action, method, success);
+
 		return false;
 	},
 	reviewEmployer: function(event){

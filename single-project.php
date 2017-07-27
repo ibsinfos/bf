@@ -161,6 +161,9 @@ global $wp_query;
 		    <div class="form-group col-md-12">
 		        <textarea  class="form-control" name="award_msg" placeholder="Your message" ></textarea>
 		        <input type="hidden" name="bid_id" value="{{{data.ID}}}">
+		        <input type="hidden" name="freelancer_id" value="{{{data.post_author}}}">
+		        <input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
+
 		    </div>
 		</div>
 		<div class="form-group row">

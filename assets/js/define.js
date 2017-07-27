@@ -29,6 +29,31 @@ var ajaxSend = {};
 	    });
 	    return false;
 	};
+	window.ajaxSend.awardJob = function(event, project_id, success){
+		var form 	= $(event.currentTarget),
+			data   	= {};
+	    form.find(' input[type=text], input[type=hidden],input[type=email], input[type=number], input[type=date],input[type=password],  input[type=checkbox],textarea,select').each(function() {
+	    	var key 	= $(this).attr('name');
+	        data[key] 	= $(this).val();
+	    });
+
+
+	    $.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: 'award_project',
+	                request: data,
+	                method : 'award',
+	        },
+	        beforeSend  : function(event){
+	        	console.log('beforeSend');
+	        },
+	        success: success,
+	    });
+	    return false;
+	};
 	window.ajaxSend.submitPost = function(data, action, method, successRes){
 
 	    $.ajax({
