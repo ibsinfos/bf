@@ -1,5 +1,6 @@
 ( function( $ ) {
 var gproject;
+var project_id;
 var cvs_send, msg_send;
 var full_profiles = [];
 var list_bid;
@@ -13,6 +14,7 @@ var single_project = {
 		gproject = this.project;
 		//cvs_send = {action: 'sync_conversations',method: '',cvs_content:'', project_id:this.project.ID,receiver_id:0 };
 		msg_send = {action: 'sync_message', method: 'insert',cvs_id:0, msg_content:'',receiver_id:0, project_id: this.project.ID };
+		 project_id: this.project.ID;
 
 		$( '#bid_form' ).on( 'submit', this.submitBid );
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
@@ -235,7 +237,8 @@ var single_project = {
 	        }
 		}
 
-		window.ajaxSend.awardJob(event,gproject,success); //gproject == project id
+		window.ajaxSend.awardJob(event, project_id,success); //gproject == project id
+
 		return false;
 	},
 	removeAttachment: function (event){
