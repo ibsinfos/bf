@@ -183,7 +183,7 @@ var single_project = {
 			if( ! $('#frame_chat').hasClass("nav-view") )
 				$('#frame_chat').addClass('nav-view');
 
-			$(".frm_content").html( full_info( full_profiles[user_id]) );
+			//$(".frm_content").html( full_info( full_profiles[user_id]) );
 			return false;
 		}
         window.ajaxSend.customLoading(data,beforeSend,success);
