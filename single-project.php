@@ -84,49 +84,7 @@ global $wp_query;
 	<button class="btn btn-close"> x </button>
 	<div class="frm_content">
 	</div>
-	<!-- bid form !-->
-	<form id="frm_assign" class="frm-assign">
-		<div class="row">
-			<div class="col-md-12">
-				<h3> <?php _e('Assign task','boxtheme');?> </h3>
-			</div>
-		</div>
-		<div class="row">
-		    <div class="form-group col-md-6">
-		        <input class="form-control" type="text" name="first_name" placeholder="First name " id="example-text-input">
-		    </div>
-		    <div class="col-md-6 form-group">
-		        <input class="form-control" type="text" name="last_name" placeholder="Last name " id="example-text-input">
-		    </div>
-		</div>
 
-		<div class="row">
-		    <div class="form-group col-md-12">
-		        <input class="form-control" name="user_login" required="" placeholder="User name " type="text">
-		    </div>
-		</div>
-		<div class="row">
-		    <div class="form-group col-md-12">
-		        <input class="form-control" name="user_email" required="" type="email" placeholder="Your email ">
-		    </div>
-		</div>
-		<div class="row">
-		    <div class="form-group col-md-12">
-		        <input class="form-control" name="user_pass" required="" type="password" placeholder="Password ">
-		    </div>
-		</div>
-		<input type="hidden" name="signup_form_id" value="1415545062"><input type="hidden" id="_signup_form" name="_signup_form" value="0e0be3f721">
-
-		<input type="hidden" name="role" value="freelancer">
-
-		<div class="form-group row">
-		<div class="col-md-12">
-		    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('Assign task','boxtheme');?></button>
-		</div>
-
-		</div>
-	</form>
-	<!-- bid form !-->
 	<div class="reply_input">
 	</div>
 	<div class="right-scroll" style="padding: 30px;">
@@ -173,6 +131,52 @@ global $wp_query;
 			<#  }) #>
 		</div>
 	</div>
+</script>
+
+<script type="text/html" id="tmpl-award_form">
+	<!-- Award form !-->
+	<form id="frm_assign" class="frm-assign">
+		<div class="row">
+			<div class="col-md-12">
+				<h3> <?php _e('Assign task','boxtheme');?> </h3>
+			</div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-6">
+		        <input class="form-control" type="text" name="first_name" placeholder="First name " id="example-text-input">
+		    </div>
+		    <div class="col-md-6 form-group">
+		        <input class="form-control" type="text" name="last_name" placeholder="Last name " id="example-text-input">
+		    </div>
+		</div>
+
+		<div class="row">
+		    <div class="form-group col-md-12">
+		        <input class="form-control" name="user_login" required="" placeholder="User name " type="text">
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-12">
+		        <input class="form-control" name="user_email" required="" type="email" placeholder="Your email ">
+		    </div>
+		</div>
+		<div class="row">
+		    <div class="form-group col-md-12">
+		        <input class="form-control" name="user_pass" required="" type="password" placeholder="Password ">
+		    </div>
+		</div>
+		<input type="hidden" name="signup_form_id" value="1415545062"><input type="hidden" id="_signup_form" name="_signup_form" value="0e0be3f721">
+
+		<input type="hidden" name="role" value="freelancer">
+
+		<div class="form-group row">
+		<div class="col-md-12">
+		    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('Assign task','boxtheme');?></button>
+		</div>
+
+		</div>
+	</form>
+	<!-- Award form !-->
 </script>
 <script type="text/template" id="json_project"><?php global $cvs_id; $project->cvs_id = $cvs_id; echo json_encode($project); ?></script>
 <script type="text/template" id="json_list_bid"><?php   echo json_encode($list_bid); ?></script>

@@ -152,9 +152,11 @@ var single_project = {
 		var data = {action: 'sync_profile', method: 'get_full_info', user_id:user_id};
 		var content = '';
 		var full_info = wp.template("full_info");
+		var award_form = wp.template("award_form");
+
 		var success = function(res){
 			full_profiles[user_id] = res.result;
-			$(".frm_content").html( full_info( res.result) );
+			$(".frm_content").html( award_form( res.result) );
 			if( act_type != 'show_info' ){
 				$('#frame_chat').addClass('nav-view');
 				act_type = 'show_info';
