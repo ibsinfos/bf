@@ -22,13 +22,15 @@ var single_project = {
 
 		$( "form.frm-send-message").on('submit', this.sendMessage); // in workspace section
 		$( ".btn-toggle-award").on('click',this.showAwardForm);
-		$( "form.frm-award").on('submit', this.awardProject);
+		// $( ".frm-award").on('submit', this.awardProject);
+		$(document).on('submit', '.frm-award' , this.awardProject);
+
 		$( "span.btn-del-attachment").on('click', this.removeAttachment);
 		$( "form#frm_emp_review").on('submit', this.reviewFreelancer);
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
 		$(".btn-close").on('click',this.closeFrame);
 
-		console.log(full_profiles);
+
 		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
@@ -145,6 +147,7 @@ var single_project = {
 
 	},
 	showAwardForm: function(event){
+
 		$('#frame_chat').remove('nav-view');
 		var _this = $(event.currentTarget);
        // _this.closest('.row').find('.frm-award').toggleClass('hide');
@@ -156,7 +159,7 @@ var single_project = {
 
 		var success = function(res){
 			full_profiles[user_id] = res.result;
-			$(".frm_content").html( award_form( res.result) );
+			$(".frm_content").append( award_form( res.result) );
 			if( act_type != 'show_info' ){
 				$('#frame_chat').addClass('nav-view');
 				act_type = 'show_info';
@@ -240,19 +243,24 @@ var single_project = {
 	},
 
 	awardProject: function(event){
-		var action = 'award_project', method = 'award';
-		var success = function(res){
 
-        	if ( res.success ){
+		event.preventDefault();
+		alert('555');
 
-        		window.location.reload(true);
-	        } else {
+		// var action = 'award_project', method = 'award';
+		// var success = function(res){
 
-	        	alert(res.msg);
-	        }
-		}
-		window.ajaxSend.Form(event, action, method, success);
-		return false;
+  //       	if ( res.success ){
+
+  //       		window.location.reload(true);
+	 //        } else {
+
+	 //        	alert(res.msg);
+	 //        }
+		// }
+		// alert('123');
+		// //window.ajaxSend.Form(event, action, method, success);
+		// return false;
 	},
 	removeAttachment: function (event){
 		event.preventDefault();
@@ -320,7 +328,14 @@ var single_project = {
 	},
 }
 
-	$(document).ready(function(){
+	 $(document).ready(function(){
 		single_project.init();
-	})
+		$(".frm-award").submit(function(){
+			alert('123');
+			return false;
+		})
+	});
+
 })( jQuery,window.ajaxSend );
+
+//https://stackoverflow.com/questions/7410063/how-can-i-listen-to-the-form-submit-event-in-javascript

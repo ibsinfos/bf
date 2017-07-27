@@ -135,7 +135,7 @@ global $wp_query;
 
 <script type="text/html" id="tmpl-award_form">
 	<!-- Award form !-->
-	<form id="frm_assign" class="frm-award">
+	<form id="frm_award" class="frm-award"  method="post">
 		<div class="row">
 			<div class="col-md-12">
 				<h2> <?php _e('Assign task','boxtheme');?> </h2>
@@ -159,12 +159,12 @@ global $wp_query;
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <textarea  class="form-control" name="award_msg" required="" placeholder="Your message" ></textarea>
+		        <textarea  class="form-control" name="award_msg" placeholder="Your message" ></textarea>
 		    </div>
 		</div>
 		<div class="form-group row">
 		<div class="col-md-12">
-		    <button class="btn btn-xlarge btn-action f-right" type="submit"><?php _e('Assign task','boxtheme');?></button>
+		    <button class="btn btn-xlarge btn-action f-right" type="submit" ><?php _e('Assign task','boxtheme');?></button>
 		</div>
 
 		</div>
