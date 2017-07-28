@@ -12,19 +12,21 @@
 	$query = new WP_Query($args);
 	//show_conversation($user_ID, $project->ID);
 	?>
-	<div class="col-md-5 no-padding">
-		<h3><?php printf(__('List bid (%s)','boxtheme'), $query->found_posts); ?></h3>
-	</div>
-	<div class="col-md-6 f-right no-padding">
-		<div class="dropdown f-right">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php _e('Filter by','boxtheme');?>
-			<span class="caret"></span></button>
-			<ul class="dropdown-menu">
-				<li><a href="#"><?php _e('Filter by','boxtheme');?></a></li>
-				<li><a href="#"><?php _e('Date','boxtheme');?></a></li>
-				<li><a href="#"><?php _e('Price','boxtheme');?></a></li>
-				<li><a href="#"><?php _e('Rating','boxtheme');?></a></li>
-			</ul>
+	<div class="list-bid-heading">
+		<div class="col-md-5 no-padding">
+			<h3><?php printf(__('TOTAL BID(S): %s','boxtheme'), $query->found_posts); ?></h3>
+		</div>
+		<div class="col-md-6 f-right no-padding">
+			<div class="dropdown f-right sort-bids">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php _e('Order by','boxtheme');?>
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu">
+					<li><a href="#"><?php _e('Filter by','boxtheme');?></a></li>
+					<li><a href="#"><?php _e('Date','boxtheme');?></a></li>
+					<li><a href="#"><?php _e('Price','boxtheme');?></a></li>
+					<li><a href="#"><?php _e('Rating','boxtheme');?></a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<?php

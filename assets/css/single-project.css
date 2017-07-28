@@ -183,3 +183,13 @@ ul.list-skill li a{
 .wrap-workspace{
 	margin-top: 20px;
 }
+.list-bid-heading{
+	padding: 15px 0;
+	display: block;
+	float: left;
+	width: 100%;
+}
+.sort-bids .dropdown-toggle{
+	padding-left: 20px;
+	padding-right: 20px;
+}
