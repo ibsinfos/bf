@@ -76,7 +76,7 @@
             <div class="form-group row">
                <label class="col-sm-3 col-form-label">Set youtube video ID</label>
                <div class="col-sm-9">
-                  <input type="text" class="update form-control" name="video_id" value="<?php echo $video_id;?>" placeholder="Set youtube link here">
+                  <input type="text" class="update form-control" name="video_id" value="<?php echo $video_id;?>" placeholder="<?php _e('Set your youtube video ID here','boxtheme');?>">
                </div>
             </div>
             <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >

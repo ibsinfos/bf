@@ -45,19 +45,19 @@
 			    </div>
 				<div class="form-group row">
 					<div class="col-sm-12 text-justify">
-						<?php
-						$video_id = get_post_meta($profile->ID, 'video_id', true);
-
-						if( !empty($video_id)){ ?>
-						<div class="video-container">
-							  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-						</div>
-						<?php } ?>
 						<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
 						<div class="full author-overview">
 							<?php echo $profile->post_content;?>
 						</div>
 
+						<?php
+						$video_id = get_post_meta($profile->ID, 'video_id', true);
+
+						if( !empty($video_id)){ ?>
+							<div class="video-container">
+							  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 
@@ -123,6 +123,8 @@
 					}
 					echo '</div>';
 					bx_pagenate($result);
+				} else {
+					_e('There is not any feedback','boxtheme');
 				}
 				?>
 			</div>
