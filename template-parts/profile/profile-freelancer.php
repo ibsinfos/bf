@@ -162,8 +162,6 @@
    </form>
 <div class="row-section">
 	<!-- portfolio !-->
-	<div id="container_file">
-	   	<button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add Portfolio </button>
-	</div>
+	<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
 </div>
 <!-- end portfolio >

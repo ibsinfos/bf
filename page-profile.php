@@ -63,5 +63,37 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal_add_portfolio">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      	<div class="modal-body">
+      		<form>
+	      		<div class="form-group">
+			      	<label class="col-md-5"> <?php _e('New portfolio','boxtheme');?></label>
+			      	<input class="col-md-7"  type="text" class="form-control input-price"  name="post_content" value="" />
+			   	</div>
+
+			   	<div class="form-group">
+			      	<label class="col-md-5" for="exampleTextarea"><?php _e('Select an image','boxtheme');?></label>
+			      	<div class="col-md-7" id="container_file">
+					   	<button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add Portfolio </button>
+					</div>
+			   	</div>
+
+
+
+
+
+	      	</form>
+      	</div>
+      	<div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary upload-result">Save changes</button>
+	     </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <?php get_footer();?>
 

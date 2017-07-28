@@ -84,8 +84,11 @@
 			$( '.update-one-meta' ).on( 'submit', this.updateOneMeta);
 			$(".chosen-select").chosen();
 			// open modal
-			 $('.update-avatar img').on('click', function() {
+			$('.update-avatar img').on('click', function() {
 		        $('#modal_avatar').modal('show');
+		    });
+		    $('.btn-show-portfolio-modal').on('click', function() {
+		        $('#modal_add_portfolio').modal('show');
 		    });
 			//end open
 			$(".btn-edit-default").click(function(event){
@@ -120,6 +123,7 @@
 			    },
 			    multipart_params: {
 			    	action: 'upload_file',
+			    	target:'add_portfolio',
 			    	//post_parent: view.project.ID,
 			    	//project_tile: view.project.post_title,
 			    	//cvs_id: $("#cvs_id").val(),
