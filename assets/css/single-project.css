@@ -193,3 +193,20 @@ ul.list-skill li a{
 	padding-left: 20px;
 	padding-right: 20px;
 }
+.frm-award{
+	padding: 30px 20px;
+	border:1px solid #ccc;
+	margin-top: 20px;
+
+}
+.frm-award textarea{
+	height: 88px;
+}
+.btn-close {
+    background-color: #fff;
+    color: #383838;
+    border: 1px solid #908d8d;
+    border-radius: 51%;
+    padding: 0px 13px;
+    font-size: 30px;
+}
