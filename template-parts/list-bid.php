@@ -15,13 +15,17 @@
 	<div class="col-md-5 no-padding">
 		<h3><?php printf(__('List bid (%s)','boxtheme'), $query->found_posts); ?></h3>
 	</div>
-	<div class="col-md-5 f-right no-padding">
-		<select class="f-right">
-			<option><?php _e('Filter by','boxtheme');?></option>
-			<option><?php _e('Date','boxtheme');?></option>
-			<option><?php _e('Price','boxtheme');?></option>
-			<option><?php _e('Rating','boxtheme');?></option>
-		</select>
+	<div class="col-md-6 f-right no-padding">
+		<div class="dropdown f-right">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php _e('Filter by','boxtheme');?>
+			<span class="caret"></span></button>
+			<ul class="dropdown-menu">
+				<li><a href="#"><?php _e('Filter by','boxtheme');?></a></li>
+				<li><a href="#"><?php _e('Date','boxtheme');?></a></li>
+				<li><a href="#"><?php _e('Price','boxtheme');?></a></li>
+				<li><a href="#"><?php _e('Rating','boxtheme');?></a></li>
+			</ul>
+		</div>
 	</div>
 	<?php
 	if( $query->have_posts() ) :
