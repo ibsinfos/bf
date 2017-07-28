@@ -2,7 +2,12 @@
 global $project, $post, $user_ID, $list_bid;
 $bid = new BX_Bid();
 $bid = $bid->convert( $post );
-$list_bid[$post->ID] = $post;
+$_bid_price = $bid->_bid_price;
+$commission_fee    = (float) get_commision_fee($_bid_price);
+$fre_receive = $_bid_price - $commission_fee;
+$bid->fre_receive = $fre_receive;
+$bid->commission_fee = $commission_fee;
+$list_bid[$post->ID] = $bid;
 $winner = 0;
 $bid_class = '';
 $winner_text ='';

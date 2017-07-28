@@ -17,8 +17,8 @@ $budget = $project->_budget;
           $budget = get_post_meta($bidding->ID,BID_PRICE, true);
           //echo '<input type="hidden" value="'.$bidding->ID.'" name= "ID" />';
         }
-        $fee    = (float) get_commision_fee($budget);
-        $receive = $budget - $fee;
+        $commission_fee    = (float) get_commision_fee($budget);
+        $fre_receive = $budget - $commission_fee;
 
 ?>
         <input type="number" size="6" class="form-control inline input-price" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
@@ -27,13 +27,13 @@ $budget = $project->_budget;
    	<div class="form-group row bd-bottom">
       	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="f-right">$</span></label>
       	<div class="col-sm-4">
-         	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $fee;?>" />
+         	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $commission_fee;?>" />
       	</div>
    	</div>
    	<div class="form-group row bd-bottom">
       	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('You\'ll receive','boxtheme');?> <span class="f-right">$</span></label>
       	<div class="col-sm-4">
-        	<input type="text" class="form-control input-price" id="_bid_receive" name="_bid_receive" value="<?php echo $receive;?>" />
+        	<input type="text" class="form-control input-price" id="_bid_receive" name="_bid_receive" value="<?php echo $fre_receive;?>" />
       	</div>
     </div>
 

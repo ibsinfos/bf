@@ -148,13 +148,13 @@ global $wp_query;
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('Fee service: {{{data._bid_price}}}','boxtheme');?></label>
+		        <label> <?php _e('Fee service: {{{data.commission_fee}}}','boxtheme');?></label>
 		    </div>
 		</div>
 
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('Freelancer receive: {{{data._bid_price}}}','boxtheme');?></label>
+		        <label> <?php _e('Freelancer receive: {{{data.fre_receive}}}','boxtheme');?></label>
 		    </div>
 		</div>
 		<div class="row">
