@@ -91,29 +91,6 @@ if($project->post_status == DONE){
 				<li>Finish: March 20, 2017</li>
 			<?php } ?>
 		</ul>
-		<?php if($is_owner){ ?>
-			<h3>Freelancer:</h3>
-			<ul>
-				<li> Hour rate: 30$</li>
-				<li> Score: 5*</li>
-				<li> Country: US</li>
-			</ul>
-
-		<?php } else { ?>
-		<h3>Employer:</h3>
-		<ul>
-			<li> David Kent</li>
-			<li> Project posted: 300</li>
-			<li> Scrore: 5*</li>
-			<li> Country: US</li>
-		</ul>
-		<?php } ?>
-		Milestones:
-		<ul>
-			<li> Milestone 1</li>
-			<li> Milestone 2</li>
-			<li> Milestone 3</li>
-		</ul>
 		<?php if( !$is_fre_review  ){?>
 			<div id="container_file" class="clear block">
 			    <button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add File </button>
