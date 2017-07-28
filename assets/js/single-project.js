@@ -136,6 +136,7 @@ var single_project = {
 			$(".frm_content").html( content );
 			var frm_send_message = wp.template("send_message");
 			$(".reply_input").html(frm_send_message({}));
+			$(".reply_input").show();
 			$('#frame_chat').addClass('nav-view');
 		}
 		var beforeSend = function(event){
@@ -145,9 +146,6 @@ var single_project = {
 			console.log('loading');
 		}
 		window.ajaxSend.customLoading(data,beforeSend,success);
-
-
-
 
 	},
 
@@ -162,7 +160,7 @@ var single_project = {
 		var award_form = wp.template("award_form");
 
 		$(".frm_content").html( award_form(list_bid[bid_id] ) );
-
+		$(".reply_input").hide();
 
 		var beforeSend = function(event){
 			$('#frame_chat').addClass('nav-view');
