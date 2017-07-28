@@ -70,14 +70,13 @@
       	<div class="modal-body">
       		<form>
 	      		<div class="form-group">
-			      	<label class="col-md-5"> <?php _e('New portfolio','boxtheme');?></label>
-			      	<input class="col-md-7"  type="text" class="form-control input-price"  name="post_content" value="" />
+
+			      	<input class="col-md-12"  type="text" class="form-control input-price"  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
 			   	</div>
 
 			   	<div class="form-group">
-			      	<label class="col-md-5" for="exampleTextarea"><?php _e('Select an image','boxtheme');?></label>
-			      	<div class="col-md-7" id="container_file">
-					   	<button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add Portfolio </button>
+			      	<div class="col-md-12" id="container_file">
+					   	<button class="btn " id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add A picture </button>
 					</div>
 			   	</div>
 
