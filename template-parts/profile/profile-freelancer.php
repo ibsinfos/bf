@@ -160,4 +160,10 @@
       </div>
 
    </form>
-Portfolio
+<div class="row-section">
+	<!-- portfolio !-->
+	<div id="container_file">
+	   	<button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add Portfolio </button>
+	</div>
+</div>
+<!-- end portfolio >

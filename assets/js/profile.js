@@ -105,6 +105,55 @@
 
 			});
 
+			// add portfolio
+			//
+			var uploader = new plupload.Uploader({
+			    runtimes : 'html5,flash,silverlight,html4',
+			    browse_button : 'pickfiles', // you can pass in id...
+			    container: document.getElementById('container_file'), // ... or DOM Element itself
+			    url : bx_global.ajax_url,
+			    filters : {
+			        max_file_size : '10mb',
+			        mime_types: [
+			            {title : "Image files", extensions : "jpg,gif,png,jpeg,ico,pdf,doc,docx,zip,excel,txt"},
+			        ]
+			    },
+			    multipart_params: {
+			    	action: 'upload_file',
+			    	//post_parent: view.project.ID,
+			    	//project_tile: view.project.post_title,
+			    	//cvs_id: $("#cvs_id").val(),
+			    },
+			    init: {
+			        PostInit: function() {
+
+			        },
+			        FilesAdded: function(up, files) {
+
+			        },
+
+			        Error: function(up, err) {
+			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+			        },
+			        FileUploaded : function(up, file, response){
+			        	var obj = jQuery.parseJSON(response.response);
+					    if(obj.success){
+						    var new_record =  '<li class="inline f-left">' + file.name + ' (' + plupload.formatSize(file.size) + ')<span id ="'+obj.attach_id+'" class="btn-del-attachment hide">(x)</span></li>';
+				            $("ul.list-attach").prepend(new_record);
+					    } else{
+					    	alert(obj.msg);
+					    }
+			        }
+			    }
+			});
+			uploader.init();
+			uploader.bind('FilesAdded', function(up, files) {
+	        	//view.$el.find("i.loading").toggleClass("hide");
+	            up.refresh();
+	            up.start();
+	        });
+
+
 		},
 		updateOneMeta: function(e){
 			var form 	= $(e.currentTarget);
