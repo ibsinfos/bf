@@ -35,7 +35,7 @@ global $wp_query;
         	</div>
        	<?php } ?>
        	<?php
-       	if( $is_workspace && $access_workspace ){
+       	if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) && $is_workspace && $access_workspace ){
 			get_template_part( 'template-parts/workspace' );
 		} else { ?>
         <div class="detail-project">

@@ -4,8 +4,7 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 <div class="col-md-8 wrap-workspace">
 	<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
 	<?php _e('Description:','boxtheme'); ?>
-	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?>
-	</div>
+	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div>
 
 	<?php
 	$is_fre_review = get_post_meta($project->ID,'is_fre_review', true);
