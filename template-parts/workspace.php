@@ -2,81 +2,81 @@
 global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 ?>
 <div class="col-md-8 wrap-workspace">
-<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
-<?php _e('Description:','boxtheme'); ?>
-<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?>
-</div>
-<p class="align-right"><a target="_blank" href="<?php echo get_permalink($project->ID);?>"> <?php _e('Project detail','boxtheme');?> </a> </p>
-<?php
-$is_fre_review = get_post_meta($project->ID,'is_fre_review', true);
-if($project->post_status == DONE){
-	echo '<div class="full review-section">';
-	?>
-		<h3 class="no-margin"> Review section</h3>
-		<?php
+	<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
+	<?php _e('Description:','boxtheme'); ?>
+	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?>
+	</div>
 
-		// show rating here.
-		$bid_id = get_post_meta($project->ID,BID_ID_WIN, true);
+	<?php
+	$is_fre_review = get_post_meta($project->ID,'is_fre_review', true);
+	if($project->post_status == DONE){
+		echo '<div class="full review-section">';
+		?>
+			<h3 class="no-margin"> Review section</h3>
+			<?php
+
+			// show rating here.
+			$bid_id = get_post_meta($project->ID,BID_ID_WIN, true);
+
+				$args = array(
+					'post_id' => $bid_id,
+					'type' => 'emp_review',
+					'number' => 1,
+				);
+			$emp_comment = get_comments($args);
+			if( !empty( $emp_comment )){
+				echo '<div class="full rating-line">';
+				if( ($role == FREELANCER && $is_fre_review) || $role != FREELANCER) {
+					echo '<label>'.__('Employer review:','boxtheme').'</label>';
+						$rating_score = get_comment_meta( $emp_comment[0]->comment_ID, RATING_SCORE, true );
+						bx_list_start($rating_score);
+						echo '<i>'.$emp_comment[0]->comment_content.'</i>';
+				} else if( !$is_fre_review){
+					//freelancer still not review employer yet.
+					_e('Employer reviewed and mark as close this project. <br />You have to  review the project to see employer\'s review.','boxtheme');
+				}
+				echo '</div>';
+			} else{
+				_e('Employer did not left a review');
+			}
 
 			$args = array(
-				'post_id' => $bid_id,
-				'type' => 'emp_review',
+				'post_id' => $project->ID,
+				'type' => 'fre_review',
 				'number' => 1,
 			);
-		$emp_comment = get_comments($args);
-		if( !empty( $emp_comment )){
-			echo '<div class="full rating-line">';
-			if( ($role == FREELANCER && $is_fre_review) || $role != FREELANCER) {
-				echo '<label>'.__('Employer review:','boxtheme').'</label>';
-					$rating_score = get_comment_meta( $emp_comment[0]->comment_ID, RATING_SCORE, true );
+			$fre_comment = get_comments($args);
+			if( ! empty( $fre_comment) ) {
+				echo '<div class="full rating-line">';
+				echo '<label>'.__('Freelancer review:','boxtheme').'</label>';
+
+					$rating_score = get_comment_meta( $fre_comment[0]->comment_ID, RATING_SCORE, true );
 					bx_list_start($rating_score);
-					echo '<i>'.$emp_comment[0]->comment_content.'</i>';
-			} else if( !$is_fre_review){
-				//freelancer still not review employer yet.
-				_e('Employer reviewed and mark as close this project. <br />You have to  review the project to see employer\'s review.','boxtheme');
+					echo '<i>'.$fre_comment[0]->comment_content.'</i>';
+
+				echo '</div>';
 			}
-			echo '</div>';
-		} else{
-			_e('Employer did not left a review');
-		}
 
-		$args = array(
-			'post_id' => $project->ID,
-			'type' => 'fre_review',
-			'number' => 1,
-		);
-		$fre_comment = get_comments($args);
-		if( ! empty( $fre_comment) ) {
-			echo '<div class="full rating-line">';
-			echo '<label>'.__('Freelancer review:','boxtheme').'</label>';
-
-				$rating_score = get_comment_meta( $fre_comment[0]->comment_ID, RATING_SCORE, true );
-				bx_list_start($rating_score);
-				echo '<i>'.$fre_comment[0]->comment_content.'</i>';
-
-			echo '</div>';
-		}
-
-	echo '</div>';
-}
-?>
-<?php echo '<h3>'.__('Chat coversation','boxtheme').'</h3>'; ?>
+		echo '</div>';
+	}
+	?>
+	<?php echo '<h3>'.__('Chat coversation','boxtheme').'</h3>'; ?>
 <?php show_conversation($winner_id, $project->ID); ?>
-</div>
+</div> <!-- wrap-workspace !-->
+
 <div class="col-md-4">
 	<div class="full align-right f-right">
 
 		<?php if($project->post_status =='awarded' && $user_ID == $project->post_author ){ ?>
-				<button class="btn   align-right f-right btn-quit"> &nbsp; <?php _e('Quit','boxtheme');?> &nbsp; </button>
-		<button type="button" class="btn  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
-		 &nbsp; &nbsp; &nbsp;  &nbsp;
+				<button class="btn col-md-5   align-right f-right btn-quit"> &nbsp; <?php _e('Quit','boxtheme');?> &nbsp; </button>
+				<button type="button " class="btn col-md-5  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
 		<?php } else if($project->post_status == 'done' && $role == FREELANCER && !$is_fre_review) { ?>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Review employer</button>
 		<?php } ?>
 	</div>
 	<div class="full">
 		<h3>Project:</h3>
-		<ul>
+		<ul class="none-style">
 			<?php
 			$status = array('awarded' => 'Working',
 				'done' 		=> 'Done',
@@ -96,7 +96,7 @@ if($project->post_status == DONE){
 			    <button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add File </button>
 			</div>
 		<?php } ?>
-		<div id="filelist" class="full row">
+		<div id="filelist" class="full">
 			<!-- // nho check case post_parent when set featured 1 image -->
 			<?php
 			$args = array(
@@ -107,7 +107,7 @@ if($project->post_status == DONE){
 			  );
 
 			$attachments = get_posts( $args );
-			echo '<ul class="list-attach clear block">';
+			echo '<ul class="list-attach clear block none-style">';
 		    if ( $attachments ) {
 		        foreach ( $attachments as $attachment ) {
 		           echo '<li class="inline f-left">';

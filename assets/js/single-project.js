@@ -163,9 +163,11 @@ var single_project = {
 		$(".reply_input").hide();
 
 		var beforeSend = function(event){
-			$('#frame_chat').addClass('nav-view');
+			$('#frame_chat').removeClass('nav-view');
 		}
-		var success = function(event){};
+		var success = function(event){
+			$('#frame_chat').addClass('nav-view');
+		};
 
  		window.ajaxSend.customLoading(data,beforeSend,success);
 
