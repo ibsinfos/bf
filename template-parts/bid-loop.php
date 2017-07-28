@@ -43,7 +43,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 			<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
 			<small><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></small>
 		</div>
-		<?php if($user_ID == $project->post_author && $project->post_status == 'publish'){ ?>
+		<?php if( $user_ID == $project->post_author && $project->post_status == 'publish' ){ ?>
 			<div class="full clear align-right">
 				<?php
 				$cvs_id = is_sent_msg($project->ID, $bid->post_author);
@@ -58,7 +58,6 @@ if($bid->post_author == $project->{WINNER_ID}){
 					<button class="btn btn-create-conversation btn-scroll-right" " ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
 			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->ID;?>"><?php _e('Award','boxtheme');?></button>
-
 
 			</div>
 		<?php } else { ?>
