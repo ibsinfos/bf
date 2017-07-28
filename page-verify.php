@@ -51,9 +51,9 @@
 					?>
 					<form name="redirect">
 						<center>
-							<?php _e('Active account success','boxtheme'); ?>
+							<?php _e('Your account is verified. You are redirecting to home page.','boxtheme'); ?>
 							<form>
-							<input type="text" size="3" readonly="true" name="redirect2">
+							<input type="hidden" size="3" readonly="true" name="redirect2">
 						</center>
 					</form>
 					<script>
