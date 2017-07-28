@@ -7,9 +7,7 @@ function show_bid_buton($post){
 ?>
 
 	<?php
-	if( $access_workspace && !$is_workspace && $winner_id && in_array($project->post_status,array( 'awarded','done','finish','disputing','disputed')) ){
-		?><a href="?workspace=1"><?php _e('Workspace','boxtheme');?></a><?php
-	}
+
 	if ( is_user_logged_in() ) {
 
 		if( current_user_can_bid( $project) && $project->post_author != $user_ID ){ // chec post_status = publish and freelancer role.

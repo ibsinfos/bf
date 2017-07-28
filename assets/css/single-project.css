@@ -172,3 +172,14 @@ ul.list-skill li a{
 	background-color: #eee;
 	border:1px solid #eee;
 }
+.job-process-heading{
+	padding: 10px 0;
+	border-top:1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.job-process-heading ul li{
+	list-style: none;
+}
+.wrap-workspace{
+	margin-top: 20px;
+}

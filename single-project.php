@@ -20,16 +20,24 @@ global $wp_query;
 
 <div <?php post_class('container single-project site-container');?>>
 	<div id="content" class="row">
-		<?php
 
-		if( $is_workspace && $access_workspace ){
+        <div class="col-md-12">
+			<h1 class="project-title"><?php the_title();?></h1>
+        </div>
+        <?php if($access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
+	        <div class="col-md-12 job-process-heading">
+	        	<ul >
+	        		<li class="col-md-3"><a href="<?php echo get_permalink();?>">Job Detail</a></li>
+	        		<li class="col-md-3"><a href="?workspace=1"><?php _e('Workspace','boxtheme');?></a>	</li>
+	        		<li class="col-md-3"><a href="?dispute=1"><?php _e('Dispute','boxtheme');?></a>	</li>
+	        	</ul>
+
+        	</div>
+       	<?php } ?>
+       	<?php
+       	if( $is_workspace && $access_workspace ){
 			get_template_part( 'template-parts/workspace' );
 		} else { ?>
-
-         <div class="col-md-12">
-			    <h1 class="project-title"><?php the_title();?></h1>
-         </div>
-
         <div class="detail-project">
             <div class="wrap-content">
        			<div class="full heading">
