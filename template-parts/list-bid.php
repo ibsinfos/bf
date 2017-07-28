@@ -7,6 +7,7 @@
 		'post_type' => BID,
 		'post_parent' => $project->ID,
 		'paged' => $paged,
+		'posts_per_page' => -1,
 	);
 
 	$query = new WP_Query($args);
