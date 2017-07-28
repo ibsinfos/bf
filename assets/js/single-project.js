@@ -19,8 +19,8 @@ var single_project = {
 		$( '#bid_form' ).on( 'submit', this.submitBid );
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
-		$( ".input-price").on('change keyup', this.generate_price);
-		$( ".btn-scroll-right").on('click',this.showSendMessageForm);
+		$( ".input-price").on('change keyup', this.generatePrice);
+		$( ".btn-act-message").on('click',this.showSendMessageForm);
 		//$( "form.frm-create-conversation").live('submit', this.createConversation); // creater conversaion or reply
 		$( "form.emp-send-message").live('submit', this.empSendMessage); // in right scroll bar
 
@@ -290,7 +290,7 @@ var single_project = {
 	load_more_bid: function(e){
 
 	},
-	generate_price: function(e){
+	generatePrice: function(e){
 		var input = $(e.currentTarget);
 		if( input.attr('name') == '_bid_price'){
 			var total = parseFloat(this.value).toFixed(2);

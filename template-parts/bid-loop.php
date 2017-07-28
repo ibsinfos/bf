@@ -53,9 +53,9 @@ if($bid->post_author == $project->{WINNER_ID}){
 				echo "<input type='hidden' name='cvs_id' class='cvs_id' value ='".$cvs_id."' />";
 				echo "<input type='hidden' name='bid_author' class='bid_author'  value ='".$bid->post_author."' />";
 				if( $cvs_id ){ ?>
-					<button class="btn btn-view-conversation btn-scroll-right" ><?php _e('View convertsation','boxtheme');?></button>
+					<button class="btn btn-view-conversation btn-act-message " ><?php _e('Send message','boxtheme');?></button>
 				<?php } else { ?>
-					<button class="btn btn-create-conversation btn-scroll-right" " ><?php _e('Send message','boxtheme');?></button>
+					<button class="btn btn-create-conversation  btn-act-message " ><?php _e('Send message','boxtheme');?></button>
 				<?php } ?>
 			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->ID;?>"><?php _e('Award','boxtheme');?></button>
 
