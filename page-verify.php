@@ -58,7 +58,7 @@
 					</form>
 					<script>
 						var targetURL= "<?php echo $redirect_link; ?>";
-						var countdownfrom=3
+						var countdownfrom=2
 						var currentsecond=document.redirect.redirect2.value=countdownfrom+1
 						function countredirect(){
 							if (currentsecond!=1){
