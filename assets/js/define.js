@@ -139,11 +139,71 @@ var ajaxSend = {};
 					if( data.href ){
 					 	window.location.hash = data.href; // update the url
 					 	window.location.hash.split('#')[1];
-					 	//window.location.hash.substring(1);
 					}
 				}
 	        },
 	    });
 	};
+
+	function createBtnUpload(id, btn, step_name){
+		var uploader= new plupload.Uploader({
+			    runtimes: 'html5,gears,flash,silverlight,browserplus,html4',
+                multiple_queues: true,
+                multipart: true,
+                urlstream_upload: true,
+                multi_selection: false,
+                upload_later: false,
+
+			    browse_button : btn, // you can pass in id...
+			    container: document.getElementById(id), // ... or DOM Element itself
+			    url : ae_globals.ajaxURL,
+			    filters : {
+			        max_file_size : '10mb',
+			        mime_types: [
+			            {title : "Image files", extensions : "jpg,gif,png,jpeg,ico,pdf,doc,docx,zip,excel,txt"},
+			        ]
+			    },
+			    multipart_params: {
+			    	action: 'upload_file',
+			    	target:'add_portfolio',
+
+
+			    },
+			    init: {
+			        PostInit: function() {
+
+
+			        },
+			        FilesAdded: function(up, files) {
+			        	console.log('123');
+			        },
+
+			        Error: function(up, err) {
+			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+			        },
+			        FileUploaded : function(up, file, response){
+			        	var obj = jQuery.parseJSON(response.response);
+			        	console.log(file);
+			        	console.log(obj);
+					    if(obj.success){
+						    var new_record =  '<img src="' + obj.file.guid +  '" />';
+						    console.log(obj.file);
+						    console.log(obj);
+
+				            $("#" + id).append(new_record);
+
+					    } else{
+					    	container.log(obj);
+					    }
+			        }
+			    }
+			});
+			uploader.init();
+			uploader.bind('FilesAdded', function(up, files) {
+	        	//view.$el.find("i.loading").toggleClass("hide");
+	            up.refresh();
+	            up.start();
+	        });
+	}
 
 })(jQuery, window.ajaxSend);

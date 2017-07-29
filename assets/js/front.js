@@ -178,11 +178,6 @@
 			return false;
 		});
 
-
-		// $(document).on('submit', '.login-form' , function(event) {
-
-
-		// });
 	});
 
 

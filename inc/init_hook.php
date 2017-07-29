@@ -395,7 +395,7 @@ function boxtheme_scripts() {
 			wp_enqueue_script( 'exif', get_theme_file_uri( '/assets/croppie/exif.js' ), array( 'jquery' ), BX_VERSION, true );
 			wp_enqueue_script( 'croppie', get_theme_file_uri( '/assets/croppie/croppie.min.js' ), array( 'jquery','exif' ), BX_VERSION, true );
 			wp_enqueue_style( 'chosen-css', get_theme_file_uri( '/assets/chosen/chosen.min.css' ), array( 'boxtheme-style' ), BX_VERSION );
-			wp_enqueue_script( 'profile', get_theme_file_uri( '/assets/js/profile.js' ), array( 'jquery','chosen-js', 'croppie' ), BX_VERSION, true );
+			wp_enqueue_script( 'profile', get_theme_file_uri( '/assets/js/profile.js' ), array( 'jquery','chosen-js', 'croppie','front' ), BX_VERSION, true );
 
 			wp_enqueue_style( 'croppie-css', get_theme_file_uri( '/assets/croppie/croppie.css' ), array( 'boxtheme-style' ), BX_VERSION );
 		}
