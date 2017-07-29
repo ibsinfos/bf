@@ -7,7 +7,7 @@
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
-			<div id="profile" class="col-md-8">
+
 				<?php
 					global $current_user, $profile, $profile_id, $user_ID, $current_user;
 					$role = bx_get_user_role();
@@ -18,6 +18,7 @@
 						$profile = BX_Profile::get_instance()->convert($profile_id);
 						if( $role == FREELANCER ){
 							get_template_part( 'template-parts/profile/profile', 'overview' );
+
 							get_template_part( 'template-parts/profile/profile', 'freelancer' );
 						} else {
 							// global $employer_type;
@@ -27,11 +28,6 @@
 					}
 
 				?>
-			</div> <!-- end left !-->
-			<div class="col-md-4">
-				<?php get_sidebar('single');?>
-				<?php get_sidebar('history');?>
-			</div>
 
 			</div>
 		</div>

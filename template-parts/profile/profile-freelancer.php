@@ -134,9 +134,7 @@
          <div class="col-sm-10">
             <span class="visible-default"><?php echo $txt_country;?></span>
             <div class="invisible-default">
-               <?php
-               echo $country_select;
-               ?>
+               <?php echo $country_select;?>
             </div>
          </div>
       </div>
