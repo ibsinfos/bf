@@ -83,6 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			$args 		= apply_filters( 'args_pre_insert_'.$this->post_type, $args );
 			$post_id 	= wp_insert_post( $args );
+			do_action('after_insert_'.$this->post_type, $post_id, $args);
 
 			//https://developer.wordpress.org/reference/functions/wp_insert_post/
 			if ( ! is_wp_error( $post_id ) ) {

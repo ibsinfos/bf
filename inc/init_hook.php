@@ -124,6 +124,7 @@ function bx_theme_init() {
 
 	register_post_type( 'profile', $args );
 
+
 	$labels = array(
 		'name'                       => _x( 'Skills', 'taxonomy general name', 'boxtheme' ),
 		'singular_name'              => _x( 'Category', 'taxonomy singular name', 'boxtheme' ),
@@ -235,6 +236,42 @@ function bx_theme_init() {
 		'label_count'               => _n_noop( 'Done <span class="count">(%s)</span>', 'Done <span class="count">(%s)</span>' ),
 		)
 	);
+
+	$port_label = array(
+		'name'               => _x( 'Portfolio', 'post type general name', 'your-plugin-boxtheme' ),
+		'singular_name'      => _x( 'Portfolio', 'post type singular name', 'your-plugin-boxtheme' ),
+		'menu_name'          => _x( 'Portfolios', 'admin menu', 'your-plugin-boxtheme' ),
+		'name_admin_bar'     => _x( 'Portfolio', 'add new on admin bar', 'your-plugin-boxtheme' ),
+		'add_new'            => _x( 'Add New', 'Portfolio', 'your-plugin-boxtheme' ),
+		'add_new_item'       => __( 'Add New Portfolio', 'your-plugin-boxtheme' ),
+		'new_item'           => __( 'New Profile', 'your-plugin-boxtheme' ),
+		'edit_item'          => __( 'Edit Portfolio', 'your-plugin-boxtheme' ),
+		'view_item'          => __( 'View Portfolio', 'your-plugin-boxtheme' ),
+		'all_items'          => __( 'All Portfolios', 'your-plugin-boxtheme' ),
+		'search_items'       => __( 'Search Portfolios', 'your-plugin-boxtheme' ),
+		'parent_item_colon'  => __( 'Parent Portfolios:', 'your-plugin-boxtheme' ),
+		'not_found'          => __( 'No Portfolios found.', 'your-plugin-boxtheme' ),
+		'not_found_in_trash' => __( 'No Portfolios found in Trash.', 'your-plugin-boxtheme' )
+	);
+
+	$args = array(
+		'labels'             => $port_label,
+                'description'        => __( 'Description.', 'boxthemes' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'portfolio' ),
+		'capability_type'    => 'post',
+		'has_archive'        => false,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'author', 'thumbnail', )
+	);
+
+	register_post_type( 'portfolio', $args );
+
 	global $option, $currency_code, $currency_sign;
 	$option = array(
 		'currency' => array(
@@ -276,6 +313,24 @@ function bx_theme_init() {
 	);
 
 	register_post_type( ORDER, $args );
+	$args = array(
+		'labels'             => $labels,
+                'description'        => __( 'Description.', 'boxtheme' ),
+		'public'             => false,
+		'publicly_queryable' => false,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => '_order' ),
+		'capability_type'    => 'post',
+		'has_archive'        => false,
+		'hierarchical'       => false,
+		'menu_position'      => null,
+		'supports'           => array( 'title', 'excerpt', )
+	);
+
+	register_post_type( ORDER, $args );
+
 	register_post_status( 'sandbox', array(
 		'label'                     => _x( 'Sandbox', 'post' ),
 		'public'                    => false,

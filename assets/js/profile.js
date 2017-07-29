@@ -143,7 +143,7 @@
 			        FileUploaded : function(up, file, response){
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
-						    var new_record =  '<img src="'+obj.file.guid+'"><input type="hidden" name="att_id" value="'+ obj.attach_id +'" >';
+						    var new_record =  '<img src="'+obj.file.guid+'"><input type="hidden" name="thumbnail_id" value="'+ obj.attach_id +'" >';
 				            //$("ul.list-attach").prepend(new_record);
 				            $("#pickfiles").html(new_record);
 					    } else{

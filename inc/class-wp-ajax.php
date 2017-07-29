@@ -695,7 +695,7 @@ class BX_AJAX {
 
 		$port 	= $port->sync(  $method, $args  );
 
-		wp_send_json( array('success'=> true, 'data'=>$messages) );
+		wp_send_json( array('success'=> true, 'data'=>__('Add portfolio successful','boxtheme') ) );
 	}
 
 
