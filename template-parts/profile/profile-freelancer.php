@@ -160,6 +160,9 @@
    </form>
 <div class="row-section" id="list_portfolio">
 	<!-- portfolio !-->
+	<div class="col-md-6 center frame-add-port">
+		<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
+	</div>
 	<?php
 	global $user_ID, $list_portfolio;
 	$args = array(
@@ -183,6 +186,5 @@
 	}
 	?>
 
-	<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
 </div>
 <!-- end portfolio >
