@@ -96,7 +96,7 @@
 
 				</ul>
 			</div>
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<h3> <?php _e('Work History and Feedback','boxtheme');?></h3>
 				<?php
 
