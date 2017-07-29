@@ -57,7 +57,7 @@
    }
 
    ?>
-   <div class="full">
+   <div class="full clear">
       <div class="video block">
 
          <span href="#" class="btn btn-edit btn-edit-video">Edit</span>
