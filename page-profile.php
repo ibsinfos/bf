@@ -93,5 +93,29 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<script type="text/template" id="json_list_portfolio"><?php global $list_portfolio;   echo json_encode($list_portfolio); ?></script>
+<script type="text/html" id="tmpl-add_portfolio">
+	<div class="modal-body ">
+  		<div class="form-group">
+	      	<center><h2><?php _e('Add portfolio','boxtheme');?></h2></center>
+	   	</div>
+  		<div class="form-group">
+	      	<input type="text" class="form-control "  name="post_title" value="{{{data.post_title}}}" placeholder="<?php _e("Set title",'boxtheme');?>" />
+	      	<input type="hidden" class="form-control "  name="ID" value="{{{data.ID}}}" />
+	      	<input type="hidden" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+	   	</div>
+
+	   	<div class="form-group">
+	      	<div id="container_file">
+	      		<div class="wrap-port-img" id="pickfiles"><img src="{{{data.feature_image}}}" /></div>
+			</div>
+	   	</div>
+
+  	</div>
+  	<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary"><?php _e('Save','button');?></button>
+    </div>
+</script>
 <?php get_footer();?>
 

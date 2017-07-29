@@ -88,9 +88,21 @@
 			$('.update-avatar img').on('click', function() {
 		        $('#modal_avatar').modal('show');
 		    });
+			var list_portfolio =JSON.parse( jQuery('#json_list_portfolio').html() );
+		    var add_portfolio_form = wp.template("add_portfolio");
+
 		    $('.btn-show-portfolio-modal').on('click', function() {
 		        $('#modal_add_portfolio').modal('show');
 		    });
+		    $('.port-item').on('click', function(event) {
+		    	var _this = $(event.currentTarget);
+		    	var p_id = _this.attr('id');
+		    	console.log(p_id);
+		    	console.log(list_portfolio[p_id]);
+		    	$("#modal_add_portfolio").find("form").html( add_portfolio_form(list_portfolio[p_id] ) );
+		        $('#modal_add_portfolio').modal('show');
+		    });
+
 			//end open
 			$(".btn-edit-default").click(function(event){
 				var form 	= $(event.currentTarget);
@@ -125,9 +137,6 @@
 			    multipart_params: {
 			    	action: 'upload_file',
 			    	method:'add_portfolio',
-			    	//post_parent: view.project.ID,
-			    	//project_tile: view.project.post_title,
-			    	//cvs_id: $("#cvs_id").val(),
 			    },
 			    init: {
 			        PostInit: function() {
@@ -158,7 +167,49 @@
 	            up.start();
 	        });
 
+	  //       var update = new plupload.Uploader({
+			//     runtimes : 'html5,flash,silverlight,html4',
+			//     browse_button : 'port-item', // you can pass in id...
+			//     container: document.getElementById('list_portfolio'), // ... or DOM Element itself
+			//     url : bx_global.ajax_url,
+			//     filters : {
+			//         max_file_size : '10mb',
+			//         mime_types: [
+			//             {title : "Image files", extensions : "jpg,gif,png,jpeg,ico,pdf,doc,docx,zip,excel,txt"},
+			//         ]
+			//     },
+			//     multipart_params: {
+			//     	action: 'upload_file',
+			//     	method:'add_portfolio',
+			// 	    },
+			//     init: {
+			//         PostInit: function() {
 
+			//         },
+			//         FilesAdded: function(up, files) {
+
+			//         },
+
+			//         Error: function(up, err) {
+			//             document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+			//         },
+			//         FileUploaded : function(up, file, response){
+			//         	var obj = jQuery.parseJSON(response.response);
+			// 		    if(obj.success){
+			// 			    var new_record =  '<img src="'+obj.file.guid+'"><input type="hidden" name="thumbnail_id" value="'+ obj.attach_id +'" >';
+			// 	            //$("ul.list-attach").prepend(new_record);
+			// 	            $("#pickfiles").html(new_record);
+			// 		    } else{
+			// 		    	alert(obj.msg);
+			// 		    }
+			//         }
+			//     }
+			// });
+			// update.init();
+			// update.bind('FilesAdded', function(up, files) {
+	  //           up.refresh();
+	  //           up.start();
+	  //       });
 		},
 		updateOneMeta: function(e){
 			var form 	= $(e.currentTarget);

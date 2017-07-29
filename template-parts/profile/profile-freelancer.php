@@ -160,23 +160,27 @@
       </div>
 
    </form>
-<div class="row-section">
+<div class="row-section" id="list_portfolio">
 	<!-- portfolio !-->
 	<?php
-	global $user_ID;
+	global $user_ID, $list_portfolio;
 	$args = array(
 		'post_type' 	=> 'portfolio',
 		'author' 		=> $user_ID,
 	);
 	$result =  new WP_Query($args);
-
+	$list_portfolio = array();
 	if( $result->have_posts() ){
 		while ($result->have_posts()) {
+
 			$result->the_post();
-			echo '<div class="col-md-6 port-item">';
+			$post->feature_image = get_the_post_thumbnail_url($post->ID, 'full');
+			$list_portfolio[$post->ID] = $post;
+			echo '<div class="col-md-6 port-item" id="'.$post->ID.'">';
 			the_post_thumbnail('full' );
 			echo '</div>';
 		}
+		wp_reset_query();
 	}
 	?>
 
