@@ -141,7 +141,7 @@
 				if( $result->have_posts() ){
 					while ($result->have_posts()) {
 						$result->the_post();
-						echo '<div class="col-md-6">';
+						echo '<div class="col-md-6 port-item">';
 						the_post_thumbnail('full' );
 						echo '</div>';
 					}

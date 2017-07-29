@@ -2,57 +2,57 @@
 	$profile_id 	= get_user_meta($user_ID,'profile_id', true);
 	$profile 		= BX_Profile::get_instance()->convert($profile_id);
 
-   $txt_country = $slug = $skill_val = $country_select = $phone_number = $address ='';
-   $pcountry = get_the_terms( $profile_id, 'country' );
-   if( !empty($pcountry) ){
-      $txt_country =  $pcountry[0]->name;
-      $slug = $pcountry[0]->slug;
-   }
+   	$txt_country = $slug = $skill_val = $country_select = $phone_number = $address ='';
+   	$pcountry = get_the_terms( $profile_id, 'country' );
+   	if( !empty($pcountry) ){
+    	$txt_country =  $pcountry[0]->name;
+      	$slug = $pcountry[0]->slug;
+   	}
 
-   $countries = get_terms( 'country', array(
-      'hide_empty' => false)
-   );
+   	$countries = get_terms( 'country', array(
+    	'hide_empty' => false)
+   	);
 
    if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
-      $country_select.= '<select name="country" id="country" class="chosen-select form-control" >';
-      $country_select .= '<option value=""> Select your country </option>';
-      foreach ( $countries as $country ) {
-         $country_select .= '<option value="'.$country->slug.'" '. selected($country->slug, $slug, false) .' >' . $country->name . '</option>';
-      }
-      $country_select.= '</select>';
+      	$country_select.= '<select name="country" id="country" class="chosen-select form-control" >';
+      	$country_select .= '<option value=""> Select your country </option>';
+      	foreach ( $countries as $country ) {
+        	$country_select .= '<option value="'.$country->slug.'" '. selected($country->slug, $slug, false) .' >' . $country->name . '</option>';
+      	}
+      	$country_select.= '</select>';
    }
 
 
-   $list_ids = array();
-   $skills = get_the_terms( $profile_id, 'skill' );
+   	$list_ids = array();
+   	$skills = get_the_terms( $profile_id, 'skill' );
 
-   if ( $skills && ! is_wp_error( $skills ) ){
+   	if ( $skills && ! is_wp_error( $skills ) ){
 
-      $draught_links = array();
+      	$draught_links = array();
 
-      foreach ( $skills as $term ) {
-         $draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
-         $list_ids[] = $term->term_id;
-      }
-      $skill_val = join( ", ", $draught_links );
-   }
+      	foreach ( $skills as $term ) {
+        	$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+         	$list_ids[] = $term->term_id;
+      	}
+      	$skill_val = join( ", ", $draught_links );
+   	}
 
-   $skills = get_terms( 'skill', array(
-      'hide_empty' => false));
-   $skill_list = '';
+   	$skills = get_terms( 'skill', array(
+    	'hide_empty' => false));
+   	$skill_list = '';
 
-   if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
+   	if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
 
-      $skill_list .=  '<select name="skill" multiple  id="skill" class="chosen-select form-control" >';
-      $skill_list .= '<option> Select skill</option>';
+    	$skill_list .=  '<select name="skill" multiple  id="skill" class="chosen-select form-control" >';
+      	$skill_list .= '<option> Select skill</option>';
 
-      foreach ( $skills as $skill ) {
-         $selected = "";
-         if( in_array($skill->term_id, $list_ids) ){
-            $selected = ' selected ';
-         }
-        $skill_list .= '<option '.$selected.' value="'.$skill->slug.'" >' . $skill->name . '</option>';
-      }
+      	foreach ( $skills as $skill ) {
+        	$selected = "";
+         	if( in_array($skill->term_id, $list_ids) ){
+            	$selected = ' selected ';
+         	}
+        	$skill_list .= '<option '.$selected.' value="'.$skill->slug.'" >' . $skill->name . '</option>';
+      	}
       $skill_list.='</select>';
    }
 
@@ -162,6 +162,24 @@
    </form>
 <div class="row-section">
 	<!-- portfolio !-->
+	<?php
+	global $user_ID;
+	$args = array(
+		'post_type' 	=> 'portfolio',
+		'author' 		=> $user_ID,
+	);
+	$result =  new WP_Query($args);
+
+	if( $result->have_posts() ){
+		while ($result->have_posts()) {
+			$result->the_post();
+			echo '<div class="col-md-6 port-item">';
+			the_post_thumbnail('full' );
+			echo '</div>';
+		}
+	}
+	?>
+
 	<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
 </div>
 <!-- end portfolio >
