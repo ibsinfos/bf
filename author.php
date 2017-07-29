@@ -129,7 +129,7 @@
 					_e('There is not any feedback','boxtheme');
 				}
 				?>
-				<h3> Portfolio</h3>
+
 				<?php
 
 				$args = array(
@@ -139,6 +139,7 @@
 				$result =  new WP_Query($args);
 
 				if( $result->have_posts() ){
+					_e('<h3> Portfolio</h3>','boxtheme');
 					while ($result->have_posts()) {
 						$result->the_post();
 						echo '<div class="col-md-6 port-item">';
