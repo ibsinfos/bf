@@ -195,6 +195,7 @@
 		        	console.log(res);
 		        	if ( res.success ){
 		        		window.location.reload(true);
+
 			        } else {
 			        	//alert(res.msg);
 			        }
@@ -206,9 +207,12 @@
 
 			var success = function(res){
 	        	if ( res.success ){
+	        		$("#list_portfolio").prepend("<div class='col-md-6 port-item' id='"+res.data.ID+"'><img src='"+res.data.feature_image+"'></div>");
+	        		//$('#modal_add_portfolio').modal('show');
+	        		$('#modal_add_portfolio').modal('hide');
 
 		        } else {
-
+		        	alert(res.msg);
 		        }
 			}
 
@@ -241,7 +245,7 @@
 		        	if ( res.success ){
 		        		window.location.reload(true);
 			        } else {
-			        	//alert(res.msg);
+			        	alert(res.msg);
 			        }
 		        }
 	        });

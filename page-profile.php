@@ -69,16 +69,17 @@
 			      	<center><h2> Add portfolio</h2></center>
 			   	</div>
 	      		<div class="form-group">
-			      	<input type="text" class="form-control "  name="post_title" id="post_title" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
-			      	<input type="hidden" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="text" class="form-control required" required  name="post_title" id="post_title" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="hidden" class="form-control required"  name="post_content" value="" placeholder="<?php _e("Post content ",'boxtheme');?>" />
 			      	<input type="hidden" class="form-control"  name="ID" id="port_id" value="" />
-	      		<input type="hidden" class="form-control"  name="thumbnail_id" id="thumbnail_id" value="" />
+
 			   	</div>
 
 			   	<div class="form-group">
 			      	<div id="container_file">
 					   	<div class="wrap-port-img" id="pickfiles"><i class="fa fa-upload" aria-hidden="true">Select an image</i></div>
 					</div>
+					<input type="text" class="form-control "   name="thumbnail_id" id="thumbnail_id" value="" />
 			   	</div>
 
 	      	</div>

@@ -66,6 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 			}
 			$check = $this->check_before_insert($args);
+
 			if( is_wp_error($check) ){
 				return $check;
 			}
@@ -153,6 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			if( empty($request['post_content']) ){
 				return new WP_Error('empty_content',__('Empty job content','boxtheme'));
 			}
+			$validate =  apply_filters('check_before_insert_'.$this->post_type, $validate, $request );
 
 			return $validate;
 		}

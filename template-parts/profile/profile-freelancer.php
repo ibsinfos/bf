@@ -158,11 +158,14 @@
       </div>
 
    </form>
-<div class="row-section" id="list_portfolio">
-	<!-- portfolio !-->
-	<div class="col-md-6 center frame-add-port">
+<div class="row">
+	<div class="col-md-12 center frame-add-port">
 		<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
 	</div>
+</div>
+<div class="row-section" id="list_portfolio">
+	<!-- portfolio !-->
+
 	<?php
 	global $user_ID, $list_portfolio;
 	$args = array(

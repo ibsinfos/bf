@@ -693,9 +693,17 @@ class BX_AJAX {
 		$method = $_REQUEST['method'];
 		$args['post_content'] = 'Portfolio of user A';
 
-		$port 	= $port->sync(  $method, $args  );
-
-		wp_send_json( array('success'=> true, 'data'=>__('Add portfolio successful','boxtheme') ) );
+		$port_id 	= $port->sync(  $method, $args  );
+		$respond = array('success'=> false,'msg' =>'');
+		if( !is_wp_error($port_id ) ){
+			$post = get_post($port_id);
+			$post->feature_image = get_the_post_thumbnail_url($port_id, 'full');
+			$post->thumbnail_id = get_post_thumbnail_id($port_id);
+			$respond = array('success'=> true, 'msg'=>__('Add portfolio successful','boxtheme') , 'data' =>  $post );
+		} else {
+			$respond['msg'] = $port_id->get_error_message();
+		}
+		wp_send_json( $respond);
 	}
 
 
