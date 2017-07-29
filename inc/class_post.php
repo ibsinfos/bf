@@ -123,6 +123,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		}
 		function delete($args){
 			$id = $args['ID'];
+			$post = get_post($id);
+			global $user_ID;
+			if($user_ID != $post->post_author){
+				return new WP_Error('not_author',__('You can not delete a portfolio of another account','boxtheme'));
+				wp_die('not_athor');
+			}
 			wp_delete_post($id, true );
 		}
 		function update_post_taxonomies( $post_id, $args ){
