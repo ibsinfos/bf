@@ -121,6 +121,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			return $post_id;
 		}
+		function delete($args){
+			$id = $args['ID'];
+			wp_delete_post($id, true );
+		}
 		function update_post_taxonomies( $post_id, $args ){
 
 			$taxonomies =$this->get_taxonomy_fields();

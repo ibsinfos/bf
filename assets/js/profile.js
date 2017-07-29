@@ -84,6 +84,8 @@
 			$( '.update-one-meta' ).on( 'submit', this.updateOneMeta);
 			$( ".add-portfolio").on( 'submit',this.addPortfolio);
 			$(".chosen-select").chosen();
+			$( ".btn-del-port").on( 'click',this.delPortfolio);
+
 			// open modal
 			$('.update-avatar img').on('click', function() {
 		        $('#modal_avatar').modal('show');
@@ -94,9 +96,9 @@
 		    $('.btn-show-portfolio-modal').on('click', function() {
 		        $('#modal_add_portfolio').modal('show');
 		    });
-		    $('.port-item').on('click', function(event) { // update
+		    $('.btn-edit-port').on('click', function(event) { // update
 		    	var _this = $(event.currentTarget);
-		    	var p_id = _this.attr('id');
+		    	var p_id = _this.closest(".port-item").attr('id');
 		    	$("#modal_add_portfolio #post_title").val(list_portfolio[p_id].post_title);
 		    	$("#modal_add_portfolio #port_id").val(list_portfolio[p_id].ID);
 		    	$("#modal_add_portfolio #thumbnail_id").val(list_portfolio[p_id].thumbnail_id);
@@ -219,6 +221,22 @@
 			window.ajaxSend.Form(event, 'sync_portfolio', 'insert', success);
 			return false;
 		},
+		delPortfolio: function(e){
+			var _this = $(event.currentTarget);
+		    var p_id = _this.closest(".port-item").attr('id');
+
+		    window.ajaxSend.Form(event, 'sync_portfolio', 'insert', success);
+		    var data = {action:'sync_portfolio',method:'delete',ID:p_id};
+		    var success = function(res){
+	    		console.log('del ok');
+	    		if(res.success){
+	    			_this.closest(".port-item").remove();
+	    		}
+
+		    }
+		    window.ajaxSend.Custom(data, success);
+		},
+
 		update_profile: function(e){
 			var form 	= $(e.currentTarget);
 	  		var data   	= {};

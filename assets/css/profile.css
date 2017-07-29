@@ -177,3 +177,11 @@ margin: 0;
 	position: absolute;
 	bottom: 27px;
 }
+.port-item{
+	position: relative;
+}
+.btns-act{
+	position: absolute;
+	top:0;
+	right:0;
+}

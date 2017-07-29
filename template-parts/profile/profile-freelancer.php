@@ -182,7 +182,9 @@
 			$post->thumbnail_id = get_post_thumbnail_id($post->ID);
 			$list_portfolio[$post->ID] = $post;
 			echo '<div class="col-md-6 port-item" id="'.$post->ID.'">';
-			the_post_thumbnail('full' );
+				the_post_thumbnail('full' );
+				echo '<div class="btns-act"><span class="btn-edit-port" class="'.$post->ID.'"> Edit</span>';
+				echo '<span class="btn-del-port" class="'.$post->ID.'"> X</span></div>';
 			echo '</div>';
 		}
 		wp_reset_query();
