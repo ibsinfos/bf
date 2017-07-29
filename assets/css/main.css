@@ -909,3 +909,8 @@ form #heading_signup{
 .port-item{
 	padding-bottom: 30px;
 }
+.port-item img{
+	max-height: 300px;
+	max-width: 100%
+	height:auto;
+}
