@@ -115,16 +115,36 @@
 							<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
 
 						</div>
-					<?php
-					while( $result->have_posts()){
-						global $post;
-						$result->the_post();
-						get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
-					}
-					echo '</div>';
+						<?php
+						while( $result->have_posts()){
+							global $post;
+							$result->the_post();
+							get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
+						}
+
+					echo '</div> <!-- end list_bidding !--> ';
 					bx_pagenate($result);
+
 				} else {
 					_e('There is not any feedback','boxtheme');
+				}
+				?>
+				<h3> Portfolio</h3>
+				<?php
+
+				$args = array(
+					'post_type' 	=> 'portfolio',
+					'author' 		=> $author_id,
+				);
+				$result =  new WP_Query($args);
+
+				if( $result->have_posts() ){
+					while ($result->have_posts()) {
+						$result->the_post();
+						echo '<div class="col-md-6">';
+						the_post_thumbnail('full' );
+						echo '</div>';
+					}
 				}
 				?>
 			</div>
