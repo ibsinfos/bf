@@ -34,7 +34,7 @@ get_header(); ?>
 	        </div>
 	        <!-- POST A PROJECT BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="<?php echo home_url("submit-project");?>" class="btn   review-btn find-btn btn-action">Post a Project</a>
+	            <a href="<?php echo home_url("submit-project");?>/" class="btn   review-btn find-btn btn-action">Post a Project</a>
 	        </div>
 	    </div>
 	</div>
@@ -43,7 +43,7 @@ get_header(); ?>
 	<div class=" container site-container">
 		<div class="row">
 		<div class="col-md-12">
-			<h2> Looking for Professional Freelancers?</h2>
+			<h2> TOP RATING FREELANCER</h2>
 		</div>
 		<?php
 		$profile_query = new WP_Query( array (
@@ -120,17 +120,20 @@ get_header(); ?>
 			<div class="col-md-4">
 				<div class="pricing-table-plan">
 					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Free</span>
+						<span class="plan-name">Basic</span>
+			      		<span>For<strong> Small Business</strong></span>
+						<span class="plan-monthly-old"><strike>$49/mo</strike></span>
+						<span class="plan-free-trial">14 Day Post jobs.</span>
 					</header>
 
-		    		<div class="plan-features">
-		    		<span class="plan-monthly">	$0</span>
-		    		Just register 1 new account and you can:
-		    			-Free post 5 project on this system.
-		    			-Auto subcriber on system.
+		    		<ul class="plan-features">
+						<li class="padding hide-annually"><a class="tooltips tooltips-big nodecorated"><b>3k</b>Visitors per month<span style="top: 25.9219px; left: 19.0156px;"><strong>~60 conversions/mo</strong>Assuming 2% Conversion Rate &amp; full use of monthly traffic</span></a></li>
 
-					</div>
-		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
+				      	<li><span class="unavailable">Dedicated Account Manager</span></li>
+				      	<li><a class="tooltips unavailable">Technical Support<span style="top: 25.9219px; left: 19.0156px;">Custom Scripts/Coding from our developers</span></a></li>
+
+					</ul>
+		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">START FREE TRIAL NOW</a>
 
 				</div>
 			</div>
@@ -138,14 +141,18 @@ get_header(); ?>
 				<div class="pricing-table-plan">
 					<header data-plan="basic" class="pricing-plan-header basic-plan">
 						<span class="plan-name">Premium</span>
+			      		<span>For<strong> Big Business</strong></span>
+						<span class="plan-monthly-old"><strike>$49/mo</strike></span>
+						<span class="plan-free-trial">14 Day Post jobs.</span>
 					</header>
 
-		    		<div class="plan-features">
-		    		<span class="plan-monthly">
-		    			$30
-		    		</span>
-		    		to buy 30 credit and you can both 20 job on this system.
-					</div>
+		    		<ul class="plan-features">
+						<li class="padding hide-annually"><a class="tooltips tooltips-big nodecorated"><b>3k</b>Visitors per month<span style="top: 25.9219px; left: 19.0156px;"><strong>~60 conversions/mo</strong>Assuming 2% Conversion Rate &amp; full use of monthly traffic</span></a></li>
+
+				      	<li><span class="unavailable">Dedicated Account Manager</span></li>
+				      	<li><a class="tooltips unavailable">Technical Support<span style="top: 25.9219px; left: 19.0156px;">Custom Scripts/Coding from our developers</span></a></li>
+
+					</ul>
 		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
 
 				</div>
@@ -154,19 +161,22 @@ get_header(); ?>
 				<div class="pricing-table-plan">
 					<header data-plan="basic" class="pricing-plan-header basic-plan">
 						<span class="plan-name">Standard</span>
+			      		<span>For<strong> Small Business</strong></span>
+						<span class="plan-monthly-old"><strike>$49/mo</strike></span>
+						<span class="plan-free-trial">14 Day Post jobs.</span>
 					</header>
 
-		    		<div class="plan-features">
-		    		<span class="plan-monthly">
-		    			$20
-		    		</span>
-		    			to buy 30 credit and you can both 20 job on this system.
-					</div>
-		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
+		    		<ul class="plan-features">
+						<li class="padding hide-annually"><a class="tooltips tooltips-big nodecorated"><b>3k</b>Visitors per month<span style="top: 25.9219px; left: 19.0156px;"><strong>~60 conversions/mo</strong>Assuming 2% Conversion Rate &amp; full use of monthly traffic</span></a></li>
+
+				      	<li><span class="unavailable">Dedicated Account Manager</span></li>
+				      	<li><a class="tooltips unavailable">Technical Support<span style="top: 25.9219px; left: 19.0156px;">Custom Scripts/Coding from our developers</span></a></li>
+
+					</ul>
+		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">BUY NOW</a>
 
 				</div>
 			</div>
-
 		</div> <!-- end row !-->
 	</div>
 </div>
@@ -233,10 +243,10 @@ get_header(); ?>
 .packge-plan{
 
 	padding: 30px 0 50px 0;
-	background-color: #00abca;
-	1background: url('wp-content/themes/boxfreelance/img/wall1.jpg') #F0F0F0 center center / cover repeat;
+	background: url('wp-content/themes/boxfreelance/img/wall1.jpg') #F0F0F0 center center / cover repeat;
 }
 .pricing-table-plan {
+    border-radius: 5px;
     padding: 2em;
     text-align: center;
     width: 100%;
@@ -246,7 +256,6 @@ get_header(); ?>
     font-size: 2.5em;
     line-height: 140%;
 }
-
 .btn.btn-orange:hover {
     background-color: #f99e34 !important;
 }
@@ -254,16 +263,17 @@ get_header(); ?>
     font-size: 1.75em;
     font-weight: 600;
     line-height: 100%;
-    padding: .4em 0;
+    padding-top: .4em;
+}
+.pricing-table-plan {
+
 }
 .plan-features {
     width: 100%;
-    margin: 0.5em 0;
-    padding: 2em 0;
+    margin: 2.2em 0;
     list-style: none;
     border-top: 1px solid #DFDFD0;
     text-align: center;
-    min-height: 175px;
 }
 .plan-features > li {
     padding: 0;
