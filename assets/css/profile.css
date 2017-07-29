@@ -148,3 +148,8 @@ margin: 0;
 .block.update .video-container{
     display: none;
 }
+.modal-portfolio img{
+	max-width: 200px;
+	max-height: 200px;
+
+}
