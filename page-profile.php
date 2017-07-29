@@ -67,24 +67,28 @@
 <div class="modal fade modal-portfolio" tabindex="-1" role="dialog" id="modal_add_portfolio">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      	<div class="modal-body ">
-      		<form>
+    	<form class="add-portfolio">
+	      	<div class="modal-body ">
 	      		<div class="form-group">
-			      	<input type="text" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<center><h2> Add portfolio</h2></center>
+			   	</div>
+	      		<div class="form-group">
+			      	<input type="text" class="form-control "  name="post_title" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="hidden" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
 			   	</div>
 
 			   	<div class="form-group">
 			      	<div id="container_file">
-					   	<div class="wrap-port-img" id="pickfiles"><i class="fa fa-upload" aria-hidden="true">Select your email</i></div>
+					   	<div class="wrap-port-img" id="pickfiles"><i class="fa fa-upload" aria-hidden="true">Select an image</i></div>
 					</div>
 			   	</div>
 
-	      	</form>
-      	</div>
-      	<div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary upload-result">Save changes</button>
-	     </div>
+	      	</div>
+	      	<div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary"><?php _e('Save','button');?></button>
+		    </div>
+	    </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

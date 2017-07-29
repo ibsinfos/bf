@@ -82,6 +82,7 @@
 			$( '#update_profile' ).on( 'submit', this.update_profile);
 			$( '.update-profile' ).on( 'submit', this.update_profile_meta);
 			$( '.update-one-meta' ).on( 'submit', this.updateOneMeta);
+			$( ".add-portfolio").on( 'submit',this.addPortfolio);
 			$(".chosen-select").chosen();
 			// open modal
 			$('.update-avatar img').on('click', function() {
@@ -123,7 +124,7 @@
 			    },
 			    multipart_params: {
 			    	action: 'upload_file',
-			    	target:'add_portfolio',
+			    	method:'add_portfolio',
 			    	//post_parent: view.project.ID,
 			    	//project_tile: view.project.post_title,
 			    	//cvs_id: $("#cvs_id").val(),
@@ -142,7 +143,7 @@
 			        FileUploaded : function(up, file, response){
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
-						    var new_record =  '<img src="'+obj.file.guid+'">';
+						    var new_record =  '<img src="'+obj.file.guid+'"><input type="hidden" name="att_id" value="'+ obj.attach_id +'" >';
 				            //$("ul.list-attach").prepend(new_record);
 				            $("#pickfiles").html(new_record);
 					    } else{
@@ -153,7 +154,6 @@
 			});
 			uploader.init();
 			uploader.bind('FilesAdded', function(up, files) {
-	        	//view.$el.find("i.loading").toggleClass("hide");
 	            up.refresh();
 	            up.start();
 	        });
@@ -192,7 +192,19 @@
 	        });
 			return false;
 		},
+		addPortfolio: function(event){
 
+			var success = function(res){
+	        	if ( res.success ){
+
+		        } else {
+
+		        }
+			}
+
+			window.ajaxSend.Form(event, 'sync_portfolio', 'insert', success);
+			return false;
+		},
 		update_profile: function(e){
 			var form 	= $(e.currentTarget);
 	  		var data   	= {};

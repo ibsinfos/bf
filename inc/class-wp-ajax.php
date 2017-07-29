@@ -44,6 +44,7 @@ class BX_AJAX {
 			'buy_credit'            => false,
 			'box_upload_file' 		=> false,
 			'sync_msg' 				=> false,
+			'sync_portfolio'		=> false,
 
 		);
 
@@ -505,8 +506,8 @@ class BX_AJAX {
 		$request 		= $_REQUEST;
 		$uploadedfile 	= $_FILES['file'];
 		$upload_overrides = array( 'test_form' => false );
-		$post_parent_id = $request['post_parent'];
-		$cvs_id 	= $request['cvs_id'];
+		$post_parent_id = isset( $request['post_parent'] ) ? $request['post_parent']: 0;
+		$cvs_id 	= isset( $request['cvs_id']) ? $request['cvs_id'] : 0;
 
 
 		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
@@ -684,6 +685,17 @@ class BX_AJAX {
 
 		wp_send_json( array('success'=> true, 'data'=>$messages) );
 
+	}
+	static function sync_portfolio(){
+
+		$port 	= Box_Portfolio::get_instance();
+		$args 	= $_REQUEST['request'];
+		$method = $_REQUEST['method'];
+		$args['post_content'] = 'Portfolio of user A';
+
+		$port 	= $port->sync(  $method, $args  );
+
+		wp_send_json( array('success'=> true, 'data'=>$messages) );
 	}
 
 

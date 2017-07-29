@@ -204,19 +204,19 @@ var single_project = {
 
 	sendMessage: function(e){
 
-			var success = function(res){
-	        	if ( res.success ){
-	        		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
-	        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
-	        		record = record + '</span></div></div>';
-	        		$("#container_msg").append( record );
-	        		var textarea = document.getElementById('container_msg');
-					textarea.scrollTop = textarea.scrollHeight;
-	        		$("form.send-message").trigger("reset");
-		        } else {
-		        	alert(res.msg);
-		        }
-			}
+		var success = function(res){
+        	if ( res.success ){
+        		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
+        		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
+        		record = record + '</span></div></div>';
+        		$("#container_msg").append( record );
+        		var textarea = document.getElementById('container_msg');
+				textarea.scrollTop = textarea.scrollHeight;
+        		$("form.send-message").trigger("reset");
+	        } else {
+	        	alert(res.msg);
+	        }
+		}
 
 		var _this = $(event.currentTarget);
 		msg_send.msg_content = _this.find(".msg_content").val();

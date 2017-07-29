@@ -16,7 +16,7 @@ require get_parent_theme_file_path( '/inc/class_credit.php' );
 require get_parent_theme_file_path( '/inc/class_message.php' );
 require get_parent_theme_file_path( '/inc/class_project.php' );
 require get_parent_theme_file_path( '/inc/class_profile.php' );
-
+require get_parent_theme_file_path( '/inc/class_portfolio.php' );
 
 require get_parent_theme_file_path( '/inc/class_bid.php' );
 require get_parent_theme_file_path( '/inc/class-wp-ajax.php' );
