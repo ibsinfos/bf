@@ -144,7 +144,7 @@
 					    if(obj.success){
 						    var new_record =  '<img src="'+obj.file.guid+'">';
 				            //$("ul.list-attach").prepend(new_record);
-				            $("#container_file").append(new_record);
+				            $("#pickfiles").html(new_record);
 					    } else{
 					    	alert(obj.msg);
 					    }

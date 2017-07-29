@@ -70,19 +70,14 @@
       	<div class="modal-body ">
       		<form>
 	      		<div class="form-group">
-
-			      	<input class="col-md-12"  type="text" class="form-control input-price"  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="text" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
 			   	</div>
 
 			   	<div class="form-group">
-			      	<div class="col-md-12" id="container_file">
-					   	<button class="btn " id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add A picture </button>
+			      	<div id="container_file">
+					   	<div class="wrap-port-img" id="pickfiles"><i class="fa fa-upload" aria-hidden="true">Select your email</i></div>
 					</div>
 			   	</div>
-
-
-
-
 
 	      	</form>
       	</div>

@@ -190,7 +190,7 @@ var ajaxSend = {};
 						    console.log(obj.file);
 						    console.log(obj);
 
-				            $("#" + id).append(new_record);
+				            $("#pickfiles").append(new_record);
 
 					    } else{
 					    	container.log(obj);
