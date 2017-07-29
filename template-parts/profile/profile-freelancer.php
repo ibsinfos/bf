@@ -175,6 +175,7 @@
 
 			$result->the_post();
 			$post->feature_image = get_the_post_thumbnail_url($post->ID, 'full');
+			$post->thumbnail_id = get_post_thumbnail_id($post->ID);
 			$list_portfolio[$post->ID] = $post;
 			echo '<div class="col-md-6 port-item" id="'.$post->ID.'">';
 			the_post_thumbnail('full' );

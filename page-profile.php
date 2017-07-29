@@ -67,14 +67,16 @@
 <div class="modal fade modal-portfolio" tabindex="-1" role="dialog" id="modal_add_portfolio">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-    	<form class="add-portfolio">
+    	<form class="add-portfolio" id="modal_add_port">
 	      	<div class="modal-body ">
 	      		<div class="form-group">
 			      	<center><h2> Add portfolio</h2></center>
 			   	</div>
 	      		<div class="form-group">
-			      	<input type="text" class="form-control "  name="post_title" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="text" class="form-control "  name="post_title" id="post_title" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
 			      	<input type="hidden" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="hidden" class="form-control"  name="ID" id="port_id" value="" />
+	      		<input type="hidden" class="form-control"  name="thumbnail_id" id="thumbnail_id" value="" />
 			   	</div>
 
 			   	<div class="form-group">
@@ -102,12 +104,14 @@
   		<div class="form-group">
 	      	<input type="text" class="form-control "  name="post_title" value="{{{data.post_title}}}" placeholder="<?php _e("Set title",'boxtheme');?>" />
 	      	<input type="hidden" class="form-control "  name="ID" value="{{{data.ID}}}" />
+	      	<input type="hidden" class="form-control "  name="thumbnail_id" value="{{{data.thumbnail_id}}}" />
+
 	      	<input type="hidden" class="form-control "  name="post_content" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
 	   	</div>
 
 	   	<div class="form-group">
-	      	<div id="container_file">
-	      		<div class="wrap-port-img" id="pickfiles"><img src="{{{data.feature_image}}}" /></div>
+	      	<div id="container_file1">
+	      		<div class="wrap-port-img" id="pickfiles12"><img src="{{{data.feature_image}}}" /></div>
 			</div>
 	   	</div>
 
