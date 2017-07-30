@@ -508,7 +508,7 @@ add_filter( 'excerpt_more', 'bx_excerpt_more' );
 add_filter( 'excerpt_more', 'boxtheme_excerpt_more' );
 
 
-function the_excerpt_max_charlength( $excerpt, $charlength) {
+function the_excerpt_max_charlength( $excerpt, $charlength, $echo = true) {
 	$excerpt = strip_tags($excerpt);
 	$charlength++;
 
