@@ -761,7 +761,7 @@ class BX_AJAX {
 		$avatar_url = $path['url'].'/'.$extend;
 
 		//$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
-		$scale = 150/$w;
+		$scale = 1;
    		$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
 
 
