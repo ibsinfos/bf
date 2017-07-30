@@ -18,50 +18,48 @@
 get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
-			<div class="row">
-				<div class="col-md-3 sidebar sidebar-search" id="sidebar">
-					<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
-				</div>
+		<div class="row">
+			<div class="col-md-3 sidebar sidebar-search" id="sidebar">
+				<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
+			</div>
 
-				<div class="col-md-9 " >
-					<div class="col-md-12" id="search_line">
-						<form action="" class="navbar-form full frm-search" >
-							<div class="input-group full">
-						       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
-						       <div class="input-group-btn">
-						           <button class="btn btn-info">
-						           <span class="glyphicon glyphicon-search"></span>
-						           </button>
-						       </div>
-						   </div>
-						</form>
-						<div class="full" id="count_results">
-							<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
-						</div>
-
+			<div class="col-md-9 " >
+				<div class="col-md-12" id="search_line">
+					<form action="" class="navbar-form full frm-search" >
+						<div class="input-group full">
+					       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+					       <div class="input-group-btn">
+					           <button class="btn btn-info">
+					           <span class="glyphicon glyphicon-search"></span>
+					           </button>
+					       </div>
+					   </div>
+					</form>
+					<div class="full" id="count_results">
+						<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
 					</div>
 
-					<div class="list-project" id="ajax_result">
-					<?php
-						global $wp_query;
-						//var_dump('<pre>');
-						//var_dump($wp_query->found_posts);
-						//echo '</pre>';
-						wp_reset_query();
-						if( have_posts() ):
-
-							while( have_posts() ):
-								the_post();
-								get_template_part( 'template-parts/project/project', 'loop' );
-							endwhile;
-							bx_pagenate();
-						endif;
-					?>
-					</div>
 				</div>
 
-			</div> <!-- .row !-->
+				<div class="list-project" id="ajax_result">
+				<?php
+					global $wp_query;
+					//var_dump('<pre>');
+					//var_dump($wp_query->found_posts);
+					//echo '</pre>';
+					wp_reset_query();
+					if( have_posts() ):
 
+						while( have_posts() ):
+							the_post();
+							get_template_part( 'template-parts/project/project', 'loop' );
+						endwhile;
+						bx_pagenate();
+					endif;
+				?>
+				</div>
+			</div>
+		</div> <!-- .row !-->
 
 	</div>
 </div>
