@@ -12,6 +12,7 @@
 	    	<div class="col-md-3 update-avatar">
 	    		<?php
 	    		$url = get_user_meta($user_ID,'avatar_url', true);
+
 	    		if ( ! empty($url ) ){
 	    			echo '<img class="avatar" src=" '.$url.'" />';
 	    		}else {

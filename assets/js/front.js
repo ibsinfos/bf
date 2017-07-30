@@ -52,7 +52,6 @@
 
 			$(window).scroll(function() {
 		    var height = $(window).scrollTop();
-		    console.log(height);
 		    if(height  > 101) {
 		    	$("#full_header").addClass('fixed');
 		    } else {

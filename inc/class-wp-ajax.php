@@ -45,6 +45,7 @@ class BX_AJAX {
 			'box_upload_file' 		=> false,
 			'sync_msg' 				=> false,
 			'sync_portfolio'		=> false,
+			'custom_avatar' => false,
 
 		);
 
@@ -506,6 +507,7 @@ class BX_AJAX {
 		$request 		= $_REQUEST;
 		$uploadedfile 	= $_FILES['file'];
 		$upload_overrides = array( 'test_form' => false );
+		$method = isset($request['method']) ? $request['method'] : '';
 		$post_parent_id = isset( $request['post_parent'] ) ? $request['post_parent']: 0;
 		$cvs_id 	= isset( $request['cvs_id']) ? $request['cvs_id'] : 0;
 
@@ -554,7 +556,14 @@ class BX_AJAX {
             	$attach_data = wp_generate_attachment_metadata($attach_id, $file_name_and_location);
         	    wp_update_attachment_metadata($attach_id, $attach_data);
 
-        	    $msg_arg = array(
+
+				if( $method == 'upload_full_avatar' ){
+
+					update_user_meta( $user_ID,'full_avatar', $attach_id );
+					wp_send_json( array('success' => true,'file' => $attachment, 'msg' => __('Uploaded is successful','box_theme') ,'attach_id' => $attach_id ));
+					wp_die();
+				}
+				$msg_arg = array(
 					'msg_content' 	=> sprintf(__('Upload new file: %s','boxtheme'), $file_title_for_media_library ),
 					'cvs_id' 		=> $cvs_id,
 				);
@@ -721,7 +730,41 @@ class BX_AJAX {
 		}
 		wp_send_json( $respond);
 	}
+	function custom_avatar(){
+		$max_file = "3"; 							// Maximum file size in MB
+		$max_width = "500";							// Max width allowed for the large image
+		$thumb_width = "100";						// Width of thumbnail image
+		$thumb_height = "100";
+		global $user_ID;
 
+		$request = $_REQUEST['request'];
+
+		$x1 = $request["x1"];
+		$y1 = $request["y1"];
+		$x2 = $request["x2"];
+		$y2 = $request["y2"];
+		$w = $request["w"];
+		$h = $request["h"];
+		//Scale the image to the thumb_width set above
+		$scale = $thumb_width/$w;
+		$path = wp_upload_dir();
+
+		$full_id =  get_user_meta( $user_ID, 'full_avatar', true );
+		$full_img_path = get_attached_file($full_id);
+
+
+		$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
+
+		$thum_path =  $path['path'].'/'.$user_ID.'_avatar.jpg';
+		$avatar_url = $path['url'].'/'.$user_ID.'_avatar.jpg';
+
+		$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
+		update_user_meta($user_ID,'avatar_url', $avatar_url);
+
+		$response = array('success' => true,'msg'=> 'Avatar is updated');
+		wp_send_json( $response );
+
+	}
 
 }
 

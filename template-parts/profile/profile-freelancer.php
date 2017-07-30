@@ -192,4 +192,4 @@
 	?>
 
 </div>
-<!-- end portfolio >
+<!-- end portfolio !-->

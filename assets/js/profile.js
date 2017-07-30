@@ -1,94 +1,22 @@
 ( function( $ ) {
-	function popupResult(result) {
-		var html;
-		if (result.html) {
-			html = result.html;
-		}
-		if (result.src) {
-
-			$.ajax({
-		        emulateJSON: true,
-		        method :'post',
-		        url : bx_global.ajax_url,
-		        data: {
-		                action: 'update_avatar',
-		                'avatar_url':result.src,
-		                method : 'update',
-		        },
-		        beforeSend  : function(event){
-		        	console.log('bat dau submit job');
-		        },
-		        success : function(res){
-		        	$("img.avatar").attr('src',result.src);
-		        	if ( res.success ){
-		        		$('#modal_avatar').modal('hide');
-		        		//window.location.href = res.redirect_url;
-			        } else {
-			        	//alert(res.msg);
-			        }
-		        }
-	        });
-		}
-	}
-
-	function demoUpload() {
-		var $uploadCrop;
-
-		function readFile(input) {
- 			if (input.files && input.files[0]) {
-	            var reader = new FileReader();
-
-	            reader.onload = function (e) {
-					$('.upload-demo').addClass('ready');
-	            	$uploadCrop.croppie('bind', {
-	            		url: e.target.result
-	            	}).then(function(){
-	            		console.log('jQuery bind complete');
-	            	});
-	            }
-
-	            reader.readAsDataURL(input.files[0]);
-	        }
-	        else {
-		        swal("Sorry - you're browser doesn't support the FileReader API");
-		    }
-		}
-
-		$uploadCrop = $('#upload-demo').croppie({
-			viewport: {
-				width: 115,
-				height: 115,
-				type: 'circle'
-			},
-			enableExif: true
-		});
-
-		$('#upload').on('change', function () { readFile(this); });
-		$('.upload-result').on('click', function (ev) {
-			$uploadCrop.croppie('result', {
-				type: 'canvas',
-				size: 'viewport'
-			}).then(function (resp) {
-				popupResult({
-					src: resp
-				});
-			});
-		});
-	}
-
+	var cropper;
+	var cropBoxData;
+	var canvasData;
 	var profile = {
 		init: function() {
-			console.log('init');
+			$(".frm-avatar").on('submit',this.saveAvatar);
+
 			$( '#update_profile' ).on( 'submit', this.update_profile);
 			$( '.update-profile' ).on( 'submit', this.update_profile_meta);
 			$( '.update-one-meta' ).on( 'submit', this.updateOneMeta);
+
 			$( ".add-portfolio").on( 'submit',this.addPortfolio);
 			$(".chosen-select").chosen();
 			$( ".btn-del-port").on( 'click',this.delPortfolio);
 
 			// open modal
 			$('.update-avatar img').on('click', function() {
-		        $('#modal_avatar').modal('show');
+			    $('#modal_avatar').modal('show');
 		    });
 			var list_portfolio =JSON.parse( jQuery('#json_list_portfolio').html() );
 		    var add_portfolio_form = wp.template("add_portfolio");
@@ -104,11 +32,9 @@
 		    	$("#modal_add_portfolio #thumbnail_id").val(list_portfolio[p_id].thumbnail_id);
 		    	$("#modal_add_portfolio .wrap-port-img").html("<img src="+list_portfolio[p_id].feature_image +" />");
 
-		    	//$("#modal_add_portfolio").find("form").append( add_portfolio_form(list_portfolio[p_id] ) );
 		        $('#modal_add_portfolio').modal('show');
 		    });
 
-			//end open
 			$(".btn-edit-default").click(function(event){
 				var form 	= $(event.currentTarget);
 
@@ -169,8 +95,59 @@
 	            up.refresh();
 	            up.start();
 	        });
+			var uploader = new plupload.Uploader({
+			    runtimes : 'html5,flash,silverlight,html4',
+			    browse_button : 'btn-upload-avatar', // you can pass in id...
+			    container: document.getElementById('full_avatar'), // ... or DOM Element itself
+			    url : bx_global.ajax_url,
+			    filters : {
+			        max_file_size : '10mb',
+			        mime_types: [
+			            {title : "Image files", extensions : "jpg,gif,png,jpeg,ico,pdf,doc,docx,zip,excel,txt"},
+			        ]
+			    },
+			    multipart_params: {
+			    	action: 'upload_file',
+			    	method: 'upload_full_avatar',
+			    },
+			    init: {
+			        PostInit: function() {
 
+			        },
+			        FilesAdded: function(up, files) {
 
+			        },
+
+			        Error: function(up, err) {
+			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+			        },
+			        FileUploaded : function(up, file, response){
+			        	var obj = jQuery.parseJSON(response.response);
+					    if(obj.success){
+						    var new_record =  '<img src="'+obj.file.guid+'">';
+				            $(".img-container").html(new_record);
+					    } else{
+					    	alert(obj.msg);
+					    }
+			        }
+			    }
+			});
+			uploader.init();
+			uploader.bind('FilesAdded', function(up, files) {
+	            up.refresh();
+	            up.start();
+	        });
+
+		},
+		saveAvatar : function(event){
+			var form 	= $(event.currentTarget);
+			console.log('123');
+			var success = function(res){
+				console.log(res);
+			}
+			window.ajaxSend.Form(event, 'custom_avatar', 'insert', success);
+
+			return false;
 		},
 		updateOneMeta: function(e){
 			var form 	= $(e.currentTarget);
@@ -236,6 +213,7 @@
 		    }
 		    window.ajaxSend.Custom(data, success);
 		},
+
 
 		update_profile: function(e){
 			var form 	= $(e.currentTarget);
@@ -304,6 +282,5 @@
 		}
 	}
 	profile.init();
-	demoUpload();
 
 })( jQuery, window.ajaxSend );

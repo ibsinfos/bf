@@ -10,7 +10,6 @@
 }
 .upload-msg {
     text-align: center;
-    padding: 50px;
     font-size: 22px;
     color: #aaa;
     width: 260px;
@@ -55,15 +54,6 @@
     margin: 0 auto;
 }
 
-.upload-msg {
-    text-align: center;
-    padding: 50px;
-    font-size: 22px;
-    color: #aaa;
-    width: 260px;
-    margin: 50px auto;
-    border: 1px solid #aaa;
-}
 a.file-btn{
 	position: relative;
 }
@@ -184,4 +174,12 @@ margin: 0;
 	position: absolute;
 	top:0;
 	right:0;
+}
+.imgareaselect-border1,
+.imgareaselect-border2{
+	border-color: #ccc;
+	border-width: 1px;
+    border-style: dashed;
+    border-color: rgb(255, 255, 255);
+    opacity: 0.7;
 }

@@ -36,25 +36,34 @@
 <div class="modal fade" tabindex="-1" role="dialog" id="modal_avatar">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      	<div class="modal-body">
-      		<div class="demo-wrap upload-demo">
+    	<form class="frm-avatar">
+	      	<div class="modal-body">
+	      		<div class="demo-wrap upload-demo"  id="full_avatar">
+	      			<div align="center img-container upload-msg">
+	      				<?php
+	      				global $user_ID;
+	      				$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
+	      				?>
+	              		<img src="<?php echo wp_get_attachment_url($full_avatar_id);?>" alt="Picture" id="thumbnail">
 
-                <div class="upload-msg">
-                    Upload a file to start cropping
-                </div>
-                <div class="upload-demo-wrap">
-                    <div id="upload-demo" class="croppie-container">    </div>
-       			</div>
-       			<a class="btn file-btn">
-                    <span>Upload</span>
-                    <input type="file" id="upload" value="Choose a file" accept="image/*">
-                </a>
-      		</div>
-      	</div>
-      	<div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary upload-result">Save changes</button>
-	     </div>
+					<br style="clear:both;">
+						<input type="hidden" name="x1" value="" id="x1">
+						<input type="hidden" name="y1" value="" id="y1">
+						<input type="hidden" name="x2" value="" id="x2">
+						<input type="hidden" name="y2" value="" id="y2">
+						<input type="hidden" name="w" value="" id="w">
+						<input type="hidden" name="h" value="" id="h">
+						<input type="submit" class="button" name="upload_thumbnail" value="Save Thumbnail" id="save_thumb">
+
+				</div>
+
+	      		<!-- end test !-->
+	      	</div>
+	      	<div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary upload-result">Save changes</button>
+		    </div>
+		</form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -118,5 +127,48 @@
         <button type="submit" class="btn btn-primary"><?php _e('Save','button');?></button>
     </div>
 </script>
+<script type="text/javascript">
+(function($){
+	function preview(img, selection) {
+    var scaleX = 100 / selection.width;
+    var scaleY = 100 / selection.height;
+
+    $("#thumbnail + div > img").css({
+        width: Math.round(scaleX * 200) + "px",
+        height: Math.round(scaleY * 300) + "px",
+        marginLeft: "-" + Math.round(scaleX * selection.x1) + "px",
+        marginTop: "-" + Math.round(scaleY * selection.y1) + "px"
+    });
+    $("#x1").val(selection.x1);
+    $("#y1").val(selection.y1);
+    $("#x2").val(selection.x2);
+    $("#y2").val(selection.y2);
+    $("#w").val(selection.width);
+    $("#h").val(selection.height);
+}
+
+	$(document).ready(function () {
+		$('#save_thumb').click(function() {
+			var x1 = $('#x1').val();
+			var y1 = $('#y1').val();
+			var x2 = $('#x2').val();
+			var y2 = $('#y2').val();
+			var w = $('#w').val();
+			var h = $('#h').val();
+			if(x1=="" || y1=="" || x2=="" || y2=="" || w=="" || h==""){
+				alert("You must make a selection first");
+				return false;
+			}else{
+				return true;
+			}
+		});
+	});
+
+	$(window).load(function () {
+		$('#thumbnail').imgAreaSelect({ x1: 120, y1: 90, x2: 280, y2: 210, aspectRatio: '1:1', onSelectChange: preview });
+	});
+})(jQuery);
+</script>
+
 <?php get_footer();?>
 
