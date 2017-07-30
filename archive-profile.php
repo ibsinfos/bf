@@ -68,15 +68,15 @@ get_header(); ?>
 				<a href=" http://localhost/wp/fb/author/fre3/">{{{data.display_name}}}</a>			</h3>
 			<h5 class="professional-title">{{{data.professional_title}}}</h5>
 			<start class="rating-score clear block core-0 "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start>
-			<small class="absolute abs-top abs-right hour-rate">{{{data.hour_rate}}}</small>
-			<small class="clear skills">{{{data.skills}}}</small>
+			<small class="absolute abs-top abs-right hour-rate">{{{data.hour_rate_text}}}</small>
+			<small class="clear skills">{{{data.skill_text}}}</small>
 		</div>
 		<div style="width: 100%; clear: both; display: block;" class="profile-inline">
 			<div class="col-md-2">
 			</div>
 			<div class="col-md-9 col-xs-12 bottom-row">
-				<div class="col-md-4 col-xs-4 no-padding-left count-job"> <?php _e('{{{data.PROJECTS_WORKED}}} Job(s)','boxtheme');?> </div>
-				<div class="col-md-4  col-xs-4 count-earned">{{{data.EARNED_TXT}}}  </div>
+				<div class="col-md-4 col-xs-4 no-padding-left count-job"> <?php _e('{{{data.projects_worked}}} Job(s)','boxtheme');?> </div>
+				<div class="col-md-4  col-xs-4 count-earned">{{{data.earned_txt}}}  </div>
 				<div class="col-md-4  col-xs-4 country-profile"><span class="f-right"> <span class="glyphicon glyphicon-map-marker"></span>  {{{data.country}}} </span>
 				</div>
 			</div>

@@ -73,7 +73,19 @@ Class BX_Profile extends BX_Post{
 		$post->{EARNED_TXT} = sprintf( __('($)%s earned ','boxtheme'), $post->{EARNED} );
 		$post->{RATING_SCORE} 	= (float)get_user_meta($post->post_author,RATING_SCORE, true);
 		$post->{PROJECTS_WORKED} = (int) get_user_meta($post->post_author,PROJECTS_WORKED, true);
-
+		global $currency_sign;
+		$post->{HOUR_RATE_TEXT} = sprintf( __('%s %s/h','boxtheme'),$currency_sign, $post->{HOUR_RATE} );
+		$post->skill_text = '';
+		$skill_text = '';
+		$skills = get_the_terms( $post->ID, 'skill' );
+		if ( $skills && ! is_wp_error( $skills ) ){
+			$draught_links = array();
+			foreach ( $skills as $term ) {
+				$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+			}
+			$skill_text = join( ", ", $draught_links );
+			$post->skill_text = $skill_text;
+		}
 
 		return $post;
 	}
