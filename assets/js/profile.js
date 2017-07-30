@@ -20,6 +20,14 @@
 	var cropper;
 	var cropBoxData;
 	var canvasData;
+	$(document).on('click', '#add_ig' , function(Event){
+
+    	var left = $('#full_avatar').offset().left;
+
+	    console.log(left);
+
+    });
+
 	var profile = {
 		init: function() {
 			$(".frm-avatar").on('submit',this.saveAvatar);
@@ -35,9 +43,19 @@
 			// open modal
 			$('.update-avatar img').on('click', function() {
 			    $('#modal_avatar').modal('show');
-			    //$('#thumbnail').imgAreaSelect({ x1: 120, y1: 90, x2: 280, y2: 210, aspectRatio: '1:1', onSelectChange: preview });
-			    $('#thumbnail').imgAreaSelect();
+			    var left = $('#full_avatar').offset().left;
+			    $('#thumbnail').imgAreaSelect({
+			    	x1: 15, y1: 15, x2: 165, y2: 165,
+			    	//maxWidth: 150, maxHeight: 150,
+			    	handles: true,
+			    	aspectRatio: '1:1',
+			    	parent:'#full_avatar',
+			    	onSelectChange: preview
+			    });
+
 		    });
+
+
 			var list_portfolio =JSON.parse( jQuery('#json_list_portfolio').html() );
 		    var add_portfolio_form = wp.template("add_portfolio");
 

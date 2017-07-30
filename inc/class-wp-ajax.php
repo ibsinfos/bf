@@ -732,9 +732,9 @@ class BX_AJAX {
 	}
 	static function custom_avatar(){
 		$max_file = "3"; 							// Maximum file size in MB
-		$max_width = "500";							// Max width allowed for the large image
-		$thumb_width = "100";						// Width of thumbnail image
-		$thumb_height = "100";
+		$max_width = "350";							// Max width allowed for the large image
+		$thumb_width = "350";						// Width of thumbnail image
+		$thumb_height = "150";
 		global $user_ID;
 
 		$request = $_REQUEST['request'];

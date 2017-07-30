@@ -89,6 +89,7 @@
 			   	<div class="form-group">
 			      	<div id="container_file">
 					   	<div class="wrap-port-img" id="pickfiles"><i class="fa fa-upload" aria-hidden="true">Select an image</i></div>
+
 					</div>
 					<input type="text" class="form-control "   name="thumbnail_id" id="thumbnail_id" value="" />
 			   	</div>

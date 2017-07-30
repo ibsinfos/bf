@@ -5,9 +5,9 @@
 	min-width: 115px;
 	min-height: 115px;
 	cursor: pointer;
+	max-width: 130px;
 }
-.update-avatar img{
-}
+
 .upload-msg {
     text-align: center;
     font-size: 22px;
