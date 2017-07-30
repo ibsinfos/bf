@@ -18,7 +18,7 @@
 	    </ul>
 	</div>
 	<div class="block full">
-		<h3> Countries <span class="toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
+		<h3> Skills <span class="toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
 
 	 	<ul class="list-checkbox ul-skills">
 
