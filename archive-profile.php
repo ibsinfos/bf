@@ -22,6 +22,19 @@ get_header(); ?>
 					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
 				</div>
 				<div class="col-md-9 " >
+					<div class="row">
+						<form action="" class="navbar-form full">
+							<div class="input-group full">
+						       <input type="text" name="s" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+						       <div class="input-group-btn">
+						           <button class="btn btn-info">
+						           <span class="glyphicon glyphicon-search"></span>
+						           </button>
+						       </div>
+						   </div>
+						</form>
+					</div>
+
 					<div class="list-project" id="ajax_result">
 					<?php
 

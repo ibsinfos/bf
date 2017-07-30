@@ -24,6 +24,22 @@ get_header(); ?>
 				</div>
 
 				<div class="col-md-9 " >
+					<div class="row">
+						<form action="" class="navbar-form full">
+							<div class="input-group full">
+						       <input type="text" name="s" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+						       <div class="input-group-btn">
+						           <button class="btn btn-info">
+						           <span class="glyphicon glyphicon-search"></span>
+						           </button>
+						       </div>
+						   </div>
+						</form>
+						<div class="col-md-12">
+							<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
+						</div>
+					</div>
+
 					<div class="list-project" id="ajax_result">
 					<?php
 						global $wp_query;
@@ -32,7 +48,7 @@ get_header(); ?>
 						//echo '</pre>';
 						wp_reset_query();
 						if( have_posts() ):
-							echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts);
+
 							while( have_posts() ):
 								the_post();
 								get_template_part( 'template-parts/project/project', 'loop' );
