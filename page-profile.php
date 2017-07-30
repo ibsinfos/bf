@@ -131,23 +131,7 @@
 </script>
 <script type="text/javascript">
 (function($){
-	function preview(img, selection) {
-    var scaleX = 100 / selection.width;
-    var scaleY = 100 / selection.height;
 
-    $("#thumbnail + div > img").css({
-        width: Math.round(scaleX * 200) + "px",
-        height: Math.round(scaleY * 300) + "px",
-        marginLeft: "-" + Math.round(scaleX * selection.x1) + "px",
-        marginTop: "-" + Math.round(scaleY * selection.y1) + "px"
-    });
-    $("#x1").val(selection.x1);
-    $("#y1").val(selection.y1);
-    $("#x2").val(selection.x2);
-    $("#y2").val(selection.y2);
-    $("#w").val(selection.width);
-    $("#h").val(selection.height);
-}
 
 	$(document).ready(function () {
 		$('#save_thumb').click(function() {
@@ -167,7 +151,7 @@
 	});
 
 	$(window).load(function () {
-		$('#thumbnail').imgAreaSelect({ x1: 120, y1: 90, x2: 280, y2: 210, aspectRatio: '1:1', onSelectChange: preview });
+
 	});
 })(jQuery);
 </script>

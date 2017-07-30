@@ -1,4 +1,22 @@
 ( function( $ ) {
+	function preview(img, selection) {
+	    var scaleX = 100 / selection.width;
+	    var scaleY = 100 / selection.height;
+
+	    $("#thumbnail + div > img").css({
+	        width: Math.round(scaleX * 200) + "px",
+	        height: Math.round(scaleY * 300) + "px",
+	        marginLeft: "-" + Math.round(scaleX * selection.x1) + "px",
+	        marginTop: "-" + Math.round(scaleY * selection.y1) + "px"
+	    });
+	    $("#x1").val(selection.x1);
+	    $("#y1").val(selection.y1);
+	    $("#x2").val(selection.x2);
+	    $("#y2").val(selection.y2);
+	    $("#w").val(selection.width);
+	    $("#h").val(selection.height);
+	}
+
 	var cropper;
 	var cropBoxData;
 	var canvasData;
@@ -17,6 +35,7 @@
 			// open modal
 			$('.update-avatar img').on('click', function() {
 			    $('#modal_avatar').modal('show');
+			    $('#thumbnail').imgAreaSelect({ x1: 120, y1: 90, x2: 280, y2: 210, aspectRatio: '1:1', onSelectChange: preview });
 		    });
 			var list_portfolio =JSON.parse( jQuery('#json_list_portfolio').html() );
 		    var add_portfolio_form = wp.template("add_portfolio");
@@ -24,6 +43,7 @@
 		    $('.btn-show-portfolio-modal').on('click', function() {
 		    	console.log('show modal');
 		        $('#modal_add_portfolio').modal('show');
+
 		    });
 		    $('.btn-edit-port').on('click', function(event) { // update
 		    	var _this = $(event.currentTarget);
