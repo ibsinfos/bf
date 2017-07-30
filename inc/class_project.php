@@ -90,13 +90,13 @@ Class BX_Project extends BX_Post{
 
 		$result = parent::convert($post);
 		$profile_id =get_user_meta($post->post_author,'profile_id', true);
-
+		global $currency_sign;
 		$spent = get_user_meta( $post->post_author, SPENT, true);
 		if( ! $spent ){
 			$spent = 0;
 		}
-
-		$result->spent = sprintf( __( '%s <span>spent</span>','boxtheme'), $spent );
+		$result->spent = $spent;
+		$result->spent_txt = sprintf( __( ' %s%s spent ','boxtheme'),$currency_sign, $spent );
 		$not_set = __('Not set','boxtheme');
 		$result->country = $not_set;
 

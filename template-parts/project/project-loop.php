@@ -26,7 +26,7 @@ $project = BX_Project::get_instance()->convert($post);
 		<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
             <strong class="text-muted display-inline-block m-sm-top">Client:</strong>
 			<span class="inline">
-				<span><?php echo $project->spent;?></span>
+				<span><?php echo $project->spent_txt;?></span>
 			</span>
 			<span  class="nowrap">
 				<span class="glyphicon glyphicon-md air-icon-location m-0"></span>
