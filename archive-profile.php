@@ -33,6 +33,10 @@ get_header(); ?>
 						       </div>
 						   </div>
 						</form>
+						<div class="col-md-12">
+							<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
+						</div>
+
 					</div>
 
 					<div class="list-project" id="ajax_result">
