@@ -95,7 +95,7 @@
 	            up.refresh();
 	            up.start();
 	        });
-			var uploader = new plupload.Uploader({
+			var upload = new plupload.Uploader({
 			    runtimes : 'html5,flash,silverlight,html4',
 			    browse_button : 'btn-upload-avatar', // you can pass in id...
 			    container: document.getElementById('full_avatar'), // ... or DOM Element itself
@@ -124,16 +124,17 @@
 			        FileUploaded : function(up, file, response){
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
-						    var new_record =  '<img src="'+obj.file.guid+'">';
-				            $(".img-container").html(new_record);
+						    //var new_record =  '<img src="'+obj.file.guid+'" id="thumbnail">';
+				            //$(".img-container").html(new_record);
+				            $("#thumbnail").attr('src',obj.file.guid);
 					    } else{
 					    	alert(obj.msg);
 					    }
 			        }
 			    }
 			});
-			uploader.init();
-			uploader.bind('FilesAdded', function(up, files) {
+			upload.init();
+			upload.bind('FilesAdded', function(up, files) {
 	            up.refresh();
 	            up.start();
 	        });

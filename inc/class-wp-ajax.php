@@ -45,7 +45,7 @@ class BX_AJAX {
 			'box_upload_file' 		=> false,
 			'sync_msg' 				=> false,
 			'sync_portfolio'		=> false,
-			'custom_avatar' => false,
+			'custom_avatar' 		=> false,
 
 		);
 
@@ -561,7 +561,7 @@ class BX_AJAX {
 
 					update_user_meta( $user_ID,'full_avatar', $attach_id );
 					wp_send_json( array('success' => true,'file' => $attachment, 'msg' => __('Uploaded is successful','box_theme') ,'attach_id' => $attach_id ));
-					wp_die();
+
 				}
 				$msg_arg = array(
 					'msg_content' 	=> sprintf(__('Upload new file: %s','boxtheme'), $file_title_for_media_library ),
@@ -730,7 +730,7 @@ class BX_AJAX {
 		}
 		wp_send_json( $respond);
 	}
-	function custom_avatar(){
+	static function custom_avatar(){
 		$max_file = "3"; 							// Maximum file size in MB
 		$max_width = "500";							// Max width allowed for the large image
 		$thumb_width = "100";						// Width of thumbnail image
@@ -754,9 +754,11 @@ class BX_AJAX {
 
 
 		$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
+		$rand = rand();
 
-		$thum_path =  $path['path'].'/'.$user_ID.'_avatar.jpg';
-		$avatar_url = $path['url'].'/'.$user_ID.'_avatar.jpg';
+		$extend = $user_ID.'_'.$rand.'avatar.jpg';
+		$thum_path =  $path['path'].'/'.$extend;
+		$avatar_url = $path['url'].'/'.$extend;
 
 		$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
 		update_user_meta($user_ID,'avatar_url', $avatar_url);

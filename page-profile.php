@@ -39,12 +39,14 @@
     	<form class="frm-avatar">
 	      	<div class="modal-body">
 	      		<div class="demo-wrap upload-demo"  id="full_avatar">
-	      			<div align="center img-container upload-msg">
+	      			<div align="center  upload-msg">
 	      				<?php
 	      				global $user_ID;
 	      				$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
 	      				?>
-	              		<img src="<?php echo wp_get_attachment_url($full_avatar_id);?>" alt="Picture" id="thumbnail">
+	      				<div class="img-container">
+	              			<img src="<?php echo wp_get_attachment_url($full_avatar_id);?>" alt="Picture" id="thumbnail">
+	              		</div>
 
 					<br style="clear:both;">
 						<input type="hidden" name="x1" value="" id="x1">
@@ -53,8 +55,7 @@
 						<input type="hidden" name="y2" value="" id="y2">
 						<input type="hidden" name="w" value="" id="w">
 						<input type="hidden" name="h" value="" id="h">
-						<input type="submit" class="button" name="upload_thumbnail" value="Save Thumbnail" id="save_thumb">
-
+					<button id="btn-upload-avatar">Upload file</button>
 				</div>
 
 	      		<!-- end test !-->
@@ -171,4 +172,3 @@
 </script>
 
 <?php get_footer();?>
-
