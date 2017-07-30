@@ -20,7 +20,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 	$start_class = 'score-'.(int)$profile->{RATING_SCORE}.'-half';
 }
 ?>
-<div class="col-md-12 archive-profile-item">
+<div class="row archive-profile-item">
 	<div class="full">
 		<div class="col-md-3 no-padding col-xs-4">
 		<?php echo '<a href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
