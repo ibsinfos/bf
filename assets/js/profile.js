@@ -35,7 +35,8 @@
 			// open modal
 			$('.update-avatar img').on('click', function() {
 			    $('#modal_avatar').modal('show');
-			    $('#thumbnail').imgAreaSelect({ x1: 120, y1: 90, x2: 280, y2: 210, aspectRatio: '1:1', onSelectChange: preview });
+			    //$('#thumbnail').imgAreaSelect({ x1: 120, y1: 90, x2: 280, y2: 210, aspectRatio: '1:1', onSelectChange: preview });
+			    $('#thumbnail').imgAreaSelect();
 		    });
 			var list_portfolio =JSON.parse( jQuery('#json_list_portfolio').html() );
 		    var add_portfolio_form = wp.template("add_portfolio");
