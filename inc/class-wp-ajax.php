@@ -746,12 +746,13 @@ class BX_AJAX {
 		$h = $request["h"];
 		//Scale the image to the thumb_width set above
 		//$scale = $thumb_width/$w;
-		$scale = 1;
+
 		$path = wp_upload_dir();
 
 		$full_id =  get_user_meta( $user_ID, 'full_avatar', true );
 		$full_img_path = get_attached_file($full_id);
-
+		$wf = getWidth($full_img_path);
+		$scale = 1;
 
 		$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
 		$rand = rand();
@@ -760,8 +761,6 @@ class BX_AJAX {
 		$thum_path =  $path['path'].'/'.$extend;
 		$avatar_url = $path['url'].'/'.$extend;
 
-		//$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
-		$scale = 1;
    		$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
 
 

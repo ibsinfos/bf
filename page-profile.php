@@ -55,7 +55,7 @@
 						<input type="hidden" name="y2" value="" id="y2">
 						<input type="hidden" name="w" value="" id="w">
 						<input type="hidden" name="h" value="" id="h">
-					<button id="btn-upload-avatar">Upload file</button>
+					<button id="btn-upload-avatar">Upload file(width size maller than 650px)</button>
 					</div>
 
 	      		<!-- end test !-->
