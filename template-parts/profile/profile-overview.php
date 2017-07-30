@@ -2,7 +2,7 @@
 	global $user_ID, $current_user, $profile;
 	$professional_title = $profile->professional_title;
 ?>
-<div id="profile" class="col-md-8">
+<div id="profile" class="col-md-12">
 	<form id="update_profile" class="row-section">
 		<div class="form-group ">
 				<h3> <?php _e('Overview','boxtheme');?></h3>
@@ -48,7 +48,7 @@
 	    </div>
 	</form>
 </div> <!-- end left !-->
-<div class="col-md-4">
+<!-- <div class="col-md-4">
 	<h3>Proposals</h3>
 	<ul class="none-style">
 		<?php
@@ -68,4 +68,4 @@
 		<?php } ?>
 		<li><a href="<?php echo home_url('buy-credit');?>">Buy Credit </a></li>
 	</ul>
-</div>
+</div> -->

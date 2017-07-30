@@ -22,6 +22,7 @@
 		    var add_portfolio_form = wp.template("add_portfolio");
 
 		    $('.btn-show-portfolio-modal').on('click', function() {
+		    	console.log('show modal');
 		        $('#modal_add_portfolio').modal('show');
 		    });
 		    $('.btn-edit-port').on('click', function(event) { // update

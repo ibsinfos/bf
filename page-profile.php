@@ -56,13 +56,14 @@
 						<input type="hidden" name="w" value="" id="w">
 						<input type="hidden" name="h" value="" id="h">
 					<button id="btn-upload-avatar">Upload file</button>
-				</div>
+					</div>
 
 	      		<!-- end test !-->
-	      	</div>
-	      	<div class="modal-footer">
+	      		</div>
+	      		<div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 		        <button type="submit" class="btn btn-primary upload-result">Save changes</button>
+		    	</div>
 		    </div>
 		</form>
     </div><!-- /.modal-content -->
