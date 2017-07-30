@@ -86,7 +86,7 @@ Class BX_Profile extends BX_Post{
 			$skill_text = join( ", ", $draught_links );
 			$post->skill_text = $skill_text;
 		}
-
+		$post->author_link = get_author_posts_url($post->post_author);
 		return $post;
 	}
 
