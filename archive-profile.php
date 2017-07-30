@@ -19,13 +19,11 @@ get_header(); ?>
 	<div class="container site-container">
 		<div class="row">
 				<div class="col-md-3 sidebar sidebar-search" id="sidebar">
-					<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
+					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
 				</div>
 				<div class="col-md-9 " >
 					<div class="list-project" id="ajax_result">
 					<?php
-					//$args = array('post_type' => 'project');
-					//$query = new WP_Query($args);
 
 					if(have_posts()):
 						while(have_posts()):
