@@ -50,6 +50,7 @@
 			<li>Budget</li>
 			<li><input type="text" name="" id="range"></li>
 		</ul>
+		<input type="hidden" name="post_type" id="post_type" value="project">
 
 </div> <!-- end search adv !-->
 	<button class="btn btn-adv full mobile-only no-radius"> Advance Filter</button>

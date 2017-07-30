@@ -108,10 +108,11 @@
 
 	$(document).ready(function(){
 		front.init();
-		var searchForm = {keyword:'',from:0,to:1000,skills:{},cats:{},paged:1,href:0};
+		var searchForm = {keyword:'',from:0,to:1000,skills:{},post_type:'',cats:{}, countries:{},paged:1,href:0};
 		var list = [0,1,2.5,5,10,20,50,100,200,1000];
 		var check = 0;
 		searchForm.keyword = $("#keyword").val();
+		searchForm.post_type = $("#post_type").val();
 
 		if($("#range").length) {
 			$("#range").ionRangeSlider({
@@ -158,6 +159,21 @@
 		    } else {
 				//delete searchForm.skills.skill;
 				delete searchForm.cats[pos];
+		    }
+		    searchForm.paged = 1;
+		    window.ajaxSend.Search(searchForm);
+		});
+		$(".search_country").on("click", function(event){
+			var element = $(event.currentTarget);
+			element.closest('label').toggleClass('activate');
+			var check 	= $(this).is(":checked");
+			var country 	= $(this).val();
+			var pos 	= $(this).attr('alt');
+		    if( check ) {
+		       searchForm.countries[pos] = country;
+		    } else {
+				//delete searchForm.skills.skill;
+				delete searchForm.countries[pos];
 		    }
 		    searchForm.paged = 1;
 		    window.ajaxSend.Search(searchForm);

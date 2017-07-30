@@ -11,7 +11,7 @@
 	            ) );
 	            if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
 	                foreach ( $countries as $key=>$country ) {
-	                   echo '<li><label class="skil-item"> <input type="checkbox" name="cat" class="search_cat" alt="'.$key.'"  value="' . $country->term_id . '">' . $country->name . '<span class="glyphicon glyphicon-ok"></span></label></li>';
+	                   echo '<li><label class="skil-item"> <input type="checkbox" name="country" class="search_country" alt="'.$key.'"  value="' . $country->term_id . '">' . $country->name . '<span class="glyphicon glyphicon-ok"></span></label></li>';
 	                }
 	            }
 	     	?>
@@ -47,7 +47,7 @@
 			</ul>
 		 <?php } ?>
 
-
+		<input type="hidden" name="post_type" id="post_type" value="profile">
 </div> <!-- end search adv !-->
 	<button class="btn btn-adv full mobile-only no-radius"> Advance Filter</button>
 

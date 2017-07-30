@@ -571,14 +571,17 @@ class BX_AJAX {
 		$request = $_REQUEST['request'];
 
 		$paged = isset($request['paged']) ? $request['paged'] : 1;
+		$post_type = isset($request['post_type']) ? $request['post_type'] : 1;
+
 		$args = array(
 			'paged' => $paged,
-			'post_type' => PROJECT,
+			'post_type' => $post_type,
 			'post_status' => 'publish',
 		);
 
 		$skills = isset($request['skills']) ? $request['skills'] : '';
 		$cats 	= isset($request['cats']) ? $request['cats'] : '';
+		$countries 	= isset($request['countries']) ? $request['countries'] : '';
 		$from 	= isset($request['from']) ? $request['from']:0;
 		$to 	= isset($request['to']) ? $request['to']:100000;
 		$keyword = isset($request['keyword']) ? $request['keyword'] : '';
@@ -602,9 +605,17 @@ class BX_AJAX {
 				'terms'    => $cats,
 			);
 		}
+		if( ! empty( $countries ) ) {
+			//$cats = array_unique( array_map( 'intval', $cats ) );
+			$args['tax_query'][] = array(
+				'taxonomy' => 'country',
+				'field'    => 'term_id',
+				'terms'    => $countries,
+			);
+		}
 		$args['tax_query']['relation '] = 'AND';
 
-		if( !empty($from) || !empty($to) ){
+		if( $post_type == 'project' && ( !empty($from) || !empty($to) ) ){
 			$args['meta_query'][] =	array(
 				'key'     => BUDGET,
 				'value'   => array( $from, $to ),
@@ -612,6 +623,7 @@ class BX_AJAX {
 				'compare' => 'BETWEEN',
 			);
 		}
+
 		// if( current_user_can('manage_option') ){
 		// 	unset($args['post_status'] );
 		// }
