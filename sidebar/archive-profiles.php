@@ -46,10 +46,7 @@
 			<li><label> <input type="checkbox" name="post_status" class="post_status" alt="4"  value="'disputing"> Disputing</label></li>
 			</ul>
 		 <?php } ?>
-		<ul>
-			<li>Budget</li>
-			<li><input type="text" name="" id="range"></li>
-		</ul>
+
 
 </div> <!-- end search adv !-->
 	<button class="btn btn-adv full mobile-only no-radius"> Advance Filter</button>
