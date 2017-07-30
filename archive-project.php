@@ -35,7 +35,7 @@ get_header(); ?>
 						       </div>
 						   </div>
 						</form>
-						<div class="col-md-12">
+						<div class="col-md-12 " id="count_results">
 							<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
 						</div>
 					</div>

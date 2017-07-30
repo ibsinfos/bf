@@ -126,7 +126,7 @@ var ajaxSend = {};
 	        success: function(res){
 	        	$("#ajax_result").html('');
 	        	if( res.job_found ){
-	        		$("#ajax_result").append(res.job_found);
+	        		$("#count_results").html(res.job_found);
 	        	}
 	        	$.each(res.result, function (index, value) {
 
