@@ -65,7 +65,7 @@ get_header(); ?>
 		<a href="http://localhost/wp/fb/author/fre3/"></a>		</div>
 		<div class="col-md-10 align-left  col-xs-8">
 			<h3 class="profile-title no-margin">
-				<a href=" http://localhost/wp/fb/author/fre3/">{{{data.display_name}}}</a>			</h3>
+				<a href=" http://localhost/wp/fb/author/fre3/">{{{data.post_title}}}</a>			</h3>
 			<h5 class="professional-title">{{{data.professional_title}}}</h5>
 			<start class="rating-score clear block core-0 "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start>
 			<small class="absolute abs-top abs-right hour-rate">{{{data.hour_rate_text}}}</small>
