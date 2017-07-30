@@ -3,12 +3,12 @@
 	    var scaleX = 100 / selection.width;
 	    var scaleY = 100 / selection.height;
 
-	    $("#thumbnail + div > img").css({
-	        width: Math.round(scaleX * 200) + "px",
-	        height: Math.round(scaleY * 300) + "px",
-	        marginLeft: "-" + Math.round(scaleX * selection.x1) + "px",
-	        marginTop: "-" + Math.round(scaleY * selection.y1) + "px"
-	    });
+	    // $("#thumbnail + div > img").css({
+	    //     width: Math.round(scaleX * 200) + "px",
+	    //     height: Math.round(scaleY * 300) + "px",
+	    //     marginLeft: "-" + Math.round(scaleX * selection.x1) + "px",
+	    //     marginTop: "-" + Math.round(scaleY * selection.y1) + "px"
+	    // });
 	    $("#x1").val(selection.x1);
 	    $("#y1").val(selection.y1);
 	    $("#x2").val(selection.x2);
@@ -46,7 +46,7 @@
 			    var left = $('#full_avatar').offset().left;
 			    $('#thumbnail').imgAreaSelect({
 			    	x1: 15, y1: 15, x2: 165, y2: 165,
-			    	//maxWidth: 150, maxHeight: 150,
+			    	maxWidth: 150, maxHeight: 150,
 			    	handles: true,
 			    	aspectRatio: '1:1',
 			    	parent:'#full_avatar',

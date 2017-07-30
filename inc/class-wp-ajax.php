@@ -731,9 +731,8 @@ class BX_AJAX {
 		wp_send_json( $respond);
 	}
 	static function custom_avatar(){
-		$max_file = "3"; 							// Maximum file size in MB
-		$max_width = "350";							// Max width allowed for the large image
-		$thumb_width = "350";						// Width of thumbnail image
+
+		$thumb_width = "150";						// Width of thumbnail image
 		$thumb_height = "150";
 		global $user_ID;
 
@@ -746,13 +745,13 @@ class BX_AJAX {
 		$w = $request["w"];
 		$h = $request["h"];
 		//Scale the image to the thumb_width set above
-		$scale = $thumb_width/$w;
+
 		$path = wp_upload_dir();
 
 		$full_id =  get_user_meta( $user_ID, 'full_avatar', true );
 		$full_img_path = get_attached_file($full_id);
-
-
+		//$scale = $thumb_width/$w;
+		$scale = 1;
 		$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
 		$rand = rand();
 
