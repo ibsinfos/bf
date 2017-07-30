@@ -134,7 +134,7 @@ function is_account_veriffied($user_ID){
 }
 
 function get_commision_fee($total){
-	return (float) 0.1*$total;
+	return  0.1 * (float)$total;
 }
 
 function is_owner_project( $project ) {

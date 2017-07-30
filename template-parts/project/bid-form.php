@@ -4,7 +4,7 @@
  */
 
 global $project, $class_bidded, $bidding;
-$budget = $project->_budget;
+$budget = (float) $project->_budget;
 
 ?>
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
@@ -14,10 +14,11 @@ $budget = $project->_budget;
       	<div class="col-sm-4">
         <?php
         if($bidding){
-          $budget = get_post_meta($bidding->ID,BID_PRICE, true);
+          $budget = (float) get_post_meta($bidding->ID,BID_PRICE, true);
           //echo '<input type="hidden" value="'.$bidding->ID.'" name= "ID" />';
         }
         $commission_fee    = (float) get_commision_fee($budget);
+
         $fre_receive = $budget - $commission_fee;
 
 ?>
