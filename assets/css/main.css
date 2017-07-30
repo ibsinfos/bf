@@ -882,3 +882,15 @@ form #heading_signup{
 .navbar-form.frm-search .input-group .input-group-btn{
 	width: 1%;
 }
+.work-status li{
+	display: block;
+	clear: both;
+}
+.work-status span{
+	float: left;
+	padding-right: 5px;
+}
+.work-status label{
+	width: 150px;
+	float: left;
+}

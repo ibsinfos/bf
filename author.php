@@ -63,38 +63,24 @@
 
 			</div> <!-- end left !-->
 			<div class=" sidebar col-md-4">
-				Work History <br />
-				<?php
-				$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
-				$earned = get_user_meta($author_id, EARNED, true);
-				if( !$projects_worked ){
-					$projects_worked = 0;
-					$earned = 0;
-				}
+				<ul class="work-status">
+					<?php
+					$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
+					$earned = get_user_meta($author_id, EARNED, true);
+					$pcountry = get_the_terms( $profile_id, 'country' );
+					if( !$projects_worked ){
+						$projects_worked = 0;
+						$earned = 0;
+					}
 
-				printf(__('%s jobs','boxtheme'),$projects_worked);?><br />
-
-				<?php  printf(__('($)%s earned','boxtheme'), $earned);?><br />
-
-
-				<ul>
-					<li> <span class="glyphicon glyphicon-map-marker"></span>
-			      	<?php
-						$pcountry = get_the_terms( $profile_id, 'country' );
-				      	if( !empty($pcountry) ){
-				         echo $pcountry[0]->name;
-				      	}
-   					?>
-			      	</li>
-			      	<li>
-			      		<h3> <?php _e('Languages','boxtheme');?></h3>
-			      		<ul>
-			      			<li> English </li>
-
-			      		</ul>
-			      	</li>
-
+					?>
+					<li>Work History </li>
+					<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
+					<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
+					<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
+			      	<li><span class="glyphicon glyphicon-map-marker"></span><label> Language:</label> English </li>
 				</ul>
+
 			</div>
 			<div class="col-md-12">
 				<h3> <?php _e('Work History and Feedback','boxtheme');?></h3>
