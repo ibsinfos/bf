@@ -434,42 +434,8 @@ button:hover .profile-menu{
 select:active, select:hover {
   outline: none
 }
-.col-search{
-	margin-top: 10px;
-}
-.frm-search{
-	position: relative;
-	width: 222px;
-	height: 35px;
-	float: right;
-	overflow:hidden;
-}
-.frm-search .search-icon{
-	position: absolute;
-	top:12px;
-	left: 6px;
-	color: #555;
-}
-.frm-search select{
-	position: absolute;
-	top:10px;
-	left: 20px;
-	border: 0;
-	color: #555;
-	width: 20px;
-	outline: none
-	border: 0 !important;
-	background: transparent !important;
-}
-.frm-search select:hover{
-	outline: none
-	border: none;
-}
-input.keyword{
-	text-indent: 50px;
-	height: 33px;
-	border: 1px solid #eee;
-}
+
+
 
 /** END SEARCH FORM */
 .main-banner{
@@ -912,4 +878,7 @@ form #heading_signup{
 	max-height: 300px;
 	max-width: 100%;
 	height:auto;
+}
+.navbar-form.frm-search .input-group .input-group-btn{
+	width: 1%;
 }

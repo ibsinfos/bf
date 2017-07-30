@@ -23,7 +23,7 @@ get_header(); ?>
 				</div>
 				<div class="col-md-9 " >
 					<div class="row">
-						<form action="" class="navbar-form full">
+						<form action="" class="navbar-form full frm-search">
 							<div class="input-group full">
 						       <input type="text" name="s" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
 						       <div class="input-group-btn">
