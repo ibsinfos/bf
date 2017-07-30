@@ -732,8 +732,8 @@ class BX_AJAX {
 	}
 	static function custom_avatar(){
 
-		$thumb_width = "150";						// Width of thumbnail image
-		$thumb_height = "150";
+		$thumb_width = "100";						// Width of thumbnail image
+		$thumb_height = "100";
 		global $user_ID;
 
 		$request = $_REQUEST['request'];
@@ -745,13 +745,14 @@ class BX_AJAX {
 		$w = $request["w"];
 		$h = $request["h"];
 		//Scale the image to the thumb_width set above
-
+		//$scale = $thumb_width/$w;
+		$scale = 1;
 		$path = wp_upload_dir();
 
 		$full_id =  get_user_meta( $user_ID, 'full_avatar', true );
 		$full_img_path = get_attached_file($full_id);
-		//$scale = $thumb_width/$w;
-		$scale = 1;
+
+
 		$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
 		$rand = rand();
 
@@ -759,7 +760,11 @@ class BX_AJAX {
 		$thum_path =  $path['path'].'/'.$extend;
 		$avatar_url = $path['url'].'/'.$extend;
 
-		$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
+		//$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
+		$scale = 150/$w;
+   		$cropped = resizeThumbnailImage($thum_path, $full_img_path,$w,$h,$x1,$y1,$scale);
+
+
 		update_user_meta($user_ID,'avatar_url', $avatar_url);
 
 		$response = array('success' => true,'msg'=> 'Avatar is updated');

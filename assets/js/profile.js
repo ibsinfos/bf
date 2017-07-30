@@ -46,7 +46,7 @@
 			    var left = $('#full_avatar').offset().left;
 			    $('#thumbnail').imgAreaSelect({
 			    	x1: 15, y1: 15, x2: 165, y2: 165,
-			    	maxWidth: 150, maxHeight: 150,
+			    	//maxWidth: 150, maxHeight: 150,
 			    	handles: true,
 			    	aspectRatio: '1:1',
 			    	parent:'#full_avatar',
