@@ -60,52 +60,50 @@
 		    }
 		});
 
+	},
+
+	toggleMenu: function(event){
+		var _this = $(event.currentTarget);
+		$(".profile-menu").toggleClass('hide');
+	},
+	signIn: function(event){
+		var action = 'bx_signin', method ='';
+		var success =  function(res){
+
+        	if ( res.success ){
+        		if( res.redirect_url  )
+        			window.location.href = res.redirect_url;
+        		else
+        			window.location.reload(true);
+	        } else {
+	        	alert(res.msg);
+	        }
+        };
+        console.log('Sign in');
+        window.ajaxSend.Form(event,action,method,success);
+		return false;
+	},
+	submitSignup: function(event){
+		var action = 'bx_signup', method = 'insert';
+		var success =  function(res){
+        	if ( res.success ){
+        		window.location.href = res.redirect_url;
+	        } else {
+	        	alert(res.msg);
+	        }
+        };
+        window.ajaxSend.Form(event,action,method,success);
+		return false;
+	},
+	setSearchUrl : function(event){
+		var _this = $(event.currentTarget);
+		var status = $('option:selected',this).attr('alt');
+		$("form.frm-search").attr('action',_this.val() );
+		$("input#keyword").attr('placeholder', status );
+	},
 
 
-		},
-
-		toggleMenu: function(event){
-			var _this = $(event.currentTarget);
-			$(".profile-menu").toggleClass('hide');
-		},
-		signIn: function(event){
-			var action = 'bx_signin', method ='';
-			var success =  function(res){
-
-	        	if ( res.success ){
-	        		if( res.redirect_url  )
-	        			window.location.href = res.redirect_url;
-	        		else
-	        			window.location.reload(true);
-		        } else {
-		        	alert(res.msg);
-		        }
-	        };
-	        console.log('Sign in');
-	        window.ajaxSend.Form(event,action,method,success);
-			return false;
-		},
-		submitSignup: function(event){
-			var action = 'bx_signup', method = 'insert';
-			var success =  function(res){
-	        	if ( res.success ){
-	        		window.location.href = res.redirect_url;
-		        } else {
-		        	alert(res.msg);
-		        }
-	        };
-	        window.ajaxSend.Form(event,action,method,success);
-			return false;
-		},
-		setSearchUrl : function(event){
-			var _this = $(event.currentTarget);
-			var status = $('option:selected',this).attr('alt');
-			$("form.frm-search").attr('action',_this.val() );
-			$("input#keyword").attr('placeholder', status );
-		},
-
-
-	}
+}
 
 
 	$(document).ready(function(){

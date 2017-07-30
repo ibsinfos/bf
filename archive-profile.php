@@ -25,7 +25,7 @@ get_header(); ?>
 					<div class="row">
 						<form action="" class="navbar-form full frm-search">
 							<div class="input-group full">
-						       <input type="text" name="s" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+						       <input type="text" name="s" id="keyword"  placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
 						       <div class="input-group-btn">
 						           <button class="btn btn-info">
 						           <span class="glyphicon glyphicon-search"></span>
