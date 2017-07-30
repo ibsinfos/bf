@@ -22,11 +22,11 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 ?>
 <div class="row archive-profile-item">
 	<div class="full">
-		<div class="col-md-3 no-padding col-xs-4">
+		<div class="col-md-2 no-padding col-xs-4">
 		<?php echo '<a href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
 		$userdata = get_userdata($post->post_author); ?>
 		</div>
-		<div class="col-md-9 align-left no-padding col-xs-8">
+		<div class="col-md-10 align-left no-padding col-xs-8">
 			<h3 class="profile-title no-margin">
 				<?php echo '<a href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 			</h3>
