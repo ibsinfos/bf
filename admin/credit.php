@@ -11,9 +11,9 @@ class BX_Credit_Setting{
 	        'Credit order',
 	        'manage_options',
 	        'credit-setting',
-	        array($this,'wpdocs_my_custom_submenu_page_callback') );
+	        array('BX_Credit_Setting','wpdocs_my_custom_submenu_page_callback') );
 	}
-	static function wpdocs_my_custom_submenu_page_callback(){
+	function wpdocs_my_custom_submenu_page_callback(){
 
 		$args = array(
 			'post_type' => '_order',
