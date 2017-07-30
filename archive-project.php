@@ -74,7 +74,7 @@ get_header(); ?>
         </table>
     </a>
 </script>
-<script type="text/html" id="tmpl-project-record">
+<script type="text/html" id="tmpl-search-record">
 	<div class="row project-loop-item">
 		<div class="col-md-12">
 		<?php echo '<h3 class="project-title"><a href="{{{data.guid}}}">{{{data.post_title}}}</a></h3>';?>

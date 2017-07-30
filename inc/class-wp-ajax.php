@@ -638,7 +638,11 @@ class BX_AJAX {
 			while ( $the_query->have_posts()) {
 				global $post;
 				$the_query->the_post();
-				$result[] = BX_Project::get_instance()->convert($post);
+				if( $post_type == 'project' )
+					$class = BX_Project::get_instance();
+				else if ( $post_type == 'profile' )
+					$class = BX_Profile::get_instance();
+				$result[] = $class->convert($post);
 			}
 
 			if( $the_query->max_num_pages ){

@@ -109,7 +109,7 @@ var ajaxSend = {};
 	window.ajaxSend.Search = function(data){
 
 		if( window.ajaxSend.template == null ){
-			window.ajaxSend.template = wp.template( 'project-record' );
+			window.ajaxSend.template = wp.template( 'search-record' );
 		}
 
 	    $.ajax({
