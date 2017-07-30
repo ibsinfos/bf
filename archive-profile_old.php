@@ -17,26 +17,19 @@
 get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div class="row">
-				<div class="col-md-3 sidebar sidebar-search" id="sidebar">
-					<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
-				</div>
-				<div class="col-md-9 " >
-					<div class="list-project" id="ajax_result">
-					<?php
-					//$args = array('post_type' => 'project');
-					//$query = new WP_Query($args);
+		<div class="row 1row-margin">
+			<?php
+			//$args = array('post_type' => 'project');
+			//$query = new WP_Query($args);
 
-					if(have_posts()):
-						while(have_posts()):
-							the_post();
-							get_template_part( 'template-parts/profile/profile', 'loop' );
-						endwhile;
-						bx_pagenate();
-					endif;
-					?>
-					</div>
-				</div>
+			if(have_posts()):
+				while(have_posts()):
+					the_post();
+					get_template_part( 'template-parts/profile/profile', 'loop' );
+				endwhile;
+				bx_pagenate();
+			endif;
+			?>
 
 
 		</div> <!-- .row !-->
