@@ -24,8 +24,8 @@ get_header(); ?>
 				</div>
 
 				<div class="col-md-9 " >
-					<div class="row">
-						<form action="" class="navbar-form full frm-search">
+					<div class="col-md-12" id="search_line">
+						<form action="" class="navbar-form full frm-search" >
 							<div class="input-group full">
 						       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
 						       <div class="input-group-btn">
@@ -35,9 +35,10 @@ get_header(); ?>
 						       </div>
 						   </div>
 						</form>
-						<div class="col-md-12 " id="count_results">
+						<div class="full" id="count_results">
 							<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
 						</div>
+
 					</div>
 
 					<div class="list-project" id="ajax_result">

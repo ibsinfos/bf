@@ -7,7 +7,7 @@ $project = BX_Project::get_instance()->convert($post);
 	<div class="col-md-12">
 	<?php echo '<h3 class="project-title"><a href="'.get_permalink().'">'.get_the_title().'</a></h3>';?>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-12 project-second-line">
 		<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
 		    <span>Fixed-Price</span>
             <span >
@@ -19,7 +19,7 @@ $project = BX_Project::get_instance()->convert($post);
 
 		</span>
 	</div>
-	<div class="col-md-12">
+	<div class="col-md-12 project-third-line">
 			<?php the_excerpt_max_charlength(get_the_excerpt(), 300); ?>
 	</div>
 	<div class="col-md-12 employer-info">

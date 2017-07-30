@@ -626,11 +626,19 @@ ul.pagination{
 	background:#fff;
 }
 .project-loop-item .project-title a{
-	font-size: 18px;
-	color: #666;
+	font-size: 20px;
+	color: #37a000;
 }
 .project-loop-item .project-title a:hover{
 	text-decoration: none;
+}
+.project-loop-item .project-second-line{
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+.project-loop-item .project-third-line{
+	padding-bottom: 15px;
+	line-height: 1.42857;
 }
 /************ END PROJECT LOOP *************/
 
@@ -879,6 +887,9 @@ form #heading_signup{
 	max-width: 100%;
 	height:auto;
 }
+.navbar-form.frm-search{
+	padding-left: 0;
+}
 .navbar-form.frm-search .input-group .input-group-btn{
 	width: 1%;
 }
@@ -893,4 +904,9 @@ form #heading_signup{
 .work-status label{
 	width: 150px;
 	float: left;
+}
+#search_line{
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	padding-top: 15px;
 }
