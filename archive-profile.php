@@ -22,7 +22,7 @@ get_header(); ?>
 					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
 				</div>
 				<div class="col-md-9 " >
-					<div class="row">
+					<div class="col-md-12" id = "search_line">
 						<form action="" class="navbar-form full frm-search">
 							<div class="input-group full">
 						       <input type="text" name="s" id="keyword"  placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
@@ -33,8 +33,8 @@ get_header(); ?>
 						       </div>
 						   </div>
 						</form>
-						<div class="col-md-12 " id="count_results">
-							<?php echo sprintf( '<h5>'._n( '%s job found', '%s jobs found', $wp_query->found_posts, 'boxtheme' ).'</h5>', $wp_query->found_posts); ?>
+						<div class="full" id="count_results">
+							<h5> &nbsp;<?php printf( __('%s profile(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
 						</div>
 
 					</div>
