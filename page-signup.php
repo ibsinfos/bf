@@ -46,6 +46,11 @@
                     </p>
                     <a class="btn btn-primary text-capitalize m-0" href="<?php echo bx_get_static_link('signup-jobseeker');?>">Work</a>
                 </div>
+                <div class="col-md-6">
+                	<center>
+                		<?php bx_social_button_signup() ?>
+                	</center>
+                </div>
             </div>
         </div>
     </div>

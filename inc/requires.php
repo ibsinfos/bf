@@ -21,6 +21,7 @@ require get_parent_theme_file_path( '/inc/class_portfolio.php' );
 require get_parent_theme_file_path( '/inc/class_bid.php' );
 require get_parent_theme_file_path( '/inc/class-wp-ajax.php' );
 
+require get_parent_theme_file_path( '/inc/social/requires.php' );
 /**
  * Implement the Custom Header feature.
  */
