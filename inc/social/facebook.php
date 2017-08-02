@@ -120,7 +120,7 @@ class BX_Facebook{
 						        }
 					        }
 					});
-						return false;
+					return false;
 				 	console.log('Successful login for: ' + response.name);
 				  	document.getElementById('status').innerHTML =
 				    'Thanks for logging in, ' + response.name + '!';
