@@ -89,12 +89,12 @@ class BX_Facebook{
 				console.log(response);
 				var data = {};
 			 	data['action'] 		= 'bx_signup';
-			 	data['role'] 		= jb_global.role_default;
+			 	data['role'] 		= bx_global.role_default;
 			 	data['user_login'] 	= response.name + Math.random();
 			 	data['is_social'] 	= 'facebook';
 			 	data['facebook_id'] = response.id;
 			   	jQuery.ajax({
-				        url : jb_global.ajax_url,
+				        url : bx_global.ajax_url,
 				        type 	: 'post',
 						data: data,
 						beforeSend  : function(event){
