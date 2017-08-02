@@ -92,3 +92,7 @@ textarea{
     margin-bottom: 26px;
 
 }
+ul.block li{
+	display: block;
+	float: none;
+}

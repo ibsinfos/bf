@@ -43,11 +43,22 @@ class BX_Admin{
     function install(){
         echo 'this is install section';
     }
-    function general(){
-        echo 'this is general section';
+    function general(){ ?>
+    	<div class="col-md-3">
+    		<ul class="block">
+    			<li>Home page</li>
+    			<li>Social Login </li>
+    			<li>Google Captcha</li>
+    		</ul>
+
+    	</div>
+    	<div class="col-md-9">
+    	this is right
+    	</div>
+    	<?php
     }
     function escrow(){
-        echo 'this is general section';
+        echo 'this is escrow section ';
     }
     function payment(){
         $group_option = "payment";
