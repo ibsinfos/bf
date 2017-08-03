@@ -101,21 +101,21 @@ footer .container{
 	opacity: 0.1;
 }
 .main-color{
-	background-color: #92B558;
+	background-color: #5cb85c;
 	color: #fff;
 }
 .bg-color{
-	background-color: #92B558;
+	background-color: #5cb85c;
 }
 .border-color, .btn.border-color{
-	border-color: #92B558;
+	border-color: #5cb85c;
 }
 .text-color, .text-color:hover{
-	color: #92B558;
+	color: #5cb85c;
 }
-.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#92B558}
+.nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#5cb85c}
 .btn{
-	background-color: #92B558;
+	background-color: #5cb85c;
 	border-radius: 5px;
 	padding: 5px 10px;
 	color: #fff;
@@ -129,7 +129,7 @@ footer .container{
 }
 .btn-action,
 button.btn-action{
-	background-color: #92B558;
+	background-color: #5cb85c;
 	color: #fff;
 	font-size: 16px;
 	padding: 10px 20px;
@@ -137,6 +137,10 @@ button.btn-action{
 button.btn-action:hover{
 	color: #fff;
 	opacity: 0.9;
+}
+.btn.btn-login{
+	background: transparent;
+	background-color: transparent;
 }
 /**** HEADER AND MENU*********/
 .header{
