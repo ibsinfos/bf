@@ -23,27 +23,17 @@ get_header();
 						    'orderby'    => 'name',
 						    'hide_empty' => 0
 						) );
-						echo '<div class="full">';
+
 
 						echo '<h2 class="col-md-12"> LIST CATEGORIES </h2>';
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-
+							echo '<div class="full">';
 							echo '<ul class="none-style">';
 							foreach ($terms as $key => $term) {
-
-								echo '<li class="col-md-3">'.$term->name.'('.$term->count.')</li>';
-							}
+								echo '<li class="col-md-3">'.$term->name.'('.$term->count.')</li>';							}
 							echo '</ul>';
-						} else{
 
-							echo ' Empty';
-						}
-						echo '</div> <!-- full !-->';
-
-						//$terms = get_terms( 'project_cat',array( 'hide_empty' => 0) );
-
-						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-
+							echo '</div> <!-- full !-->';
 							echo '<div class="full ">';
 							echo '<br />';
 							echo '<h2 class="col-md-12"> LIST CATEGORIES </h2>';
@@ -70,6 +60,8 @@ get_header();
 								}
 							}
 							echo '</div>';
+						}  else{
+							echo ' Empty';
 						}
 
 
