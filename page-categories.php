@@ -76,6 +76,8 @@ get_header();
 						echo '</div> <!-- full !-->';
 
 						echo '<div class="full ">';
+							echo '<div class="col-md-12">&nbsp; </div>';
+							echo '<div class="col-md-12">&nbsp; </div>';
 							echo '<h2 class="col-md-12"> LIST CATEGORIES STYLE 2</h2>';
 							box_list_categories(2);
 						echo '</div>';
