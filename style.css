@@ -276,6 +276,7 @@ input.no-radius{
 .full{
 	width: 100%;
 	display: block;
+	clear: both;
 }
 .block{
 	display: block;
