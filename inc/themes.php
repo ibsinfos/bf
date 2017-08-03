@@ -77,7 +77,7 @@ function bx_signon($info){
 		} else if ( in_array( $type_error, array('invalid_username') ) ){
 			$msg = __('Invalid username', 'boxtheme');
 		}else if ( in_array($type_error, array('incorrect_password') ) ){
-			$msg = sprints(__('The password you entered for the username %s is incorrect', 'boxtheme'));
+			$msg = sprintf(__('The password you entered for the username %s is incorrect', 'boxtheme'), $info['user_login']);
 		} else {
 			$msg = strip_tags($user->get_error_message());
 		}
