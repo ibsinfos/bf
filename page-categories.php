@@ -49,8 +49,9 @@ get_header();
 							}
 
 						    foreach ( $terms as $term ) {
-						        $first_letter = strtoupper(substr(trim($term->name) , 0, 1));
-						        array_push($text[$first_letter], $term);
+						        $first_letter = strtoupper(substr( trim($term->name) , 0, 1) );
+						        if( isset($text[$first_letter]) )
+						        	array_push($text[$first_letter], $term);
 						    }
 
 						    foreach ($text as $key => $terms) {
