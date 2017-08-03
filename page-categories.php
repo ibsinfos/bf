@@ -14,7 +14,7 @@ get_header();
 ?>
 	<div class="full">
 		<div class="container">
-			<div class="row">
+			<div class="row site-content">
 				<div class="col-md-12">
 					<?php
 						$terms = get_terms( 'project_cat', array(
@@ -22,12 +22,14 @@ get_header();
 						    'hide_empty' => 0
 						) );
 						echo '<div class="full">';
-						echo '<h2 class="col-md-12"> Style 1</h2>';
+
+						echo '<h2 class="col-md-12"> STYLE 1</h2>';
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 
 							echo '<ul class="none-style">';
 							foreach ($terms as $key => $term) {
-								echo '<li class="col-md-3">'.$term->name.'</li>';
+
+								echo '<li class="col-md-3">'.$term->name.'('.$term->count.')</li>';
 							}
 							echo '</ul>';
 						} else{
@@ -41,7 +43,8 @@ get_header();
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 
 							echo '<div class="full ">';
-							echo '<h2 class="col-md-12"> Style 2</h2>';
+							echo '<br />';
+							echo '<h2 class="col-md-12"> STYLE 2</h2>';
 							$alphas=range("A","Z");
 							$text = array();
 							foreach($alphas as $char){
