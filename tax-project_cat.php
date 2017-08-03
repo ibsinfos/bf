@@ -15,13 +15,23 @@ get_header();
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
+			<div class="col-md-12">
+				<?php
+				global $wp_query;
 
-				<div class="col-md-12">
+				if( have_posts() ):
 
-				</div>
+					while( have_posts() ):
+						the_post();
+						get_template_part( 'template-parts/project/project', 'loop' );
+					endwhile;
+					bx_pagenate();
+				endif;
+			?>
 			</div>
 		</div>
 	</div>
+</div>
 	<style type="text/css">
 		li.cat-label label{
 			border-bottom: 2px solid #39c515;
