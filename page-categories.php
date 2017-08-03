@@ -30,7 +30,8 @@ get_header();
 							echo '<div class="full">';
 							echo '<ul class="none-style">';
 							foreach ($terms as $key => $term) {
-								echo '<li class="col-md-3">'.$term->name.'('.$term->count.')</li>';							}
+								$term_link = get_term_link( $term );
+								echo '<li class="col-md-3"><a href="'. esc_url( $term_link ) .'">'.$term->name.'('.$term->count.')</a></li>';							}
 							echo '</ul>';
 
 							echo '</div> <!-- full !-->';
@@ -54,7 +55,8 @@ get_header();
 								if( !empty($terms) ){
 									echo '<div class="col-md-3"><ul class="none-style"><li class="cat-label"><label class="h5">'.$key.'</label></li>';
 									foreach ($terms as $term) {
-										echo '<li>'.$term->name.'</li>';
+										$term_link = get_term_link( $term );
+										echo '<li><a href="'. esc_url( $term_link ) .'">'. $term->name .'</a></li>';
 									}
 									echo '</ul></div>';
 								}
