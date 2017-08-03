@@ -96,3 +96,20 @@ ul.block li{
 	display: block;
 	float: none;
 }
+#left_menu ul li{
+    border: 1px solid #ccc;
+    width: 100%;
+    float: left;
+    margin: 0;
+    border-bottom: 0;
+
+}
+#left_menu ul li:last-child{
+	border-bottom: 1px solid #ccc;
+}
+#left_menu ul li a{
+	cursor: pointer;
+	display: block;
+	padding: 8px 0;
+	float: left;
+}

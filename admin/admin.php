@@ -44,15 +44,15 @@ class BX_Admin{
         echo 'this is install section';
     }
     function general(){ ?>
-    	<div class="col-md-3">
+    	<div class="col-md-3" id="left_menu">
     		<ul class="block">
-    			<li>Home page</li>
-    			<li>Social Login </li>
-    			<li>Google Captcha</li>
+    			<li><a href="">Home page</a></li>
+    			<li><a hhre="#social_login">Social Login </a></li>
+    			<li><a href="#captcha"> Google Captcha</a></li>
     		</ul>
 
     	</div>
-    	<div class="col-md-9">
+    	<div class="col-md-9" id="right_content">
     	this is right
     	</div>
     	<?php
@@ -246,30 +246,31 @@ class BX_Admin{
         <div class="wrap">
             <h1> Theme Options</h1>
             <div class="wrap-conent">
-                <div class="heading-tab">
-                    <ul>
-                        <?php
-                        $main_page = admin_url('admin.php?page='.self::$main_setting_slug);
-                        $escrow_link = add_query_arg('section','escrow', $main_page);
-                        $general_link = add_query_arg('section','general', $main_page);
-                        $install_link = add_query_arg('section','install', $main_page);
-                        $payment_link = add_query_arg('section','payment', $main_page);
+                	<div class="heading-tab">
+	                    <ul>
+	                        <?php
+	                        $main_page = admin_url('admin.php?page='.self::$main_setting_slug);
+	                        $escrow_link = add_query_arg('section','escrow', $main_page);
+	                        $general_link = add_query_arg('section','general', $main_page);
+	                        $install_link = add_query_arg('section','install', $main_page);
+	                        $payment_link = add_query_arg('section','payment', $main_page);
 
-                        ?>
-                        <li><a href="<?php echo $general_link;?>">General</a></li>
-                        <li><a href="<?php echo $install_link;?>">Install</a></li>
-                        <li><a href="<?php echo $payment_link;?>">Config Payment</a></li>
-                        <li><a href="<?php echo $escrow_link;?>">Config Credit</a></li>
+	                        ?>
+	                        <li><a href="<?php echo $general_link;?>">General</a></li>
+	                        <li><a href="<?php echo $install_link;?>">Install</a></li>
+	                        <li><a href="<?php echo $payment_link;?>">Config Payment</a></li>
+	                        <li><a href="<?php echo $escrow_link;?>">Config Credit</a></li>
 
-                    </ul>
-                    <div class="tab-content clear">
+	                    </ul>
+                    </div>
+                    <div class="tab-content clear row">
                         <?php
                             $section = isset($_GET['section']) ? $_GET['section'] : 'general';
                             $admin = BX_Admin::get_instance();
                             $admin->$section();
                         ?>
                     </div>
-                </div>
+
             </div>
         </div>
     <?php
