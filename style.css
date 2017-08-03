@@ -368,3 +368,6 @@ ul.pagination{
 	display: block;
 	padding-right: 15px;
 }
+.center{
+	text-align: center;
+}

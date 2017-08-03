@@ -92,42 +92,8 @@ $role = bx_get_user_role();
 				</ul>
 				<?php } else { ?>
 					<ul class="main-login">
-						<li class="login text-center dropdown desktop-only ">
-							<a rel="nofollow" class="dropdown-toggle sign-text btn" data-toggle="dropdown" href="#"><?php _e('Sign in','boxtheme');?> <span class="caret"></span></a>
-							<div class="dropdown-menu width-7">
-								<div class="col-md-12">
-									<form method="post" class="sign-in form login-form">
-										<div class="form-group">
-											<input type="text" class="form-control no-radius" name="user_login" placeholder="Email / Username" required />
-										</div>
-										<div class="form-group">
-											<input type="password" name="user_password" class="form-control password no-radius" placeholder="Password" />
-										</div>
-										<div class="form-group">
-											<label class="checkbox-inline checkbox-styled checkbox-primary lh-1-5">
-												<input type="checkbox" value="1" class="remember" id="remember"><span><?php _e('Remember me','boxthem');?></span>
-											</label>
-										</div>
-										<?php wp_nonce_field( 'bx_signin', 'nonce_login_field' ); ?>
-										<button type="submit" class="btn btn-raised btn-success btn-block no-radius" ><?php _e('Sign in','boxtheme');?></button>
-										<div class="divider"></div>
-										<div class="form-group pad-0-top mar-0-top align-right">
-											<span class="toggle-fgp pointer " href="#"><?php _e('Forgot password','boxtheme');?></span>
-										</div>
-									</form>
-									<form method="post" class="forgot-pass">
-										<div class="form-group">
-											<input type="text" class="form-control no-radius" name="user_email" placeholder="<?php _e('Your emai','boxtheme');?>" required />
-										</div>
-										<?php wp_nonce_field( 'bx_refresh_pass', 'nonce_login_field' ); ?>
-										<button type="submit" class="btn btn-raised btn-success btn-block no-radius" ><?php _e('Reset Password','boxtheme');?></button>
-										<div class="divider"></div>
-										<div class="form-group pad-0-top mar-0-top align-right">
-											<span class="toggle-signup pointer " href="#"><?php _e('Sign in','boxtheme');?></span>
-										</div>
-									</form>
-								</div>
-							</div>
+						<li class="login text-center desktop-only ">
+							<a href="<?php echo bx_get_static_link('login');?>" class="sign-text btn btn-login"><?php _e('Login','boxtheme');?></a>
 						</li>
 						<li class=" sign-up desktop-only">
 							<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-signup sign-text"> <?php _e('Sign up','boxtheme');?></a>

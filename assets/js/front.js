@@ -66,7 +66,7 @@
 		$(".profile-menu").toggleClass('hide');
 	},
 	signIn: function(event){
-		var action = 'bx_signin', method ='';
+		var action = 'bx_login', method ='';
 		var success =  function(res){
 
         	if ( res.success ){

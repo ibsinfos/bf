@@ -25,7 +25,7 @@ class BX_AJAX {
 		// woocommerce_EVENT => nopriv
 		$ajax_events = array(
 			'sync_bid' 				=> false,
-			'bx_signin'         	=> true,
+			'bx_login'         	=> true,
 			'bx_signup' 			=> true,
 			'apply_coupon'     		=> true,
 			'fb_signout' 			=> false,
@@ -130,14 +130,14 @@ class BX_AJAX {
 	 * @author danng
 	 * @return json
 	 */
-	public static function bx_signin(){
+	public static function bx_login(){
 
 		$request 	= $_REQUEST;
 		$info 		= $request['request'];
 		/*
 		 * check security
 		 */
-		if( !wp_verify_nonce( $info['nonce_login_field'], 'bx_signin' ) ) {
+		if( !wp_verify_nonce( $info['nonce_login_field'], 'bx_login' ) ) {
 			wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
 	    }
 	    $response = bx_signon($info);
