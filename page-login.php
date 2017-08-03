@@ -141,7 +141,7 @@
 	    top: -.7em;
 	}
 	.forgotLink {
-	    margin: 6px 0 20px;
+	    margin: 0px 0 20px;
 	    text-align: center;
 	    border-bottom: 0;
 	}
@@ -152,5 +152,6 @@
 	}
 	.loginform .btn{
 		height: 39px;
+		border-radius: 3px;
 	}
 </style>
