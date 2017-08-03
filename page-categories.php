@@ -12,9 +12,11 @@ $query_args = array(
 $loop       = new WP_Query( $query_args );
 get_header();
 ?>
-	<div class="full">
-		<div class="container">
-			<div class="row site-content">
+<?php get_header(); ?>
+<div class="full-width">
+	<div class="container site-container">
+		<div class="row site-content" id="content" >
+
 				<div class="col-md-12">
 					<?php
 						$terms = get_terms( 'project_cat', array(
@@ -23,7 +25,7 @@ get_header();
 						) );
 						echo '<div class="full">';
 
-						echo '<h2 class="col-md-12"> STYLE 1</h2>';
+						echo '<h2 class="col-md-12"> LIST CATEGORIES </h2>';
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 
 							echo '<ul class="none-style">';
@@ -44,7 +46,7 @@ get_header();
 
 							echo '<div class="full ">';
 							echo '<br />';
-							echo '<h2 class="col-md-12"> STYLE 2</h2>';
+							echo '<h2 class="col-md-12"> LIST CATEGORIES </h2>';
 							$alphas=range("A","Z");
 							$text = array();
 							foreach($alphas as $char){
