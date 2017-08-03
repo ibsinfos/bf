@@ -65,11 +65,6 @@ get_header();
 							}
 						}
 
-
-
-
-
-
 						echo '<div class="full">';
 							echo '<h2 class="col-md-12"> LIST CATEGORIES STYLE 1 </h2>';
 							box_list_categories(1);
