@@ -38,7 +38,7 @@ get_header();
 						}
 						echo '</div> <!-- full !-->';
 
-						$terms = get_terms( 'project_cat',array( 'hide_empty' => 0) );
+						//$terms = get_terms( 'project_cat',array( 'hide_empty' => 0) );
 
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 
