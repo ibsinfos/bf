@@ -19,8 +19,13 @@ get_header();
 
 				<div class="col-md-12">
 					<?php
-						function box_list_categories($terms, $style = 1){
+						function box_list_categories($style = 1){
 
+							$terms = get_terms( 'project_cat', array(
+						    	'orderby'    => 'name',
+						    	'hide_empty' => 0
+								)
+							);
 							if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 								if($style == 1){
 									echo '<ul class="none-style">';
@@ -60,22 +65,19 @@ get_header();
 							}
 						}
 
-						$terms = get_terms( 'project_cat', array(
-						    'orderby'    => 'name',
-						    'hide_empty' => 0
-						) );
+
 
 
 
 
 						echo '<div class="full">';
 							echo '<h2 class="col-md-12"> LIST CATEGORIES STYLE 1 </h2>';
-							box_list_categories($terms);
+							box_list_categories(1);
 						echo '</div> <!-- full !-->';
 
 						echo '<div class="full ">';
 							echo '<h2 class="col-md-12"> LIST CATEGORIES STYLE 2</h2>';
-							box_list_categories($terms, $style = 2);
+							box_list_categories(2);
 						echo '</div>';
 
 
