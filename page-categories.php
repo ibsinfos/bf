@@ -56,7 +56,7 @@ get_header();
 								}
 
 							} else {
-								echo 'List categories is empty';
+								_e('List categories is empty','boxtheme');
 							}
 						}
 
