@@ -273,6 +273,10 @@ span.no-radius,
 input.no-radius{
 	border-radius: 0;
 }
+h5,.h5{
+	font-size: 19px;
+	font-weight: bold;
+}
 .full{
 	width: 100%;
 	display: block;

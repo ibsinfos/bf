@@ -57,7 +57,7 @@ get_header();
 						    foreach ($text as $key => $terms) {
 
 								if( !empty($terms) ){
-									echo '<div class="col-md-3"><ul class="none-style"><li>'.$key.'</li>';
+									echo '<div class="col-md-3"><ul class="none-style"><li><lable class="h5">'.$key.'</label></li>';
 									foreach ($terms as $term) {
 										echo '<li>'.$term->name.'</li>';
 									}
