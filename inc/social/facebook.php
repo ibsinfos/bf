@@ -19,8 +19,8 @@ class BX_Facebook{
 		<script>
 			window.fbAsyncInit = function() {
 				FB.init({
-					//appId      : '256824294820471',
-					appId      : '<?php echo $facebook->app_id;?>',
+					appId      : '256824294820471',
+					//appId      : '<?php //echo $facebook->app_id;?>',
 					cookie     : true,
 					xfbml      : true,
 					version    : 'v2.8'
@@ -41,12 +41,13 @@ class BX_Facebook{
 			    // app know the current login status of the person.
 			    // Full docs on the response object can be found in the documentation
 			    // for FB.getLoginStatus().
+			    sendRequest()
 			    if (response.status === 'connected') {
-			    	console.log(response);
+			    	//console.log(response);
 			      	// Logged into your app and Facebook.
-			      	sendRequest();
+			      	//sendRequest();
 			    } else{
-			    	shoModalLogin();
+			    	//shoModalLogin();
 			    }
 			}
 
@@ -64,77 +65,53 @@ class BX_Facebook{
 			// successful.  See statusChangeCallback() for when this call is made.
 			function sendRequest() {
 				FB.api('/me?fields=email,name', function(response) { // et email here
-					var data = {user_login: response.name,type:'facebook', social_id: response.id, user_email: response.email };
-				   	jQuery.ajax({
-				        url : bx_global.ajax_url,
-				        emulateJSON: true,
-       					method :'post',
+					console.log('sendRequest');
+					console.log(response);
 
-						data: {
-							action: 'social_signup',
-							request: data,
-						},
-						beforeSend  : function(event){
-							console.log(data);
-				        	console.log('bat dau line 87');
-				        },
-				        success : function(res){
-				        	console.log(res);
-				        	if ( res.success){
-					        	if(res.redirect_url){
-					        		window.location.href = res.redirect_url;
-					        	} else {
-					        		window.location.href = bx_global.home_url;
-					        	}
-					        } else {
-					        	if(res.redirect_url){
-					        		window.location.href = res.redirect_url;
-					        	} else {
-					        		alert(res.msg);
-					        	}
-					        }
-				        }
-					});
-					return false;
+
 				});
 			}
 
 
 			function shoModalLogin(){
-				FB.login(function(response) {
-				  	var data = {user_login: response.name,type:'facebook', social_id: response.id, user_email: response.email };
-				   	jQuery.ajax({
-				        url : bx_global.ajax_url,
-				        emulateJSON: true,
-       					method :'post',
+				FB.login( function(response) {
+					if (response.authResponse) {
+						FB.api('/me', {fields: 'name, email'}, function (response) {
+							var data = {user_login: response.name,type:'facebook', social_id: response.id, user_email: response.email };
+						   	jQuery.ajax({
+						        url : bx_global.ajax_url,
+						        emulateJSON: true,
+		       					method :'post',
 
-						data: {
-							action: 'social_signup',
-							request: data,
-						},
-						beforeSend  : function(event){
-							console.log(data);
-				        	console.log('bat dau line 87');
-				        },
-				        success : function(res){
-				        	console.log(res);
-				        	if ( res.success){
-					        	if(res.redirect_url){
-					        		window.location.href = res.redirect_url;
-					        	} else {
-					        		window.location.href = bx_global.home_url;
-					        	}
-					        } else {
-					        	if(res.redirect_url){
-					        		window.location.href = res.redirect_url;
-					        	} else {
-					        		alert(res.msg);
-					        	}
-					        }
-				        }
-					});
+								data: {
+									action: 'social_signup',
+									request: data,
+								},
+								beforeSend  : function(event){
+									console.log(data);
+						        	console.log('bat dau line 87');
+						        },
+						        success : function(res){
+						        	console.log(res);
+						        	if ( res.success){
+							        	if(res.redirect_url){
+							        		window.location.href = res.redirect_url;
+							        	} else {
+							        		window.location.href = bx_global.home_url;
+							        	}
+							        } else {
+							        	if(res.redirect_url){
+							        		window.location.href = res.redirect_url;
+							        	} else {
+							        		alert(res.msg);
+							        	}
+							        }
+						        }
+							});
+						}); //end FB.api
+					} // end success;
 
-				}, {scope: 'public_profile,email,name'});
+				}, { scope: 'email,public_profile' } );
 			}
 		</script>
 	<?php
@@ -144,12 +121,13 @@ class BX_Facebook{
 	function btn_fb_login(){ ?>
 		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
 		<li class="fb-item">
-			<a href="#" class="btn-facebook" onclick="checkLoginState()">
+			<a href="#" class="btn-facebook" onclick="shoModalLogin()">
 				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
-				<!-- <fb:login-button scope="public_profile,email" class="btn-default" onlogin="checkLoginState();"></fb:login-button> -->
-			</a>
-		</li>
 
+			</a>
+			<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
+		</li>
+		<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
 		<?php
 	}
 new BX_Facebook();
