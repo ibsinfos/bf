@@ -14,6 +14,7 @@
 		z-index: 13;
 		transition-property: visibility, opacity;
 	    transition-duration: 0s, 1s;
+	    top: 0;
 	}
 	footer .col-md-3{
 	padding-right: 0;

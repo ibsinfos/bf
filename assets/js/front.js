@@ -35,11 +35,7 @@
 			$(".btn-adv").click(function(event){
 				$(".search-adv").slideToggle(300);
 			});
-			$(".toggle-fgp").click(function(){
 
-				$(".sign-in").slideUp(300);
-				$(".forgot-pass").slideToggle(300);
-			});
 			$(".toggle-signup").click(function(){
 
 				$(".sign-in").slideDown(300);
