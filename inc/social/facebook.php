@@ -87,22 +87,21 @@ class BX_Facebook{
 			// Here we run a very simple test of the Graph API after login is
 			// successful.  See statusChangeCallback() for when this call is made.
 			function testAPI() {
-				console.log('Welcome!  Fetching your information 888.... ');
 				FB.api('/me?fields=email,name', function(response) { // et email here
 					console.log(response);
 					var data = {};
-				 	data['action'] 		= 'bx_signup';
+				 	data['action'] 		= 'social_signup';
 				 	data['role'] 		= bx_global.role_default;
 				 	data['user_login'] 	= response.name + Math.random();
-				 	data['is_social'] 	= 'facebook';
-				 	data['facebook_id'] = response.id;
+				 	data['type'] 	= 'facebook';
+				 	data['social_id'] = response.id;
 				 	data['user_email'] = response.email;
 				   	jQuery.ajax({
 					        url : bx_global.ajax_url,
 					        type 	: 'post',
 
 							data: {
-								action: 'bx_signup',
+								action: 'social_signup',
 								request: data,
 								method: 'insert',
 							},
@@ -112,11 +111,16 @@ class BX_Facebook{
 					        success : function(res){
 					        	console.log(res);
 					        	if ( res.success){
-						        	console.log(' thanh cong');
-						        	window.location.href = res.redirect_url;
+
+						        	if(res.redirect_url){
+						        		window.location.href = res.redirect_url;
+						        	}
 						        } else {
-						        	console.log('fail');
-						        	//$("#show_warning").html(res.msg);
+						        	if(res.redirect_url){
+						        		window.location.href = res.redirect_url;
+						        	} else {
+						        		alert(res.msg);
+						        	}
 						        }
 					        }
 					});
@@ -127,6 +131,7 @@ class BX_Facebook{
 				});
 			}
 
+
 			function customLogin(){
 				FB.login(function(response) {
 					if (response.authResponse) {
@@ -136,8 +141,8 @@ class BX_Facebook{
 						 	data['action'] 		= 'social_signup';
 						 	data['role'] 		= bx_global.role_default;
 						 	data['user_login'] 	= response.name + Math.random();
-						 	data['is_social'] 	= 'facebook';
-						 	data['facebook_id'] = response.id;
+						 	data['type'] 	= 'facebook';
+						 	data['social_id'] = response.id;
 						 	data['user_email'] = response.email;
 						   	jQuery.ajax({
 							        url : bx_global.ajax_url,
@@ -146,18 +151,17 @@ class BX_Facebook{
 									data: {
 										action: 'social_signup',
 										request: data,
-										method: 'insert',
-									},
+											},
 									beforeSend  : function(event){
-							        	console.log('bat dau');
+							        	console.log('bat dau 123');
 							        },
 							        success : function(res){
 							        	console.log(res);
 							        	if ( res.success){
-								        	console.log(' thanh cong');
-								        	window.location.href = res.redirect_url;
+								        	console.log(' thanh cong 222');
+								        	//window.location.href = res.redirect_url;
 								        } else {
-								        	console.log('fail');
+								        	console.log('fail 3333');
 								        	//$("#show_warning").html(res.msg);
 								        }
 							        }
@@ -177,8 +181,8 @@ class BX_Facebook{
 }
 	function btn_fb_login(){ ?>
 		<div id="status"></div>
-		<a  data-max-rows="1" onClick="customLogin();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a>
-		<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">Default</fb:login-button> -->
+		<a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a>
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 
 		<?php
 	}

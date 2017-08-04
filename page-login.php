@@ -16,14 +16,17 @@
                 	<div class="input-group full center">
                 		<img class="avatar" src="<?php echo get_theme_file_uri('img/avatar_login.png');?>" />
                 	</div>
+                	<?php
+                		$email = isset($_GET['email'])? $_GET['email'] : '';
 
+                	?>
 
                     <div class="row">
 						<div class="col-xs-12">
 						  	<div class="well">
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
 						          	<div class="form-group">
-						              	<input type="text" class="form-control" id="login-username" name="user_login" value="" required="" title="Please enter you username" placeholder="Username or Email">
+						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Please enter you username" placeholder="Username or Email">
 						              	<span class="help-block"></span>
 						          	</div>
 						          	<div class="form-group">
