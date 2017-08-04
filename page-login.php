@@ -9,46 +9,27 @@
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div style="padding-top:30px" class="panel-body" >
-                	<label class="full"><center>LOGIN</center></label>
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-
-
                 	<div class="input-group full center">
                 		<img class="avatar" src="<?php echo get_theme_file_uri('img/avatar_login.png');?>" />
                 	</div>
                 	<?php
                 		$warning = array();
                 		$email = isset($_GET['email'])? $_GET['email'] : '';
-                		if($email){
-                			//$warning[] = __('E','boxtheme');
-                		}
                 	?>
-
                     <div class="row">
 						<div class="col-xs-12">
 						  	<div class="well">
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
-						      		<?php
-						              	foreach ($warning as $note) {
-						              		echo $note;
-						              	}
-					              	?>
 						          	<div class="form-group">
 						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Please enter you username" placeholder="Username or Email">
-						              	<span class="help-block"></span>
 						          	</div>
 						          	<div class="form-group">
 						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="Please enter your password" placeholder="Your password">
-						              	<span class="help-block"></span>
 						          	</div>
 						          	<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
 
-						          	<div class="checkbox">
-						              <label>
-						                  <input type="checkbox" name="remember" id="remember"> Remember login
-						              </label>
-						              <p class="help-block"></p>
-						          	</div>
+						          	<div class="checkbox"><label><input type="checkbox" name="remember" id="remember"><?php _e('Remember login','boxtheme');?>  </label></div>
 						           <?php
 				                        if( ! empty( $_GET['redirect'] ) ){
 				                            echo '<input type ="hidden" name="redirect_url" value ="'.$_GET['redirect'].'" />';
@@ -56,7 +37,7 @@
 				                        wp_nonce_field( 'bx_login', 'nonce_login_field' );
 				                    ?>
 
-						          <button type="submit" class="btn btn-success btn-block">Login</button>
+						          <button type="submit" class="btn btn-success btn-block"><?php _e('Log In','boxtheme');?></button>
 						           		<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
 						          <div class="forgotLink"><a href="" target="_blank" class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div>
 						          	<div class="form-group">
@@ -64,9 +45,9 @@
 			                                <?php _e('Sign Up','boxtheme');?>
 			                            </a>
 			                    	</div>
-						      </form>
+						      	</form>
 
-						  </div>
+						  	</div>
 
 						</div>
 					</div>
@@ -132,7 +113,7 @@
 	img.avatar{
 		border: 1px solid #d4d9dc;
 		width: 100px;
-		margin: 13px 5px 0;
+		margin: 0px 5px 0;
 	}
 	.well{
 		background:transparent;
@@ -166,5 +147,6 @@
 	.loginform .btn{
 		height: 39px;
 		border-radius: 3px;
+		font-weight: bold;
 	}
 </style>
