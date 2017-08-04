@@ -10,7 +10,6 @@
 			var view = this;
 			$(".menu-hamburger").click(function(){
 				var wrap = $(this).closest(".col-nav");
-
 				if( wrap.hasClass('visible')) {
 					wrap.toggleClass('default');
 
@@ -52,7 +51,7 @@
 
 			$(window).scroll(function() {
 		    var height = $(window).scrollTop();
-		    if(height  > 101) {
+		    if(height  > 0) {
 		    	$("#full_header").addClass('fixed');
 		    } else {
 		    	$("#full_header").removeClass('fixed');
