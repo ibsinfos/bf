@@ -1,6 +1,6 @@
 <?php
 /**
- *	Template Name: Landing page 1
+ *	Template Name: LandingPage 1
  */
 /**
  * The main template file
