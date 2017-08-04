@@ -25,7 +25,7 @@
 		function auto_login($userdata){
 
 			$user_id = $this->social_id_exists($userdata['social_id']); // get user id of this social id
-
+			var_dump($user_id);
 			if( !$user_id){
 				if( email_exists($userdata['user_email'] )){
 					return  new WP_Error( 'exists_email', __( "Sorry, that email address is already used!", "boxtheme" ) );
@@ -47,14 +47,15 @@
 
 		function social_id_exists($social_id){
 			global $wpdb;
-			$user_id = $wpdb->get_var( $wpdb->prepare(
+			$sql =  $wpdb->prepare(
 				"
 					SELECT user_id
 					FROM $wpdb->usermeta
-					WHERE meta_key = %s
-				",
-				$social_id
-			) );
+					WHERE meta_key = %s AND meta_value = %s
+				", 'social_id', $social_id
+			);
+
+			$user_id = $wpdb->get_col( $sql );
 			return $user_id;
 		}
 	}

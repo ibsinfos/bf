@@ -63,27 +63,6 @@ class BX_Facebook{
 				});
 			}
 
-			//	<script>
-			// window.fbAsyncInit = function() {
-			//   FB.init({
-			//     appId      : '256824294820471',
-			//     cookie     : true,
-			//     xfbml      : true,
-			//     version    : 'v2.8'
-			//   });
-			//   FB.AppEvents.logPageView();
-			// };
-
-			// (function(d, s, id){
-			//    var js, fjs = d.getElementsByTagName(s)[0];
-			//    if (d.getElementById(id)) {return;}
-			//    js = d.createElement(s); js.id = id;
-			//    js.src = "//connect.facebook.net/en_US/sdk.js";
-			//    fjs.parentNode.insertBefore(js, fjs);
-			//  }(document, 'script', 'facebook-jssdk'));
-			//
-
-
 			// Here we run a very simple test of the Graph API after login is
 			// successful.  See statusChangeCallback() for when this call is made.
 			function testAPI() {
@@ -92,7 +71,7 @@ class BX_Facebook{
 					var data = {};
 				 	data['action'] 		= 'social_signup';
 				 	data['role'] 		= bx_global.role_default;
-				 	data['user_login'] 	= response.name + Math.random();
+				 	data['user_login'] 	= response.name;
 				 	data['type'] 	= 'facebook';
 				 	data['social_id'] = response.id;
 				 	data['user_email'] = response.email;
@@ -103,7 +82,6 @@ class BX_Facebook{
 							data: {
 								action: 'social_signup',
 								request: data,
-								method: 'insert',
 							},
 							beforeSend  : function(event){
 					        	console.log('bat dau');
@@ -131,49 +109,6 @@ class BX_Facebook{
 				});
 			}
 
-
-			function customLogin(){
-				FB.login(function(response) {
-					if (response.authResponse) {
-						FB.api('/me?fields=email,name', function(response) {
-							console.log(response);
-							var data = {};
-						 	data['action'] 		= 'social_signup';
-						 	data['role'] 		= bx_global.role_default;
-						 	data['user_login'] 	= response.name + Math.random();
-						 	data['type'] 	= 'facebook';
-						 	data['social_id'] = response.id;
-						 	data['user_email'] = response.email;
-						   	jQuery.ajax({
-							        url : bx_global.ajax_url,
-							        type 	: 'post',
-
-									data: {
-										action: 'social_signup',
-										request: data,
-											},
-									beforeSend  : function(event){
-							        	console.log('bat dau 123');
-							        },
-							        success : function(res){
-							        	console.log(res);
-							        	if ( res.success){
-								        	console.log(' thanh cong 222');
-								        	//window.location.href = res.redirect_url;
-								        } else {
-								        	console.log('fail 3333');
-								        	//$("#show_warning").html(res.msg);
-								        }
-							        }
-							});
-							return false;
-
-						});
-					} else {
-					 	console.log('User cancelled login or did not fully authorize.');
-					}
-				});
-			}
 		</script>
 	<?php
 	}

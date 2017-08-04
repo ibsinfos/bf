@@ -17,23 +17,36 @@
                 		<img class="avatar" src="<?php echo get_theme_file_uri('img/avatar_login.png');?>" />
                 	</div>
                 	<?php
+                		$warning = array();
                 		$email = isset($_GET['email'])? $_GET['email'] : '';
-
+                		if($email){
+                			//$warning[] = __('E','boxtheme');
+                		}
                 	?>
 
                     <div class="row">
 						<div class="col-xs-12">
 						  	<div class="well">
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
+						      		<?php
+						              	foreach ($warning as $note) {
+						              		echo $note;
+						              	}
+					              	?>
+
 						          	<div class="form-group">
 						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Please enter you username" placeholder="Username or Email">
-						              	<span class="help-block"></span>
+						              	<span class="help-block">
+
+
+						              	</span>
 						          	</div>
 						          	<div class="form-group">
 						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="Please enter your password" placeholder="Your password">
 						              	<span class="help-block"></span>
 						          	</div>
 						          	<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+
 						          	<div class="checkbox">
 						              <label>
 						                  <input type="checkbox" name="remember" id="remember"> Remember login
