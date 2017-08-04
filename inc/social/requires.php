@@ -24,37 +24,38 @@
 		}
 		function auto_login($userdata){
 
-			$current_user = $this->social_id_exists($userdata['social_id']); // get user id of this social id
+			$user_id = $this->social_id_exists($userdata['social_id']); // get user id of this social id
 
-			if( !$current_user){
+			if( !$user_id){
 				if( email_exists($userdata['user_email'] )){
 					return  new WP_Error( 'exists_email', __( "Sorry, that email address is already used!", "boxtheme" ) );
-					wp_die('123');
+
 				}
 				$userdata['user_pass'] = wp_generate_password();
-				$current_user = wp_insert_user($userdata);
+				$user_id = wp_insert_user($userdata);
+				update_user_meta( $user_id, 'social_id', $userdata['social_id'] );
 			}
-			update_user_meta( $current_user, 'social_id', $current_user );
+
 			// set the auth cookie to current user id
-			wp_set_auth_cookie($current_user, true);
+			wp_set_auth_cookie($user_id, true);
 			// log the user in
-			wp_set_current_user($current_user);
+			wp_set_current_user($user_id);
 			// do redirect  here
 			wp_safe_redirect(get_permalink(). '#response');
-			return $current_user;
+			return $user_id;
 		}
 
 		function social_id_exists($social_id){
 			global $wpdb;
-			$current_user = $wpdb->get_var( $wpdb->prepare(
+			$user_id = $wpdb->get_var( $wpdb->prepare(
 				"
-					SELECT meta_key
+					SELECT user_id
 					FROM $wpdb->usermeta
 					WHERE meta_key = %s
 				",
 				$social_id
 			) );
-			return $current_user;
+			return $user_id;
 		}
 	}
 
