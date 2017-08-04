@@ -50,7 +50,11 @@ $role = bx_get_user_role();
 		<div class="row">
 			<div class="col-md-2 col-logo">
 				<a class="logo" href="<?php echo home_url();?>">
-					<?php  the_custom_logo(); ?>
+					<?php
+					$html_logo = get_custom_logo();
+					if( !empty($html_logo) ) echo $html_logo;
+					else  echo '<img class="avatar" src="'.get_theme_file_uri('img/logo.png').'" />';
+					?>
 				</a>
 			</div>
 			<div class="no-padding col-nav col-md-6">
