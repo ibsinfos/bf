@@ -161,6 +161,7 @@
 	.btn-success:hover.btn-signup{
 		background-color: #ccc;
 		border-color: #ccc;
+		padding-top: 9px;
 	}
 	.loginform .btn{
 		height: 39px;
