@@ -9,14 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 class BX_Facebook{
 	function __construct(){
 		add_action( 'wp_head', array($this, 'add_fb_script') );
-		///add_action( 'wp_footer', array($this, 'add_fb_script_footer'), 999 );
 	}
-	public static function add_fb_script(){ ?>
+	public static function add_fb_script(){
+		global $box_option;
+		$social_api = $box_option->get_group_option('social_api');
+		$facebook = (object) $social_api['facebook'];
+	?>
 		<div id="fb-root"></div>
 		<script>
 			window.fbAsyncInit = function() {
 				FB.init({
-					appId      : '256824294820471',
+					//appId      : '256824294820471',
+					appId      : '<?php echo $facebook->app_id;?>',
 					cookie     : true,
 					xfbml      : true,
 					version    : 'v2.8'

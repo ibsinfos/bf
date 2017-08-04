@@ -272,7 +272,9 @@ function bx_theme_init() {
 
 	register_post_type( 'portfolio', $args );
 
-	global $option, $currency_code, $currency_sign;
+
+	global $option, $currency_code, $currency_sign, $box_option; //box_option  box_options, global_option
+	$box_option =  BX_Option::get_instance();
 	$option = array(
 		'currency' => array(
 			'sign' => '$',

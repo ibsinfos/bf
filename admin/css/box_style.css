@@ -104,12 +104,19 @@ ul.block li{
     border-bottom: 0;
 
 }
-#left_menu ul li:last-child{
+#sub_heading_menu ul li:last-child{
 	border-bottom: 1px solid #ccc;
 }
-#left_menu ul li a{
+#sub_heading_menu ul li a{
 	cursor: pointer;
-	display: block;
 	padding: 8px 0;
 	float: left;
+	border:1px solid #ccc;
+	margin-right: 10px;
+}
+.second-content{
+	display: none;
+}
+.second-content.active{
+	display: block;
 }

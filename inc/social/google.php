@@ -49,7 +49,13 @@
 				}
 
 			</script>
-			<meta name="google-signin-client_id" content="717490652666-339obadanc1iqdkdf4a9p9o4vr2sojal.apps.googleusercontent.com">
+			<?php
+			global $box_option;
+			$social_api = $box_option->get_group_option('social_api');
+			$google = (object) $social_api['google'];
+			//717490652666-339obadanc1iqdkdf4a9p9o4vr2sojal
+			?>
+			<meta name="google-signin-client_id" content="<?php echo $google->client_id;?>.apps.googleusercontent.com">
 			<?php
 		}
 		function get_instance(){

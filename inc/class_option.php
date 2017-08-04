@@ -23,6 +23,15 @@ class BX_Option {
 					'enable' => false,
 				),
 			),
+			'social_api' => array(
+				'facebook' => array(
+					'app_id' => '',
+					'app_secret' => '',
+				),
+				'google' => array(
+					'client_id' => '',
+				),
+			),
 		);
 		return get_option($group, $group_args[$group]);
 	}

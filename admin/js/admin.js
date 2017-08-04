@@ -73,6 +73,12 @@ var ajaxSend = {};
 			console.log(data);
 			window.ajaxSend.Custom(data, action, _this);
 		});
+		$("#sub_heading_menu a").click(function(){
+			var _this = $(event.currentTarget);
+			var id = _this.attr('href');
+			$(".second-content").removeClass('active');
+			$(id).addClass('active');
+		})
 		$(".frm-add-package").submit(function(event){
 			var _this = $(event.currentTarget);
 			var action = 'create-packge';
