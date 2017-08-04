@@ -13,8 +13,7 @@ class BX_Facebook{
 	public static function add_fb_script(){
 		global $box_option;
 		$social_api = $box_option->get_group_option('social_api');
-		$facebook = (object) $social_api['facebook'];
-	?>
+		$facebook = (object) $social_api['facebook'];	?>
 		<div id="fb-root"></div>
 		<script>
 			window.fbAsyncInit = function() {
@@ -81,16 +80,12 @@ class BX_Facebook{
 	}
 
 }
-	function btn_fb_login(){ ?>
-		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
-		<li class="fb-item">
-			<a href="#" class="btn-facebook" onclick="shoModalLogin()">
-				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
-
-			</a>
-			<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
-		</li>
-
-		<?php
-	}
+function btn_fb_login(){ ?>
+	<li class="fb-item">
+		<a href="#" class="btn-facebook" onclick="shoModalLogin()">
+			<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
+		</a>
+		<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
+	</li> <?php
+}
 new BX_Facebook();
