@@ -19,8 +19,8 @@ class BX_Facebook{
 		<script>
 			window.fbAsyncInit = function() {
 				FB.init({
-					appId      : '256824294820471',
-					//appId      : '<?php //echo $facebook->app_id;?>',
+					//appId      : '256824294820471',
+					appId      : '<?php echo $facebook->app_id;?>',
 					cookie     : true,
 					xfbml      : true,
 					version    : 'v2.8'
@@ -35,43 +35,6 @@ class BX_Facebook{
 			   	js.src = "//connect.facebook.net/en_US/sdk.js";
 			   	fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-
-			function statusChangeCallback(response) {
-			    // The response object is returned with a status field that lets the
-			    // app know the current login status of the person.
-			    // Full docs on the response object can be found in the documentation
-			    // for FB.getLoginStatus().
-			    sendRequest()
-			    if (response.status === 'connected') {
-			    	//console.log(response);
-			      	// Logged into your app and Facebook.
-			      	//sendRequest();
-			    } else{
-			    	//shoModalLogin();
-			    }
-			}
-
-			// This function is called when someone finishes with the Login
-			// Button.  See the onlogin handler attached to it in the sample
-			// code below.
-			function checkLoginState() {
-				console.log('response  login');
-				FB.getLoginStatus(function(response) {
-				  statusChangeCallback(response);
-				});
-			}
-
-			// Here we run a very simple test of the Graph API after login is
-			// successful.  See statusChangeCallback() for when this call is made.
-			function sendRequest() {
-				FB.api('/me?fields=email,name', function(response) { // et email here
-					console.log('sendRequest');
-					console.log(response);
-
-
-				});
-			}
-
 
 			function shoModalLogin(){
 				FB.login( function(response) {
@@ -127,7 +90,7 @@ class BX_Facebook{
 			</a>
 			<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
 		</li>
-		<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
+
 		<?php
 	}
 new BX_Facebook();
