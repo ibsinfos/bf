@@ -81,6 +81,7 @@ img{
 .header .container{
 	border-left:1px solid #fafafa;
 	border-right:1px solid #fafafa;
+	padding-top: 10px;
 }
 .site-container{
 	padding-top: 30px;
@@ -146,7 +147,6 @@ button.btn-action:hover{
 	background-color: #fff;
 	border-bottom: 1px solid #f3f3f3;
 	box-shadow: 0 0 10px 1px rgba(0,0,0,.2), 0 0 10px 1px rgba(255,255,255,.2);
-	padding: 11px 0;
 }
 
 a.logo{
@@ -165,22 +165,27 @@ a.logo img{
 .main-navigation ul.menu{
 	float: right;
 	margin: 0;
-	padding: 10px 0 0 0;
+	padding: 0;
 }
 
 .main-navigation ul.sub-menu li{
 	display: block;
 }
 .header nav ul li a{
-	padding: 8px 3px;
+	padding: 17px 3px;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: block;
+	border-bottom: 2px solid transparent;
 }
+
 .header a,
 .header a:hover{
 	color: #333;
 	text-decoration: none;
+}
+.header nav ul li a:hover{
+	border-bottom: 2px solid #5cb85c;
 }
 .header nav ul.sub-menu li a{
 	line-height: 25px;
