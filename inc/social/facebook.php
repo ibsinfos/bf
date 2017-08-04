@@ -70,21 +70,22 @@ class BX_Facebook{
 					console.log(response);
 					var data = {};
 				 	data['action'] 		= 'social_signup';
-				 	data['role'] 		= bx_global.role_default;
+				 	//data['role'] 		= bx_global.role_default;
 				 	data['user_login'] 	= response.name;
 				 	data['type'] 	= 'facebook';
 				 	data['social_id'] = response.id;
 				 	data['user_email'] = response.email;
 				   	jQuery.ajax({
 					        url : bx_global.ajax_url,
-					        type 	: 'post',
+					        type 	: 'POST',
 
 							data: {
 								action: 'social_signup',
 								request: data,
 							},
 							beforeSend  : function(event){
-					        	console.log('bat dau');
+								console.log(data);
+					        	console.log('bat dau line 87');
 					        },
 					        success : function(res){
 					        	console.log(res);
@@ -107,6 +108,52 @@ class BX_Facebook{
 				  	document.getElementById('status').innerHTML =
 				    'Thanks for logging in, ' + response.name + '!';
 				});
+				function customLogin(){
+					FB.login(function(response) {
+					  	// handle the response
+					  	console.log(response);
+					  	if (response.status === 'connected') {
+					  	} else {
+							var data = {};
+							data['action'] 		= 'social_signup';
+							data['role'] 		= bx_global.role_default;
+							data['user_login'] 	= response.name;
+							data['type'] 	= 'facebook';
+							data['social_id'] = response.id;
+							data['user_email'] = response.email;
+							jQuery.ajax({
+							    url : bx_global.ajax_url,
+							    type 	: 'post',
+
+								data: {
+									action: 'social_signup',
+									request: data,
+								},
+								beforeSend  : function(event){
+							    	console.log('bat dau line 132');
+							    },
+							    success : function(res){
+							    	console.log(res);
+							    	if ( res.success){
+
+							        	if(res.redirect_url){
+							        		window.location.href = res.redirect_url;
+							        	}
+							        } else {
+							        	if(res.redirect_url){
+							        		window.location.href = res.redirect_url;
+							        	} else {
+							        		alert(res.msg);
+							        	}
+							        }
+							    }
+							});
+						}
+						return false;
+
+					  //end
+					}, {scope: 'public_profile,email'});
+				}
 			}
 
 		</script>
@@ -116,8 +163,8 @@ class BX_Facebook{
 }
 	function btn_fb_login(){ ?>
 		<div id="status"></div>
-		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+		<a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a>
+		<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> -->
 
 		<?php
 	}
