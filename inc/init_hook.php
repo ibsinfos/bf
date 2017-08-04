@@ -1,7 +1,6 @@
 <?php
 function setup_enroviment() {
 		BX_User::add_role();
-
 }
 add_action( 'after_setup_theme','setup_enroviment');
 function bx_pre_get_filter( $query ) {

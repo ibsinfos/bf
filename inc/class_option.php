@@ -37,7 +37,6 @@ class BX_Option {
 	}
 	function set_option($group,$section,$name,$new_value){
 
-
 		$current = get_option($group);
 		$current[$section][$name] = $new_value;
 

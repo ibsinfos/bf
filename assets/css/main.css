@@ -138,10 +138,7 @@ button.btn-action:hover{
 	color: #fff;
 	opacity: 0.9;
 }
-.btn.btn-login{
-	background: transparent;
-	background-color: transparent;
-}
+
 /**** HEADER AND MENU*********/
 .header{
 	background-color: #fff;
@@ -253,17 +250,28 @@ ul.main-login li{
 	padding-top: 8px;
 	float: right;
 }
-ul.main-login a.dropdown-toggle{
 
-}
 ul.main-login .sign-text{
 	text-decoration: none;
-	text-transform: uppercase;
-	border-radius: 5px;
-	border:1px solid #fff;
-	float: right;
+	border-radius: 25px;
 	vertical-align: top;
 	line-height: 23px;
+	min-width: 84px;
+    padding: 6px 3px 6px;
+    font-weight:bold;
+}
+ul.main-login .btn-login{
+	color: #333;
+	background-color: #ddd;
+}
+ul.main-login .btn-signup{
+	color: #fff;
+}
+ul.main-login li.login{
+	float: left;
+}
+ul.main-login li.singup{
+	float: right;
 }
 ul.main-login .sign-text:active{
 	box-shadow:none;
