@@ -71,49 +71,38 @@ get_header(); ?>
 	</div>
 	</div> <!-- .row !-->
 </div>
-<div class="full-width workflow">
-	<div class=" container site-container">
-		<di class="col-md-12">
-			<h2> HOW WE WORK</h2>
-			<div id="exTab1">
-				<ul  class="nav nav-pills">
-					<li class="active">
-		        		<a  href="#1a" data-toggle="tab">Employer</a>
-					</li>
-					<li><a href="#2a" data-toggle="tab">Freelancer</a>
-					</li>
+<section class="panels theme-background-color-blue left-aligned panels_1 accordion why-paypal">
+	<div class="container">
+		<div class="row">
+		<header class="organism__header ">
+		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Why PayPal for your business?</h2></header>
+		<div class="col-lg-12 panels__panel__row">
+			<div class="panels__panel panels__panel-0 col-lg-4  col-sm-12 col-md-4" data-idx="0">
+				<div class="panels__panel__image-area"></div>
+				<div class="panels__panel__icon-head-area"><img class="panels__panel__image" src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/au/icons/wherever-you-do-business-icon.png" alt="Wherever you do business "><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Wherever you do business </h3><span class="panels__panel__arrow arrow-indicator"></span></div><div class="panels__panel__text-hatch-area"><div class="panels__panel__paragraph" style="height: 88px;">Online, on mobile, in person or by email; PayPal’s merchant services make it easier for you to get paid anywhere you do business.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="https://www.paypal.com/au/webapps/mpp/business-solutions">Payment solutions</a></p></div>
+			</div>
+			<div class="panels__panel panels__panel-1 col-lg-4  col-sm-12 col-md-4" data-idx="1">
+				<div class="panels__panel__image-area"></div>
+				<div class="panels__panel__icon-head-area">
+				<img class="panels__panel__image" src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/au/icons/AU-icon-dollarcoin-white.png" alt="Straightforward pricing"><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Straightforward pricing</h3><span class="panels__panel__arrow arrow-indicator"></span></div><div class="panels__panel__text-hatch-area"><div class="panels__panel__paragraph" style="height: 88px;">No one likes surprises so we only charge a set rate based on how much you sell. There are no account, set-up or cancellation fees.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="https://www.paypal.com/au/webapps/mpp/paypal-seller-fees">Business fees</a></p></div>
+			</div>
 
-				</ul>
-
-					<div class="tab-content clearfix">
-						<div class="tab-pane active" id="1a">
-				          	<h3>As an employer</h3>
-				          	On Upwork you’ll find a range of top talent, from programmers to designers, writers, customer support reps, and more.
-
-							Start by posting a job. Tell us about your project and the specific skills required. Learn how.
-							Upwork analyzes your needs. Our search functionality uses data science to highlight freelancers based on their skills, helping you find talent that’s a good match.
-							We send you a shortlist of likely candidates. You can also search our site for talent, and freelancers can view your job and submit proposals too.
-
-						</div>
-						<div class="tab-pane" id="2a">
-				        <h3> As a freelancer</h3>
-						Start by posting a job. Tell us about your project and the specific skills required. Learn how.
-						Upwork analyzes your needs. Our search functionality uses data science to highlight freelancers based on their skills, helping you find talent that’s a good match.
-						We send you a shortlist of likely candidates. You can also search our site for talent, and freelancers can view your job and submit proposals too.
-						</div>
-				        <div class="tab-pane" id="3a">
-				          <h3>List FAQ</h3>
-		          			<label> how to withdraw money </label> <br />
-		          			<label> how to withdraw money </label><br />
-		          			<label> how to withdraw money </label><br />
-		          			<label> how to withdraw money </label><br />
-						</div>
-
+			<div class="panels__panel panels__panel-2 col-lg-4  col-sm-12 col-md-4" data-idx="2">
+				<div class="panels__panel__image-area"></div>
+				<div class="panels__panel__icon-head-area">
+					<img class="panels__panel__image" src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/au/icons/safer-icon.png" alt="Business security"><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Business security</h3><span class="panels__panel__arrow arrow-indicator"></span>
 				</div>
-			</div> <!-- #exTab1 !-->
-		</di>
+				<div class="panels__panel__text-hatch-area">
+					<div class="panels__panel__paragraph" style="height: 88px;">We monitor transactions for fraud in real time to help keep your business safer, and we protect your eligible sales with Seller Protection.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="https://www.paypal.com/au/webapps/mpp/seller-security">Business security</a></p>
+				</div>
+			</div>
+
+			</div>
+		</div>
 	</div>
-</div>
+</section>
+
+
 <div class="full-width packge-plan">
 	<div class="container">
 		<div class="row">
@@ -171,34 +160,135 @@ get_header(); ?>
 	</div>
 </div>
 
-<div class="full-width system-static">
-	<div class="container">
-		<div class="col-md-4">
-			<div class="round">
-			<?php
-				$count_posts = wp_count_posts(PROJECT);
-				echo $count_posts->publish;
-			?>
 
-			</div>
-			<center>Projects post</center>
-		</div>
-		<div class="col-md-4">
-			<div class="round">
-				100
-			</div>
-			<center>Freelancer register</center>
-		</div>
-		<div class="col-md-4">
-			<div class="round">
-				300
-			</div>
-			<center>Employer account</center>
-		</div>
-	</div>
-</div>
+<section class="pullout theme-background-color-dark "><div class="container"><div class="row"><header class="organism__header ">
+<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Get paid fast from buyers around the world.</h2>
+<p class="organism__header__paragraph ">PayPal helps you build a global business. </p></header>
+<div class="col-xs-12 col-md-10 center-block text-xs-center">
+	<i class="mpp-data-point text-xs-center mpp-data-point-0">
+	<span class="text"><span class="stats-text">
+		<?php
+		$count_posts = wp_count_posts(PROJECT);
+		echo $count_posts->publish;
+		?>
+		</span><span class="description-text">Projects posted</span></span>
+	</i>
+<i class="mpp-data-point text-xs-center mpp-data-point-1"><span class="text"><span class="stats-text">6M </span><span class="description-text">Australian buyers</span></span></i>
+<i class="mpp-data-point text-xs-center mpp-data-point-2"><span class="text"><span class="stats-text">110K </span><span class="description-text">Australian businesses</span></span></i>
+<i class="mpp-data-point text-xs-center mpp-data-point-3"><span class="text"><span class="stats-text">25</span><span class="description-text">Currencies </span></span></i>
+</div></div></div></section>
 
 <style type="text/css">
+
+/************* WHY PAYPAL */
+.organism__header {
+    text-align: center;
+}
+.panels__panel__row {
+    margin-top: 30px;
+}
+.why-paypal {
+    padding-bottom: 60px;
+}
+.why-paypal .organism__header__headline {
+    padding-bottom: 15px;
+}
+.h2.pypl-heading, h2.pypl-heading {
+    font-size: 40px;
+    font-size: 2.85714286rem;
+}
+.organism__header__headline {
+    padding: 0 0 30px;
+}
+.panels {
+    padding: 60px 0;
+}
+.pypl-heading {
+    line-height: 1.25;
+}
+.theme-background-color-blue {
+    background-color: #009cde;
+    background-image: radial-gradient(circle farthest-side at center bottom,#009cde,#003087 125%);
+    color: #fff;
+}
+.theme-background-color-blue a {
+    color: #fff;
+    font-weight: 700;
+}
+.panels__panel__headline.pypl-heading {
+    font-size: 20px;
+    font-size: 1.42857143rem;
+    font-weight: 700;
+}
+.panels__panel__headline {
+    display: inline-block;
+    vertical-align: middle;
+}
+.panels .panels__panel__hatchlink {
+    text-align: left;
+    padding-top: 10px;
+}
+.panels__panel__headline.pypl-heading {
+    font-size: 20px;
+    font-weight: 700;
+}
+.panels__panel .panels__panel__image, .panels__panel__headline {
+    display: block;
+}
+/************* END WHYPAYPAL */
+/** LIST STATS */
+.pullout {
+    padding: 60px 0;
+}
+.theme-background-color-dark .mpp-data-point {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 1px #fff;
+    color: #fff;
+}
+.theme-background-color-dark {
+    background-color: #6c7378;
+    background-image: radial-gradient(circle farthest-side at center bottom,#6c7378,#2c2e2f 125%);
+    color: #fff;
+}
+.pullout .mpp-data-point {
+    margin: 10px 20px;
+}
+.mpp-data-point {
+    font-style: normal;
+    display: inline-block;
+    height: 125px;
+    width: 125px;
+    border: 0;
+    box-shadow: 0 0 0 1px #2c2e2f, 0 0 0 1px #2c2e2f;
+    color: #2c2e2f;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+.mpp-data-point .stats-text {
+    display: block;
+    font-size: 30px;
+    font-family: pp-sans-big-light,Helvetica Neue,Arial,sans-serif;
+}
+.mpp-data-point .description-text {
+    font-size: 14px;
+    font-family: pp-sans-small-light,Helvetica Neue,Arial,sans-serif;
+}
+.mpp-data-point .text {
+    display: table-cell;
+    vertical-align: middle;
+    height: 125px;
+    width: 125px;
+    padding: 10px;
+}
+.text-xs-center {
+    text-align: center!important;
+}
+/*********************** END STATS */
 .top-profile{
 	background: transparent;
 	padding:0 0 30px 0;
@@ -231,10 +321,10 @@ get_header(); ?>
 	border-bottom: 1px solid #ccc;
 }
 .packge-plan{
-
 	padding: 30px 0 50px 0;
-	background-color: #00abca;
-	1background: url('wp-content/themes/boxfreelance/img/wall1.jpg') #F0F0F0 center center / cover repeat;
+	background-color: #6c7378;
+    background-image: radial-gradient(circle farthest-side at center bottom,#6c7378,#2c2e2f 125%);
+    border-bottom: 1px solid #ccc;
 }
 .pricing-table-plan {
     padding: 2em;
