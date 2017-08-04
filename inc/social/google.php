@@ -55,7 +55,7 @@
 			$google = (object) $social_api['google'];
 			//717490652666-339obadanc1iqdkdf4a9p9o4vr2sojal
 			?>
-			<meta name="google-signin-client_id" content="<?php echo $google->client_id;?>.apps.googleusercontent.com">
+			<meta name="google-signin-client_id" content="<?php echo $google->client_id;?>">
 			<?php
 		}
 		function get_instance(){
