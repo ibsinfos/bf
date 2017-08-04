@@ -31,7 +31,7 @@
 					return  new WP_Error( 'exists_email', __( "Sorry, that email address is already used!", "boxtheme" ) );
 
 				}
-				$userdata['user_pass'] = wp_generate_password();
+				$userdata['user_pass'] = wp_generate_password(12);
 				$user_id = wp_insert_user($userdata);
 				update_user_meta( $user_id, 'social_id', $userdata['social_id'] );
 			}

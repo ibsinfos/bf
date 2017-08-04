@@ -181,7 +181,7 @@ class BX_Facebook{
 }
 	function btn_fb_login(){ ?>
 		<div id="status"></div>
-		<a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a>
+		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
 		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 
 		<?php
