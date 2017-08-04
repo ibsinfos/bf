@@ -25,15 +25,19 @@
 		function auto_login($userdata){
 
 			$user_id = $this->social_id_exists($userdata['social_id']); // get user id of this social id
-			var_dump($user_id);
-			if( !$user_id){
-				if( email_exists($userdata['user_email'] )){
-					return  new WP_Error( 'exists_email', __( "Sorry, that email address is already used!", "boxtheme" ) );
 
+			if( !$user_id){
+				if( email_exists($userdata['user_email'] ) ){
+					return  new WP_Error( 'exists_email', __( "Sorry, that email address is already used!", "boxtheme" ) );
 				}
+				$userdata['user_pass'] = FREELANCER;
 				$userdata['user_pass'] = wp_generate_password(12);
 				$user_id = wp_insert_user($userdata);
 				update_user_meta( $user_id, 'social_id', $userdata['social_id'] );
+				global $wpdb;
+				$wpdb->update( $wpdb->users, array( 'user_status' => 1 ), array( 'user_login' => $userdata['user_login'] ) );
+				$wpdb->update( $wpdb->users, array( 'user_activation_key' => '' ), array( 'user_login' => $userdata['user_login'] ) );
+
 			}
 
 			// set the auth cookie to current user id
@@ -41,7 +45,6 @@
 			// log the user in
 			wp_set_current_user($user_id);
 			// do redirect  here
-			wp_safe_redirect(get_permalink(). '#response');
 			return $user_id;
 		}
 
@@ -55,8 +58,9 @@
 				", 'social_id', $social_id
 			);
 
-			$user_id = $wpdb->get_col( $sql );
-			return $user_id;
+			$record = $wpdb->get_row($sql );
+
+			return ($record) ? $record->user_id : 0;
 		}
 	}
 
@@ -64,6 +68,6 @@ function bx_social_button_signup(){ ?>
     <p class="hidden-xs text-center ng-scope" >
         <label> You can also login with</label>
             <?php btn_fb_login() ;?>
-            <?php btn_google_login();?>
+            <?php //btn_google_login();?>
     </p>
 <?php } ?>

@@ -69,7 +69,7 @@ class BX_Facebook{
 				FB.api('/me?fields=email,name', function(response) { // et email here
 					console.log(response);
 					var data = {};
-				 	data['action'] 		= 'social_signup';
+
 				 	//data['role'] 		= bx_global.role_default;
 				 	data['user_login'] 	= response.name;
 				 	data['type'] 	= 'facebook';
@@ -77,7 +77,8 @@ class BX_Facebook{
 				 	data['user_email'] = response.email;
 				   	jQuery.ajax({
 					        url : bx_global.ajax_url,
-					        type 	: 'POST',
+					        emulateJSON: true,
+	       					method :'post',
 
 							data: {
 								action: 'social_signup',
@@ -93,6 +94,8 @@ class BX_Facebook{
 
 						        	if(res.redirect_url){
 						        		window.location.href = res.redirect_url;
+						        	} else {
+						        		window.location.href = bx_global.home_url;
 						        	}
 						        } else {
 						        	if(res.redirect_url){
@@ -104,9 +107,6 @@ class BX_Facebook{
 					        }
 					});
 					return false;
-
-				  	document.getElementById('status').innerHTML =
-				    'Thanks for logging in, ' + response.name + '!';
 				});
 				function customLogin(){
 					FB.login(function(response) {
@@ -115,15 +115,15 @@ class BX_Facebook{
 					  	if (response.status === 'connected') {
 					  	} else {
 							var data = {};
-							data['action'] 		= 'social_signup';
 							data['role'] 		= bx_global.role_default;
 							data['user_login'] 	= response.name;
-							data['type'] 	= 'facebook';
+							//data['type'] 	= 'facebook';
 							data['social_id'] = response.id;
 							data['user_email'] = response.email;
 							jQuery.ajax({
 							    url : bx_global.ajax_url,
-							    type 	: 'post',
+							    emulateJSON: true,
+	       						method :'post',
 
 								data: {
 									action: 'social_signup',
@@ -162,7 +162,7 @@ class BX_Facebook{
 
 }
 	function btn_fb_login(){ ?>
-		<a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a>
+		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
 		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 
 		<?php
