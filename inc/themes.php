@@ -258,4 +258,29 @@ function count_bids($project_id){
 	return $wpdb->get_var( " SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'bid' AND post_parent= {$project_id}" );
 }
 
+function box_account_dropdow_menu(){ global $role; global $user_ID; $current_user = wp_get_current_user(); ?>
+	<ul class="account-dropdown">
+		<li class="inline profile-account dropdown text-center first-sub">
+			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"> <?php echo $current_user->user_login;?> <span class="caret"></span></a>
+			<ul class="dropdown-menu  ">
+				<?php if( in_array($role, array(EMPLOYER,'administrator')) ){ ?>
+					<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
+				<?php } else  if($role == FREELANCER){ ?>
+					<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
+				<?php } ?>
+				<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('credit');?>"><?php _e('Credit','boxtheme');?></a></li>
+				<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>"><?php _e('My profile','boxtheme');?></a></li>
+
+				<li> <span class="glyphicon glyphicon-envelope"></span> <a href="<?php echo bx_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a></li>
+				<li> <span class="glyphicon glyphicon-log-out"></span>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
+			</ul>
+		</li>
+		<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
+
+		<li class="icon-bell first-sub">
+			<span class="glyphicon glyphicon-bell toggle-msg"></span>
+			<?php box_get_notify(); ?>
+		</li>
+	</ul>
+<?php }
 

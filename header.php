@@ -51,50 +51,19 @@ $role = bx_get_user_role();
 			<div class="col-md-2 col-logo">
 				<a class="logo" href="<?php echo home_url();?>">
 					<?php
-					$html_logo = get_custom_logo();
-					if( !empty($html_logo) ) echo $html_logo;
-					else  echo '<img class="avatar" src="'.get_theme_file_uri('img/logo.png').'" />';
+						$html_logo = get_custom_logo();
+						$default_logo = '<img class="avatar" src="'.get_theme_file_uri('img/logo.png').'" />';
+						echo !empty($html_logo) ? $html_logo : $default_logo;
 					?>
 				</a>
 			</div>
 			<div class="no-padding col-nav col-md-6">
-			<?php if ( has_nav_menu( 'top' ) ) { ?>
-				<?php get_template_part( 'template-parts/navigation', 'top' ); ?>
-			<?php } ?>
+				<?php if ( has_nav_menu( 'top' ) ) { get_template_part( 'template-parts/navigation', 'top' );} ?>
 			</div>
 			<!-- seach form here !-->
-
 			<div class="col-md-3 f-right align-right no-padding-left header-action">
 				<?php
-					if ( is_user_logged_in() ) {
-						global $user_ID;
-      				$current_user = wp_get_current_user();
-				?>
-
-				<ul class="account-dropdown">
-					<li class="inline profile-account dropdown text-center first-sub">
-						<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"> <?php echo $current_user->user_login;?> <span class="caret"></span></a>
-						<ul class="dropdown-menu  ">
-							<?php if(in_array($role, array(EMPLOYER,'administrator')) ){ ?>
-								<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
-							<?php } else  if($role == FREELANCER){ ?>
-								<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
-							<?php } ?>
-							<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo bx_get_static_link('credit');?>"><?php _e('Credit','boxtheme');?></a></li>
-							<li> <span class="glyphicon glyphicon-user"></span> <a href="<?php echo bx_get_static_link('profile');?>"><?php _e('My profile','boxtheme');?></a></li>
-
-							<li> <span class="glyphicon glyphicon-envelope"></span> <a href="<?php echo bx_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a></li>
-							<li> <span class="glyphicon glyphicon-log-out"></span>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
-						</ul>
-					</li>
-					<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
-
-					<li class="icon-bell first-sub">
-						<span class="glyphicon glyphicon-bell toggle-msg"></span>
-						<?php box_get_notify(); ?>
-					</li>
-				</ul>
-				<?php } else { ?>
+					if ( is_user_logged_in() ) { box_account_dropdow_menu();} else { ?>
 					<ul class="main-login">
 						<li class="login text-center desktop-only ">
 							<a href="<?php echo bx_get_static_link('login');?>" class="sign-text btn btn-login"><?php _e('Log In','boxtheme');?></a>
