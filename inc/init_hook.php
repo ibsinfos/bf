@@ -456,7 +456,7 @@ function boxtheme_scripts() {
 
 
 
-			wp_enqueue_style( 'chosen-css', get_theme_file_uri( '/assets/chosen/chosen.min.css' ), array( 'boxtheme-style' ), BX_VERSION );
+			wp_enqueue_style( 'chosen-css', get_theme_file_uri( '/library/chosen/chosen.min.css' ), array( 'boxtheme-style' ), BX_VERSION );
 			wp_enqueue_script( 'profile', get_theme_file_uri( '/assets/js/profile.js' ), array( 'jquery','chosen-js', 'cropperjs','front' ), BX_VERSION, true );
 
 
