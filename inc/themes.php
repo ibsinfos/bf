@@ -283,4 +283,3 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		</li>
 	</ul>
 <?php }
-
