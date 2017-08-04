@@ -62,7 +62,7 @@
 
 						          <button type="submit" class="btn btn-success btn-block">Login</button>
 						           		<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
-						          <div class="forgotLink"><a href="/authflow/password-recovery/?country.x=AU&amp;locale.x=en_AU" target="_blank" class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div>
+						          <div class="forgotLink"><a href="" target="_blank" class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div>
 						          	<div class="form-group">
 						          		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-success btn-block btn-signup" >
 			                                <?php _e('Sign Up','boxtheme');?>
