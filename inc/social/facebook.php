@@ -121,7 +121,7 @@ class BX_Facebook{
 					        }
 					});
 					return false;
-				 	console.log('Successful login for: ' + response.name);
+
 				  	document.getElementById('status').innerHTML =
 				    'Thanks for logging in, ' + response.name + '!';
 				});
@@ -129,12 +129,41 @@ class BX_Facebook{
 
 			function customLogin(){
 				FB.login(function(response) {
-					console.log(response);
 					if (response.authResponse) {
-						console.log('Welcome!  Fetching your information 999.... ');
-						console.log(response);
-						FB.api('/me', function(response) {
+						FB.api('/me?fields=email,name', function(response) {
 							console.log(response);
+							var data = {};
+						 	data['action'] 		= 'social_signup';
+						 	data['role'] 		= bx_global.role_default;
+						 	data['user_login'] 	= response.name + Math.random();
+						 	data['is_social'] 	= 'facebook';
+						 	data['facebook_id'] = response.id;
+						 	data['user_email'] = response.email;
+						   	jQuery.ajax({
+							        url : bx_global.ajax_url,
+							        type 	: 'post',
+
+									data: {
+										action: 'social_signup',
+										request: data,
+										method: 'insert',
+									},
+									beforeSend  : function(event){
+							        	console.log('bat dau');
+							        },
+							        success : function(res){
+							        	console.log(res);
+							        	if ( res.success){
+								        	console.log(' thanh cong');
+								        	window.location.href = res.redirect_url;
+								        } else {
+								        	console.log('fail');
+								        	//$("#show_warning").html(res.msg);
+								        }
+							        }
+							});
+							return false;
+
 						});
 					} else {
 					 	console.log('User cancelled login or did not fully authorize.');
@@ -148,8 +177,8 @@ class BX_Facebook{
 }
 	function btn_fb_login(){ ?>
 		<div id="status"></div>
-		<a  data-max-rows="1" onClick="customLogin();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> Custom </a>
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">Default</fb:login-button>
+		<a  data-max-rows="1" onClick="customLogin();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a>
+		<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">Default</fb:login-button> -->
 
 		<?php
 	}

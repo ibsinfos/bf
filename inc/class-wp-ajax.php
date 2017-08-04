@@ -46,6 +46,7 @@ class BX_AJAX {
 			'sync_msg' 				=> false,
 			'sync_portfolio'		=> false,
 			'custom_avatar' 		=> false,
+			'social_signup' 		=> false,
 
 		);
 
@@ -769,6 +770,10 @@ class BX_AJAX {
 		$response = array('success' => true,'msg'=> 'Avatar is updated');
 		wp_send_json( $response );
 
+	}
+
+	function social_signup(){
+		var_dump($request);
 	}
 
 }
