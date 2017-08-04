@@ -53,7 +53,7 @@
 			global $box_option;
 			$social_api = $box_option->get_group_option('social_api');
 			$google = (object) $social_api['google'];
-			//717490652666-339obadanc1iqdkdf4a9p9o4vr2sojal
+
 			?>
 			<meta name="google-signin-client_id" content="<?php echo $google->client_id;?>">
 			<?php
@@ -63,7 +63,13 @@
 		}
 	}
 	function btn_google_login(){ ?>
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<li class="gg-item">
+			<a href="btn-google" href="#">
+				<img class="" src="<?php echo get_theme_file_uri('img/gplus.png');?>" />
+				<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			</a>
+		</li>
+
 		<?php
 	}
 	new Box_Google();

@@ -914,3 +914,29 @@ form #heading_signup{
 	border-bottom: 0;
 	padding-top: 15px;
 }
+/** SOCIAL_LOGIN */
+
+.fb-item{
+	background-color: #3b5998;
+}
+.g-signin2{
+	position: absolute;
+	opacity: 0;
+	z-index: 10;
+	top: 0;
+}
+ul.social-login li{
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	width: 75px;
+}
+.gg-item{
+	background-color: #CE3E26;
+}
+ul.social-login li a{
+	cursor: pointer;
+	float: left;
+	text-align: center;
+	width: 100%;
+}

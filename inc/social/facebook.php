@@ -105,7 +105,42 @@ class BX_Facebook{
 					return false;
 				});
 			}
+			function btnFbLogin(){
+				FB.login(function(response) {
+				  	var data = {user_login: response.name,type:'facebook', social_id: response.id, user_email: response.email };
+				   	jQuery.ajax({
+				        url : bx_global.ajax_url,
+				        emulateJSON: true,
+       					method :'post',
 
+						data: {
+							action: 'social_signup',
+							request: data,
+						},
+						beforeSend  : function(event){
+							console.log(data);
+				        	console.log('bat dau line 87');
+				        },
+				        success : function(res){
+				        	console.log(res);
+				        	if ( res.success){
+					        	if(res.redirect_url){
+					        		window.location.href = res.redirect_url;
+					        	} else {
+					        		window.location.href = bx_global.home_url;
+					        	}
+					        } else {
+					        	if(res.redirect_url){
+					        		window.location.href = res.redirect_url;
+					        	} else {
+					        		alert(res.msg);
+					        	}
+					        }
+				        }
+					});
+
+				}, {scope: 'public_profile,email,name'});
+			}
 		</script>
 	<?php
 	}
@@ -113,7 +148,12 @@ class BX_Facebook{
 }
 	function btn_fb_login(){ ?>
 		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
-		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+		<li class="fb-item">
+			<a href="#" class="btn-facebook" onclick="btnFbLogin()">
+				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
+				<!-- <fb:login-button scope="public_profile,email" class="btn-facebook" onlogin="checkLoginState();"></fb:login-button> -->
+			</a>
+		</li>
 
 		<?php
 	}

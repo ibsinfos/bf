@@ -33,13 +33,9 @@
 						              		echo $note;
 						              	}
 					              	?>
-
 						          	<div class="form-group">
 						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Please enter you username" placeholder="Username or Email">
-						              	<span class="help-block">
-
-
-						              	</span>
+						              	<span class="help-block"></span>
 						          	</div>
 						          	<div class="form-group">
 						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="Please enter your password" placeholder="Your password">

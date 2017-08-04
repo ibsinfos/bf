@@ -67,7 +67,9 @@
 function bx_social_button_signup(){ ?>
     <p class="hidden-xs text-center ng-scope" >
         <label> You can also login with</label>
+        	<ul class="social-login none-style inline">
             <?php btn_fb_login() ;?>
             <?php btn_google_login();?>
+            </ul>
     </p>
 <?php } ?>
