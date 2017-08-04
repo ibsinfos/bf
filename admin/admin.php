@@ -324,10 +324,10 @@ class BX_Admin{
 
 
 function bx_swap_button($group, $name, $checked){
-	// $value = 0;
-	// if($checked == 'checked')
-	// 	$value = 1;
- //    echo '<input type="checkbox" class="auto-save" name="enable" value="'.$value.'" '.$checked.' data-toggle="toggle">';
+	$value = 0;
+	if($checked == 'checked')
+		$value = 1;
+    echo '<input type="checkbox" class="auto-save" name="enable" value="'.$value.'" '.$checked.' data-toggle="toggle">';
 
 }
 ?>
