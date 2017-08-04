@@ -45,15 +45,8 @@ class BX_Facebook{
 			    	console.log(response);
 			      	// Logged into your app and Facebook.
 			      	sendRequest();
-			    } else if (response.status === 'not_authorized') {
-			      // The person is logged into Facebook, but not your app.
-			      document.getElementById('status').innerHTML = 'Please log ' +
-			        'into this app.';
-			    } else {
-			      // The person is not logged into Facebook, so we're not sure if
-			      // they are logged into this app or not.
-			      document.getElementById('status').innerHTML = 'Please log ' +
-			        'into Facebook.';
+			    } else{
+			    	shoModalLogin();
 			    }
 			}
 
@@ -105,7 +98,9 @@ class BX_Facebook{
 					return false;
 				});
 			}
-			function btnFbLogin(){
+
+
+			function shoModalLogin(){
 				FB.login(function(response) {
 				  	var data = {user_login: response.name,type:'facebook', social_id: response.id, user_email: response.email };
 				   	jQuery.ajax({
@@ -149,9 +144,9 @@ class BX_Facebook{
 	function btn_fb_login(){ ?>
 		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
 		<li class="fb-item">
-			<a href="#" class="btn-facebook">
+			<a href="#" class="btn-facebook" onclick="checkLoginState()">
 				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
-				<fb:login-button scope="public_profile,email" class="btn-default" onlogin="checkLoginState();"></fb:login-button>
+				<!-- <fb:login-button scope="public_profile,email" class="btn-default" onlogin="checkLoginState();"></fb:login-button> -->
 			</a>
 		</li>
 
