@@ -153,7 +153,7 @@
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
 				            $("#thumbnail").attr('src',obj.file.guid);
-				            $("#avatar_url").val(obj.file.guid);
+				            $("#avatar_att_id").val(obj.attach_id);
 				            //attach_id
 					    } else{
 					    	alert(obj.msg);

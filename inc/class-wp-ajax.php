@@ -735,9 +735,10 @@ class BX_AJAX {
 		global $user_ID;
 
 		$request = $_REQUEST['request'];
-
-		$avatar_url = $request['avatar_url'];
+		$avatar_att_id = $request['avatar_att_id'];
+		$avatar_url = wp_get_attachment_url($avatar_att_id);
 		update_user_meta($user_ID,'avatar_url', $avatar_url);
+		update_user_meta($user_ID,'avatar_att_id', $avatar_att_id);
 
 		$response = array('success' => true,'msg'=> 'Avatar is updated');
 		wp_send_json( $response );

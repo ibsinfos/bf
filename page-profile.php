@@ -42,16 +42,16 @@
 	      			<div align="center  upload-msg">
 	      				<?php
 	      				global $user_ID;
-	      				$full_avatar_id = get_user_meta( $user_ID, 'full_avatar', true );
+	      				$avatar_att_id = get_user_meta( $user_ID, 'avatar_att_id', true );
 	      				?>
 	      				<div class="img-container">
-	              			<img src="<?php echo wp_get_attachment_url($full_avatar_id);?>" alt="Picture" id="thumbnail">
+	              			<img src="<?php echo wp_get_attachment_url($avatar_att_id);?>" alt="Picture" id="thumbnail">
 	              		</div>
 					<br style="clear:both;">
 						<button id="btn-upload-avatar">Select an image</button>
 						<small>Recommend 90px*90px</small>
 					</div>
-					<input type="hidden" id="avatar_url" name="avatar_url" />
+					<input type="hidden" id="avatar_att_id" name="avatar_att_id" />
 	      		<!-- end test !-->
 	      		</div>
 	      		<div class="modal-footer">
