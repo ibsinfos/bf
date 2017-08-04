@@ -50,7 +50,7 @@ $role = bx_get_user_role();
 		<div class="row">
 			<div class="col-md-2 col-logo">
 				<a class="logo" href="<?php echo home_url();?>">
-					<img src="<?php echo get_stylesheet_directory_uri().'/img/logo.png';?>" />
+					<?php  the_custom_logo(); ?>
 				</a>
 			</div>
 			<div class="no-padding col-nav col-md-6">

@@ -42,6 +42,12 @@ class BX_Option {
 
 		return update_option($group, $current);
 	}
+	function set_logo(){
+
+	}
+	function get_logo(){
+
+	}
 
 }
 ?>

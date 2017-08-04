@@ -81,8 +81,8 @@ function boxtheme_setup() {
 
 	// Add theme support for Custom Logo.
 	add_theme_support( 'custom-logo', array(
-		'width'       => 250,
-		'height'      => 250,
+		'width'       => 136,
+		'height'      => 39,
 		'flex-width'  => true,
 	) );
 
