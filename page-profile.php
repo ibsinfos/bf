@@ -47,17 +47,11 @@
 	      				<div class="img-container">
 	              			<img src="<?php echo wp_get_attachment_url($full_avatar_id);?>" alt="Picture" id="thumbnail">
 	              		</div>
-
 					<br style="clear:both;">
-						<input type="hidden" name="x1" value="" id="x1">
-						<input type="hidden" name="y1" value="" id="y1">
-						<input type="hidden" name="x2" value="" id="x2">
-						<input type="hidden" name="y2" value="" id="y2">
-						<input type="hidden" name="w" value="" id="w">
-						<input type="hidden" name="h" value="" id="h">
-					<button id="btn-upload-avatar">Upload file(width size maller than 650px)</button>
+						<button id="btn-upload-avatar">Select an image</button>
+						<small>Recommend 90px*90px</small>
 					</div>
-
+					<input type="hidden" id="avatar_url" name="avatar_url" />
 	      		<!-- end test !-->
 	      		</div>
 	      		<div class="modal-footer">

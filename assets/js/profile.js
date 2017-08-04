@@ -43,15 +43,6 @@
 			// open modal
 			$('.update-avatar img').on('click', function() {
 			    $('#modal_avatar').modal('show');
-			    var left = $('#full_avatar').offset().left;
-			    $('#thumbnail').imgAreaSelect({
-			    	x1: 15, y1: 15, x2: 165, y2: 165,
-			    	//maxWidth: 150, maxHeight: 150,
-			    	handles: true,
-			    	aspectRatio: '1:1',
-			    	parent:'#full_avatar',
-			    	onSelectChange: preview
-			    });
 
 		    });
 
@@ -152,11 +143,8 @@
 			    },
 			    init: {
 			        PostInit: function() {
-
 			        },
-			        FilesAdded: function(up, files) {
-
-			        },
+			        FilesAdded: function(up, files) { },
 
 			        Error: function(up, err) {
 			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
@@ -164,9 +152,9 @@
 			        FileUploaded : function(up, file, response){
 			        	var obj = jQuery.parseJSON(response.response);
 					    if(obj.success){
-						    //var new_record =  '<img src="'+obj.file.guid+'" id="thumbnail">';
-				            //$(".img-container").html(new_record);
 				            $("#thumbnail").attr('src',obj.file.guid);
+				            $("#avatar_url").val(obj.file.guid);
+				            //attach_id
 					    } else{
 					    	alert(obj.msg);
 					    }
