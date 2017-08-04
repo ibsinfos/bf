@@ -39,8 +39,8 @@ class BX_Facebook{
 			    // for FB.getLoginStatus().
 			    if (response.status === 'connected') {
 			    	console.log(response);
-			      // Logged into your app and Facebook.
-			      testAPI();
+			      	// Logged into your app and Facebook.
+			      	sendRequest();
 			    } else if (response.status === 'not_authorized') {
 			      // The person is logged into Facebook, but not your app.
 			      document.getElementById('status').innerHTML = 'Please log ' +
@@ -65,95 +65,41 @@ class BX_Facebook{
 
 			// Here we run a very simple test of the Graph API after login is
 			// successful.  See statusChangeCallback() for when this call is made.
-			function testAPI() {
+			function sendRequest() {
 				FB.api('/me?fields=email,name', function(response) { // et email here
-					console.log(response);
-					var data = {};
-
-				 	//data['role'] 		= bx_global.role_default;
-				 	data['user_login'] 	= response.name;
-				 	data['type'] 	= 'facebook';
-				 	data['social_id'] = response.id;
-				 	data['user_email'] = response.email;
+					var data = {user_login: response.name,type:'facebook', social_id: response.id, user_email: response.email };
 				   	jQuery.ajax({
-					        url : bx_global.ajax_url,
-					        emulateJSON: true,
-	       					method :'post',
+				        url : bx_global.ajax_url,
+				        emulateJSON: true,
+       					method :'post',
 
-							data: {
-								action: 'social_signup',
-								request: data,
-							},
-							beforeSend  : function(event){
-								console.log(data);
-					        	console.log('bat dau line 87');
-					        },
-					        success : function(res){
-					        	console.log(res);
-					        	if ( res.success){
-
-						        	if(res.redirect_url){
-						        		window.location.href = res.redirect_url;
-						        	} else {
-						        		window.location.href = bx_global.home_url;
-						        	}
-						        } else {
-						        	if(res.redirect_url){
-						        		window.location.href = res.redirect_url;
-						        	} else {
-						        		alert(res.msg);
-						        	}
-						        }
+						data: {
+							action: 'social_signup',
+							request: data,
+						},
+						beforeSend  : function(event){
+							console.log(data);
+				        	console.log('bat dau line 87');
+				        },
+				        success : function(res){
+				        	console.log(res);
+				        	if ( res.success){
+					        	if(res.redirect_url){
+					        		window.location.href = res.redirect_url;
+					        	} else {
+					        		window.location.href = bx_global.home_url;
+					        	}
+					        } else {
+					        	if(res.redirect_url){
+					        		window.location.href = res.redirect_url;
+					        	} else {
+					        		alert(res.msg);
+					        	}
 					        }
+				        }
 					});
 					return false;
 				});
-				function customLogin(){
-					FB.login(function(response) {
-					  	// handle the response
-					  	console.log(response);
-					  	if (response.status === 'connected') {
-					  	} else {
-							var data = {};
-							data['role'] 		= bx_global.role_default;
-							data['user_login'] 	= response.name;
-							//data['type'] 	= 'facebook';
-							data['social_id'] = response.id;
-							data['user_email'] = response.email;
-							jQuery.ajax({
-							    url : bx_global.ajax_url,
-							    emulateJSON: true,
-	       						method :'post',
-
-								data: {
-									action: 'social_signup',
-									request: data,
-								},
-								beforeSend  : function(event){
-							    	console.log('bat dau line 132');
-							    },
-							    success : function(res){
-							    	console.log(res);
-							    	if ( res.success){
-
-							        	if(res.redirect_url){
-							        		window.location.href = res.redirect_url;
-							        	}
-							        } else {
-							        	if(res.redirect_url){
-							        		window.location.href = res.redirect_url;
-							        	} else {
-							        		alert(res.msg);
-							        	}
-							        }
-							    }
-							});
-						}
-						return false;
-
-					  //end
-					}, {scope: 'public_profile,email'});
-				}
 			}
 
 		</script>

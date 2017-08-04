@@ -14,41 +14,38 @@
 			<script type="text/javascript">
 				function onSignIn(googleUser) {
 					var profile = googleUser.getBasicProfile();
-					console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-					console.log('Name: ' + profile.getName());
-					console.log('Image URL: ' + profile.getImageUrl());
-					console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-					var data = {};
-				 	data['action'] 		= 'bx_signup';
-				 	data['role'] 		= bx_global.role_default;
-				 	data['user_login'] 	=  profile.getName();
-				 	data['is_social'] 	= 'google';
-				 	data['facebook_id'] = profile.getId();
-				 	data['user_email'] = profile.getEmail();
+				 	var data = {user_login: profile.getName(),type:'google', social_id: profile.getId(), user_email: profile.getEmail() };
 				   	jQuery.ajax({
-					        url : bx_global.ajax_url,
-					        type 	: 'post',
+				        url : bx_global.ajax_url,
+				        emulateJSON: true,
+       					method :'post',
 
-							data: {
-								action: 'bx_signup',
-								request: data,
-								method: 'insert',
-							},
-							beforeSend  : function(event){
-					        	console.log('bat dau');
-					        },
-					        success : function(res){
-					        	console.log(res);
-					        	if ( res.success){
-						        	console.log(' thanh cong');
-						        	window.location.href = res.redirect_url;
-						        } else {
-						        	console.log('fail');
-						        	alert(res.msg);
-						        	//$("#show_warning").html(res.msg);
-						        }
+						data: {
+							action: 'social_signup',
+							request: data,
+						},
+						beforeSend  : function(event){
+							console.log(data);
+				        	console.log('bat dau line 87');
+				        },
+				        success : function(res){
+				        	console.log(res);
+				        	if ( res.success){
+					        	if(res.redirect_url){
+					        		window.location.href = res.redirect_url;
+					        	} else {
+					        		window.location.href = bx_global.home_url;
+					        	}
+					        } else {
+					        	if(res.redirect_url){
+					        		window.location.href = res.redirect_url;
+					        	} else {
+					        		alert(res.msg);
+					        	}
 					        }
+				        }
 					});
+				   return false;
 				}
 
 			</script>

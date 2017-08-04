@@ -144,6 +144,38 @@ var ajaxSend = {};
 	        },
 	    });
 	};
+	window.ajaxSend.socialSubmit = function(data,success){
+		$.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: 'social_signup',
+	                request: data,
+	        },
+	        beforeSend  : function(event){
+	        	console.log('Insert message');
+	        },
+	        success: function (){
+	        	if ( res.success){
 
+			    	if(res.redirect_url){
+			    		window.location.href = res.redirect_url;
+			    	} else {
+			    		window.location.href = bx_global.home_url;
+			    	}
+			    } else {
+			    	if(res.redirect_url){
+			    		window.location.href = res.redirect_url;
+			    	} else {
+			    		alert(res.msg);
+			    	}
+			    }
+	        },
+	    });
+	    return false;
+
+
+	}
 
 })(jQuery, window.ajaxSend);
