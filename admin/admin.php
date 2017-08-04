@@ -88,28 +88,15 @@ class BX_Admin{
 			  	<div class="form-group">
 			    	<label for="app_id">APP ID</label>
 			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
-			    	<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-			  	</div>
-			    	<?php
-			    	//107888599891266
-			    	//29ed002332d2890e6d266a835f585722
-			    	//localhost
-			    	//256824294820471
-			    	//
-			    	//google
-			    	//YOUR_CLIENT_ID.apps.googleusercontent.com
-			    	?>
 
+			  	</div>
 			</div>
 			<div class="sub-item" id="google">
 			  	<h3> Google settings</h3>
 			  	<div class="form-group">
 			    	<label for="client_id">Client ID</label>
 			    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
-
-			    	<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 			  	</div>
-
 			</div>
 		</form>
 
