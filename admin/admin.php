@@ -201,7 +201,7 @@ class BX_Admin{
 		                </div>
 		            </div>
 
-		            <div class="sub-item" id="stripe">
+		            <div class="sub-item hide" id="stripe">
 		            	<?php
 		            	$stripe = (object) array(
 		            		'api_key' => 'LDFJ',
