@@ -149,9 +149,9 @@ class BX_Facebook{
 	function btn_fb_login(){ ?>
 		<!-- <a  data-max-rows="1" onClick="checkLoginState();" data-size="medium" data-show-faces="false" data-auto-logout-link="false"> FB </a> -->
 		<li class="fb-item">
-			<a href="#" class="btn-facebook" onclick="btnFbLogin()">
+			<a href="#" class="btn-facebook">
 				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
-				<!-- <fb:login-button scope="public_profile,email" class="btn-facebook" onlogin="checkLoginState();"></fb:login-button> -->
+				<fb:login-button scope="public_profile,email" class="btn-default" onlogin="checkLoginState();"></fb:login-button>
 			</a>
 		</li>
 
