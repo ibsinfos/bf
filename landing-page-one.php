@@ -321,7 +321,7 @@ get_header(); ?>
 	border-bottom: 1px solid #ccc;
 }
 .packge-plan{
-	padding: 30px 0 50px 0;
+	padding: 60px 0 60px 0;
 	background-color: #6c7378;
     background-image: radial-gradient(circle farthest-side at center bottom,#6c7378,#2c2e2f 125%);
     border-bottom: 1px solid #ccc;

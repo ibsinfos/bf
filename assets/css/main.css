@@ -268,6 +268,7 @@ ul.main-login .sign-text{
 	min-width: 84px;
     padding: 6px 3px 6px;
     font-weight:bold;
+    font-size: 13px;
 }
 ul.main-login .btn-login{
 	color: #333;
@@ -530,6 +531,16 @@ div.irs-min {
 	display: none !important;
 	visibility: hidden;
 }
+button.btn-info{
+	background-color: #5cb85c;
+	border-color: #5cb85c;
+}
+button.btn-info.active, button.btn-info:active, .open>.dropdown-toggle.btn-info, button.btn-info:hover{
+	color: #fff;
+    background-color: #5cb85c;
+    border-color: #5cb85c
+}
+
 .sidebar-search .toggle-check{
 	font-size: 13px;
 }
