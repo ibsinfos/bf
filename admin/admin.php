@@ -29,7 +29,7 @@ class BX_Admin{
         if( $hook == 'toplevel_page_'.self::$main_setting_slug || in_array($hook, $sub_page ) ) {
 
 
-	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/assets/bootstrap/css/bootstrap.min.css' ) );
+	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.min.css' ) );
 	        wp_enqueue_style( 'box_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
@@ -76,10 +76,11 @@ class BX_Admin{
         $facebook = (object) $social_api[$item1];
         $google = (object) $social_api[$item2];
         $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
+        $fb_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
+
         $app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
         $client_id = isset($google->client_id) ? $google->client_id : '';
-
-
+       	$gg_active = isset($google->enable) ? (int) $google->enable : 0;
 
     	?>
     	<div class="sub-section" id="<?php echo $group_option;?>">
@@ -88,8 +89,8 @@ class BX_Admin{
 			  	<div class="form-group">
 			    	<label for="app_id">APP ID</label>
 			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
-
-			  	</div>
+			    </div>
+			    <div class="form-group">  	<?php bx_swap_button($group_option,$item1, $fb_active);?>   </div>
 			</div>
 			<div class="sub-item" id="google">
 			  	<h3> Google settings</h3>
@@ -97,9 +98,9 @@ class BX_Admin{
 			    	<label for="client_id">Client ID</label>
 			    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
 			  	</div>
+			  	<div class="form-group"><?php bx_swap_button($group_option,$item2, $gg_active);?></div>
 			</div>
-		</form>
-
+		</div>
     	<?php
     }
     function escrow(){
@@ -325,7 +326,7 @@ class BX_Admin{
 
 function bx_swap_button($group, $name, $checked){
 	$value = 0;
-	if($checked == 'checked')
+	if( $checked == 'checked' || $checked == 1 )
 		$value = 1;
     echo '<input type="checkbox" class="auto-save" name="enable" value="'.$value.'" '.$checked.' data-toggle="toggle">';
 

@@ -116,6 +116,7 @@ ul.block li{
 }
 .second-content{
 	display: none;
+	clear: both;
 }
 .second-content.active{
 	display: block;

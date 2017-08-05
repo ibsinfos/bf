@@ -26,10 +26,12 @@ class BX_Option {
 			'social_api' => array(
 				'facebook' => array(
 					'app_id' => '',
-					'app_secret' => '',
+					'enable' => 0,
+
 				),
 				'google' => array(
 					'client_id' => '',
+					'enable' => 0,
 				),
 			),
 		);
