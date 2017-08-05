@@ -59,7 +59,12 @@
         </div>
         <div class="footer-copyright">
             <div class="wrapper  container">
-                <p>2017 © Boxthemes. All rights reserved. <a href="#/terms-and-conditions" target="_blank">Term of Use</a> and <a href="#/terms-and-conditions" target="_blank">Privacy Policy</a></p>
+            	<div class="col-md-7">
+                	<p>2017 © Boxthemes. All rights reserved. <a href="#/terms-and-conditions" target="_blank">Term of Use</a> and <a href="#/terms-and-conditions" target="_blank">Privacy Policy</a></p>
+                </div>
+                <div class="col-md-5">
+
+                </div>
             </div>
         </div>
     </footer>
