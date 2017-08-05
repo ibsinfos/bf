@@ -22,12 +22,12 @@
 						  	<div class="well">
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
 						          	<div class="form-group">
-						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Enter you username" placeholder="Username or Email">
+						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="<?php _e('Enter you username','boxtheme');?>" placeholder="<?php _e('Username or Email','boxtheme');?>">
 						          	</div>
 						          	<div class="form-group">
-						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="Enter your password" placeholder="Your password">
+						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="<?php _e('Enter your password','boxtheme');?>" placeholder="<?php _e('Password','boxtheme');?>">
 						          	</div>
-						          	<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+						          	<div id="loginErrorMsg" class="alert alert-error hide"><?php _e('Wrong username og password','boxtheme');?></div>
 						          	<div class="checkbox"><label><input type="checkbox" name="remember" id="remember"><?php _e('Remember login','boxtheme');?>  </label></div>
 					           		<?php
 				                        if( ! empty( $_GET['redirect'] ) ){
@@ -37,7 +37,7 @@
 			                    	?>
 						          	<button type="submit" class="btn btn-success btn-block"><?php _e('Log In','boxtheme');?></button>
 						           	<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
-						          	<div class="forgotLink"><a href="" target="_blank" class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div>
+						          	<div class="forgot-link"><a href="" target="_blank" class=""><?php _e('Having trouble logging in?','boxtheme');?></a></div>
 						          	<div class="form-group">
 						          		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-success btn-block btn-signup" >
 			                                <?php _e('Sign Up','boxtheme');?>
@@ -75,7 +75,6 @@
                         request: send,
                 },
                 beforeSend  : function(event){
-                    console.log('bat dau');
                 },
                 success : function(res){
                     if ( res.success ){
@@ -83,10 +82,7 @@
                             window.location.href = res.redirect_url;
                         } else {
                             window.location.href= bx_global.home_url;
-                            //window.location.reload(true);
                         }
-                    } else {
-                        console.log('Can not logout');
                     }
                 }
             });
