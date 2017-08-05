@@ -7,23 +7,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 class BX_Facebook{
+	public $is_active;
+	public $app_id;
+	static $instance;
 	function __construct(){
+
+		$social_api = BX_Option::get_instance()->get_group_option('social_api');
+		$facebook = (object) $social_api['facebook'];
+		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
+		$this->app_id = $facebook->app_id;
 		add_action( 'wp_head', array($this, 'add_fb_script') );
 	}
+	static function get_instance(){
+		if (null === static::$instance) {
+        	static::$instance = new static();
+    	}
+    	return static::$instance;
+	}
 	public static function add_fb_script(){
-		if( is_page_template('page-login.php' ) || is_page_template('page-signup.php' ) ){
-			global $box_option;
-			$social_api = $box_option->get_group_option('social_api');
-			$facebook = (object) $social_api['facebook'];
-			$is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
-			if( $is_active){ ?>
-
+		if( $this->is_active) {
+			if( is_page_template('page-login.php' ) || is_page_template('page-signup.php' ) ){ ?>
 				<div id="fb-root"></div>
 				<script>
 					window.fbAsyncInit = function() {
 						FB.init({
 							//appId      : '256824294820471',
-							appId      : '<?php echo $facebook->app_id;?>',
+							appId      : '<?php echo $this->app_id;?>',
 							cookie     : true,
 							xfbml      : true,
 							version    : 'v2.8'
@@ -77,18 +86,21 @@ class BX_Facebook{
 						}, { scope: 'email,public_profile' } );
 					}
 				</script>
-				<?php
-			}
+				<?php			}
 		}
 	}
 }
-
-function btn_fb_login(){ ?>
-	<li class="fb-item">
-		<a href="#" class="btn-facebook" onclick="shoModalLogin()">
-			<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
-		</a>
-		<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
-	</li> <?php
+global $fb_activate;
+$fb = new BX_Facebook();
+$fb_activate = $fb->is_active;
+function btn_fb_login(){
+	global $fb_activate;
+	if( $fb_activate) { ?>
+		<li class="fb-item">
+			<a href="#" class="btn-facebook" onclick="shoModalLogin()">
+				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />
+			</a>
+			<!-- <fb:login-button scope="public_profile,email" class="btn-default1" onlogin="checkLoginState();"></fb:login-button> -->
+		</li> <?php
+	}
 }
-new BX_Facebook();
