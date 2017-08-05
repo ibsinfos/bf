@@ -121,3 +121,6 @@ ul.block li{
 .second-content.active{
 	display: block;
 }
+.toggle-on.btn{
+	background-color: #5cb85c;
+}

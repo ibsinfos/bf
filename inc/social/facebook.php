@@ -15,7 +15,7 @@ class BX_Facebook{
 			global $box_option;
 			$social_api = $box_option->get_group_option('social_api');
 			$facebook = (object) $social_api['facebook'];
-			$is_active = isset($facebook->enable) ? $facebook->enable : 0;
+			$is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
 			if( $is_active){ ?>
 
 				<div id="fb-root"></div>
