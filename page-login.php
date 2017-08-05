@@ -22,39 +22,36 @@
 						  	<div class="well">
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
 						          	<div class="form-group">
-						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Please enter you username" placeholder="Username or Email">
+						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="Enter you username" placeholder="Username or Email">
 						          	</div>
 						          	<div class="form-group">
-						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="Please enter your password" placeholder="Your password">
+						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="Enter your password" placeholder="Your password">
 						          	</div>
 						          	<div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
-
 						          	<div class="checkbox"><label><input type="checkbox" name="remember" id="remember"><?php _e('Remember login','boxtheme');?>  </label></div>
-						           <?php
+					           		<?php
 				                        if( ! empty( $_GET['redirect'] ) ){
 				                            echo '<input type ="hidden" name="redirect_url" value ="'.$_GET['redirect'].'" />';
 				                        }
 				                        wp_nonce_field( 'bx_login', 'nonce_login_field' );
-				                    ?>
-
-						          <button type="submit" class="btn btn-success btn-block"><?php _e('Log In','boxtheme');?></button>
-						           		<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
-						          <div class="forgotLink"><a href="" target="_blank" class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div>
+			                    	?>
+						          	<button type="submit" class="btn btn-success btn-block"><?php _e('Log In','boxtheme');?></button>
+						           	<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
+						          	<div class="forgotLink"><a href="" target="_blank" class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div>
 						          	<div class="form-group">
 						          		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-success btn-block btn-signup" >
 			                                <?php _e('Sign Up','boxtheme');?>
 			                            </a>
 			                    	</div>
+			                    	<div class="no-padding-bottom no-margin-bottom form-group "><div class="center"><?php bx_social_button_signup();?></div></div>
 						      	</form>
-
 						  	</div>
-
 						</div>
 					</div>
-
                 </div> <!-- panel-body !-->
             </div>
         </div>
+	</div>
 </div>
 
 <?php get_footer();?>
