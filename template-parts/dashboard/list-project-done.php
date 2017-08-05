@@ -42,9 +42,9 @@
 				echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
 			echo '</li>';
 		}
-		if($loadmore){
-			echo '<li class="row list-style-none padding-bottom-10"><center> <button class="load-more" page ="1">Load more</button> </center></li>';
-		}
+		// if($loadmore){
+		// 	echo '<li class="row list-style-none padding-bottom-10"><center> <button class="load-more" page ="1">Load more</button> </center></li>';
+		// }
 		echo '</ul>';
 	}
 ?>
