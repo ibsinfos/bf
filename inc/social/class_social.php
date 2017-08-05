@@ -14,12 +14,7 @@ Class Box_Social{
     	return static::$instance;
 
 	}
-	function check_exist( $email ){
-		if( email_exists($email) ){
-			return true;
-		}
-		return false;
-	}
+
 	function auto_login($userdata){
 
 		$user_id = $this->social_id_exists($userdata['social_id']); // get user id of this social id

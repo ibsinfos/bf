@@ -55,10 +55,8 @@ Class Box_Google{
 			<?php
 		}
 	}
-	function get_instance(){
-
-	}
 }
+
 function btn_google_login(){ ?>
 	<li class="gg-item">
 		<a href="btn-google" href="#">

@@ -752,8 +752,8 @@ class BX_AJAX {
 
 		$result = $instance->auto_login($request);
 		$response = array('success' => true,'msg'=> 'Login done', $redirect_url  => 0);
-		if( is_wp_error($result ) ){
 
+		if( is_wp_error($result ) ){
 			$redirect_url = add_query_arg( array('email' => $request['user_email']), bx_get_static_link('login') );
 			$response = array('success' => false,'msg'=> $result->get_error_message(), 'redirect_url' => $redirect_url );
 		}
