@@ -4,6 +4,7 @@
 		'post_status' => 'done',
 		'post_type' => 'project',
 		'author'=> $user_ID,
+		'posts_per_page' => -1,
 	);
 	$query = new WP_Query($args);
 	$loadmore = false;
