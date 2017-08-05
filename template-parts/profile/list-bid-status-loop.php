@@ -27,7 +27,7 @@ $bid = BX_Bid::get_instance()->convert($post);
 					echo '<i>'.$emp_comment[0]->comment_content.'</i>';
 					echo '</div>';
 				} else {
-					echo 'Employer did not left a review';
+					_e('Employer did not left a review','boxtheme');
 				}
 			} else {
 				$args = array(
@@ -46,7 +46,7 @@ $bid = BX_Bid::get_instance()->convert($post);
 
 					echo '</div>';
 				} else {
-					echo 'Not left a review here';
+					echo _e('Not left a review here','boxtheme');
 				}
 			}
 		}

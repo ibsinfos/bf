@@ -36,7 +36,7 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 				}
 				echo '</div>';
 			} else{
-				_e('Employer did not left a review');
+				_e('Employer did not left a review','boxtheme');
 			}
 
 			$args = array(

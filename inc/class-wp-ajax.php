@@ -167,7 +167,7 @@ class BX_AJAX {
 		$request 	= $_REQUEST;
 		$args 		= $request['request'];
 		$method 	= $_REQUEST['method'];
-		$response 	= array('success' => false, 'msg' => __('Insert project fail'), 'data' => array() );
+		$response 	= array('success' => false, 'msg' => __('Insert project fail','boxtheme'), 'data' => array() );
 
 		if( $method == 'insert' ) {
 			if ( ! wp_verify_nonce( $args['nonce_insert_project'], 'sync_project' ) ) {

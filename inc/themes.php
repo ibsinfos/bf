@@ -107,7 +107,7 @@ if( ! function_exists('bx_get_verify_key')):
 		$hashed = time() . ':' . $wp_hasher->HashPassword( $key );
 		$key_saved = $wpdb->update( $wpdb->users, array( 'user_activation_key' => $hashed ), array( 'user_login' => $username ) );
 		if ( false === $key_saved ) {
-			return new WP_Error( 'no_password_key_update', __( 'Could not save password reset key to database.' ) );
+			return new WP_Error( 'no_password_key_update', __( 'Could not save password reset key to database.','boxtheme' ) );
 		}
 
 		return $key;

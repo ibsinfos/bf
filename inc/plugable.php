@@ -192,7 +192,7 @@ if ( ! function_exists( 'signup_nonce_check')){
 			return $result;
 
 		if ( wp_create_nonce('signup_form_' . $_POST[ 'signup_form_id' ]) != $_POST['_signup_form'] )
-			wp_die( __( 'Please try again.' ) );
+			wp_die( __( 'Please try again.','boxtheme' ) );
 
 		return $result;
 	}

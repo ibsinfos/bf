@@ -48,7 +48,7 @@ if($type == 'paypal'){
 
 						if( !empty($order) ){ ?>
 
-							<?php _e('Thank you for your purching. You have buy credit successful'); ?>
+							<?php _e('Thank you for your purching. You have buy credit successful','boxtheme'); ?>
 							<h3><?php _e('Detail:','boxtheme'); ?></h3>
 							<p><label>Price:</label><?php echo $order->amout;?></p>
 							<?php if( $type == 'cash'){
