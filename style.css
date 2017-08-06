@@ -267,6 +267,10 @@ ul, ol{
 .inline{
 	display: inline;
 }
+ul.inline li{
+	display: inline;
+	padding-right: 5px;
+}
 .no-radius, .form-control.no-radius,
 button.no-radius,
 span.no-radius,

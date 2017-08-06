@@ -4,7 +4,8 @@
 		<div class="row site-content" id="content" >
 			<div class="col-md-8 detail-project text-justify">
 				<?php the_post(); ?>
-				<h1><?php the_title();?></h1>
+				<h1 class="h1 primary-font post-title"><?php the_title();?></h1>
+				<div class="full pdate"><?php _e('Posted: ','boxtheme'); the_date(); ?></div>
 				<?php the_content(); ?>
 			</div>
 			<div class="col-md-4 sidebar" id="sidebar">

@@ -66,6 +66,9 @@ h1{
 	font-size: 23px;
 	text-transform: uppercase;
 }
+.primary-font{
+	font-family: 'Raleway', sans-serif;
+}
 h1.project-title{
 	font-size: 23px;
 	font-family: 'Raleway', sans-serif;
@@ -995,4 +998,21 @@ ul.social-login li a{
 	float: left;
 	text-align: center;
 	width: 100%;
+}
+.pdate, .ptag{
+	font-size: 13px;
+}
+.pexcerpt img{
+	padding: 5px 0 10px 0;
+}
+.ptag ul.inline li{
+
+}
+.ptitle{
+	text-transform: uppercase;
+}
+.ptag ul.inline li a{
+	font-size: 13px;
+	padding: 2px 5px;
+	background-color: #efefef;
 }
