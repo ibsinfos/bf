@@ -8,11 +8,11 @@
 	<div class="container site-content-contain">
 		<div class="row site-content" id="content" >
 			<div class="col-md-8 detail-project text-justify">
+				<h1><?php the_title();?></h1>
 				<?php
 				// The Query
 				$args = array('post_type' => 'post');
 				$the_query = new WP_Query( $args );
-
 				// The Loop
 				if ( $the_query->have_posts() ) {
 
@@ -20,7 +20,6 @@
 						$the_query->the_post();
 						get_template_part( 'template-parts/post', 'loop' );
 					}
-
 					/* Restore original Post Data */
 					wp_reset_postdata();
 				} else {
