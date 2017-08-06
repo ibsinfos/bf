@@ -526,6 +526,13 @@ select:active, select:hover {
 .sidebar ul li{
 	list-style: none;
 }
+.sidebar ul.list-category{
+	padding-left: 16px;
+}
+.sidebar ul.list-category li{
+	list-style: square;
+	color: #5cb85c;
+}
 div.irs-max,
 div.irs-min {
 	display: none !important;

@@ -29,8 +29,9 @@ if ( is_user_logged_in() ) {
 
 $terms = get_the_terms( $project, 'project_cat' );
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-	echo '<ul>';
-	echo '<h3>'.__('Categories','boxtheme').'</h3>';
+	echo '<h3 class="sb-heading">'.__('Categories','boxtheme').'</h3>';
+	echo '<ul class="list-category">';
+
 	foreach ( $terms as $term ) {
 	  echo '<li><a href="' . get_term_link($term).'">' . $term->name . '</a></li>';
 	}
