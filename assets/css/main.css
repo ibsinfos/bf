@@ -170,6 +170,7 @@ a.logo img{
 
 .main-navigation ul.sub-menu li{
 	display: block;
+	padding-right: 0;
 }
 .header nav ul li a{
 	padding: 17px 3px;
@@ -187,6 +188,9 @@ a.logo img{
 .header nav ul li a:hover{
 	border-bottom: 2px solid #5cb85c;
 }
+.header nav ul.sub-menu li a:hover{
+	border-bottom: 2px solid transparent;
+}
 .header nav ul.sub-menu li a{
 	line-height: 25px;
 	padding: 5px 0;
@@ -200,7 +204,7 @@ a.logo img{
 .header nav ul.sub-menu{
 	display: none;
 	background-color: #eee;
-	padding: 0;
+	padding: 5px 0 0 0px;
 	position: absolute;
 	visibility:visible;
 	z-index: 100;
@@ -208,6 +212,8 @@ a.logo img{
 }
 .header nav ul.sub-menu li{
 	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding-left: 10px;
 }
 .header nav ul.menu li.menu-item-has-children:hover ul.sub-menu {
 	display: block;
