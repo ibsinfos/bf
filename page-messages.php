@@ -7,20 +7,46 @@
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<?php
+				global $user_ID;
 	    		$sql = "SELECT *
-						FROM  {$wpdb->prefix}box_messages msg
-						WHERE ( sender_id = {$user_ID} OR receiver_id = {$user_ID} )
-							AND msg_type = 'message' GROUP BY cvs_id ORDER BY msg.msg_date DESC";
+						FROM  {$wpdb->prefix}box_conversations cv
+						INNER JOIN {$wpdb->prefix}box_messages  msg
+						ON  cv.ID = msg.cvs_id
+						WHERE  ( msg.sender_id = {$user_ID} OR msg.receiver_id = {$user_ID} )
+						GROUP BY cv.ID ORDER BY msg.msg_date DESC";
+
 
 				$conversations = $wpdb->get_results($sql); // list conversations
 				if($conversations) {
 					echo '<ul class="none-style" id="list_converstaion">';
 					echo '<h2>'.__('List Conversation','boxtheme').'</h2>';
-					foreach ($conversations as $conv) {
 
-						echo '<li><a href="#" class="render-conv" id="'.$conv->cvs_id.'">'.$conv->msg_content.'</a> <span>('.$conv->msg_unread.')</span></li>';
+					foreach ($conversations as $cv) {
+						$user = array();
+						if($cv->sender_id == $user_ID){
+							$user = get_userdata($cv->receiver_id);
+						} else {
+							$user = get_userdata($cv->sender_id);
+						}
+						$project = get_post($cv->project_id);
+						if($user && $project){
+							echo '<li class="cv-item">';
+							echo '<div class="cv-left">';
+								echo get_avatar($user->ID);
+							echo '</div>';
+							echo '<div class="cv-right">';
+								$date=date_create($cv->msg_date);
+								echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
+								echo '<a href="#" class="render-conv" id="'.$cv->cvs_id.'">'.$user->display_name.'</a> <span>('.$cv->msg_unread.')</span>';
+								if($project)
+									echo '<p><small>'.$project->post_title.'</small></p>';
+
+							echo '</div>';
+							echo '</li>';
+
+						}
 					}
 					echo '</ul>';
 				} else {
@@ -45,10 +71,8 @@
 						foreach ($msgs as $key => $msg) {
 							$user_label = 'You:';
 							$user_label = ($user_ID == $msg->sender_id) ? 'You: ':'Partner: ';
-
 							echo '<div class="msg-record msg-item"><div class="col-md-2">'.$user_label.'</div> <div class="col-md-10">'.$msg->msg_content.'</div></div>';
 						}
-
 					}
 					?>
 				</div>
@@ -71,9 +95,36 @@
 		padding-left: 15px;
 		overflow-x: hidden;
 		overflow-y: scroll;
-		border:1px solid #ccc;
-	}
+		border:1px solid #f1f1f1;
 
+	}
+	.cv-item{
+		clear: both;
+		display: block;
+		width: 100%;
+		float: left;
+		padding-bottom: 5px;
+		border-bottom: 1px solid #f1f1f1;
+		margin-bottom: 5px;
+		position: relative;
+	}
+	.cv-item img{
+		max-width: 55px;
+		height: auto;
+		vertical-align: top;
+	}
+	.cv-left{
+		width: 25%;
+		float: left;
+	}
+	.cv-right{
+		width: 75%;
+		float: left;
+	}
+	.mdate{
+		position: absolute; top:0;
+		right: 10px;
+	}
 </style>
 <?php get_footer();?>
 

@@ -18,7 +18,7 @@ Class Box_Google{
 
 	function enqueue_google_script(){
 		if( is_page_template('page-login.php' ) || is_page_template('page-signup.php' ) ){
-			if( $this->$is_active) { ?>
+			if( $this->is_active) { ?>
 				<script src="https://apis.google.com/js/platform.js" async defer></script>
 				<script type="text/javascript">
 					function onSignIn(googleUser) {
