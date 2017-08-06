@@ -125,6 +125,10 @@
 		position: absolute; top:0;
 		right: 10px;
 	}
+	.msg-record{
+		width: 100%;
+		clear: both;
+	}
 </style>
 <?php get_footer();?>
 
