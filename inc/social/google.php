@@ -15,15 +15,10 @@ Class Box_Google{
 
 		add_action( 'wp_head', array($this, 'enqueue_google_script') );
 	}
-	static function get_instance(){
-		if (null === static::$instance) {
-        	static::$instance = new static();
-    	}
-    	return static::$instance;
-	}
+
 	function enqueue_google_script(){
 		if( is_page_template('page-login.php' ) || is_page_template('page-signup.php' ) ){
-			if( $this->is_active ) { ?>
+			if( $this->$is_active) { ?>
 				<script src="https://apis.google.com/js/platform.js" async defer></script>
 				<script type="text/javascript">
 					function onSignIn(googleUser) {

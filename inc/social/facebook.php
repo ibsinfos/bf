@@ -18,13 +18,8 @@ class BX_Facebook{
 		$this->app_id = $facebook->app_id;
 		add_action( 'wp_head', array($this, 'add_fb_script') );
 	}
-	static function get_instance(){
-		if (null === static::$instance) {
-        	static::$instance = new static();
-    	}
-    	return static::$instance;
-	}
-	public static function add_fb_script(){
+
+	public  function add_fb_script(){
 		if( $this->is_active) {
 			if( is_page_template('page-login.php' ) || is_page_template('page-signup.php' ) ){ ?>
 				<div id="fb-root"></div>
