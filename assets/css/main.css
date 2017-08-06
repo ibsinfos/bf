@@ -189,10 +189,12 @@ a.logo img{
 }
 .header nav ul.sub-menu li a{
 	line-height: 25px;
+	padding: 5px 0;
 }
 .main-navigation ul.menu li{
 	display: inline-block;
 	padding-right: 20px;
+	float: left;
 
 }
 .header nav ul.sub-menu{
@@ -204,8 +206,14 @@ a.logo img{
 	z-index: 100;
 	width: 200px;
 }
+.header nav ul.sub-menu li{
+	width: 100%;
+}
+.header nav ul.menu li.menu-item-has-children:hover ul.sub-menu {
+	display: block;
+}
 .header nav ul.menu li.menu-item-has-children{
-	position: relative;
+	position1: relative;
 }
 
 .header nav button {
