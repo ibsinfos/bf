@@ -272,27 +272,30 @@ function boxtheme_widgets_init() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+		)
+	);
 
 	register_sidebar( array(
-		'name'          => __( 'Footer 1', 'boxtheme' ),
-		'id'            => 'sidebar-2',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'boxtheme' ),
+		'name'          => __( 'Blog', 'boxtheme' ),
+		'id'            => 'blog',
+		'description'   => __( 'Add widgets here to appear in Blog page.', 'boxtheme' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+		)
+	);
+	$args = array(
+		'name'          => __('Footer %d'),
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</li>',
+		'before_title'  => '<h2 class="widgettitle">',
+		'after_title'   => '</h2>'
+	);
 
-	register_sidebar( array(
-		'name'          => __( 'Footer 2', 'boxtheme' ),
-		'id'            => 'sidebar-3',
-		'description'   => __( 'Add widgets here to appear in your footer.', 'boxtheme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebars(4, $args);
 }
 add_action( 'widgets_init', 'boxtheme_widgets_init' );
 

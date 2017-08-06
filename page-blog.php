@@ -28,7 +28,7 @@
 				?>
 			</div>
 			<div class="col-md-4 sidebar" id="sidebar">
-				<?php get_sidebar('main_sidebar');?>
+				<?php get_sidebar('blog');?>
 			</div>
 		</div>
 	</div>
