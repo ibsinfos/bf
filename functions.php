@@ -265,8 +265,8 @@ add_filter( 'wp_resource_hints', 'boxtheme_resource_hints', 10, 2 );
  */
 function boxtheme_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'boxtheme' ),
-		'id'            => 'sidebar-1',
+		'name'          => __( 'Main sidebar', 'boxtheme' ),
+		'id'            => 'main_sidebar',
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'boxtheme' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
