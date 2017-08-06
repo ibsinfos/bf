@@ -72,12 +72,9 @@ h1.project-title{
 }
 img{
 	max-width: 100%;
+	height: auto;
 }
 
-.container{
-
-	background-clip1: content-box;
-}
 .header .container{
 	border-left:1px solid #fafafa;
 	border-right:1px solid #fafafa;
