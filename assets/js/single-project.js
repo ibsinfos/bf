@@ -129,7 +129,11 @@ var single_project = {
 		var success = function(res){
 			var content = '<div id="container_msg">';
 			$.each( res.data, function( key, msg ) {
-				content = content + msg.msg_content + '<br />';
+				var user_name = 'Freelancer:';
+				if(msg.sender_id == gproject.post_author){
+					user_name = 'You:';
+				}
+				content = content + '<div class="full"><label class="mauthor">'+ user_name + "</label>" + msg.msg_content + '</div>';
 			});
 			content = content + '</div>';
 
