@@ -18,7 +18,7 @@
             <div class="m-lg-bottom hidden-xs">&nbsp;</div>
             <div class="p-md-bottom visible-xs">&nbsp;</div>
 
-            <div class="col-md-12 text-center">
+            <div class=" col-md-offset-2 col-md-8 text-center">
                 <div class="col-md-5">
                     <div class="text-muted">
                         <div><i class="glyphicon-xlg air-icon-client"></i></div>
