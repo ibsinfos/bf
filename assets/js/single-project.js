@@ -17,6 +17,7 @@ var single_project = {
 		 project_id: this.project.ID;
 
 		$( '#bid_form' ).on( 'submit', this.submitBid );
+		$(".btn-cancel-bid").on('click',this.cancelBid);
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
 		$( ".input-price").on('change keyup', this.generatePrice);
@@ -33,7 +34,6 @@ var single_project = {
 		$( "form#frm_emp_review").on('submit', this.reviewFreelancer);
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
 		$(".btn-close").on('click',this.closeFrame);
-
 
 		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
 		if($("#container_msg").length) {
@@ -110,6 +110,9 @@ var single_project = {
 		window.ajaxSend.Form(event, action, method, successRes);
 		return false;
 
+	},
+	cancelBid: function(){
+		return false;
 	},
 	toggleBidForm: function(event){
 
