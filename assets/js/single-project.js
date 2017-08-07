@@ -112,6 +112,16 @@ var single_project = {
 
 	},
 	cancelBid: function(){
+		var _this = $(event.currentTarget);
+		var bid_id = _this.attr('rel');
+		var data = {action:'sync_bid', ID:bid_id, method:'delete'};
+
+		var success = function(res){
+			console.log(res);
+			window.location.reload(true);
+		}
+
+		window.ajaxSend.Custom(data,  success);
 		return false;
 	},
 	toggleBidForm: function(event){

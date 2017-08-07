@@ -37,10 +37,10 @@
 								echo get_avatar($user->ID);
 							echo '</div>';
 							echo '<div class="cv-right">';
-								$date=date_create($cv->date_modify);
+								$date = date_create( $cv->date_modify );
 								echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
 								echo '<a href="#" class="render-conv" id="'.$cv->cvs_id.'">'.$user->display_name.'</a> <span>('.$cv->msg_unread.')</span>';
-								if($project)
+								if( $project )
 									echo '<p><small>'.$project->post_title.'</small></p>';
 
 							echo '</div>';

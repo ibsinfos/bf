@@ -12,7 +12,10 @@ if ( is_user_logged_in() ) {
 		if( ! $bidding){
 			get_template_part( 'template-parts/project/bid', 'form' ); //bid_form include bid-form.php file
 		} else {
-			echo '<div class="full"><button class="btn btn-cancel-bid">'.__('Cancel','boxtheme').' &nbsp;  <span class="glyphicon "></span></button></div>';
+			// echo '<pre>';
+			// var_dump($bidding->ID);
+			// echo '</pre>';
+			echo '<div class="full"><button class="btn btn-cancel-bid" rel="'.$bidding->ID.'">'.__('Cancel','boxtheme').' &nbsp;  <span class="glyphicon "></span></button></div>';
 			// show button cancel here.
 		}
 
