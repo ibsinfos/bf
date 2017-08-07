@@ -103,6 +103,9 @@ class BX_Message{
 				'receiver_id' => $receiver_id
 			)
 		);
+		// update modify time of this conversiaion.
+		$sql = "UPDATE {$wpdb->prefix}box_conversations SET `date_modify` = '".current_time('mysql')."'  WHERE  `ID` = {$cvs_id} ";
+		$wpdb->query( $sql );
 
 		return $wpdb->insert_id;
 	}

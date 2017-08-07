@@ -15,7 +15,7 @@
 						INNER JOIN {$wpdb->prefix}box_messages  msg
 						ON  cv.ID = msg.cvs_id
 						WHERE  ( msg.sender_id = {$user_ID} OR msg.receiver_id = {$user_ID} )
-						GROUP BY msg.cvs_id ORDER BY msg.msg_date DESC";
+						GROUP BY msg.cvs_id ORDER BY cv.date_modify DESC";
 
 
 				$conversations = $wpdb->get_results($sql); // list conversations
