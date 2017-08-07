@@ -52,7 +52,6 @@ class BX_Install{
 			  	project_id  bigint(20) NOT NULL,
 			  	receiver_id  bigint(20) NOT NULL,
 			  	cvs_content longtext NOT NULL,
-			  	cvs_date datetime NULL default null,
 			 	cvs_status char(15) NOT NULL,
 			 	msg_unread char(15) NOT NULL,
 			 	date_created datetime NULL default null,

@@ -29,7 +29,8 @@ class BX_Conversations{
 				'cvs_content'	=> $args['cvs_content'],
 				'cvs_status' => 1,
 				'msg_unread' => 'new',
-				'cvs_date' => current_time('mysql'),
+				'date_created' => current_time('mysql'),
+				'date_modify' => current_time('mysql'),
 			)
 		);
 		$msg_arg = array(
