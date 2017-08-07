@@ -1010,6 +1010,7 @@ ul.social-login li a{
 }
 .ptitle{
 	text-transform: uppercase;
+	font-weight: bold;
 }
 .ptag ul.inline li a{
 	font-size: 13px;

@@ -121,7 +121,7 @@ var single_project = {
 			window.location.reload(true);
 		}
 
-		window.ajaxSend.Custom(data,  success);
+		window.ajaxSend.Custom( data, success);
 		return false;
 	},
 	toggleBidForm: function(event){
