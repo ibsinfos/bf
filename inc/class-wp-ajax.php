@@ -216,6 +216,8 @@ class BX_AJAX {
 		$bid 		= BX_Bid::get_instance();
 		$bid_id 	= $bid->sync( $method, $data);
 
+		$response = array( 'success' => false,'msg' => __('You have bid successfully','boxtheme' ) );
+
 		if( is_wp_error( $bid_id )){
 			$response = array('success' => false,'msg' => $bid_id->get_error_message() );
 
