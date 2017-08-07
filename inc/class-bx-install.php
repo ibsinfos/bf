@@ -25,21 +25,10 @@ class BX_Install{
 
 	private static function get_schema() {
 		global $wpdb;
-
 		$collate = '';
-
 		if ( $wpdb->has_cap( 'collation' ) ) {
 			$collate = $wpdb->get_charset_collate();
 		}
-
-		/*
-		 * Indexes have a maximum size of 767 bytes. Historically, we haven't need to be concerned about that.
-		 * As of WordPress 4.2, however, we moved to utf8mb4, which uses 4 bytes per character. This means that an index which
-		 * used to have room for floor(767/3) = 255 characters, now only has room for floor(767/4) = 191 characters.
-		 *
-		 * This may cause duplicate index notices in logs due to https://core.trac.wordpress.org/ticket/34870 but dropping
-		 * indexes first causes too much load on some servers/larger DB.
-		 */
 		$max_index_length = 191;
 
 		$tables = "
@@ -66,6 +55,8 @@ class BX_Install{
 			  	cvs_date datetime NULL default null,
 			 	cvs_status char(15) NOT NULL,
 			 	msg_unread char(15) NOT NULL,
+			 	date_created datetime NULL default null,
+			 	date_modify datetime NULL default null,
 			  	PRIMARY KEY  (ID),
 			  	UNIQUE KEY ID (ID)
 			) $collate;";
