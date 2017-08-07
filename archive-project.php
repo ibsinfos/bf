@@ -1,20 +1,7 @@
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
+ * @key:archive-project.php
  */
-
 get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
@@ -22,7 +9,6 @@ get_header(); ?>
 			<div class="col-md-3 sidebar sidebar-search" id="sidebar">
 				<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
 			</div>
-
 			<div class="col-md-9 " >
 				<div class="col-md-12" id="search_line">
 					<form action="" class="navbar-form full frm-search" >
@@ -38,24 +24,19 @@ get_header(); ?>
 					<div class="full" id="count_results">
 						<h5> &nbsp;<?php printf( __('%s job(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
 					</div>
-
 				</div>
 
 				<div class="list-project" id="ajax_result">
 				<?php
 					global $wp_query;
-					//var_dump('<pre>');
-					//var_dump($wp_query->found_posts);
-					//echo '</pre>';
-					wp_reset_query();
 					if( have_posts() ):
-
 						while( have_posts() ):
 							the_post();
 							get_template_part( 'template-parts/project/project', 'loop' );
 						endwhile;
 						bx_pagenate();
 					endif;
+					wp_reset_query();
 				?>
 				</div>
 			</div>
