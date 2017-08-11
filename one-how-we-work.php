@@ -1,6 +1,10 @@
-<div class="full-width">
+<div class="full-width how-us-work">
 	<div class="container">
+
 		<div class="row">
+			<header class="organism__header ">
+		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Why PayPal for your business?</h2></header>
+
 			<div class="col-md-3">
 				<div class="full center">
 					<img src="<?php echo get_stylesheet_directory_uri();?>/img/post-a-job.png">

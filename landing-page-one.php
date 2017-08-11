@@ -90,144 +90,13 @@ get_header(); ?>
 </div>
 <?php do_action('after_cover_img' );?>
 <?php get_template_part( 'one-how-we-work' );?>
-<div class="full-width top-profile">
-	<div class=" container site-container">
-		<div class="row">
-		<div class="col-md-12">
-			<h2> Looking for Professional Freelancers?</h2>
-		</div>
-		<?php
-		$profile_query = new WP_Query( array (
-			'post_type' => PROFILE,
-			'post_status' => 'publish',
-			'orderby'   => 'meta_value_num',
-			'meta_key'  => RATING_SCORE,
-			'order'     => 'DESC',
-			'orderby'    => 'meta_value_num',
-			'order'      => 'DESC',
-
-			'showposts' => 6
-			)
-		);
-		if( $profile_query->have_posts() ){
-			while( $profile_query->have_posts() ){
-				global $post;
-				$profile_query->the_post();
-				$rating = get_post_meta($post->ID,RATING_SCORE, true);
-				get_template_part( 'template-parts/profile/profile', 'loop' );
-			}
-		}
-		?>
-
-	</div>
-	</div> <!-- .row !-->
-</div>
-<section class="panels theme-background-color-blue left-aligned panels_1 accordion why-paypal">
-	<div class="container">
-		<div class="row">
-		<header class="organism__header ">
-		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Why PayPal for your business?</h2></header>
-		<div class="col-lg-12 panels__panel__row">
-			<div class="panels__panel panels__panel-0 col-lg-4  col-sm-12 col-md-4" data-idx="0">
-				<div class="panels__panel__image-area"></div>
-				<div class="panels__panel__icon-head-area"><img class="panels__panel__image" src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/au/icons/wherever-you-do-business-icon.png" alt="Wherever you do business "><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Wherever you do business </h3><span class="panels__panel__arrow arrow-indicator"></span></div><div class="panels__panel__text-hatch-area"><div class="panels__panel__paragraph" style="height: 88px;">Online, on mobile, in person or by email; PayPal’s merchant services make it easier for you to get paid anywhere you do business.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="https://www.paypal.com/au/webapps/mpp/business-solutions">Payment solutions</a></p></div>
-			</div>
-			<div class="panels__panel panels__panel-1 col-lg-4  col-sm-12 col-md-4" data-idx="1">
-				<div class="panels__panel__image-area"></div>
-				<div class="panels__panel__icon-head-area">
-				<img class="panels__panel__image" src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/au/icons/AU-icon-dollarcoin-white.png" alt="Straightforward pricing"><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Straightforward pricing</h3><span class="panels__panel__arrow arrow-indicator"></span></div><div class="panels__panel__text-hatch-area"><div class="panels__panel__paragraph" style="height: 88px;">No one likes surprises so we only charge a set rate based on how much you sell. There are no account, set-up or cancellation fees.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="https://www.paypal.com/au/webapps/mpp/paypal-seller-fees">Business fees</a></p></div>
-			</div>
-
-			<div class="panels__panel panels__panel-2 col-lg-4  col-sm-12 col-md-4" data-idx="2">
-				<div class="panels__panel__image-area"></div>
-				<div class="panels__panel__icon-head-area">
-					<img class="panels__panel__image" src="https://www.paypalobjects.com/digitalassets/c/website/marketing/apac/au/icons/safer-icon.png" alt="Business security"><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Business security</h3><span class="panels__panel__arrow arrow-indicator"></span>
-				</div>
-				<div class="panels__panel__text-hatch-area">
-					<div class="panels__panel__paragraph" style="height: 88px;">We monitor transactions for fraud in real time to help keep your business safer, and we protect your eligible sales with Seller Protection.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="https://www.paypal.com/au/webapps/mpp/seller-security">Business security</a></p>
-				</div>
-			</div>
-
-			</div>
-		</div>
-	</div>
-</section>
+<?php get_template_part( 'one-stats' );?>
+<?php get_template_part( 'one-package-plan' );?>
+<?php get_template_part( 'one-why-us' );?>
+<?php get_template_part( 'one-stats' );?>
 
 
-<div class="full-width packge-plan">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="pricing-table-plan">
-					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Free</span>
-					</header>
 
-		    		<div class="plan-features">
-		    		<span class="plan-monthly">	$0</span>
-		    		Just register 1 new account and you can:
-		    			-Free post 5 project on this system.
-		    			-Auto subcriber on system.
-
-					</div>
-		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
-
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="pricing-table-plan">
-					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Premium</span>
-					</header>
-
-		    		<div class="plan-features">
-		    		<span class="plan-monthly">
-		    			$30
-		    		</span>
-		    		to buy 30 credit and you can both 20 job on this system.
-					</div>
-		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
-
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="pricing-table-plan">
-					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Standard</span>
-					</header>
-
-		    		<div class="plan-features">
-		    		<span class="plan-monthly">
-		    			$20
-		    		</span>
-		    			to buy 30 credit and you can both 20 job on this system.
-					</div>
-		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
-
-				</div>
-			</div>
-
-		</div> <!-- end row !-->
-	</div>
-</div>
-
-
-<section class="pullout theme-background-color-dark "><div class="container"><div class="row"><header class="organism__header ">
-<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Get paid fast from buyers around the world.</h2>
-<p class="organism__header__paragraph ">PayPal helps you build a global business. </p></header>
-<div class="col-xs-12 col-md-10 center-block text-xs-center">
-	<i class="mpp-data-point text-xs-center mpp-data-point-0">
-	<span class="text"><span class="stats-text">
-		<?php
-		$count_posts = wp_count_posts(PROJECT);
-		echo $count_posts->publish;
-		?>
-		</span><span class="description-text">Projects posted</span></span>
-	</i>
-<i class="mpp-data-point text-xs-center mpp-data-point-1"><span class="text"><span class="stats-text">6M </span><span class="description-text">Australian buyers</span></span></i>
-<i class="mpp-data-point text-xs-center mpp-data-point-2"><span class="text"><span class="stats-text">110K </span><span class="description-text">Australian businesses</span></span></i>
-<i class="mpp-data-point text-xs-center mpp-data-point-3"><span class="text"><span class="stats-text">25</span><span class="description-text">Currencies </span></span></i>
-</div></div></div></section>
 
 <style type="text/css">
 
@@ -483,6 +352,12 @@ get_header(); ?>
 	.small, small{
 		font-size: 100%;
 	}
+}
+.how-us-work{
+	padding: 50px 0;
+}
+.how-us-work .col-md-3 .full{
+	padding: 0 15px;
 }
 </style>
 
