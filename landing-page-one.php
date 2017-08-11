@@ -28,7 +28,7 @@ function box_after_cover_img(){
 get_header(); ?>
 <style type="text/css">
 	.cover-img{
-		background:url('http://localhost/wp/fb/wp-content/themes/boxfreelance/img/banner.jpg') top center no-repeat;
+		background:url('<?php echo get_stylesheet_directory_uri();?>/img/banner.jpg') top center no-repeat;
 	    background-size: cover;
 	    height: 650px;
 	}
