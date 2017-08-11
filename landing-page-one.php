@@ -32,7 +32,7 @@ get_header(); ?>
 	    background-size: cover;
 	}
 	.cover-img, .opacity{
-		height: 650px;
+		height: 588px;
 	}
 	.opacity{
 		opacity: 0.8;
