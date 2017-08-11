@@ -45,6 +45,7 @@ $role = bx_get_user_role();
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php do_action('before_header_menu' );?>
 <div class="row-nav full-width header" id="full_header">
 	<div class="container">
 		<div class="row">

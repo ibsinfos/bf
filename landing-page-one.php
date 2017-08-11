@@ -17,10 +17,32 @@
  * @since 1.0
  * @version 1.0
  */
-
+add_action('before_header_menu','box_add_div' );
+function box_add_div(){
+	echo '<div class="full cover-img">';
+}
+add_action('after_cover_img','box_after_cover_img' );
+function box_after_cover_img(){
+	echo '</div>';
+}
 get_header(); ?>
-
-<div class="full-width main-banner">
+<style type="text/css">
+	.cover-img{
+		background:url('http://localhost/wp/fb/wp-content/themes/boxfreelance/img/banner.jpg') top center no-repeat;
+	    background-size: cover;
+	    height: 650px;
+	}
+	.cover-img .header{
+		background-color: transparent;
+	}
+	.cover-img .header .container{
+		border:none;
+	}
+	.cover-img .header nav ul li a{
+		color: #fff;
+	}
+</style>
+<div class="full-width">
 	<div class="container">
 		<div class="heading-aligner">
 	        <h1>#JOIN OUR FREELANCE COMMUNITY</h1>
@@ -39,6 +61,7 @@ get_header(); ?>
 	    </div>
 	</div>
 </div>
+<?php do_action('after_cover_img' );?>
 <div class="full-width top-profile">
 	<div class=" container site-container">
 		<div class="row">
