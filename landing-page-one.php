@@ -90,13 +90,9 @@ get_header(); ?>
 </div>
 <?php do_action('after_cover_img' );?>
 <?php get_template_part( 'one-how-we-work' );?>
-<?php get_template_part( 'one-stats' );?>
-<?php get_template_part( 'one-package-plan' );?>
 <?php get_template_part( 'one-why-us' );?>
+<?php get_template_part( 'one-package-plan' );?>
 <?php get_template_part( 'one-stats' );?>
-
-
-
 
 <style type="text/css">
 
@@ -170,13 +166,13 @@ get_header(); ?>
     color: #fff;
 }
 .pullout .mpp-data-point {
-    margin: 10px 20px;
+    margin: 10px 50px;
 }
 .mpp-data-point {
     font-style: normal;
     display: inline-block;
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     border: 0;
     box-shadow: 0 0 0 1px #2c2e2f, 0 0 0 1px #2c2e2f;
     color: #2c2e2f;
@@ -201,8 +197,8 @@ get_header(); ?>
 .mpp-data-point .text {
     display: table-cell;
     vertical-align: middle;
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     padding: 10px;
 }
 .text-xs-center {
