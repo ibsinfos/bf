@@ -89,6 +89,7 @@ get_header(); ?>
 	</div>
 </div>
 <?php do_action('after_cover_img' );?>
+<?php get_template_part( 'one-how-we-work' );?>
 <div class="full-width top-profile">
 	<div class=" container site-container">
 		<div class="row">
