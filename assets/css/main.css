@@ -103,10 +103,7 @@ footer .container{
 	background: url('../../img/loading.gif') no-repeat center;
 	opacity: 0.1;
 }
-.main-color{
-	background-color: #5cb85c;
-	color: #fff;
-}
+
 .bg-color{
 	background-color: #5cb85c;
 }
@@ -114,7 +111,13 @@ footer .container{
 	border-color: #5cb85c;
 }
 .text-color, .text-color:hover{
+
+}
+.primary-color, .main-color{
 	color: #5cb85c;
+}
+.btn-primary-bg,  .btn, .btn-action, button.btn-action{
+	background-color: #5cb85c;
 }
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#5cb85c}
 .btn{
@@ -130,9 +133,16 @@ footer .container{
 .btn.btn-radius:hover, .btn-radius:hover{
 	color: #fff;
 }
+.btn-biggest,.btn.btn-biggest{
+    min-width: 379px;
+    border-radius: 25px;
+    padding: 10px 81px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
 .btn-action,
 button.btn-action{
-	background-color: #5cb85c;
 	color: #fff;
 	font-size: 16px;
 	padding: 10px 20px;

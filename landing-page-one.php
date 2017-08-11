@@ -78,12 +78,12 @@ get_header(); ?>
 	        </p>
 	        <!-- CREATE PRODILE BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="" class="btn review-btn btn-action">
+	            <a href="" class="btn btn-action btn-primary-bg btn-biggest">
 	                Create a Profile            </a>
 	        </div>
 	        <!-- POST A PROJECT BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="<?php echo home_url("submit-project");?>" class="btn   review-btn find-btn btn-action">Post a Project</a>
+	            <a href="<?php echo home_url("submit-project");?>" class="btn  find-btn btn-action btn-biggest">Post a Project</a>
 	        </div>
 	    </div>
 	</div>
