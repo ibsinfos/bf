@@ -56,7 +56,8 @@ get_header(); ?>
 	}
 	.cover-img ul.main-login .btn-login{
 		background-color: transparent;
-		border:1px solid #ccc;
+		border:none;
+		box-shadow: 0 0 0 1px #fff, 0 0 0 1px #fff;
 		color: #fff;
 	}
 	body.fixed .cover-img ul.main-login .btn-login{
