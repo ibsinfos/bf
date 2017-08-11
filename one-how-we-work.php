@@ -3,7 +3,7 @@
 
 		<div class="row">
 			<header class="organism__header ">
-		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Why PayPal for your business?</h2></header>
+		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">How Us Work?</h2></header>
 
 			<div class="col-md-3">
 				<div class="full center">

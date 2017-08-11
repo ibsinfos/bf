@@ -177,7 +177,6 @@ get_header(); ?>
     box-shadow: 0 0 0 1px #2c2e2f, 0 0 0 1px #2c2e2f;
     color: #2c2e2f;
     border-radius: 50%;
-    overflow: hidden;
 }
 .center-block {
     display: block;
@@ -187,12 +186,14 @@ get_header(); ?>
 }
 .mpp-data-point .stats-text {
     display: block;
-    font-size: 30px;
+    font-size: 39px;
     font-family: pp-sans-big-light,Helvetica Neue,Arial,sans-serif;
 }
 .mpp-data-point .description-text {
-    font-size: 14px;
-    font-family: pp-sans-small-light,Helvetica Neue,Arial,sans-serif;
+    font-size: 15px;
+    font-family1: pp-sans-small-light,Helvetica Neue,Arial,sans-serif;
+    position: relative;
+    top:20px;
 }
 .mpp-data-point .text {
     display: table-cell;

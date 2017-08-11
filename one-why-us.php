@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 		<header class="organism__header ">
-		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Why PayPal for your business?</h2></header>
+		<h2 class="pypl-heading pp-sans-big-light organism__header__headline ">Why use  WP Freelance theme for your business?</h2></header>
 		<div class="col-lg-12 panels__panel__row">
 			<div class="panels__panel panels__panel-0 col-lg-4  col-sm-12 col-md-4" data-idx="0">
 				<div class="panels__panel__image-area"></div>
