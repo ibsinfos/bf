@@ -8,7 +8,7 @@
 	.main-login li.mobile-only{
 		display: none;
 	}
-	.header.fixed{
+	body.fixed .header, .header.fixed{
 		position: fixed;
 		background-color: #fff;
 		z-index: 13;

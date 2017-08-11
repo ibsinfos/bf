@@ -48,9 +48,9 @@
 			$(window).scroll(function() {
 		    var height = $(window).scrollTop();
 		    if(height  > 0) {
-		    	$("#full_header").addClass('fixed');
+		    	$("body").addClass('fixed');
 		    } else {
-		    	$("#full_header").removeClass('fixed');
+		    	$("body").removeClass('fixed');
 		    }
 		});
 

@@ -38,8 +38,26 @@ get_header(); ?>
 	.cover-img .header .container{
 		border:none;
 	}
+	body.fixed .cover-img .header .container{
+		background-color: #fff;
+	}
 	.cover-img .header nav ul li a{
 		color: #fff;
+	}
+	body.fixed .cover-img .header nav ul li a{
+		color: #000;
+	}
+	.cover-img ul.main-login .btn-login{
+		background-color: transparent;
+		border:1px solid #ccc;
+		color: #fff;
+	}
+	body.fixed .cover-img ul.main-login .btn-login{
+		color: #333;
+    	background-color: #ddd;
+	}
+	body.fixed .cover-img .header{
+		background-color: #fff;
 	}
 </style>
 <div class="full-width">
