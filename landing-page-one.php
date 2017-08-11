@@ -19,7 +19,7 @@
  */
 add_action('before_header_menu','box_add_div' );
 function box_add_div(){
-	echo '<div class="full cover-img">';
+	echo '<div class="full cover-img"><div class="full opacity"></div>';
 }
 add_action('after_cover_img','box_after_cover_img' );
 function box_after_cover_img(){
@@ -30,7 +30,14 @@ get_header(); ?>
 	.cover-img{
 		background:url('<?php echo get_stylesheet_directory_uri();?>/img/banner.jpg') top center no-repeat;
 	    background-size: cover;
-	    height: 650px;
+	}
+	.cover-img, .opacity{
+		height: 650px;
+	}
+	.opacity{
+		opacity: 0.8;
+		position: absolute;
+		background-color: rgba(255, 255, 255, 0.18);
 	}
 	.cover-img .header{
 		background-color: transparent;
@@ -59,6 +66,7 @@ get_header(); ?>
 	body.fixed .cover-img .header{
 		background-color: #fff;
 	}
+
 </style>
 <div class="full-width">
 	<div class="container">
