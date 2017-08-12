@@ -68,10 +68,11 @@ get_header(); ?>
 		background-color: #fff;
 	}
 	.cover-content{
-		padding-top: 68px;
+		padding-top: 150px;
 	}
 
 </style>
+<?php global $role;?>
 <div class="full-width cover-content">
 	<div class="container">
 		<div class="heading-aligner">
@@ -81,12 +82,23 @@ get_header(); ?>
 	        </p>
 	        <!-- CREATE PRODILE BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="" class="btn btn-action btn-primary-bg btn-biggest">
-	                Create a Profile            </a>
+	        	<?php if ( !is_user_logged_in() ) { ?>
+	        		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create aprofile','boxtheme');?></a>
+	        	<?php } else { ?>
+		        	<?php if($role == EMPLOYER){?>
+		        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
+		            <?php } else {?>
+		            	<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Job','boxtheme');?></a>
+		            <?php }?>
+		        <?php } ?>
 	        </div>
 	        <!-- POST A PROJECT BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="<?php echo home_url("submit-project");?>" class="btn  find-btn btn-action btn-biggest">Post a Project</a>
+	        	<?php if( is_user_logged_in() ){ ?>
+		        	<?php if($role == EMPLOYER){?>
+		            	<a href="<?php echo home_url("submit-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
+		            <?php } ?>
+	            <?php }?>
 	        </div>
 	    </div>
 	</div>
