@@ -68,8 +68,9 @@
 						</div>
 					</div> <?php
 
-				}
-			}?>
+				}?>
+				<div class="col-md-12 f-right align-right" ><a href="<?php echo get_post_type_archive_link('profile');?>" class="primary-color view-all"> <?php _e('View All Profiles','boxtheme');?><span class=" glyphicon glyphicon-menu-right"></span> </a> </div>
+			<?php }?>
 
 		</div>
 	</div> <!-- .row !-->

@@ -430,6 +430,13 @@ body.home .site-container{
 	padding: 20px 0;
 	box-shadow: 0px 2px 1px 0px #efefef;
 }
+.view-all {
+    margin-top: 20px;
+    float: right;
+    border-bottom: 3px solid #5cb85c;
+    padding: 6px 16px;
+    background: #fff;
+}
 </style>
 
 <?php get_footer();
