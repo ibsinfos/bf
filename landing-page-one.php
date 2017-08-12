@@ -393,18 +393,18 @@ get_header(); ?>
 .professional-title{
 	font-size: 1.1em;
 	margin: 0;
-	padding: 5px 0;
+	padding: 6px 0 10px 0;
 }
 .top-profile .profile-item .hour-rate{
 	font-size: 13px;
 }
 .avatar img{
 	border:1px solid #ccc;
-	width: 108px;
+	width: 110px;
 }
 @media only screen and (min-width: 960px) {
 	.top-profile .left.avatar{
-		width: 108px;
+		width: 110px;
 	}
 	.top-profile .right.col-md-8{
 		width:360px

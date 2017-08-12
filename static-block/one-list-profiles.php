@@ -43,7 +43,7 @@
 
 					<div class="col-md-6 profile-item" >
 						<div class="full box-bg">
-							<div class="left avatar col-md-4 ">
+							<div class="left avatar col-md-4 no-padding-right">
 								<?php echo '<a class="primary-color" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
 								$userdata = get_userdata($post->post_author); ?>
 							</div>
@@ -62,10 +62,10 @@
 									<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span>(10)</span>
 
 								</span>
-								<div class="right col-md-12 list-skill padding-top-10 no-padding-left">
-									<?php echo $skill_html;?>
-								</div>
 							</div>
+							<div class="right col-md-12 list-skill padding-top-10 ">
+									Skills: <?php echo $skill_html;?>
+								</div>
 						</div>
 					</div> <?php
 
