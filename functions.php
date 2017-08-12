@@ -179,34 +179,13 @@ function boxtheme_setup() {
 			),
 		),
 	) );
+	if ( !current_user_can('administrator') && !is_admin() ) {
+  		show_admin_bar(false);
+	}
+
 }
 add_action( 'after_setup_theme', 'boxtheme_setup' );
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function boxtheme_content_width() {
-
-	$content_width = 700;
-
-	if ( is_front_page() ) {
-		$content_width = 1120;
-	}
-
-	/**
-	 * Filter Twenty Seventeen content width of the theme.
-	 *
-	 * @since Twenty Seventeen 1.0
-	 *
-	 * @param $content_width integer
-	 */
-	$GLOBALS['content_width'] = apply_filters( 'boxtheme_content_width', $content_width );
-}
-add_action( 'after_setup_theme', 'boxtheme_content_width', 0 );
 
 /**
  * Register custom fonts.
