@@ -83,7 +83,7 @@ get_header(); ?>
 	        <!-- CREATE PRODILE BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	        	<?php if ( !is_user_logged_in() ) { ?>
-	        		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create aprofile','boxtheme');?></a>
+	        		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create a Profile','boxtheme');?></a>
 	        	<?php } else { ?>
 		        	<?php if($role == EMPLOYER){?>
 		        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
