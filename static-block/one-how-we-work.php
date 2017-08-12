@@ -7,29 +7,29 @@
 
 			<div class="col-md-3">
 				<div class="full center">
-					<img src="<?php echo get_stylesheet_directory_uri();?>/img/post-a-job.png">
-					<h3> POST A JOB</h3>
+					<div class="img_main"><img src="<?php echo get_stylesheet_directory_uri();?>/img/post-a-job.png"></div>
+					<div class="full center"><h3> POST A JOB</h3></div>
 					Post a job to tell us about your project. We'll quickly match you with the right freelancers.
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="full center">
-					<img src="<?php echo get_stylesheet_directory_uri();?>/img/bid-a-job.png">
-					<h3> POST A JOB</h3>
-					Post a job to tell us about your project. We'll quickly match you with the right freelancers.
+					<div class="img_main"><img src="<?php echo get_stylesheet_directory_uri();?>/img/bid-a-job.png"></div>
+					<div class="full center"><h3> POST A JOB</h3></div>
+					<div class="full">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</div>
 				</div>
 			</div>
 			<div class="col-md-3 ">
 				<div class="full center">
-					<img src="<?php echo get_stylesheet_directory_uri();?>/img/done-work.png">
-					<h3> POST A JOB</h3>
+					<div class="img_main"><img src="<?php echo get_stylesheet_directory_uri();?>/img/post-a-job.png"></div>
+					<div class="full center"><h3> POST A JOB</h3></div>
 					Post a job to tell us about your project. We'll quickly match you with the right freelancers.
 				</div>
 			</div>
 			<div class="col-md-3">
 				<div class="full center">
-					<img src="<?php echo get_stylesheet_directory_uri();?>/img/post-a-job.png">
-					<h3> POST A JOB</h3>
+					<div class="img_main"><img src="<?php echo get_stylesheet_directory_uri();?>/img/post-a-job.png"></div>
+					<div class="full center"><h3> POST A JOB</h3></div>
 					Post a job to tell us about your project. We'll quickly match you with the right freelancers.
 				</div>
 			</div>

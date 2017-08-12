@@ -89,10 +89,11 @@ get_header(); ?>
 	</div>
 </div>
 <?php do_action('after_cover_img' );?>
-<?php get_template_part( 'one-how-we-work' );?>
-<?php get_template_part( 'one-why-us' );?>
-<?php get_template_part( 'one-package-plan' );?>
-<?php get_template_part( 'one-stats' );?>
+<?php get_template_part( 'static-block/one', 'how-we-work' );?>
+<?php get_template_part( 'static-block/one', 'why-us' );?>
+<?php get_template_part( 'static-block/one', 'package-plan' );?>
+<?php get_template_part( 'static-block/one', 'list-profiles' );?>
+<?php get_template_part( 'static-block/one', 'stats' );?>
 
 <style type="text/css">
 
@@ -354,7 +355,42 @@ get_header(); ?>
 	padding: 50px 0;
 }
 .how-us-work .col-md-3 .full{
-	padding: 0 15px;
+	padding: 0 6px;
+}
+.how-us-work .col-md-3 h3{
+	border-bottom: 3px solid #ccc;
+	display: inline-block;
+	clear: both;
+	padding: 0 5px;
+}
+.img_main{
+	height: 100px;
+	position: relative;
+}
+.img_main img{
+	vertical-align: bottom;
+}
+.top-profile .profile-item{
+	min-height: 175px;
+	overflow: hidden;
+}
+.profile-title{
+	font-size: 15px;
+	font-weight: 600;
+}
+.professional-title{
+	font-size: 15px;
+	margin: 0;
+	padding: 5px 0;
+}
+.avatar img{
+	border:1px solid #ccc;
+	width: 88px;
+}
+@media only screen and (min-width: 960px) {
+	.top-profile .left.avatar{
+		width: 88px;
+	}
 }
 </style>
 

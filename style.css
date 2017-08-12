@@ -341,6 +341,12 @@ div.no-padding-left{
 body .no-padding{
 	padding: 0;
 }
+.padding-top-10{
+	padding-top: 10px;
+}
+.padding-top-15{
+	padding-top: 15px;
+}
 body .chosen-container-multi .chosen-choices{
 	border: 1px solid #ccc;
 	border-radius: 0px;
