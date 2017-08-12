@@ -9,9 +9,9 @@
 					</header>
 
 		    		<div class="plan-features">
-		    		<span class="plan-monthly primary-color">	$0</span></span>
+		    		<span class="plan-monthly primary-color">$0</span>
 
-		    			<span> Free 20 posts </span>
+		    			<span> Free 10 posts </span>
 			    		<ul>
 			    			<li> Free post 5 project on this system.</li>
 			    			<li> Free post 5 project on this system.</li>
@@ -30,10 +30,13 @@
 					</header>
 
 		    		<div class="plan-features">
-		    		<span class="plan-monthly">
-		    			$30
-		    		</span>
-		    		to buy 30 credit and you can both 20 job on this system.
+		    		<span class="plan-monthly primary-color">$30</span>
+		    		<span> Get 30 posts </span>
+			    		<ul>
+			    			<li> Free post 5 project on this system.</li>
+			    			<li> Free post 5 project on this system.</li>
+			    			<li> Free post 5 project on this system.</li>
+		    			</ul>
 					</div>
 		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
 
@@ -46,10 +49,13 @@
 					</header>
 
 		    		<div class="plan-features">
-		    		<span class="plan-monthly">
-		    			$20
-		    		</span>
-		    			to buy 30 credit and you can both 20 job on this system.
+		    		<span class="plan-monthly primary-color">$50</span>
+		    			<span> Get 50 posts </span>
+			    		<ul>
+			    			<li> Free post 5 project on this system.</li>
+			    			<li> Free post 5 project on this system.</li>
+			    			<li> Free post 5 project on this system.</li>
+		    			</ul>
 					</div>
 		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>
 
