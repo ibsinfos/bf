@@ -321,11 +321,30 @@ ul.main-login .sign-text:active{
 
 }
 li.icon-bell span.toggle-msg{
-	padding: 10px 15px;
+	padding: 10px 10px 0 0;
 	font-size: 16px;
 	cursor: pointer;
 	z-index: 13;
 }
+body.home li.icon-bell span.toggle-msg{
+	color: #fff;
+}
+body.home.fixed li.icon-bell span.toggle-msg{
+	color: #666;
+}
+body.home .account-dropdown li.profile-account a.account-name .username{
+	color: #fff;
+}
+body.home.fixed .account-dropdown li.profile-account a.account-name .username{
+	color: #666;
+}
+body.home .caret{
+	color: #fff;
+}
+body.home.fixed .caret{
+	color: #666;
+}
+
 ul.account-dropdown li.icon-bell  ul{
 	position: absolute;
 	right: 0;
@@ -390,6 +409,9 @@ ul.ul-notification li a{
 ul.account-dropdown li.first-sub{
 	padding-left: 8px;
 }
+ul.account-dropdown li.icon-bell.first-sub{
+	padding-left: 0;
+}
 .account-dropdown img.avatar {
 	width: 30px;
 	height: 30px;
@@ -411,7 +433,7 @@ ul.account-dropdown li.first-sub{
     line-height: 30px;
 }
 .account-dropdown li.profile-account a.account-name .username{
-	max-width: 75px;
+	max-width: 100px;
 	text-overflow: ellipsis;
 	vertical-align: middle;
 	overflow: hidden;
