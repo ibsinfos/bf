@@ -403,17 +403,15 @@ ul.account-dropdown li.first-sub{
 }
 .account-dropdown li.profile-account a.account-name{
 	float: right;
-
     white-space: nowrap;
     word-break: break-all;
     line-height: normal;
     display: inline-block;
-
     height: 30px;
     line-height: 30px;
 }
 .account-dropdown li.profile-account a.account-name .username{
-	max-width: 85px;
+	max-width: 75px;
 	text-overflow: ellipsis;
 	vertical-align: middle;
 	overflow: hidden;

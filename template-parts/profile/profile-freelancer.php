@@ -57,7 +57,7 @@
    }
 
    ?>
-   <div class="full clear">
+   <div class="col-md-12 clear hide">
       <div class="video block">
 
          <span href="#" class="btn btn-edit btn-edit-video">Edit</span>
@@ -90,6 +90,7 @@
          </form>
       </div>
    </div>
+   <div class="col-md-12 clear">
    <form id="update_profile_meta" class="update-profile row-section">
       <span class="btn btn-edit btn-edit-second"> Edit</span>
       <div class="form-group row">
@@ -158,12 +159,14 @@
       </div>
 
    </form>
-<div class="row">
-	<div class="col-md-12 center frame-add-port">
-		<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
-	</div>
 </div>
-<div class="row-section" id="list_portfolio">
+
+
+<div class="col-md-12 center frame-add-port">
+	<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
+</div>
+
+<div class="row-section col-md-12" id="list_portfolio">
 	<!-- portfolio !-->
 
 	<?php
