@@ -43,24 +43,23 @@
 
 					<div class="col-md-4 profile-item" >
 						<div class="left avatar col-md-4 no-padding">
-							<?php echo '<a href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
+							<?php echo '<a class="primary-color" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
 							$userdata = get_userdata($post->post_author); ?>
 						</div>
 						<div class="right col-md-8 no-padding-right">
 							<h3 class="profile-title no-margin">
-								<?php echo '<a href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
+								<?php echo '<a class="primary-color" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 							</h3>
 							<h5 class="professional-title">
 								<?php if( !empty($profile->professional_title) ){ ?>
 									<?php echo $profile->professional_title;?>
 								<?php } ?>
 							</h5>
-							<small class="absolute abs-top abs-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</small>
+							<small class="absolute abs-top abs-right hour-rate ">$<?php echo $profile->hour_rate;?>/hr</small>
 							<span class="padding-top-15"><small>Join since June, 2017 </small></span>
 							<span class="full"><small>
 								<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span>(10)</span>
 								</small>
-
 							</span>
 						</div>
 						<div class="right col-md-12 list-skill padding-top-10 no-padding-left">
