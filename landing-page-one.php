@@ -416,6 +416,13 @@ body.home .site-container{
 .cover-img .header{
 	position: fixed;
 }
+.box-bg{
+	background-color: #fff;
+	overflow: hidden;
+	display: block;
+	padding: 20px 0;
+	box-shadow: 0px 2px 1px 0px #efefef;
+}
 </style>
 
 <?php get_footer();

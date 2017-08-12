@@ -298,6 +298,9 @@ h5,.h5{
 .abs-right{
 	right: 0;
 }
+.abs-right-15{
+	right: 15px;
+}
 body  .f-left{
 	float: left;
 }
