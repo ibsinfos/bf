@@ -451,8 +451,8 @@ body.home .site-container{
 .view-all {
     margin-top: 20px;
     float: right;
-    border-bottom: 3px solid #5cb85c;
-    padding: 6px 16px;
+    border-bottom: 2px solid #5cb85c;
+    padding: 6px 5px 6px 16px;
     background: #fff;
 }
 </style>
