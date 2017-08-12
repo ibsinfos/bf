@@ -13,7 +13,6 @@
 				'order'     => 'DESC',
 				'orderby'    => 'meta_value_num',
 				'order'      => 'DESC',
-
 				'showposts' => 6
 				)
 			);
