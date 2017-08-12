@@ -1,5 +1,5 @@
 
-<div class="full-width packge-plan">
+<section class="full-width packge-plan">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
@@ -54,4 +54,4 @@
 
 		</div> <!-- end row !-->
 	</div>
-</div>
+</section>

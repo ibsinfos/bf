@@ -1,4 +1,4 @@
-<div class="full-width how-us-work">
+<section class="full-width how-us-work">
 	<div class="container">
 
 		<div class="row">
@@ -36,4 +36,4 @@
 
 		</div>
 	</div>
-</div>
+</section>

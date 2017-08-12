@@ -1,4 +1,4 @@
-<div class="full-width top-profile">
+<section class="full-width top-profile">
 	<div class=" container site-container">
 		<div class="row">
 			<div class="col-md-12">
@@ -73,4 +73,4 @@
 
 		</div>
 	</div> <!-- .row !-->
-</div>
+</section>
