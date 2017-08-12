@@ -402,9 +402,22 @@ ul.account-dropdown li.first-sub{
 	border-bottom:1px solid #e0e0e0
 }
 .account-dropdown li.profile-account a.account-name{
-	text-transform: uppercase;
-	padding-top: 7px;
 	float: right;
+
+    white-space: nowrap;
+    word-break: break-all;
+    line-height: normal;
+    display: inline-block;
+
+    height: 30px;
+    line-height: 30px;
+}
+.account-dropdown li.profile-account a.account-name .username{
+	max-width: 85px;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	overflow: hidden;
+	float: left;
 }
 a.account-name:hover{
 	text-decoration: none;
