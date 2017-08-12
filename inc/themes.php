@@ -178,6 +178,13 @@ function box_price($price,$echo = true){
 
 	echo  $string;
 }
+function box_price_format($price,$echo = true){
+
+	global $currency_code,$currency_sign;
+	$string = $price.'<span class="currency-icon">('.$currency_sign.') </span>';
+
+	echo  $string;
+}
 function get_box_price($price){
 	global $currency_code,$currency_sign;
 	return $price.'<span class="currency-icon">('.$currency_sign.') </span>';

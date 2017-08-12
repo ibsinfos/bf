@@ -1,67 +1,31 @@
-
 <section class="full-width packge-plan">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<div class="pricing-table-plan">
-					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Free</span>
-					</header>
-
-		    		<div class="plan-features">
-		    		<span class="plan-monthly primary-color">$0</span>
-
-		    			<span> Free 10 credits </span>
-			    		<ul>
-			    			<li> Free post 5 project on this system.</li>
-			    			<li> Free post 5 project on this system.</li>
-			    			<li> Free post 5 project on this system.</li>
-		    			</ul>
-
-					</div>
-		            <a class="btn btn-primary btn-xlarge " href="">TRAIL NOW</a>
-
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="pricing-table-plan">
-					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Premium</span>
-					</header>
-
-		    		<div class="plan-features">
-		    		<span class="plan-monthly primary-color">$30</span>
-		    		<span> Get 30 credits </span>
-			    		<ul>
-			    			<li> Free post 5 project on this system.</li>
-			    			<li> Free post 5 project on this system.</li>
-			    			<li> Free post 5 project on this system.</li>
-		    			</ul>
-					</div>
-		            <a class="btn btn-primary btn-xlarge " href="">TRAIL NOW</a>
-
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="pricing-table-plan">
-					<header data-plan="basic" class="pricing-plan-header basic-plan">
-						<span class="plan-name">Standard</span>
-					</header>
-
-		    		<div class="plan-features">
-		    		<span class="plan-monthly primary-color">$50</span>
-		    			<span> Get 50 credits </span>
-			    		<ul>
-			    			<li> Free post 5 project on this system.</li>
-			    			<li> Free post 5 project on this system.</li>
-			    			<li> Free post 5 project on this system.</li>
-		    			</ul>
-					</div>
-		            <a class="btn btn-primary btn-xlarge " href="#">TRAIL NOW</a>
-
-				</div>
-			</div>
-
+			<?php
+				$args = array(
+					'post_type' => '_package',
+					'posts_per_page' =>3
+				);
+				$result = new WP_Query($args);
+				if( $result->have_posts() ){
+					while( $result->have_posts() ){
+						$result->the_post();
+						$price = get_post_meta(get_the_ID(),'price', true);
+						?>
+						<div class="col-md-4">
+							<div class="pricing-table-plan">
+								<header data-plan="basic" class="pricing-plan-header basic-plan">
+									<span class="plan-name"><?php the_title();?></span>
+								</header>
+					    		<div class="plan-features">
+					    		<span class="plan-monthly primary-color"><?php box_price_format($price);?></span>
+					    		<span class="pack-des">	<?php the_content();?> </span>
+								</div>
+					            <a class="btn btn-primary btn-xlarge " href="">TRAIL NOW</a>
+							</div>
+						</div>
+					<?php } ;?>
+			<?php } ?>
 		</div> <!-- end row !-->
 	</div>
 </section>

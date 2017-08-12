@@ -310,6 +310,12 @@ get_header(); ?>
 .pricing-table-plan span{
 	display: block;
 }
+.pricing-table-plan span.currency-icon{
+	display: inline;
+}
+.pack-des{
+	min-height: 200px;
+}
 .round {
     width: 100px;
     height: 100px;
