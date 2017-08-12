@@ -2,7 +2,7 @@
 	<div class=" container site-container">
 		<div class="row">
 			<div class="col-md-12">
-				<h2> Looking for Professional Freelancers?</h2>
+				<h2 class="pypl-heading"> Looking for Professional Freelancers?</h2>
 			</div>
 			<?php
 			$profile_query = new WP_Query( array (
@@ -55,6 +55,7 @@
 									<?php echo $profile->professional_title;?>
 								<?php } ?>
 							</h5>
+							<small class="absolute abs-top abs-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</small>
 							<span class="padding-top-15"><small>Join since June, 2017 </small></span>
 							<span class="full"><small>
 								<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span>(10)</span>

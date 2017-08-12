@@ -168,10 +168,6 @@ a.logo img{
 .chosen-container{
 	max-width: 100%;
 }
-
-.main-navigation{
-	overflow: hidden;
-}
 .main-navigation ul.menu{
 	float: right;
 	margin: 0;
@@ -183,7 +179,7 @@ a.logo img{
 	padding-right: 0;
 }
 .header nav ul li a{
-	padding: 17px 3px;
+	padding: 17px 15px;
 	text-decoration: none;
 	text-transform: uppercase;
 	display: block;
@@ -229,9 +225,17 @@ a.logo img{
 	display: block;
 }
 .header nav ul.menu li.menu-item-has-children{
-	position1: relative;
-}
+	position: relative;
 
+}
+.header nav ul.menu li.menu-item-has-children:after{
+	content:"\e259";
+	font-family: 'Glyphicons Halflings';
+	color: #fff;
+	position: absolute;
+	right: 11px;
+    top: 16px;
+}
 .header nav button {
 	position: relative;
 	margin:0;

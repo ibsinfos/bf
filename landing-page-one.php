@@ -383,6 +383,9 @@ get_header(); ?>
 	margin: 0;
 	padding: 5px 0;
 }
+.top-profile .profile-item .hour-rate{
+	font-size: 13px;
+}
 .avatar img{
 	border:1px solid #ccc;
 	width: 88px;
@@ -391,6 +394,12 @@ get_header(); ?>
 	.top-profile .left.avatar{
 		width: 88px;
 	}
+	.top-profile .right.col-md-8{
+		width:215px
+	}
+}
+body.home .site-container{
+	min-height: 0;
 }
 </style>
 

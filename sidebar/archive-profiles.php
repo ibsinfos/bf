@@ -11,14 +11,14 @@
 	            ) );
 	            if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
 	                foreach ( $countries as $key=>$country ) {
-	                   echo '<li><label class="skil-item"> <input type="checkbox" name="country" class="search_country" alt="'.$key.'"  value="' . $country->term_id . '">' . $country->name . '<span class="glyphicon glyphicon-ok"></span></label></li>';
+	                   echo '<li><label class="skil-item"> <input type="checkbox" name="country" class="search_country" alt="'.$key.'"  value="' . $country->term_id . '">' . $country->name . '<span class="glyphicon glyphicon-ok primary-color"></span></label></li>';
 	                }
 	            }
 	     	?>
 	    </ul>
 	</div>
 	<div class="block full">
-		<h3> Skills <span class="toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
+		<h3> Skills <span class="toggle-check glyphicon pull-right glyphicon-menu-down"></span></h3>
 
 	 	<ul class="list-checkbox ul-skills">
 
@@ -29,7 +29,7 @@
 	            ) );
 	            if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
 	                foreach ( $skills as $key=>$skill ) {
-	                   	echo '<li><label class="skil-item"> <input type="checkbox" name="skill" class="search_skill" alt="'.$key.'" value="' . $skill->term_id . '">' . $skill->name . '<span class="glyphicon glyphicon-ok"></span></label></li>';
+	                   	echo '<li><label class="skil-item"> <input type="checkbox" name="skill" class="search_skill" alt="'.$key.'" value="' . $skill->term_id . '">' . $skill->name . '<span class="glyphicon glyphicon-ok  primary-color"></span></label></li>';
 	                }
 	             }
 	         ?>
