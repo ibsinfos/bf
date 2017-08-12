@@ -385,11 +385,13 @@ get_header(); ?>
 	overflow: hidden;
 }
 .profile-title{
-	font-size: 15px;
-	font-weight: 600;
+
+    font-size: 1.5em;
+    font-weight: 400;
+
 }
 .professional-title{
-	font-size: 15px;
+	font-size: 1.1em;
 	margin: 0;
 	padding: 5px 0;
 }
@@ -398,14 +400,14 @@ get_header(); ?>
 }
 .avatar img{
 	border:1px solid #ccc;
-	width: 88px;
+	width: 108px;
 }
 @media only screen and (min-width: 960px) {
 	.top-profile .left.avatar{
-		width: 88px;
+		width: 108px;
 	}
 	.top-profile .right.col-md-8{
-		width:215px
+		width:360px
 	}
 }
 body.home .site-container{

@@ -108,8 +108,9 @@ footer .container{
 	opacity: 0.1;
 }
 
-.bg-color{
+.bg-color, .primary-bg{
 	background-color: #5cb85c;
+	color: #fff;
 }
 .border-color, .btn.border-color{
 	border-color: #5cb85c;
