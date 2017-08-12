@@ -9,10 +9,14 @@
 					</header>
 
 		    		<div class="plan-features">
-		    		<span class="plan-monthly">	$0</span>
-		    		Just register 1 new account and you can:
-		    			-Free post 5 project on this system.
-		    			-Auto subcriber on system.
+		    		<span class="plan-monthly primary-color">	$0</span></span>
+
+		    			<span> Free 20 posts </span>
+			    		<ul>
+			    			<li> Free post 5 project on this system.</li>
+			    			<li> Free post 5 project on this system.</li>
+			    			<li> Free post 5 project on this system.</li>
+		    			</ul>
 
 					</div>
 		            <a class="btn btn-primary1 btn-xlarge btn-orange" href="https://cloud.landerapp.com/Registration/Register?selectedPlanId=39&amp;origin=basic_pricing">TRAIL NOW</a>

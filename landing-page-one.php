@@ -254,7 +254,9 @@ get_header(); ?>
     font-size: 2.5em;
     line-height: 140%;
 }
+.plan-monthly span{
 
+}
 .btn.btn-orange:hover {
     background-color: #f99e34 !important;
 }
@@ -263,6 +265,7 @@ get_header(); ?>
     font-weight: 600;
     line-height: 100%;
     padding: .4em 0;
+    text-transform: uppercase;
 }
 .plan-features {
     width: 100%;
@@ -273,9 +276,13 @@ get_header(); ?>
     text-align: center;
     min-height: 175px;
 }
-.plan-features > li {
-    padding: 0;
-    border-bottom: 1px solid #DFDFD0;
+.plan-features ul{
+	list-style: none;
+    max-width: 219px;
+    margin: 0 auto;
+}
+.plan-features  li {
+    padding: 5px;
     font-size: .9375em;
     display: table;
     width: 100%;
