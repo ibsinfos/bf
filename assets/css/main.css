@@ -8,8 +8,11 @@
 	.main-login li.mobile-only{
 		display: none;
 	}
-	body.fixed .header, .header.fixed{
+	body .header{
 		position: fixed;
+		position: 10;
+	}
+	body.fixed .header, .header.fixed{
 		background-color: #fff;
 		z-index: 13;
 		transition-property: visibility, opacity;
@@ -84,9 +87,9 @@ img{
 	padding-top: 10px;
 }
 .site-container{
-	padding-top: 30px;
+	padding-top: 100px;
 	padding-bottom: 30px;
-	min-height: 550px;
+	min-height: 620px;
 	background-color:#fff;
 	margin-top: 5px;
 }

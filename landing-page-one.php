@@ -67,9 +67,12 @@ get_header(); ?>
 	body.fixed .cover-img .header{
 		background-color: #fff;
 	}
+	.cover-content{
+		padding-top: 68px;
+	}
 
 </style>
-<div class="full-width">
+<div class="full-width cover-content">
 	<div class="container">
 		<div class="heading-aligner">
 	        <h1>#JOIN OUR FREELANCE COMMUNITY</h1>
@@ -407,6 +410,9 @@ get_header(); ?>
 }
 body.home .site-container{
 	min-height: 0;
+}
+.cover-img .header{
+	position: fixed;
 }
 </style>
 
