@@ -56,11 +56,11 @@
 										<?php echo $profile->professional_title;?>
 									<?php } ?>
 								</h5>
-								<small class="absolute abs-top abs-right-15 hour-rate ">$<?php echo $profile->hour_rate;?>/hr</small>
+								<span class="absolute abs-top abs-right-15 hour-rate ">$<?php echo $profile->hour_rate;?>/hr</span>
 								<span class="padding-top-15"><span>Join since June, 2017 </span></span>
 								<span class="full">
 									<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span>(10)</span>
-
+									<span class="absolute  abs-right-15"><img src="<?php echo get_stylesheet_directory_uri();?>/img/flag.png"></span>
 								</span>
 							</div>
 							<div class="right col-md-12 list-skill padding-top-10 ">
