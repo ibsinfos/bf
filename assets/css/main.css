@@ -89,7 +89,6 @@ img{
 }
 .site-container{
 	padding-top: 100px;
-	padding-bottom: 30px;
 	min-height: 620px;
 	background-color:#fff;
 	margin-top: 5px;
@@ -972,6 +971,12 @@ form #heading_signup{
 .work-status label{
 	width: 150px;
 	float: left;
+}
+#right_column{
+	border:0;
+	border-left: 20px;
+	border-style: solid;
+	border-color: #f9f9f9;
 }
 #search_line{
 	border: 1px solid #e2e2e2;

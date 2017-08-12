@@ -381,14 +381,21 @@ get_header(); ?>
 	vertical-align: bottom;
 }
 .top-profile .profile-item{
-	min-height: 175px;
-	overflow: hidden;
+	height: 160px;
+    overflow: hidden;
+    margin-top: 30px;
 }
 .profile-title{
 
     font-size: 1.5em;
     font-weight: 400;
 
+}
+.list-skill{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .professional-title{
 	font-size: 1.1em;
@@ -399,7 +406,7 @@ get_header(); ?>
 	font-size: 13px;
 }
 .avatar img{
-	border:1px solid #ccc;
+	border:1px solid #f3f3f3;
 	width: 110px;
 }
 @media only screen and (min-width: 960px) {

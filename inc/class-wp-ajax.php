@@ -756,7 +756,14 @@ class BX_AJAX {
 		$response = array('success' => true,'msg'=> 'Login done', $redirect_url  => 0);
 
 		if( is_wp_error($result ) ){
-			$redirect_url = add_query_arg( array('email' => $request['user_email']), bx_get_static_link('login') );
+
+			$code = $result->get_error_code();
+			if( $code == 'exists_email' ){
+				$redirect_url = add_query_arg( array('email' => $request['user_email']), bx_get_static_link('login') );
+			} else {
+				$redirect_url =  bx_get_static_link('login');
+			}
+
 			$response = array('success' => false,'msg'=> $result->get_error_message(), 'redirect_url' => $redirect_url );
 		}
 		wp_send_json( $response );

@@ -28,6 +28,11 @@ Class Box_Social{
 			$userdata['user_pass'] = wp_generate_password(15);
 
 			$user_id = wp_insert_user($userdata);
+
+			if( is_wp_error($user_id ) ){
+				return $user_id;
+				wp_die();
+			}
 			update_user_meta( $user_id, 'social_id', $userdata['social_id'] );
 			// insert profile
 			$args = array(
@@ -38,14 +43,17 @@ Class Box_Social{
 				'meta_input'	=> array(
 					HOUR_RATE => 0,
 					RATING_SCORE => 0,
-					)
+				)
 			);
 			$profile_id = wp_insert_post($args);
+
+
 			update_user_meta( $user_id, 'profile_id', $profile_id );
 
 			global $wpdb;
 			$wpdb->update( $wpdb->users, array( 'user_status' => 1 ), array( 'user_login' => $userdata['user_login'] ) );
 			$wpdb->update( $wpdb->users, array( 'user_activation_key' => '' ), array( 'user_login' => $userdata['user_login'] ) );
+
 
 		}
 

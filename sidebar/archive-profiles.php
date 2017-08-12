@@ -11,7 +11,7 @@
 	            ) );
 	            if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
 	                foreach ( $countries as $key=>$country ) {
-	                   echo '<li><label class="skil-item"> <input type="checkbox" name="country" class="search_country" alt="'.$key.'"  value="' . $country->term_id . '">' . $country->name . '<span class="glyphicon glyphicon-ok primary-color"></span></label></li>';
+	                   echo '<li><label class="skil-item"> ' . $country->name . ' <input type="checkbox" name="country" class="search_country" alt="'.$key.'"  value="' . $country->term_id . '"> <span class="glyphicon glyphicon-ok primary-color"></span></label></li>';
 	                }
 	            }
 	     	?>
