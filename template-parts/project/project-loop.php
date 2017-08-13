@@ -5,7 +5,7 @@ $project = BX_Project::get_instance()->convert($post);
 ?>
 <div class="row project-loop-item">
 	<div class="col-md-12">
-	<?php echo '<h3 class="project-title"><a href="'.get_permalink().'">'.get_the_title().'</a></h3>';?>
+	<?php echo '<h3 class="project-title"><a class="primary-color" href="'.get_permalink().'">'.get_the_title().'</a></h3>';?>
 	</div>
 	<div class="col-md-12 project-second-line">
 		<span class="text-muted display-inline-block m-sm-bottom m-sm-top">

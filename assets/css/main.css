@@ -94,6 +94,7 @@ img{
 }
 .site-content{
 	background-color: #fff;
+	padding-top: 35px;
 }
 footer .container{
 	background: transparent;
@@ -109,24 +110,24 @@ footer .container{
 }
 
 .bg-color, .primary-bg{
-	background-color: #5cb85c;
+	background-color: #17a717;
 	color: #fff;
 }
 .border-color, .btn.border-color{
-	border-color: #5cb85c;
+	border-color: #17a717;
 }
 .text-color, .text-color:hover{
 
 }
-.primary-color, .main-color{
-	color: #5cb85c;
+ .primary-color, a.primary-color, span.primary-color, .main-color{
+	color: #17a717;
 }
 .btn-primary-bg,  .btn, .btn-action, button.btn-action{
-	background-color: #5cb85c;
+	background-color: #17a717;
 }
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#5cb85c}
 .btn{
-	background-color: #5cb85c;
+	background-color: #17a717;
 	border-radius: 5px;
 	padding: 5px 10px;
 	color: #fff;
@@ -740,8 +741,7 @@ ul.pagination{
 	background:#fff;
 }
 .project-loop-item .project-title a{
-	font-size: 20px;
-	color: #37a000;
+	font-size: 18px;
 }
 .project-loop-item .project-title a:hover{
 	text-decoration: none;

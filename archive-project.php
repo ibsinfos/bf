@@ -17,7 +17,7 @@ get_header(); ?>
 								<div class="input-group full">
 							       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
 							       <div class="input-group-btn">
-							           <button class="btn btn-info">
+							           <button class="btn btn-info primary-bg">
 							           <span class="glyphicon glyphicon-search"></span>
 							           </button>
 							       </div>
