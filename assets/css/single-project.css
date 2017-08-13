@@ -55,7 +55,7 @@
 }
 .row-bid-item .avatar{
 	width: 96px;
-	height: 96px;
+	height: auto;
 }
 
 .status-awarded  .btn-status-display{

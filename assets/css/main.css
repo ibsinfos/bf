@@ -71,8 +71,13 @@ h1{
 	text-transform: uppercase;
 }
 .primary-font{
+
+	font-family: 'Roboto', sans-serif;
+}
+.second-font{
 	font-family: 'Raleway', sans-serif;
 }
+
 h1.project-title{
 	font-size: 23px;
 	font-family: 'Raleway', sans-serif;
@@ -190,6 +195,7 @@ a.logo img{
 	text-transform: uppercase;
 	display: block;
 	border-bottom: 2px solid transparent;
+	font-family: 'Roboto', sans-serif;
 }
 
 .header a,
@@ -645,12 +651,12 @@ button.btn-info.active, button.btn-info:active, .open>.dropdown-toggle.btn-info,
 content: "";
     display: inline-block;
     position: absolute;
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
     right: 0;
     margin-left: -20px;
     border: 1px solid #e2e2e2;
-    border-radius: 3px;
+    border-radius: 0px;
     background-color: #fff;
 }
 .sidebar-search ul.list-checkbox li label span{

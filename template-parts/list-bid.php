@@ -17,7 +17,7 @@
 		<div class="col-md-5 no-padding">
 			<h3><?php printf(__('TOTAL BID(S): %s','boxtheme'), $query->found_posts); ?></h3>
 		</div>
-		<div class="col-md-6 f-right no-padding">
+		<div class="col-md-6 f-right no-padding hide">
 			<?php if( $query->found_posts > 1) { ?>
 			<div class="dropdown f-right sort-bids">
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php _e('Order by','boxtheme');?>
