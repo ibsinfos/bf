@@ -34,7 +34,8 @@
 					if ( $skills && ! is_wp_error( $skills ) ){
 					  	$draught_links = array();
 					  	foreach ( $skills as $term ) {
-					     	$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+					     	//$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+					     	$draught_links[] = '<span >'.$term->name.'</span>';
 					     	$list_ids[] = $term->term_id;
 					  	}
 					  	$skill_html = join( ", ", $draught_links );
@@ -58,7 +59,7 @@
 								<span class="absolute abs-top abs-right-15 hour-rate ">$<?php echo $profile->hour_rate;?>/hr</span>
 								<span class="padding-top-15"><span>Join since June, 2017 </span></span>
 								<span class="full">
-									<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span>(10)</span>
+									<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span></span>
 									<span class="absolute  abs-right-15"><img src="<?php echo get_stylesheet_directory_uri();?>/img/flag.png"></span>
 								</span>
 							</div>

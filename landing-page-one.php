@@ -407,10 +407,12 @@ get_header(); ?>
     margin-top: 30px;
 }
 .profile-title{
-
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: 400;
-
+}
+.rating-score{
+	font-size: 18px;
+	margin-top: 3px;
 }
 .list-skill{
     display: inline-block;
