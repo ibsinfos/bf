@@ -42,7 +42,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 		<div style="width: 100%; clear: both; display: block;" class="profile-inline">
 			<div class="col-md-2">
 			</div>
-			<div class="col-md-9 col-xs-12 bottom-row">
+			<div class="col-md-10 col-xs-12 bottom-row">
 				<div class="col-md-4 col-xs-4 no-padding-left count-job"><?php printf(__('%s Job(s)','boxtheme'),$profile->{PROJECTS_WORKED});?> </div>
 				<div class="col-md-4  col-xs-4 count-earned"> <?php echo $profile->{EARNED_TXT};?> </div>
 				<div class="col-md-4  col-xs-4 country-profile"><span class="f-right"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
