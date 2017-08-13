@@ -7,11 +7,12 @@ $skills = get_the_terms( $profile_id, 'skill' );
 $skill_val = '';
 if ( $skills && ! is_wp_error( $skills ) ){
 
-  $draught_links = array();
+  	$draught_links = array();
 
-  foreach ( $skills as $term ) {
-     $draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
-     $list_ids[] = $term->term_id;
+  	foreach ( $skills as $term ) {
+    	//$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+    	$draught_links[] = '<span >'.$term->name.'</span>';
+     	$list_ids[] = $term->term_id;
   }
   $skill_val = join( " ", $draught_links );
 }
@@ -30,17 +31,21 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 			<h3 class="profile-title no-margin">
 				<?php echo '<a class="" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 			</h3>
-			<h5 class="professional-title primary-color">
-				<?php if( !empty($profile->professional_title) ){?>
-					<?php echo $profile->professional_title;?>
-				<?php } else { echo '&nbsp;'; } ?>
-			</h5>
-			<start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start>
+			<span class="inline second-line">
+				<span class="item professional-title primary-color">
+					<?php if( !empty($profile->professional_title) ){?>
+						<?php echo $profile->professional_title;?>
+					<?php } else { echo '&nbsp;'; } ?>
+				</span>
 
-			<span class="hour-rate"> <span class="glyphicon glyphicon-time"></span> $<?php echo $profile->hour_rate;?>/hr </span>
-			<span class="eared-txt"><?php echo $profile->{EARNED_TXT};?> </span>
-			<span class="country-profile"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
+			</span>
 
+			<span class="inline list-info">
+				<span class=" item hour-rate"> <span class="glyphicon glyphicon-time"></span> $<?php echo $profile->hour_rate;?>/hr </span>
+				<span class=" item eared-txt"> Earned: <?php echo $profile->{EARNED};?> </span>
+				<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
+				<span class="item profile-rating"> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
+			</span>
 			<span class="overview-profile clear"><?php echo str_replace( array("\n", "\r"), '', get_the_content() );?></span>
 			<small class="clear skills"><?php echo $skill_val;?></small>
 		</div>

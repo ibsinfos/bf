@@ -680,6 +680,7 @@ content: "";
 }
 .row.archive-profile-item .overview-profile{
 	font-size: 1em;
+	padding: 7px 0;
 }
 .row.archive-profile-item .overview-profile p{
 	margin-bottom: 0;
@@ -782,16 +783,32 @@ ul.pagination{
     overflow: hidden;
     max-width: 100%;
 }
-.archive-profile-item  .skills a{
+.archive-profile-item  .skills a,
+.archive-profile-item  .skills span{
 	color: #555;
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 13px;
 	padding: 0px 12px;
 	background-color: #ececec;
 }
 .archive-profile-item .profile-inline{
 	width: 100%;
 	clear: both;
+}
+.archive-profile-item .list-info span.item{
+	min-width: 130px;
+	float: left;
+}
+.archive-profile-item  .second-line{
+	display: block;
+	clear: both;
+	padding: 7px 0px;
+}
+.archive-profile-item  .second-line .item{
+	display: inline;
+}
+.archive-profile-item  .second-line  .profile-rating{
+	float: right;
 }
 .rating-score.core-1 span{
 	color: #ffb200;
