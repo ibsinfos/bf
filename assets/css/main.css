@@ -844,7 +844,7 @@ ul.pagination{
 .author-view h2.profile-title{
 	padding: 5px 0 0 0 ;
 }
-.author-view h4.professional-title{
+.author-view .professional-title{
 	padding: 5px 0;
 }
 .author-overview{
@@ -1023,6 +1023,8 @@ form #heading_signup{
 }
 .box-shadown{
 	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+	margin-bottom: 5px;
+	
 }
 /** SOCIAL_LOGIN */
 
