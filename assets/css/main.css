@@ -672,8 +672,18 @@ content: "";
 	min-height: 150px;
 	border-bottom:1px solid #eee;
 	padding: 10px;
+	float: left;
+	padding-bottom: 20px;
 }
-
+.row.archive-profile-item .full:last-child{
+	border-width: 0;
+}
+.row.archive-profile-item .overview-profile{
+	font-size: 1em;
+}
+.row.archive-profile-item .overview-profile p{
+	margin-bottom: 0;
+}
 .list-project{
 	padding: 10px 20px 20px ;
 	overflow: hidden;
@@ -776,6 +786,8 @@ ul.pagination{
 	color: #555;
 	text-decoration: none;
 	font-size: 14px;
+	padding: 0px 12px;
+	background-color: #ececec;
 }
 .archive-profile-item .profile-inline{
 	width: 100%;
@@ -1024,7 +1036,7 @@ form #heading_signup{
 .box-shadown{
 	box-shadow: 0 1px 6px rgba(57,73,76,.35);
 	margin-bottom: 5px;
-	
+
 }
 /** SOCIAL_LOGIN */
 

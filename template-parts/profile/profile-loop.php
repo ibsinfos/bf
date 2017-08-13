@@ -13,7 +13,7 @@ if ( $skills && ! is_wp_error( $skills ) ){
      $draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
      $list_ids[] = $term->term_id;
   }
-  $skill_val = join( ", ", $draught_links );
+  $skill_val = join( " ", $draught_links );
 }
 $start_class = 'core-'.$profile->{RATING_SCORE};
 if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
@@ -28,27 +28,22 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 		</div>
 		<div class="col-md-10 align-left  col-xs-8">
 			<h3 class="profile-title no-margin">
-				<?php echo '<a class="primary-color" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
+				<?php echo '<a class="" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 			</h3>
-			<h5 class="professional-title">
+			<h5 class="professional-title primary-color">
 				<?php if( !empty($profile->professional_title) ){?>
 					<?php echo $profile->professional_title;?>
 				<?php } else { echo '&nbsp;'; } ?>
 			</h5>
 			<start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start>
-			<small class="absolute abs-top abs-right hour-rate">$<?php echo $profile->hour_rate;?>.00/hr</small>
+
+			<span class="hour-rate"> <span class="glyphicon glyphicon-time"></span> $<?php echo $profile->hour_rate;?>/hr </span>
+			<span class="eared-txt"><?php echo $profile->{EARNED_TXT};?> </span>
+			<span class="country-profile"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
+
+			<span class="overview-profile"><?php the_content();?></span>
 			<small class="clear skills"><?php echo $skill_val;?></small>
 		</div>
-		<div style="width: 100%; clear: both; display: block;" class="profile-inline">
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-10 col-xs-12 bottom-row">
-				<div class="col-md-4 col-xs-4 no-padding-left count-job"><?php printf(__('%s Job(s)','boxtheme'),$profile->{PROJECTS_WORKED});?> </div>
-				<div class="col-md-4  col-xs-4 count-earned"> <?php echo $profile->{EARNED_TXT};?> </div>
-				<div class="col-md-4  col-xs-4 country-profile"><span class="f-right"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
-				</div>
-			</div>
-		</div>
-	</div>
 
+	</div>
 </div>
