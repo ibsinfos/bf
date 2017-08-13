@@ -28,7 +28,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 		</div>
 		<div class="col-md-10 align-left  col-xs-8">
 			<h3 class="profile-title no-margin">
-				<?php echo '<a href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
+				<?php echo '<a class="primary-color" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 			</h3>
 			<h5 class="professional-title">
 				<?php if( !empty($profile->professional_title) ){?>

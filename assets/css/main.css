@@ -757,9 +757,8 @@ ul.pagination{
 	font-size: 15px;
 }
 .archive-profile-item .profile-title a{
-	color: #666;
 	text-decoration: none;
-	font-size: 23px;
+	font-size: 19px;
 	text-transform: capitalize;
 	white-space:nowrap;
 }
