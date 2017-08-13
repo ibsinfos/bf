@@ -24,7 +24,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 <div class="row archive-profile-item">
 	<div class="full">
 		<div class="col-md-2 no-padding col-xs-4">
-		<?php echo '<a href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
+		<?php echo '<a class="avatar" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
 		$userdata = get_userdata($post->post_author); ?>
 		</div>
 		<div class="col-md-10 align-left  col-xs-8">
