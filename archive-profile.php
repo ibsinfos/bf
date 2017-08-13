@@ -48,29 +48,30 @@ get_header(); ?>
 </div>
 <script type="text/html" id="tmpl-search-record">
 	<div class="row archive-profile-item">
-	<div class="full">
-		<div class="col-md-2 no-padding col-xs-4">
-		<a href="{{{data.author_link}}}"></a>		</div>
-		<div class="col-md-10 align-left  col-xs-8">
-			<h3 class="profile-title no-margin">
-				<a href="{{{data.author_link}}}">{{{data.post_title}}}</a>			</h3>
-			<h5 class="professional-title">{{{data.professional_title}}}</h5>
-			<start class="rating-score clear block core-0 "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start>
-			<small class="absolute abs-top abs-right hour-rate">{{{data.hour_rate_text}}}</small>
-			<small class="clear skills">{{{data.skill_text}}}</small>
-		</div>
-		<div style="width: 100%; clear: both; display: block;" class="profile-inline">
-			<div class="col-md-2">
-			</div>
-			<div class="col-md-9 col-xs-12 bottom-row">
-				<div class="col-md-4 col-xs-4 no-padding-left count-job"> <?php _e('{{{data.projects_worked}}} Job(s)','boxtheme');?> </div>
-				<div class="col-md-4  col-xs-4 count-earned">{{{data.earned_txt}}}  </div>
-				<div class="col-md-4  col-xs-4 country-profile"><span class="f-right"> <span class="glyphicon glyphicon-map-marker"></span>  {{{data.country}}} </span>
-				</div>
+		<div class="full">
+			<div class="col-md-2 no-padding col-xs-4">
+			<a class="avatar" href="{{{data.author_link}}}">{{{data.avatar}}}</a></div>
+			<div class="col-md-10 align-left  col-xs-8">
+				<h3 class="profile-title no-margin">
+					<a href="{{{data.author_link}}}">{{{data.post_title}}}</a>
+				</h3>
+				<span class="inline second-line">
+					<span class="item professional-title primary-color">{{{data.professional_title}}}</span>
+				</span>
+				<span class="inline list-info">
+					<span class="item hour-rate"> <span class="glyphicon glyphicon-time"></span>{{{data.hour_rate_text}}}</span>
+					<span class=" item eared-txt"> Earned: {{{data.earned}}}</span>
+					<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>{{{data.country}}}</span>
+					<span class="item profile-rating"> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
+				</span>
+				<span class="overview-profile clear">{{{data.post_content}}}</span>
+				<small class="clear skills">{{{data.skill_text}}}</small>
 			</div>
 		</div>
 	</div>
 
+
 </div>
+
 </script>
 <?php get_footer();

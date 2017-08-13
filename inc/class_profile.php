@@ -68,7 +68,8 @@ Class BX_Profile extends BX_Post{
 		if( !empty($pcountry) ){
 			$post->country =  $pcountry[0]->name;
 		}
-
+		$user = get_userdata( $post->post_author );
+		$post->avatar = get_avatar($user->user_email, 96 );
 		$post->{EARNED}	= (float)get_user_meta($post->post_author,EARNED, true);
 		$post->{EARNED_TXT} = sprintf( __('($)%s earned ','boxtheme'), $post->{EARNED} );
 		$post->{RATING_SCORE} 	= (float)get_user_meta($post->post_author,RATING_SCORE, true);
@@ -81,9 +82,10 @@ Class BX_Profile extends BX_Post{
 		if ( $skills && ! is_wp_error( $skills ) ){
 			$draught_links = array();
 			foreach ( $skills as $term ) {
-				$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+				//$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+				$draught_links[] = '<span>'.$term->name.'</span>';
 			}
-			$skill_text = join( ", ", $draught_links );
+			$skill_text = join( " ", $draught_links );
 			$post->skill_text = $skill_text;
 		}
 		$post->author_link = get_author_posts_url($post->post_author);
