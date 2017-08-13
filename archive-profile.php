@@ -18,38 +18,40 @@ get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row">
-				<div class="col-md-3 sidebar sidebar-search no-padding-right" id="sidebar">
+				<div class="col-md-3 sidebar sidebar-search set-bg" id="sidebar">
 					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
 				</div>
 				<div class="col-md-9 " id="right_column" >
-					<div class="col-md-12" id = "search_line">
-						<form action="" class="navbar-form full frm-search">
-							<div class="input-group full">
-						       <input type="text" name="s" id="keyword"  placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
-						       <div class="input-group-btn">
-						           <button class="btn btn-info">
-						           <span class="glyphicon glyphicon-search"></span>
-						           </button>
-						       </div>
-						   </div>
-						</form>
-						<div class="full" id="count_results">
-							<h5> &nbsp;<?php printf( __('%s profile(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
+					<div class="full set-bg">
+						<div class="col-md-12" id = "search_line">
+							<form action="" class="full frm-search">
+								<div class="input-group full">
+							       <input type="text" name="s" id="keyword"  placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+							       <div class="input-group-btn">
+							           <button class="btn btn-info">
+							           <span class="glyphicon glyphicon-search"></span>
+							           </button>
+							       </div>
+							   </div>
+							</form>
+							<div class="full hide" id="count_results">
+								<h5> &nbsp;<?php printf( __('%s profile(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
+							</div>
+
 						</div>
 
-					</div>
+						<div class="list-project" id="ajax_result">
+						<?php
 
-					<div class="list-project" id="ajax_result">
-					<?php
-
-					if(have_posts()):
-						while(have_posts()):
-							the_post();
-							get_template_part( 'template-parts/profile/profile', 'loop' );
-						endwhile;
-						bx_pagenate();
-					endif;
-					?>
+						if(have_posts()):
+							while(have_posts()):
+								the_post();
+								get_template_part( 'template-parts/profile/profile', 'loop' );
+							endwhile;
+							bx_pagenate();
+						endif;
+						?>
+						</div>
 					</div>
 				</div>
 
