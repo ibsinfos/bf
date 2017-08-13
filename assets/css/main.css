@@ -675,7 +675,7 @@ content: "";
 	float: left;
 	padding-bottom: 20px;
 }
-.row.archive-profile-item .full:last-child{
+.row.archive-profile-item:last-child .full{
 	border-width: 0;
 }
 .row.archive-profile-item .overview-profile{
