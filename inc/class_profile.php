@@ -68,8 +68,8 @@ Class BX_Profile extends BX_Post{
 		if( !empty($pcountry) ){
 			$post->country =  $pcountry[0]->name;
 		}
-		$user = get_userdata( $post->post_author );
-		$post->avatar = get_avatar($user->user_email, 96 );
+
+		$post->avatar = get_avatar($post->post_author, 96 );
 		$post->{EARNED}	= (float)get_user_meta($post->post_author,EARNED, true);
 		$post->{EARNED_TXT} = sprintf( __('($)%s earned ','boxtheme'), $post->{EARNED} );
 		$post->{RATING_SCORE} 	= (float)get_user_meta($post->post_author,RATING_SCORE, true);
