@@ -18,11 +18,12 @@ get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row">
-				<div class="col-md-3 sidebar sidebar-search set-bg" id="sidebar">
+			<div class="set-bg full ">
+				<div class="col-md-3 sidebar sidebar-search set-bg box-shadown" id="sidebar">
 					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
 				</div>
 				<div class="col-md-9 " id="right_column" >
-					<div class="full set-bg">
+					<div class="full set-bg box-shadown">
 						<div class="col-md-12" id = "search_line">
 							<form action="" class="full frm-search">
 								<div class="input-group full">
@@ -54,8 +55,7 @@ get_header(); ?>
 						</div>
 					</div>
 				</div>
-
-
+			</div><!-- .set bg !-->
 		</div> <!-- .row !-->
 
 	</div>

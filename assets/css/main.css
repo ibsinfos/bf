@@ -571,6 +571,9 @@ select:active, select:hover {
 .sidebar{
 	padding-top: 30px;
 }
+.sidebar .block{
+	margin-bottom: 20px;
+}
 .sidebar ul{
 	padding: 0;
 }
@@ -1014,7 +1017,7 @@ form #heading_signup{
 }
 .set-bg{
 	background-color: #fff;
-	box-shadow: 0 1px 6px rgba(57,73,76,.35);
+	overflow: hidden;
 }
 .box-shadown{
 	box-shadow: 0 1px 6px rgba(57,73,76,.35);

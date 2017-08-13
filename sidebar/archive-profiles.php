@@ -4,7 +4,7 @@
 		<h2 class="sidebar-title"> <?php _e('Advance Filters','boxtheme');?>
 	</div>
 	<div class="block full">
-		<h3> Countries  <span class=" toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
+		<h3><?php _e('Locations','boxtheme');?>  <span class=" toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
 		<ul class="list-checkbox ul-cats">
 			<?php
 				$countries = get_terms( array(
@@ -20,7 +20,7 @@
 	    </ul>
 	</div>
 	<div class="block full">
-		<h3> Skills <span class="toggle-check glyphicon pull-right glyphicon-menu-down"></span></h3>
+		<h3> <?php _e('Skills','boxtheme');?> <span class="toggle-check glyphicon pull-right glyphicon-menu-down"></span></h3>
 
 	 	<ul class="list-checkbox ul-skills">
 
