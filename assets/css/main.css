@@ -754,12 +754,6 @@ ul.pagination{
 }
 /************ END PROJECT LOOP *************/
 
-
-.hour-rate{
-	font-size: 16px;
-	font-weight: bold;
-	font-size: 17px;
-}
 .archive-profile-item{
 	overflow: hidden;
 }
@@ -882,9 +876,7 @@ ul.pagination{
 .author-address{
 	font-size: 13px;
 }
-.hour-rate{
-	font-size: 15px;
-}
+
 .author-skills a{
 	text-decoration: none;
 	color: #333;

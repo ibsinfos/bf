@@ -6,40 +6,43 @@ get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row">
-			<div class="col-md-3 sidebar sidebar-search" id="sidebar">
-				<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
-			</div>
-			<div class="col-md-9 " >
-				<div class="col-md-12" id="search_line">
-					<form action="" class="navbar-form full frm-search" >
-						<div class="input-group full">
-					       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
-					       <div class="input-group-btn">
-					           <button class="btn btn-info">
-					           <span class="glyphicon glyphicon-search"></span>
-					           </button>
-					       </div>
-					   </div>
-					</form>
-					<div class="full" id="count_results">
-						<h5> &nbsp;<?php printf( __('%s job(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
-					</div>
+			<div class="set-bg full">
+				<div class="col-md-3 sidebar sidebar-search set-bg box-shadown" id="sidebar">
+					<?php get_template_part( 'sidebar/archive', 'projects' ); ?>
 				</div>
+				<div class="col-md-9 " id="right_column">
+					<div class="full set-bg box-shadown">
+						<div class="col-md-12" id = "search_line">
+							<form action="" class="full frm-search">
+								<div class="input-group full">
+							       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+							       <div class="input-group-btn">
+							           <button class="btn btn-info">
+							           <span class="glyphicon glyphicon-search"></span>
+							           </button>
+							       </div>
+							   </div>
+							</form>
+							<div class="full hide" id="count_results">
+								<h5> &nbsp;<?php printf( __('%s job(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
+							</div>
+						</div>
 
-				<div class="list-project" id="ajax_result">
-				<?php
-					global $wp_query;
-					if( have_posts() ):
-						while( have_posts() ):
-							the_post();
-							get_template_part( 'template-parts/project/project', 'loop' );
-						endwhile;
-						bx_pagenate();
-					endif;
-					wp_reset_query();
-				?>
-				</div>
-			</div>
+						<div class="list-project" id="ajax_result">
+							<?php
+								if( have_posts() ):
+									while( have_posts() ):
+										the_post();
+										get_template_part( 'template-parts/project/project', 'loop' );
+									endwhile;
+									bx_pagenate();
+								endif;
+								wp_reset_query();
+							?>
+						</div>
+					</div> <!-- set bg !-->
+				</div><!-- end .col-md-9 !-->
+			</div> <!-- set-bg !-->
 		</div> <!-- .row !-->
 
 	</div>

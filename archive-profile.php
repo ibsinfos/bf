@@ -1,33 +1,21 @@
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
+ * @key:archive-profile.php
  */
 get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row">
-			<div class="set-bg full ">
+			<div class="set-bg full">
 				<div class="col-md-3 sidebar sidebar-search set-bg box-shadown" id="sidebar">
 					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
 				</div>
-				<div class="col-md-9 " id="right_column" >
+				<div class="col-md-9 " id="right_column">
 					<div class="full set-bg box-shadown">
 						<div class="col-md-12" id = "search_line">
 							<form action="" class="full frm-search">
 								<div class="input-group full">
-							       <input type="text" name="s" id="keyword"  placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+							       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
 							       <div class="input-group-btn">
 							           <button class="btn btn-info">
 							           <span class="glyphicon glyphicon-search"></span>
@@ -38,20 +26,18 @@ get_header(); ?>
 							<div class="full hide" id="count_results">
 								<h5> &nbsp;<?php printf( __('%s profile(s) found','boxtheme'), $wp_query->found_posts )?>	</h5>
 							</div>
-
 						</div>
 
 						<div class="list-project" id="ajax_result">
-						<?php
-
-						if(have_posts()):
-							while(have_posts()):
-								the_post();
-								get_template_part( 'template-parts/profile/profile', 'loop' );
-							endwhile;
-							bx_pagenate();
-						endif;
-						?>
+							<?php
+								if( have_posts() ):
+									while( have_posts() ):
+										the_post();
+										get_template_part( 'template-parts/profile/profile', 'loop' );
+									endwhile;
+									bx_pagenate();
+								endif;
+							?>
 						</div>
 					</div>
 				</div>
