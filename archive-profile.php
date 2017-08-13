@@ -59,7 +59,7 @@ get_header(); ?>
 					<span class="item professional-title primary-color">{{{data.professional_title}}}</span>
 				</span>
 				<span class="inline list-info">
-					<span class="item hour-rate"> <span class="glyphicon glyphicon-time"></span>{{{data.hour_rate_text}}}</span>
+					<span class="item hour-rate"><span class="glyphicon glyphicon-time"></span> {{{data.hour_rate_text}}}</span>
 					<span class=" item eared-txt"> Earned: {{{data.earned}}}</span>
 					<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>{{{data.country}}}</span>
 					<span class="item profile-rating"> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
