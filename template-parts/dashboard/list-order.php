@@ -2,7 +2,8 @@
 global $user_ID;
 $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 ?>
-  	<ul class="row none-style padding-bottom-20">
+<div class="col-md-12">
+  	<ul class="none-style padding-bottom-20">
   		<li><?php printf(__('Your credit: %s','boxtheme'),$credit->available);?></li>
   		<?php if($credit->pending > 0){ ?>
   			<li><?php printf(__('Your pending credit: %s','boxtheme'),$credit->pending);?></li>
@@ -50,3 +51,4 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
   		}
   		?>
   	</ul>
+</div>

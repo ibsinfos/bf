@@ -99,13 +99,14 @@ img{
 	padding-top: 10px;
 }
 .site-container{
-    min-height: 620px;
     margin-top: 85px;
     margin-bottom: 20px;
+    
 }
 .site-content{
 	background-color: #fff;
 	padding-top: 35px;
+	min-height: 620px;
 }
 footer .container{
 	background: transparent;
