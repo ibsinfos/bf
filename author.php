@@ -61,6 +61,7 @@
 							<?php } ?>
 						</div>
 						<div class="col-md-4">
+							<h3>Profile info</h3>
 							<ul class="work-status">
 								<?php
 								$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
@@ -72,7 +73,7 @@
 								}
 
 								?>
-								<li>Work History </li>
+
 								<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
 								<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
 								<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
