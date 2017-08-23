@@ -257,12 +257,17 @@ body.home.page-template-landing-page-one.fixed .header nav ul.sub-menu{
 	position: relative;
 
 }
-.header nav ul.menu li.menu-item-has-children:after{
-	color: #fff;
-}
-body.fixed .header nav ul.menu li.menu-item-has-children:after{
+body.page-template-landing-page-one.fixed .header nav ul.menu li.menu-item-has-children:after{
 	color: #8a8a8a;
 }
+body.page-template-landing-page-one .header nav ul.menu li.menu-item-has-children:after{
+	color: #fff;
+}
+
+.header nav ul.menu li.menu-item-has-children:after{
+	color: #8a8a8a;
+}
+
 .header nav ul.menu li.menu-item-has-children:after{
 	content:"\e259";
 	font-family: 'Glyphicons Halflings';
