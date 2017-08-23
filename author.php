@@ -23,7 +23,7 @@
 							$skill_text = join( "", $draught_links );
 						}
 						?>
-				    	<div class="col-md-3 update-avatar">
+				    	<div class="col-md-3 update-avatar align-center no-padding-right">
 				    		<?php
 				    		$url = get_user_meta($author_id,'avatar_url', true);
 				    		if ( ! empty($url ) ){ echo '<img class="avatar" src=" '.$url.'" />';}

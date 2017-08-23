@@ -1181,7 +1181,7 @@ h1.profile-title{
 	color: #575757;
 }
 .author-view img.avatar{
-	max-width: 150px;
+	width: 130px;
 	border-radius: 50%;
 	border:3px solid #ccc;
 }
