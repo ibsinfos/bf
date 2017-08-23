@@ -123,6 +123,10 @@
 						?>
 				</div>
 				<div class="col-md-4">
+					<label> Profile link</label>
+					<a href="#"> Profile link</a>
+					<label>Activity</label>
+					<p>24X7h/week</p>
 				</div>
 			</div>
 			<!-- end history + feedback line !-->
