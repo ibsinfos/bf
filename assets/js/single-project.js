@@ -35,6 +35,8 @@ var single_project = {
 		$( "form#frm_fre_review").on('submit', this.reviewEmployer);
 		$(".btn-close").on('click',this.closeFrame);
 
+		$( "form#frm_quit_job").on('submit', this.quitJob);
+
 		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
@@ -302,7 +304,20 @@ var single_project = {
 		window.ajaxSend.Form(event, action, method, success);
 		return false;
 	},
+	quitJob: function(event){
+		var action = 'workspace_action', method = 'quit_job';
+		var success = function(res){
+			console.log(' quit done');
+        	if ( res.success ){
+        		//window.location.reload(true);
+	        } else {
+	        	alert(res.msg);
+	        }
+		}
+		window.ajaxSend.Form(event, action, method, success);
 
+		return false;
+	},
 
 	load_more_bid: function(e){
 

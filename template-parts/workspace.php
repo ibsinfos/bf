@@ -67,8 +67,11 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 	<div class="full align-right f-right">
 
 		<?php if($project->post_status =='awarded' && $user_ID == $project->post_author ){ ?>
-				<button class="btn col-md-5   align-right f-right btn-quit"> &nbsp; <?php _e('Quit','boxtheme');?> &nbsp; </button>
+				<button type="button" class="btn btn-primary  align-right f-right btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quyt</button>
 				<button type="button " class="btn col-md-5  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
+		<?php } else if($project->post_status == 'awarded' && $role == FREELANCER && !$is_fre_review) { ?>
+			<button type="button " class="btn col-md-5  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as complete</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quyt</button>
 		<?php } else if($project->post_status == 'done' && $role == FREELANCER && !$is_fre_review) { ?>
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Review employer</button>
 		<?php } ?>

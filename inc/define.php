@@ -21,6 +21,7 @@
 	define( 'AWARDED', 'awarded' ); // project status
 	define( 'DONE', 'done' ); // project status
 	define( 'CLOSE', 'close' ); // project status
+	define( 'ARCHIVED','archived');
 	// publish => awarded => done =>close.
 
 	define( 'DISPUTED', 'disputed' ); // project status

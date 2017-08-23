@@ -33,6 +33,53 @@ Class BX_Credit {
 	 * @param int $bidding  bidding id
 	*/
 	function deposit($employer_id, $bid_id, $project_id = 0) {
+
+		$ballance = $this->get_ballance($employer_id);
+		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+		$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
+
+
+		$emp_pay = $commision_fee + $bid_price;
+		$new_available = $ballance->available - $emp_pay;
+
+		if( $ballance->available < $emp_pay ){
+			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
+		}
+		global $wpdb;
+		$wpdb->query( $wpdb->prepare(			"
+				UPDATE $wpdb->usermeta
+				SET  meta_value = %f
+				WHERE user_id = %d AND meta_key ='%s' ",
+			    $new_available, $employer_id, $this->meta_available
+			)
+		);
+		return true;
+		return new WP_Error( 'award_fail', __( "fail 123", "boxtheme" ) );
+
+	}
+	function undeposit($employer_id, $bid_id, $project_id = 0) {
+
+		$ballance = $this->get_ballance($employer_id);
+		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+		$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
+
+
+		$emp_pay = $commision_fee + $bid_price;
+		$new_available = $ballance->available + $emp_pay;
+
+		global $wpdb;
+		$wpdb->query( $wpdb->prepare(			"
+				UPDATE $wpdb->usermeta
+				SET  meta_value = %f
+				WHERE user_id = %d AND meta_key ='%s' ",
+			    $new_available, $employer_id, $this->meta_available
+			)
+		);
+		return true;
+
+	}
+
+	function undeposit_bk($employer_id, $bid_id, $project_id = 0) {
 		$bidding = get_post($bid_id);
 		$freelaner_id = $bidding->post_author;
 
@@ -44,19 +91,12 @@ Class BX_Credit {
 		$emp_pay = $bid_price;
 		$amout_fre_receive = $bid_price - $commision_fee;
 
-
-		if( $ballance->available < $emp_pay ){
-			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
-		}
-
 		$pay_ok =  $this->subtract_credit_available( $employer_id, $emp_pay );// subtract credit in employer account.
 
-		if( !$pay_ok ) {
-			return new WP_Error( 'increase_pending_1', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
-			die();
-		}
 
-		$result =  $this->increase_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
+
+		//$result =  $this->increase_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
+		$result =  $this->remove_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
 		if( ! $result ) {
 			$this->increase_credit_available( $employer_id, $emp_pay);
 			return new WP_Error( 'increase_pending_1', __( "Can not increase the credit of freelancer", "boxtheme" ) );

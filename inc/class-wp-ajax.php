@@ -37,6 +37,7 @@ class BX_AJAX {
 			//'sync_account' 			=> true,
 			'update_avatar'			=> false,
 			'award_project'			=> false,
+			'workspace_action'		=> false,
 			'sync_review' 			=> false,
 			'sync_attachment'      	=> false,
 			'upload_file' 			=> false,
@@ -362,7 +363,30 @@ class BX_AJAX {
 		}
 		wp_send_json( $response );
 	}
+	static function workspace_action(){
+		$request 	= $_REQUEST;
+		$args 		= $request['request'];
+		$method 	= $_REQUEST['method'];
 
+		$response 	= array('success' => true, 'msg' => __('Review job','boxtheme'), 'data' => array() );
+		$project 	= BX_Project::get_Instance();
+		$return 	= $project->workspace_action($args , $method);
+
+		if ( !is_wp_error( $return ) ) {
+			$response = array(
+				'success' => true,
+				'msg' => __('Review job done','boxtheme'),
+				'data' => get_post($return),
+				);
+		} else {
+			$response = array(
+				'success' 	=> false,
+				'msg' 		=> $return->get_error_message(),
+				'data' 		=> array(),
+			);
+		}
+		wp_send_json( $response );
+	}
 	/**
 	 * Employer mark as close this project and review freelancer
 	*/

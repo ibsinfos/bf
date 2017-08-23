@@ -292,6 +292,57 @@ Class BX_Project extends BX_Post{
 
 		}
 	}
+	function workspace_action($args, $act){
+		$project_id = $args['project_id'];
+		$project  = get_post($project_id);
+		$check = $this->check_workspace_action($project);
+		if( !is_wp_error($check ) )
+			return $this->$act($args);
+		return $check;
+	}
+	function quit_job($args){
+		// undepost
+
+		$project_id = $args['project_id'];
+		$project = get_post($project_id);
+		$employer_id = $project->post_author;
+
+		$bid_id = get_post_meta($project_id, BID_ID_WIN, true);
+
+		$credit = BX_Credit::get_instance();
+		$transfered = $credit->undeposit( $employer_id, $bid_id, $project_id );
+
+		if ( is_wp_error($transfered) ){
+			return $transfered;
+		}
+		$request['ID'] = $project_id;
+		$request['post_status'] = ARCHIVED;
+		$request['post_status'] = 'publish';
+		$request['meta_input'] = array(
+			WINNER_ID => 0,
+			BID_ID_WIN => 0,
+		);
+
+		$res = wp_update_post($request);
+		if($res){
+			wp_update_post( array('ID' => $bid_id, 'post_status'=> 'publish') );
+			return $res;
+		}
+
+		return true;
+	}
+	function check_workspace_action($project){
+		global $user_ID;
+		$winner_id 	= get_post_meta($project->ID, WINNER_ID, true);
+		if( $project->post_author == $user_ID || ($winner_id && $winner_id == $user_ID) )
+			return true;
+
+		return new WP_Error( 'unallow', __( "You are not allowed to perform this action.", "boxtheme" ) );
+
+	}
+	function submit_task(){
+
+	}
 	/**
 	 * check the condition and make sure it fit with the flow of system.
 	 * This is a cool function

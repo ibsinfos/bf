@@ -250,5 +250,34 @@ global $wp_query;
     </div>
   </div>
 </div>
+<!-- ENd modal mark ad finish !-->
 
+<div class="modal fade" id="quytModal" tabindex="-1" role="dialog" aria-labelledby="quytModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<?php
+				$lb_reason = __('Let employer your reason','boxtheme');
+				$lb_title = __('Cancel and quyt this job');
+
+				if($role == EMPLOYER) {
+					$lb_reason = __('Let freelancer your reason','boxtheme');
+					$lb_title = __('Cancel and quyt this job');
+				}
+			?>
+			<h4 class="modal-title" id="quytModal"> <?php echo $lb_title;?></h4>
+		</div>
+      	<div class="modal-body">
+      		<form id="frm_quit_job">
+	          	<div class="form-group">
+	            	<label for="message-text" class="control-label"><?php echo $lb_reason;?></label>
+	            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>"></textarea>
+	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
+	            </div>
+	            <div class="form-group"><button type="submit" class="btn btn-primary">Confirm and Submit</button> </div>
+	        </form>
+      	</div>
+    </div>
+</div>
 <?php get_footer();?>

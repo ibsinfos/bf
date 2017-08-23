@@ -226,6 +226,15 @@ function bx_theme_init() {
 		'label_count'               => _n_noop( 'Awarded <span class="count">(%s)</span>', 'Awarded <span class="count">(%s)</span>' ),
 		)
 	);
+		register_post_status( ARCHIVED, array(
+		'label'                     => _x( 'Archived', 'post' ),
+		'public'                    => true,
+		'exclude_from_search'       => true,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop( 'Archived <span class="count">(%s)</span>', 'Archived <span class="count">(%s)</span>' ),
+		)
+	);
 	register_post_status( 'done', array(
 		'label'                     => _x( 'Done', 'post' ),
 		'public'                    => true,

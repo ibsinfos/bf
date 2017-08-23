@@ -14,7 +14,7 @@ $winner = 0;
 $bid_class = '';
 $winner_text ='';
 
-if($bid->post_author == $project->{WINNER_ID}){
+if ( $bid->post_author == $project->{WINNER_ID} ) {
 	$winner = 1;
 	$bid_class = 'bid-winner';
 	$winner_text = __('Winner','boxtheme');
@@ -29,18 +29,21 @@ if($bid->post_author == $project->{WINNER_ID}){
 	<div class ="col-md-10 padding-right-zero">
 		<?php
 		$list_dealine  = list_dealine();
+		if(empty($bid->_dealine))
+			$bid->_dealine = 0;
 		?>
 		<div class="full clear block">
-			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> - <i><?php echo $bid->professional_title;?></i> </h5>
-			<small class="inline f-left"> <i> &nbsp; </i>*****</small>
-			<small class="inline f-left"> <i> &nbsp; </i> Vietnam</small>
+			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> - </h5>
+			<h5 class="bid-title inline f-left"><?php echo $bid->professional_title;?></h5>
 		</div>
 		<div class="full clear bid-content">
 			<?php the_content(); ?>
 		</div>
 		<div class="full clear">
 			<small><?php _e('Deadline: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </small>
-			<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
+			<?php if ($project->post_author == $user_ID || current_user_can( 'manage_options' )) { ?>
+				<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
+			<?php } ?>
 			<small><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></small>
 		</div>
 		<?php if( $user_ID == $project->post_author && $project->post_status == 'publish' ){ ?>
@@ -78,7 +81,7 @@ if($bid->post_author == $project->{WINNER_ID}){
 			<div class="form-group row">
 		 		<label  class="col-sm-4 col-form-label"><?php _e('Message','boxtheme');?></label>
 		 		<div class="col-sm-8">
-		 			<textarea name="cvs_content" class="full " rows="3" placeholder="<?php _e('Left a message to winner','boxtheme');?>"></textarea>
+		 			<textarea name="cvs_content" class="full " rows="3" placeholder="<?php _e('Leave a message to winner','boxtheme');?>"></textarea>
 		 		</div>
 	 		</div>
 
