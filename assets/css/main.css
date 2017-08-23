@@ -75,7 +75,6 @@ h1 a, h2 a, h3 a, h4 a{
 }
 h1{
 	font-size: 23px;
-	text-transform: uppercase;
 }
 .primary-font{
 
@@ -881,7 +880,7 @@ ul.pagination{
 	height: 100%;
 }
 
-.author-view h2.profile-title{
+.author-view h1.profile-title{
 	padding: 5px 0 10px 0 ;
 }
 .author-view .professional-title{
@@ -1161,7 +1160,8 @@ div.header-title,.bd-bottom{
 	display: block;
 	overflow: hidden;
 }
-h2.profile-title{
+
+h1.profile-title{
 	color: #575757;
 }
 .bg-section h3{
@@ -1183,5 +1183,8 @@ h2.profile-title{
 	max-width: 150px;
 	border-radius: 50%;
 	border:3px solid #ccc;
+}
+.archive-profile-item .profile-title a{
+	color: #575757;
 }
 /*******END AUTHOR *//////////

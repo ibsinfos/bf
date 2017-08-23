@@ -31,7 +31,7 @@
 				    		?>
 				    	</div>
 				      	<div class="col-md-9 no-padding-left">
-				      		<div class="col-md-10 no-padding"><h2 class="profile-title no-margin"> <?php echo $profile->post_title;?></h2></div>
+				      		<div class="col-md-10 no-padding"><h1 class="profile-title no-margin"> <?php echo $profile->post_title;?></12></div>
 				      		<div class="col-md-2 no-padding align-right">
 				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
 				      		</div>
