@@ -57,6 +57,9 @@
 .none-style, ul.none-style li,.list-style-none{
 	list-style: none;
 }
+.invisible{
+	visibility:hidden;
+}
 
 body{
 	background: #f2f2f2;
@@ -1021,7 +1024,10 @@ form #heading_signup{
 	padding-bottom: 30px;
 	margin-top: 25px;
 	height: 166px;
-
+}
+.col-md-4.port-item img:hover{
+	opacity: 0.7;
+	cursor: pointer;
 }
 .col-md-4.port-item.middle-item{
 

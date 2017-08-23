@@ -102,7 +102,6 @@
 								<div class="col-md-2 no-padding-right"><?php _e('Date','boxtheme');?> </div>
 								<div class="col-md-8"> <?php _e('Description','boxtheme');?>	</div>
 								<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
-
 							</div>
 							<?php
 							while( $result->have_posts()){
@@ -115,14 +114,17 @@
 						<?php bx_pagenate($result);
 
 					} else {
+						echo '<p>';
+						echo '<br />';
 						_e('There is not any feedback','boxtheme');
+						echo '</p>';
 					}?>
 				</div>
 				<div class="col-md-4">
-					<label> Profile link</label>
-					<a href="#"> Profile link</a>
-					<label>Activity</label>
-					<p>24X7h/week</p>
+					<div class="header-title"><h3 class=""> &nbsp;</h3></div>
+					<br />
+					<p><label> Profile link</label>	<a href="#"> Profile link</a></p>
+					<p><label>Activity</label> <span>24X7h/week</span></p>
 				</div>
 			</div>
 
@@ -152,12 +154,18 @@
 
 						$result->the_post();
 						echo '<div class="col-md-4 port-item '.$class.'">';
-						the_post_thumbnail('full' );
+							the_post_thumbnail('full' );
+
 						echo '</div>';
 						$i++;
 					}
 					echo '</div>';
 					echo '</div>';
+				} else {
+					echo '<p>';
+						echo '<br />';
+						//_e('Portfolio is empty.','boxtheme');
+						echo '</p>';
 				}
 				?>
 		</div>
