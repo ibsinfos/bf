@@ -60,12 +60,9 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 	}
 	?>
 	<?php echo '<h3>'.__('Chat coversation','boxtheme').'</h3>'; ?>
-	<?php
-
-	$cvs_id = is_sent_msg($project->ID, $winner_id);
-
-	?>
+	<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
 <?php show_conversation($winner_id, $project->ID, $cvs_id); ?>
+
 <?php  echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
 </div> <!-- wrap-workspace !-->
 

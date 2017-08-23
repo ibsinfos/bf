@@ -13,12 +13,18 @@
 		z-index: 10;
 		top:0;
 	}
+	body.admin-bar .header{
+		top:32px;
+	}
 	body.fixed .header, .header.fixed{
 		background-color: #fff;
 		z-index: 13;
 		transition-property: visibility, opacity;
 	    transition-duration: 0s, 1s;
 	    top: 0;
+	}
+	body.admin-bar.fixed .header, .header.fixed{
+		top:32px;
 	}
 	footer .col-md-3{
 	padding-right: 0;
