@@ -128,26 +128,38 @@
 
 			<!-- end history + feedback line !-->
 			<!-- Line portfortlio !-->
-			<div class="bg-section">
-				<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
+
 				<?php
 				$args = array(
 						'post_type' 	=> 'portfolio',
 						'author' 		=> $author_id,
 					);
 				$result =  new WP_Query($args);
+				$i = 0;
 
-				if( $result->have_posts() ){
-					_e('<h3> Portfolio</h3>','boxtheme');
+				if( $result->have_posts() ){ ?>
+					<div class="bg-section">
+					<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
+					<div class="col-md-12">
+					<?php
+
 					while ($result->have_posts()) {
+						$class = "middle-item";
+						if($i %3 == 0)
+							$class = "no-padding-left";
+						if($i%3==2)
+							$class = "no-padding-right";
+
 						$result->the_post();
-						echo '<div class="col-md-3 port-item">';
+						echo '<div class="col-md-4 port-item '.$class.'">';
 						the_post_thumbnail('full' );
 						echo '</div>';
+						$i++;
 					}
+					echo '</div>';
+					echo '</div>';
 				}
 				?>
-			</div>
 		</div>
 	</div>
 <?php get_footer();?>

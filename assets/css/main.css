@@ -1017,13 +1017,19 @@ form #heading_signup{
 	top: 20px;
 	right: 30px;
 }
-.port-item{
+.col-md-4.port-item{
 	padding-bottom: 30px;
+	margin-top: 25px;
+	height: 166px;
+
+}
+.col-md-4.port-item.middle-item{
+
 }
 .port-item img{
-	max-height: 300px;
-	max-width: 100%;
-	height:auto;
+	height: auto;
+	width: 100%;
+	height: 166px;
 }
 .navbar-form.frm-search{
 	padding-left: 0;
