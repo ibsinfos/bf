@@ -43,99 +43,110 @@
 			        	</div>
 			      	</div>
 			    </div>
-				<div class="form-group row">
-					<div class="col-sm-12 text-justify">
-						<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
-						<div class="full author-overview">
-							<?php echo $profile->post_content;?>
-						</div>
-
-						<?php
-						$video_id = get_post_meta($profile->ID, 'video_id', true);
-
-						if( !empty($video_id)){ ?>
-							<div class="video-container">
-							  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-							</div>
-						<?php } ?>
-					</div>
-				</div>
-
 			</div> <!-- end left !-->
-			<div class=" sidebar col-md-4">
-				<ul class="work-status">
+
+			<!-- Ovreview line !-->
+
+			<div class="form-group row">
+				<div class="col-sm-8 text-justify">
+					<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
+					<div class="full author-overview">
+						<?php echo $profile->post_content;?>
+					</div>
+
 					<?php
-					$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
-					$earned = get_user_meta($author_id, EARNED, true);
-					$pcountry = get_the_terms( $profile_id, 'country' );
-					if( !$projects_worked ){
-						$projects_worked = 0;
-						$earned = 0;
-					}
+					$video_id = get_post_meta($profile->ID, 'video_id', true);
 
-					?>
-					<li>Work History </li>
-					<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
-					<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
-					<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
-			      	<li><span class="glyphicon glyphicon-map-marker"></span><label> Language:</label> English </li>
-				</ul>
-
-			</div>
-			<div class="col-md-12">
-				<h3> <?php _e('Work History and Feedback','boxtheme');?></h3>
-				<?php
-
-				$args = array(
-					'post_type' 	=> BID,
-					'author' 		=> $author_id,
-					'post_status' 	=> DONE,
-				);
-				$result =  new WP_Query($args);
-
-				if( $result->have_posts() ){ ?>
-					<div class ="full-width" id="list_bidding">
-						<div class="row row-heading">
-							<div class="col-md-2 no-padding-right"><?php _e('Date','boxtheme');?> </div>
-							<div class="col-md-8"> <?php _e('Description','boxtheme');?>	</div>
-							<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
-
+					if( !empty($video_id)){ ?>
+						<div class="video-container">
+						  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 						</div>
+					<?php } ?>
+				</div>
+				<div class="col-md-4">
+					<ul class="work-status">
 						<?php
-						while( $result->have_posts()){
-							global $post;
-							$result->the_post();
-							get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
+						$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
+						$earned = get_user_meta($author_id, EARNED, true);
+						$pcountry = get_the_terms( $profile_id, 'country' );
+						if( !$projects_worked ){
+							$projects_worked = 0;
+							$earned = 0;
 						}
 
-					echo '</div> <!-- end list_bidding !--> ';
-					bx_pagenate($result);
+						?>
+						<li>Work History </li>
+						<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
+						<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
+						<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
+				      	<li><span class="glyphicon glyphicon-map-marker"></span><label> Language:</label> English </li>
+					</ul>
+				</div>
+			</div>
 
-				} else {
-					_e('There is not any feedback','boxtheme');
-				}
-				?>
+			<!-- End Ovreview !-->
+			<!-- Line work history !-->
+			<div class="form-group row">
+				<div class="col-md-8">
+					<h3> <?php _e('Work History and Feedback','boxtheme');?></h3>
+					<?php
 
+					$args = array(
+						'post_type' 	=> BID,
+						'author' 		=> $author_id,
+						'post_status' 	=> DONE,
+					);
+					$result =  new WP_Query($args);
+
+					if( $result->have_posts() ){ ?>
+						<div class ="full-width" >
+							<div class="row row-heading">
+								<div class="col-md-2 no-padding-right"><?php _e('Date','boxtheme');?> </div>
+								<div class="col-md-8"> <?php _e('Description','boxtheme');?>	</div>
+								<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
+
+							</div>
+							<?php
+							while( $result->have_posts()){
+								global $post;
+								$result->the_post();
+								get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
+							}
+
+						echo '</div> <!-- end list_bidding !--> ';
+						bx_pagenate($result);
+
+					} else {
+						_e('There is not any feedback','boxtheme');
+					}
+
+						?>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+			<!-- end history + feedback line !-->
+			<!-- Line portfoliot !-->
+			<div class="col-md-12">
+				<h3> Portfolio </h3>
 				<?php
-
 				$args = array(
-					'post_type' 	=> 'portfolio',
-					'author' 		=> $author_id,
-				);
+						'post_type' 	=> 'portfolio',
+						'author' 		=> $author_id,
+					);
 				$result =  new WP_Query($args);
 
 				if( $result->have_posts() ){
 					_e('<h3> Portfolio</h3>','boxtheme');
 					while ($result->have_posts()) {
 						$result->the_post();
-						echo '<div class="col-md-6 port-item">';
+						echo '<div class="col-md-3 port-item">';
 						the_post_thumbnail('full' );
 						echo '</div>';
 					}
 				}
 				?>
 			</div>
-		</div>
 	</div>
 </div>
 <?php get_footer();?>

@@ -558,8 +558,6 @@ function bx_custom_avatar_url( $url, $id_or_email) {
 		}
 	}
 
-
-
     return $url;
 }
 add_filter( 'get_avatar_url' , 'bx_custom_avatar_url' , 99999 , 2 );
