@@ -2,9 +2,8 @@
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
-
-			<div class="row bg-section">
-				<div id="author-view" class="col-md-12 author-view">
+			<div class="bg-section">
+				<div id="author-view" class=" author-view">
 					<div class="full bd-bottom">
 						<?php
 						global $author_id;
@@ -87,8 +86,9 @@
 					</div><!-- End Ovreview !-->
 				</div> <!-- .end author-view !-->
 			</div> <!-- end bg section !-->
+
 			<!-- Line work history !-->
-			<div class="row bg-section">
+			<div class="bg-section">
 				<div class="col-md-8">
 					<div class="header-title"><h3> <?php _e('Work History and Feedback','boxtheme');?></h3></div>
 					<?php
@@ -113,16 +113,14 @@
 								global $post;
 								$result->the_post();
 								get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
-							}
+							} ?>
 
-						echo '</div> <!-- end list_bidding !--> ';
-						bx_pagenate($result);
+						</div> <!-- end list_bidding !-->
+						<?php bx_pagenate($result);
 
 					} else {
 						_e('There is not any feedback','boxtheme');
-					}
-
-						?>
+					}?>
 				</div>
 				<div class="col-md-4">
 					<label> Profile link</label>
@@ -131,9 +129,10 @@
 					<p>24X7h/week</p>
 				</div>
 			</div>
+
 			<!-- end history + feedback line !-->
-			<!-- Line portfoliot !-->
-			<div class="row bg-section">
+			<!-- Line portfortlio !-->
+			<div class="bg-section">
 				<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
 				<?php
 				$args = array(
@@ -153,7 +152,7 @@
 				}
 				?>
 			</div>
+		</div>
 	</div>
-</div>
 <?php get_footer();?>
 

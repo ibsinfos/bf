@@ -1120,6 +1120,8 @@ body.author .site-content{
 	margin-bottom: 30px;
 	padding-top:30px;
 	padding-bottom: 30px;
+	border: 3px solid #ccc;
+	border-radius: 3px;
 }
 .header-title,.bd-bottom{
 	border-bottom: 3px solid #ccc;
