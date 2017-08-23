@@ -900,15 +900,19 @@ ul.pagination{
 }
 .bid-history-item h5{
 	margin-top: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
 .bid-history-item h5 a{
 	text-decoration: none;
+	font-size: 15px;
 }
 .row-heading {
     font-weight: bold;
     font-size: 13px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    padding: 10px 0;
     margin-bottom: 8px;
 }
 /************* END AUTHOR *******************/
