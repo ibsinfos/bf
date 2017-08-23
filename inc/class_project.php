@@ -179,8 +179,6 @@ Class BX_Project extends BX_Post{
 			if ( is_wp_error($check) ){
 				return $check;
 			}
-
-
 			$project_id = wp_update_post($request);
 
 			if( !is_wp_error($project_id) ){
@@ -198,9 +196,6 @@ Class BX_Project extends BX_Post{
 				$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
 
 				$bid_price 	= (float) get_post_meta($bid_win_id, BID_PRICE, true);
-				// var_dump($bid_win_id);
-				// var_dump($budget);
-				// var_dump($winner_id);
 				$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
 
 				$emp_pay = $bid_price;
@@ -212,7 +207,7 @@ Class BX_Project extends BX_Post{
 				update_user_meta($winner_id, PROJECTS_WORKED , $project_worked);
 				update_user_meta($winner_id, EARNED , $earned);
 				//approve credit
-				BX_Credit::get_instance()->approve_credit_pending($winner_id, $amout_fre_receive);
+				BX_Credit::get_instance()->release($winner_id, $amout_fre_receive);
 
 				$bid_args = array(
 					'ID' 	=> $bid_win_id,

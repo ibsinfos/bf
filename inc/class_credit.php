@@ -79,6 +79,11 @@ Class BX_Credit {
 
 	}
 
+	// call this action when employer mark as finish a project.
+	function release($freelancer_id, $amout){
+		return $this->increase_credit_available($freelancer_id, $amout);
+	}
+
 	function undeposit_bk($employer_id, $bid_id, $project_id = 0) {
 		$bidding = get_post($bid_id);
 		$freelaner_id = $bidding->post_author;
