@@ -103,10 +103,10 @@ var single_project = {
 		var action = "sync_bid", method = "insert";
 		var successRes = function(res){
         	if ( res.success ){
-        		console.log(success);
+        		console.log(res.success);
         		window.location.reload(true);
 	        } else {
-	        	alert(res.msg);
+	        	console.log(ress.msg);
 	        }
 	    }
 		window.ajaxSend.Form(event, action, method, successRes);
