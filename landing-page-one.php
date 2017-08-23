@@ -25,6 +25,10 @@ add_action('after_cover_img','box_after_cover_img' );
 function box_after_cover_img(){
 	echo '</div>';
 }
+$ld_one = $wp_customize->get_setting( 'main_img' )->transport;
+echo '<pre>';
+var_dump($ld_one);
+echo '</pre>';
 get_header(); ?>
 <style type="text/css">
 	.cover-img{
