@@ -1057,7 +1057,10 @@ form #heading_signup{
 }
 .work-status label{
 	width: 150px;
+	padding-right: 10px;
+	font-weight: normal;
 	float: left;
+	text-align: right;
 }
 #right_column{
 	border:0;

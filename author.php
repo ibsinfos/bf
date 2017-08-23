@@ -71,13 +71,11 @@
 									$projects_worked = 0;
 									$earned = 0;
 								}
-
 								?>
-
-								<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
-								<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
-								<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
-						      	<li><span class="glyphicon glyphicon-map-marker"></span><label> Language:</label> English </li>
+								<li><label> Job worked: </label> <?php echo  $projects_worked;?></li>
+								<li><label> Total earn: </label><?php  echo $earned;?></li>
+								<li><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
+						      	<li><label> Language:</label> English </li>
 							</ul>
 						</div>
 					</div><!-- End Ovreview !-->
