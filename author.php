@@ -133,7 +133,7 @@
 			<!-- end history + feedback line !-->
 			<!-- Line portfoliot !-->
 			<div class="row bg-section">
-				<h3> Portfolio </h3>
+				<div class="col-md-12"><h3> Portfolio </h3></div>
 				<?php
 				$args = array(
 						'post_type' 	=> 'portfolio',
