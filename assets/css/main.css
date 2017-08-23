@@ -1179,7 +1179,7 @@ h2.profile-title{
 	font-size: 16px;
 	color: #575757;
 }
-body.author img.avatar{
+.author-view img.avatar{
 	max-width: 150px;
 	border-radius: 50%;
 	border:3px solid #ccc;
