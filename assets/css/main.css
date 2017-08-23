@@ -1114,14 +1114,20 @@ ul.social-login li a{
 /** AUTHOR - PROFILE DETAIL AUTHOR.PHP */
 body.author .site-content{
 	background-color: transparent;
+	padding-top: 0;
 }
 .bg-section{
 	background-color: #fff;
 	margin-bottom: 30px;
 	padding-top:30px;
 	padding-bottom: 30px;
-	border: 3px solid #ccc;
+	border: 3px solid #e9e9e9;
 	border-radius: 3px;
+	overflow: hidden;
+	padding-left: 3%;
+	padding-right: 3%;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 .header-title,.bd-bottom{
 	border-bottom: 3px solid #ccc;
