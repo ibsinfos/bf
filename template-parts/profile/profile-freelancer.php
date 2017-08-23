@@ -90,76 +90,79 @@
          </form>
       </div>
    </div>
-   <div class="col-md-12 clear">
-   <form id="update_profile_meta" class="update-profile row-section">
-      <span class="btn btn-edit btn-edit-second"> Edit</span>
-      <div class="form-group row">
-      	<div class="col-sm-10">
-      	<h3> <?php _e('Profile info','boxtheme');?></h3>
-      	</div>
-      </div>
-      <div class="form-group row">
-         <label for="country" class="col-sm-2 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
-         <div class="col-sm-10">
-            <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
-            <div class="invisible-default">
-               <input type="text" class="update form-control " value="<?php echo $profile->hour_rate;?>" name="hour_rate">
-            </div>
-         </div>
-         <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
-      </div>
-      <div class="form-group row">
-         <label for="country" class="col-sm-2 col-form-label"><?php _e('Phone','boxtheme');?></label>
-         <div class="col-sm-10">
-            <span class="visible-default"><?php echo  $profile->phone_number ;?></span>
-            <div class="invisible-default">
-               <input type="text" class="update form-control " value="<?php echo $profile->phone_number;?>" name="phone_number">
-            </div>
-         </div>
-         <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
-      </div>
-       <div class="form-group row">
-         <label for="country" class="col-sm-2 col-form-label"><?php _e('Address','boxtheme');?></label>
-         <div class="col-sm-10">
-            <span class="visible-default"><?php echo $profile->address ;?></span>
-            <div class="invisible-default">
-                <input type="text" class="update form-control" value="<?php echo $profile->address;?>" name="address">
-            </div>
-         </div>
-         <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
-      </div>
+
+   	<div class="col-md-12 clear">
+   		<div class="col-md-12 clear">
+			<form id="update_profile_meta" class="update-profile row-section">
+			<span class="btn btn-edit btn-edit-second"> Edit</span>
+			<div class="form-group row">
+				<div class="col-sm-10">
+				<h3> <?php _e('Profile info','boxtheme');?></h3>
+				</div>
+			</div>
+			<div class="form-group row">
+			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
+			 <div class="col-sm-10">
+			    <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
+			    <div class="invisible-default">
+			       <input type="text" class="update form-control " value="<?php echo $profile->hour_rate;?>" name="hour_rate">
+			    </div>
+			 </div>
+			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
+			</div>
+			<div class="form-group row">
+			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Phone','boxtheme');?></label>
+			 <div class="col-sm-10">
+			    <span class="visible-default"><?php echo  $profile->phone_number ;?></span>
+			    <div class="invisible-default">
+			       <input type="text" class="update form-control " value="<?php echo $profile->phone_number;?>" name="phone_number">
+			    </div>
+			 </div>
+			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
+			</div>
+			<div class="form-group row">
+			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Address','boxtheme');?></label>
+			 <div class="col-sm-10">
+			    <span class="visible-default"><?php echo $profile->address ;?></span>
+			    <div class="invisible-default">
+			        <input type="text" class="update form-control" value="<?php echo $profile->address;?>" name="address">
+			    </div>
+			 </div>
+			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
+			</div>
 
 
-      <div class="form-group row">
-         <label for="country" class="col-sm-2 col-form-label"><?php _e('Country','boxtheme');?></label>
-         <div class="col-sm-10">
-            <span class="visible-default"><?php echo $txt_country;?></span>
-            <div class="invisible-default">
-               <?php echo $country_select;?>
-            </div>
-         </div>
-      </div>
-      <div class="form-group row">
-         <label for="country" class="col-sm-2 col-form-label"><?php _e('Skill','boxtheme');?></label>
-         <div class="col-sm-10">
-            <span class="visible-default"><?php echo  $skill_val ;?></span>
-            <div class="invisible-default">
-               <?php
-               echo $skill_list;
-               ?>
-            </div>
-         </div>
-         <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
-      </div>
+			<div class="form-group row">
+			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Country','boxtheme');?></label>
+			 <div class="col-sm-10">
+			    <span class="visible-default"><?php echo $txt_country;?></span>
+			    <div class="invisible-default">
+			       <?php echo $country_select;?>
+			    </div>
+			 </div>
+			</div>
+			<div class="form-group row">
+			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Skill','boxtheme');?></label>
+			 <div class="col-sm-10">
+			    <span class="visible-default"><?php echo  $skill_val ;?></span>
+			    <div class="invisible-default">
+			       <?php
+			       echo $skill_list;
+			       ?>
+			    </div>
+			 </div>
+			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
+			</div>
 
-      <div class="form-group row invisible-default">
-         <div class="offset-sm-10 col-sm-12 align-right">
-           <button type="submit" class="btn btn-primary"> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
-         </div>
-      </div>
+			<div class="form-group row invisible-default">
+			 <div class="offset-sm-10 col-sm-12 align-right">
+			   <button type="submit" class="btn btn-primary"> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
+			 </div>
+			</div>
 
-   </form>
-</div>
+			</form>
+		</div>
+	</div>
 
 
 <div class="col-md-12 center frame-add-port">
@@ -184,7 +187,7 @@
 			$post->feature_image = get_the_post_thumbnail_url($post->ID, 'full');
 			$post->thumbnail_id = get_post_thumbnail_id($post->ID);
 			$list_portfolio[$post->ID] = $post;
-			echo '<div class="col-md-6 port-item" id="'.$post->ID.'">';
+			echo '<div class="col-md-4 port-item" id="'.$post->ID.'">';
 				the_post_thumbnail('full' );
 				echo '<div class="btns-act"><span class="btn-edit-port" class="'.$post->ID.'"> Edit</span>';
 				echo '<span class="btn-del-port" class="'.$post->ID.'"> X</span></div>';

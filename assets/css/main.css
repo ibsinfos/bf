@@ -1037,7 +1037,8 @@ form #heading_signup{
 	cursor: pointer;
 }
 .col-md-4.port-item.middle-item{
-
+	padding-left: 7.5px;
+	padding-right: 7.5px;
 }
 .port-item img{
 	height: auto;
