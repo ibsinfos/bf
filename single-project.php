@@ -84,7 +84,6 @@ global $wp_query;
 		<?php } ?>
 
 	</div>
-
 </div>
 <div id="frame_chat">
 
@@ -279,5 +278,6 @@ global $wp_query;
 	        </form>
       	</div>
     </div>
+</div>
 </div>
 <?php get_footer();?>
