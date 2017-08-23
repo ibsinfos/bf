@@ -4,34 +4,34 @@
 		<div class="row site-content" id="content" >
 
 			<div class="row bg-section">
-				<div id="author-view" class="col-md-8 author-view">
-					<?php
-					global $author_id;
-					$author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
-					$author_id = $author->ID;
+				<div id="author-view" class="col-md-12 author-view">
+					<div class="full bd-bottom">
+						<?php
+						global $author_id;
+						$author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
+						$author_id = $author->ID;
 
-					$profile_id = get_user_meta($author_id,'profile_id', true);
+						$profile_id = get_user_meta($author_id,'profile_id', true);
 
-					$profile 	= BX_Profile::get_instance()->convert($profile_id);
-					$skills 	= get_the_terms( $profile_id, 'skill' );
-					$skill_text = '';
-					if ( $skills && ! is_wp_error( $skills ) ){
-						$draught_links = array();
-						foreach ( $skills as $term ) {
-							$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+						$profile 	= BX_Profile::get_instance()->convert($profile_id);
+						$skills 	= get_the_terms( $profile_id, 'skill' );
+						$skill_text = '';
+						if ( $skills && ! is_wp_error( $skills ) ){
+							$draught_links = array();
+							foreach ( $skills as $term ) {
+								$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+							}
+							$skill_text = join( ", ", $draught_links );
 						}
-						$skill_text = join( ", ", $draught_links );
-					}
-					?>
-				    <div class="form-group row">
-				    	<div class="col-md-3 update-avatar">
+						?>
+				    	<div class="col-md-2 update-avatar">
 				    		<?php
 				    		$url = get_user_meta($author_id,'avatar_url', true);
 				    		if ( ! empty($url ) ){ echo '<img class="avatar" src=" '.$url.'" />';}
 				    		else {	echo get_avatar($author_id);	}
 				    		?>
 				    	</div>
-				      	<div class="col-md-9 no-padding-left">
+				      	<div class="col-md-10 no-padding-left">
 				      		<div class="col-md-10 no-padding"><h2 class="profile-title no-margin"> <?php echo $profile->post_title;?></h2></div>
 				      		<div class="col-md-2 no-padding align-right">
 				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
@@ -44,52 +44,53 @@
 				        		<span class="clear author-skills"><?php echo $skill_text;;?></span>
 				        	</div>
 				      	</div>
-				    </div>
-				</div>
-			</div>
-			<!-- Ovreview line !-->
-			<div class="row bg-section">
-				<div class="col-sm-8 text-justify">
-					<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
-					<div class="full author-overview">
-						<?php echo $profile->post_content;?>
-					</div>
+			      	</div> <!-- .full !-->
 
-					<?php
-					$video_id = get_post_meta($profile->ID, 'video_id', true);
+					<!-- Ovreview line !-->
+					<div class="full bd-bottom">
+						<div class="col-sm-8 text-justify">
 
-					if( !empty($video_id)){ ?>
-						<div class="video-container">
-						  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+							<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
+
+							<div class="full author-overview">
+								<?php echo $profile->post_content;?>
+							</div>
+
+							<?php
+							$video_id = get_post_meta($profile->ID, 'video_id', true);
+
+							if( !empty($video_id)){ ?>
+								<div class="video-container">
+								  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+								</div>
+							<?php } ?>
 						</div>
-					<?php } ?>
-				</div>
-				<div class="col-md-4">
-					<ul class="work-status">
-						<?php
-						$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
-						$earned = get_user_meta($author_id, EARNED, true);
-						$pcountry = get_the_terms( $profile_id, 'country' );
-						if( !$projects_worked ){
-							$projects_worked = 0;
-							$earned = 0;
-						}
+						<div class="col-md-4">
+							<ul class="work-status">
+								<?php
+								$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
+								$earned = get_user_meta($author_id, EARNED, true);
+								$pcountry = get_the_terms( $profile_id, 'country' );
+								if( !$projects_worked ){
+									$projects_worked = 0;
+									$earned = 0;
+								}
 
-						?>
-						<li>Work History </li>
-						<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
-						<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
-						<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
-				      	<li><span class="glyphicon glyphicon-map-marker"></span><label> Language:</label> English </li>
-					</ul>
-				</div>
-			</div>
-
-			<!-- End Ovreview !-->
+								?>
+								<li>Work History </li>
+								<li><span class="glyphicon glyphicon-map-marker"></span><label> Job worked: </label> <?php echo  $projects_worked;?></li>
+								<li><span class="glyphicon glyphicon-map-marker"></span><label> Total earn: </label><?php  echo $earned;?></li>
+								<li> <span class="glyphicon glyphicon-map-marker"></span><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
+						      	<li><span class="glyphicon glyphicon-map-marker"></span><label> Language:</label> English </li>
+							</ul>
+						</div>
+					</div><!-- End Ovreview !-->
+				</div> <!-- .end author-view !-->
+			</div> <!-- end bg section !-->
 			<!-- Line work history !-->
 			<div class="row bg-section">
 				<div class="col-md-8">
-					<h3> <?php _e('Work History and Feedback','boxtheme');?></h3>
+					<div class="header-title"><h3> <?php _e('Work History and Feedback','boxtheme');?></h3></div>
 					<?php
 
 					$args = array(
@@ -133,7 +134,7 @@
 			<!-- end history + feedback line !-->
 			<!-- Line portfoliot !-->
 			<div class="row bg-section">
-				<div class="col-md-12"><h3> Portfolio </h3></div>
+				<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
 				<?php
 				$args = array(
 						'post_type' 	=> 'portfolio',

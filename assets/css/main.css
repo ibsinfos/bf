@@ -1121,4 +1121,14 @@ body.author .site-content{
 	padding-top:30px;
 	padding-bottom: 30px;
 }
+.header-title,.bd-bottom{
+	border-bottom: 3px solid #ccc;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+}
+.bd-bottom{
+	padding-bottom: 50px;
+	margin-bottom: 30px;
+}
 /*******END AUTHOR *//////////
