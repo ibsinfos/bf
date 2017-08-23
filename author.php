@@ -20,23 +20,23 @@
 							foreach ( $skills as $term ) {
 								$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
 							}
-							$skill_text = join( ", ", $draught_links );
+							$skill_text = join( "", $draught_links );
 						}
 						?>
-				    	<div class="col-md-2 update-avatar">
+				    	<div class="col-md-3 update-avatar">
 				    		<?php
 				    		$url = get_user_meta($author_id,'avatar_url', true);
 				    		if ( ! empty($url ) ){ echo '<img class="avatar" src=" '.$url.'" />';}
 				    		else {	echo get_avatar($author_id);	}
 				    		?>
 				    	</div>
-				      	<div class="col-md-10 no-padding-left">
+				      	<div class="col-md-9 no-padding-left">
 				      		<div class="col-md-10 no-padding"><h2 class="profile-title no-margin"> <?php echo $profile->post_title;?></h2></div>
 				      		<div class="col-md-2 no-padding align-right">
 				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
 				      		</div>
 				      		<div class="full clear">
-				        	<h4 class="professional-title no-margin" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
+				        	<h4 class="professional-title no-margin primary-color" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
 				        	</div>
 				        	<div class="full">
 				        		<span class="clear block author-address"><?php echo $profile->address;?></span>

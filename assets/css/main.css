@@ -882,22 +882,25 @@ ul.pagination{
 }
 
 .author-view h2.profile-title{
-	padding: 5px 0 0 0 ;
+	padding: 5px 0 10px 0 ;
 }
 .author-view .professional-title{
 	padding: 5px 0;
+	font-size: 17px;
 }
 .author-overview{
 	line-height: 22px;
 }
 .author-address{
-	font-size: 13px;
+	padding-bottom: 10px;
 }
 
 .author-skills a{
 	text-decoration: none;
-	color: #333;
-	text-decoration: none;
+	color: #555;
+	padding: 0px 12px;
+	background-color: #ececec;
+	margin-right: 5px;
 }
 .bid-history-item{
 	margin-bottom: 10px;
@@ -1158,6 +1161,9 @@ div.header-title,.bd-bottom{
 	display: block;
 	overflow: hidden;
 }
+h2.profile-title{
+	color: #575757;
+}
 .bg-section h3{
 	font-size: 19px;
 	color: #575757;
@@ -1168,5 +1174,14 @@ div.header-title,.bd-bottom{
 }
 .p-activity{
 	overflow: hidden;
+}
+.author-view .hour-rate{
+	font-size: 16px;
+	color: #575757;
+}
+body.author img.avatar{
+	max-width: 150px;
+	border-radius: 50%;
+	border:3px solid #ccc;
 }
 /*******END AUTHOR *//////////
