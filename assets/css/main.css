@@ -60,6 +60,10 @@
 .invisible{
 	visibility:hidden;
 }
+.nowrap{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
 
 body{
 	background: #f2f2f2;
@@ -1158,5 +1162,8 @@ div.header-title,.bd-bottom{
 .bd-bottom{
 	padding-bottom: 50px;
 	margin-bottom: 30px;
+}
+.p-activity{
+	overflow: hidden;
 }
 /*******END AUTHOR *//////////

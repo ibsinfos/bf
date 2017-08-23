@@ -120,11 +120,11 @@
 						echo '</p>';
 					}?>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 p-activity">
 					<div class="header-title"><h3 class=""> &nbsp;</h3></div>
 					<br />
-					<p><label> Profile link</label>	<a href="#"> Profile link</a></p>
-					<p><label>Activity</label> <span>24X7h/week</span></p>
+					<p><label> Profile link</label> <br /><a class="nowrap" href="<?php the_permalink($profile_id);?>"><?php the_permalink($profile_id);?></a></p>
+					<p><label>Activity</label> <br /> <span>24X7 hours</span></p>
 				</div>
 			</div>
 
