@@ -2,52 +2,53 @@
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
-			<div id="author-view" class="col-md-8 author-view">
-				<?php
-				global $author_id;
-				$author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
-				$author_id = $author->ID;
 
-				$profile_id = get_user_meta($author_id,'profile_id', true);
+			<div class="row bg-section">
+				<div id="author-view" class="col-md-8 author-view">
+					<?php
+					global $author_id;
+					$author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
+					$author_id = $author->ID;
 
-				$profile 	= BX_Profile::get_instance()->convert($profile_id);
-				$skills 	= get_the_terms( $profile_id, 'skill' );
-				$skill_text = '';
-				if ( $skills && ! is_wp_error( $skills ) ){
-					$draught_links = array();
-					foreach ( $skills as $term ) {
-						$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+					$profile_id = get_user_meta($author_id,'profile_id', true);
+
+					$profile 	= BX_Profile::get_instance()->convert($profile_id);
+					$skills 	= get_the_terms( $profile_id, 'skill' );
+					$skill_text = '';
+					if ( $skills && ! is_wp_error( $skills ) ){
+						$draught_links = array();
+						foreach ( $skills as $term ) {
+							$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+						}
+						$skill_text = join( ", ", $draught_links );
 					}
-					$skill_text = join( ", ", $draught_links );
-				}
-				?>
-			    <div class="form-group row">
-			    	<div class="col-md-3 update-avatar">
-			    		<?php
-			    		$url = get_user_meta($author_id,'avatar_url', true);
-			    		if ( ! empty($url ) ){ echo '<img class="avatar" src=" '.$url.'" />';}
-			    		else {	echo get_avatar($author_id);	}
-			    		?>
-			    	</div>
-			      	<div class="col-md-9 no-padding-left">
-			      		<div class="col-md-10 no-padding"><h2 class="profile-title no-margin"> <?php echo $profile->post_title;?></h2></div>
-			      		<div class="col-md-2 no-padding align-right">
-			      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
-			      		</div>
-			      		<div class="full clear">
-			        	<h4 class="professional-title no-margin" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
-			        	</div>
-			        	<div class="full">
-			        		<span class="clear block author-address"><?php echo $profile->address;?></span>
-			        		<span class="clear author-skills"><?php echo $skill_text;;?></span>
-			        	</div>
-			      	</div>
-			    </div>
-			</div> <!-- end left !-->
-
+					?>
+				    <div class="form-group row">
+				    	<div class="col-md-3 update-avatar">
+				    		<?php
+				    		$url = get_user_meta($author_id,'avatar_url', true);
+				    		if ( ! empty($url ) ){ echo '<img class="avatar" src=" '.$url.'" />';}
+				    		else {	echo get_avatar($author_id);	}
+				    		?>
+				    	</div>
+				      	<div class="col-md-9 no-padding-left">
+				      		<div class="col-md-10 no-padding"><h2 class="profile-title no-margin"> <?php echo $profile->post_title;?></h2></div>
+				      		<div class="col-md-2 no-padding align-right">
+				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
+				      		</div>
+				      		<div class="full clear">
+				        	<h4 class="professional-title no-margin" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
+				        	</div>
+				        	<div class="full">
+				        		<span class="clear block author-address"><?php echo $profile->address;?></span>
+				        		<span class="clear author-skills"><?php echo $skill_text;;?></span>
+				        	</div>
+				      	</div>
+				    </div>
+				</div>
+			</div>
 			<!-- Ovreview line !-->
-
-			<div class="form-group row">
+			<div class="row bg-section">
 				<div class="col-sm-8 text-justify">
 					<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
 					<div class="full author-overview">
@@ -86,7 +87,7 @@
 
 			<!-- End Ovreview !-->
 			<!-- Line work history !-->
-			<div class="form-group row">
+			<div class="row bg-section">
 				<div class="col-md-8">
 					<h3> <?php _e('Work History and Feedback','boxtheme');?></h3>
 					<?php
@@ -131,7 +132,7 @@
 			</div>
 			<!-- end history + feedback line !-->
 			<!-- Line portfoliot !-->
-			<div class="col-md-12">
+			<div class="row bg-section">
 				<h3> Portfolio </h3>
 				<?php
 				$args = array(

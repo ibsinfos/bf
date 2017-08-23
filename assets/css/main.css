@@ -113,7 +113,9 @@ footer .container{
 	background: url('../../img/loading.gif') no-repeat center;
 	opacity: 0.1;
 }
-
+.white-bg{
+	background-color: #fff;
+}
 .bg-color, .primary-bg{
 	background-color: #17a717;
 	color: #fff;
@@ -1109,3 +1111,14 @@ ul.social-login li a{
 	padding: 2px 5px;
 	background-color: #efefef;
 }
+/** AUTHOR - PROFILE DETAIL AUTHOR.PHP */
+body.author .site-content{
+	background-color: transparent;
+}
+.bg-section{
+	background-color: #fff;
+	margin-bottom: 30px;
+	padding-top:30px;
+	padding-bottom: 30px;
+}
+/*******END AUTHOR *//////////
