@@ -22,12 +22,12 @@
 						  	<div class="well">
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
 						          	<div class="form-group">
-						              	<input type="text" class="form-control" id="login-username" name="user_login" value="<?php echo $email;?>" required="" title="<?php _e('Enter you username','boxtheme');?>" placeholder="<?php _e('Username or Email','boxtheme');?>">
+						              	<input type="text" class="form-control required" id="login-username" name="user_login" value="<?php echo $email;?>" title="<?php _e('Enter you username','boxtheme');?>" placeholder="<?php _e('Username or Email','boxtheme');?>">
 						          	</div>
 						          	<div class="form-group">
-						              	<input type="password" class="form-control" id="password" name="user_password" value="" required="" title="<?php _e('Enter your password','boxtheme');?>" placeholder="<?php _e('Password','boxtheme');?>">
+						              	<input type="password" class="form-control required" id="password" required name="user_password" value=""  title="<?php _e('Enter your password','boxtheme');?>" placeholder="<?php _e('Password','boxtheme');?>">
 						          	</div>
-						          	<div id="loginErrorMsg" class="alert alert-error hide"><?php _e('Wrong username og password','boxtheme');?></div>
+						          	<div id="loginErrorMsg" class="alert alert-error alert-warning hide"><?php _e('Wrong username og password','boxtheme');?></div>
 						          	<div class="checkbox"><label><input type="checkbox" name="remember" id="remember"><?php _e('Remember login','boxtheme');?>  </label></div>
 					           		<?php
 				                        if( ! empty( $_GET['redirect'] ) ){
@@ -35,7 +35,7 @@
 				                        }
 				                        wp_nonce_field( 'bx_login', 'nonce_login_field' );
 			                    	?>
-						          	<button type="submit" class="btn btn-success btn-block"><?php _e('Log In','boxtheme');?></button>
+						          	<button type="submit" class="btn btn-success btn-block btn-submit"><?php _e('Log In','boxtheme');?></button>
 						           	<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
 						          	<div class="forgotLink"><a href="" target="_blank" class=""><?php _e('Having trouble logging in?','boxtheme');?></a></div>
 						          	<div class="form-group">
@@ -61,6 +61,8 @@
         $("#loginform").submit(function(event){
             event.preventDefault();
             var form    = $(event.currentTarget);
+
+
             var send    = {};
             form.find( 'input' ).each( function() {
                 var key     = $(this).attr('name');
@@ -75,14 +77,21 @@
                         request: send,
                 },
                 beforeSend  : function(event){
+                	form.attr('disabled', 'disabled');
+                	//$(".btn-submit").
+                	form.find(".btn-submit").addClass("loading");
                 },
                 success : function(res){
+                	form.find(".btn-submit").removeClass("loading");
                     if ( res.success ){
                         if( res.redirect_url ){
                             window.location.href = res.redirect_url;
                         } else {
                             window.location.href= bx_global.home_url;
                         }
+                    } else {
+                    	$("#loginErrorMsg").html(res.msg);
+                    	$("#loginErrorMsg").removeClass("hide");
                     }
                 }
             });
@@ -93,6 +102,12 @@
 </script>
 
 <style type="text/css">
+	#loginErrorMsg{
+		padding: 10px 0;
+		margin: 0;
+		font-size: 12px;
+		text-indent: 15px;
+	}
 	.form-control{
 		-webkit-box-shadow: 0;
 	    box-shadow: none !important;
