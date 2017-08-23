@@ -36,7 +36,7 @@ var single_project = {
 		$(".btn-close").on('click',this.closeFrame);
 
 		$( "form#frm_quit_job").on('submit', this.quitJob);
-
+		$( "form.swp-send-message").on('submit', this.sendMessageWSP); // in workspace section
 		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
@@ -239,10 +239,23 @@ var single_project = {
 
 		var _this = $(event.currentTarget);
 		msg_send.msg_content = _this.find(".msg_content").val();
+		console.log(msg_send);
 		window.ajaxSend.Custom(msg_send, success);
 		return false;
 	},
-
+	sendMessageWSP : function(e){
+		var action = 'sync_message', method = 'insert';
+		var success = function(res){
+	        console.log(res);
+        	if ( res.success ){
+        		//window.location.reload(true);
+	        } else {
+	        	alert(res.msg);
+	        }
+		}
+		window.ajaxSend.Form(event, action, method, success);
+		return false;
+	},
 	awardProject: function(event){
 		event.preventDefault();
 		var success = function(res){

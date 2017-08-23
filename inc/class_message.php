@@ -19,20 +19,33 @@ class BX_Conversations{
 	}
 
 	function insert($args){
-		global $wpdb;
-		global $user_ID;
 
-		$wpdb->insert( $wpdb->prefix . 'box_conversations', array(
+		global $wpdb, $user_ID;
+		var_dump($args);
+
+		$t = $wpdb->insert( $wpdb->prefix . 'box_conversations', array(
 				'cvs_author' => $user_ID,
 				'project_id' => $args['project_id'],
 				'receiver_id' =>  $args['receiver_id'],
 				'cvs_content'	=> $args['cvs_content'],
+				
 				'cvs_status' => 1,
-				'msg_unread' => 'new',
+				'msg_unread' => 0,
 				'date_created' => current_time('mysql'),
 				'date_modify' => current_time('mysql'),
 			)
 		);
+			// cvs_id bigint(20) NOT NULL,
+			//   	sender_id  bigint(20)  NULL,
+			//   	receiver_id  bigint(20) NOT NULL,
+			//   	msg_status  char(15)  NULL,
+			//   	msg_type  char(15)  NULL,
+			//   	msg_unread  bigint(20) NULL,
+			//   	msg_content longtext NOT NULL,
+			//   	msg_date datetime NULL default null,
+			//   	msg_link varchar(256) NULL,
+
+		var_dump($t);
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
 			'cvs_id' 		=> $wpdb->insert_id, // cvs_id just inserted

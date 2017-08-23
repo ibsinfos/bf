@@ -158,9 +158,10 @@ Class BX_Project extends BX_Post{
 				// create coversation
 				// update bid status to AWARDED
 				wp_update_post( array('ID' => $bid_id, 'post_status'=> AWARDED) );
+				$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
 				$args  = array(
-					'cvs_content' => $request['cvs_content'],
-					'cvs_project_id' => $request['project_id'],
+					'cvs_content' => $cvs_content,
+					'project_id' => $request['project_id'],
 					'receiver_id' => $request['freelancer_id']
 				);
 				BX_Conversations::get_instance()->insert($args);
@@ -335,9 +336,7 @@ Class BX_Project extends BX_Post{
 		return new WP_Error( 'unallow', __( "You are not allowed to perform this action.", "boxtheme" ) );
 
 	}
-	function submit_task(){
 
-	}
 	/**
 	 * check the condition and make sure it fit with the flow of system.
 	 * This is a cool function

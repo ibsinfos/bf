@@ -35,17 +35,11 @@ function get_conversation_id_of_user($freelancer_id, $project_id){
 
 	return  $convs;
 }
-function show_conversation($freelancer_id, $project_id){
-	global $wpdb, $user_ID, $convs_id;
-	$check = $wpdb->prepare( "SELECT msg.* FROM {$wpdb->prefix}box_conversations cvs
-			INNER JOIN {$wpdb->prefix}box_messages msg ON  cvs.id = msg.cvs_id
-		 	WHERE cvs.receiver_id = %d
-		 	AND cvs.cvs_project_id = %d",
-	        $freelancer_id, $project_id
-        );
+function show_conversation($freelancer_id, $project_id, $cvs_id = 0){
+	global $user_ID;
 
 
-	$messages = $wpdb->get_results($check);
+	$messages = BX_Message::get_instance()->get_converstaion(array('id' => $cvs_id));
 
 	if(null !== $messages){
 
@@ -66,8 +60,14 @@ function show_conversation($freelancer_id, $project_id){
 			}
 			echo '</div>';
 		} ?>
-		<form class="frm-send-message"  >
+		<form class="swp-send-message"  >
 			<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="Leave your message here"></textarea>
+			<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
+			<input type="hidden" name="receiver_id" value="<?php echo $freelancer_id;?>">
+			<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
+			<input type="hidden" name="method" value="insert">
+
+
 			<br />
 			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 		</form>
