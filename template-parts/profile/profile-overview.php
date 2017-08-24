@@ -5,8 +5,7 @@
 <div id="profile" class="col-md-12">
 	<form id="update_profile" class="row-section">
 		<div class="form-group ">
-				<h3> <?php _e('Overview','boxtheme');?></h3>
-
+			<h2 class="col-md-12"> <?php _e('Overview','boxtheme');?></h2>
 		</div>
 	    <div class="form-group ">
 	    	<div class="col-md-3 update-avatar">
@@ -21,7 +20,7 @@
 	    		?>
 	    	</div>
 	      	<div class="col-md-9 col-sm-12">
-	      		<span class="btn btn-edit btn-edit-default"> Edit</span>
+	      		<div class="col-sm-12"><span class="btn btn-edit btn-edit-default"> Edit</span></div>
 	            <div class="form-group row">
 	        	   <h2 class="static visible-default" > <?php echo $current_user->display_name;?></h2>
 	        	   <input class=" update hide form-control" type="text" value="<?php echo $current_user->display_name;?>" name="post_title">

@@ -97,6 +97,10 @@ h3{
     clear: both;
     display: block;
     position: relative;
+    padding-bottom:30px;
+}
+.row-section h2{
+	font-size: 19px;
 }
 .row-section .form-group{
     margin-bottom: 5px;
@@ -245,4 +249,10 @@ form.add-portfolio .modal-body {
 }
 .btn-close{
 	background-color: #ccc;
+}
+.update-profile .chosen-container-single .chosen-single{
+	height: 32px;
+	border-radius: 0;
+	box-shadow: none;
+	background: none !important;
 }

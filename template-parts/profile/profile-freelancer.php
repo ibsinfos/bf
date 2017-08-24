@@ -61,7 +61,7 @@
       <div class="video block">
 
          <span href="#" class="btn btn-edit btn-edit-video">Edit</span>
-         <h3> Video </h3>
+         <h2> Video </h2>
          <?php
          $video_id = get_post_meta($profile_id, 'video_id', true);
 
@@ -97,7 +97,7 @@
 			<span class="btn btn-edit btn-edit-second"> Edit</span>
 			<div class="form-group row">
 				<div class="col-sm-10">
-				<h3> <?php _e('Profile info','boxtheme');?></h3>
+				<h2> <?php _e('Profile info','boxtheme');?></h2>
 				</div>
 			</div>
 			<div class="form-group row">

@@ -78,7 +78,6 @@
 			      	<input type="text" class="post_title form-control required" required  name="post_title" id="post_title" value="" placeholder="<?php _e("Portfolio name",'boxtheme');?>" />
 			      	<input type="hidden" class="form-control required"  name="post_content" value="" placeholder="<?php _e("Post content ",'boxtheme');?>" />
 			      	<input type="hidden" class="form-control"  name="ID" id="port_id" value="" />
-
 			   	</div>
 
 			   	<div class="form-group">
