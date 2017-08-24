@@ -153,8 +153,9 @@
 
 						$result->the_post();
 						echo '<div class="col-md-4 port-item '.$class.'">';
-							the_post_thumbnail('full' );
-
+							the_post_thumbnail('full' ); ?>
+							<h5 class="h5 port-title"><?php the_title();?></h5>
+							<?php
 						echo '</div>';
 						$i++;
 					}

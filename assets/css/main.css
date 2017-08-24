@@ -1057,7 +1057,6 @@ form #heading_signup{
 	height: 166px;
 }
 .col-md-4.port-item img:hover{
-	opacity: 0.7;
 	cursor: pointer;
 }
 .col-md-4.port-item.middle-item{
@@ -1212,5 +1211,18 @@ h1.profile-title{
 }
 .archive-profile-item .profile-title a{
 	color: #575757;
+}
+h5.port-title {
+    position: absolute;
+    bottom: -11px;
+    display: none;
+    color: #fff;
+    width: 95%;
+    text-align: center;
+    background: #53505080;
+    padding: 10px;
+}
+.port-item:hover .port-title{
+	display: block;
 }
 /*******END AUTHOR *//////////

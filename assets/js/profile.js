@@ -227,7 +227,7 @@
 			window.ajaxSend.Form(event, 'sync_portfolio', 'insert', success);
 			return false;
 		},
-		delPortfolio: function(e){
+		delPortfolio: function(event){
 			var _this = $(event.currentTarget);
 		    var p_id = _this.closest(".port-item").attr('id');
 
