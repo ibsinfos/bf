@@ -1221,6 +1221,7 @@ h5.port-title {
     text-align: center;
     background: #53505080;
     padding: 10px;
+    font-size: 16px;
 }
 .port-item:hover .port-title{
 	display: block;

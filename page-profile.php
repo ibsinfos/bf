@@ -45,17 +45,18 @@
 	      				$avatar_att_id = get_user_meta( $user_ID, 'avatar_att_id', true );
 	      				?>
 	      				<div class="img-container">
-	              			<img src="<?php echo wp_get_attachment_url($avatar_att_id);?>" alt="Picture" id="thumbnail">
+	      					<div class="centar-avatar">
+		              			<img id="btn-upload-avatar1" class="avatar-popup" src="<?php echo wp_get_attachment_url($avatar_att_id);?>" alt="Picture" id="thumbnail">
+		              			<span id="btn-upload-avatar" class="btn-upload-avatar"> <span class="glyphicon glyphicon-camera"></span> </span>
+	              			</div>
 	              		</div>
-					<br style="clear:both;">
-						<button id="btn-upload-avatar">Select an image</button>
-						<small>Recommend 90px*90px</small>
+						<br style="clear:both;">
 					</div>
 					<input type="hidden" id="avatar_att_id" name="avatar_att_id" />
 	      		<!-- end test !-->
 	      		</div>
 	      		<div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
 		        <button type="submit" class="btn btn-primary upload-result">Save changes</button>
 		    	</div>
 		    </div>

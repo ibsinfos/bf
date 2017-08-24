@@ -191,10 +191,34 @@ margin: 0;
 .img-container{
 	text-align: center;
 	vertical-align: middle;
+	background-color: #ccc;
+	padding: 30px 6px;
+	position: relative;
 }
 .img-container img{
 	max-width: 150px;
 }
 #modal_avatar .modal-dialog{
 	width: 350px;
+}
+.frm-avatar .btn-upload-avatar {
+    padding: 10px;
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    right: 0px;
+    font-size: 19px;
+}
+.img-container:hover .btn-upload-avatar{
+	display: block;
+}
+.modal-content{
+	border-radius: 0;
+}
+.centar-avatar{
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	position: relative;
 }

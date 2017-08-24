@@ -44,7 +44,13 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 				<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
 				<span class="item profile-rating"> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
 			</span>
-			<span class="overview-profile clear"><?php echo str_replace( array("\n", "\r"), '', get_the_content() );?></span>
+			<span class="overview-profile clear">
+			<?php
+			$str = str_replace( array("\n", "\r"), '', get_the_content() );
+			the_excerpt_max_charlength($str, 170);
+			?>
+
+			</span>
 			<small class="clear skills"><?php echo $skill_val;?></small>
 		</div>
 
