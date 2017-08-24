@@ -189,8 +189,9 @@
 			$list_portfolio[$post->ID] = $post;
 			echo '<div class="col-md-4 port-item" id="'.$post->ID.'">';
 				the_post_thumbnail('full' );
-				echo '<div class="btns-act"><span class="btn-edit-port" class="'.$post->ID.'"> Edit</span>';
-				echo '<span class="btn-del-port" class="'.$post->ID.'"> X</span></div>';
+				echo '<div class="btns-act"><span class="btn-sub-act btn-edit-port "><span class="glyphicon glyphicon-pencil
+"></span></span>';
+				echo '<span class="btn-sub-act btn-del-port" > <span class="glyphicon glyphicon-trash"></span></span></div>';
 			echo '</div>';
 		}
 		wp_reset_query();

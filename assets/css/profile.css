@@ -193,15 +193,24 @@ form.add-portfolio .modal-body {
 	position: relative;
 }
 .btns-act{
-
     position: absolute;
-    top: 3px;
-    right: 23px;
+    top: 6px;
+    right: 25px;
     display: none;
-
+}
+.btns-act span{
+	padding: 10px 3ox;
+	cursor: pointer;
+	color: #fff;
 }
 .port-item:hover .btns-act{
 	display: block;
+}
+.btns-act .btn-sub-act {
+    padding: 4px 6px;
+    margin: 4px;
+    background: #ccc;
+    text-align: center;
 }
 .imgareaselect-border1,
 .imgareaselect-border2{
