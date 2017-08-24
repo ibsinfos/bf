@@ -15,6 +15,9 @@ function self_customizer_section($wp_customize) {
         'section'  => 'section_name',
         'settings' => 'main_img',
     )));
+
+
 }
 
 add_action('customize_register', 'self_customizer_section');
+
