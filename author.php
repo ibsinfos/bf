@@ -26,7 +26,7 @@
 				    	<div class="col-md-3 update-avatar align-center no-padding-right">
 				    		<?php
 				    		$url = get_user_meta($author_id,'avatar_url', true);
-				    		if ( ! empty($url ) ){ echo '<img class="avatar" src=" '.$url.'" />';}
+				    		if ( ! empty($url ) ){ echo '<img title="'.$profile->post_title.'" alt="'.$profile->post_title.'" class="avatar" src=" '.$url.'" />';}
 				    		else {	echo get_avatar($author_id);	}
 				    		?>
 				    	</div>
@@ -122,7 +122,7 @@
 				<div class="col-md-4 p-activity">
 					<div class="header-title"><h3 class=""> &nbsp;</h3></div>
 					<br />
-					<p><label> Profile link</label> <br /><a class="nowrap" href="<?php the_permalink($profile_id);?>"><?php the_permalink($profile_id);?></a></p>
+					<p><label> Profile link</label> <br /><a class="nowrap" href="<?php get_author_posts_url($profile->post_author);?>"><?php echo get_author_posts_url($profile->post_author);?></a></p>
 					<p><label>Activity</label> <br /> <span>24X7 hours</span></p>
 				</div>
 			</div>

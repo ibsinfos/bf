@@ -25,12 +25,11 @@ get_header(); ?>
 	        </p>
 	        <!-- CREATE PRODILE BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="https://sanjuanfreelance.com/auth-3/" class="btn review-btn">
-	                Create a Profile            </a>
+	            <a href="<?php echo et_get_page_link('signup-jobseeker');?>" class="btn review-btn">Create a Profile</a>
 	        </div>
 	        <!-- POST A PROJECT BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	            <a href="https://sanjuanfreelance.com/submit-project/" class="btn   review-btn find-btn">Post a Project</a>
+	            <a href="<?php echo et_get_page_link('submit-project');?>" class="btn   review-btn find-btn">Post a Project</a>
 	        </div>
 	    </div>
 
