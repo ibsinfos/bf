@@ -25,18 +25,15 @@ add_action('after_cover_img','box_after_cover_img' );
 function box_after_cover_img(){
 	echo '</div>';
 }
-$ld_one = $wp_customize->get_setting( 'main_img' )->transport;
-echo '<pre>';
-var_dump($ld_one);
-echo '</pre>';
+$main_img = get_theme_mod('main_img',  get_template_directory_uri().'/img/banner.jpg' );
 get_header(); ?>
 <style type="text/css">
 	.cover-img{
-		background:url('<?php echo get_stylesheet_directory_uri();?>/img/banner.jpg') top center no-repeat;
+		background:url('<?php echo $main_img;?>') top center no-repeat;
 	    background-size: cover;
 	}
 	.cover-img, .opacity{
-		height: 588px;
+		height: 568px;
 	}
 	.opacity{
 		opacity: 0.8;

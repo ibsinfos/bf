@@ -2,7 +2,7 @@
 function self_customizer_section($wp_customize) {
     $wp_customize->add_section( 'section_name' , array(
         'title'       => __( 'Home page', 'my_theme' ),
-        'description' => 'theme general options',
+        'description' => 'Select banner image',
     ));
 
     /* LOGO */
