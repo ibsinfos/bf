@@ -72,10 +72,10 @@
     	<form class="add-portfolio" id="modal_add_port">
 	      	<div class="modal-body ">
 	      		<div class="form-group">
-			      	<center><h2> Add portfolio</h2></center>
+			      	<center><h2><?php _e('Add Portfolio','boxtheme');?></h2></center>
 			   	</div>
 	      		<div class="form-group">
-			      	<input type="text" class="form-control required" required  name="post_title" id="post_title" value="" placeholder="<?php _e("Set title",'boxtheme');?>" />
+			      	<input type="text" class="post_title form-control required" required  name="post_title" id="post_title" value="" placeholder="<?php _e("Portfolio name",'boxtheme');?>" />
 			      	<input type="hidden" class="form-control required"  name="post_content" value="" placeholder="<?php _e("Post content ",'boxtheme');?>" />
 			      	<input type="hidden" class="form-control"  name="ID" id="port_id" value="" />
 
@@ -83,15 +83,14 @@
 
 			   	<div class="form-group">
 			      	<div id="container_file">
-					   	<div class="wrap-port-img" id="pickfiles"><i class="fa fa-upload" aria-hidden="true">Select an image</i></div>
-
+					   	<div class="wrap-port-img" id="pickfiles"><span class="txt-label"><img src="<?php echo get_template_directory_uri().'/img/clould-upload.png';?>"><span class="txt-lbupload"><?php _e('Select an image','boxtheme');?></span> </span></div>
 					</div>
 					<input type="text" class="form-control "   name="thumbnail_id" id="thumbnail_id" value="" />
 			   	</div>
 
 	      	</div>
 	      	<div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
 		        <button type="submit" class="btn btn-primary"><?php _e('Save','button');?></button>
 		    </div>
 	    </form>

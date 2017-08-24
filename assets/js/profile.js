@@ -27,7 +27,9 @@
 	    console.log(left);
 
     });
-
+	var emtpy_html = $("#modal_add_portfolio .wrap-port-img").html();
+	console.log('test');
+	console.log(emtpy_html);
 	var profile = {
 		init: function() {
 			$(".frm-avatar").on('submit',this.saveAvatar);
@@ -44,6 +46,7 @@
 			$('.update-avatar img').on('click', function() {
 			    $('#modal_avatar').modal('show');
 
+
 		    });
 
 
@@ -51,7 +54,9 @@
 		    var add_portfolio_form = wp.template("add_portfolio");
 
 		    $('.btn-show-portfolio-modal').on('click', function() {
-		    	console.log('show modal');
+
+		        $("#modal_add_portfolio .wrap-port-img").html(emtpy_html);
+		        $("#modal_add_portfolio").find(".post_title").val('');
 		        $('#modal_add_portfolio').modal('show');
 
 		    });
