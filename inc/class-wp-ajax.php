@@ -766,7 +766,7 @@ class BX_AJAX {
 		update_user_meta($user_ID,'avatar_url', $avatar_url);
 		update_user_meta($user_ID,'avatar_att_id', $avatar_att_id);
 
-		$response = array('success' => true,'msg'=> 'Avatar is updated');
+		$response = array('success' => true,'msg'=> 'Avatar is updated','avatar_url'=>$avatar_url);
 		wp_send_json( $response );
 
 	}

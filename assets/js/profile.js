@@ -171,9 +171,12 @@
 		},
 		saveAvatar : function(event){
 			var form 	= $(event.currentTarget);
-			console.log('123');
+
 			var success = function(res){
-				console.log(res);
+				if( res ){
+					$(".update-avatar").find(".avatar").attr('src',res.avatar_url);
+					$('#modal_avatar').modal('hide');
+				}
 			}
 			window.ajaxSend.Form(event, 'custom_avatar', 'insert', success);
 
