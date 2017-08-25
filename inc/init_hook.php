@@ -539,7 +539,6 @@ function bx_page_template_redirect(){
 			wp_redirect( home_url() );
 			exit();
 		}
-		return ;
 	}
 
 	if( is_user_logged_in() ) {
