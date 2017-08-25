@@ -14,8 +14,7 @@
    	);
 
    if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
-      	$country_select.= '<select name="country" id="country" class="chosen-select form-control" >';
-      	$country_select .= '<option value=""> Select your country </option>';
+      	$country_select.= '<select name="country" id="country" class="chosen-select form-control" data-placeholder="Choose a country" >';
       	foreach ( $countries as $country ) {
         	$country_select .= '<option value="'.$country->slug.'" '. selected($country->slug, $slug, false) .' >' . $country->name . '</option>';
       	}
@@ -43,9 +42,7 @@
 
    	if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
 
-    	$skill_list .=  '<select name="skill" multiple  id="skill" class="chosen-select form-control" >';
-      	$skill_list .= '<option> Select skill</option>';
-
+    	$skill_list .=  '<select name="skill" multiple  id="skill" class="chosen-select form-control" data-placeholder="Selec your skills" >';
       	foreach ( $skills as $skill ) {
         	$selected = "";
          	if( in_array($skill->term_id, $list_ids) ){
