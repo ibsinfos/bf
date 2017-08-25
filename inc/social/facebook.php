@@ -15,7 +15,8 @@ class BX_Facebook{
 		$social_api = BX_Option::get_instance()->get_group_option('social_api');
 		$facebook = (object) $social_api['facebook'];
 		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
-		$this->app_id = $facebook->app_id;
+		if( isset($facebook->app_id) )
+			$this->app_id = $facebook->app_id;
 		add_action( 'wp_head', array($this, 'add_fb_script') );
 	}
 
@@ -85,12 +86,17 @@ class BX_Facebook{
 		}
 	}
 }
-global $fb_activate;
+
+global $fb_activate, $is_social; // init is_social
 $fb = new BX_Facebook();
 $fb_activate = $fb->is_active;
+if($fb_activate){
+	$is_social= true;
+}
 function btn_fb_login(){
 	global $fb_activate;
-	if( $fb_activate) { ?>
+
+	if( $fb_activate) {	?>
 		<li class="fb-item">
 			<a href="#" class="btn-facebook" onclick="shoModalLogin()">
 				<img class="" src="<?php echo get_theme_file_uri('img/facebook.png');?>" />

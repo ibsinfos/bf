@@ -9,9 +9,12 @@ Class Box_Google{
 	function __construct(){
 
 		$social_api = BX_Option::get_instance()->get_group_option('social_api');
-		$google = (object) $social_api['google'];
-		$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
-		$this->client_id = $google->client_id;
+		if(isset($social_api['google'])){
+			$google = (object) $social_api['google'];
+			$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
+			if( isset($this->client_id) )
+				$this->client_id = $google->client_id;
+		}
 
 		add_action( 'wp_head', array($this, 'enqueue_google_script') );
 	}
@@ -65,10 +68,16 @@ Class Box_Google{
 global $gg_activate;
 $gg = new Box_Google();
 $gg_activate = $gg->is_active;
+if($gg_activate){
+	global $is_social;
+	$is_social = true;
+}
 
 function btn_google_login(){
-	global $gg_activate;
-	if( $gg_activate ) { ?>
+	global $gg_activate, $social_log;
+	if( $gg_activate ) {
+		$social_log = true;
+		?>
 		<li class="gg-item">
 			<a href="btn-google" href="#">
 				<img class="" src="<?php echo get_theme_file_uri('img/gplus.png');?>" />

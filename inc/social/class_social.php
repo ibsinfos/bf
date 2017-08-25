@@ -81,12 +81,16 @@ Class Box_Social{
 	}
 }
 
-function bx_social_button_signup(){ ?>
-    <p class="hidden-xs text-center ng-scope" >
-        <label> You can also login with</label>
-    	<ul class="social-login none-style inline">
-	        <?php btn_fb_login() ;?>
-	        <?php btn_google_login();?>
-        </ul>
-    </p>
+function bx_social_button_signup(){
+	global $is_social;
+
+	if($is_social){ ?>
+	    <p class="hidden-xs text-center ng-scope" >
+	        <label><?php _e('You can also login with','boxtheme');?></label>
+	    	<ul class="social-login none-style inline">
+		        <?php btn_fb_login() ;?>
+		        <?php btn_google_login();?>
+	        </ul>
+	    </p>
+	<?php } ?>
 <?php } ?>
