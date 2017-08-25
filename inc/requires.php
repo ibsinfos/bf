@@ -2,6 +2,8 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 require get_parent_theme_file_path( '/inc/define.php' );
 require get_parent_theme_file_path( '/inc/class-bx-install.php' );
+
+require get_parent_theme_file_path( '/inc/wp_core.php' );
 require get_parent_theme_file_path( '/inc/plugable.php' );
 require get_parent_theme_file_path( '/inc/themes.php' );
 require get_parent_theme_file_path( '/inc/init_hook.php' );
