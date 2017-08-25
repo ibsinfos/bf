@@ -53,7 +53,7 @@ get_header(); ?>
 		color: #fff;
 	}
 	body.fixed .cover-img .header nav ul li a{
-		color: #000;
+		color: #666;
 	}
 	.cover-img ul.main-login .btn-login{
 		background-color: transparent;
@@ -62,7 +62,7 @@ get_header(); ?>
 		color: #fff;
 	}
 	body.fixed .cover-img ul.main-login .btn-login{
-		color: #333;
+		color: #666;
     	background-color: #ddd;
 	}
 	body.fixed .cover-img .header{
