@@ -14,17 +14,13 @@
 					$profile_id = get_user_meta($user_ID,'profile_id', true);
 					$current_user = wp_get_current_user();
 					if( $profile_id ){
-
 						$profile = BX_Profile::get_instance()->convert($profile_id);
 						if( $role == FREELANCER ){
 							get_template_part( 'template-parts/profile/profile', 'overview' );
-
 							get_template_part( 'template-parts/profile/profile', 'freelancer' );
-						} else {
-							// global $employer_type;
-							// $employer_type = get_user_meta($user_ID,EMPLOYER_TYPE, true);
-							// get_template_part( 'template-parts/profile/profile', 'employer' );
 						}
+					} else {
+						get_template_part( 'template-parts/profile/emp', 'edit-overview' );
 					}
 
 				?>

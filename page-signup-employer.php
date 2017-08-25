@@ -45,6 +45,7 @@
 				    </div>
 				</div>
 				<input type="hidden" name="role" value="<?php echo EMPLOYER;?>">
+				<div id="loginErrorMsg" class="alert alert-error alert-warning hide"></div>
 				<?php signup_nonce_fields(); ?>
 
 				<div class="form-group row">
@@ -76,4 +77,10 @@
 	})( jQuery );
 
 </script>
+<style type="text/css">
+	.alert{
+		margin-bottom: 10px;
+		padding: 10px;
+	}
+</style>
 <?php get_footer(); ?>
