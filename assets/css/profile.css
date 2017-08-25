@@ -229,6 +229,7 @@ form.add-portfolio .modal-body .body-bg {
 }
 .img-container img{
 	max-width: 150px;
+	background: #fff;
 }
 #modal_avatar .modal-dialog{
 	width: 350px;

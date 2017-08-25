@@ -1055,6 +1055,7 @@ form #heading_signup{
 	padding-bottom: 30px;
 	margin-top: 25px;
 	height: 166px;
+	overflow: hidden;
 }
 .col-md-4.port-item img:hover{
 	cursor: pointer;
