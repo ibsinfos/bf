@@ -548,15 +548,18 @@ function bx_page_template_redirect(){
 			wp_redirect( home_url() );
 			exit();
 		}
+
+		if(  ! is_account_verified( $user_ID) )  {
+	        wp_redirect( bx_get_static_link( 'verify' ) );
+	        exit();
+	    }
 	}
+
 	if( current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
 		return;
 	}
 
-    if(  ! is_account_verified( $user_ID) )  {
-        wp_redirect( bx_get_static_link( 'verify' ) );
-        exit();
-    }
+
 
 }
 add_action( 'template_redirect', 'bx_page_template_redirect', 15 );
