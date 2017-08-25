@@ -253,8 +253,11 @@ body.home.page-template-landing-page-one.fixed .header nav ul.sub-menu{
 }
 .header nav ul.sub-menu li{
 	width: 100%;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #e2e2e2;
 	padding-left: 10px;
+}
+.header nav ul.sub-menu li:last-child{
+	border-bottom: 0  solid #e2e2e2;
 }
 .header nav ul.menu li.menu-item-has-children:hover ul.sub-menu {
 	display: block;
@@ -730,6 +733,7 @@ content: "";
 .list-project{
 	padding: 10px 20px 20px ;
 	overflow: hidden;
+	min-height: 442px;
 }
 .list-project h3{
 	margin:0;

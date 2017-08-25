@@ -5,7 +5,7 @@
 get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div class="row">
+		<div class="row " id="content" >
 			<div class="set-bg full">
 				<div class="col-md-3 sidebar sidebar-search set-bg box-shadown" id="sidebar">
 					<?php get_template_part( 'sidebar/archive', 'profiles' ); ?>
