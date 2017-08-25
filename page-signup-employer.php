@@ -16,27 +16,27 @@
 				    </div>
 				</div>
 				<div class="row">
-				    <div class="form-group col-md-6">
-				        <input class="form-control" type="text" name="first_name"  placeholder="<?php _e('First name','boxtheme');?> " id="example-text-input">
+				    <div class="form-group col-md-12">
+				        <input class="form-control" type="text" name="first_name"  placeholder="<?php _e('First Name','boxtheme');?> " id="example-text-input">
 				    </div>
-				    <div class="col-md-6 form-group">
-				        <input class="form-control" type="text" name="last_name"   placeholder="<?php _e('Last name','boxtheme');?> " id="example-text-input">
+				    <div class="col-md-12 form-group">
+				        <input class="form-control" type="text" name="last_name"   placeholder="<?php _e('Last Name','boxtheme');?> " id="example-text-input">
 				    </div>
 				</div>
 
 				<div class="row">
 				    <div class="form-group col-md-12">
-				        <input class="form-control"  name="user_login" required   placeholder="<?php _e('User name','boxtheme');?> " type="text"  >
+				        <input class="form-control"  name="user_login" required   placeholder="<?php _e('User Name','boxtheme');?> " type="text"  >
 				    </div>
 				</div>
 				<div class="row phone-number">
 				    <div class="form-group col-md-12">
-				        <input class="form-control"  name="phone_number" required  type="text" placeholder="<?php _e('Your phone number','boxtheme');?> " >
+				        <input class="form-control"  name="phone_number" required  type="text" placeholder="<?php _e('Your Phone Number','boxtheme');?> " >
 				    </div>
 				</div>
 				<div class="row">
 				    <div class="form-group col-md-12">
-				        <input class="form-control"  name="user_email" required  type="email" placeholder="<?php _e('Your email','boxtheme');?> " >
+				        <input class="form-control"  name="user_email" required  type="email" placeholder="<?php _e('Your Email','boxtheme');?> " >
 				    </div>
 				</div>
 				<div class="row">

@@ -12,16 +12,16 @@
 	               	<form id="signup" class="frm-signup">
 						<div class="row" id="heading_signup">
 						    <div class="col-md-12 align-center">
-						        <h1>SIGN UP</h1>
+						        <h1><?php _e('SIGN UP','boxtheme');?></h1>
 						    <h3><?php _e('Create a freelancer account in seconds and bid a job right now','boxtheme');?></h3>
 						    </div>
 						</div>
 						<div class="row">
-						    <div class="form-group col-md-6">
-						        <input class="form-control" type="text" name="first_name"  placeholder="<?php _e('First name','boxtheme');?> " id="example-text-input">
+						    <div class="form-group col-md-12">
+						        <input class="form-control" type="text" name="first_name"  placeholder="<?php _e('First Name','boxtheme');?> " id="example-text-input">
 						    </div>
-						    <div class="col-md-6 form-group">
-						        <input class="form-control" type="text" name="last_name"   placeholder="<?php _e('Last name','boxtheme');?> " id="example-text-input">
+						    <div class="col-md-12 form-group">
+						        <input class="form-control" type="text" name="last_name"   placeholder="<?php _e('Last Name','boxtheme');?> " id="example-text-input">
 						    </div>
 						</div>
 
@@ -32,7 +32,7 @@
 						</div>
 						<div class="row">
 						    <div class="form-group col-md-12">
-						        <input class="form-control"  name="user_email" required  type="email" placeholder="<?php _e('Your email','boxtheme');?> " >
+						        <input class="form-control"  name="user_email" required  type="email" placeholder="<?php _e('Your Email','boxtheme');?> " >
 						    </div>
 						</div>
 						<div class="row">
@@ -46,7 +46,7 @@
 
 						<div class="form-group row">
 						<div class="col-md-12">
-						    <button class="btn btn-xlarge btn-action" type="submit">SIGN UP</button>
+						    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('SIGN UP','boxtheme');?></button>
 						</div>
 
 						</div>

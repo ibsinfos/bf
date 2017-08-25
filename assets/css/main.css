@@ -1001,10 +1001,6 @@ footer a{
 .page-signup hgroup{
 	padding: 50px 0;
 }
-form#signup{
-	max-width: 43.125em;
-	margin: 0 auto;
-}
 form#signup .btn {
     margin-top: 1em;
     width: 100%;
@@ -1014,7 +1010,11 @@ form#signup {
 	background-color: #fff;
 	padding: 30px 30px 15px 30px;
 	border:1px solid #eee;
-	margin: 50px auto;
+	margin: 100px auto 0px auto;
+	max-width: 450px;
+}
+.frm-signup h3{
+	font-size: 15px;
 }
 form #heading_signup{
 	padding-bottom: 20px;
