@@ -235,17 +235,16 @@ a.logo img{
 	float: left;
 
 }
-body.home.page-template-landing-page-one .header nav ul.sub-menu{
+body.home.page-template-landing-page-one .header nav ul.sub-menu li{
 	background-color: #6c6c6c;
 }
-body.home.page-template-landing-page-one.fixed .header nav ul.sub-menu{
+body.home.page-template-landing-page-one.fixed .header nav ul.sub-menu li{
 	background-color: #eee;
 }
 
 .header nav ul.sub-menu{
 	display: none;
-	background-color: #eee;
-	padding: 5px 0 0 0px;
+	padding: 2px 0 0 0px;
 	position: absolute;
 	visibility:visible;
 	z-index: 100;
@@ -255,6 +254,7 @@ body.home.page-template-landing-page-one.fixed .header nav ul.sub-menu{
 	width: 100%;
 	border-bottom: 1px solid #e2e2e2;
 	padding-left: 10px;
+	background-color: #eee;
 }
 .header nav ul.sub-menu li:last-child{
 	border-bottom: 0  solid #e2e2e2;
