@@ -13,7 +13,7 @@
 						<div class="row" id="heading_signup">
 						    <div class="col-md-12 align-center">
 						        <h1>SIGN UP</h1>
-						    <h3>Create a freelancer account in seconds and bid a job right now</h3>
+						    <h3><?php _e('Create a freelancer account in seconds and bid a job right now','boxtheme');?></h3>
 						    </div>
 						</div>
 						<div class="row">
@@ -40,6 +40,7 @@
 						        <input class="form-control"  name="user_pass" required  type="password" placeholder="<?php _e('Password','boxtheme');?> ">
 						    </div>
 						</div>
+						<div id="loginErrorMsg" class="alert alert-error alert-warning hide"></div>
 						<?php signup_nonce_fields(); ?>
 						<input type="hidden" name="role" value="<?php echo FREELANCER;?>">
 

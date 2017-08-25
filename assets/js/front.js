@@ -83,7 +83,8 @@
         	if ( res.success ){
         		window.location.href = res.redirect_url;
 	        } else {
-	        	alert(res.msg);
+	        	$("#loginErrorMsg").html(res.msg);
+	        	$("#loginErrorMsg").removeClass("hide");
 	        }
         };
         window.ajaxSend.Form(event,action,method,success);
