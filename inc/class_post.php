@@ -7,19 +7,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 		function __construct(){
 			$this->post_type = 'post';
 			//add_filter( 'query_vars',array( $this, 'add_query_vars_filter' ) );
-			add_filter( "template_include", array($this, "custom_template_redirect" ) );
-			add_action( 'template_redirect', array($this, 'jb_template_redirect' ));
 
-		}
 
-		function custom_template_redirect($template){
-			return $template;
-		}
-		function jb_template_redirect(){
-			if ( is_page_template( 'page-signup.php' ) && is_user_logged_in() ) {
-				wp_redirect( home_url());
-        		exit();
-			}
+
 		}
 		static function get_instance(){
 

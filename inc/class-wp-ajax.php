@@ -20,7 +20,6 @@ class BX_AJAX {
 	 */
 	public static function init() {
 		//add_action( 'init', array( __CLASS__, 'define_ajax' ), 0 );
-		//add_action( 'template_redirect', array( __CLASS__, 'do_wc_ajax' ), 0 );
 		//self::add_ajax_events();
 		// woocommerce_EVENT => nopriv
 		$ajax_events = array(

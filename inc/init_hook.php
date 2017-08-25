@@ -539,9 +539,11 @@ function bx_page_template_redirect(){
 			wp_redirect( home_url() );
 			exit();
 		}
+
 	}
 
 	if( is_user_logged_in() ) {
+
 		if( is_page_template( 'page-login.php' ) || is_page_template( 'page-signup.php' ) || is_page_template( 'page-signup-employer.php' ) || is_page_template( 'page-signup-jobseeker.php' ) ){
 			wp_redirect( home_url() );
 			exit();
