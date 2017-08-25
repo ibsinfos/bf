@@ -528,6 +528,11 @@ function the_excerpt_max_charlength( $excerpt, $charlength, $echo = true) {
 }
 function bx_page_template_redirect(){
 	global $user_ID;
+	if( !is_user_logged_in() && is_page_template( 'page-post-project.php' ) ){
+		$redirect = add_query_arg( array('redirect'=>bx_get_static_link( 'post-project' ) ),bx_get_static_link( 'login' ));
+		 wp_redirect( $redirect);
+		 exit();
+	}
 	if( !is_user_logged_in () || current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
 		return;
 	}
@@ -536,6 +541,7 @@ function bx_page_template_redirect(){
         wp_redirect( bx_get_static_link( 'verify' ) );
         exit();
     }
+
 }
 add_action( 'template_redirect', 'bx_page_template_redirect', 15 );
 

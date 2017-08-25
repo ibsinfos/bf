@@ -129,7 +129,7 @@ if( !function_exists('list_dealine') ) :
 		return $list;
 	}
 endif;
-function is_account_veriffied($user_ID){
+function is_account_veriffied($user_ID){ //is_verified
 	return BX_User::get_instance()->is_verified($user_ID);
 }
 
