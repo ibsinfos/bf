@@ -1,45 +1,4 @@
 
-@media only screen and (min-width: 768px) {
-	.mobile-only,
-	div.mobile-only, button.mobile-only,
-	span.mobile-only, input.mobile-only{
-		display: none ;
-	}
-	.main-login li.mobile-only{
-		display: none;
-	}
-	body .header{
-		position: fixed;
-		z-index: 10;
-		top:0;
-	}
-	body.admin-bar .header{
-		top:32px;
-	}
-	body.fixed .header, .header.fixed{
-		background-color: #fff;
-		z-index: 13;
-		transition-property: visibility, opacity;
-	    transition-duration: 0s, 1s;
-	    top: 0;
-	}
-	body.admin-bar.fixed .header, .header.fixed{
-		top:32px;
-	}
-	footer .col-md-3{
-	padding-right: 0;
-	width: 23%;
-	padding-left: 0;
-	}
-	footer .col-md-3:last-child{
-		width: 31%;
-	}
-	.pre-footer {
-	    min-height: 14.0625em;
-	    background: #404040;
-	    padding: 2.5em 0;
-	}
-}
 .currency-icon{
 	position: relative;
 	top:-3px;
@@ -105,9 +64,7 @@ img{
 	padding-top: 10px;
 }
 .site-container{
-    margin-top: 85px;
     margin-bottom: 20px;
-
 }
 .site-content{
 	background-color: #fff;
@@ -161,7 +118,6 @@ footer .container{
 	color: #fff;
 }
 .btn-biggest,.btn.btn-biggest{
-    min-width: 379px;
     border-radius: 25px;
     padding: 10px 81px;
     text-align: center;
@@ -730,7 +686,7 @@ content: "";
 .list-project{
 	padding: 10px 20px 20px ;
 	overflow: hidden;
-	min-height: 442px;
+	min-height: 31.3em;
 }
 .list-project h3{
 	margin:0;
@@ -999,6 +955,7 @@ footer a{
 .page-signup{
 	padding-top: 30px;
 	padding-bottom: 20px;
+	min-height: 39em;
 }
 .page-signup hgroup{
 	padding: 50px 0;
