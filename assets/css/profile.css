@@ -198,22 +198,20 @@ form.add-portfolio .modal-body .body-bg {
 .btns-act{
     position: absolute;
     top: 6px;
-    right: 25px;
+    right: 18px;
     display: none;
 }
-.btns-act span{
-	padding: 10px 3px;
-	cursor: pointer;
-	color: #fff;
-}
+
 .port-item:hover .btns-act{
 	display: block;
 }
 .btns-act .btn-sub-act {
-    padding: 4px 6px;
-    margin: 4px;
-    background: #ccc;
+    margin-left: 4px;
+    background: rgba(195, 191, 191, 0.42);
     text-align: center;
+    padding: 3px 3px;
+	cursor: pointer;
+	color: #fff;
 }
 .imgareaselect-border1,
 .imgareaselect-border2{
@@ -255,6 +253,7 @@ form.add-portfolio .modal-body .body-bg {
 	height: 150px;
 	margin: 0 auto;
 	position: relative;
+	overflow: hidden;
 }
 .modal-body  h2{
 	font-size: 18px;
