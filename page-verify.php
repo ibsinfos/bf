@@ -4,9 +4,10 @@
  */
 ?>
 <?php get_header(); ?>
-<div class="container page-nosidebar site-container">
-	<div class="row">
-		<div class="col-md-12  text-justify mt50 pb50">
+<div class="full-width">
+	<div class="container site-container">
+		<div class="row " id="content" >
+		<div class="col-md-12  text-justify mt50" style="min-height: 450px; padding-top: 100px;">
 			<?php
 
 			$verify_key = isset($_GET['key']) ? wp_unslash($_GET['key']) :'';
@@ -81,13 +82,13 @@
 				<h2><?php _e('Verify your email address to access website','boxtheme');?></h2>
 
 				<div class="col-md-12 mt50">
-					<?php printf (__('We\'ve just sent an email to your address: <strong>%s</strong><br /> Please check your email and click on the link provided to verify your account. Change email','boxtheme'), $user->user_email) ; ?>
+					<?php printf (__('We\'ve just sent an email to your address: <strong>%s</strong><br /> Please check your email and click on the link provided to verify your account.','boxtheme'), $user->user_email) ; ?>
 				</div>
 			</div>
 			<?php } ?>
 		</div>
-
 	</div>
+</div>
 </div>
 
 <?php get_footer();?>

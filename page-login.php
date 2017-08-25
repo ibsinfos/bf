@@ -122,6 +122,7 @@
 		border: 1px solid #d4d9dc;
 		width: 100px;
 		margin: 0px 5px 0;
+		border-radius: 50%;
 	}
 	.well{
 		background:transparent;
