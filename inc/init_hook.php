@@ -528,6 +528,10 @@ function the_excerpt_max_charlength( $excerpt, $charlength, $echo = true) {
 }
 function bx_page_template_redirect(){
 	global $user_ID;
+	if( current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
+		return;
+	}
+
 	if( !is_user_logged_in() ){
 
 		if( is_page_template( 'page-post-project.php' ) ){
@@ -554,12 +558,6 @@ function bx_page_template_redirect(){
 	        exit();
 	    }
 	}
-
-	if( current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
-		return;
-	}
-
-
 
 }
 add_action( 'template_redirect', 'bx_page_template_redirect', 15 );
