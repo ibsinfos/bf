@@ -528,16 +528,31 @@ function the_excerpt_max_charlength( $excerpt, $charlength, $echo = true) {
 }
 function bx_page_template_redirect(){
 	global $user_ID;
-	if( !is_user_logged_in() && is_page_template( 'page-post-project.php' ) ){
-		$redirect = add_query_arg( array('redirect'=>bx_get_static_link( 'post-project' ) ),bx_get_static_link( 'login' ));
-		 wp_redirect( $redirect);
-		 exit();
+	if( !is_user_logged_in() ){
+
+		if( is_page_template( 'page-post-project.php' ) ){
+			$login_page = add_query_arg( array('redirect'=>bx_get_static_link( 'post-project' ) ),bx_get_static_link( 'login' ) );
+			wp_redirect( $login_page);
+			exit();
+		}
+		if( is_page_template( 'page-profile.php' ) ){
+			wp_redirect( home_url() );
+			exit();
+		}
+		return ;
 	}
-	if( !is_user_logged_in () || current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
+
+	if( is_user_logged_in() ) {
+		if( is_page_template( 'page-login.php' ) || is_page_template( 'page-signup.php' ) || is_page_template( 'page-signup-employer.php' ) || is_page_template( 'page-signup-jobseeker.php' ) ){
+			wp_redirect( home_url() );
+			exit();
+		}
+	}
+	if( current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
 		return;
 	}
 
-    if(  ! is_account_veriffied( $user_ID) )  {
+    if(  ! is_account_verified( $user_ID) )  {
         wp_redirect( bx_get_static_link( 'verify' ) );
         exit();
     }
