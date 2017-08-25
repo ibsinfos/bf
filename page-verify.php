@@ -79,7 +79,7 @@
 				$user 	= wp_get_current_user();
 			 ?>
 			<div id="verify_content">
-				<h2 class="primary-font"><?php _e('Verify your email address to access website','boxtheme');?></h2>
+				<h2 class="primary-font"><?php _e('Verify your account to access website','boxtheme');?></h2>
 
 				<div class="col-md-12 mt50">
 					<?php printf (__('We\'ve just sent an email to your address: <strong>%s</strong><br /> Please check your email and click on the link provided to verify your account.','boxtheme'), $user->user_email) ; ?>
