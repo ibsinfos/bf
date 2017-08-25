@@ -47,7 +47,13 @@
 	}
 	.author-view img.avatar{
 		width: 130px;
+		height: 130px;
 	}
+	.archive-profile-item .col-md-10.res-content{
+		float: right;
+
+	}
+
 }
 
 @media only screen and (max-width: 768px) {
