@@ -92,4 +92,13 @@ get_header(); ?>
 		</div> <!-- . employer-info !-->
 	</div>
 </script>
+<script type="text/javascript">
+	(function($){
+		var h_right = $("#right_column").css('height'),
+			h_left = $("#sidebar").css('height');
+		if( parseInt(h_left) > parseInt(h_right) ){
+			$(".list-project").css('height',h_left);
+		}
+	})(jQuery);
+</script>
 <?php  get_footer();
