@@ -19,7 +19,6 @@ $role = bx_get_user_role();
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/ico.png" />
 	<link href="https://fonts.googleapis.com/css?family=Lato|PT+Sans|Raleway|Noto+Sans|Roboto|Josefin+Sans" rel="stylesheet">
 	<style type="text/css">
 		body{
