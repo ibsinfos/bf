@@ -37,7 +37,7 @@
 			                    	?>
 						          	<button type="submit" class="btn btn-success btn-block btn-submit"><?php _e('Log In','boxtheme');?></button>
 						           	<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
-						          	<div class="forgotLink"><a href="" target="_blank" class=""><?php _e('Forgot password?','boxtheme');?></a></div>
+						          	<div class="forgotLink"><a href="#" class=""><?php _e('Forgot password?','boxtheme');?></a></div>
 						          	<div class="form-group">
 						          		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-success btn-block btn-signup" >
 			                                <?php _e('Sign Up','boxtheme');?>
