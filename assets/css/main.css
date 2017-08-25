@@ -129,9 +129,10 @@ footer .container{
 .white-bg{
 	background-color: #fff;
 }
-.bg-color, .primary-bg{
+.bg-color, button.primary-bg, div.primary-bg, span.primary-bg , .primary-bg{
 	background-color: #17a717;
 	color: #fff;
+	border-color:#17a717;
 }
 .border-color, .btn.border-color{
 	border-color: #17a717;
@@ -651,10 +652,7 @@ div.irs-min {
 	display: none !important;
 	visibility: hidden;
 }
-button.btn-info{
-	background-color: #5cb85c;
-	border-color: #5cb85c;
-}
+
 button.btn-info.active, button.btn-info:active, .open>.dropdown-toggle.btn-info, button.btn-info:hover{
 	color: #fff;
     background-color: #5cb85c;
