@@ -31,8 +31,8 @@
 				    		?>
 				    	</div>
 				      	<div class="col-md-9 no-padding-left">
-				      		<div class="col-md-10 no-padding"><h1 class="profile-title no-margin"> <?php echo $profile->post_title;?></12></div>
-				      		<div class="col-md-2 no-padding align-right">
+				      		<div class="col-md-10 col-xs-10 no-padding"><h1 class="profile-title no-margin"> <?php echo $profile->post_title;?></12></div>
+				      		<div class="col-md-2 col-xs-2 no-padding align-right">
 				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
 				      		</div>
 				      		<div class="full clear">
@@ -141,9 +141,8 @@
 				if( $result->have_posts() ){ ?>
 					<div class="bg-section">
 					<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
-					<div class="col-md-12">
+					<div class="col-md-12 res-line">
 					<?php
-
 					while ($result->have_posts()) {
 						$class = "middle-item";
 						if($i %3 == 0)

@@ -452,5 +452,54 @@
 	#right_column{
 		padding: 0;
 	}
+	.list-info {
+		width: 100%;
+		float: left;
+		padding-top:10px;
+	}
+	.archive-profile-item .list-info span.item{
+		min-width: 0;
+		padding: 0;
+	}
+	.archive-profile-item .hour-rate{
+		top:0; left: 0;
+	}
+	.archive-profile-item .res-content{
+		padding: 0;
+	}
+	.archive-profile-item  .second-line{
+		clear: none;
+		padding: 0;
+	}
+	.archive-profile-item .col-avatar{
 
+	}
+	.archive-profile-item .col-avatar a{
+		display: block;text-align: center;
+		margin-bottom: 15px;
+	}
+	.archive-profile-item .col-avatar a img{
+		border-radius: 50%;
+	}
+	.col-md-4.port-item{
+		background: #ccc;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	.col-md-4.port-item,
+	.col-md-4.port-item.middle-item{
+		padding: 0;
+		margin-top: 0;
+	}
+	.bg-section{
+		margin:0;
+	}
+	.work-status li{
+		clear: none;
+		float: left;
+	}
+	.author-view .hour-rate{
+		position: relative;
+		top:8px;
+	}
 }
