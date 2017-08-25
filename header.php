@@ -53,7 +53,7 @@ $role = bx_get_user_role();
 				<a class="logo" href="<?php echo home_url();?>">
 					<?php
 						$html_logo = get_custom_logo();
-						$default_logo = '<img class="avatar" src="'.get_theme_file_uri('img/logo.png').'" />';
+						$default_logo = '<img class="logo" src="'.get_theme_file_uri('img/logo.png').'" />';
 						echo !empty($html_logo) ? $html_logo : $default_logo;
 					?>
 				</a>
