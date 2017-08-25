@@ -6,9 +6,9 @@
 <?php get_header(); ?>
 <div class="full-width ">
 	<div class="container page-nosidebar site-container">
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div id="loginbox" style="margin-top:15px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
-                <div style="padding-top:30px" class="panel-body" >
+                <div style="padding-top:25px" class="panel-body" >
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                 	<div class="input-group full center">
                 		<img class="avatar" src="<?php echo get_theme_file_uri('img/avatar_login.png');?>" />
@@ -128,6 +128,8 @@
 		background:transparent;
 		border: 0;
 		box-shadow: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
 	}
 	.loginSignUpSeparator {
 	    border-top: 1px solid #cbd2d6;
