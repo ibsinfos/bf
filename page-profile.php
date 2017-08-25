@@ -42,11 +42,17 @@
 	      			<div align="center  upload-msg">
 	      				<?php
 	      				global $user_ID;
+	      				$avatar_url = '';
 	      				$avatar_att_id = get_user_meta( $user_ID, 'avatar_att_id', true );
+	      				if( empty($avatar_att_id) ){
+	      					$avatar_url =  get_theme_file_uri('img/avatar_login.png');
+	      				} else {
+	      					$avatar_url = wp_get_attachment_url($avatar_att_id);
+	      				}
 	      				?>
 	      				<div class="img-container">
 	      					<div class="centar-avatar">
-		              			<img id="btn-upload-avatar1" class="avatar-popup" src="<?php echo wp_get_attachment_url($avatar_att_id);?>" alt="Picture" id="thumbnail">
+		              			<img id="btn-upload-avatar1" class="avatar-popup" src="<?php echo $avatar_url;?>" id="thumbnail">
 		              			<span id="btn-upload-avatar" class="btn-upload-avatar"> <span class="glyphicon glyphicon-camera"></span> </span>
 	              			</div>
 	              		</div>
