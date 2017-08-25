@@ -528,9 +528,7 @@ function the_excerpt_max_charlength( $excerpt, $charlength, $echo = true) {
 }
 function bx_page_template_redirect(){
 	global $user_ID;
-	if( current_user_can('manage_options') || is_page_template( 'page-verify.php') ){
-		return;
-	}
+
 
 	if( !is_user_logged_in() ){
 
@@ -553,7 +551,13 @@ function bx_page_template_redirect(){
 			exit();
 		}
 
-		if(  ! is_account_verified( $user_ID) )  {
+		if (current_user_can('manage_options')){
+			return ;
+		}
+		if(  is_page_template( 'page-verify.php') ){
+			return;
+		}
+		if( ! is_account_verified( $user_ID) )  {
 	        wp_redirect( bx_get_static_link( 'verify' ) );
 	        exit();
 	    }
