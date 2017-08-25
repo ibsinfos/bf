@@ -80,11 +80,13 @@
 			      	<input type="hidden" class="form-control"  name="ID" id="port_id" value="" />
 			   	</div>
 
-			   	<div class="form-group">
-			      	<div id="container_file">
-					   	<div class="wrap-port-img" id="pickfiles"><span class="txt-label"><img src="<?php echo get_template_directory_uri().'/img/clould-upload.png';?>"><span class="txt-lbupload"><?php _e('Select an image','boxtheme');?></span> </span></div>
+			   	<div class="form-group row body-bg">
+			   		<div class="col-md-12">
+				      	<div id="container_file">
+						   	<div class="wrap-port-img" id="pickfiles"><span class="txt-label"><img src="<?php echo get_template_directory_uri().'/img/clould-upload.png';?>"><span class="txt-lbupload"><?php _e('Select an image','boxtheme');?></span> </span></div>
+						</div>
+						<input type="text" class="form-control "   name="thumbnail_id" id="thumbnail_id" value="" />
 					</div>
-					<input type="text" class="form-control "   name="thumbnail_id" id="thumbnail_id" value="" />
 			   	</div>
 
 	      	</div>

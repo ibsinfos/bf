@@ -6,7 +6,7 @@
 	min-height: 115px;
 	cursor: pointer;
 	max-width: 130px;
-	border:1px solid #ccc;
+	border:1px solid #d6d6d6;
 }
 
 .upload-msg {
@@ -163,12 +163,14 @@ margin: 0;
     text-align: center;
     background-color: #fff;
 }
-form.add-portfolio .modal-body {
+form.add-portfolio .modal-body .body-bg {
 	background-color: #ccc;
+	padding: 20px 0;
+	margin-bottom: 0;
 }
 .wrap-port-img .txt-label {
     font-size: 16px;
-    padding-top: 51px;
+    padding-top: 60px;
     display: block;
 }
 .wrap-port-img .txt-label .glyphicon {
