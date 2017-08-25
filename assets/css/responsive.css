@@ -45,6 +45,9 @@
 	.site-container{
 		margin-top: 85px;
 	}
+	.author-view img.avatar{
+		width: 130px;
+	}
 }
 
 @media only screen and (max-width: 768px) {
@@ -265,6 +268,7 @@
 	}
 	.list-project{
 		border:0;
+		padding: 10px 20px 20px 20px;
 	}
 	.col-md-6.archive-profile-item .full{
 		border:0;
@@ -463,21 +467,33 @@
 	.list-info {
 		width: 100%;
 		float: left;
-		padding-top:10px;
 	}
 	.archive-profile-item .list-info span.item{
 		min-width: 0;
 		padding: 0;
 	}
+	.archive-profile-item .list-info span.profile-rating{
+		width: 100%;
+		clear: both;
+	}
 	.archive-profile-item .hour-rate{
-		top:0; left: 0;
+		top:10px; right: 0;
+		position: absolute;
 	}
 	.archive-profile-item .res-content{
 		padding: 0;
 	}
+	.archive-profile-item .res-content.res-second-line{
+		padding-right: 0;
+		padding-left: 15px;
+		padding-top: 10px;
+	}
 	.archive-profile-item  .second-line{
 		clear: none;
 		padding: 0;
+	}
+	.archive-profile-item .glyphicon-time{
+		display: none;
 	}
 	.archive-profile-item .col-avatar{
 
@@ -488,6 +504,7 @@
 	}
 	.archive-profile-item .col-avatar a img{
 		border-radius: 50%;
+		border:1px solid #ccc;
 	}
 	.col-md-4.port-item{
 		background: #ccc;
@@ -505,6 +522,8 @@
 	}
 	.bg-section{
 		margin:0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 	.work-status li{
 		clear: none;
@@ -513,5 +532,8 @@
 	.author-view .hour-rate{
 		position: relative;
 		top:8px;
+	}
+	.author-view img.avatar{
+		max-width: 150px;
 	}
 }

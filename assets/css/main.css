@@ -791,10 +791,16 @@ ul.pagination{
 	min-width: 135px;
 	float: left;
 }
+.archive-profile-item .list-info .hour-rate{
+	max-width: 100px;
+}
 .archive-profile-item  .second-line{
 	display: block;
-	clear: both;
-	padding: 7px 0px;
+    clear: both;
+    padding: 7px 0px;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .archive-profile-item  .second-line .item{
 	display: inline;
@@ -1166,7 +1172,6 @@ h1.profile-title{
 	color: #575757;
 }
 .author-view img.avatar{
-	width: 130px;
 	border-radius: 50%;
 	border:3px solid #ccc;
 }
