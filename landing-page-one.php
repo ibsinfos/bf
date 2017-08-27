@@ -97,7 +97,7 @@ get_header(); ?>
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	        	<?php if( is_user_logged_in() ){ ?>
 		        	<?php if( $role == EMPLOYER || current_user_can('manage_options' ) ){?>
-		            	<a href="<?php echo home_url("submit-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
+		            	<a href="<?php echo bx_get_static_link("submit-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
 		            <?php } ?>
 	            <?php }?>
 	        </div>
