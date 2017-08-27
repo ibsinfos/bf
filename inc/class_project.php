@@ -316,7 +316,7 @@ Class BX_Project extends BX_Post{
 		}
 		$request['ID'] = $project_id;
 		$request['post_status'] = ARCHIVED;
-		$request['post_status'] = 'publish';
+		//$request['post_status'] = 'publish';
 		$request['meta_input'] = array(
 			WINNER_ID => 0,
 			BID_ID_WIN => 0,
