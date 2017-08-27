@@ -28,7 +28,7 @@
 				echo '<div class ="col-md-2">';				echo count_bids($post->ID);				echo '</div>';
 				echo '<div class ="col-md-2">';				box_price($project->_budget);				echo '</div>';
 				echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
-				?><div class ="col-md-2"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></div> <?php
+				?><div class ="col-md-2"><a href="#" class="btn-delete-job" id ="<?php echo $project->ID;?>"><span class="glyphicon glyphicon-remove"></span></a></div> <?php
 			echo '</li>';
 		}
 		// if($loadmore){

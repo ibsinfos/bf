@@ -464,7 +464,9 @@ function boxtheme_scripts() {
 	if( is_page_template('page-buy-credit.php' ) ){
 		wp_enqueue_script( 'buy-credit', get_theme_file_uri( '/assets/js/buy_credit.js' ), array( 'front' ), BX_VERSION, true );
 	}
+
 	if( is_page_template('page-dashboard.php' ) ){
+		wp_enqueue_script( 'dashboard-js', get_theme_file_uri( '/assets/js/dashboard.js' ), array( 'front' ), BX_VERSION, true );
 		wp_enqueue_style( 'dashboard-css', get_theme_file_uri( '/assets/css/dashboard.css' ), array( 'boxtheme-style' ), BX_VERSION );
 	}
 

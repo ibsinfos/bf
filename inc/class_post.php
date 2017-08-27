@@ -75,8 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$args 		= apply_filters( 'args_pre_insert_'.$this->post_type, $args );
 			$post_id 	= wp_insert_post( $args );
 			do_action('after_insert_'.$this->post_type, $post_id, $args);
-			var_dump($post_id);
-			die();
+
 			//https://developer.wordpress.org/reference/functions/wp_insert_post/
 			if ( ! is_wp_error( $post_id ) ) {
 				$this->update_post_taxonomies($post_id, $args);
@@ -121,6 +120,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				wp_die('not_athor');
 			}
 			wp_delete_post($id, true );
+			return true;
+		}
+		function archived($args){
+			global $user_ID;
+			$project_id = $args['ID'];
+			$post = get_post($project_id);
+
+			if($user_ID != $post->post_author){
+				return new WP_Error('not_author',__('You can not archived this job','boxtheme'));
+				wp_die('not_athor');
+			}
+
+			wp_update_post(array('ID' => $project_id, 'post_status' => 'archived'));
+			return true;
+
 		}
 		function update_post_taxonomies( $post_id, $args ){
 			//var_dump($args);

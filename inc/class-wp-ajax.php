@@ -177,11 +177,17 @@ class BX_AJAX {
 
 		$project 	= BX_Project::get_Instance();
 		$return 	= $project->sync($method, $args);
-
+		$msg = array(
+			'insert' => __('You have posted job successfully','boxtheme'),
+			'update' => __('You have updated job successfully','boxtheme'),
+			'delete' => __('You have deleted job successfully','boxtheme'),
+			'archived' => __('You have archived job successfully','boxtheme'),
+		);
 		if ( !is_wp_error( $return ) ) {
+
 			$response = array(
 				'success' => TRUE,
-				'msg' => __('Insert job successful','boxtheme'),
+				'msg' => $msg[$method],
 				'redirect_url' => get_permalink($return),
 				);
 		} else {
