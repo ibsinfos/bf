@@ -12,6 +12,7 @@
 					<li class="active"><a  href="#1a" data-toggle="tab"><?php _e('ACTIVATE','boxtheme');?></a>			</li>
 					<li><a href="#tab_working" data-toggle="tab"><?php _e('WORKING','boxtheme');?></a>		</li>
 					<li><a href="#tab_done" data-toggle="tab"><?php _e('DONE','boxtheme');?></a></li>
+					<li><a href="#tab_archived" data-toggle="tab"><?php _e('ARCHIVED','boxtheme');?></a></li>
 
 				</ul>
 				<div class="tab-content clearfix">
@@ -23,6 +24,9 @@
 					</div>
 					<div class="tab-pane" id="tab_done">
 			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-done' ); ?>
+					</div>
+					<div class="tab-pane" id="tab_archived">
+			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-archived' ); ?>
 					</div>
 
 				</div>
