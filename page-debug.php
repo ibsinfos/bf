@@ -7,18 +7,17 @@
 <div class="full-width">
 	<div class="container site-content-contain">
 		<div class="row site-content" id="content" >
-			<div class="col-md-8 detail-project text-justify">
+			<div class="col-md-12 detail-project text-justify">
 				<?php
-				$bid_id = 312;
-				$bid = get_post($bid_id);
+
 				echo '<pre>';
-				var_dump($bid);
+				$blog_id = get_current_blog_id();
+				var_dump($blog_id);
+
 				echo '</pre>';
 				?>
 			</div>
-			<div class="col-md-4">
-				<?php get_sidebar('single');?>
-			</div>
+
 		</div>
 	</div>
 </div>

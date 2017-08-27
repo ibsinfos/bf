@@ -75,7 +75,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			$args 		= apply_filters( 'args_pre_insert_'.$this->post_type, $args );
 			$post_id 	= wp_insert_post( $args );
 			do_action('after_insert_'.$this->post_type, $post_id, $args);
-
+			var_dump($post_id);
+			die();
 			//https://developer.wordpress.org/reference/functions/wp_insert_post/
 			if ( ! is_wp_error( $post_id ) ) {
 				$this->update_post_taxonomies($post_id, $args);
@@ -122,11 +123,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			wp_delete_post($id, true );
 		}
 		function update_post_taxonomies( $post_id, $args ){
+			//var_dump($args);
 
 			$taxonomies =$this->get_taxonomy_fields();
+			//var_dump($taxonomies);
 			foreach ($taxonomies as $tax) {
 				if( !empty( $args[$tax]) ){
 					$t = wp_set_post_terms($post_id, $args[$tax], $tax);
+					//$t = wp_set_object_terms($post_id, $args[$tax], $tax);
 				}
 			}
 

@@ -48,10 +48,10 @@ Class BX_Project extends BX_Post{
 		}
 		foreach ( $hierachice as $tax ) {
 			if ( !empty ( $args['tax_input'][$tax] )  ){
-				$args['tax_input'][$tax] = array_map('intval', $args['tax_input'][$tax]);
+				$args['tax_input'][$tax] = array_map('intval', $args['tax_input'][$tax]); // auto insert tax if admin post project. #111
 			}
 		}
-		//var_dump($args);
+
 		//https://developer.wordpress.org/reference/functions/wp_insert_post/
 		$check = $this->check_before_insert( $args );
 		if ( ! is_wp_error( $check ) ){
@@ -65,6 +65,9 @@ Class BX_Project extends BX_Post{
 							)
 						);
 					}
+				}
+				if( !current_user_can( 'manage_option' ) ){
+					$this->update_post_taxonomies($project_id, $args); // #222 - back up for #111 when employer post project.
 				}
 				return $project_id;
 

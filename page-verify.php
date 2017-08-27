@@ -14,11 +14,11 @@
 			$user_login = isset($_GET['user_login']) ? wp_unslash($_GET['user_login']) :'';
 			$user_id 	= 0;
 			global $wpdb;
-
 			if( !empty( $verify_key) && !empty( $user_login) ) {
 
 				$user = check_password_reset_key( $verify_key, $user_login );
-
+				var_dump('123a');
+				var_dump($user);
 				if ( ! $user || is_wp_error( $user ) ) {
 					if ( $user && $user->get_error_code() === 'expired_key' ){
 						_e('Key is expired', 'boxtheme');
@@ -30,7 +30,9 @@
 
 					$redirect_link = '';
 					$user_id = $user->ID;
-					if( bx_get_user_role($user->ID) == FREELANCER ){
+					$role =  bx_get_user_role($user->ID);
+					var_dump($role);
+					if( $role == FREELANCER ){
 
 						$redirect_link =  bx_get_static_link('profile');
 						// save status 1 as verified of this user.
@@ -47,6 +49,7 @@
 						$profile_id = wp_insert_post($args);
 						update_user_meta( $user_id, 'profile_id', $profile_id );
 					} else {
+						var_dump('123');
 						$redirect_link = home_url();
 					}
 					?>
@@ -76,6 +79,8 @@
 					<?php
 				}
 			} else if( is_user_logged_in() ) {
+				var_dump('123b');
+
 				$user 	= wp_get_current_user();
 			 ?>
 			<div id="verify_content">
