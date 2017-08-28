@@ -34,6 +34,17 @@ class BX_Option {
 					'enable' => 0,
 				),
 			),
+			'main_options' => array(
+				'facebook' => array(
+					'app_id' => '',
+					'enable' => 0,
+
+				),
+				'google' => array(
+					'client_id' => '',
+					'enable' => 0,
+				),
+			),
 		);
 		return get_option($group, $group_args[$group]);
 	}

@@ -42,11 +42,23 @@ class BX_Admin{
         echo 'this is install section';
     }
     function general(){ ?>
-
+    	<h2> Access site</h2>
+    	<?php $this->main_access();?>
 		<?php $this->social_login();?>
 
 
 		<?php
+    }
+    function main_access(){
+    	$group_option = "main_options";
+        $option = BX_Option::get_instance();
+        $social_api = $option->get_group_option($group_option);
+
+    	?>
+    	<h2>Main options</h2>
+    	<div class="sub-section row" id="<?php echo $group_option;?>">
+    		<div class="col-md-3"><h3> Admin manual approve job</h3></div> <div class="form-group toggle-line"><?php bx_swap_button($group_option,'auto_approve', 1);?></div>
+    	</div> <?php
     }
     function social_login(){
     	$group_option = "social_api";
