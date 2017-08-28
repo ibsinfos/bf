@@ -110,6 +110,16 @@ function box_customizer_footer($wp_customize){
 		'allow_addition' => true,
 	) );
 
+	$wp_customize->add_setting( 'footer_menu[contact]', array(
+		'type'       => 'option',
+		'capability' => 'manage_options',
+	) );
+	$wp_customize->add_control( 'footer_menu[contact]', array(
+		'label' => __( 'Set contact' ),
+		'section' => 'footer_setup',
+		'type' => 'textarea',
+		'allow_addition' => true,
+	) );
 
 }
 function box_get_menu(){

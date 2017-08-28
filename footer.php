@@ -33,17 +33,22 @@
 
                 	?>
 
-                <ul class="col-md-3 col-xs-12">
-                    <li class="footer-list-header">Contact Us</li>
-                    <li>
-                        <ul>
-                            <li><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p></li>
-                        </ul>
-                        <ul>
-                            <li><p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="col-md-3 col-xs-12">
+                	<?php
+                	if(!empty($menus->contact) ){ echo $menus->contact; } else { ?>
+	                	<ul>
+							<li class="footer-list-header">Contact Us</li>
+							<li>
+								<ul>
+								    <li><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p></li>
+								</ul>
+								<ul>
+								    <li><p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p></li>
+								</ul>
+							</li>
+						</ul>
+					<?php } ?>
+	            </div>
             </nav>
         </div>
         <div class="footer-copyright">
