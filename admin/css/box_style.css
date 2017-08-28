@@ -49,16 +49,8 @@
     font-size: 12px;
     color: #666;
 }
-li.block{
-	display: block;
-	clear: both;
-	width: 100%;
-}
-form.frm-add-package{
-	padding: 20px 0;
-	display: block;
-	float: left;
-	overflow: hidden;
+.frm-add-package{
+	padding-top: 30px;
 }
 .frm-add-package .one-line{
 	padding-bottom: 15px;

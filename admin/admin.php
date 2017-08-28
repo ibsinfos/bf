@@ -266,7 +266,10 @@ class BX_Admin{
         <div class="section box-section" id="<?php echo $group_option;?>">
         	<h2 class="section-title">Package plan</h2>
             <div class="sub-section " id="package_plan">
+            	<div class="col-md-3">
             	<h3> List package plan </h3>
+            	</div>
+            	<div class="col-md-9">
                 <?php
                     $args = array(
                         'post_type' => '_package',
@@ -295,11 +298,10 @@ class BX_Admin{
                             //echo $price;
                             $sku = get_post_meta(get_the_ID(),'sku', true);
 
-                            echo '<tr class="block row">';
+                            echo '<tr class="block">';
                             echo '<td class="col-md-1">'.$i.'</td>';
-                             echo '<td class="col-md-1">'.$sku.'</td>';
+                            echo '<td class="col-md-1">'.$sku.'</td>';
                             echo '<td class="col-md-8">';
-
                             echo get_the_content();
                             echo '</td>';
                             echo '<td class="col-sm-1 align-center">
@@ -319,29 +321,31 @@ class BX_Admin{
                         echo '</div>';
                     }
                     ?>
-                    <form class="frm-add-package row">
-                        <div class="col-sm-12">
-                        	<h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
-                      	</div>
-                      	<div class="full">
-	                        <div class="col-sm-6 one-line">
-	                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
-	                        </div>
-	                        <div class="col-sm-6 one-line">
-	                            <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
-	                        </div>
-	                        <div class="col-sm-12 one-line">
-	                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of new package','boxtheme');?></textarea>
-	                        </div>
+                    </div>
+                    <div class="col-md-3"><h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
+                    </div>
+                    <div class="col-md-9">
+	                    <form class="frm-add-package row">
 
-	                        <div class="col-sm-10 one-line">
-	                        </div>
-	                        <div class="col-sm-2 align-right one-line">
-	                        	<button class="btn">Create</button>
-	                        </div>
-	                   	</div>
-                    </form>
+	                      	<div class="full">
+		                        <div class="col-sm-6 one-line">
+		                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
+		                        </div>
+		                        <div class="col-sm-6 one-line">
+		                            <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
+		                        </div>
+		                        <div class="col-sm-12 one-line">
+		                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of new package','boxtheme');?></textarea>
+		                        </div>
 
+		                        <div class="col-sm-10 one-line">
+		                        </div>
+		                        <div class="col-sm-2 align-right one-line">
+		                        	<button class="btn">Create</button>
+		                        </div>
+		                   	</div>
+	                    </form>
+                   </div>
             </div>
         </div>
         <?php
