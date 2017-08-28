@@ -4,37 +4,41 @@ $project = array();
 $lbl_btn = __('Post Project Now','boxtheme');
 $skills = array();
 
-if($p_id){
-	global $user_ID;
-	$project = get_post($p_id);
-
-	if( $project && $user_ID == $project->post_author ){
-
-		$project = BX_Project::get_instance()->convert($project);
-		$lbl_btn = __('Renew Your Project','boxtheme');
-
-
-		$skills = get_the_terms( $project, 'skill' );
-		$skill_ids = array();
-		if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
-			foreach ( $skills as $skill ) {
-			  	$skill_ids[] = $skill->term_id;
-
-			}
-		}
-
-		$cats = get_the_terms( $project, 'project_cat' );
-		$cat_ids = array();
-		if ( ! empty( $cats ) && ! is_wp_error( $cats ) ){
-			foreach ( $cats as $cat ) {
-			  	$cat_ids[] = $cat->term_id;
-			}
-
-		}
-	}
-}
 ?>
 <form id="submit_project" class="frm-submit-project">
+
+	<?php
+
+	if($p_id){
+		global $user_ID;
+		$project = get_post($p_id);
+
+		if( $project && $user_ID == $project->post_author ){ // only author can renew or view detail of this project
+
+			$project = BX_Project::get_instance()->convert($project);
+			$lbl_btn = __('Renew Your Project','boxtheme');
+
+
+			$skills = get_the_terms( $project, 'skill' );
+			$skill_ids = array();
+			if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
+				foreach ( $skills as $skill ) {
+				  	$skill_ids[] = $skill->term_id;
+				}
+			}
+
+			$cats = get_the_terms( $project, 'project_cat' );
+			$cat_ids = array();
+			if ( ! empty( $cats ) && ! is_wp_error( $cats ) ){
+				foreach ( $cats as $cat ) {
+				  	$cat_ids[] = $cat->term_id;
+				}
+
+			}
+			echo '<input type="hidden" value="'.$p_id.'" name="ID" />';
+		}
+	}
+	?>
 	<div class="form-group ">
 	 	<h1 class="page-title"><?php the_title(); ?></h1>
 	</div>
