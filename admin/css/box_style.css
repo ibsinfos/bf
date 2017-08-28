@@ -146,3 +146,6 @@ ul.block li{
 .toggle-on.btn{
 	background-color: #5cb85c;
 }
+div.mce-tinymce{
+	border:1px solid #ccc !important;
+}
