@@ -39,7 +39,7 @@ class BX_Admin{
 
     }
     function install(){
-        echo 'this is install section';
+        echo 'This function is updating';
     }
     function general(){ ?>
 
