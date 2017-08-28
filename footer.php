@@ -67,11 +67,11 @@
 	                	<ul class="social-link">
 	                		<?php
 	                		if ( isset( $general->gg_link ) )
-	                			echo '<li><a class="gg-link"  target="_blank" href="'.$general->gg_link.'"><span></span></a></li>';
+	                			echo '<li><a class="gg-link"  target="_blank" href="'.esc_url($general->gg_link).'"><span></span></a></li>';
 	                		if ( isset( $general->tw_link ) )
-	                			echo '<li><a class="tw-link" target="_blank"  href="'.$general->tw_link.'"><span></span></a></li>';
+	                			echo '<li><a class="tw-link" target="_blank"  href="'.esc_url($general->tw_link).'"><span></span></a></li>';
 	                		if ( isset( $general->fb_link ) )
-	                			echo '<li><a class="fb-link"  target="_blank" href="'.$general->fb_link.'"><span></span></a></li>';
+	                			echo '<li><a class="fb-link"  target="_blank" href="'.esc_url($general->fb_link).'"><span></span></a></li>';
 	                		?>
 	                	</ul>
 	                </div>
