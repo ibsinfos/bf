@@ -179,7 +179,7 @@ function list_email(){
 		),
 		'new_bidding' => array(
 			'receiver' => 'employer',
-			'subject' =>	'New bidding in project %s',
+			'subject' =>	'New bidding in your project %s',
 			'content' =>	'Has new bidding'
 		),
 		'assign_job' => array(
