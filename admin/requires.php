@@ -164,6 +164,31 @@ function list_currency(){
 		'ZMW' => 'Zambian kwacha (ZK)',
 	);
 }
+
+function list_email(){
+	return array(
+		'new_register' => array(
+			'receiver' => 'register',
+			'subject' =>	'New register',
+			'content' =>	'Has new register'
+		),
+		'new_job' => array(
+			'receiver' => 'admin',
+			'subject' =>	'The job %s has been posted',
+			'content' =>	'The job %s has been posted'
+		),
+		'new_bidding' => array(
+			'receiver' => 'employer',
+			'subject' =>	'New bidding in project %s',
+			'content' =>	'Has new bidding'
+		),
+		'assign_job' => array(
+			'receiver' => 'freelancer',
+			'subject' =>	'Your bidding is choosen for project %s',
+			'content' =>	'Congart, Your bidding is choosen'
+		),
+	);
+}
 	require_once dirname(__FILE__) . '/admin.php';
 	require_once dirname(__FILE__) . '/credit.php';
 	require_once dirname(__FILE__) . '/ajax_register.php';
