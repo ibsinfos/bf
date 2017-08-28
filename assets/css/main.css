@@ -947,6 +947,7 @@ footer a{
 }
 footer .social-link{
 	padding: 0;
+	padding-top: 3px;
 }
 footer .social-link li{
 	display: inline;
