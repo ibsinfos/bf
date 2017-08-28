@@ -195,6 +195,13 @@ function list_email(){
 		),
 	);
 }
+
+function bx_swap_button($group, $name, $is_active){
+	$checked = '';
+	if( $is_active  ) $checked = 'checked';
+	echo '<input type="checkbox" class="auto-save" name="enable" value="'.$is_active.'" '.$checked.' data-toggle="toggle">';
+
+}
 	require_once dirname(__FILE__) . '/admin.php';
 	require_once dirname(__FILE__) . '/credit.php';
 	require_once dirname(__FILE__) . '/ajax_register.php';
