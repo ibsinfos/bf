@@ -225,9 +225,31 @@ class BX_Admin{
 
 
         ?>
-        <h2 class="section-title">List Package plan</h2>
         <div class="section box-section" id="<?php echo $group_option;?>">
+        	<h2 class="section-title">Currency Options/h2>
+
+        	<select name="woocommerce_currency" id="woocommerce_currency" style="min-width: 350px; display: none;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency">
+
+																	</select>
+
+        	<div class="form-control">
+        		<div class="col-md-3">
+        		</div>
+        		<div class="col-md-9">
+        			<select name="woocommerce_currency_pos" id="woocommerce_currency_pos" style="min-width: 350px; display: none;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency Position">
+						<option value="left" selected="selected">Left ($99.99)</option>
+						<option value="right">Right (99.99$)</option>
+						<option value="left_space">Left with space ($ 99.99)</option>
+						<option value="right_space">Right with space (99.99 $)</option>
+					</select>
+        		</div>
+        	</div>
+       </div>
+
+        <div class="section box-section" id="<?php echo $group_option;?>">
+        	<h2 class="section-title">Package plan</h2>
             <div class="sub-section " id="package_plan">
+            	<h3> List package plan </h3>
                 <?php
                     $args = array(
                         'post_type' => '_package',
@@ -241,10 +263,13 @@ class BX_Admin{
                         echo '<div class="">';
 
                         echo '<ul id="list_package">';
+                        $i = 1;
                         while ( $the_query->have_posts() ) {
                             $the_query->the_post();
                             echo '<li class="block row">';
-                            echo '<div class="col-sm-11">';
+                            echo '<div class="col-md-1">'.$i.'</div>';
+
+                            echo '<div class="col-md-10">';
                             $price = get_post_meta(get_the_ID(),'price', true);
                             //echo $price;
                             $sku = get_post_meta(get_the_ID(),'sku', true);
@@ -255,7 +280,7 @@ class BX_Admin{
 
                             echo '</div>';
                             echo '</li>';
-
+                            $i ++;
                         }
                         echo '</ul>';
                         echo '</div>';
@@ -266,10 +291,10 @@ class BX_Admin{
                     }
                     ?>
                     <form class="frm-add-package row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-12">
                         	<h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
                       	</div>
-                      	<div class="col-md-9">
+                      	<div class="full">
 	                        <div class="col-sm-6 one-line">
 	                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
 	                        </div>
