@@ -111,6 +111,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			return $post_id;
 		}
+		function check_author($ars){
+			$id = $args['ID'];
+			$post = get_post($id);
+			global $user_ID;
+			if($user_ID != $post->post_author){
+				return new WP_Error('not_author',__('You can not delete a portfolio of another account','boxtheme'));
+
+			}
+		}
 		function renew($args){
 
 			global $user_ID;
@@ -121,7 +130,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				return $check;
 			}
 
-
+			if( is_wp_error($this->check_author($args) ) ) {
+				return $this->check_author($args);
+			}
 			$metas 		= $this->get_meta_fields();
 			foreach ($metas as $key) {
 				if ( !empty ( $args[$key] )  ){
