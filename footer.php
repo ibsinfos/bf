@@ -1,49 +1,38 @@
 <footer id="main-footer">
         <div class=" pre-footer ">
             <nav class="footer-nav wrapper pure-g-r container">
-                <ul class="col-md-3 col-xs-4">
-                    <li class="footer-list-header">About Us</li>
-                    <li>
-                        <ul>
-                            <li><a href="#/features">Features</a></li>
-                            <li><a href="#/templates">Templates</a></li>
-                            <li><a href="#/team">Team</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="col-md-3 col-xs-4">
-                    <li class="footer-list-header">Help &amp; Resources</li>
-                    <li>
-                        <ul>
-                            <li><a href="#/contact">Contact</a></li>
-                            <li><a href="#/help">Help Center</a></li>
-                            <li><a href="https://vimeo.com/136125269">Video Tutorial!</a></li>
-                            <li><a href="#/blog">Blog</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="col-md-3 col-xs-4">
-                    <li class="footer-list-header">Commercial</li>
-                    <li>
-                        <ul>
-                            <li><a href="#/why-lander">Why Lander</a></li>
-                            <li><a href="#/pricing">Pricing</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <nav class="footer-socialmedia">
-                            <ul>
-                                <li class="footer-list-header">Stay Tunned!</li>
-                                <li class="socialmedia-icons">
-                                    <a href="https://www.facebook.com/LanderApp" target="_blank" class="icon-facebook"></a>
-                                    <a href="https://twitter.com/landerapp" target="_blank" class="icon-twitter"></a>
-                                    <a href="https://plus.google.com/+Landerapp" target="_blank" class="icon-googleplus"></a>
-                                    <a href="http://www.pinterest.com/landerapp/" target="_blank" class="icon-pinterest"></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </li>
-                </ul>
+                <?php
+
+                	$menus = (object) get_option('footer_menu');
+                	$label = array(
+                		'first_title' => 'Contact Us',
+                		'second_title' => 'Help & Resources',
+                		'third_title' => 'Commercial',
+                	);
+                	$args = array( 'first'=>'','second' => '','third' => '');
+                	foreach( $args as $key => $value){
+                		echo '<div class="col-md-3 col-xs-12">';
+	                		$title_key = $key.'_title';
+
+	                		$title =  $label[$title_key];
+	                		if( isset($menus->$title_key) ){
+	                			$title =  $menus->$title_key;
+	                		}
+	                		echo '<h5 class="footer-list-header">'.$title.'</h5>';
+	                		if( !empty($menus->$key) ){
+
+	                			wp_nav_menu( array(
+			                		'menu'        => $menus->$key,
+			                		'menu_class' =>'full',
+	                				'container' => '',
+			                		)
+	                			);
+	                		}
+	                	echo '</div>';
+                	}
+
+                	?>
+
                 <ul class="col-md-3 col-xs-12">
                     <li class="footer-list-header">Contact Us</li>
                     <li>
