@@ -54,7 +54,7 @@ class BX_Option {
 		);
 		return get_option($group, $group_args[$group]);
 	}
-	function set_option($group,$section,$name,$new_value, $multi = true){
+	function set_option($group, $section, $name, $new_value, $multi = true){
 
 		$current = get_option($group);
 
@@ -76,4 +76,5 @@ class BX_Option {
 	}
 
 }
+
 ?>
