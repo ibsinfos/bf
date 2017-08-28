@@ -91,8 +91,43 @@ class BX_Admin{
 		</div>
     	<?php
     }
-    function escrow(){
-        echo 'this is escrow section ';
+    function escrow(){ ?>
+    	<form>
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-2 col-form-label">Commistion</label>
+				<div class="col-md-10">
+				<input class="form-control" type="text" value="Fix number or percent" id="example-text-input">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-2 col-form-label">Commistion type</label>
+				<div class="col-md-10">
+					<select class="form-control" id="exampleSelect2">
+						<option value="emp">Fit number</option>
+						<option value="fre">Percent</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-2 col-form-label">Who is pay commision</label>
+				<div class="col-md-10">
+					<select class="form-control" id="exampleSelect2">
+						<option value="emp">Employer</option>
+						<option value="fre">Freelancer</option>
+						<option value="share">50/50</option>
+
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-md-12 align-right">
+					<button type="submit" class="btn btn-submit"> Save</button>
+				</div>
+			</div>
+
+		</form>
+    	<?php
+
     }
     function payment(){
         $group_option = "payment";
@@ -144,7 +179,7 @@ class BX_Admin{
                         // no posts found
                     }
                     ?>
-                    <form class="frm-add-package">
+                    <form class="frm-add-package row">
                         <div class="col-sm-12">
                         	<h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
                         </div>
