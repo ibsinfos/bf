@@ -165,7 +165,7 @@ class BX_Admin{
 				    	<label for="app_id">APP ID</label>
 				    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
 				    	<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
-				    	<div class="form-group toggle-line"><span> Enable this to help your website more security and safe. Add captcha code in login form and in register form. </span> </div>
+				    	<div class="form-group toggle-line"><span> Enable this to help your website security more and safe. Add captcha code in login form and in register form. </span> </div>
 
 				    </div>
 			    </div>
