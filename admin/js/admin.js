@@ -108,6 +108,8 @@ var ajaxSend = {};
 
 				if(ID != 0){
 					_this.remove();
+				} else {
+					window.location.reload(true);
 				}
 
 			};
@@ -120,7 +122,9 @@ var ajaxSend = {};
 			var action = 'del-post';
 			var data = {id: ''};
 			data.id = _this.closest(".btn-act-wrap").attr('id');
-			window.ajaxSend.Remove(data, action, _this);
+			if ( confirm('Are you sure ?') ) {
+				window.ajaxSend.Remove(data, action, _this);
+			}
 			return false;
 		});
 		if (typeof(tinyMCE) != "undefined") {
