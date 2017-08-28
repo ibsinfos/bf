@@ -96,6 +96,8 @@ ul.box-table li.li-heading{
 
 .sub-section{
 	margin-bottom: 55px;
+    width: 100%;
+    clear: both;
 }
 .sub-wrap{
 	padding: 20px 0 20px 20px;
