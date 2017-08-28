@@ -73,20 +73,20 @@ class BX_Admin{
     				<div class="form-group row">
 						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
 						<div class="col-md-12">
-						<input class="form-control" type="text" value="10" id="example-text-input">
+						<input class="form-control" type="text" value="http://fb.com/boxthemes/" id="example-text-input">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Twitter link','boxtheme');?></label>
 						<div class="col-md-12">
-						<input class="form-control" type="text" value="10" id="example-text-input">
+						<input class="form-control" type="text" value="http://tw.com/boxthemes/" id="example-text-input">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
 						<div class="col-md-12">
-						<input class="form-control" type="text" value="10" id="example-text-input">
+						<input class="form-control" type="text" value="http://plus.google.com/boxthemes/" id="example-text-input">
 						</div>
 					</div>
 
