@@ -348,7 +348,15 @@ class BX_Admin{
 
            	<div class="sub-section " id="payment">
            		<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
+
              	<div class="sub-wrap col-sm-12">
+             		<div class="full">
+		    			<div class="col-md-3">
+		    			<h3>Sandbox mode</h3>
+		    			</div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+
+		    		</div>
+
              		<div class="sub-item" id="paypal">
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
 		                <div class="col-sm-9">
