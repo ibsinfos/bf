@@ -21,3 +21,6 @@ ul.db-list-project li a{
 ul.db-list-project .heading{
 	font-weight: 600;
 }
+.btn-board{
+	margin-right: 15px;
+}
