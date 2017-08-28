@@ -58,13 +58,16 @@ class BX_Admin{
     	<h2>Main options</h2>
     	<div class="sub-section row" id="<?php echo $group_option;?>">
     		<div class="full">
-    			<div class="col-md-3"><h3> Pending jobs</h3></div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?></div>
+    			<div class="col-md-3">
+    			<h3> Pending jobs</h3>
+    			</div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+
     		</div>
     		<div class="full">
     			<div class="col-md-3"><h3>Google Analytics Script</h3></div> <div class="col-md-9"><textarea name="google_ans"></textarea></div>
     		</div>
     		<div class="full">
-    			<div class="col-md-3"><h3>Social Links</h3></div>
+    			<div class="col-md-3"><h3>Social Links</h3><span> List social link in the footer</span></div>
     			<div class="col-md-9">
     				<div class="form-group row">
 						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
