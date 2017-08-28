@@ -227,8 +227,8 @@ class BX_Admin{
         ?>
         <div class="section box-section" id="<?php echo $group_option;?>">
         	<h2 class="section-title">Currency Options </h2>
-        	<div class="form-group">
-        		<div class="col-md-3"> <label>Select currency</label> 		</div>
+        	<div class="form-group row">
+        		<div class="col-md-3"> <span>Select currency</span> 		</div>
         		<div class="col-md-9">
 		        	<select name="woocommerce_currency" id="woocommerce_currency" style="min-width: 350px;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency">
 		        	<?php
@@ -241,8 +241,8 @@ class BX_Admin{
 				</div>
 			</div>
 
-        	<div class="form-group">
-        		<div class="col-md-3">     		<label>Currency Position</label>       		</div>
+        	<div class="form-group row">
+        		<div class="col-md-3">     		<span>Currency Position</span>       		</div>
         		<div class="col-md-9">
         			<select name="woocommerce_currency_pos" id="woocommerce_currency_pos" style="min-width: 350px; " class="wc-enhanced-select enhanced" tabindex="-1" title="Currency Position">
 						<option value="left" selected="selected">Left ($99.99)</option>
@@ -252,12 +252,12 @@ class BX_Admin{
 					</select>
         		</div>
         	</div>
-        	<div class="form-group">
-        		<div class="col-md-3">     		<label>Thousand Separator</label>       		</div>
+        	<div class="form-group row">
+        		<div class="col-md-3">     		<span>Thousand Separator</span>       		</div>
         		<div class="col-md-9"> <input name="woocommerce_price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="," class="" placeholder="" />   </div>
         	</div>
-        	<div class="form-group">
-        		<div class="col-md-3">     		<label>Decimal Separator</label>       		</div>
+        	<div class="form-group row">
+        		<div class="col-md-3">     		<span>Decimal Separator</span>       		</div>
         		<div class="col-md-9"><input name="woocommerce_price_decimal_sep" id="woocommerce_price_decimal_sep" type="text" style="width:50px;" value="." class="" placeholder="">       		</div>
         	</div>
 
