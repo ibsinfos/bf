@@ -1,4 +1,9 @@
 <?php
+function check_permission(){
+	if( ! current_user_can( 'manage_options' ) )
+		return new WP_Error( 'insert_fail',  $project_id->get_error_message() );
+	return true;
+}
 class BX_ajax_backend{
 	static $instance;
 	static function get_instance(){
@@ -17,6 +22,11 @@ class BX_ajax_backend{
 
 	static function save_option(){
 
+		if( ! self::check_permission() ){
+			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
+			die();
+		}
+
 		$request= $_REQUEST['request'];
 		$name = $request['name'];
 		$group = $request['group'];
@@ -30,6 +40,10 @@ class BX_ajax_backend{
 		wp_send_json(array('success' => true, 'msg' => 'save done'));
 	}
 	function create_package() {
+		if( ! self::check_permission() ){
+			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
+			die();
+		}
 		$request = $_REQUEST['request'];
 		$id = isset($request['ID']) ? $request['ID'] : 0;
 
@@ -59,6 +73,11 @@ class BX_ajax_backend{
 		);
 	}
 	function del_post(){
+		if( ! self::check_permission() ){
+			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
+			die();
+		}
+
 		$request= $_REQUEST['request'];
 		$id = $request['id'];
 		wp_delete_post($id,true);
@@ -88,6 +107,7 @@ class BX_ajax_backend{
 		}
 		wp_send_json(array('success'=> false,'msg' => 'Update fail') );
 	}
+
 }
 BX_ajax_backend::get_instance()->init();
 ?>
