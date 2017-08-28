@@ -42,7 +42,7 @@ class BX_Admin{
         echo 'this is install section';
     }
     function general(){ ?>
-    	<h2> Access site</h2>
+
     	<?php $this->main_access();?>
 		<?php $this->social_login();?>
 
@@ -57,7 +57,9 @@ class BX_Admin{
     	?>
     	<h2>Main options</h2>
     	<div class="sub-section row" id="<?php echo $group_option;?>">
-    		<div class="col-md-3"><h3> Admin manual approve job</h3></div> <div class="form-group toggle-line"><?php bx_swap_button($group_option,'auto_approve', 1);?></div>
+
+    		<div class="col-md-3"><h3> Admin manual approve job</h3></div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?></div>
+
     	</div> <?php
     }
     function social_login(){
@@ -153,10 +155,9 @@ class BX_Admin{
 
 
         ?>
+        <h2 class="section-title">List Package plan</h2>
         <div class="section box-section" id="<?php echo $group_option;?>">
-
             <div class="sub-section " id="package_plan">
-            	<h2 class="section-title">List Package plan</h2>
                 <?php
                     $args = array(
                         'post_type' => '_package',
@@ -219,9 +220,10 @@ class BX_Admin{
 
             </div>
 
+            <h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
 
            <div class="sub-section " id="payment">
-	         	<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
+
              	<div class="sub-wrap col-sm-12">
              		<div class="sub-item" id="paypal">
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
