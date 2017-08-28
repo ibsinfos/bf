@@ -79,7 +79,7 @@ class BX_Admin{
         $methods = array('escrow','install','payment','payment_gateway','email');
         ?>
         <div class="wrap">
-            <h1> Theme Options</h1>
+            <h1><?php _e('Theme Options','boxtheme');?></h1>
             <div class="wrap-conent">
             	<div class="heading-tab">
                     <ul>

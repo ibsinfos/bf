@@ -1,44 +1,40 @@
 <?php
 $group_option = "main_options";
-        $option = BX_Option::get_instance();
-        $social_api = $option->get_group_option($group_option);
+$option = BX_Option::get_instance();
+$social_api = $option->get_group_option($group_option);
 
-    	?>
-<h2>Main options</h2>
+?>
+<h2><?php _e('Main options','boxtheme');?></h2>
 <div class="sub-section row" id="<?php echo $group_option;?>">
 	<div class="full">
 		<div class="col-md-3">
 		<h3> Pending jobs</h3>
-		</div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+		</div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?>  <br /><span><?php _e('if enable this option, all job only appearances in the site after admin manually approve it.','boxtheme');?></span></div>
 
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3>Google Analytics Script</h3></div> <div class="col-md-9"><textarea name="google_ans"></textarea></div>
+		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea name="google_ans"></textarea></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3> Copy right</h3></div> <div class="col-md-9"><input type="text" class="form-control" name="coppyright" /></div>
+		<div class="col-md-3"><h3><?php _e('Copy right','boxtheme');?></h3></div> <div class="col-md-9"><input type="text" class="form-control" name="coppyright" /></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3>Social Links</h3><span> List social link in the footer</span></div>
+		<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>
 		<div class="col-md-9">
+
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
-				<div class="col-md-12">
-				<input class="form-control" type="text" value="http://fb.com/boxthemes/" id="example-text-input">
-				</div>
+				<div class="col-md-12"><input class="form-control" type="text" value="http://fb.com/boxthemes/" id="example-text-input"></div>
 			</div>
+
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Twitter link','boxtheme');?></label>
-				<div class="col-md-12">
-				<input class="form-control" type="text" value="http://tw.com/boxthemes/" id="example-text-input">
-				</div>
+				<div class="col-md-12"><input class="form-control" type="text" value="http://tw.com/boxthemes/" id="example-text-input"></div>
 			</div>
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
-				<div class="col-md-12">
-				<input class="form-control" type="text" value="http://plus.google.com/boxthemes/" id="example-text-input">
-				</div>
+				<div class="col-md-12"><input class="form-control" type="text" value="http://plus.google.com/boxthemes/" id="example-text-input"></div>
 			</div>
 
 		</div>
