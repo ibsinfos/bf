@@ -189,7 +189,7 @@ class BX_Admin{
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion type','boxtheme');?></label>
 				<div class="col-md-8">
 					<select class="form-control" id="exampleSelect2">
-						<option value="emp"><?php _e('Fit number','boxtheme');?></option>
+						<option value="emp"><?php _e('Fix number','boxtheme');?></option>
 						<option value="fre"><?php _e('Percent','boxtheme');?></option>
 					</select>
 				</div>
