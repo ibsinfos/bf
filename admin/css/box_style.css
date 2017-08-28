@@ -55,6 +55,7 @@ li.block{
 form.frm-add-package{
 	padding: 20px 0;
 	display: block;
+	float: left;
 	overflow: hidden;
 }
 .frm-add-package .one-line{
@@ -152,7 +153,11 @@ div.mce-tinymce{
 #main_content{
 	background: #fff;
 	margin-left: 15px;
+	padding-left: 15px;
 }
 .mce-branding-powered-by{
 	display: none;
+}
+.btn-act{
+	cursor: pointer;
 }

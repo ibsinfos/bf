@@ -42,7 +42,27 @@ var ajaxSend = {};
 	        success  : function(event){
 	        	console.log('Success msg');
 	        	_this.attr('value',data.value);
-	        	//window.location.reload(true);
+
+	        },
+	        beforeSend  : function(event){
+	        	console.log('Insert message');
+	        },
+	    });
+	    return false;
+	};
+	window.ajaxSend.Remove = function(data, action, _this){
+	    $.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: action,
+	                request: data,
+	        },
+	        success  : function(event){
+	        	console.log('Success msg');
+	        	_this.closest(".row").remove();
+
 	        },
 	        beforeSend  : function(event){
 	        	console.log('Insert message');
@@ -70,7 +90,7 @@ var ajaxSend = {};
 					data.value = 1;
 				}
 			}
-			console.log(data);
+
 			window.ajaxSend.Custom(data, action, _this);
 		});
 		$("#sub_heading_menu a").click(function(){
@@ -84,7 +104,9 @@ var ajaxSend = {};
 			var action = 'create-packge';
 			var method = 'insert';
 			var success = function(event){
-
+				var html ='';
+				//$("ul#list_package").append(html);
+				//_this.remove();
 			};
 			window.ajaxSend.Form(event, action, method, success);
 			return false;
@@ -93,8 +115,8 @@ var ajaxSend = {};
 			var _this = $(event.currentTarget);
 			var action = 'del-post';
 			var data = {id: ''};
-			data.id = _this.attr('id');
-			window.ajaxSend.Custom(data, action, _this);
+			data.id = _this.closest(".swap-btn-act").attr('id');
+			window.ajaxSend.Remove(data, action, _this);
 			return false;
 		});
 		if (typeof(tinyMCE) != "undefined") {

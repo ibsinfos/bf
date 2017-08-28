@@ -157,17 +157,18 @@ class BX_Admin{
                     if ( $the_query->have_posts() ) {
                         echo '<div class="">';
 
-                        echo '<ul>';
+                        echo '<ul id="list_package">';
                         while ( $the_query->have_posts() ) {
                             $the_query->the_post();
-                            echo '<li class="col-sm-12 block">';
+                            echo '<li class="block row">';
                             echo '<div class="col-sm-11">';
                             $price = get_post_meta(get_the_ID(),'price', true);
                             //echo $price;
                             $sku = get_post_meta(get_the_ID(),'sku', true);
                             echo $sku .' -'. $price .' - '.get_the_content();
                             echo '</div>';
-                            echo '<div class="col-sm-1 align-right"><span id="'.get_the_ID().'" class="btn-delete">X</span>';
+                            echo '<div class="col-sm-1 align-right">
+                            	<span class="swap-btn-act" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete 	glyphicon glyphicon-trash"></span> &nbsp; <span  class=" btn-act	glyphicon glyphicon-edit"></span></span>';
 
                             echo '</div>';
                             echo '</li>';
@@ -321,7 +322,7 @@ class BX_Admin{
 	                    </ul>
                     </div>
                     <div class="tab-content clear row">
-                    	<div class="col-md-12" id="main_content">
+                    	<div id="main_content">
                     		<div id="general">
 		                        <?php
 		                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
