@@ -268,7 +268,7 @@ class BX_Admin{
             <div class="sub-section" id="package_plan">
             	<div class="row">
 	            	<div class="col-md-3">
-		            	<h3> List package plan </h3>
+		            	<h4> List package plan </h4>
 		            </div>
 		            <div class="col-md-9">
 		                <?php
@@ -323,7 +323,7 @@ class BX_Admin{
 	                    </div>
                     </div> <!-- .row !-->
                     <div class="row">
-	                    <div class="col-md-3"><h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
+	                    <div class="col-md-3"><h4 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h4>
 	                    </div>
 	                    <div class="col-md-9">
 		                    <form class="frm-add-package row">
