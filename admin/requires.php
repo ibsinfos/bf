@@ -170,6 +170,7 @@ function list_email(){
 		'new_register' => array(
 			'receiver' => 'register',
 			'subject' =>	'New register',
+			'name' =>	'New register',
 			'content' =>	'Has new register'
 		),
 		'new_job' => array(

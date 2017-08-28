@@ -497,6 +497,8 @@ class BX_Admin{
     <?php
     }
     function email(){
+    	$main_page 		= admin_url('admin.php?page='.self::$main_setting_slug);
+	    $email_link 	= add_query_arg('section','email', $main_page);
 
     	$group_option ="email";
     	$list = (object) list_email();
@@ -526,7 +528,8 @@ class BX_Admin{
 
 	           		foreach ($list as $key=> $email) {
 	           			$mail = (object)$email;
-	           			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="#"><span class="glyphicon glyphicon-cog"></span></a></td></tr>';
+	           			$edit_link = add_query_arg('name',$key, $email_link);
+	           			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="'.$edit_link.'"><span class="glyphicon glyphicon-cog"></span></a></td></tr>';
 	           		}
 	           		?>
 	           	</table>
