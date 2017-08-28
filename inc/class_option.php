@@ -62,10 +62,7 @@ class BX_Option {
 			$current[$section][$name] = $new_value;
 		} else {
 			$current[$name] = $new_value;
-			var_dump($current[$name]);
 		}
-
-
 		return update_option($group, $current);
 	}
 	function set_logo(){

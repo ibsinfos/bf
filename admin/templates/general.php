@@ -2,7 +2,7 @@
 
 
 $pending_post = false;
-$google_analytic = $coppyright = '';
+$google_analytic = $coppyright = $tw_link = $fb_link = $gg_link = '' ;
 $group_option = "general";
 $option = BX_Option::get_instance();
 $general = (object)$option->get_group_option($group_option);
@@ -17,7 +17,15 @@ if( isset($general->google_analytic) ){
 if( isset($general->coppyright) ){
 	$coppyright = $general->coppyright;
 }
-
+if( isset($general->tw_link) ){
+	$tw_link = $general->tw_link;
+}
+if( isset($general->fb_link) ){
+	$fb_link = $general->fb_link;
+}
+if( isset($general->gg_link) ){
+	$gg_link = $general->gg_link;
+}
 
 ?>
 <h2><?php _e('Main options','boxtheme');?></h2>
@@ -40,17 +48,17 @@ if( isset($general->coppyright) ){
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
-				<div class="col-md-12"><input class="form-control" type="text" value="http://fb.com/boxthemes/" id="example-text-input"></div>
+				<div class="col-md-12"><input class="form-control auto-save" type="text" value="<?php echo $fb_link;?>"  multi="0" name="fb_link" id="fb_link"></div>
 			</div>
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Twitter link','boxtheme');?></label>
-				<div class="col-md-12"><input class="form-control" type="text" value="http://tw.com/boxthemes/" id="example-text-input"></div>
+				<div class="col-md-12"><input class="form-control auto-save" type="text" name="tw_link"  multi="0"  value="<?php echo $tw_link;?>" id="tw_link"></div>
 			</div>
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
-				<div class="col-md-12"><input class="form-control" type="text" value="http://plus.google.com/boxthemes/" id="example-text-input"></div>
+				<div class="col-md-12"><input class="form-control auto-save" type="text" name="gg_link" multi="0"  value="<?php echo $gg_link;?>" id="gg_link"></div>
 			</div>
 
 		</div>
