@@ -153,3 +153,6 @@ div.mce-tinymce{
 	background: #fff;
 	margin-left: 15px;
 }
+.mce-branding-powered-by{
+	display: none;
+}
