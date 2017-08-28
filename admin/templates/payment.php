@@ -105,8 +105,7 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
                 </div>
             </div> <!-- .row !-->
             <div class="row">
-                <div class="col-md-3"><h4 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h4>
-                </div>
+                <div class="col-md-3"><h4 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h4></div>
                 <div class="col-md-9">
                     <form class="frm-add-package row">
 
