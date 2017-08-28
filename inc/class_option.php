@@ -30,6 +30,7 @@ class BX_Option {
 
 			),
 			'payment' => array(
+				'mode' => 0,
 				'paypal' => array(
 					'email' => '',
 					'enable' => false,
@@ -72,6 +73,16 @@ class BX_Option {
 
 	}
 
+}
+function get_sandbox_mode(){
+	$payment = (object) BX_Option::get_instance()->get_group_option($group_option);
+
+	$sanbox_mode = 1;// sandbox = 0
+
+	if( isset( $payment->mode ) ){
+		$sanbox_mode = $payment->mode;
+	}
+	return $sanbox_mode;
 }
 
 ?>

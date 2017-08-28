@@ -17,8 +17,7 @@ Class BX_Order {
 
 	function __construct(){
 		$this->post_type = ORDER;
-		$this->use_sandbox = true;
-		$this->mode = 'sandbox';
+		$this->use_sandbox = get_sandbox_mode();
 		$this->receiver_email = '';
 
 		$this->redirect_link = bx_get_static_link('process-payment');

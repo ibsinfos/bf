@@ -12,7 +12,7 @@ Class BX_Paypal extends BX_Order {
 	 /**
      * @var bool $use_sandbox     Indicates if the sandbox endpoint is used.
      */
-    private $use_sandbox = true;
+
 
 	public static $instance;
 	const VERIFY_URI = 'https://ipnpb.paypal.com/cgi-bin/webscr';
@@ -66,15 +66,6 @@ Class BX_Paypal extends BX_Order {
 		return self::SUBMIT_URI;
 	}
 	function create_order($package_id){
-		// 'amout', // price of this order
-		// 'payer_id', // user id of
-		// 'payer_email',
-		// 'receiver_id', // user id of is stored in database.
-		// 'receiver_email',
-		// 'customer_address',
-		// 'payment_type', // paypal, stripe or cash.
-		// 'order_type', // pay credit, pay post project or pay to bid .
-
         $receiver_email = $this->get_receiver_email();
 
         if( empty( $receiver_email) ){

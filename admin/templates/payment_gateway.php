@@ -4,8 +4,11 @@ $option = BX_Option::get_instance();
 $payment = $option->get_group_option($group_option);
 $paypal = (object)$payment['paypal'];
 
-$t = (object) BX_Option::get_instance()->get_option('payment','paypal');
+$mode = 0;// sandbox = 0
 
+if( isset($payment['mode'] ) ){
+	$mode = $payment['mode'];
+}
 
 ?>
 <div class="section box-section" id="<?php echo $group_option;?>">
@@ -17,7 +20,7 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
      		<div class="full">
     			<div class="col-md-3">
     			<h3>Sandbox mode</h3>
-    			</div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+    			</div> <div class="col-md-9"><?php  bx_swap_button($group_option,'mode', $mode, $multipe = false);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
 
     		</div>
 
@@ -76,7 +79,7 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
             	}
             	?>
                 <div class="col-sm-9 wrap-auto-save">
-                	 <textarea name="description" id="description" class="auto-save"> <?php echo $cash->description;?></textarea>
+                	 <textarea name="description" id="description" class="auto-save"> <?php echo stripslashes($cash->description);?></textarea>
                 	<div class="hide">
                 	<?php wp_editor($cash->description,'call');?>
                 	</div>
