@@ -183,6 +183,11 @@ function list_email(){
 			'subject' =>	'New bidding in your project %s',
 			'content' =>	'Has new bidding'
 		),
+		'new_message' => array(
+			'receiver' => 'receiver',
+			'subject' =>	'Have new message for you',
+			'content' =>	'Hi, Have new message for you.'
+		),
 		'assign_job' => array(
 			'receiver' => 'freelancer',
 			'subject' =>	'Your bidding is choosen for project %s',

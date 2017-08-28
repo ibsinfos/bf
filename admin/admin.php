@@ -507,6 +507,7 @@ class BX_Admin{
     		'new_job' => 'New project',
     		'new_bidding' => 'New bidding',
     		'assign_job' => 'Assign job',
+    		'new_message' => "New Message",
     	);
     	?>
      	<div class="section box-section" id="<?php echo $group_option;?>">
