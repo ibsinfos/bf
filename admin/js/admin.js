@@ -74,21 +74,21 @@ var ajaxSend = {};
 		$('.auto-save, .wrap-auto-save textarea, iframe ').change(function(event){
 			var _this = $(event.currentTarget);
 			var action = 'save-option';
-			var data = {section: '',group:'',name:'',value:''};
-
+			var data = {group:'', section: '', name:'',value:'', multi : 1};
 
 			data.group  = _this.closest('.sub-section').attr('id');
 			data.section = _this.closest('.sub-item').attr('id');
 			data.name = _this.attr('name');
 			data.value = _this.val();
 			if( _this.attr('data-toggle') == 'toggle'){
-				console.log(data.value);
 				if(data.value == '1'){
-					console.log('set 0');
 					data.value = 0;
 				} else {
 					data.value = 1;
 				}
+			}
+			if( _this.attr('multi') == '0' ){
+				data.multi = 0;
 			}
 
 			window.ajaxSend.Custom(data, action, _this);

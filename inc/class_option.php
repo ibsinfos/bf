@@ -17,9 +17,25 @@ class BX_Option {
 	}
 	function get_group_option($group){
 		$group_args = array(
+			'general'=> array(
+				'pending_post' => false,
+				'google_analytic' => '',
+				'copyright' => '',
+				'social_links' => array(
+					'fb_link' => 'https://fb.com/boxthemes/',
+					'gg_link' => 'https://https://plus.google.com/boxthemes/',
+					'tw_link' => 'https://https://twitter.com/boxthemes/',
+					'le_link.' => 'https://linkedin.com.com/boxthemes/',
+				),
+
+			),
 			'payment' => array(
 				'paypal' => array(
 					'email' => '',
+					'enable' => false,
+				),
+				'cash' => array(
+					'description' => '',
 					'enable' => false,
 				),
 			),
@@ -34,24 +50,21 @@ class BX_Option {
 					'enable' => 0,
 				),
 			),
-			'main_options' => array(
-				'facebook' => array(
-					'app_id' => '',
-					'enable' => 0,
 
-				),
-				'google' => array(
-					'client_id' => '',
-					'enable' => 0,
-				),
-			),
 		);
 		return get_option($group, $group_args[$group]);
 	}
-	function set_option($group,$section,$name,$new_value){
+	function set_option($group,$section,$name,$new_value, $multi = true){
 
 		$current = get_option($group);
-		$current[$section][$name] = $new_value;
+
+		if( $multi ){
+			$current[$section][$name] = $new_value;
+		} else {
+			$current[$name] = $new_value;
+			var_dump($current[$name]);
+		}
+
 
 		return update_option($group, $current);
 	}

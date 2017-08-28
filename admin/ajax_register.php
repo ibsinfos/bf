@@ -18,16 +18,15 @@ class BX_ajax_backend{
 	static function save_option(){
 
 		$request= $_REQUEST['request'];
-
 		$name = $request['name'];
 		$group = $request['group'];
 		$value = $request['value'];
 		$section = $request['section'];
-
+		$multi = isset($request['multi']) ? $request['multi']: 1;
 
 		$option = BX_Option::get_instance();
 
-		$option->set_option( $group, $section,$name, $value);
+		$option->set_option( $group, $section, $name, $value, $multi);
 		wp_send_json(array('success' => true, 'msg' => 'save done'));
 	}
 	function create_package() {

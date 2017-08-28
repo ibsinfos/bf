@@ -1,22 +1,35 @@
 <?php
-$group_option = "main_options";
+$group_option = "general";
 $option = BX_Option::get_instance();
-$social_api = $option->get_group_option($group_option);
+$pending_post = false;
+$google_analytic = $coppyright = '';
+$general = (object)$option->get_group_option($group_option);
+
+if( isset($general->pending_post) ){
+	$pending_post = $general->pending_post;
+}
+if( isset($general->google_analytic) ){
+	$google_analytic = $general->google_analytic;
+}
+if( isset($general->coppyright) ){
+	$coppyright = $general->coppyright;
+}
+
 
 ?>
 <h2><?php _e('Main options','boxtheme');?></h2>
 <div class="sub-section row" id="<?php echo $group_option;?>">
-	<div class="full">
+	<div class="full sub-item" id="pending_post" >
 		<div class="col-md-3">
-		<h3> Pending jobs</h3>
-		</div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?>  <br /><span><?php _e('if enable this option, all job only appearances in the site after admin manually approve it.','boxtheme');?></span></div>
+		<h3><?php _e('Pending jobs','boxtheme');?></h3>
+		</div> <div class="col-md-9"><?php bx_swap_button($group_option,'pending_post', $pending_post, $multipe = false);?>  <br /><span><?php _e('if enable this option, all job only appearances in the site after admin manually approve it.','boxtheme');?></span></div>
 
 	</div>
-	<div class="full">
-		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea name="google_ans"></textarea></div>
+	<div class="full" id="google_analytic">
+		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo $google_analytic;?></textarea></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3><?php _e('Copy right','boxtheme');?></h3></div> <div class="col-md-9"><input type="text" class="form-control" name="coppyright" /></div>
+		<div class="col-md-3"><h3><?php _e('Copy right','boxtheme');?></h3></div> <div class="col-md-9"><input type="text" class="form-control auto-save" multi="0"  name="coppyright" value="<?php echo $coppyright;?>" /></div>
 	</div>
 	<div class="full">
 		<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>
