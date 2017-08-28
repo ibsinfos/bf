@@ -70,8 +70,11 @@ ul.box-table li.li-heading{
 	padding: 0 30px 30px 30px;
 	overflow: hidden;
 }
+#general{
+	padding: 15px;
+}
 .sub-section{
-	padding: 0 15px;
+
 }
 .sub-wrap{
 	padding: 20px 0 20px 15px;

@@ -42,25 +42,10 @@ class BX_Admin{
         echo 'this is install section';
     }
     function general(){ ?>
-    	<div class="col-md-12" id="sub_heading_menu">
-    		<ul class="inline">
-    			<li><a href="#general">Home page</a></li>
-    			<li><a href="#social_login">Social Login </a></li>
-    			<li><a href="#captcha"> Google Captcha</a></li>
-    		</ul>
-
-    	</div>
-    	<div class="col-md-12" id="main_content">
-    		<div id="general" class="second-content active">
-				This is general
-			</div>
-			<div id="social_login" class="second-content">
-				<?php $this->social_login();?>
-			</div>
-			<div id="captcha" class="second-content">
-				This is google captcha
-			</div>
-    	</div>
+		<div id="general" class="second-content active">
+			<?php $this->social_login();?>
+			This is google captcha
+		</div>
     	<?php
     }
     function social_login(){
@@ -80,22 +65,28 @@ class BX_Admin{
 
 
     	?>
+    	<h2>Social Login</h2>
     	<div class="sub-section" id="<?php echo $group_option;?>">
    			<div class="sub-item" id="<?php echo $item1;?>">
-	    		<h3> Facebook Setting </h3>
-			  	<div class="form-group">
-			    	<label for="app_id">APP ID</label>
-			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+			  	<div class="form-group row">
+		  			<div class="col-md-3"><h3> Facebook Setting </h3></div>
+		  			<div class="col-md-9">
+				    	<label for="app_id">APP ID</label>
+				    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+				    	<div class="form-group">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
+				    </div>
 			    </div>
-			    <div class="form-group">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
+
 			</div>
 			<div class="sub-item" id="google">
-			  	<h3> Google settings</h3>
-			  	<div class="form-group">
-			    	<label for="client_id">Client ID</label>
-			    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
+			  	<div class="form-group row">
+			  		<div class="col-md-3"><h3> Google Setting </h3></div>
+			  		<div class="col-md-9">
+				    	<label for="client_id">Client ID</label>
+				    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
+				    	<div class="form-group"><?php bx_swap_button($group_option,$item2, $google->enable);?></div>
+			    	</div>
 			  	</div>
-			  	<div class="form-group"><?php bx_swap_button($group_option,$item2, $google->enable);?></div>
 			</div>
 		</div>
     	<?php
@@ -291,11 +282,13 @@ class BX_Admin{
 	                    </ul>
                     </div>
                     <div class="tab-content clear row">
-                        <?php
-                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
-                            $admin = BX_Admin::get_instance();
-                            $admin->$section();
-                        ?>
+                    	<div class="col-md-12" id="main_content">
+	                        <?php
+	                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
+	                            $admin = BX_Admin::get_instance();
+	                            $admin->$section();
+	                        ?>
+                        </div>
                     </div>
 
             </div>
