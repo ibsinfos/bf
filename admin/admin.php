@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 class BX_Admin{
     static $instance;
     static $main_setting_slug = 'box-settings';

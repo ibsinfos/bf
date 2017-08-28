@@ -1,4 +1,9 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
 function check_permission(){
 	if( ! current_user_can( 'manage_options' ) )
 		return new WP_Error( 'insert_fail',  $project_id->get_error_message() );

@@ -1,5 +1,8 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 $pending_post = false;
 $google_analytic = $coppyright = $tw_link = $fb_link = $gg_link = '' ;

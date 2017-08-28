@@ -1,5 +1,8 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 function list_currency(){
 	return array(
 		'AED' => 'United Arab Emirates dirham (د.إ)',
