@@ -331,6 +331,20 @@ class BX_Admin{
                     </form>
 
             </div>
+        </div>
+        <?php
+    }
+    function payment_gateway(){
+    	 $group_option = "payment";
+        $option = BX_Option::get_instance();
+        $payment = $option->get_group_option($group_option);
+        $paypal = (object)$payment['paypal'];
+
+        $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
+
+
+        ?>
+        <div class="section box-section" id="<?php echo $group_option;?>">
 
            	<div class="sub-section " id="payment">
            		<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
@@ -436,11 +450,13 @@ class BX_Admin{
 	                        $general_link = add_query_arg('section','general', $main_page);
 	                        $install_link = add_query_arg('section','install', $main_page);
 	                        $payment_link = add_query_arg('section','payment', $main_page);
+	                        $gateway_link = add_query_arg('section','payment_gateway', $main_page);
 
 	                        ?>
 	                        <li><a href="<?php echo $general_link;?>">General</a></li>
 	                        <li><a href="<?php echo $install_link;?>">Install</a></li>
-	                        <li><a href="<?php echo $payment_link;?>">Config Payment</a></li>
+	                        <li><a href="<?php echo $payment_link;?>">Currency and Package</a></li>
+	                        <li><a href="<?php echo $gateway_link;?>">Payment Gateway</a></li>
 	                        <li><a href="<?php echo $escrow_link;?>">Config Credit</a></li>
 
 	                    </ul>
