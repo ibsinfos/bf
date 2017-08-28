@@ -156,7 +156,7 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
             <div class="col-sm-12 one-line">
             	<textarea id="post_content" name="post_content" class="">{{{data.post_content}}}</textarea>
             </div>
-
+            <input type="hidden" name="ID" value="{{{data.ID}}}" />
             <div class="col-sm-10 one-line">
             </div>
             <div class="col-sm-2 align-right one-line">

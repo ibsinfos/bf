@@ -99,18 +99,18 @@ var ajaxSend = {};
 			$(".second-content").removeClass('active');
 			$(id).addClass('active');
 		})
-		$(".frm-add-package").submit(function(event){
+		$(document).on('submit', '.frm-add-package', function(event){
 			var _this = $(event.currentTarget);
 			var action = 'create-packge';
 			var method = 'insert';
 			var success = function(event){
 				var html ='';
-				//$("ul#list_package").append(html);
-				//_this.remove();
+
 			};
 			window.ajaxSend.Form(event, action, method, success);
 			return false;
 		});
+
 		$(".btn-delete").click(function(event){
 			var _this = $(event.currentTarget);
 			var action = 'del-post';

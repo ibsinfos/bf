@@ -31,6 +31,9 @@ class BX_ajax_backend{
 	}
 	function create_package() {
 		$request = $_REQUEST['request'];
+		$id = isset($request['ID']) ? $request['ID'] : 0;
+
+
 		$args = array(
 			'post_title' => 'Buy credit package',
 			'post_content' => $request['post_content'],
@@ -39,12 +42,16 @@ class BX_ajax_backend{
 			'meta_input' => array(
 				'sku' => $request['sku'],
 				'price' => $request['price'],
-				//'number_post' => $request['number_posts'],
 				'type' => 'buy_credit',
 				),
-
 		);
-		$t = wp_insert_post($args);
+
+		if( $id ){
+			$args['ID'] = $id;
+			wp_update_post($args );
+		} else {
+			wp_insert_post($args);
+		}
 		wp_send_json( array(
 			'success' => true,
 			'msg' => 'DONE'
