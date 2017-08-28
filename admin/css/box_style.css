@@ -161,3 +161,13 @@ div.mce-tinymce{
 .btn-act{
 	cursor: pointer;
 }
+.full{
+	padding-bottom: 15px;
+	display: block;
+	width: 100%;
+	padding: 0;
+	overflow: hidden;
+}
+.sub-section  .full{
+	padding-bottom: 15px;
+}

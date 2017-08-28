@@ -57,8 +57,38 @@ class BX_Admin{
     	?>
     	<h2>Main options</h2>
     	<div class="sub-section row" id="<?php echo $group_option;?>">
+    		<div class="full">
+    			<div class="col-md-3"><h3> Pending jobs</h3></div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?></div>
+    		</div>
+    		<div class="full">
+    			<div class="col-md-3"><h3>Google Analytics Script</h3></div> <div class="col-md-9"><textarea name="google_ans"></textarea></div>
+    		</div>
+    		<div class="full">
+    			<div class="col-md-3"><h3>Social Links</h3></div>
+    			<div class="col-md-9">
+    				<div class="form-group row">
+						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
+						<div class="col-md-12">
+						<input class="form-control" type="text" value="10" id="example-text-input">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Twitter link','boxtheme');?></label>
+						<div class="col-md-12">
+						<input class="form-control" type="text" value="10" id="example-text-input">
+						</div>
+					</div>
 
-    		<div class="col-md-3"><h3> Admin manual approve job</h3></div> <div class="col-md-9"><?php bx_swap_button($group_option,'auto_approve', 1);?></div>
+					<div class="form-group row">
+						<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
+						<div class="col-md-12">
+						<input class="form-control" type="text" value="10" id="example-text-input">
+						</div>
+					</div>
+
+    			</div>
+    		</div>
+
 
     	</div> <?php
     }
