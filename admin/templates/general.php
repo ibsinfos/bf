@@ -1,9 +1,12 @@
 <?php
-$group_option = "general";
-$option = BX_Option::get_instance();
+
+
 $pending_post = false;
 $google_analytic = $coppyright = '';
+$group_option = "general";
+$option = BX_Option::get_instance();
 $general = (object)$option->get_group_option($group_option);
+
 
 if( isset($general->pending_post) ){
 	$pending_post = $general->pending_post;
@@ -29,7 +32,7 @@ if( isset($general->coppyright) ){
 		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo $google_analytic;?></textarea></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3><?php _e('Copy right','boxtheme');?></h3></div> <div class="col-md-9"><input type="text" class="form-control auto-save" multi="0"  name="coppyright" value="<?php echo $coppyright;?>" /></div>
+		<div class="col-md-3"><h3><?php _e('Copy right','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="form-control auto-save" multi="0"  name="coppyright" ><?php echo esc_html($coppyright);?> </textarea></div>
 	</div>
 	<div class="full">
 		<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>

@@ -60,7 +60,7 @@
         <div class="footer-copyright">
             <div class="wrapper  container">
             	<div class="col-md-7">
-                	<p>2017 © Boxthemes. All rights reserved. <a href="#/terms-and-conditions" target="_blank">Term of Use</a> and <a href="#/terms-and-conditions" target="_blank">Privacy Policy</a></p>
+                	<p><?php global $general; echo $general->coppyright;?></p>
                 </div>
                 <div class="col-md-5">
 

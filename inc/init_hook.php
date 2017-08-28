@@ -282,13 +282,18 @@ function bx_theme_init() {
 
 
 	global $option, $currency_code, $currency_sign, $box_option; //box_option  box_options, global_option
+
+
 	$box_option =  BX_Option::get_instance();
+
 	$option = array(
 		'currency' => array(
 			'sign' => '$',
 			'code'	=> 'USD'
 		)
 	);
+
+
 	$labels = array(
 		'name'               => _x( 'Orders', 'post type general name', 'boxtheme' ),
 		'singular_name'      => _x( 'Order', 'post type singular name', 'boxtheme' ),
@@ -389,6 +394,7 @@ function bx_theme_init() {
 
 	$currency_sign = $option['currency']['sign'];
 	$currency_code = $option['currency']['code'];
+
 
 
 }
@@ -598,3 +604,4 @@ function bx_custom_avatar_url( $url, $id_or_email) {
     return $url;
 }
 add_filter( 'get_avatar_url' , 'bx_custom_avatar_url' , 99999 , 2 );
+
