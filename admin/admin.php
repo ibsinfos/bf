@@ -290,10 +290,8 @@ class BX_Admin{
 
             </div>
 
-            <h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
-
-           <div class="sub-section " id="payment">
-
+           	<div class="sub-section " id="payment">
+           		<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
              	<div class="sub-wrap col-sm-12">
              		<div class="sub-item" id="paypal">
 		                <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
