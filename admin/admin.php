@@ -42,11 +42,11 @@ class BX_Admin{
         echo 'this is install section';
     }
     function general(){ ?>
-		<div id="general" class="second-content active">
-			<?php $this->social_login();?>
-			This is google captcha
-		</div>
-    	<?php
+
+		<?php $this->social_login();?>
+
+
+		<?php
     }
     function social_login(){
     	$group_option = "social_api";
@@ -70,10 +70,10 @@ class BX_Admin{
    			<div class="sub-item" id="<?php echo $item1;?>">
 			  	<div class="form-group row">
 		  			<div class="col-md-3"><h3> Facebook Setting </h3></div>
-		  			<div class="col-md-9">
+		  			<div class="col-md-9 form-group">
 				    	<label for="app_id">APP ID</label>
 				    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
-				    	<div class="form-group">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
+				    	<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
 				    </div>
 			    </div>
 
@@ -81,10 +81,10 @@ class BX_Admin{
 			<div class="sub-item" id="google">
 			  	<div class="form-group row">
 			  		<div class="col-md-3"><h3> Google Setting </h3></div>
-			  		<div class="col-md-9">
+			  		<div class="col-md-9 ">
 				    	<label for="client_id">Client ID</label>
 				    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
-				    	<div class="form-group"><?php bx_swap_button($group_option,$item2, $google->enable);?></div>
+				    	<div class="form-group toggle-line"><?php bx_swap_button($group_option,$item2, $google->enable);?></div>
 			    	</div>
 			  	</div>
 			</div>
@@ -235,7 +235,7 @@ class BX_Admin{
 		                <div class="col-sm-9">
 		                </div>
 		                <div class="col-sm-3 align-right">
-		                    <?php bx_swap_button('payment','cash', $check->enable);?>
+		                    <?php bx_swap_button('payment','cash', $cash->enable);?>
 		                </div>
 	           		</div>
 	            </div><!-- .end sub-wrap !-->
@@ -283,11 +283,13 @@ class BX_Admin{
                     </div>
                     <div class="tab-content clear row">
                     	<div class="col-md-12" id="main_content">
-	                        <?php
-	                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
-	                            $admin = BX_Admin::get_instance();
-	                            $admin->$section();
-	                        ?>
+                    		<div id="general">
+		                        <?php
+		                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
+		                            $admin = BX_Admin::get_instance();
+		                            $admin->$section();
+		                        ?>
+	                        </div>
                         </div>
                     </div>
 
