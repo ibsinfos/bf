@@ -21,8 +21,9 @@ class BX_Credit_Setting{
 
 		);
 		$query = new WP_query($args);
+		echo '<h3>List Order</h3>';
 		if( $query->have_posts() ){
-			echo '<h3>List credit pending</h3>';
+
 			echo '<ul class="box-table">';
 			echo '<li class="row li-heading">';
 			echo '<div class="col-md-3">Buyer</div>';
