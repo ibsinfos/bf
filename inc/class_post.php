@@ -111,12 +111,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			return $post_id;
 		}
-		function check_author($ars){
+		function check_author($args){
 			$id = $args['ID'];
 			$post = get_post($id);
 			global $user_ID;
+
 			if($user_ID != $post->post_author){
-				return new WP_Error('not_author',__('You can not delete a portfolio of another account','boxtheme'));
+				return new WP_Error('not_author',__('You can not renew this job','boxtheme'));
 
 			}
 		}
