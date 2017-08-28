@@ -8,6 +8,9 @@
 .f-right{
 	float: right;
 }
+.align-center{
+	text-align: center;
+}
 #general{
 	background: #fff;
 	max-width: 1120px;

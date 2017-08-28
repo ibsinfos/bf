@@ -281,18 +281,21 @@ class BX_Admin{
 
                         echo '<ul id="list_package">';
                         $i = 1;
+                        echo '<li class="block row"><div class="col-md-1">STT</div><div class="col-md-1">SKU</div><div class="col-md-8">Detail</div><div class="col-md-1 align-center">Action</div></li>';
                         while ( $the_query->have_posts() ) {
                             $the_query->the_post();
-                            echo '<li class="block row">';
-                            echo '<div class="col-md-1">'.$i.'</div>';
-
-                            echo '<div class="col-md-10">';
                             $price = get_post_meta(get_the_ID(),'price', true);
                             //echo $price;
                             $sku = get_post_meta(get_the_ID(),'sku', true);
-                            echo $sku .' -'. $price .' - '.get_the_content();
+
+                            echo '<li class="block row">';
+                            echo '<div class="col-md-1">'.$i.'</div>';
+                             echo '<div class="col-md-1">'.$sku.'</div>';
+                            echo '<div class="col-md-8">';
+
+                            echo get_the_content();
                             echo '</div>';
-                            echo '<div class="col-sm-1 align-right">
+                            echo '<div class="col-sm-1 align-center">
                             	<span class="swap-btn-act" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete 	glyphicon glyphicon-trash"></span> &nbsp; <span  class=" btn-act	glyphicon glyphicon-edit"></span></span>';
 
                             echo '</div>';
