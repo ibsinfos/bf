@@ -77,18 +77,18 @@ if($p_id){
 		      	<input type="file" name="upload[]" id="sp-upload" multiple="" class="fileupload-input">
 		      	<input type="hidden" name="fileset" class="upload-fileset">
 		  	</span>
-	  		<p class="file-upload-text txt-term">Drag &amp; drop any images or documents that might be helpful in explaining your project brief here</p>
+	  		<p class="file-upload-text txt-term"><?php _e('Drag drop any images or documents that might be helpful in explaining your project brief here','boxtheme');?></p>
 
 	 	</div>
 	 	<ul class="list-attach"></ul>
-	 	<div id="fileupload-error" class="alert alert-error upload-alert fileupload-error hide">You have uploaded this file before</div>
+	 	<div id="fileupload-error" class="alert alert-error upload-alert fileupload-error hide"><?php _e('You have uploaded this file before','boxtheme');?></div>
 
 	</div>
 	<?php wp_nonce_field( 'sync_project', 'nonce_insert_project' ); ?>
 	<div class="form-group row">
 
 	 	<div class="col-md-7">
-	    	<span class="txt-term">By clicking 'Post Project Now', you are indicating that you have read and agree to the Terms & Conditions and Privacy Policy</span>
+	    	<span class="txt-term"><?php _e("By clicking 'Post Project Now', you are indicating that you have read and agree to the Terms & Conditions and Privacy Policy","boxtheme");?></span>
 	    </div>
 	 	<div class="col-md-5 align-right pull-right">
 	    	<button type="submit " class="btn btn-action no-radius"><?php echo $lbl_btn;?></button>
