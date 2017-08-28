@@ -478,7 +478,13 @@ class BX_Admin{
 		                        <?php
 		                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
 		                            $admin = BX_Admin::get_instance();
-		                            $admin->$section();
+		                            $methods = array('escrow','install','payment','payment_gateway');
+		                            if( in_array($section, $methods) ){
+		                            	$admin->$section();
+		                            }else {
+		                            	$admin->general();
+		                            }
+
 		                        ?>
 	                        </div>
                         </div>
