@@ -59,21 +59,23 @@
         </div>
         <div class="footer-copyright">
             <div class="wrapper  container">
-            	<div class="col-md-7">
-                	<p><?php global $general; echo !empty($general->coppyright) ? $general->coppyright :'2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>';?></p>
-                </div>
-                <div class="col-md-5">
-                	<ul class="social-link">
-                		<?php
-                		if ( isset( $general->gg_link ) )
-                			echo '<li><a class="gg-link"  target="_blank" href="'.$general->gg_link.'"><span></span></a></li>';
-                		if ( isset( $general->tw_link ) )
-                			echo '<li><a class="tw-link" target="_blank"  href="'.$general->tw_link.'"><span></span></a></li>';
-                		if ( isset( $general->fb_link ) )
-                			echo '<li><a class="fb-link"  target="_blank" href="'.$general->fb_link.'"><span></span></a></li>';
-                		?>
-                	</ul>
-                </div>
+            	<div class="row">
+	            	<div class="col-md-7">
+	                	<p><?php global $general; echo !empty($general->coppyright) ? $general->coppyright :'2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>';?></p>
+	                </div>
+	                <div class="col-md-5">
+	                	<ul class="social-link">
+	                		<?php
+	                		if ( isset( $general->gg_link ) )
+	                			echo '<li><a class="gg-link"  target="_blank" href="'.$general->gg_link.'"><span></span></a></li>';
+	                		if ( isset( $general->tw_link ) )
+	                			echo '<li><a class="tw-link" target="_blank"  href="'.$general->tw_link.'"><span></span></a></li>';
+	                		if ( isset( $general->fb_link ) )
+	                			echo '<li><a class="fb-link"  target="_blank" href="'.$general->fb_link.'"><span></span></a></li>';
+	                		?>
+	                	</ul>
+	                </div>
+	            </div>
             </div>
         </div>
     </footer>
