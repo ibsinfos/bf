@@ -7,10 +7,9 @@ function box_set_favicon( $url, $size, $blog_id ) {
 }
 add_action( 'wp_head', 'box_add_meta_head', 11 );
 function box_add_meta_head(){
+
 	global $general;
-	$group_option = "general";
-	$option = BX_Option::get_instance();
-	$general = (object)$option->get_group_option($group_option);
+	$general = (object) BX_Option::get_instance()->get_group_option('general');
 
 	if( isset($general->google_analytic) ){
 		echo $general->google_analytic;
