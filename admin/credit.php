@@ -11,13 +11,13 @@ class BX_Credit_Setting{
 	        'Credit order',
 	        'manage_options',
 	        'credit-setting',
-	        array('BX_Credit_Setting','wpdocs_my_custom_submenu_page_callback') );
+	        array($this,'cedit_menu_link') );
 	}
-	function wpdocs_my_custom_submenu_page_callback(){
-
+	function cedit_menu_link(){
 		$args = array(
 			'post_type' => '_order',
 			'posts_per_page' => 35,
+
 
 		);
 		$query = new WP_query($args);
@@ -68,6 +68,8 @@ class BX_Credit_Setting{
 				echo '</li>';
 			}
 			echo '</ul>';
+		} else {
+			_e('There is not any order yet','boxtheme');
 		}
 	}
 }
