@@ -173,3 +173,6 @@ div.mce-tinymce{
 .sub-section  .full{
 	padding-bottom: 15px;
 }
+.form-group{
+	overflow: hidden;
+}

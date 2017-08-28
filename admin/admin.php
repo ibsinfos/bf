@@ -226,17 +226,25 @@ class BX_Admin{
 
         ?>
         <div class="section box-section" id="<?php echo $group_option;?>">
-        	<h2 class="section-title">Currency Options/h2>
-
-        	<select name="woocommerce_currency" id="woocommerce_currency" style="min-width: 350px; display: none;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency">
-
-																	</select>
-
-        	<div class="form-control">
-        		<div class="col-md-3">
-        		</div>
+        	<h2 class="section-title">Currency Options </h2>
+        	<div class="form-group">
+        		<div class="col-md-3"> <label>Select currency</label> 		</div>
         		<div class="col-md-9">
-        			<select name="woocommerce_currency_pos" id="woocommerce_currency_pos" style="min-width: 350px; display: none;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency Position">
+		        	<select name="woocommerce_currency" id="woocommerce_currency" style="min-width: 350px;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency">
+		        	<?php
+		        	$list = list_currency();
+		        	foreach ($list as $cur => $value) {
+		        		echo "<option value='".$cur."'>".$value."</option>";
+		        	}
+		        	?>
+					</select>
+				</div>
+			</div>
+
+        	<div class="form-group">
+        		<div class="col-md-3">     		<label>Currency Position</label>       		</div>
+        		<div class="col-md-9">
+        			<select name="woocommerce_currency_pos" id="woocommerce_currency_pos" style="min-width: 350px; " class="wc-enhanced-select enhanced" tabindex="-1" title="Currency Position">
 						<option value="left" selected="selected">Left ($99.99)</option>
 						<option value="right">Right (99.99$)</option>
 						<option value="left_space">Left with space ($ 99.99)</option>
@@ -244,6 +252,15 @@ class BX_Admin{
 					</select>
         		</div>
         	</div>
+        	<div class="form-group">
+        		<div class="col-md-3">     		<label>Thousand Separator</label>       		</div>
+        		<div class="col-md-9"> <input name="woocommerce_price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="," class="" placeholder="" />   </div>
+        	</div>
+        	<div class="form-group">
+        		<div class="col-md-3">     		<label>Decimal Separator</label>       		</div>
+        		<div class="col-md-9"><input name="woocommerce_price_decimal_sep" id="woocommerce_price_decimal_sep" type="text" style="width:50px;" value="." class="" placeholder="">       		</div>
+        	</div>
+
        </div>
 
         <div class="section box-section" id="<?php echo $group_option;?>">
