@@ -290,8 +290,6 @@ class BX_Admin{
 		  						<th class="page-name">&nbsp;</th>
 		  					</tr>
 	   					</thead> <?php
-
-
                         while ( $the_query->have_posts() ) {
                             $the_query->the_post();
                             $price = get_post_meta(get_the_ID(),'price', true);

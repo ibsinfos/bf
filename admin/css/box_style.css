@@ -171,5 +171,9 @@ div.mce-tinymce{
 .form-group{
 	overflow: hidden;
 }
-tr:nth-child(even) {background: #CCC}
-tr:nth-child(odd) {background: #FFF}
+tr:nth-child(even) td{background: #fff}
+tr:nth-child(odd) td {background: #f9f9f9}
+thead:nth-child,thead th,thead tr, thead{
+	background: #fff;
+	font-weight: bold;
+}
