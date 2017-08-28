@@ -30,7 +30,7 @@ class BX_Admin{
 	        wp_enqueue_style( 'box_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
-	        wp_enqueue_script('box-js',get_theme_file_uri('admin/js/admin.js') );
+	        wp_enqueue_script( 'box-js', get_theme_file_uri('admin/js/admin.js'), array('jquery','wp-util') );
 	        if($hook == $credit_page){
 	        	wp_enqueue_script('credit-js',get_theme_file_uri('admin/js/credit.js') );
 	        }

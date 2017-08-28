@@ -170,11 +170,29 @@ div.mce-tinymce{
 	overflow: hidden;
 }
 tr:nth-child(even) td{background: #fff}
-tr:nth-child(odd) td {background: #f9f9f9}
+tr:nth-child(odd) td, div.item-le {background: #f9f9f9}
 thead:nth-child,thead th,thead tr, thead{
 	background: #fff;
 	font-weight: bold;
 }
 .widefat th{
 	font-weight: bold;
+
+}
+.widefat{
+	width: 100%;
+	float: left;
+	clear: both;
+}
+#list_package .row-item{
+	padding: 10px 0;
+	overflow: hidden;
+}
+#list_package{
+	border:1px solid #ccc;
+}
+
+.form-group.heading-line{
+	padding: 10px 0;
+	margin-bottom: 0;
 }

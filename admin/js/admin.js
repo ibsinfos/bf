@@ -115,7 +115,7 @@ var ajaxSend = {};
 			var _this = $(event.currentTarget);
 			var action = 'del-post';
 			var data = {id: ''};
-			data.id = _this.closest(".swap-btn-act").attr('id');
+			data.id = _this.closest(".btn-act-wrap").attr('id');
 			window.ajaxSend.Remove(data, action, _this);
 			return false;
 		});
@@ -148,6 +148,19 @@ var ajaxSend = {};
 			 	}
 			});
 		}
+		$(".btn-edit-package").click(function(event){
+			var _this = $(event.currentTarget);
+			var frm_edit = wp.template("frm_edit_package");
+			var id =  _this.closest(".btn-act-wrap").attr('id');
+			var list_package = JSON.parse( jQuery('#json_list_package').html() );
+			var row = _this.closest(".row-item");
+			if( row.find('form').length  ){
+				row.find('form').remove();
+			} else {
+				row.append("<div class='col-md-12'>"+ frm_edit(list_package[id]) + "</div>" );
+			}
+
+		});
 
 	});
 
