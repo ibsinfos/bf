@@ -1,15 +1,29 @@
+<?php
+$p_id = isset($_GET['p_id']) ? $_GET['p_id'] : 0;
+$project = array();
+$lbl_btn = __('Post Project Now','boxtheme');
+if($p_id){
+	global $user_ID;
+	$project = get_post($p_id);
+
+	if( $project && $user_ID == $project->post_author ){
+		$project = BX_Project::get_instance()->convert($project);
+		$lbl_btn = __('Renew Your Project','boxtheme');
+	}
+}
+?>
 <form id="submit_project" class="frm-submit-project">
 	<div class="form-group ">
 	 	<h1 class="page-title"><?php the_title(); ?></h1>
 	</div>
 	<div class="form-group">
 		<label for="example-text-input" class="col-3  col-form-label"><?php _e('PROJECT NAME:','boxtheme');?></label>
-		<input class="form-control required" type="text" required name="post_title"  placeholder="<?php _e('Ex: Build a website','boxtheme');?> " id="example-text-input">
+		<input class="form-control required" type="text" required name="post_title" value="<?php echo !empty($project) ? $project->post_title:'';?>"  placeholder="<?php _e('Ex: Build a website','boxtheme');?> " id="example-text-input">
 	</div>
 
 	<div class="form-group ">
 	 	<label for="example-text-input" class="col-3  col-form-label"><?php _e('What budget do you have in mind?','boxtheme');?></label>
-	 	<input class="form-control" type="number" required name="<?php echo BUDGET;?>"   placeholder="<?php _e('Set your budget here','boxtheme');?> " id="example-text-input">
+	 	<input class="form-control" type="number" value="<?php echo !empty($project) ? $project->{BUDGET}:'';?>" required name="<?php echo BUDGET;?>"   placeholder="<?php _e('Set your budget here','boxtheme');?> " id="example-text-input">
 
 	</div>
 	<div class="form-group ">
@@ -52,7 +66,7 @@
 
 	<div class="form-group ">
 	 	<label for="example-text-input" class="col-3  col-form-label"><?php _e('DESCRIBE YOUR PROJECT','boxtheme');?></label>
-	 	<textarea name="post_content" class="form-control required no-radius" required rows="6" cols="43" placeholder="<?php _e('Describe your project here...','boxtheme');?>"></textarea>
+	 	<textarea name="post_content" class="form-control required no-radius" required rows="6" cols="43" placeholder="<?php _e('Describe your project here...','boxtheme');?>"><?php echo !empty($project) ? $project->post_content :'';?></textarea>
 	</div>
 	<div class="form-group ">
 	 	<div id="fileupload-container" class="file-uploader-area">
@@ -77,7 +91,7 @@
 	    	<span class="txt-term">By clicking 'Post Project Now', you are indicating that you have read and agree to the Terms & Conditions and Privacy Policy</span>
 	    </div>
 	 	<div class="col-md-5 align-right pull-right">
-	    	<button type="submit " class="btn btn-action no-radius"><?php _e('Post Project Now','boxtheme');?></button>
+	    	<button type="submit " class="btn btn-action no-radius"><?php echo $lbl_btn;?></button>
 	 	</div>
 	</div>
 </form>

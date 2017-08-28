@@ -24,7 +24,7 @@
 			global $post;
 			$query->the_post();
 			$project = BX_Project::get_instance()->convert($post);
-			$new_url = add_query_arg( array('id'=>$post->ID), $submit_url ) ;
+			$new_url = add_query_arg( array('p_id'=>$post->ID), $submit_url ) ;
 			echo '<li class="row list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-4">';				echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';				echo '</div>';
 				echo '<div class ="col-md-2">';				echo count_bids($post->ID);				echo '</div>';
