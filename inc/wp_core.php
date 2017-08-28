@@ -11,7 +11,7 @@ function box_add_meta_head(){
 	global $general;
 	$general = (object) BX_Option::get_instance()->get_group_option('general');
 
-	if( isset($general->google_analytic) ){
-		echo $general->google_analytic;
+	if( !empty( $general->google_analytic ) ){
+		echo stripslashes($general->google_analytic);
 	}
 }
