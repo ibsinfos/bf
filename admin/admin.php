@@ -277,33 +277,40 @@ class BX_Admin{
 
                     // The Loop
                     if ( $the_query->have_posts() ) {
-                        echo '<div class="">';
+                        echo '<table class="widefat" id="list_package">';
+                        $i = 1; ?>
+	                    <thead>
+		  					<tr>
+								<th class="page-name"><?php _e( 'STT', 'boxtheme' ); ?></th>
+		  						<th class="page-name"><?php _e( 'SKU', 'boxtheme' ); ?></th>
+		  						<th class="page-name"><?php _e( 'Detail', 'boxtheme' ); ?></th>
+		  						<th class="page-name">&nbsp;</th>
+		  					</tr>
+	   					</thead> <?php
 
-                        echo '<ul id="list_package">';
-                        $i = 1;
-                        echo '<li class="block row"><div class="col-md-1">STT</div><div class="col-md-1">SKU</div><div class="col-md-8">Detail</div><div class="col-md-1 align-center">Action</div></li>';
+
                         while ( $the_query->have_posts() ) {
                             $the_query->the_post();
                             $price = get_post_meta(get_the_ID(),'price', true);
                             //echo $price;
                             $sku = get_post_meta(get_the_ID(),'sku', true);
 
-                            echo '<li class="block row">';
-                            echo '<div class="col-md-1">'.$i.'</div>';
-                             echo '<div class="col-md-1">'.$sku.'</div>';
-                            echo '<div class="col-md-8">';
+                            echo '<tr class="block row">';
+                            echo '<td class="col-md-1">'.$i.'</td>';
+                             echo '<td class="col-md-1">'.$sku.'</td>';
+                            echo '<td class="col-md-8">';
 
                             echo get_the_content();
-                            echo '</div>';
-                            echo '<div class="col-sm-1 align-center">
+                            echo '</td>';
+                            echo '<td class="col-sm-1 align-center">
                             	<span class="swap-btn-act" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete 	glyphicon glyphicon-trash"></span> &nbsp; <span  class=" btn-act	glyphicon glyphicon-edit"></span></span>';
 
-                            echo '</div>';
-                            echo '</li>';
+                            echo '</td>';
+                            echo '</tr>';
                             $i ++;
                         }
-                        echo '</ul>';
-                        echo '</div>';
+                        echo '</table>';
+
                         /* Restore original Post Data */
                         wp_reset_postdata();
                     } else {
