@@ -51,10 +51,10 @@ class BX_ajax_backend{
 		}
 		$request = $_REQUEST['request'];
 		$id = isset($request['ID']) ? $request['ID'] : 0;
-
+		$post_title = isset($request['post_title']) ? $request['post_title'] : 'Package name';
 
 		$args = array(
-			'post_title' => 'Buy credit package',
+			'post_title' => $post_title,
 			'post_content' => $request['post_content'],
 			'post_type' => '_package',
 			'post_status' =>'publish',

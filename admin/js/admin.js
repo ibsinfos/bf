@@ -3,7 +3,7 @@ var ajaxSend = {};
 	window.ajaxSend.Form = function(event, action, method, success){
 		var form 	= $(event.currentTarget),
 			data   	= {};
-	    form.find(' input[type=text], input[type=hidden],  input[type=checkbox],textarea,select').each(function() {
+	    form.find(' input[type=text],input[type=number], input[type=hidden],  input[type=checkbox],textarea,select').each(function() {
 	    	var key 	= $(this).attr('name');
 	        data[key] 	= $(this).val();
 	    });
@@ -61,7 +61,7 @@ var ajaxSend = {};
 	        },
 	        success  : function(event){
 	        	console.log('Success msg');
-	        	_this.closest(".row").remove();
+	        	_this.closest(".row-item").remove();
 
 	        },
 	        beforeSend  : function(event){
@@ -122,7 +122,8 @@ var ajaxSend = {};
 			var action = 'del-post';
 			var data = {id: ''};
 			data.id = _this.closest(".btn-act-wrap").attr('id');
-			if ( confirm('Are you sure ?') ) {
+			var res = confirm('Are you sure ?');
+			if(res) {
 				window.ajaxSend.Remove(data, action, _this);
 			}
 			return false;

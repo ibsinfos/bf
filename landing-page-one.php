@@ -109,7 +109,7 @@ get_header(); ?>
 <?php get_template_part( 'static-block/one', 'why-us' );?>
 <?php get_template_part( 'static-block/one', 'package-plan' );?>
 <?php get_template_part( 'static-block/one', 'list-profiles' );?>
-<?php get_template_part( 'static-block/one', 'stats' );?>
+<?php // get_template_part( 'static-block/one', 'stats' );?>
 
 <style type="text/css">
 

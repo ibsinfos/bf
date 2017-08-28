@@ -70,7 +70,7 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
 
 								<div class="col-md-1 page-name"><?php _e( 'STT', 'boxtheme' ); ?></div>
 		  						<div class=" col-md-2 page-name"><?php _e( 'SKU', 'boxtheme' ); ?></div>
-		  						<div class="col-md-7 page-name"><?php _e( 'Detail', 'boxtheme' ); ?></div>
+		  						<div class="col-md-7 page-name"><?php _e( 'Name', 'boxtheme' ); ?></div>
 		  						<div class="col-md-2 page-name">&nbsp;</div>
 
 	   					</div> <?php
@@ -88,7 +88,7 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
                             echo '<div class="col-md-1">'.$i.'</div>';
                             echo '<div class="col-md-2">'.$sku.'</div>';
                             echo '<div class="col-md-7">';
-                            echo get_the_content();
+                            echo get_the_title();
                             echo '</div>';
                             echo '<div class="col-md-2 align-center">
                             	<span class="btn-act-wrap" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete 	glyphicon glyphicon-trash"></span> &nbsp; <span  class=" btn-act btn-edit-package	glyphicon glyphicon-edit"></span></span>';
@@ -118,11 +118,14 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
                     <form class="frm-add-package row">
 
                       	<div class="full">
-	                        <div class="col-sm-6 one-line">
+                      		<div class="col-sm-4 one-line">
+	                            <input type="text" class="form-control" id="post_title" required name="post_title" placeholder="<?php _e('Name');?>">&nbsp; <i>Package name</i>
+	                        </div>
+	                        <div class="col-sm-4 one-line">
 	                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>">&nbsp; <i>SKU code</i>
 	                        </div>
-	                        <div class="col-sm-6 one-line">
-	                            <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  >&nbsp;<i>Price of this package</i>
+	                        <div class="col-sm-4 one-line">
+	                            <input type="number" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  >&nbsp;<i>Price of this package</i>
 	                        </div>
 	                        <div class="col-sm-12 one-line">
 	                        	<textarea id="post_content" name="post_content" class="" placeholder="<?php _e('Description of new package','boxtheme');?>"></textarea>
@@ -149,11 +152,14 @@ $t = (object) BX_Option::get_instance()->get_option('payment','paypal');
 			<div class="col-sm-12 one-line">
       			<h3><?php _e('Edit package plan','boxtheme');?></h3>
       		</div>
-            <div class="col-sm-6 one-line">
+      		<div class="col-sm-4 one-line">
+                <input type="text" class="form-control" required name="post_title" value="{{{data.post_title}}}" placeholder="<?php _e('Name');?>">&nbsp; <i>Package name</i>
+            </div>
+            <div class="col-sm-4 one-line">
                 <input type="text" class="form-control" required="" name="sku" placeholder="SKU" value="{{{data.sku}}}"><small>SKU</small>
             </div>
-            <div class="col-sm-6 one-line">
-                <input type="text" class="form-control" required="" name="price" placeholder="Price" value="{{{data.price}}}"><small>$</small>
+            <div class="col-sm-4 one-line">
+                <input type="number" class="form-control" required="" name="price" placeholder="Price" value="{{{data.price}}}"><small>$</small>
             </div>
             <div class="col-sm-12 one-line">
             	<textarea id="post_content" name="post_content" class="">{{{data.post_content}}}</textarea>

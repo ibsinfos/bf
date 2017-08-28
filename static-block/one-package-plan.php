@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<?php
+				wp_reset_query();
 				$args = array(
 					'post_type' => '_package',
 					'posts_per_page' =>3
