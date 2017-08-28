@@ -92,25 +92,27 @@ class BX_Admin{
     	<?php
     }
     function escrow(){ ?>
-    	<form>
+    	<h2> <?php _e('Config Escrow system','boxtheme');?> </h2> <br />
+
+    	<form style="max-width: 600px;">
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-2 col-form-label">Commistion</label>
-				<div class="col-md-10">
-				<input class="form-control" type="text" value="Fix number or percent" id="example-text-input">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion','boxtheme');?></label>
+				<div class="col-md-8">
+				<input class="form-control" type="text" value="10" id="example-text-input">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-2 col-form-label">Commistion type</label>
-				<div class="col-md-10">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion type','boxtheme');?></label>
+				<div class="col-md-8">
 					<select class="form-control" id="exampleSelect2">
-						<option value="emp">Fit number</option>
-						<option value="fre">Percent</option>
+						<option value="emp"><?php _e('Fit number','boxtheme');?></option>
+						<option value="fre"><?php _e('Percent','boxtheme');?></option>
 					</select>
 				</div>
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-2 col-form-label">Who is pay commision</label>
-				<div class="col-md-10">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Who is pay commision','boxtheme');?></label>
+				<div class="col-md-8">
 					<select class="form-control" id="exampleSelect2">
 						<option value="emp">Employer</option>
 						<option value="fre">Freelancer</option>
@@ -180,24 +182,26 @@ class BX_Admin{
                     }
                     ?>
                     <form class="frm-add-package row">
-                        <div class="col-sm-12">
+                        <div class="col-sm-3">
                         	<h3 class="form-heading"><?php _e('Insert new package','boxtheme');?> </h3>
-                        </div>
-                        <div class="col-sm-6 one-line">
-                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
-                        </div>
-                        <div class="col-sm-6 one-line">
-                            <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
-                        </div>
-                        <div class="col-sm-12 one-line">
-                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of new package','boxtheme');?></textarea>
-                        </div>
+                      	</div>
+                      	<div class="col-md-9">
+	                        <div class="col-sm-6 one-line">
+	                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>"><small>SKU</small>
+	                        </div>
+	                        <div class="col-sm-6 one-line">
+	                            <input type="text" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  ><small>$</small>
+	                        </div>
+	                        <div class="col-sm-12 one-line">
+	                        	<textarea id="post_content" name="post_content" class=""> <?php _e('Description of new package','boxtheme');?></textarea>
+	                        </div>
 
-                        <div class="col-sm-10 one-line">
-                        </div>
-                        <div class="col-sm-2 align-right one-line">
-                        	<button class="btn">Save</button>
-                        </div>
+	                        <div class="col-sm-10 one-line">
+	                        </div>
+	                        <div class="col-sm-2 align-right one-line">
+	                        	<button class="btn">Create</button>
+	                        </div>
+	                   	</div>
                     </form>
 
             </div>
