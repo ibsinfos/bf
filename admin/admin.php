@@ -456,19 +456,21 @@ class BX_Admin{
                 	<div class="heading-tab">
 	                    <ul>
 	                        <?php
-	                        $main_page = admin_url('admin.php?page='.self::$main_setting_slug);
-	                        $escrow_link = add_query_arg('section','escrow', $main_page);
-	                        $general_link = add_query_arg('section','general', $main_page);
-	                        $install_link = add_query_arg('section','install', $main_page);
-	                        $payment_link = add_query_arg('section','payment', $main_page);
-	                        $gateway_link = add_query_arg('section','payment_gateway', $main_page);
+	                        $main_page 		= admin_url('admin.php?page='.self::$main_setting_slug);
+	                        $escrow_link 	= add_query_arg('section','escrow', $main_page);
+	                        $general_link 	= add_query_arg('section','general', $main_page);
+	                        $install_link 	= add_query_arg('section','install', $main_page);
+	                        $email_link 	= add_query_arg('section','email', $main_page);
+	                        $payment_link 	= add_query_arg('section','payment', $main_page);
+	                        $gateway_link 	= add_query_arg('section','payment_gateway', $main_page);
 
 	                        ?>
 	                        <li><a href="<?php echo $general_link;?>">General</a></li>
-	                        <li><a href="<?php echo $install_link;?>">Install</a></li>
 	                        <li><a href="<?php echo $payment_link;?>">Currency and Package</a></li>
 	                        <li><a href="<?php echo $gateway_link;?>">Payment Gateway</a></li>
 	                        <li><a href="<?php echo $escrow_link;?>">Config Credit</a></li>
+	                        <li><a href="<?php echo $email_link;?>">Email</a></li>
+	                        <li><a href="<?php echo $install_link;?>">Install</a></li>
 
 	                    </ul>
                     </div>
@@ -478,7 +480,7 @@ class BX_Admin{
 		                        <?php
 		                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
 		                            $admin = BX_Admin::get_instance();
-		                            $methods = array('escrow','install','payment','payment_gateway');
+		                            $methods = array('escrow','install','payment','payment_gateway','email');
 		                            if( in_array($section, $methods) ){
 		                            	$admin->$section();
 		                            }else {
@@ -493,6 +495,19 @@ class BX_Admin{
             </div>
         </div>
     <?php
+    }
+    function email(){
+
+    	$group_option ="email";
+    	?>
+     	<div class="section box-section" id="<?php echo $group_option;?>">
+
+           	<div class="sub-section " id="payment">
+	           	<h2>Email Notifications </h2>
+	           	<p>Email notifications sent from job board are listed below. Click on an email to configure it.</p>
+           	</div>
+        </div>
+    	<?php
     }
 }
 
