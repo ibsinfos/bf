@@ -61,7 +61,7 @@
             <div class="wrapper  container">
             	<div class="row">
 	            	<div class="col-md-8">
-	                	<p><?php global $general; echo !empty($general->coppyright) ? $general->coppyright :'2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>';?></p>
+	                	<p><?php global $general; echo !empty($general->coppyright) ? stripslashes($general->coppyright) :'2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>';?></p>
 	                </div>
 	                <div class="col-md-4">
 	                	<ul class="social-link">
