@@ -24,7 +24,6 @@ class BX_Admin{
     	$credit_page = 'box-settings_page_credit-setting';
         $sub_page = array('box-settings_page_credit-setting');
         //var_dump($hook); //box-settings_page_credit-setting
-
         if( $hook == 'toplevel_page_'.self::$main_setting_slug || in_array($hook, $sub_page ) ) {
 
 	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.min.css' ) );
@@ -74,7 +73,11 @@ class BX_Admin{
     	$main_page 		= admin_url('admin.php?page='.self::$main_setting_slug);
     	get_template_part( 'admin/templates/email');
 	}
-    static function box_custom_menu_page(){ ?>
+    static function box_custom_menu_page(){
+    	$section = isset($_GET['section']) ? $_GET['section'] : 'general';
+        $admin = BX_Admin::get_instance();
+        $methods = array('escrow','install','payment','payment_gateway','email');
+        ?>
         <div class="wrap">
             <h1> Theme Options</h1>
             <div class="wrap-conent">
@@ -98,25 +101,21 @@ class BX_Admin{
                         <li><a href="<?php echo $install_link;?>">Install</a></li>
                     </ul>
                 </div>
-                <div class="tab-content clear row">
+                <div class="tab-content clear">
                 	<div id="main_content" class="wrap ">
                 		<div id="general">
                         <?php
-                            $section = isset($_GET['section']) ? $_GET['section'] : 'general';
-                            $admin = BX_Admin::get_instance();
-                            $methods = array('escrow','install','payment','payment_gateway','email');
                             if( in_array($section, $methods) ){
                             	$admin->$section();
-                            }else {
+                            } else {
                             	$admin->general();
                             }
-
                         ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><?php
+        </div> <?php
     }
 }
 
