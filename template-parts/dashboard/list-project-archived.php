@@ -8,7 +8,7 @@
 	);
 	$query = new WP_Query($args);
 	$loadmore = false;
-	$submit_url = bx_get_static_link("submit-project");
+	$submit_url = bx_get_static_link("post-project");
 	if( $query-> have_posts() ){
 		$loadmore = true;
 		echo '<ul class="db-list-project">';

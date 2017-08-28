@@ -30,6 +30,7 @@ if( !function_exists('bx_get_static_link')):
 			            'meta_key' 		=> '_wp_page_template',
 			            'meta_value' 	=> 'page-' . $slug . '.php',
 			            'numberposts' 	=> 1,
+			            'post_status' => 'publish',
 			            //'hierarchical' 	=> 0,
 			        ));
 		$id = 0;
