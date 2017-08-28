@@ -205,11 +205,11 @@ class BX_Admin{
 					</select>
 				</div>
 			</div>
-			<div class="form-group row">
+			<!-- <div class="form-group row">
 				<div class="col-md-12 align-right">
 					<button type="submit" class="btn btn-submit"> Save</button>
 				</div>
-			</div>
+			</div> -->
 
 		</form>
     	<?php
