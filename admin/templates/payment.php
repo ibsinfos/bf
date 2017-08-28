@@ -3,9 +3,6 @@ $group_option = "payment";
 $option = BX_Option::get_instance();
 $payment = $option->get_group_option($group_option);
 $paypal = (object)$payment['paypal'];
-
-$t = (object) BX_Option::get_instance()->get_option('payment','paypal');
-
 ?>
 <div class="section box-section" id="<?php echo $group_option;?>">
 	<h2 class="section-title">Currency Options </h2>
