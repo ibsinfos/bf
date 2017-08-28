@@ -185,7 +185,7 @@ function list_email(){
 		),
 		'new_message' => array(
 			'receiver' => 'receiver',
-			'subject' =>	'Have new message for you',
+			'subject' =>	'Have a new message for you',
 			'content' =>	'Hi, Have new message for you.'
 		),
 		'assign_job' => array(
