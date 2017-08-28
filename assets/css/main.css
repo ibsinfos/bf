@@ -965,6 +965,10 @@ footer .social-link li a span{
 	float: left;;
 	background-image: url('../../img/social-icons1.png');
 	border-radius: 50%;
+	opacity: 0.7;
+}
+footer .social-link li a:hover span{
+	opacity: 1;
 }
 footer .social-link li a.fb-link span{
 	background-position: -4px -4px
