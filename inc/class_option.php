@@ -96,7 +96,7 @@ function get_commision_fee( $total ){
 
 	$escrow = BX_Option::get_instance()->get_group_option('escrow');
 	$commision = (object)$escrow['commision'];
-	
+
 	$number = 10;
 	$type = 'fix';
 	$user_pay = 'fre';
