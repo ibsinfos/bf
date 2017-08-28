@@ -45,6 +45,7 @@ class BX_Admin{
 
     	<?php $this->main_access();?>
 		<?php $this->social_login();?>
+		<?php $this->google_captcha();?>
 
 
 		<?php
@@ -135,6 +136,42 @@ class BX_Admin{
 			    	</div>
 			  	</div>
 			</div>
+		</div>
+    	<?php
+    }
+    function google_captcha(){
+    	$group_option = "social_api";
+        $option = BX_Option::get_instance();
+        $social_api = $option->get_group_option($group_option);
+        $item1  = 'facebook';
+        $item2  = 'google';
+        $app_id = $app_secret = '';
+
+        $facebook = (object) $social_api[$item1];
+        $google = (object) $social_api[$item2];
+        $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
+
+        $app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
+        $client_id = isset($google->client_id) ? $google->client_id : '';
+
+
+    	?>
+    	<h2>Google Captcha</h2>
+    	<div class="sub-section" id="<?php echo $group_option;?>">
+   			<div class="sub-item" id="<?php echo $item1;?>">
+			  	<div class="form-group row">
+		  			<div class="col-md-3"><h3>Google captcha</h3></div>
+		  			<div class="col-md-9 form-group">
+				    	<label for="app_id">APP ID</label>
+				    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+				    	<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
+				    	<div class="form-group toggle-line"><span> Enable this to help your website more security and safe </span> </div>
+
+				    </div>
+			    </div>
+
+			</div>
+
 		</div>
     	<?php
     }
