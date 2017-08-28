@@ -8,7 +8,7 @@ $skills = array();
 <form id="submit_project" class="frm-submit-project">
 
 	<?php
-
+	$id_field =  '<input type="hidden" value="0" name="ID" />'; // check insert or renew
 	if($p_id){
 		global $user_ID;
 		$project = get_post($p_id);
@@ -35,9 +35,10 @@ $skills = array();
 				}
 
 			}
-			echo '<input type="hidden" value="'.$p_id.'" name="ID" />';
+			$id_field = '<input type="hidden" value="'.$p_id.'" name="ID" />';
 		}
 	}
+	echo $id_field;
 	?>
 	<div class="form-group ">
 	 	<h1 class="page-title"><?php the_title(); ?></h1>

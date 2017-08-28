@@ -29,8 +29,8 @@ class BX_AJAX {
 			'apply_coupon'     		=> true,
 			'fb_signout' 			=> false,
 			'sync_project' 		 	=> false,
-			'bj_plupload_action' 	=> true,
 			'sync_profile' 			=> true,
+			'bj_plupload_action' 	=> true,
 			'sync_message' 			=> false,
 			'sync_conversations'	=> false,
 			//'sync_account' 			=> true,
@@ -183,6 +183,7 @@ class BX_AJAX {
 			'delete' => __('You have deleted job successfully','boxtheme'),
 			'archived' => __('You have archived job successfully','boxtheme'),
 		);
+
 		if ( !is_wp_error( $return ) ) {
 
 			$response = array(

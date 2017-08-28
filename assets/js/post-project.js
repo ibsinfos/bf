@@ -80,8 +80,8 @@
 
 		    data.attach_ids = postProject.attach_ids;
 
-		    if(data['is_insert'] == '1'){
-		    	$method = 'renew';
+		    if(data.ID != '0'){
+		    	method = 'renew';
 		    }
 
 			var successRes =  function(res){

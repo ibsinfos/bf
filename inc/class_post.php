@@ -111,6 +111,36 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			}
 			return $post_id;
 		}
+		function renew($args){
+
+			global $user_ID;
+			// check security
+			$check = $this->check_before_update($args);
+
+			if( is_wp_error($check) ){
+				return $check;
+			}
+
+
+			$metas 		= $this->get_meta_fields();
+			foreach ($metas as $key) {
+				if ( !empty ( $args[$key] )  ){
+					$args['meta_input'][$key] = $args[$key];
+				}
+			}
+			$args 		= apply_filters( 'args_pre_update_'.$this->post_type, $args );
+
+			$post_id 	= wp_update_post( $args );
+			do_action('after_update_'.$this->post_type,$post_id, $args);
+			//https://developer.wordpress.org/reference/functions/wp_insert_post/
+
+			if ( ! is_wp_error( $post_id ) ) {
+
+				$this->update_post_taxonomies($post_id, $args);
+			}
+			return $post_id;
+		}
+
 		function delete($args){
 			$id = $args['ID'];
 			$post = get_post($id);
@@ -122,6 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 			wp_delete_post($id, true );
 			return true;
 		}
+
 		function archived($args){
 			global $user_ID;
 			$project_id = $args['ID'];
