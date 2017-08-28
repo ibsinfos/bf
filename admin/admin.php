@@ -68,6 +68,9 @@ class BX_Admin{
     			<div class="col-md-3"><h3>Google Analytics Script</h3></div> <div class="col-md-9"><textarea name="google_ans"></textarea></div>
     		</div>
     		<div class="full">
+    			<div class="col-md-3"><h3> Copy right</h3></div> <div class="col-md-9"><input type="text" class="form-control" name="coppyright" /></div>
+    		</div>
+    		<div class="full">
     			<div class="col-md-3"><h3>Social Links</h3><span> List social link in the footer</span></div>
     			<div class="col-md-9">
     				<div class="form-group row">
