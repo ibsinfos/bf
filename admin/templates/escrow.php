@@ -1,35 +1,56 @@
 <h2> <?php _e('Config Escrow system','boxtheme');?> </h2> <br />
-<form style="max-width: 600px;">
-	<div class="form-group row">
-		<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion','boxtheme');?></label>
-		<div class="col-md-8">
-		<input class="form-control" type="text" value="10" id="example-text-input">
-		</div>
-	</div>
-	<div class="form-group row">
-		<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion type','boxtheme');?></label>
-		<div class="col-md-8">
-			<select class="form-control" id="exampleSelect2">
-				<option value="emp"><?php _e('Fix number','boxtheme');?></option>
-				<option value="fre"><?php _e('Percent','boxtheme');?></option>
-			</select>
-		</div>
-	</div>
-	<div class="form-group row">
-		<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Who is pay commision','boxtheme');?></label>
-		<div class="col-md-8">
-			<select class="form-control" id="exampleSelect2">
-				<option value="emp">Employer</option>
-				<option value="fre">Freelancer</option>
-				<option value="share">50/50</option>
+<?php
+// group = escrow
+// section = commision
+//
+$group_option = "escrow";
+$option = BX_Option::get_instance();
+$escrow = $option->get_group_option($group_option);
+$commision = (object)$escrow['commision'];
+$number = 10;
+$type = 'fix';
+$user_pay = 'fre';
+if( isset( $commision->number ) ){
+	$number = $commision->number;
+}
+if( isset( $commision->type ) ){
+	$type = $commision->type;
+}
+if( isset( $commision->user_pay ) ){
+	$user_pay = $commision->user_pay;
+}
+?>
 
-			</select>
-		</div>
-	</div>
-	<!-- <div class="form-group row">
-		<div class="col-md-12 align-right">
-			<button type="submit" class="btn btn-submit"> Save</button>
-		</div>
-	</div> -->
 
-</form>
+<div class="sub-section " id="<?php echo $group_option;?>" >
+   	<div class="sub-item" id="commision">
+		<form style="max-width: 600px;">
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commision','boxtheme');?></label>
+				<div class="col-md-8">
+				<input class="form-control auto-save" type="number" value="<?php echo $number;?>" name = "number" id="example-text-input">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion type','boxtheme');?></label>
+				<div class="col-md-8">
+					<select class="form-control auto-save" name="type" id="exampleSelect2">
+						<option value="fix" <?php selected( $type, 'emp' ); ?> > <?php _e('Fix number','boxtheme');?></option>
+						<option value="percent" <?php selected( $type, 'fre' ); ?> ><?php _e('Percent','boxtheme');?></option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Who is pay commision','boxtheme');?></label>
+				<div class="col-md-8">
+					<select class="form-control auto-save" name="user_pay" id="exampleSelect2">
+						<option value="emp" <?php selected( $user_pay, 'emp' ); ?> >Employer</option>
+						<option value="fre"<?php selected( $user_pay, 'fre' ); ?> >Freelancer</option>
+						<option value="share" <?php selected( $user_pay, 'share' ); ?> >50/50</option>
+
+					</select>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

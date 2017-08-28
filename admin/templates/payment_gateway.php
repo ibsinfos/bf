@@ -1,4 +1,6 @@
 <?php
+
+// group = escrow
 $group_option = "payment";
 $option = BX_Option::get_instance();
 $payment = $option->get_group_option($group_option);

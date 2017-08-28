@@ -134,9 +134,6 @@ function is_account_verified($user_ID){ //is_verified
 	return BX_User::get_instance()->is_verified($user_ID);
 }
 
-function get_commision_fee($total){
-	return  0.1 * (float)$total;
-}
 
 function is_owner_project( $project ) {
 	global $user_ID;

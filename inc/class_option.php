@@ -51,6 +51,14 @@ class BX_Option {
 					'enable' => 0,
 				),
 			),
+			'escrow' => array(
+				'commision' => array(
+					'number' => '10',
+					'type'   => 'fit',
+					'user_pay' => 'freelancer'
+				),
+			),
+
 
 		);
 		return get_option($group, $group_args[$group]);
@@ -83,6 +91,31 @@ function get_sandbox_mode(){
 		$sanbox_mode = $payment->mode;
 	}
 	return $sanbox_mode;
+}
+function get_commision_fee( $total ){
+
+	$escrow = BX_Option::get_instance()->get_group_option('escrow');
+	$commision = (object)$escrow['commision'];
+	
+	$number = 10;
+	$type = 'fix';
+	$user_pay = 'fre';
+	if( isset( $commision->number ) ){
+		$number = (int) $commision->number;
+	}
+	if( isset( $commision->type ) ){
+		$type = $commision->type;
+	}
+	if( isset( $commision->user_pay ) ){
+		$user_pay = $commision->user_pay;
+	}
+
+	if($type == 'percent'){
+		return ($number/100) * $total;
+	}
+
+	return $number;
+
 }
 
 ?>
