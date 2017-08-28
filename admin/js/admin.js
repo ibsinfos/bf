@@ -103,8 +103,12 @@ var ajaxSend = {};
 			var _this = $(event.currentTarget);
 			var action = 'create-packge';
 			var method = 'insert';
+			var ID =  _this.find("#ID").val();
 			var success = function(event){
-				var html ='';
+
+				if(ID != 0){
+					_this.remove();
+				}
 
 			};
 			window.ajaxSend.Form(event, action, method, success);
@@ -126,10 +130,7 @@ var ajaxSend = {};
 	  			menubar: "insert",
 	  			link_assume_external_targets: true,
 			  	selector: 'textarea',
-			 	//  init_instance_callback: function (editor) {
-				//     editor.on('click', function (e) {
-				//     });
-				// },
+
 				setup : function(ed) {
 			    	ed.onChange.add(function(ed, l) {
 
