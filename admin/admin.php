@@ -308,7 +308,7 @@ class BX_Admin{
                         wp_reset_postdata();
                     } else {
                     	echo '<div class="form-group">';
-                        _e('List packge is empty','boxtheme');
+                        _e('List package plan is empty','boxtheme');
                         echo '</div>';
                     }
                     ?>
