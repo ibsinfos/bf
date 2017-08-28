@@ -307,7 +307,9 @@ class BX_Admin{
                         /* Restore original Post Data */
                         wp_reset_postdata();
                     } else {
-                        // no posts found
+                    	echo '<div class="form-group">';
+                        _e('List packge is empty','boxtheme');
+                        echo '</div>';
                     }
                     ?>
                     <form class="frm-add-package row">
