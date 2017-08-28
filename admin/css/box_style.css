@@ -177,3 +177,6 @@ thead:nth-child,thead th,thead tr, thead{
 	background: #fff;
 	font-weight: bold;
 }
+.widefat th{
+	font-weight: bold;
+}
