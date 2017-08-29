@@ -40,7 +40,7 @@ class BX_Option {
 					'enable' => false,
 				),
 			),
-			'social_api' => array(
+			'app_api' => array(
 				'facebook' => array(
 					'app_id' => '',
 					'enable' => 0,
@@ -48,6 +48,11 @@ class BX_Option {
 				),
 				'google' => array(
 					'client_id' => '',
+					'enable' => 0,
+				),
+				'gg_captcha' => array(
+					'site_key' => '',
+					'secret_key' => '',
 					'enable' => 0,
 				),
 			),
@@ -58,13 +63,9 @@ class BX_Option {
 					'user_pay' => 'freelancer'
 				),
 			),
-			'gg_captcha' => array(
-				'site_key' => '',
-				'secret_key' => '',
-				'enable' => 0,
-			)
+
 		);
-		return get_option($group, $group_args[$group]);
+		return wp_parse_args(get_option($group), $group_args[$group]);
 	}
 	function set_option($group, $section, $name, $new_value, $multi = true){
 

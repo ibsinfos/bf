@@ -12,9 +12,11 @@ class BX_Facebook{
 	static $instance;
 	function __construct(){
 
-		$social_api = BX_Option::get_instance()->get_group_option('social_api');
-		$facebook = (object) $social_api['facebook'];
+		$app_api = BX_Option::get_instance()->get_group_option('app_api');
+		$facebook = array();
+		$facebook = (object) $app_api['facebook'];
 		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
+
 		if( isset($facebook->app_id) )
 			$this->app_id = $facebook->app_id;
 		add_action( 'wp_head', array($this, 'add_fb_script') );

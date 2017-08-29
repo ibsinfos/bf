@@ -8,9 +8,9 @@ Class Box_Google{
 	public $client_id;
 	function __construct(){
 
-		$social_api = BX_Option::get_instance()->get_group_option('social_api');
-		if(isset($social_api['google'])){
-			$google = (object) $social_api['google'];
+		$app_api = BX_Option::get_instance()->get_group_option('app_api');
+		if(isset($app_api['google'])){
+			$google = (object) $app_api['google'];
 			$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
 			if( isset($this->client_id) )
 				$this->client_id = $google->client_id;
