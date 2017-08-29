@@ -63,7 +63,6 @@ class BX_Option {
 				'secret_key' => '',
 				'enable' => 0,
 			)
-
 		);
 		return get_option($group, $group_args[$group]);
 	}

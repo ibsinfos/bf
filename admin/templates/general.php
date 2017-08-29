@@ -118,19 +118,19 @@ $gg_captcha = 0;
 <div class="sub-section" id="<?php echo $group_option;?>">
 		<div class="sub-item" id="<?php echo $item1;?>">
 	  	<div class="form-group row">
-  			<div class="col-md-3"><h3>Settings</h3></div>
+  			<div class="col-md-3"><h3><?php _e('Settings','boxtheme');?></h3></div>
   			<div class="col-md-9 form-group">
   				<div class="form-group">
-			    	<label for="app_id">reCaptcha Site Key</label>
-			    	<input type="text" value="<?php echo $site_key;?>" class="form-control auto-save" name="site_key" id="site_key" aria-describedby="site_key" placeholder="reCaptcha Site Key">
+			    	<label for="app_id"><?php _e('reCaptcha Site Key','boxtheme');?></label>
+			    	<input type="text" value="<?php echo $site_key;?>" class="form-control auto-save" name="site_key" id="site_key" aria-describedby="site_key" placeholder="<?php _e('reCaptcha Site Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
-		    		<label for="app_id">reCaptcha Secret Key</label>
-		    		<input type="text" value="<?php echo $secret_key;?>" class="form-control auto-save" name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="reCaptcha Secret Key">
+		    		<label for="app_id"><?php _e('reCaptcha Secret Key','boxtheme');?></label>
+		    		<input type="text" value="<?php echo $secret_key;?>" class="form-control auto-save" name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
 
 		    	</div>
 		    	<div class="form-group">
-		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,'gg_captcha', $gg_captcha, false);?>   </div>
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,'enable', $gg_captcha, false);?>   </div>
 		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>
