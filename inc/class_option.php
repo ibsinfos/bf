@@ -63,10 +63,13 @@ class BX_Option {
 				),
 			),
 			'escrow' => array(
+				'activate' => 'credit',
 				'commision' => array(
 					'number' => '10',
 					'type'   => 'fit',
 					'user_pay' => 'freelancer'
+				),
+				'paypal' => array(
 				),
 			),
 

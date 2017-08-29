@@ -21,7 +21,6 @@ if( isset( $commision->user_pay ) ){
 }
 ?>
 
-
 <div class="sub-section " id="<?php echo $group_option;?>" >
    	<div class="sub-item" id="commision">
 		<form style="max-width: 600px;">
