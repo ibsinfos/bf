@@ -87,18 +87,17 @@
                             <input type="password" class="form-control no-radius" name="user_password" placeholder="Password" required>
                         </div>
                         <?php wp_nonce_field( 'bx_login_action', 'nonce_login_field' ); ?>
-                        <button id="login-submit" type="submit" class="btn btn-block btn-lg btn-go mt30 no-radius">Login</button>
+                        <button id="login-submit" type="submit" class="btn btn-block btn-lg btn-go mt30 no-radius"><?php _e('Login','boxtheme');?></button>
                         <div class="loading-item" id="login-loading" style="display: none;"><div class="loadinghdo"></div></div>
                         <div class="login-via block">
-                            <span class="f-left"><a onclick="show_forgot()" title="Forgot password?">Forgot password?</a></span>
-                            <span class="f-right"><a class="link-signup"  href="<?php echo bx_get_static_link('signup');?>" title="New Member">New Member</a></span>
+                            <span class="f-left"><a onclick="show_forgot()" title="Forgot password?"><?php _e('Forgot password?','boxtheme');?></a></span>
+                            <span class="f-right"><a class="link-signup"  href="<?php echo bx_get_static_link('signup');?>" title="<?php _e('New Member','boxtheme');?>"><?php _e('New Member','boxtheme');?></a></span>
                             <div class="clearfix"></div>
                         </div>
                     </form>
-
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><?php _e('Close','boxtheme');?></button>
                 </div>
             </div>
         </div>
