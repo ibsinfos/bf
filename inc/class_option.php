@@ -27,6 +27,12 @@ class BX_Option {
 					'tw_link' => 'https://https://twitter.com/boxthemes/',
 					'le_link.' => 'https://linkedin.com.com/boxthemes/',
 				),
+				'currency' => array(
+					'currency' => 'USD',
+					'position' => 'left',
+					'price_thousand_sep' => ',',
+					'price_decimal_sep' => '.',
+				),
 
 			),
 			'payment' => array(
