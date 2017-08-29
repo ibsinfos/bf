@@ -108,7 +108,7 @@ $client_id = isset($google->client_id) ? $google->client_id : '';
 	</div>
 </div>
 <?php
-$group_option = "social_api";
+$group_option = "gg_captcha";
 $social_api = $option->get_group_option($group_option);
 $item1  = 'facebook';
 $item2  = 'google';
@@ -131,15 +131,15 @@ $gg_captcha = 0;
   			<div class="col-md-9 form-group">
   				<div class="form-group">
 			    	<label for="app_id">reCaptcha Site Key</label>
-			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="reCaptcha Site Key">
+			    	<input type="text" value="<?php echo $site_key;?>" class="form-control auto-save" name="site_key" id="site_key" aria-describedby="site_key" placeholder="reCaptcha Site Key">
 		    	</div>
 		    	<div class="form-group">
 		    		<label for="app_id">reCaptcha Secret Key</label>
-		    		<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="reCaptcha Secret Key">
+		    		<input type="text" value="<?php echo $secret_key;?>" class="form-control auto-save" name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="reCaptcha Secret Key">
 
 		    	</div>
 		    	<div class="form-group">
-		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,'gg_captcha', $gg_captcha, true);?>   </div>
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,'gg_captcha', $gg_captcha, false);?>   </div>
 		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>
