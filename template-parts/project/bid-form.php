@@ -17,16 +17,14 @@ $budget = (float) $project->_budget;
           //$budget = (float) get_post_meta($bidding->ID,BID_PRICE, true);
           //echo '<input type="hidden" value="'.$bidding->ID.'" name= "ID" />';
         }
-        $commision = get_commision_setting();
-        $cms_fee    = get_commision_fee( $budget, $commision );
+        $cms_setting = get_commision_setting();
+        $cms_fee    = get_commision_fee( $budget, $cms_setting );
 
         $emp_pay = $budget;
-
         $fre_receive = $budget - $cms_fee;
-
         $label_text = __('Freelancer pay this fee','boxtheme');
 
-        if( $commision->user_pay == 'emp' ) {
+        if( $cms_setting->user_pay == 'emp' ) {
         	$emp_pay = $budget + $cms_fee;
         	$fre_receive = $budget;
         	$label_text = __('Employer pay this fee','boxtheme');

@@ -19,6 +19,9 @@
 				}
 
 			});
+
+			$('[data-toggle="tooltip"]').tooltip()
+
 			$(".toggle-check").click(function(event){
 				var block = $(this).closest(".block");
 				var display =block.find("ul").css( "display" );

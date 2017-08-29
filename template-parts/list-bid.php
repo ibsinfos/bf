@@ -33,6 +33,9 @@
 		</div>
 	</div>
 	<?php
+	global $cms_setting;
+	$cms_setting = get_commision_setting();
+
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ):
 			$query->the_post();

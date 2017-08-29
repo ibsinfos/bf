@@ -154,7 +154,7 @@ global $wp_query;
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('You will deposit: {{{data._bid_price}}}','boxtheme');?> </label>
+		        <label> <?php _e('You will deposit: {{{data.emp_pay}}}','boxtheme');?> </label>
 		    </div>
 		</div>
 		<div class="row">
@@ -165,7 +165,7 @@ global $wp_query;
 
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <label> <?php _e('Freelancer will be received: {{{data.fre_receive}}}','boxtheme');?></label>
+		        <label> <?php _e('Freelancer will be received:<a href="#" data-toggle="tooltip" title="Some tooltip text!">?</a> {{{data.fre_receive}}}','boxtheme');?></label>
 		    </div>
 		</div>
 		<div class="row">

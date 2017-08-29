@@ -1,12 +1,25 @@
 <?php
-global $project, $post, $user_ID, $list_bid;
+global $project, $post, $user_ID, $list_bid, $cms_setting;
+
 $bid = new BX_Bid();
 $bid = $bid->convert( $post );
+
+
 $_bid_price = $bid->_bid_price;
-$commission_fee    = (float) get_commision_fee($_bid_price);
-$fre_receive = $_bid_price - $commission_fee;
-$bid->fre_receive = get_box_price($fre_receive);
-$bid->commission_fee = get_box_price($commission_fee);
+
+$cms_fee    =  get_commision_fee( $_bid_price, $cms_setting);
+
+$bid->emp_pay = $_bid_price;
+$bid->fre_receive = $_bid_price - $cms_fee;
+
+if( $cms_setting->user_pay == 'emp' ) {
+	$bid->emp_pay = $_bid_price + $cms_fee;
+	$bid->fre_receive = $_bid_price;
+}
+
+
+$bid->fre_receive = get_box_price($bid->fre_receive );
+$bid->commission_fee = get_box_price($cms_fee);
 $bid->fre_displayname = get_the_author_link();
 //$bid->fre_displayname = get_the_author();
 $list_bid[$post->ID] = $bid;
