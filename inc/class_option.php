@@ -61,7 +61,7 @@ class BX_Option {
 			'gg_captcha' => array(
 				'site_key' => '',
 				'secret_key' => '',
-				'enable' => 0
+				'enable' => 0,
 			)
 
 		);
