@@ -13,14 +13,9 @@ $budget = (float) $project->_budget;
       	<label  class="col-sm-8 col-form-label"><?php _e('Price <span class="f-right">$</span','boxtheme');?>></label>
       	<div class="col-sm-4">
         <?php
-        if( $bidding ){
-          //$budget = (float) get_post_meta($bidding->ID,BID_PRICE, true);
-          //echo '<input type="hidden" value="'.$bidding->ID.'" name= "ID" />';
-        }
 
         $pay_ifo = box_get_pay($budget);
-
-
+        $cms_fee = $pay_ifo->cms_fee;
         $emp_pay = $pay_ifo->emp_pay;
         $fre_receive = $pay_ifo->fre_receive;
 
