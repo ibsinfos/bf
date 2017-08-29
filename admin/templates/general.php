@@ -75,9 +75,10 @@ $item2  = 'google';
 $app_id = $app_secret = '';
 
 $app_api = $option->get_group_option($group_option);
-echo '<pre>';
-var_dump($app_api);
-echo '</pre>';
+
+// echo '<pre>';
+// var_dump($app_api);
+// echo '</pre>';
 
 $facebook = (object) $app_api[$item1];
 $google = (object) $app_api[$item2];
@@ -108,7 +109,7 @@ $client_id = isset($google->client_id) ? $google->client_id : '';
 	  	<div class="form-group row">
 	  		<div class="col-md-3"><h3> Google Setting </h3></div>
 	  		<div class="col-md-9 ">
-		    	<label for="client_id">Client ID</label>
+		    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
 		    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
 		    	<div class="form-group toggle-line"><?php bx_swap_button($group_option,$item2, $google->enable);?></div>
 	    	</div>
