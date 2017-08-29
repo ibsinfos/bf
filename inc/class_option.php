@@ -96,7 +96,7 @@ class BX_Option {
 
 }
 function get_sandbox_mode(){
-	$payment = (object) BX_Option::get_instance()->get_group_option($group_option);
+	$payment = (object) BX_Option::get_instance()->get_group_option('payment');
 
 	$sanbox_mode = 1;// sandbox = 0
 
