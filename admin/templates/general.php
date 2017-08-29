@@ -89,7 +89,13 @@ $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
 
 $app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
 $client_id = isset($google->client_id) ? $google->client_id : '';
-
+$gg_enable = $fb_enable = 0;
+if( isset($google->enable) ){
+	$gg_enable = $google->enable;
+}
+if( isset($facebook->enable) ){
+	$fb_enable = $facebook->enable;
+}
 
 ?>
 <h2><?php _e('Social Login','boxtheme');?></h2>
@@ -100,7 +106,7 @@ $client_id = isset($google->client_id) ? $google->client_id : '';
   			<div class="col-md-9 form-group">
 		    	<label for="app_id">APP ID</label>
 		    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
-		    	<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $facebook->enable);?>   </div>
+		    	<div class="form-group toggle-line">  	<?php bx_swap_button( $group_option, 'enable', $fb_enable );?>   </div>
 		    </div>
 	    </div>
 
@@ -111,7 +117,7 @@ $client_id = isset($google->client_id) ? $google->client_id : '';
 	  		<div class="col-md-9 ">
 		    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
 		    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
-		    	<div class="form-group toggle-line"><?php bx_swap_button($group_option,'enable', $google->enable);?></div>
+		    	<div class="form-group toggle-line"><?php bx_swap_button($group_option,'enable', $gg_enable);?></div>
 	    	</div>
 	  	</div>
 	</div>
