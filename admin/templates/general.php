@@ -120,7 +120,7 @@ $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
 
 $app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
 $client_id = isset($google->client_id) ? $google->client_id : '';
-
+$secret_key = $site_key  = '';
 $gg_captcha = 0;
 ?>
 <h2><?php _e('Google Captcha','boxtheme');?></h2>
