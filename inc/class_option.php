@@ -28,7 +28,7 @@ class BX_Option {
 					'le_link.' => 'https://linkedin.com.com/boxthemes/',
 				),
 				'currency' => array(
-					'currency' => 'USD',
+					'code' => 'USD',
 					'position' => 'left',
 					'price_thousand_sep' => ',',
 					'price_decimal_sep' => '.',

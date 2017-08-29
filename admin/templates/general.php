@@ -32,7 +32,7 @@ if( isset($general->gg_link) ){
 
 ?>
 <h2><?php _e('Main options','boxtheme');?></h2>
-<div class="sub-section row" id="<?php echo $group_option;?>">
+<div class="sub-section " id="<?php echo $group_option;?>">
 	<div class="full sub-item" id="pending_post" >
 		<div class="col-md-3">
 		<h3><?php _e('Pending jobs','boxtheme');?></h3>

@@ -1,22 +1,25 @@
 <?php
 $group_option = "general";
-$box_option = BX_Option::get_instance();
-$currency = $box_option->get_group_option($group_option);
 $sub_item = "currency";
 
-$current_currency = 'USD';
+$box_option = BX_Option::get_instance();
+$general = $box_option->get_group_option($group_option);
+$currency = (OBJECT)$general[$sub_item];
+
+
+$code = 'USD';
 $position = 'left';
 $price_thousand_sep = ",";
 $price_decimal_sep = ".";
 
-if( !empty($currency->currency) ){
-	$current_currency = $currency->currency;
+if( !empty($currency->code) ){
+	$code = $currency->code;
 }
 
 if( !empty($currency->position) ){
 	$position = $currency->position;
 }
-var_dump($position);
+
 if( !empty($currency->price_thousand_sep) ){
 	$price_thousand_sep = $currency->price_thousand_sep;
 }
@@ -28,7 +31,7 @@ if( !empty($currency->price_decimal_sep) ){
 
 
 ?>
-<div class="sub-section row" id="<?php echo $group_option;?>">
+<div class="sub-section " id="<?php echo $group_option;?>">
 	<div class="full sub-item" id="<?php echo $sub_item;?>" >
 		<h2 class="section-title">Currency Options </h2>
 		<div class="form-group row">
@@ -38,7 +41,7 @@ if( !empty($currency->price_decimal_sep) ){
 		        	<?php
 		        	$list = list_currency();
 		        	foreach ($list as $cur => $value) { ?>
-		        		<option <?php selected($current_currency, $cur );?> value='<?php echo $cur;?>'><?php echo $value;?></option>";
+		        		<option <?php selected($code, $cur );?> value='<?php echo $cur;?>'><?php echo $value;?></option>";
 		        		<?php
 		        	}
 		        	?>
@@ -59,11 +62,11 @@ if( !empty($currency->price_decimal_sep) ){
 		</div>
 		<div class="form-group row">
 			<div class="col-md-3"> <span>Thousand Separator</span>       		</div>
-			<div class="col-md-9"> <input name="price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="," class="auto-save" placeholder="" />   </div>
+			<div class="col-md-9"> <input name="price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="<?php echo $price_thousand_sep;?>" class="auto-save" placeholder="" />   </div>
 		</div>
 		<div class="form-group row">
 			<div class="col-md-3"><span>Decimal Separator</span></div>
-			<div class="col-md-9"><input name="price_decimal_sep" id="woocommerce_price_decimal_sep" type="text" style="width:50px;" value="." class="auto-save" placeholder="">       		</div>
+			<div class="col-md-9"><input name="price_decimal_sep" id="woocommerce_price_decimal_sep" type="text" style="width:50px;" value="<?php echo $price_decimal_sep;?>" class="auto-save" placeholder="">       		</div>
 		</div>
 	</div>
 </div>
