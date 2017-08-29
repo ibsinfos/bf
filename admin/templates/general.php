@@ -121,7 +121,7 @@ $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
 $app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
 $client_id = isset($google->client_id) ? $google->client_id : '';
 
-
+$gg_captcha = 0;
 ?>
 <h2><?php _e('Google Captcha','boxtheme');?></h2>
 <div class="sub-section" id="<?php echo $group_option;?>">
@@ -129,12 +129,21 @@ $client_id = isset($google->client_id) ? $google->client_id : '';
 	  	<div class="form-group row">
   			<div class="col-md-3"><h3>Settings</h3></div>
   			<div class="col-md-9 form-group">
-		    	<label for="app_id">APP ID</label>
-		    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
-		    	<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,$item1, $facebook->enable);?>   </div>
-		    	<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form.','boxtheme');?> </span> </div>
+  				<div class="form-group">
+			    	<label for="app_id">reCaptcha Site Key</label>
+			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="reCaptcha Site Key">
+		    	</div>
+		    	<div class="form-group">
+		    		<label for="app_id">reCaptcha Secret Key</label>
+		    		<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="reCaptcha Secret Key">
 
+		    	</div>
+		    	<div class="form-group">
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option,'gg_captcha', $gg_captcha, true);?>   </div>
+		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
+		    	</div>
 		    </div>
+
 	    </div>
 
 	</div>

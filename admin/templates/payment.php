@@ -67,7 +67,6 @@ $paypal = (object)$payment['paypal'];
 
 								<div class="col-md-1 page-name"><?php _e( 'STT', 'boxtheme' ); ?></div>
 		  						<div class=" col-md-2 page-name"><?php _e( 'SKU', 'boxtheme' ); ?></div>
-
 		  						<div class="col-md-7 page-name"><?php _e( 'Detail', 'boxtheme' ); ?></div>
 		  						<div class="col-md-2 page-name">&nbsp;</div>
 
