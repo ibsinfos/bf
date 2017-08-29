@@ -27,7 +27,7 @@ var single_project = {
 
 		$( "form.frm-send-message").on('submit', this.sendMessage); // in workspace section
 		$( ".btn-toggle-award").on('click',this.showAwardForm);
-		// $( ".frm-award").on('submit', this.awardProject);
+
 		$(document).on('submit', '.frm-award' , this.awardProject);
 
 		$( "span.btn-del-attachment").on('click', this.removeAttachment);

@@ -349,7 +349,7 @@ class BX_AJAX {
 	static function award_project(){
 		$request 	= $_REQUEST;
 		$args 		= $request['request'];
-		$method 	= $_REQUEST['method'];
+		$method 	= $_REQUEST['method']; // default method/action = 'award'
 
 		$response 	= array('success' => false, 'msg' => __('Award job successful','boxtheme'), 'data' => array() );
 		$project 	= BX_Project::get_Instance();

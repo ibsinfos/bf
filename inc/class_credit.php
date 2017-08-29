@@ -32,19 +32,20 @@ Class BX_Credit {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit($employer_id, $bid_id, $project_id = 0) {
+	function deposit($employer_id, $bid_id, $project = 0) {
 
 		$ballance = $this->get_ballance($employer_id);
+
 		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
-		$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
 
+		$pay_ifo = box_get_pay($bid_price);
 
-		$emp_pay = $commision_fee + $bid_price;
-		$new_available = $ballance->available - $emp_pay;
+      	$emp_pay = $pay_ifo->emp_pay;
 
 		if( $ballance->available < $emp_pay ){
 			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
 		}
+		$new_available = $ballance->available - $emp_pay;
 		global $wpdb;
 		$wpdb->query( $wpdb->prepare(			"
 				UPDATE $wpdb->usermeta
@@ -54,7 +55,6 @@ Class BX_Credit {
 			)
 		);
 		return true;
-		return new WP_Error( 'award_fail', __( "fail 123", "boxtheme" ) );
 
 	}
 	function undeposit($employer_id, $bid_id, $project_id = 0) {

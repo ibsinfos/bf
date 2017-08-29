@@ -7,19 +7,11 @@ $bid = $bid->convert( $post );
 
 $_bid_price = $bid->_bid_price;
 
-$cms_fee    =  get_commision_fee( $_bid_price, $cms_setting);
+$pay_ifo = box_get_pay($_bid_price);
 
-$bid->emp_pay = $_bid_price;
-$bid->fre_receive = $_bid_price - $cms_fee;
-
-if( $cms_setting->user_pay == 'emp' ) {
-	$bid->emp_pay = $_bid_price + $cms_fee;
-	$bid->fre_receive = $_bid_price;
-}
-
-
-$bid->fre_receive = get_box_price($bid->fre_receive );
-$bid->commission_fee = get_box_price($cms_fee);
+$bid->emp_pay = get_box_price($pay_ifo->emp_pay);
+$bid->fre_receive = get_box_price($pay_ifo->fre_receive);
+$bid->commission_fee = get_box_price($pay_ifo->cms_fee);
 $bid->fre_displayname = get_the_author_link();
 //$bid->fre_displayname = get_the_author();
 $list_bid[$post->ID] = $bid;
