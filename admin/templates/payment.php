@@ -32,7 +32,7 @@ $paypal = (object)$payment['paypal'];
 		</div>
 	</div>
 	<div class="form-group row">
-		<div class="col-md-3">     		<span>Thousand Separator</span>       		</div>
+		<div class="col-md-3"> <span>Thousand Separator</span>       		</div>
 		<div class="col-md-9"> <input name="woocommerce_price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="," class="" placeholder="" />   </div>
 	</div>
 	<div class="form-group row">
@@ -67,7 +67,8 @@ $paypal = (object)$payment['paypal'];
 
 								<div class="col-md-1 page-name"><?php _e( 'STT', 'boxtheme' ); ?></div>
 		  						<div class=" col-md-2 page-name"><?php _e( 'SKU', 'boxtheme' ); ?></div>
-		  						<div class="col-md-7 page-name"><?php _e( 'Name', 'boxtheme' ); ?></div>
+		  						<div class=" col-md-2 page-name"><?php _e( 'Name', 'boxtheme' ); ?></div>
+		  						<div class="col-md-5 page-name"><?php _e( 'Name', 'boxtheme' ); ?></div>
 		  						<div class="col-md-2 page-name">&nbsp;</div>
 
 	   					</div> <?php
@@ -83,10 +84,9 @@ $paypal = (object)$payment['paypal'];
 
                             echo '<div class="block  row-item '.$class.'">';
                             echo '<div class="col-md-1">'.$i.'</div>';
+                            echo '<div class="col-md-2">'.get_the_title().'</div>';
                             echo '<div class="col-md-2">'.$sku.'</div>';
-                            echo '<div class="col-md-7">';
-                            echo get_the_title();
-                            echo '</div>';
+                            echo '<div class="col-md-5">';  echo get_the_title();  echo '</div>';
                             echo '<div class="col-md-2 align-center">
                             	<span class="btn-act-wrap" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete 	glyphicon glyphicon-trash"></span> &nbsp; <span  class=" btn-act btn-edit-package	glyphicon glyphicon-edit"></span></span>';
 
