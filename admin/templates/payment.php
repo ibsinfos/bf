@@ -16,7 +16,7 @@ if( !empty($currency->currency) ){
 if( !empty($currency->position) ){
 	$position = $currency->position;
 }
-
+var_dump($position);
 if( !empty($currency->price_thousand_sep) ){
 	$price_thousand_sep = $currency->price_thousand_sep;
 }
@@ -28,13 +28,13 @@ if( !empty($currency->price_decimal_sep) ){
 
 
 ?>
-<div class="section box-section" id="<?php echo $group_option;?>">
-	<div class="sub-section" id="<?php echo $sub_item;?>">
+<div class="sub-section row" id="<?php echo $group_option;?>">
+	<div class="full sub-item" id="<?php echo $sub_item;?>" >
 		<h2 class="section-title">Currency Options </h2>
 		<div class="form-group row">
 			<div class="col-md-3"> <span><?php _e('Select currency','boxtheme');?></span> 		</div>
 			<div class="col-md-9">
-	        	<select name="currency" id="woocommerce_currency" style="min-width: 350px;" class="wc-enhanced-select enhanced" tabindex="-1" title="Currency">
+	        	<select name="currency" id="woocommerce_currency" style="min-width: 350px;" class="wc-enhanced-select enhanced auto-save" tabindex="-1" title="Currency">
 		        	<?php
 		        	$list = list_currency();
 		        	foreach ($list as $cur => $value) { ?>
@@ -47,9 +47,9 @@ if( !empty($currency->price_decimal_sep) ){
 		</div>
 
 		<div class="form-group row">
-			<div class="col-md-3"> <span>Currency Position</span>       		</div>
+			<div class="col-md-3"> <span><?php _e('Currency Position','boxtheme');?></span>       		</div>
 			<div class="col-md-9">
-				<select name="position" id="woocommerce_currency_pos" style="min-width: 350px; " class="wc-enhanced-select enhanced" tabindex="-1" title="Currency Position">
+				<select name="position" id="woocommerce_currency_pos" style="min-width: 350px; " class="wc-enhanced-select enhanced auto-save" tabindex="-1" title="<?php _e('Currency Position','boxtheme');?>">
 					<option value="left" <?php selected($position, 'left' );?>  >Left ($99.99)</option>
 					<option value="right" <?php selected($position, 'right' );?>>Right (99.99$)</option>
 					<option value="left_space" <?php selected($position, 'left_space' );?>>Left with space ($ 99.99)</option>
@@ -59,11 +59,11 @@ if( !empty($currency->price_decimal_sep) ){
 		</div>
 		<div class="form-group row">
 			<div class="col-md-3"> <span>Thousand Separator</span>       		</div>
-			<div class="col-md-9"> <input name="price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="," class="" placeholder="" />   </div>
+			<div class="col-md-9"> <input name="price_thousand_sep" id="woocommerce_price_thousand_sep" type="text" style="width:50px;" value="," class="auto-save" placeholder="" />   </div>
 		</div>
 		<div class="form-group row">
 			<div class="col-md-3"><span>Decimal Separator</span></div>
-			<div class="col-md-9"><input name="price_decimal_sep" id="woocommerce_price_decimal_sep" type="text" style="width:50px;" value="." class="" placeholder="">       		</div>
+			<div class="col-md-9"><input name="price_decimal_sep" id="woocommerce_price_decimal_sep" type="text" style="width:50px;" value="." class="auto-save" placeholder="">       		</div>
 		</div>
 	</div>
 </div>
