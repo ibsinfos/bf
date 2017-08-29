@@ -36,89 +36,89 @@ function box_customizer_footer($wp_customize){
 	$result = array();
 	if( !is_wp_error($menus ) && !empty($menus) ){
 		foreach ($menus as $key => $menu) {
-
 			$result[$menu->slug] = $menu->name;
 		}
 	}
 
 
-	$wp_customize->add_setting( 'footer_menu[first_title]', array(
-			'type'       => 'option',
-			'capability' => 'manage_options',
-		) );
-	$wp_customize->add_control( 'footer_menu[first_title]', array(
-		'label' => __( 'Set title Menu 1' ),
-		'section' => 'footer_setup',
-		'type' => 'textarea',
-		'allow_addition' => true,
-	) );
-
-	$wp_customize->add_setting( 'footer_menu[first]', array(
-			'type'       => 'option',
-			'capability' => 'manage_options',
-		) );
-	$wp_customize->add_control( 'footer_menu[first]', array(
-		'label' => __( 'Set Footer Menu 1' ),
-		'section' => 'footer_setup',
-		'type' => 'select',
-		'choices'     => $result,
-		'allow_addition' => true,
-	) );
-
-	$wp_customize->add_setting( 'footer_menu[second_title]', array(
-			'type'       => 'option',
-			'capability' => 'manage_options',
-		) );
-	$wp_customize->add_control( 'footer_menu[second_title]', array(
-		'label' => __( 'Set title Menu 2' ),
-		'section' => 'footer_setup',
-		'type' => 'textarea',
-		'allow_addition' => true,
-	) );
-
-	$wp_customize->add_setting( 'footer_menu[second]', array(
-			'type'       => 'option',
-			'capability' => 'manage_options',
-		) );
-	$wp_customize->add_control( 'footer_menu[second]', array(
-		'label' => __( 'Set Footer Menu 2' ),
-		'section' => 'footer_setup',
-		'type' => 'select',
-		'choices'     => $result,
-		'allow_addition' => true,
-	) );
-	$wp_customize->add_setting( 'footer_menu[third_title]', array(
-			'type'       => 'option',
-			'capability' => 'manage_options',
-		) );
-	$wp_customize->add_control( 'footer_menu[third_title]', array(
-		'label' => __( 'Set title Menu 3' ),
-		'section' => 'footer_setup',
-		'type' => 'textarea',
-		'allow_addition' => true,
-	) );
-
-	$wp_customize->add_setting( 'footer_menu[third]', array(
-			'type'       => 'option',
-			'capability' => 'manage_options',
-		) );
-	$wp_customize->add_control( 'footer_menu[third]', array(
-		'label' => __( 'Set Footer Menu 3' ),
-		'section' => 'footer_setup',
-		'type' => 'select',
-		'choices'     => $result,
-		'allow_addition' => true,
-	) );
-
-	$wp_customize->add_setting( 'footer_menu[contact]', array(
+	$wp_customize->add_setting( 'general[first_title]', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
 	) );
-	$wp_customize->add_control( 'footer_menu[contact]', array(
-		'label' => __( 'Set contact' ),
+	$wp_customize->add_control( 'general[first_title]', array(
+		'label' => __( 'Set title Menu 1' ),
+		'section' => 'footer_setup',
+		//'type' => 'textarea',
+		'allow_addition' => true,
+	) );
+
+	$wp_customize->add_setting( 'general[first]', array(
+			'type'       => 'option',
+			'capability' => 'manage_options',
+		) );
+	$wp_customize->add_control( 'general[first]', array(
+		'label' => __( 'Select Footer Menu 1' ),
+		'section' => 'footer_setup',
+		'type' => 'select',
+		'choices'     => $result,
+		'allow_addition' => true,
+	) );
+
+	$wp_customize->add_setting( 'general[second_title]', array(
+			'type'       => 'option',
+			'capability' => 'manage_options',
+		) );
+	$wp_customize->add_control( 'general[second_title]', array(
+		'label' => __( 'Set title Menu 2' ),
+		'section' => 'footer_setup',
+		//'type' => 'textarea',
+		'allow_addition' => true,
+	) );
+
+	$wp_customize->add_setting( 'general[second]', array(
+			'type'       => 'option',
+			'capability' => 'manage_options',
+		) );
+	$wp_customize->add_control( 'general[second]', array(
+		'label' => __( 'Select Footer Menu 2' ),
+		'section' => 'footer_setup',
+		'type' => 'select',
+		'choices'     => $result,
+		'allow_addition' => true,
+	) );
+	$wp_customize->add_setting( 'general[third_title]', array(
+			'type'       => 'option',
+			'capability' => 'manage_options',
+		) );
+	$wp_customize->add_control( 'general[third_title]', array(
+		'label' => __( 'Set title Menu 3' ),
+		'section' => 'footer_setup',
+		///'type' => 'textarea',
+		'allow_addition' => true,
+	) );
+
+	$wp_customize->add_setting( 'general[third]', array(
+			'type'       => 'option',
+			'capability' => 'manage_options',
+		) );
+	$wp_customize->add_control( 'general[third]', array(
+		'label' => __( 'Select Footer Menu 3' ),
+		'section' => 'footer_setup',
+		'type' => 'select',
+		'choices'     => $result,
+		'allow_addition' => true,
+	) );
+
+	$wp_customize->add_setting( 'general[contact]', array(
+		'type'       => 'option',
+		'capability' => 'manage_options',
+	) );
+	$wp_customize->add_control( 'general[contact]', array(
+		'label' => __( 'Set contact information' ),
 		'section' => 'footer_setup',
 		'type' => 'textarea',
 		'allow_addition' => true,
+		//'value' => '123',
 	) );
 
 }

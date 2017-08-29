@@ -2,8 +2,7 @@
         <div class=" pre-footer ">
             <nav class="footer-nav wrapper pure-g-r container">
                 <?php
-
-                	$menus = (object) get_option('footer_menu');
+                	global $general;
                 	$label = array(
                 		'first_title' => 'Contact Us',
                 		'second_title' => 'Help & Resources',
@@ -11,18 +10,18 @@
                 	);
                 	$args = array( 'first'=>'','second' => '','third' => '');
                 	foreach( $args as $key => $value){
-                		echo '<div class="col-md-3 col-xs-12">';
+                		echo '<div class="col-md-3 col-xs-4">';
 	                		$title_key = $key.'_title';
 
 	                		$title =  $label[$title_key];
-	                		if( isset($menus->$title_key) ){
-	                			$title =  $menus->$title_key;
+	                		if( isset($general->$title_key) ){
+	                			$title =  $general->$title_key;
 	                		}
 	                		echo '<h5 class="footer-list-header">'.$title.'</h5>';
-	                		if( !empty($menus->$key) ){
+	                		if( !empty($general->$key) ){
 
 	                			wp_nav_menu( array(
-			                		'menu'        => $menus->$key,
+			                		'menu'        => $general->$key,
 			                		'menu_class' =>'full',
 	                				'container' => '',
 			                		)
@@ -35,7 +34,7 @@
 
                 <div class="col-md-3 col-xs-12">
                 	<?php
-                	if(!empty($menus->contact) ){ echo $menus->contact; } else { ?>
+                	if(!empty($general->contact) ){ echo $general->contact; } else { ?>
 	                	<ul>
 							<li class="footer-list-header">Contact Us</li>
 							<li>
@@ -55,7 +54,7 @@
             <div class="wrapper  container">
             	<div class="row">
 	            	<div class="col-md-8">
-	                	<p><?php global $general; echo !empty($general->coppyright) ? stripslashes($general->coppyright) :'2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>';?></p>
+	                	<p><?php echo !empty($general->coppyright) ? stripslashes($general->coppyright) :'2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>';?></p>
 	                </div>
 	                <div class="col-md-4">
 	                	<ul class="social-link">
