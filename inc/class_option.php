@@ -58,7 +58,11 @@ class BX_Option {
 					'user_pay' => 'freelancer'
 				),
 			),
-
+			'gg_captcha' => array(
+				'site_key' => '',
+				'secret_key' => '',
+				'enable' => 0
+			)
 
 		);
 		return get_option($group, $group_args[$group]);

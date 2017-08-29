@@ -109,17 +109,8 @@ $client_id = isset($google->client_id) ? $google->client_id : '';
 </div>
 <?php
 $group_option = "gg_captcha";
-$social_api = $option->get_group_option($group_option);
-$item1  = 'facebook';
-$item2  = 'google';
-$app_id = $app_secret = '';
+$gg_captcha = $option->get_group_option($group_option);
 
-$facebook = (object) $social_api[$item1];
-$google = (object) $social_api[$item2];
-$app_id = isset($facebook->app_id) ? $facebook->app_id : '';
-
-$app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
-$client_id = isset($google->client_id) ? $google->client_id : '';
 $secret_key = $site_key  = '';
 $gg_captcha = 0;
 ?>
