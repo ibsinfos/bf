@@ -13,22 +13,32 @@ $budget = (float) $project->_budget;
       	<label  class="col-sm-8 col-form-label"><?php _e('Price <span class="f-right">$</span','boxtheme');?>></label>
       	<div class="col-sm-4">
         <?php
-        if($bidding){
-          $budget = (float) get_post_meta($bidding->ID,BID_PRICE, true);
+        if( $bidding ){
+          //$budget = (float) get_post_meta($bidding->ID,BID_PRICE, true);
           //echo '<input type="hidden" value="'.$bidding->ID.'" name= "ID" />';
         }
-        $commission_fee    = (float) get_commision_fee($budget);
+        $commision = get_commision_setting();
+        $cms_fee    = get_commision_fee( $budget, $commision );
 
-        $fre_receive = $budget - $commission_fee;
+        $emp_pay = $budget;
 
+        $fre_receive = $budget - $cms_fee;
+
+        $label_text = __('Freelancer pay this fee','boxtheme');
+
+        if( $commision->user_pay == 'emp' ) {
+        	$emp_pay = $budget + $cms_fee;
+        	$fre_receive = $budget;
+        	$label_text = __('Employer pay this fee','boxtheme');
+        }
 ?>
         <input type="number" size="6" class="form-control inline input-price" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
       </div>
    	</div>
    	<div class="form-group row bd-bottom">
-      	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="f-right">$</span></label>
+      	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="tooltip" title="<?php echo $label_text;?>">?</span>  <span class="f-right">$</span> </label>
       	<div class="col-sm-4">
-         	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $commission_fee;?>" />
+         	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $cms_fee;?>" />
       	</div>
    	</div>
    	<div class="form-group row bd-bottom">

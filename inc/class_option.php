@@ -105,30 +105,31 @@ function get_sandbox_mode(){
 	}
 	return $sanbox_mode;
 }
-function get_commision_fee( $total ){
-
-	$escrow = BX_Option::get_instance()->get_group_option('escrow');
-	$commision = (object)$escrow['commision'];
-
-	$number = 10;
-	$type = 'fix';
-	$user_pay = 'fre';
-	if( isset( $commision->number ) ){
-		$number = (int) $commision->number;
-	}
-	if( isset( $commision->type ) ){
-		$type = $commision->type;
-	}
-	if( isset( $commision->user_pay ) ){
-		$user_pay = $commision->user_pay;
-	}
-
-	if($type == 'percent'){
-		return ($number/100) * $total;
+function get_commision_fee( $total, $commision ){
+	$number = $commision->number; // fix price
+	if( $commision->type == 'percent' ) {
+		return ( $number/100 ) * (float) $total;
 	}
 
 	return $number;
+}
+function get_commision_setting(){
+	$option = BX_Option::get_instance();
+	$escrow = $option->get_group_option('escrow');
+	$commision = (object)$escrow['commision'];
 
+	$result = array('number' => 10, 'type' => 'fix', 'user_pay' => 'fre');
+
+	if( isset( $commision->number ) ){
+		$result['number'] = (int) $commision->number;
+	}
+	if( isset( $commision->type ) ){
+		$result['type'] = $commision->type;
+	}
+	if( isset( $commision->user_pay ) ){
+		$result['user_pay']= $commision->user_pay;
+	}
+	return (object)$result;
 }
 
 ?>

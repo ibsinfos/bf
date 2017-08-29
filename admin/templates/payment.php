@@ -28,8 +28,6 @@ if( !empty($currency->price_decimal_sep) ){
 	$price_decimal_sep = $currency->price_decimal_sep;
 }
 
-
-
 ?>
 <div class="sub-section " id="<?php echo $group_option;?>">
 	<div class="full sub-item" id="<?php echo $sub_item;?>" >
