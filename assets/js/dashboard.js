@@ -28,8 +28,11 @@
 				else
 					alert(res.msg);
 			}
+			var res = confirm('Do you want to delete this job?');
+			if(res) {
+				window.ajaxSend.Custom(data, success);
+			}
 
-			window.ajaxSend.Custom(data, success);
 			return false;
 		}
 	}
