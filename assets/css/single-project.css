@@ -228,3 +228,9 @@ ul.list-skill li a{
 .swp-send-message{
 	position: relative;
 }
+.ws-btn-action .btn{
+	padding: 4px 10px;
+}
+.ws-btn-action .btn.btn-quit{
+	background: #c7c7c7;
+}
