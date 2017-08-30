@@ -10,9 +10,11 @@ $args = array( 'first'=>'','second' => '','third' => ''); ?>
 
 <footer id="main-footer">
     <div class="pre-footer ">
-        <nav class="footer-nav wrapper pure-g-r container">
-            <?php foreach( $args as $key => $value){
-                $title_key = $key.'_title';
+        <nav class="footer-nav wrapper pure-g-r container"> <?php
+
+            foreach( $args as $key => $value){
+
+               $title_key = $key.'_title';
         		$title =  $label[$title_key];
 
         		if( isset($general->$title_key) ){
@@ -20,7 +22,7 @@ $args = array( 'first'=>'','second' => '','third' => ''); ?>
         		} ?>
                 <div class="col-md-3 col-xs-4">
             		<h5 class="footer-list-header"> <?php echo $title; ?></h5> <?php
-                    if( !empty($general->$key) ){
+                    if( !empty( $general->$key ) ){
             			wp_nav_menu( array(
                     		'menu'        => $general->$key,
                     		'menu_class' =>'full',
@@ -28,8 +30,8 @@ $args = array( 'first'=>'','second' => '','third' => ''); ?>
                     		)
             			);
             		} ?>
-                </div>
-            <?php } ?>
+                </div> <?php
+            } ?>
 
             <div class="col-md-3 col-xs-12"> <?php
 
