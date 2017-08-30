@@ -51,7 +51,7 @@
                 	<div class="col-md-8">
                     	<p><?php echo stripslashes($general->copyright);?></p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-xs-12">
                     	<ul class="social-link">
                     		<?php
                     		if ( !empty( $general->gg_link ) )
