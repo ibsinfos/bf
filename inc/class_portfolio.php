@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 Class Box_Portfolio extends BX_Post {
 	static protected $instance;
 	function __construct(){

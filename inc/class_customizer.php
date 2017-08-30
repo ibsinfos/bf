@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 function self_customizer_section($wp_customize) {
     $wp_customize->add_section( 'section_name' , array(
         'title'       => __( 'Home page', 'my_theme' ),
