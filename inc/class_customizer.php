@@ -111,18 +111,21 @@ function box_customizer_footer($wp_customize){
 		'choices'     => $result,
 		'allow_addition' => true,
 	) );
-
+	$default = '<h5 class="footer-list-header">Contact Us</h5><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>
+<p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p>';
 	$wp_customize->add_setting( 'general[contact]', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
-	) );
+		'default' => $default
+		)
+	);
 	$wp_customize->add_control( 'general[contact]', array(
 		'label' => __( 'Set contact information' ),
 		'section' => 'footer_setup',
 		'type' => 'textarea',
 		'allow_addition' => true,
-		//'value' => '123',
-	) );
+		)
+	);
 
 }
 function box_get_menu(){
