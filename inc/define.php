@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 	define( 'LOG_FILE', WP_CONTENT_DIR.'/ipn.log');
 	define( 'PROJECT','project');
 	define( 'BID','bid');

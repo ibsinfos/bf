@@ -3,6 +3,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
+function bx_swap_button($group, $name, $is_active, $multipe = true){
+	$checked  = '';
+	$multi =  'multi = "1" ';
+	if( $is_active ) $checked = 'checked';
+	if( !$multipe ) $multi = 'multi = "0" ';
+	echo '<input type="checkbox" class="auto-save" '.$multi.' name="'.$name.'" value="'.$is_active.'" '.$checked.' data-toggle="toggle">';
+
+}
+
 function list_currency(){
 	return array(
 		'AED' => 'United Arab Emirates dirham (د.إ)',
@@ -199,14 +209,7 @@ function list_email(){
 	);
 }
 
-function bx_swap_button($group, $name, $is_active, $multipe = true){
-	$checked  = '';
-	$multi =  'multi = "1" ';
-	if( $is_active ) $checked = 'checked';
-	if( !$multipe ) $multi = 'multi = "0" ';
-	echo '<input type="checkbox" class="auto-save" '.$multi.' name="'.$name.'" value="'.$is_active.'" '.$checked.' data-toggle="toggle">';
 
-}
 	require_once dirname(__FILE__) . '/admin.php';
 	require_once dirname(__FILE__) . '/credit.php';
 	require_once dirname(__FILE__) . '/ajax_register.php';

@@ -14,7 +14,7 @@ $budget = (float) $project->_budget;
       	<div class="col-sm-4">
         <?php
 
-        $pay_ifo = box_get_pay($budget);
+        $pay_ifo = box_get_pay_info($budget);
         $cms_fee = $pay_ifo->cms_fee;
         $emp_pay = $pay_ifo->emp_pay;
         $fre_receive = $pay_ifo->fre_receive;

@@ -38,7 +38,7 @@ Class BX_Credit {
 
 		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 
-		$pay_ifo = box_get_pay($bid_price);
+		$pay_ifo = box_get_pay_info($bid_price);
 
       	$emp_pay = $pay_ifo->emp_pay;
 
