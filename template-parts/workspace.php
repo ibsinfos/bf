@@ -6,7 +6,7 @@
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
 		<div class="col-md-7">
-			<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
+			<?php echo '<h3> Workspace of project <i>'.$project->post_title.'</i></h3>'; ?>
 		</div>
 		<div class="col-md-5">
 			<div class="full align-right f-right ws-btn-action">
@@ -31,33 +31,32 @@
 			</div>
 		</div>
 	</div>
-	<?php _e('Description:','boxtheme'); ?>
+	<?php _e('Excerpt:','boxtheme'); ?>
 	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div>
 
 	<?php
 
 	if($project->post_status == DONE){
-		echo '<div class="full review-section">';
-		?>
-			<h3 class="no-margin"> Review section</h3>
-			<?php
+		echo '<div class="full review-section">'; ?>
+
+			<h3 class="no-margin"><?php _e('Review section','boxtheme');?></h3>	<?php
 
 			// show rating here.
 			$bid_id = get_post_meta($project->ID,BID_ID_WIN, true);
-
-				$args = array(
-					'post_id' => $bid_id,
-					'type' => 'emp_review',
-					'number' => 1,
-				);
+			$args = array(
+				'post_id' => $bid_id,
+				'type' => 'emp_review',
+				'number' => 1,
+			);
 			$emp_comment = get_comments($args);
-			if( !empty( $emp_comment )){
+
+			if( !empty( $emp_comment ) ){
 				echo '<div class="full rating-line">';
-				if( ($role == FREELANCER && $is_fre_review) || $role != FREELANCER) {
+				if(  ( $role == FREELANCER && $is_fre_review ) || $role != FREELANCER ) {
 					echo '<label>'.__('Employer review:','boxtheme').'</label>';
-						$rating_score = get_comment_meta( $emp_comment[0]->comment_ID, RATING_SCORE, true );
-						bx_list_start($rating_score);
-						echo '<i>'.$emp_comment[0]->comment_content.'</i>';
+					$rating_score = get_comment_meta( $emp_comment[0]->comment_ID, RATING_SCORE, true );
+					bx_list_start($rating_score);
+					echo '<i>'.$emp_comment[0]->comment_content.'</i>';
 				} else if( !$is_fre_review){
 					//freelancer still not review employer yet.
 					_e('Employer reviewed and mark as close this project. <br />You have to  review the project to see employer\'s review.','boxtheme');
@@ -76,10 +75,9 @@
 			if( ! empty( $fre_comment) ) {
 				echo '<div class="full rating-line">';
 				echo '<label>'.__('Freelancer review:','boxtheme').'</label>';
-
-					$rating_score = get_comment_meta( $fre_comment[0]->comment_ID, RATING_SCORE, true );
-					bx_list_start($rating_score);
-					echo '<i>'.$fre_comment[0]->comment_content.'</i>';
+				$rating_score = get_comment_meta( $fre_comment[0]->comment_ID, RATING_SCORE, true );
+				bx_list_start($rating_score);
+				echo '<i>'.$fre_comment[0]->comment_content.'</i>';
 
 				echo '</div>';
 			}
@@ -116,7 +114,7 @@
 		</ul>
 		<?php if( !$is_fre_review  ){?>
 			<div id="container_file" class="clear block">
-			    <button class="btn f-right" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add File </button>
+			    <button class="btn f-right btn-add-file" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add File </button>
 			</div>
 		<?php } ?>
 		<div id="filelist" class="full">
