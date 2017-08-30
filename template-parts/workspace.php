@@ -2,7 +2,22 @@
 global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 ?>
 <div class="col-md-8 wrap-workspace">
+	<div class="col-md-7">
 	<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
+	</div>
+	<div class="col-md-5">
+		<div class="full align-right f-right">
+			<?php if($project->post_status =='awarded' && $user_ID == $project->post_author ){ ?>
+				<button type="button" class="btn btn-primary  align-right f-right btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quyt</button>
+				<button type="button " class="btn align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
+			<?php } else if($project->post_status == 'awarded' && $role == FREELANCER && !$is_fre_review) { ?>
+				<button type="button " class="btn  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as complete</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quyt</button>
+			<?php } else if($project->post_status == 'done' && $role == FREELANCER && !$is_fre_review) { ?>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Review employer</button>
+			<?php } ?>
+		</div>
+	</div>
 	<?php _e('Description:','boxtheme'); ?>
 	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div>
 
@@ -67,18 +82,8 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 </div> <!-- wrap-workspace !-->
 
 <div class="col-md-4">
-	<div class="full align-right f-right">
+	<?php step_process();?>
 
-		<?php if($project->post_status =='awarded' && $user_ID == $project->post_author ){ ?>
-				<button type="button" class="btn btn-primary  align-right f-right btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quyt</button>
-				<button type="button " class="btn col-md-5  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as finish</button>
-		<?php } else if($project->post_status == 'awarded' && $role == FREELANCER && !$is_fre_review) { ?>
-			<button type="button " class="btn col-md-5  align-right f-right btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as complete</button>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quyt</button>
-		<?php } else if($project->post_status == 'done' && $role == FREELANCER && !$is_fre_review) { ?>
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Review employer</button>
-		<?php } ?>
-	</div>
 	<div class="full">
 		<h3>Project:</h3>
 		<ul class="none-style">

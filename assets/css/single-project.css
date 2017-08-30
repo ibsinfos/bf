@@ -172,13 +172,24 @@ ul.list-skill li a{
 	background-color: #eee;
 	border:1px solid #eee;
 }
-.job-process-heading{
-	padding: 10px 0;
-	border-top:1px solid #ccc;
-	border-bottom: 1px solid #ccc;
+.job-process-heading {
+    display: block;
+    clear: both;
+    width: 100%;
+    float: left;
 }
-.job-process-heading ul li{
+.job-process-heading li{
+	padding: 0;
 	list-style: none;
+	padding: 0;
+	display: inline-block;
+	padding-right: 10px;
+	width: 50%;
+	float: left;
+}
+.job-process-heading li.col-md-4 a{
+	border-bottom: 2px solid #5cb85c;
+	display: block;
 }
 .wrap-workspace{
 	margin-top: 20px;
@@ -213,4 +224,7 @@ ul.list-skill li a{
 .mauthor{
 	width: 75px;
 	text-align: left;
+}
+.swp-send-message{
+	position: relative;
 }

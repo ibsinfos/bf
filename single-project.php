@@ -16,16 +16,13 @@ global $wp_query;
 	if( can_access_workspace($project) ){
 		$access_workspace = 1;
 	}
-function step_process($project,$winner_id,$access_workspace){
-	 if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
-        <div class="full job-process-heading">
-        	<ul >
-        		<li class="col-md-3"><a href="<?php echo get_permalink();?>">Job Detail</a></li>
-        		<li class="col-md-3"><a href="?workspace=1"><?php _e('Workspace','boxtheme');?></a>	</li>
-        		<li class="col-md-3"><a href="?dispute=1"><?php _e('Dispute','boxtheme');?></a>	</li>
-        	</ul>
-
-    	</div><?php
+function step_process(){
+	global $project, $access_workspace, $winner_id;
+	if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
+    	<ul class="job-process-heading">
+			<li><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> Job Detail</a></li>
+			<li><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
+    	</ul> <?php
     }
 }
 ?>
@@ -49,14 +46,15 @@ function step_process($project,$winner_id,$access_workspace){
        			<?php if( !$is_workspace ){ ?>
        				<div class="col-md-8">
        					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
-			       		<?php  get_template_part( 'template-parts/list', 'bid' ); ?>
+			       		<?php  	get_template_part( 'template-parts/list', 'bid' ); ?>
 			       	</div> <!-- .col-md-8  Job details !-->
 					    <div class="col-md-4 sidebar" id="single_sidebar">
-		          			<?php  get_sidebar('project');?>
+					    	<?php 	step_process();?>
+		          			<?php  	get_sidebar('project');?>
           				</div>
 
 			       	<?php } else {
-			       		//get_template_part( 'template-parts/workspace' );
+			       		get_template_part( 'template-parts/workspace' );
 			       	} ?>
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
