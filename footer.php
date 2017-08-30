@@ -1,12 +1,13 @@
 <?php
-    global $general;
-    $label = array(
-        'first_title' => 'Contact Us',
-        'second_title' => 'Help & Resources',
-        'third_title' => 'Commercial',
-    );
-    $args = array( 'first'=>'','second' => '','third' => '');
-?>
+
+global $general;
+$label = array(
+    'first_title' => 'Contact Us',
+    'second_title' => 'Help & Resources',
+    'third_title' => 'Commercial',
+);
+$args = array( 'first'=>'','second' => '','third' => ''); ?>
+
 <footer id="main-footer">
     <div class="pre-footer ">
         <nav class="footer-nav wrapper pure-g-r container">
@@ -18,7 +19,7 @@
         			$title =  $general->$title_key;
         		} ?>
                 <div class="col-md-3 col-xs-4">
-            		<h5 class="footer-list-header"><?php echo $title;?></h5>'; <?php
+            		<h5 class="footer-list-header"> <?php echo $title; ?></h5> <?php
                     if( !empty($general->$key) ){
             			wp_nav_menu( array(
                     		'menu'        => $general->$key,
@@ -30,21 +31,16 @@
                 </div>
             <?php } ?>
 
-            <div class="col-md-3 col-xs-12">
-            	<?php
-            	if(!empty($general->contact) ){ echo $general->contact; } else { ?>
-                	<ul>
-						<li class="footer-list-header">Contact Us</li>
-						<li>
-							<ul>
-							    <li><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p></li>
-							</ul>
-							<ul>
-							    <li><p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p></li>
-							</ul>
-						</li>
-					</ul>
+            <div class="col-md-3 col-xs-12"> <?php
+
+            	if( !empty ( $general->contact ) ){
+                    echo $general->contact;
+                } else { ?>
+                	<h5 class="footer-list-header">Contact Us</h5>
+					<p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>
+                    <p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p>
 				<?php } ?>
+
             </div>
         </nav>
     </div>
