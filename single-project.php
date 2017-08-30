@@ -16,6 +16,18 @@ global $wp_query;
 	if( can_access_workspace($project) ){
 		$access_workspace = 1;
 	}
+function step_process($project,$winner_id,$access_workspace){
+	 if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
+        <div class="full job-process-heading">
+        	<ul >
+        		<li class="col-md-3"><a href="<?php echo get_permalink();?>">Job Detail</a></li>
+        		<li class="col-md-3"><a href="?workspace=1"><?php _e('Workspace','boxtheme');?></a>	</li>
+        		<li class="col-md-3"><a href="?dispute=1"><?php _e('Dispute','boxtheme');?></a>	</li>
+        	</ul>
+
+    	</div><?php
+    }
+}
 ?>
 
 <div <?php post_class('container single-project site-container');?>>
@@ -23,20 +35,8 @@ global $wp_query;
         <div class="col-md-12">
 			<h1 class="project-title"><?php the_title();?></h1>
         </div>
-        <?php if($access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
-	        <div class="col-md-12 job-process-heading">
-	        	<ul >
-	        		<li class="col-md-3"><a href="<?php echo get_permalink();?>">Job Detail</a></li>
-	        		<li class="col-md-3"><a href="?workspace=1"><?php _e('Workspace','boxtheme');?></a>	</li>
-	        		<li class="col-md-3"><a href="?dispute=1"><?php _e('Dispute','boxtheme');?></a>	</li>
-	        	</ul>
 
-        	</div>
-       	<?php } ?>
-       	<?php
-       	if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) && $is_workspace && $access_workspace ){
-			get_template_part( 'template-parts/workspace' );
-		} else { ?>
+
         <div class="detail-project">
             <div class="wrap-content">
        			<div class="full heading">
@@ -46,42 +46,20 @@ global $wp_query;
                   	<div class="col-md-3"><?php _e('Need urgent finish','boxtheme');?> </div>
 
        			</div> <!-- full !-->
+       			<?php if( !$is_workspace ){ ?>
+       				<div class="col-md-8">
+       					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
+			       		<?php  get_template_part( 'template-parts/list', 'bid' ); ?>
+			       	</div> <!-- .col-md-8  Job details !-->
+					    <div class="col-md-4 sidebar" id="single_sidebar">
+		          			<?php  get_sidebar('project');?>
+          				</div>
 
-               	<div class="col-md-8">
-               		<h3> <?php _e('Job details','boxtheme');?> </h3>
-          			<?php the_content(); ?>
-                    <?php
-	                    $args = array(
-	                        'post_status' => 'any',
-	                        'post_type'   => 'attachment',
-	                        'post_parent' => $project->ID,
-	                    );
-	                    $att_query = new WP_Query( $args );
-	                    if( $att_query-> have_posts() ){
-	                        echo '<p>';
-	                        echo '<h3>'.__('Files attach: ','boxtheme').'</h3>';
-	                        $files = array();
-	                        while ( $att_query-> have_posts()  ) {
-	                            global $post;
-	                            $att_query->the_post();
-	                            $feat_image_url = wp_get_attachment_url( $post->ID );
-	                            $files[] = '<span><span class="glyphicon glyphicon-paperclip primary-color"></span>&nbsp;<a class="text-color " href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
-	                        }
-	                        echo join(",",$files);
-	                        echo '</p>';
-	                    }
-                    ?>
-                    <?php  if( !$is_workspace){ get_template_part( 'template-parts/list', 'bid' ); } ?>
-
-          		</div> <!-- .col-md-8  Job details !-->
-          		<div class="col-md-4 sidebar" id="single_sidebar">
-          		<?php  get_sidebar('project');?>
-          		</div>
-
-
+			       	<?php } else {
+			       		//get_template_part( 'template-parts/workspace' );
+			       	} ?>
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
-		<?php } ?>
 
 	</div>
 </div>
