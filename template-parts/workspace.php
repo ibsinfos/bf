@@ -1,22 +1,33 @@
 <?php
-global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
+	global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
+	$is_fre_review = get_post_meta( $project->ID,'is_fre_review', true );
+
 ?>
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
 		<div class="col-md-7">
-		<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
+			<?php echo '<h3> Workspace of project '.$project->post_title.'</h3>'; ?>
 		</div>
 		<div class="col-md-5">
 			<div class="full align-right f-right ws-btn-action">
-				<?php if($project->post_status =='awarded' && $user_ID == $project->post_author ){ ?>
-					<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quit</button>
-					<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Finish</button>
-				<?php } else if($project->post_status == 'awarded' && $role == FREELANCER && !$is_fre_review) { ?>
-					<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Complete</button>
-					<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo">Quit</button>
-				<?php } else if($project->post_status == 'done' && $role == FREELANCER && !$is_fre_review) { ?>
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Review employer</button>
-				<?php } ?>
+				<?php
+				if($project->post_status =='awarded' ){
+
+					if( $user_ID == $project->post_author ){ // employer  ?>
+
+						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Quit','boxtheme');?></button>
+						<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Finish</button>
+						<?php }
+
+					} else if( $user_ID == $winner_id && !$is_fre_review) { // freelancer ?>
+
+						<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Complete</button>
+						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php_e('Quit','boxtheme');?></button> <?php
+
+					} else if( $project->post_status == 'done' && $user_ID == $winner_id && !$is_fre_review) { ?>
+
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><?php _e('Review','boxtheme');?></button> <?php
+					} ?>
 			</div>
 		</div>
 	</div>
@@ -24,7 +35,7 @@ global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div>
 
 	<?php
-	$is_fre_review = get_post_meta($project->ID,'is_fre_review', true);
+
 	if($project->post_status == DONE){
 		echo '<div class="full review-section">';
 		?>
