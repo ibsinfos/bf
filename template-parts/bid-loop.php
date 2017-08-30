@@ -7,7 +7,7 @@ $bid = $bid->convert( $post );
 
 $_bid_price = $bid->_bid_price;
 
-$pay_ifo = box_get_pay($_bid_price);
+$pay_ifo = box_get_pay_info($_bid_price);
 
 $bid->emp_pay = get_box_price($pay_ifo->emp_pay);
 $bid->fre_receive = get_box_price($pay_ifo->fre_receive);

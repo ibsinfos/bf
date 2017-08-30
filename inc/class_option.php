@@ -52,7 +52,7 @@ class BX_Option {
 					'enable' => 0,
 				),
 				'cash' => array(
-					'description' => __("<p>Please deposit %s to this bank account:</p><p>Number: XXXXXXXXXX.</p><p>Bank: ANZ Bank. Account name: Johnny Cook.</p><p>After get your fund, we will approve your order and you can access your balance.</p",'boxtheme'),
+					'description' => __("<p>https:// %s to this bank account:</p><p>Number: XXXXXXXXXX.</p><p>Bank: ANZ Bank. Account name: Johnny Cook.</p><p>After get your fund, we will approve your order and you can access your balance.</p",'boxtheme'),
 					'enable' => 1,
 				),
 			),
@@ -140,7 +140,7 @@ function get_commision_setting(){
 	}
 	return (object)$result;
 }
-function box_get_pay($bid_price){
+function box_get_pay_info($bid_price){
 	$setting = get_commision_setting();
 	$cms_fee = get_commision_fee($bid_price, $setting);
 
