@@ -239,3 +239,6 @@ ul.list-skill li a{
 .ws-btn-action .btn.btn-quit{
 	background: #c7c7c7;
 }
+#single_sidebar{
+	padding-top: 0;
+}
