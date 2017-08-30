@@ -1,37 +1,34 @@
+<?php
+    global $general;
+    $label = array(
+        'first_title' => 'Contact Us',
+        'second_title' => 'Help & Resources',
+        'third_title' => 'Commercial',
+    );
+    $args = array( 'first'=>'','second' => '','third' => '');
+?>
 <footer id="main-footer">
-    <div class=" pre-footer ">
+    <div class="pre-footer ">
         <nav class="footer-nav wrapper pure-g-r container">
-            <?php
-            	global $general;
-            	$label = array(
-            		'first_title' => 'Contact Us',
-            		'second_title' => 'Help & Resources',
-            		'third_title' => 'Commercial',
-            	);
-            	$args = array( 'first'=>'','second' => '','third' => '');
-            	foreach( $args as $key => $value){
-            		echo '<div class="col-md-3 col-xs-4">';
+            <?php foreach( $args as $key => $value){
+                $title_key = $key.'_title';
+        		$title =  $label[$title_key];
 
-                        $title_key = $key.'_title';
-                		$title =  $label[$title_key];
-
-                		if( isset($general->$title_key) ){
-                			$title =  $general->$title_key;
-                		}
-                		echo '<h5 class="footer-list-header">'.$title.'</h5>';
-                		if( !empty($general->$key) ){
-
-                			wp_nav_menu( array(
-		                		'menu'        => $general->$key,
-		                		'menu_class' =>'full',
-                				'container' => '',
-		                		)
-                			);
-                		}
-                	echo '</div>';
-            	}
-
-            	?>
+        		if( isset($general->$title_key) ){
+        			$title =  $general->$title_key;
+        		} ?>
+                <div class="col-md-3 col-xs-4">
+            		<h5 class="footer-list-header"><?php echo $title;?></h5>'; <?php
+                    if( !empty($general->$key) ){
+            			wp_nav_menu( array(
+                    		'menu'        => $general->$key,
+                    		'menu_class' =>'full',
+            				'container' => '',
+                    		)
+            			);
+            		} ?>
+                </div>
+            <?php } ?>
 
             <div class="col-md-3 col-xs-12">
             	<?php
