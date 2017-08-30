@@ -43,7 +43,7 @@ if( isset($general->gg_link) ){
 		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo stripslashes($google_analytic);?></textarea></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="form-control auto-save" multi="0"  name="coppyright" ><?php echo stripslashes($copyright);?> </textarea></div>
+		<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="form-control auto-save" multi="0"  name="copyright" ><?php echo stripslashes($copyright);?> </textarea></div>
 	</div>
 	<div class="full">
 		<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>
