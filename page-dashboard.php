@@ -7,9 +7,9 @@
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
-			<div id="profile" class="col-md-12"> <!-- start left !-->
-				<ul  class="nav nav-pills" id ="heading_dashboard">
-					<li class="active"><a  href="#1a" data-toggle="tab"><?php _e('ACTIVATE','boxtheme');?></a>			</li>
+			<div id="profile" class="col-md-12">
+				<ul  class = "nav nav-pills dashboard-tab" id = "heading_dashboard">
+					<li class="active" > <a  href="#1a" data-toggle="tab"><?php _e('ACTIVATE','boxtheme');?></a>			</li>
 					<li><a href="#tab_working" data-toggle="tab"><?php _e('WORKING','boxtheme');?></a>		</li>
 					<li><a href="#tab_done" data-toggle="tab"><?php _e('DONE','boxtheme');?></a></li>
 					<li><a href="#tab_archived" data-toggle="tab"><?php _e('ARCHIVED','boxtheme');?></a></li>

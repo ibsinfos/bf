@@ -11,7 +11,7 @@
 	if( $query-> have_posts() ){
 		$loadmore = true;
 		echo '<ul class="db-list-project">';
-		echo '<li class="heading row list-style-none padding-bottom-10">';
+		echo '<li class="heading list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-4">';				_e('Project Title','boxtheme');				echo '</div>';
 				echo '<div class ="col-md-2">';				_e('Bid(s)','boxtheme');				echo '</div>';
 				echo '<div class ="col-md-2">';				_e('Price','boxtheme');				echo '</div>';
@@ -23,7 +23,7 @@
 			global $post;
 			$query->the_post();
 			$project = BX_Project::get_instance()->convert($post);
-			echo '<li class="row list-style-none padding-bottom-10">';
+			echo '<li class="list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-4">';	echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
 				echo '<div class ="col-md-2">';				echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-2">';				box_price($project->_budget);echo '</div>';

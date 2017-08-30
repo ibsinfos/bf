@@ -1,12 +1,17 @@
 #heading_dashboard{
 	padding: 10px 0 1px 0;
 	border-bottom: 1px solid #ccc;
-	margin-bottom: 20px;
+	margin-bottom: -1px;
 }
 ul.db-list-project li{
 	border-bottom: 1px solid #f3f3f3;
+	border-left: 1px solid #f3f3f3;
+	border-right: 1px solid #f3f3f3;
 	padding-top: 10px;
 	overflow: hidden;
+}
+ul.db-list-project li.item-chan{
+	background: #f9f9f9;
 }
 ul.db-list-project li div{
 	overflow: hidden;
@@ -15,12 +20,21 @@ ul.db-list-project li a{
 	white-space:nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	float: left;
 	max-width: 100%;
+	padding: 2px;
 }
 ul.db-list-project .heading{
 	font-weight: 600;
+	border-top:1px solid #f3f3f3;
 }
-.btn-board{
-	margin-right: 15px;
+
+ul.dashboard-tab li a{
+	border-top:1px solid #f3f3f3;
+	border-left:1px solid #f3f3f3;
+}
+.nav-pills.dashboard-tab li{
+	margin:0;
+}
+ul.dashboard-tab li:last-child a{
+	border-right:1px solid #f3f3f3;
 }

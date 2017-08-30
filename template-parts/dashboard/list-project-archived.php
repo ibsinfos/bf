@@ -12,30 +12,32 @@
 	if( $query-> have_posts() ){
 		$loadmore = true;
 		echo '<ul class="db-list-project">';
-		echo '<li class="heading row list-style-none padding-bottom-10">';
-				echo '<div class ="col-md-4">';				_e('Project Title','boxtheme');				echo '</div>';
-				echo '<div class ="col-md-2">';				_e('Bid(s)','boxtheme');				echo '</div>';
-				echo '<div class ="col-md-2">';				_e('Price','boxtheme');				echo '</div>';
-				echo '<div class ="col-md-2">'; _e('Posted date','boxtheme');echo '</div>';
-				echo '<div class ="col-md-2">'; _e('Action','boxtheme');echo '</div>';
-			echo '</li>';
-
+		echo '<li class="heading list-style-none padding-bottom-10">';
+			echo '<div class ="col-md-4">';				_e('Project Title','boxtheme');				echo '</div>';
+			echo '<div class ="col-md-2">';				_e('Bid(s)','boxtheme');				echo '</div>';
+			echo '<div class ="col-md-2">';				_e('Price','boxtheme');				echo '</div>';
+			echo '<div class ="col-md-2">'; _e('Posted date','boxtheme');echo '</div>';
+			echo '<div class ="col-md-2 text-center">'; _e('Action','boxtheme');echo '</div>';
+		echo '</li>';
+		$i = 0;
 		while ($query->have_posts()) {
 			global $post;
+			$class = '';
+			if( $i%2 == 0)
+				$class = " item-chan";
 			$query->the_post();
 			$project = BX_Project::get_instance()->convert($post);
 			$new_url = add_query_arg( array('p_id'=>$post->ID), $submit_url ) ;
-			echo '<li class="row list-style-none padding-bottom-10">';
+			echo '<li class="list-style-none padding-bottom-10 '.$class.'">';
 				echo '<div class ="col-md-4">';				echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';				echo '</div>';
 				echo '<div class ="col-md-2">';				echo count_bids($post->ID);				echo '</div>';
 				echo '<div class ="col-md-2">';				box_price($project->_budget);				echo '</div>';
 				echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
-				?><div class ="col-md-2"><a class="btn-board"  data-toggle="tooltip" title= "Renew this job" href="<?php echo $new_url;?>"><span class="glyphicon glyphicon-refresh"></span></a> <a href="#" class="btn-board btn-delete-job"   data-toggle="tooltip"  title="<?php _e('Delete this job','boxtheme');?>" id ="<?php echo $project->ID;?>"><span class="glyphicon glyphicon-remove"></span></a></div> <?php
+				?><div class ="col-md-2 text-center"><a class="btn-board"  data-toggle="tooltip" title= "Renew this job" href="<?php echo $new_url;?>"><span class="glyphicon glyphicon-refresh"></span></a> <a href="#" class="btn-board btn-delete-job"   data-toggle="tooltip"  title="<?php _e('Delete this job','boxtheme');?>" id ="<?php echo $project->ID;?>"><span class="glyphicon glyphicon-remove"></span></a></div> <?php
 			echo '</li>';
+			$i ++;
 		}
-		// if($loadmore){
-		// 	echo '<li class="row list-style-none padding-bottom-10"><center> <button class="load-more" page ="1">Load more</button> </center></li>';
-		// }
+
 		echo '</ul>';
 	}
 ?>
