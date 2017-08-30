@@ -1,7 +1,5 @@
-<?php
-global $wp_query;
-?>
 <?php get_header(); ?>
+
 <?php
 	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid;
 	$cvs_id = 0;
@@ -10,6 +8,7 @@ global $wp_query;
 	$project = BX_Project::get_instance()->convert($post);
 	$is_workspace = isset($_GET['workspace']) ? (int) $_GET['workspace'] : 0;
 	$winner_id = $project->{WINNER_ID};
+
 	if( is_owner_project( $project ) ){
 		$is_owner = $project->post_author;
 	}
@@ -20,7 +19,7 @@ function step_process(){
 	global $project, $access_workspace, $winner_id;
 	if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
     	<ul class="job-process-heading">
-			<li><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> Job Detail</a></li>
+			<li><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>
 			<li><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
     	</ul> <?php
     }
@@ -146,7 +145,7 @@ function step_process(){
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <textarea  class="form-control" name="award_msg" placeholder="Your message" ></textarea>
+		        <textarea  class="form-control" name="award_msg" placeholder="<?php _e('Your message','boxtheme');?>" ></textarea>
 		        <input type="hidden" name="bid_id" value="{{{data.ID}}}">
 		        <input type="hidden" name="freelancer_id" value="{{{data.post_author}}}">
 		        <input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">

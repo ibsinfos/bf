@@ -1,6 +1,9 @@
 <?php
 	global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
 	$is_fre_review = get_post_meta( $project->ID,'is_fre_review', true );
+	$bid_id_win = get_post_meta($project->ID, BID_ID_WIN, true);
+
+	$_bid_price = get_post_meta($bid_id_win, BID_PRICE, true);
 
 ?>
 <div class="col-md-8 wrap-workspace">
@@ -106,8 +109,8 @@
 			);
 			?>
 			<li> Award date: March 20, 2017</li>
-			<li> Dealine: March 20, 2017</li>
 			<li> Status: <?php echo $status[$project->post_status];?></li>
+			<li> Bid price: <?php echo get_box_price($_bid_price) ?></li>
 			<?php if($project->post_status == 'done'){?>
 				<li>Finish: March 20, 2017</li>
 			<?php } ?>

@@ -34,7 +34,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 	<div class ="col-md-10 padding-right-zero">
 		<?php
 		$list_dealine  = list_dealine();
-		if(empty($bid->_dealine))
+		if( empty($bid->_dealine) )
 			$bid->_dealine = 0;
 		?>
 		<div class="full clear block">
