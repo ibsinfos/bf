@@ -65,7 +65,7 @@ class BX_Option {
 				'commision' => array(
 					'number' => '10',
 					'type'   => 'fit',
-					'user_pay' => 'freelancer'
+					'user_pay' => 'fre'
 				),
 				'paypal' => array(
 				),
