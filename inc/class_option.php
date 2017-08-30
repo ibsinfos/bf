@@ -16,7 +16,15 @@ class BX_Option {
 		return $current[$name];
 	}
 	function get_group_option($group){
-		$group_args = array(
+		$group_args =$this->get_default();
+		return wp_parse_args(get_option($group), $group_args[$group]);
+	}
+	function get_default_option($group, $section, $key){
+			$default = $this->get_default();
+			return $default[$group][$section][$key];
+	}
+	function get_default(){
+		return array(
 			'general'=> array(
 				'pending_post' => false,
 				'google_analytic' => '',
@@ -37,11 +45,15 @@ class BX_Option {
 				'mode' => 0,
 				'paypal' => array(
 					'email' => '',
-					'enable' => false,
+					'enable' => 0,
+				),
+				'stripe' => array(
+					'email' => '',
+					'enable' => 0,
 				),
 				'cash' => array(
-					'description' => '',
-					'enable' => false,
+					'description' => __("<p>Please deposit %s to this bank account:</p><p>Number: XXXXXXXXXX.</p><p>Bank: ANZ Bank. Account name: Johnny Cook.</p><p>After get your fund, we will approve your order and you can access your balance.</p",'boxtheme'),
+					'enable' => 1,
 				),
 			),
 			'app_api' => array(
@@ -72,7 +84,6 @@ class BX_Option {
 			),
 
 		);
-		return wp_parse_args(get_option($group), $group_args[$group]);
 	}
 	function set_option($group, $section, $name, $new_value, $multi = true){
 

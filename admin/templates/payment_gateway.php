@@ -1,9 +1,9 @@
 <?php
 
 // group = escrow
-$group_option = "payment";
+$group = "payment";
 $option = BX_Option::get_instance();
-$payment = $option->get_group_option($group_option);
+$payment = $option->get_group_option($group);
 $paypal = (object)$payment['paypal'];
 
 $mode = 0;// sandbox = 0
@@ -11,9 +11,11 @@ $mode = 0;// sandbox = 0
 if( isset($payment['mode'] ) ){
 	$mode = $payment['mode'];
 }
-
+$pp_enable = 0;
+if(isset($paypal->enable) )
+    $pp_enable = $paypal->enable;
 ?>
-<div class="section box-section" id="<?php echo $group_option;?>">
+<div class="section box-section" id="<?php echo $group;?>">
 
    	<div class="sub-section " id="payment">
    		<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
@@ -22,7 +24,7 @@ if( isset($payment['mode'] ) ){
      		<div class="full">
     			<div class="col-md-3">
     			<h3>Sandbox mode</h3>
-    			</div> <div class="col-md-9"><?php  bx_swap_button($group_option,'mode', $mode, $multipe = false);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+    			</div> <div class="col-md-9"><?php  bx_swap_button($group,'mode', $mode, $multipe = false);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
 
     		</div>
 
@@ -35,53 +37,24 @@ if( isset($payment['mode'] ) ){
                 <div class="col-sm-9">
                 </div>
                 <div class="col-sm-3 align-right">
-                    <?php bx_swap_button('payment','paypal', $paypal->enable);?>
-                </div>
-            </div>
-
-            <div class="sub-item hide" id="stripe">
-            	<?php
-            	$stripe = (object) array(
-            		'api_key' => 'LDFJ',
-            		'api_code' => 'LDFJ',
-            		'enable' => 0
-            	);
-            	if( !empty($payment['stripe']) ){
-            		$stripe = (object) $payment['stripe'];
-            	}
-
-            	?>
-                <label for="inputEmail3" class="col-sm-3 col-form-label">Stripe</label>
-                <div class="col-sm-9">
-                    <input type="email" class="form-control auto-save" value="<?php  if(! empty($stripe->api_key) )  echo $stripe->api_key;?>" name="api_key" placeholder="API Key">
-                    <span class="f-right"> Set Sitrpe API key here </span>
-                </div>
-                <label for="inputEmail3" class="col-sm-3 col-form-label">&nbsp;</label>
-                <div class="col-sm-9" >
-                    <input type="email" class="form-control auto-save" value="<?php if(! empty($stripe->api_code) ) echo $stripe->api_code;?>" name="api_code" placeholder="API Code">
-                    <span class="f-right"> Set Sitrpe API code here </span>
-                </div>
-                <div class="col-sm-9">
-                </div>
-                <div class="col-sm-3 align-right">
-                    <?php bx_swap_button('payment','stripe', $stripe->enable);?>
+                    <?php bx_swap_button('payment','enable', $pp_enable);?>
                 </div>
             </div>
 
             <div class="sub-item" id="cash">
             	<label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
             	<?php
-            	$cash = (object) array('description' => 'Cash payment',
-            		'enable' => 0);
-            	if( !empty($payment['cash']) ){
-            		$cash = (object) $payment['cash'];
-            	}
-            	if( empty($cash->description) ){
-            		$cash->description = __("Please deposit ###amout to this bank account:\nNumber: XXXXXXXXXX.\nBank: ANZ Bank.\nAccount name: Johnny Cook.\nAfter get your fund, we will approve your order and you can access your balance.",'boxtheme');
-            	}
+
+            	$cash = (object) $payment['cash'];
+                $cash_enable = 1;
+                if(isset($cash->enable) )
+                    $cash_enable = $cash->enable;
+                $cash_des = $option->get_default_option($group,'cash','description');
+                if( isset($cash->description) )
+                    $cash_des = $cash->description;
             	?>
                 <div class="col-sm-9 wrap-auto-save">
-                	 <textarea name="description" id="description" class="auto-save"> <?php echo stripslashes($cash->description);?></textarea>
+                	 <textarea name="description" id="description" class="auto-save"> <?php echo stripslashes($cash_des);?></textarea>
                 	<div class="hide">
                 	<?php wp_editor($cash->description,'call');?>
                 	</div>
@@ -90,7 +63,7 @@ if( isset($payment['mode'] ) ){
                 <div class="col-sm-9">
                 </div>
                 <div class="col-sm-3 align-right">
-                    <?php bx_swap_button('payment','cash', $cash->enable);?>
+                    <?php bx_swap_button('payment','enable', $cash_enable);?>
                 </div>
        		</div>
         </div><!-- .end sub-wrap !-->
