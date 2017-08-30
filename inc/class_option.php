@@ -20,13 +20,11 @@ class BX_Option {
 			'general'=> array(
 				'pending_post' => false,
 				'google_analytic' => '',
-				'copyright' => '',
-				'social_links' => array(
-					'fb_link' => 'https://fb.com/boxthemes/',
-					'gg_link' => 'https://https://plus.google.com/boxthemes/',
-					'tw_link' => 'https://https://twitter.com/boxthemes/',
-					'le_link.' => 'https://linkedin.com.com/boxthemes/',
-				),
+				'copyright' => '2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>',
+				'fb_link' => 'https://fb.com/boxthemes/',
+				'gg_link' => 'https://https://plus.google.com/boxthemes/',
+				'tw_link' => 'https://https://twitter.com/boxthemes/',
+				'le_link.' => 'https://linkedin.com.com/boxthemes/',
 				'currency' => array(
 					'code' => 'USD',
 					'position' => 'left',

@@ -1,10 +1,10 @@
 <?php
 class BX_Credit_Setting{
 	function __construct(){
-		add_action('admin_menu', array($this,'wpdocs_register_my_custom_submenu_page') );
+		add_action('admin_menu', array($this,'box_register_my_custom_submenu_page') );
 	}
 
-	static function wpdocs_register_my_custom_submenu_page() {
+	public function box_register_my_custom_submenu_page() {
 	    add_submenu_page(
 	        BX_Admin::$main_setting_slug,
 	        'Credit order',

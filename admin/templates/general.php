@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $pending_post = false;
-$google_analytic = $coppyright = $tw_link = $fb_link = $gg_link = '' ;
+$google_analytic = $copyright = $tw_link = $fb_link = $gg_link = '' ;
 $group_option = "general";
 $option = BX_Option::get_instance();
 $general = (object)$option->get_group_option($group_option);
@@ -17,8 +17,8 @@ if( isset($general->pending_post) ){
 if( isset($general->google_analytic) ){
 	$google_analytic = $general->google_analytic;
 }
-if( isset($general->coppyright) ){
-	$coppyright = $general->coppyright;
+if( isset($general->copyright) ){
+	$copyright = $general->copyright;
 }
 if( isset($general->tw_link) ){
 	$tw_link = $general->tw_link;
@@ -43,7 +43,7 @@ if( isset($general->gg_link) ){
 		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo stripslashes($google_analytic);?></textarea></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="form-control auto-save" multi="0"  name="coppyright" ><?php echo stripslashes($coppyright);?> </textarea></div>
+		<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="form-control auto-save" multi="0"  name="coppyright" ><?php echo stripslashes($copyright);?> </textarea></div>
 	</div>
 	<div class="full">
 		<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>
