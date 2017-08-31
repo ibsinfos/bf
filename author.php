@@ -111,10 +111,9 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 					}?>
 				</div>
 				<div class="col-md-4 p-activity">
-					<div class="header-title"><h3 class=""> &nbsp;</h3></div>
-					<br />
-					<p><label> Profile link</label> <br /><a class="nowrap" href="<?php get_author_posts_url($profile->post_author);?>"><?php echo get_author_posts_url($profile->post_author);?></a></p>
-					<p><label>Activity</label> <br /> <span>24X7 hours</span></p>
+					<div class="header-title"><h3 class=""> &nbsp;</h3></div> <br />
+					<p> <label> Profile link</label> <br /><a class="nowrap" href="<?php get_author_posts_url($profile->post_author);?>"><?php echo get_author_posts_url($profile->post_author);?></a> </p>
+					<p> <label>Activity</label> <br /> <span>24X7 hours</span> </p>
 				</div>
 			</div>
 
