@@ -24,7 +24,7 @@ Class Box_Email{
 		<meta http-equiv="Content-Type" content="text/html; charset='.bloginfo( 'charset' ).'" />
 		<title>'.get_bloginfo( 'name', 'display' ).'</title>
 		<style type="text/css">
-			#template_header_image img{max-width: 100%; width: 350px; text-align: left;}
+			#template_header_image img{max-width: 100%; width: 350px; text-align: left; padding:15px 0;}
 			#template_header_image{
 				text-align: left;
 				border-bottom: 1px solid #ccc;
@@ -185,4 +185,3 @@ Class Box_Email{
 function box_mail( $to, $subject, $message ) {
 	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
 }
-box_mail('danng@gmail.vn','Register successful', ' congrat Dan');
