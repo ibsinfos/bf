@@ -2,7 +2,7 @@
 	get_header();
 
 	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid;
-	$cvs_id = 0;
+	$cvs_id = $is_owner = $access_workspace = 0;
 	the_post();
 	$role = bx_get_user_role();
 	$project = BX_Project::get_instance()->convert($post);
@@ -58,5 +58,7 @@
 
 	</div>
 </div>
+
 <?php get_template_part( 'template-parts/single','template-js' ); ?>
+
 <?php get_footer();?>
