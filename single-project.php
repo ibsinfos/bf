@@ -2,19 +2,20 @@
 	get_header();
 
 	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid;
-	$cvs_id = $is_owner = $access_workspace = 0;
-	the_post();
-	$role = bx_get_user_role();
-	$project = BX_Project::get_instance()->convert($post);
-	$is_workspace = isset($_GET['workspace']) ? (int) $_GET['workspace'] : 0;
-	$winner_id = $project->{WINNER_ID};
 
-	if( is_owner_project( $project ) ){
+	$cvs_id = $is_owner = $access_workspace = 0;
+	$role = bx_get_user_role();
+
+	$project = BX_Project::get_instance()->convert($post);
+	$winner_id = $project->{WINNER_ID};
+	$is_workspace = isset($_GET['workspace']) ? (int) $_GET['workspace'] : 0;
+
+	if( is_owner_project( $project ) )
 		$is_owner = $project->post_author;
-	}
-	if( can_access_workspace($project) ){
+
+	if( can_access_workspace($project) )
 		$access_workspace = 1;
-	}
+
 	function step_process(){
 		global $project, $access_workspace, $winner_id;
 		if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
@@ -24,6 +25,7 @@
 	    	</ul> <?php
 	    }
 	}
+	the_post();
 ?>
 
 <div <?php post_class('container single-project site-container');?>>
