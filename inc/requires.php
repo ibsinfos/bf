@@ -9,6 +9,7 @@ require get_parent_theme_file_path( '/inc/themes.php' );
 require get_parent_theme_file_path( '/inc/init_hook.php' );
 require get_parent_theme_file_path( '/inc/class_option.php' );
 
+require get_parent_theme_file_path( '/inc/class_mail.php' );
 require get_parent_theme_file_path( '/inc/class_user.php' );
 require get_parent_theme_file_path( '/inc/class_post.php' );
 
