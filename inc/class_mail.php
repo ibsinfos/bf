@@ -59,26 +59,22 @@ Class Box_Email{
 	<body '.$rightmargin.'="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" bgcolor="#ececec">
 		<div id="wrapper" dir="'.$rlt.'">
 			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%">
+
 				<tr>
-					<td align="center" valign="top" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #e9e9e9;">
+					<td align="center" valign="top" cellpadding="0" cellspacing="0" >
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
 								<td align="left" valign="top">
 									<!-- Header -->
 									<table border="0" cellpadding="0" cellspacing="0" width="600" id="image_header">
 										<tr>
-											<td id="image_wrapper"><img   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$url_img.'"></td>
+											<td style="border-bottom:solid 1px #ececec;" id="image_wrapper"><img   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$url_img.'"></td>
 										</tr>
 									</table>
-									<!-- End Header -->
+									<!-- End IMG Header -->
 								</td>
 							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" valign="top" cellpadding="0" cellspacing="0" >
-						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+
 							<tr>
 								<td align="left" valign="top">
 									<!-- Header -->
