@@ -28,6 +28,45 @@ function bx_list_start($score){ ?>
 	</start>
 	<?php
 }
+if( !function_exists('bx_get_static_link')):
+
+	function bx_get_static_link($page_args, $create = false){
+
+		$slug = $page_args;
+		if( is_array($page_args) ){
+			$slug = $page_args['page_template'];
+		}
+		$name = "page-{$slug}-link";
+		$link = wp_cache_get($name, 'static_link');
+
+		if ( false !== $link ) {
+			return $link;
+		}
+		$page = get_pages( array(
+			            'meta_key' 		=> '_wp_page_template',
+			            'meta_value' 	=> 'page-' . $slug . '.php',
+			            'numberposts' 	=> 1,
+			            'post_status' => 'publish',
+			            //'hierarchical' 	=> 0,
+			        ));
+		$id = 0;
+		if( empty($page) ){
+			$args  = array(
+				'post_title' => $slug,
+				'post_type' => 'page',
+				'post_status' => 'publish',
+			);
+			$id = wp_insert_post($args);
+			update_post_meta($id,'_wp_page_template','page-' . $slug . '.php' );
+		} else {
+			$page = array_shift($page);
+	        $id = $page->ID;
+		}
+		$link = get_permalink($id);
+		wp_cache_set( $name, $link, 'static_link');
+	    return $link;
+	}
+endif;
 function box_get_currency_symbol($code){
 	$symbols = array('AED' => '&#x62f;.&#x625;',
 		'AFN' => '&#x60b;',
