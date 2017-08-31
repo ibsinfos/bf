@@ -34,14 +34,12 @@
                 } ?>
 
                 <div class="col-md-3 col-xs-12"> <?php
-
                 	if( ! empty ( $general->contact ) ){
                         echo $general->contact;
                     } else {
                     	echo '<h5 class="footer-list-header">Contact Us</h5><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>
 								<p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p>';
     				} ?>
-
                 </div>
 
             </nav>
