@@ -13,10 +13,10 @@ Class Box_Email{
 	function get_header(){
 		$rlt =  is_rtl() ? "rtl" : "ltr";
 		$rightmargin = is_rtl() ? 'rightmargin' : 'leftmargin';
-		$html_img = '';
+		$url_img = '';
 		$email_heading = 'Register successful';
 		if ( get_option( 'box_email_header_image' ) == '' ) {
-			$html_img = '<img   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'. get_template_directory_uri().'/img/header-email.png">';
+			$url_img =  get_template_directory_uri().'/img/header-email.png';
 		}
 		$header = '<!DOCTYPE html>
 <html dir="'.$rlt.'">
@@ -25,6 +25,7 @@ Class Box_Email{
 		<title>'.get_bloginfo( 'name', 'display' ).'</title>
 		<style type="text/css">
 			#template_header_image img{max-width: 100%; width: 350px; text-align: left; padding:15px 0;}
+			img{max-width:100%;}
 			#template_header_image{
 				text-align: left;
 				border-bottom: 1px solid #ccc;
@@ -66,7 +67,7 @@ Class Box_Email{
 									<!-- Header -->
 									<table border="0" cellpadding="0" cellspacing="0" width="600" id="image_header">
 										<tr>
-											<td id="image_wrapper">'.$html_img.'</td>
+											<td id="image_wrapper"><img   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$url_img.'"></td>
 										</tr>
 									</table>
 									<!-- End Header -->
