@@ -22,12 +22,16 @@ class BX_Install{
 	}
 	public static function install() {
 		global $wpdb;
-
-		self::create_tables();
+		if( (int) get_option( 'is_installed', true ) != 1 ){
+			self::create_tables();
+		}
 	}
 
 	private static function get_schema() {
+
 		global $wpdb;
+
+		update_option('is_installed', 1);
 		$collate = '';
 		if ( $wpdb->has_cap( 'collation' ) ) {
 			$collate = $wpdb->get_charset_collate();
