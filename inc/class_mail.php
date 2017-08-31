@@ -78,9 +78,7 @@ Class Box_Email{
 											<td valign="top">
 												<table border="0" cellpadding="10" cellspacing="0" width="100%">
 													<tr>
-														<td colspan="2" valign="middle" id="credit">
-															'.$foo_txt.'
-														</td>
+														<td colspan="2" valign="middle" id="credit">'.$foo_txt.'</td>
 													</tr>
 												</table>
 											</td>
@@ -109,4 +107,4 @@ $to = 'danng@youngworld.vn';
 $subject = 'Test from localhost';
 $message = 'Hi Dan, This is my email';
 
-$mail = Box_Email::get_instance()->send($to, $subject, $message);
+//$mail = Box_Email::get_instance()->send($to, $subject, $message);
