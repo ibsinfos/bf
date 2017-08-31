@@ -41,7 +41,6 @@
 								<p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p>';
     				} ?>
                 </div>
-
             </nav>
         </div>
         <div class="footer-copyright">
