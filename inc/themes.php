@@ -201,32 +201,37 @@ function count_rating($user_id,$type ='emp_review'){
  * @param   integer $user_ID ID of user ID
  * @return  integer number message unread
  */
-function box_get_notify($user_ID = 0){
+function box_get_notify($user_ID = 0) {
 	global $user_ID, $wpdb;
 	if( !$user_ID ){
 		global $user_ID;
 	}
-	$sql = "SELECT *
-			FROM {$wpdb->prefix}box_messages msg
-				WHERE msg_unread = 1
-				AND	receiver_id = {$user_ID}
-				AND msg_type = 'notify'";
-	//echo $sql;
-	$notifies = $wpdb->get_results($sql);
-	if( $notifies ){
-		$unread = 0;
+	$key = 'notify_of_'.$user_ID;
+	$notifies = wp_cache_get( $key, 'notify' );
 
-		echo '<ul class="ul-notification">';
-		foreach ($notifies as $noti) {
-			if($noti->msg_unread == 1){
-				$unread ++;
-			}
-			echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
+	if( ! $notifies ){
+		$sql = "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s";
+		//echo $sql;
+		$notifies = $wpdb->get_results( $wpdb->prepare( $sql, $user_ID,'notify' ) );
+		if( ! $notifies ) {
+			return false;
 		}
-		echo '</ul>';
-		if( $unread )
-			echo '<span class="notify-acti">'.$unread.'</span>';
+		wp_cache_add( $key, $notifies, 'notify' );
 	}
+
+
+	$unread = 0;
+	echo '<ul class="ul-notification">';
+	foreach ($notifies as $noti) {
+		if($noti->msg_unread == 1){
+			$unread ++;
+		}
+		echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
+	}
+	echo '</ul>';
+	if( $unread )
+		echo '<span class="notify-acti">'.$unread.'</span>';
+
 
 }
 function count_bids($project_id){
