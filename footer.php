@@ -1,11 +1,12 @@
 <?php
     global $general;
+    $args = array( 'first'=>'','second' => '','third' => '');
     $label = array(
         'first_title' => 'Contact Us',
         'second_title' => 'Help & Resources',
         'third_title' => 'Commercial',
     );
-    $args = array( 'first'=>'','second' => '','third' => ''); ?>
+?>
 
     <footer id="main-footer">
         <div class="pre-footer ">
@@ -16,7 +17,7 @@
                    $title_key = $key.'_title';
             		$title =  $label[$title_key];
 
-            		if( isset($general->$title_key) ){
+            		if( isset( $general->$title_key ) ){
             			$title =  $general->$title_key;
             		} ?>
                     <div class="col-md-3 col-xs-4">
@@ -34,7 +35,7 @@
 
                 <div class="col-md-3 col-xs-12"> <?php
 
-                	if( !empty ( $general->contact ) ){
+                	if( ! empty ( $general->contact ) ){
                         echo $general->contact;
                     } else {
                     	echo '<h5 class="footer-list-header">Contact Us</h5><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>
@@ -47,23 +48,8 @@
         </div>
         <div class="footer-copyright">
             <div class="wrapper  container">
-
-                	<div class="col-md-8 col-xs-12">
-                    	<p><?php echo stripslashes($general->copyright);?></p>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                    	<ul class="social-link">
-                    		<?php
-                    		if ( !empty( $general->gg_link ) )
-                    			echo '<li><a class="gg-link"  target="_blank" href="'.esc_url($general->gg_link).'"><span></span></a></li>';
-                    		if ( !empty( $general->tw_link ) )
-                    			echo '<li><a class="tw-link" target="_blank"  href="'.esc_url($general->tw_link).'"><span></span></a></li>';
-                    		if ( !empty( $general->fb_link ) )
-                    			echo '<li><a class="fb-link"  target="_blank" href="'.esc_url($general->fb_link).'"><span></span></a></li>';
-                    		?>
-                    	</ul>
-                    </div>
-
+            	<div class="col-md-8 col-xs-12"> <p><?php echo stripslashes($general->copyright);?></p> </div>
+                <div class="col-md-4 col-xs-12"> <?php box_social_link($general);?> </div>
             </div>
         </div>
     </footer>

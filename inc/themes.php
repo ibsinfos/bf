@@ -289,3 +289,17 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		</li>
 	</ul>
 <?php }
+
+if( ! function_exists( 'box_social_link' ) ){
+	function box_social_link( $general ){ ?>
+		<ul class="social-link">
+    		<?php
+    		if ( !empty( $general->gg_link ) )
+    			echo '<li><a class="gg-link"  target="_blank" href="'.esc_url($general->gg_link).'"><span></span></a></li>';
+    		if ( !empty( $general->tw_link ) )
+    			echo '<li><a class="tw-link" target="_blank"  href="'.esc_url($general->tw_link).'"><span></span></a></li>';
+    		if ( !empty( $general->fb_link ) )
+    			echo '<li><a class="fb-link"  target="_blank" href="'.esc_url($general->fb_link).'"><span></span></a></li>'; ?>
+    	</ul> <?php
+	}
+}
