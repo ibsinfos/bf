@@ -1,32 +1,35 @@
 <?php get_header(); ?>
+<?php
+global $author_id;
+$author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
+$author_id = $author->ID;
+
+$profile_id = get_user_meta($author_id,'profile_id', true);
+
+$profile 	= BX_Profile::get_instance()->convert($profile_id);
+$skills 	= get_the_terms( $profile_id, 'skill' );
+$skill_text = '';
+if ( $skills && ! is_wp_error( $skills ) ){
+	$draught_links = array();
+	foreach ( $skills as $term ) {
+		$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
+	}
+	$skill_text = join( "", $draught_links );
+}
+$url = get_user_meta($author_id,'avatar_url', true);
+$projects_worked = (int) get_user_meta($author_id,PROJECTS_WORKED, true);
+$earned = get_user_meta($author_id, EARNED, true);
+$pcountry = get_the_terms( $profile_id, 'country' );
+?>
 <div class="full-width">
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
 			<div class="bg-section">
 				<div id="author-view" class=" author-view">
 					<div class="full bd-bottom">
-						<?php
-						global $author_id;
-						$author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
-						$author_id = $author->ID;
-
-						$profile_id = get_user_meta($author_id,'profile_id', true);
-
-						$profile 	= BX_Profile::get_instance()->convert($profile_id);
-						$skills 	= get_the_terms( $profile_id, 'skill' );
-						$skill_text = '';
-						if ( $skills && ! is_wp_error( $skills ) ){
-							$draught_links = array();
-							foreach ( $skills as $term ) {
-								$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
-							}
-							$skill_text = join( "", $draught_links );
-						}
-						?>
-				    	<div class="col-md-3 update-avatar align-center no-padding-right">
+						<div class="col-md-3 update-avatar align-center no-padding-right">
 				    		<?php
-				    		$url = get_user_meta($author_id,'avatar_url', true);
-				    		if ( ! empty($url ) ){ echo '<img title="'.$profile->post_title.'" alt="'.$profile->post_title.'" class="avatar" src=" '.$url.'" />';}
+				    		if ( ! empty( $url ) ) { echo '<img title="'.$profile->post_title.'" alt="'.$profile->post_title.'" class="avatar" src=" '.$url.'" />';}
 				    		else {	echo get_avatar($author_id);	}
 				    		?>
 				    	</div>
@@ -54,27 +57,19 @@
 							<?php
 							//$video_id = get_post_meta($profile->ID, 'video_id', true);
 							$video_id = '';
-							if( !empty($video_id)){ ?>
+							if( !empty( $video_id ) ){ ?>
 								<div class="video-container">
 								  <iframe width="635" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $video_id;?>?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 								</div>
 							<?php } ?>
 						</div>
 						<div class="col-md-4">
-							<h3>Profile info</h3>
+
 							<ul class="work-status">
-								<?php
-								$projects_worked = get_user_meta($author_id,PROJECTS_WORKED, true);
-								$earned = get_user_meta($author_id, EARNED, true);
-								$pcountry = get_the_terms( $profile_id, 'country' );
-								if( !$projects_worked ){
-									$projects_worked = 0;
-									$earned = 0;
-								}
-								?>
+								<li><label><h3>Profile info &nbsp;</h3></label> </li>
 								<li><label> Job worked: </label> <?php echo  $projects_worked;?></li>
 								<li><label> Total earn: </label><?php  echo $earned;?></li>
-								<li><label>Country:</label><?php if( !empty($pcountry) ){ echo $pcountry[0]->name; } ?></li>
+								<li><label>Country:</label><?php if( !empty( $pcountry ) ){ echo $pcountry[0]->name; } ?></li>
 						      	<li><label> Language:</label> English </li>
 							</ul>
 						</div>
@@ -101,8 +96,7 @@
 								<div class="col-md-2 no-padding-right"><?php _e('Date','boxtheme');?> </div>
 								<div class="col-md-8"> <?php _e('Description','boxtheme');?>	</div>
 								<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
-							</div>
-							<?php
+							</div> <?php
 							while( $result->have_posts()){
 								global $post;
 								$result->the_post();
@@ -113,10 +107,7 @@
 						<?php bx_pagenate($result);
 
 					} else {
-						echo '<p>';
-						echo '<br />';
-						_e('There is not any feedback','boxtheme');
-						echo '</p>';
+						echo '<p>';	echo '<br />'; _e('There is not any feedback','boxtheme'); echo '</p>';
 					}?>
 				</div>
 				<div class="col-md-4 p-activity">
@@ -130,43 +121,37 @@
 			<!-- end history + feedback line !-->
 			<!-- Line portfortlio !-->
 
+			<?php
+			$args = array(
+					'post_type' 	=> 'portfolio',
+					'author' 		=> $author_id,
+				);
+			$result =  new WP_Query($args);
+			$i = 0;
+
+			if( $result->have_posts() ){ ?>
+				<div class="bg-section">
+				<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
+				<div class="col-md-12 res-line">
 				<?php
-				$args = array(
-						'post_type' 	=> 'portfolio',
-						'author' 		=> $author_id,
-					);
-				$result =  new WP_Query($args);
-				$i = 0;
-
-				if( $result->have_posts() ){ ?>
-					<div class="bg-section">
-					<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
-					<div class="col-md-12 res-line">
-					<?php
-					while ($result->have_posts()) {
-						$class = "middle-item";
-						if($i %3 == 0)
-							$class = "no-padding-left";
-						if($i%3==2)
-							$class = "no-padding-right";
-
-						$result->the_post();
-						echo '<div class="col-md-4 port-item '.$class.'">';
-							the_post_thumbnail('full' ); ?>
-							<h5 class="h5 port-title"><?php the_title();?></h5>
-							<?php
-						echo '</div>';
-						$i++;
-					}
+				while ($result->have_posts()) {
+					$class = "middle-item";
+					if($i %3 == 0) $class = "no-padding-left";
+					if($i%3==2) $class = "no-padding-right";
+					$result->the_post();
+					echo '<div class="col-md-4 port-item '.$class.'">';
+						the_post_thumbnail('full' ); ?>
+						<h5 class="h5 port-title"><?php the_title();?></h5>
+						<?php
 					echo '</div>';
-					echo '</div>';
-				} else {
-					echo '<p>';
-						echo '<br />';
-						//_e('Portfolio is empty.','boxtheme');
-						echo '</p>';
+					$i++;
 				}
-				?>
+				echo '</div>';
+				echo '</div>';
+			} else {
+				echo '<p>';	echo '<br />';	echo '</p>';
+			}
+			?>
 		</div>
 	</div>
 <?php get_footer();?>
