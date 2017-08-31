@@ -202,17 +202,15 @@ function count_rating($user_id,$type ='emp_review'){
  * @return  integer number message unread
  */
 function box_get_notify($user_ID = 0){
-	global $user_ID;
+	global $user_ID, $wpdb;
 	if( !$user_ID ){
 		global $user_ID;
 	}
-
-	global $wpdb;
 	$sql = "SELECT *
 			FROM {$wpdb->prefix}box_messages msg
-					WHERE msg_unread = 1
-					AND	receiver_id = {$user_ID}
-					AND msg_type = 'notify' ";
+				WHERE msg_unread = 1
+				AND	receiver_id = {$user_ID}
+				AND msg_type = 'notify'";
 	//echo $sql;
 	$notifies = $wpdb->get_results($sql);
 	if( $notifies ){
@@ -226,7 +224,7 @@ function box_get_notify($user_ID = 0){
 			echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
 		}
 		echo '</ul>';
-		if($unread)
+		if( $unread )
 			echo '<span class="notify-acti">'.$unread.'</span>';
 	}
 
