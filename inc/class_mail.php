@@ -58,8 +58,19 @@ Class Box_Email{
 			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%">
 				<tr>
 					<td align="center" valign="top">
-						<div id="template_header_image"> '.$html_img.'</div>
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+							<tr>
+								<td align="center" valign="top">
+									<!-- Header -->
+									<table border="0" cellpadding="0" cellspacing="0" width="600" id="image_header">
+										<tr>
+											<td id="image_wrapper">'.$html_img.'</td>
+										</tr>
+									</table>
+									<!-- End Header -->
+								</td>
+							</tr>
+
 							<tr>
 								<td align="center" valign="top">
 									<!-- Header -->
