@@ -270,7 +270,7 @@ class BX_AJAX {
 
 			$message = sprintf( __('<p>Hi %d, <br />Thank you for register.</p>Click here to active your <a href="%s">Active your account </a>.<br /> or copy this link %s and patest into address link to veryfy your account.','boxtheme'), $link, $link );
 			$subject = sprintf( __('Congratulations! You have successfully registered to %s.','boxtheme'), get_bloginfo('name') );
-			Box_Email::get_instance()->send_mail($request['user_email'], $subject, $message);
+			Box_Email::get_instance()->send_mail( $request['user_email'], $subject, $message );
 
 		} else {
 			$response['msg'] =  $user_id->get_error_message();
