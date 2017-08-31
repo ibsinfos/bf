@@ -68,7 +68,7 @@ Class Box_Email{
 									<!-- Header -->
 									<table border="0" cellpadding="0" cellspacing="0" width="600" id="image_header">
 										<tr>
-											<td style="border-bottom:solid 1px #ececec;" id="image_wrapper"><img   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$url_img.'"></td>
+											<td style="border-bottom:solid 1px #ececec;" id="image_wrapper"><img width="75%" style="display:block;margin:0 auto; padding:15px 0;"   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$url_img.'"></td>
 										</tr>
 									</table>
 									<!-- End IMG Header -->
@@ -78,7 +78,7 @@ Class Box_Email{
 							<tr>
 								<td align="left" valign="top">
 									<!-- Header -->
-									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header" >
+									<table border="0" cellpadding="15" cellspacing="0" width="600" id="template_header" >
 										<tr>
 											<td id="header_wrapper">
 												<h1>'.$email_heading.'</h1>
@@ -117,10 +117,10 @@ Class Box_Email{
 							<tr>
 								<td align="center" valign="top" bgcolor="#33cc66">
 									<!-- Footer -->
-									<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer">
+									<table border="0" cellpadding="15" cellspacing="0" width="600" id="template_footer">
 										<tr>
 											<td valign="top">
-												<table border="0" cellpadding="10" cellspacing="0" width="100%">
+												<table border="0" cellpadding="0" cellspacing="0" width="100%">
 													<tr>
 														<td colspan="2" valign="middle" id="credit">
 														© 2009-2017. Depositphotos, Inc. USA.
@@ -137,12 +137,12 @@ Class Box_Email{
 
 							<tr>
 								<td valign="top" bgcolor="#33cc66">
-									<table border="0" cellpadding="10" cellspacing="0" width="228px" align="center">
+									<table border="0" cellpadding="15" cellspacing="0" width="228px" align="left">
 										<tr>
-											<td colspan="2" valign="middle" id="credit"><h3> Connect Us</h3></td>
+											<td colspan="2" valign="middle" id="credit"><h3 style="padding:0; margin:0;"> Connect Us</h3></td>
 										</tr>
 									</table>
-									<table border="0" class="connect-us" cellpadding="10" cellspacing="0" width="150" align="right">
+									<table border="0" class="connect-us" cellpadding="15" cellspacing="0" width="150" align="right">
 										<tr>
 											<td colspan="2" valign="middle" id="credit">
 												<a algin="right"  href="#"><img src="'.get_template_directory_uri().'/img/email-fb.png"></a>
@@ -166,12 +166,12 @@ Class Box_Email{
 	function send_mail( $to, $subject, $message ){
 		$header = $this->get_header();
 		$footer = $this->get_footer();
-		$message = $header.$message.$footer;
+		$msg = $header.$message.$footer;
 
 		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
-		return  wp_mail( $to, $subject, $message );
+		return  wp_mail( $to, $subject, $msg );
 		remove_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		remove_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		remove_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
@@ -192,7 +192,7 @@ Class Box_Email{
 		return wp_specialchars_decode( esc_html( $from_name ), ENT_QUOTES );
 	}
 	public function get_from_address() {
-		$from_address = 'abc@abc.vn';
+		$from_address = 'admin@lab.boxthemes.net';
 		return sanitize_email( $from_address );
 	}
 
