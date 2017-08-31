@@ -19,7 +19,7 @@
 									<span class="plan-name"><?php the_title();?></span>
 								</header>
 					    		<div class="plan-features">
-					    		<span class="plan-monthly primary-color"><?php box_price_format($price);?></span>
+					    		<span class="plan-monthly primary-color"><?php box_price($price);?></span>
 					    		<span class="pack-des">	<?php the_content();?> </span>
 								</div>
 					            <a class="btn btn-primary btn-xlarge " href="">TRAIL NOW</a>

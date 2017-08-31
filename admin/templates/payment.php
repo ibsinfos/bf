@@ -35,7 +35,7 @@ if( !empty($currency->price_decimal_sep) ){
 		<div class="form-group row">
 			<div class="col-md-3"> <span><?php _e('Select currency','boxtheme');?></span> 		</div>
 			<div class="col-md-9">
-	        	<select name="currency" id="woocommerce_currency" style="min-width: 350px;" class="wc-enhanced-select enhanced auto-save" tabindex="-1" title="Currency">
+	        	<select name="code" id="woocommerce_currency" style="min-width: 350px;" class="wc-enhanced-select enhanced auto-save" tabindex="-1" title="Currency">
 		        	<?php
 		        	$list = list_currency();
 		        	foreach ($list as $cur => $value) { ?>

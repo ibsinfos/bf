@@ -169,34 +169,7 @@ function is_current_user_bidded($project_id){
 }
 function countr_of_user($profile){
 }
-function box_price($price,$echo = true){
 
-	global $currency_code,$currency_sign;
-	$string = $price.'<span class="currency-icon">('.$currency_sign.') </span>';
-
-	echo  $string;
-}
-function box_price_format($price,$echo = true){
-
-	global $currency_code,$currency_sign;
-	$string = $price.'<span class="currency-icon">('.$currency_sign.') </span>';
-
-	echo  $string;
-}
-function get_box_price($price){
-	global $currency_code,$currency_sign;
-	return $price.'<span class="currency-icon">('.$currency_sign.') </span>';
-}
-function bx_list_start($score){?>
-	<start class="rating-score clear block core-<?php echo $score;?>">
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-	</start>
-	<?php
-}
 function count_rating($user_id,$type ='emp_review'){
 	global $wpdb;
 	//comment_type

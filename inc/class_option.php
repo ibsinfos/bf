@@ -156,6 +156,6 @@ function box_get_pay_info($bid_price){
 
 	}
 	return (object)$result;
-
 }
+
 ?>
