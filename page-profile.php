@@ -127,9 +127,4 @@
         <button type="submit" class="btn btn-primary"><?php _e('Save','button');?></button>
     </div>
 </script>
-<script type="text/javascript">
-(function($){
-
-})(jQuery);
-</script>
 <?php get_footer();?>
