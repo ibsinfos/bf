@@ -13,23 +13,52 @@ Class Box_Email{
 	function get_header(){
 		$rlt =  is_rtl() ? "rtl" : "ltr";
 		$rightmargin = is_rtl() ? 'rightmargin' : 'leftmargin';
-		$img = '';
-		$email_heading = 'BOXTHEMES';
-		if ( get_option( 'box_email_header_image' ) != '' ) {
-			$img =  '<p style="margin-top:0;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>';
+		$html_img = '';
+		$email_heading = 'Register successful';
+		if ( get_option( 'box_email_header_image' ) == '' ) {
+			$html_img = '<img   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'. get_template_directory_uri().'/img/header-email.png">';
 		}
 		$header = '<!DOCTYPE html>
 <html dir="'.$rlt.'">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset='.bloginfo( 'charset' ).'" />
 		<title>'.get_bloginfo( 'name', 'display' ).'</title>
+		<style type="text/css">
+			#template_header_image img{max-width: 100%; width: 350px; text-align: left;}
+			#template_header_image{
+				text-align: left;
+				border-bottom: 1px solid #ccc;
+				padding: 0 15px;
+			}
+			#header_wrapper{
+				padding: 0 15px;
+			}
+			body{
+				width: 100%;
+				background: #ececec;
+			}
+			.main-body{
+				width: 450px;
+				margin:0 auto;
+				background: #fff;
+
+			}
+			#template_footer{
+				background: #
+			}
+			#body_content{
+				padding-bottom: 35px;
+			}
+			h3{ margin:0; padding:0;}
+			.connect-us a{ padding:0 5px;}
+		</style>
 	</head>
 	<body '.$rightmargin.'="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
 		<div id="wrapper" dir="'.$rlt.'">
-			<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
+			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%">
 				<tr>
 					<td align="center" valign="top">
-						<div id="template_header_image"> '.$img.'</div>
+						<div id="template_header_image"> '.$html_img.'</div>
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
 								<td align="center" valign="top">
@@ -71,22 +100,45 @@ Class Box_Email{
 								</td>
 							</tr>
 							<tr>
-								<td align="center" valign="top">
+								<td align="center" valign="top" bgcolor="#33cc66">
 									<!-- Footer -->
 									<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer">
 										<tr>
 											<td valign="top">
 												<table border="0" cellpadding="10" cellspacing="0" width="100%">
 													<tr>
-														<td colspan="2" valign="middle" id="credit">'.$foo_txt.'</td>
+														<td colspan="2" valign="middle" id="credit">
+														© 2009-2017. Depositphotos, Inc. USA.
+														All Rights Reserved.</td>
 													</tr>
 												</table>
 											</td>
 										</tr>
+
 									</table>
 									<!-- End Footer -->
 								</td>
 							</tr>
+
+							<tr>
+								<td valign="top" bgcolor="#33cc66">
+									<table border="0" cellpadding="10" cellspacing="0" width="228px" align="left">
+										<tr>
+											<td colspan="2" valign="middle" id="credit"><h3> Connect Us</h3></td>
+										</tr>
+									</table>
+									<table border="0" class="connect-us" cellpadding="10" cellspacing="0" width="150" align="right">
+										<tr>
+											<td colspan="2" valign="middle" id="credit">
+												<a algin="right"  href="#"><img src="'.get_template_directory_uri().'/img/email-fb.png"></a>
+												<a algin="right" href="#"><img src="'.get_template_directory_uri().'/img/email-tw.png"></a>
+												<a algin="right" href="#"><img src="'.get_template_directory_uri().'/img/email-gg.png"></a>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+
 						</table>
 					</td>
 				</tr>
@@ -99,12 +151,38 @@ Class Box_Email{
 	function send_mail( $to, $subject, $message ){
 		$header = $this->get_header();
 		$footer = $this->get_footer();
-		$html = $header.$message.$footer;
-		return wp_mail($to, $subject, $html);
-	}
-}
-$to = 'danng@youngworld.vn';
-$subject = 'Test from localhost';
-$message = 'Hi Dan, This is my email';
+		$message = $header.$message.$footer;
 
-//$mail = Box_Email::get_instance()->send($to, $subject, $message);
+		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
+		add_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
+		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
+		return  wp_mail( $to, $subject, $message );
+		remove_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
+		remove_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
+		remove_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
+	}
+	public function get_content_type() {
+		return 'text/html';
+		// switch ( $this->get_email_type() ) {
+		// 	case 'html' :
+		// 		return 'text/html';
+		// 	case 'multipart' :
+		// 		return 'multipart/alternative';
+		// 	default :
+		// 		return 'text/plain';
+		// }
+	}
+	function get_from_name(){
+		$from_name = 'From BoxThemes';
+		return wp_specialchars_decode( esc_html( $from_name ), ENT_QUOTES );
+	}
+	public function get_from_address() {
+		$from_address = 'abc@abc.vn';
+		return sanitize_email( $from_address );
+	}
+
+}
+function box_mail( $to, $subject, $message ) {
+	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
+}
+box_mail('danng@gmail.vn','Register successful', ' congrat Dan');
