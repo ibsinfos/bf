@@ -82,6 +82,8 @@
 	},
 	submitSignup: function(event){
 		var action = 'bx_signup', method = 'insert';
+		$("#loginErrorMsg").html('');
+		$("#loginErrorMsg").addClass("hide");
 		var success =  function(res){
         	if ( res.success ){
         		window.location.href = res.redirect_url;
