@@ -52,7 +52,7 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 					<div class="full bd-bottom">
 						<div class="col-sm-8 text-justify">
 
-							<h3>  <?php printf(__('Overviews','boxtheme'), $profile->post_title);?></h3>
+							<h3>  <?php _e('Overviews','boxtheme');?> </h3>
 							<div class="full author-overview"><?php echo $profile->post_content;?></div>
 							<?php
 							//$video_id = get_post_meta($profile->ID, 'video_id', true);
@@ -123,30 +123,30 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 
 			<?php
 			$args = array(
-					'post_type' 	=> 'portfolio',
-					'author' 		=> $author_id,
-				);
+				'post_type' 	=> 'portfolio',
+				'author' 		=> $author_id,
+			);
 			$result =  new WP_Query($args);
 			$i = 0;
 
 			if( $result->have_posts() ){ ?>
 				<div class="bg-section">
-				<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
-				<div class="col-md-12 res-line">
-				<?php
-				while ($result->have_posts()) {
-					$class = "middle-item";
-					if($i %3 == 0) $class = "no-padding-left";
-					if($i%3==2) $class = "no-padding-right";
-					$result->the_post();
-					echo '<div class="col-md-4 port-item '.$class.'">';
-						the_post_thumbnail('full' ); ?>
-						<h5 class="h5 port-title"><?php the_title();?></h5>
-						<?php
+					<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
+					<div class="col-md-12 res-line">
+					<?php
+					while ($result->have_posts()) {
+						$class = "middle-item";
+						if($i %3 == 0) $class = "no-padding-left";
+						if($i%3==2) $class = "no-padding-right";
+						$result->the_post();
+						echo '<div class="col-md-4 port-item '.$class.'">';
+							the_post_thumbnail('full' ); ?>
+							<h5 class="h5 port-title"><?php the_title();?></h5>
+							<?php
+						echo '</div>';
+						$i++;
+					}
 					echo '</div>';
-					$i++;
-				}
-				echo '</div>';
 				echo '</div>';
 			} else {
 				echo '<p>';	echo '<br />';	echo '</p>';
