@@ -58,11 +58,11 @@ Class Box_Email{
 
 	<body '.$rightmargin.'="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" bgcolor="#ececec">
 		<div id="wrapper" dir="'.$rlt.'">
-			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%">
+			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%" bgcolor="#ececec">
 
 				<tr>
 					<td align="center" valign="top" cellpadding="0" cellspacing="0" >
-						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container" bgcolor="#fff">
 							<tr>
 								<td align="left" valign="top">
 									<!-- Header -->
@@ -81,7 +81,7 @@ Class Box_Email{
 									<table border="0" cellpadding="15" cellspacing="0" width="600" id="template_header" >
 										<tr>
 											<td id="header_wrapper">
-												<h1>'.$email_heading.'</h1>
+												<h1 style="margin:0; padding:0;">'.$email_heading.'</h1>
 											</td>
 										</tr>
 									</table>
