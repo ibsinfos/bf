@@ -8,13 +8,11 @@
 ?>
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
-		<div class="col-md-7">
-			<?php echo '<h3> Workspace of project <i>'.$project->post_title.'</i></h3>'; ?>
-		</div>
+		<div class="col-md-7"><h3> <?php _e('Workspace place','boxtheme');?> </h3> </div>
 		<div class="col-md-5">
-			<div class="full align-right f-right ws-btn-action">
-				<?php
-				if($project->post_status =='awarded' ){
+			<div class="full align-right f-right ws-btn-action"> <?php
+
+				if( $project->post_status =='awarded' ){
 
 					if( $user_ID == $project->post_author ){ // employer  ?>
 
@@ -22,22 +20,23 @@
 						<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Finish</button>
 						<?php }
 
-					} else if( $user_ID == $winner_id && !$is_fre_review) { // freelancer ?>
+				} else if( $user_ID == $winner_id && !$is_fre_review) { // freelancer ?>
 
 						<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Complete</button>
 						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php_e('Quit','boxtheme');?></button> <?php
 
-					} else if( $project->post_status == 'done' && $user_ID == $winner_id && !$is_fre_review) { ?>
-
+				} else if( $project->post_status == 'done' && $user_ID == $winner_id && !$is_fre_review) { ?>
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><?php _e('Review','boxtheme');?></button> <?php
-					} ?>
+
+				} ?>
+
 			</div>
 		</div>
-	</div>
-	<?php _e('Excerpt:','boxtheme'); ?>
-	<div class="ws-project-des"><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div>
+	</div><?php
 
-	<?php
+	_e('Excerpt:','boxtheme'); ?>
+
+	<div class="ws-project-des" ><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div> 	<?php
 
 	if($project->post_status == DONE){
 		echo '<div class="full review-section">'; ?>
@@ -77,18 +76,16 @@
 			$fre_comment = get_comments($args);
 			if( ! empty( $fre_comment) ) {
 				echo '<div class="full rating-line">';
-				echo '<label>'.__('Freelancer review:','boxtheme').'</label>';
-				$rating_score = get_comment_meta( $fre_comment[0]->comment_ID, RATING_SCORE, true );
-				bx_list_start($rating_score);
-				echo '<i>'.$fre_comment[0]->comment_content.'</i>';
-
+					echo '<label>'.__('Freelancer review:','boxtheme').'</label>';
+					$rating_score = get_comment_meta( $fre_comment[0]->comment_ID, RATING_SCORE, true );
+					bx_list_start($rating_score);
+					echo '<i>'.$fre_comment[0]->comment_content.'</i>';
 				echo '</div>';
 			}
-
 		echo '</div>';
-	}
-	?>
-	<?php echo '<h3>'.__('Chat coversation','boxtheme').'</h3>'; ?>
+	} ?>
+
+	<h3> <?php _e('Chat coversation','boxtheme');?></h3>
 	<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
 <?php show_conversation($winner_id, $project->ID, $cvs_id); ?>
 
@@ -99,7 +96,7 @@
 	<?php step_process();?>
 
 	<div class="full">
-		<h3>Project:</h3>
+		<h3>Process info:</h3>
 		<ul class="none-style">
 			<?php
 			$status = array('awarded' => 'Working',
@@ -140,10 +137,7 @@
 		           echo '<span id="'.$attachment->ID.'" class="btn-del-attachment">(x)</span> </li>';
 		        }
 		    }
-		    echo '</ul>';
-
-			?>
+		    echo '</ul>'; ?>
 		</div>
-
 	</div>
 </div>
