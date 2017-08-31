@@ -49,10 +49,7 @@
 				<?php signup_nonce_fields(); ?>
 
 				<div class="form-group row">
-				<div class="col-md-12">
-				    <button class="btn btn-action btn-xlarge" type="submit">SIGN UP</button>
-				</div>
-
+					<div class="col-md-12">	<button class="btn btn-action btn-xlarge" type="submit">SIGN UP</button> </div>
 				</div>
 
 			</form>
