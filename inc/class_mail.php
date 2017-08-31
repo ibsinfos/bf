@@ -96,7 +96,7 @@ Class Box_Email{
 </html>';
 		return $footer;
 	}
-	function send($to, $subject, $message){
+	function send_mail($to, $subject, $message){
 		$header = $this->get_header();
 		$footer = $this->get_footer();
 		$html = $header.$message.$footer;

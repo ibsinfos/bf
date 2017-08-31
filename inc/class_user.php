@@ -26,9 +26,7 @@ class BX_User{
 		$roles_set = false;
 		get_option('jobseeker_role_is_set');
 	    if ( !$roles_set ){
-		// remove_role(FREELANCER);
-		// remove_role('JOBSEEKER');
-		// remove_role(EMPLOYER);
+
 	        add_role(FREELANCER, 'Freelancer', array(
 	            'read' => true,
 	            //'edit_posts' => true,
@@ -45,8 +43,6 @@ class BX_User{
 	    if(!$roles_set){
 	        add_role( EMPLOYER, 'Employer', array(
 	            'read' => true,
-	            //'edit_posts' => true,
-	            //'delete_posts' => true,
 	            'upload_files' => true
 	        ));
 	        $role = get_role( EMPLOYER );

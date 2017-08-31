@@ -268,8 +268,9 @@ class BX_AJAX {
 			$link = bx_get_static_link('verify');
 			$link = add_query_arg( array('user_login' => $user_login,  'key' => $activation_key) , $link );
 
-			$message = sprintf( __('Thank you for register. Click here to active your <a href="%s">Active your account </a>.<br /> or copy this link %s and patest into address link to veryfy your account.','boxtheme'), $link, $link );
-			$test = wp_mail( $request['user_email'], 'Confirm your account', $message );
+			$message = sprintf( __('<p>Hi %d, <br />Thank you for register.</p>Click here to active your <a href="%s">Active your account </a>.<br /> or copy this link %s and patest into address link to veryfy your account.','boxtheme'), $link, $link );
+			$subject = sprintf( __('Congratulations! You have successfully registered to %s.','boxtheme'), get_bloginfo('name') );
+			Box_Email::get_instance()->send_mail($request['user_email'], $subject, $message);
 
 		} else {
 			$response['msg'] =  $user_id->get_error_message();
