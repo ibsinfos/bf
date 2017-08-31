@@ -43,9 +43,7 @@ Class Box_Email{
 				background: #fff;
 
 			}
-			#template_footer{
-				background: #
-			}
+
 			#body_content{
 				padding-bottom: 35px;
 			}
@@ -53,11 +51,15 @@ Class Box_Email{
 			.connect-us a{ padding:0 5px;}
 		</style>
 	</head>
-	<body '.$rightmargin.'="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+
+
+
+
+	<body '.$rightmargin.'="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" bgcolor="#ececec">
 		<div id="wrapper" dir="'.$rlt.'">
 			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%">
 				<tr>
-					<td align="center" valign="top">
+					<td align="left" valign="top" style="border-left-width: 1px; border-left-style: solid; border-left-color: #e9e9e9;">
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
 								<td align="center" valign="top">
@@ -71,10 +73,16 @@ Class Box_Email{
 								</td>
 							</tr>
 
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td align="left" valign="top" cellpadding="0" cellspacing="0" >
+						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
-								<td align="center" valign="top">
+								<td align="left" valign="top">
 									<!-- Header -->
-									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
+									<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header" >
 										<tr>
 											<td id="header_wrapper">
 												<h1>'.$email_heading.'</h1>
@@ -133,7 +141,7 @@ Class Box_Email{
 
 							<tr>
 								<td valign="top" bgcolor="#33cc66">
-									<table border="0" cellpadding="10" cellspacing="0" width="228px" align="left">
+									<table border="0" cellpadding="10" cellspacing="0" width="228px" align="center">
 										<tr>
 											<td colspan="2" valign="middle" id="credit"><h3> Connect Us</h3></td>
 										</tr>
