@@ -59,10 +59,10 @@ Class Box_Email{
 		<div id="wrapper" dir="'.$rlt.'">
 			<table border="0" cellpadding="0" class="main-body" cellspacing="0" height="100%" width="100%">
 				<tr>
-					<td align="left" valign="top" style="border-left-width: 1px; border-left-style: solid; border-left-color: #e9e9e9;">
+					<td align="center" valign="top" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #e9e9e9;">
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
-								<td align="center" valign="top">
+								<td align="left" valign="top">
 									<!-- Header -->
 									<table border="0" cellpadding="0" cellspacing="0" width="600" id="image_header">
 										<tr>
@@ -72,12 +72,11 @@ Class Box_Email{
 									<!-- End Header -->
 								</td>
 							</tr>
-
 						</table>
 					</td>
 				</tr>
 				<tr>
-					<td align="left" valign="top" cellpadding="0" cellspacing="0" >
+					<td align="center" valign="top" cellpadding="0" cellspacing="0" >
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
 								<td align="left" valign="top">
