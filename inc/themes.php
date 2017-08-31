@@ -210,29 +210,24 @@ function box_get_notify($user_ID = 0) {
 	$notifies = wp_cache_get( $key, 'notify' );
 
 	if( ! $notifies ){
-		$sql = "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s";
-		//echo $sql;
-		$notifies = $wpdb->get_results( $wpdb->prepare( $sql, $user_ID,'notify' ) );
+		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $user_ID,'notify' ) );
+
 		if( ! $notifies ) {
 			return false;
 		}
 		wp_cache_add( $key, $notifies, 'notify' );
 	}
-
-
 	$unread = 0;
 	echo '<ul class="ul-notification">';
-	foreach ($notifies as $noti) {
-		if($noti->msg_unread == 1){
-			$unread ++;
+		foreach ($notifies as $noti) {
+
+			if($noti->msg_unread == 1)
+				$unread ++;
+			echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
 		}
-		echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
-	}
 	echo '</ul>';
 	if( $unread )
 		echo '<span class="notify-acti">'.$unread.'</span>';
-
-
 }
 function count_bids($project_id){
 	global $wpdb;
