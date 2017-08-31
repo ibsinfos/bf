@@ -144,10 +144,19 @@ Class Box_Email{
 									</table>
 									<table border="0" class="connect-us" cellpadding="15" cellspacing="0" width="150" align="right">
 										<tr>
-											<td colspan="2" valign="middle" id="credit">
-												<a algin="right"  href="#"><img src="'.get_template_directory_uri().'/img/email-fb.png"></a>
-												<a algin="right" href="#"><img src="'.get_template_directory_uri().'/img/email-tw.png"></a>
-												<a algin="right" href="#"><img src="'.get_template_directory_uri().'/img/email-gg.png"></a>
+											<td colspan="2" valign="middle" id="credit">';
+											global $general;
+											$social_link = '';
+											if ( !empty( $general->fb_link ) )
+							    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'">'.get_template_directory_uri().'/img/email-fb.png.'.'</a></li>';
+								    		if ( !empty( $general->tw_link ) )
+								    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->tw_link).'">'.get_template_directory_uri().'/img/email-tw.png.'.'</a></li>';
+
+								    		if ( !empty( $general->gg_link ) )
+								    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->gg_link).'">'.get_template_directory_uri().'/img/email-gg.png.'.'</a></li>';
+
+								    		$social_link . ='
+
 											</td>
 										</tr>
 									</table>
