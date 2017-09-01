@@ -30,7 +30,7 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 				<div class="tab-content">
 					<div id="widthdraw" class="tab-content-item">
 						<form>
-							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
+
 							<div class="form-group">
 								<label for="account_name"><?php _e('Amout','boxtheme');?></label>
 								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
@@ -127,9 +127,9 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 		$(document).ready(function(){
 			console.log('123');
 			$(".nav-tabs a").click(function(event){
+				$(".nav-tabs li").removeClass('active');
 				var _this = $(event.currentTarget);
-				console.log('123');
-				console.log(_this);
+				_this.closest("li").addClass('active');
 				var section = _this.attr('href');
 				$(".tab-content-item").addClass('hidding');
 				$(section).removeClass('hidding');
