@@ -232,7 +232,7 @@ Class BX_Credit {
 			return new WP_Error( 'not_enough', __( "Your amout must bigger than 15$", "boxtheme" ) );
 
 		if( $ballance->available < $amout ){
-			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
+			return new WP_Error( 'not_enough', __( "Your ballance does not enough to perform this withdraw.", "boxtheme" ) );
 		}
 		$this->subtract_credit_available($user_ID, $amout);
 		//create order
