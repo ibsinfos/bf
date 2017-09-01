@@ -48,6 +48,7 @@ class BX_AJAX {
 			'custom_avatar' 		=> false,
 			'social_signup' 		=> true,
 
+			'request_widthraw' => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -764,9 +765,7 @@ class BX_AJAX {
 	}
 	static function custom_avatar(){
 
-
 		global $user_ID;
-
 		$request = $_REQUEST['request'];
 		$avatar_att_id = $request['avatar_att_id'];
 		$avatar_url = wp_get_attachment_url($avatar_att_id);
@@ -796,6 +795,21 @@ class BX_AJAX {
 			}
 
 			$response = array('success' => false,'msg'=> $result->get_error_message(), 'redirect_url' => $redirect_url );
+		}
+		wp_send_json( $response );
+	}
+	static function request_widthraw(){
+
+		$request= $_REQUEST['request'];
+		$amout = $request['withdraw_amout'];
+		$type = $request['withdraw_type'];
+		$response = array( 'success' => true,'msg'=> 'Widthdraw done' );
+
+
+		$credit = BX_Credit::get_instance();
+		$result = $credit->widthraw($amout);
+		if( ! is_wp_error( $result ) ){
+			$response['msg'] = $result->get_message();
 		}
 		wp_send_json( $response );
 	}

@@ -29,18 +29,17 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 				</ul>
 				<div class="tab-content">
 					<div id="widthdraw" class="tab-content-item">
-						<form>
-
+						<form id="frm_widthdraw">
 							<div class="form-group">
-								<label for="account_name"><?php _e('Amout','boxtheme');?></label>
-								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
-								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+								<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
+								<input type="text" class="form-control" id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
+								<small id="withdraw_amout" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
 							</div>
 							<div class="form-group">
-								<label for="account_number"><?php _e('Select type','boxtheme');?></label>
-								<select class="form-control">
-									<option> PayPal</option>
-									<option> Bank Account</option>
+								<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
+								<select class="form-control" name="withdraw_type">
+									<option value="paypal"> PayPal</option>
+									<option value="banking"> Bank Account</option>
 								</select>
 							</div>
 							<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
@@ -115,6 +114,11 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 	}
 	.tab-content-item{
 		min-height: 299px;
+	}
+	.tab-content-item form{
+		padding: 25px 15px;
+		border:1px solid #ddd;
+		border-top: 0;
 	}
 	.tab-withdraw{}
 	.tab-content .hidding{

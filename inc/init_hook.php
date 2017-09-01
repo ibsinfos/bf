@@ -478,6 +478,10 @@ function boxtheme_scripts() {
 		wp_enqueue_script( 'dashboard-js', get_theme_file_uri( '/assets/js/dashboard.js' ), array( 'front' ), BX_VERSION, true );
 		wp_enqueue_style( 'dashboard-css', get_theme_file_uri( '/assets/css/dashboard.css' ), array( 'boxtheme-style' ), BX_VERSION );
 	}
+	if( is_page_template('page-credit.php' ) ){
+		wp_enqueue_script( 'credit-js', get_theme_file_uri( '/assets/js/credit.js' ), array( 'front' ), BX_VERSION, true );
+
+	}
 
 	if( is_post_type_archive( PROJECT ) ){
 		wp_enqueue_script( 'ion.rangeSlider', get_theme_file_uri( '/assets/js/ion.rangeSlider.js' ), array('jquery','front'), BX_VERSION, true );

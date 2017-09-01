@@ -210,9 +210,8 @@ Class BX_Credit {
 			$this->increase_credit_available($order->post_author, $order->amout);
 
 		} catch(Exception  $e){
-
 			$code = $e->getCode();
-			var_dump($code);
+
 			if($code == 101){
 				// update order to pending
 			}
@@ -222,5 +221,16 @@ Class BX_Credit {
 			return false;
 		}
 		return true;
+	}
+	function widthraw( $amout){
+
+		global $user_ID;
+
+		$ballance = $this->get_ballance($user_ID);
+
+		if( $ballance->available < $amout ){
+			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
+		}
+
 	}
 }
