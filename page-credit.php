@@ -22,30 +22,71 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 			</div>
 
 			<div class="col-md-12 line-item">
-				<form>
-					<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
-					<div class="form-group">
-						<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
-						<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
-						<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+				<ul class="nav nav-tabs">
+				  <li class="active"><a href="#widthdraw">Widthdraw</a></li>
+				  <li><a href="#paypal" href="#">PayPal</a></li>
+				  <li><a href="#bank_info"> Bank account</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="widthdraw" class="tab-content-item">
+						<form>
+							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
+							<div class="form-group">
+								<label for="account_name"><?php _e('Amout','boxtheme');?></label>
+								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
+								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+							</div>
+							<div class="form-group">
+								<label for="account_number"><?php _e('Select type','boxtheme');?></label>
+								<select class="form-control">
+									<option> PayPal</option>
+									<option> Bank Account</option>
+								</select>
+							</div>
+							<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
+						</form>
 					</div>
-					<div class="form-group">
-						<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
-						<input type="text" class="form-control" id="account_number" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
+					<div id="paypal" class="tab-content-item hidding">
+						<form>
+
+							<div class="form-group">
+								<label for="account_name"><?php _e('PayPal Email','boxtheme');?></label>
+								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
+								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+							</div>
+							<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
+						</form>
 					</div>
 
-					<div class="form-group">
-						<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
-						<input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank name">
-					</div>
-					<div class="form-group">
-						<label for="note"><?php _e('Note','boxtheme');?></label>
-						<textarea  class="form-control" name="note" placeholder="Add your note"></textarea>
-						<small id="noteHelp" class="form-text text-muted">Add your phone or note some tips to help admin easy to transfer money to your bank account.</small>
-					</div>
+					<div id="bank_info" class=" tab-content-item hidding">
+						<form>
+							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
+							<div class="form-group">
+								<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
+								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
+								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+							</div>
+							<div class="form-group">
+								<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
+								<input type="text" class="form-control" id="account_number" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
+							</div>
 
-					<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
-				</form>
+							<div class="form-group">
+								<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
+								<input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank name">
+							</div>
+							<div class="form-group">
+								<label for="note"><?php _e('Note','boxtheme');?></label>
+								<textarea  class="form-control" name="note" placeholder="Add your note"></textarea>
+								<small id="noteHelp" class="form-text text-muted">Add your phone or note some tips to help admin easy to transfer money to your bank account.</small>
+							</div>
+
+							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
+						</form>
+					</div>
+				</div>
+
+
 			</div>
 
 			<div id="profile" class="col-md-12 line-item"> <!-- start left !-->
@@ -72,5 +113,30 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 	.site-content{
 		padding-top: 0;
 	}
+	.tab-content-item{
+		min-height: 299px;
+	}
+	.tab-withdraw{}
+	.tab-content .hidding{
+		visibility: hidden;
+		display: none;
+	}
 </style>
+<script type="text/javascript">
+	(function($){
+		$(document).ready(function(){
+			console.log('123');
+			$(".nav-tabs a").click(function(event){
+				var _this = $(event.currentTarget);
+				console.log('123');
+				console.log(_this);
+				var section = _this.attr('href');
+				$(".tab-content-item").addClass('hidding');
+				$(section).removeClass('hidding');
+				return false;4
+			});
 
+		})
+
+	})(jQuery);
+</script>
