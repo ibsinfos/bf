@@ -6,7 +6,7 @@
  * @link https://boxthemes.net/
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage wp_freelance
  * @since 1.0
  */
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,7 +20,7 @@ function boxtheme_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/boxtheme
-	 * If you're building a theme based on Twenty Seventeen, use a find and replace
+	 * If you're building a theme based on WP Freelancer, use a find and replace
 	 * to change 'boxtheme' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'boxtheme' );
@@ -219,7 +219,7 @@ function boxtheme_fonts_url() {
 /**
  * Add preconnect for Google Fonts.
  *
- * @since Twenty Seventeen 1.0
+ * @since WP Freelancer 1.0
  *
  * @param array  $urls           URLs to print for resource hints.
  * @param string $relation_type  The relation type the URLs are printed.
@@ -285,7 +285,7 @@ add_action( 'widgets_init', 'boxtheme_widgets_init' );
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  *
- * @since Twenty Seventeen 1.0
+ * @since WP Freelancer 1.0
  */
 function boxtheme_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
@@ -308,7 +308,7 @@ add_action( 'wp_head', 'boxtheme_pingback_header' );
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images.
  *
- * @since Twenty Seventeen 1.0
+ * @since WP Freelancer 1.0
  *
  * @param string $sizes A source size value for use in a 'sizes' attribute.
  * @param array  $size  Image size. Accepts an array of width and height
@@ -335,7 +335,7 @@ add_filter( 'wp_calculate_image_sizes', 'boxtheme_content_image_sizes_attr', 10,
 /**
  * Filter the `sizes` value in the header image markup.
  *
- * @since Twenty Seventeen 1.0
+ * @since WP Freelancer 1.0
  *
  * @param string $html   The HTML image tag markup being filtered.
  * @param object $header The custom header object returned by 'get_custom_header()'.
@@ -354,7 +354,7 @@ add_filter( 'get_header_image_tag', 'boxtheme_header_image_tag', 10, 3 );
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails.
  *
- * @since Twenty Seventeen 1.0
+ * @since WP Freelancer 1.0
  *
  * @param array $attr       Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
@@ -375,7 +375,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'boxtheme_post_thumbnail_sizes
 /**
  * Use front-page.php when Front page displays is set to a static page.
  *
- * @since Twenty Seventeen 1.0
+ * @since WP Freelancer 1.0
  *
  * @param string $template front-page.php.
  *
