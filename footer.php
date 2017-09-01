@@ -2,9 +2,9 @@
     global $general;
     $args = array( 'first'=>'','second' => '','third' => '');
     $label = array(
-        'first_title' => 'Contact Us',
-        'second_title' => 'Help & Resources',
-        'third_title' => 'Commercial',
+        'first_title' => __('Contact Us','boxtheme'),
+        'second_title' => __('Help & Resources','boxtheme'),
+        'third_title' => __('Commercial','boxtheme'),
     );
 ?>
 
@@ -12,17 +12,17 @@
         <div class="pre-footer ">
             <nav class="footer-nav wrapper pure-g-r container">
                 <?php
-                foreach( $args as $key => $value){
+                foreach( $args as $key => $value) {
 
-                   $title_key = $key.'_title';
+                   	$title_key = $key.'_title';
             		$title =  $label[$title_key];
 
-            		if( isset( $general->$title_key ) ){
+            		if( isset( $general->$title_key ) )
             			$title =  $general->$title_key;
-            		} ?>
+            		?>
                     <div class="col-md-3 col-xs-4">
                 		<h5 class="footer-list-header"> <?php echo $title; ?></h5> <?php
-                        if( !empty( $general->$key ) ){
+                        if( !empty( $general->$key ) ) {
                 			wp_nav_menu( array(
                         		'menu'        => $general->$key,
                         		'menu_class' =>'full',
@@ -34,7 +34,7 @@
                 } ?>
 
                 <div class="col-md-3 col-xs-12"> <?php
-                	if( ! empty ( $general->contact ) ){
+                	if( ! empty ( $general->contact ) ) {
                         echo $general->contact;
                     } else {
                     	echo '<h5 class="footer-list-header">Contact Us</h5><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>

@@ -43,7 +43,6 @@ get_header(); ?>
 				</div>
 			</div><!-- .set bg !-->
 		</div> <!-- .row !-->
-
 	</div>
 </div>
 <script type="text/html" id="tmpl-search-record">
@@ -52,12 +51,8 @@ get_header(); ?>
 			<div class="col-md-2 no-padding col-xs-4">
 			<a class="avatar" href="{{{data.author_link}}}">{{{data.avatar}}}</a></div>
 			<div class="col-md-10 align-left  col-xs-8">
-				<h3 class="profile-title no-margin">
-					<a href="{{{data.author_link}}}">{{{data.post_title}}}</a>
-				</h3>
-				<span class="inline second-line">
-					<span class="item professional-title primary-color">{{{data.professional_title}}}</span>
-				</span>
+				<h3 class="profile-title no-margin"><a href="{{{data.author_link}}}">{{{data.post_title}}}</a></h3>
+				<span class="inline second-line"><span class="item professional-title primary-color">{{{data.professional_title}}}</span> </span>
 				<span class="inline list-info">
 					<span class="item hour-rate"><span class="glyphicon glyphicon-time"></span> {{{data.hour_rate_text}}}</span>
 					<span class=" item eared-txt"> Earned: {{{data.earned}}}</span>
@@ -69,9 +64,6 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
-
-
-</div>
 </script>
 <script type="text/javascript">
 	(function($){

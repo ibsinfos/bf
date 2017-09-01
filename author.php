@@ -39,7 +39,7 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
 				      		</div>
 				      		<div class="full clear">
-				        	<h4 class="professional-title no-margin primary-color" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
+				        		<h4 class="professional-title no-margin primary-color" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
 				        	</div>
 				        	<div class="full">
 				        		<span class="clear block author-address"><?php echo $profile->address;?></span>
@@ -97,9 +97,8 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 								<div class="col-md-8"> <?php _e('Description','boxtheme');?>	</div>
 								<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
 							</div> <?php
-							while( $result->have_posts()){
+							while( $result->have_posts()){ $result->the_post();
 								global $post;
-								$result->the_post();
 								get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
 							} ?>
 
@@ -131,20 +130,20 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 			if( $result->have_posts() ){ ?>
 				<div class="bg-section">
 					<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
-					<div class="col-md-12 res-line">
-					<?php
-					while ($result->have_posts()) {
-						$class = "middle-item";
-						if($i %3 == 0) $class = "no-padding-left";
-						if($i%3==2) $class = "no-padding-right";
-						$result->the_post();
-						echo '<div class="col-md-4 port-item '.$class.'">';
-							the_post_thumbnail('full' ); ?>
-							<h5 class="h5 port-title"><?php the_title();?></h5>
-							<?php
-						echo '</div>';
-						$i++;
-					}
+					<div class="col-md-12 res-line"> <?php
+
+						while ( $result->have_posts() ) {
+							$result->the_post();
+							$class = "middle-item";
+							if($i %3 == 0) $class = "no-padding-left";
+							if($i%3==2) $class = "no-padding-right"; ?>
+
+							<div class="col-md-4 port-item <?php echo $class;?>">
+								<?php the_post_thumbnail('full' ); ?>
+								<h5 class="h5 port-title"><?php the_title();?></h5>
+							</div> <?php
+							$i++;
+						}
 					echo '</div>';
 				echo '</div>';
 			} else {
@@ -154,4 +153,3 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 		</div>
 	</div>
 <?php get_footer();?>
-

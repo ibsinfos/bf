@@ -29,9 +29,7 @@ get_header(); ?>
 						<div class="input-group full">
 					       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
 					       <div class="input-group-btn">
-					           <button class="btn btn-info">
-					           <span class="glyphicon glyphicon-search"></span>
-					           </button>
+					           <button class="btn btn-info"><span class="glyphicon glyphicon-search"></span></button>
 					       </div>
 					   </div>
 					</form>
@@ -41,12 +39,8 @@ get_header(); ?>
 
 				</div>
 
-				<div class="list-project" id="ajax_result">
-				<?php
+				<div class="list-project" id="ajax_result">	<?php
 					global $wp_query;
-					//var_dump('<pre>');
-					//var_dump($wp_query->found_posts);
-					//echo '</pre>';
 					wp_reset_query();
 					if( have_posts() ):
 
@@ -108,4 +102,4 @@ get_header(); ?>
 		</div> <!-- . employer-info !-->
 	</div>
 </script>
-<?php  get_footer();
+<?php  get_footer(); ?>
