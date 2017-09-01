@@ -10,11 +10,12 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div  id="content" class="row site-content">
+		<div  id="content" class="site-content">
 
-			<div class="col-md-12">
+			<div class="col-md-12 line-item">
+				<div class="form-group"><h3> Your credit infor</h3></div>
 				<ul class="none-style padding-bottom-20">
-			  		<li><?php printf(__('Your credit: %s','boxtheme'),$credit->available);?></li>
+			  		<li><?php printf(__('Avaibale: %s','boxtheme'),$credit->available);?></li>
 			  		<?php if($credit->pending > 0){ ?>
 			  			<li><?php printf(__('Your pending credit: %s','boxtheme'),$credit->pending);?></li>
 			  		<?php } ?>
@@ -22,9 +23,9 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 			  	</ul>
 			</div>
 
-			<div class="col-md-12">
+			<div class="col-md-12 line-item">
 				<form>
-					<div class="form-group"><h3> Widrawal request </h3></div>
+					<div class="form-group"><h3> Widrawal Request </h3></div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Email address</label>
 						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -39,7 +40,7 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 				</form>
 			</div>
 
-			<div id="profile" class="col-md-12"> <!-- start left !-->
+			<div id="profile" class="col-md-12 line-item"> <!-- start left !-->
 			     <?php get_template_part( 'template-parts/dashboard/list', 'order' ); ?>
 			</div> <!-- end left !-->
 		</div>
@@ -47,4 +48,16 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 	</div>
 </div>
 <?php get_footer();?>
+<style type="text/css">
+	.site-content{
+		background-color: transparent;
+	}
+	.line-item{
+		background: #fff;
+		border:3px solid #e6e6e6;
+		margin-bottom: 25px;
+		padding-top:30px;
+		padding-bottom: 30px;
+	}
+</style>
 
