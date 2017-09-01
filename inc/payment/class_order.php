@@ -94,6 +94,26 @@ Class BX_Order {
 		);
 		return $this->create($args);
 	}
+	function create_custom_pending_order($args){
+
+		$curren_user = wp_get_current_user();
+		$args = array(
+			'post_title' => $args['post_title'],
+			'post_status' => 'pending',
+			'author' => $curren_user->ID,
+			'meta_input' => array(
+				'amout' => $args['amout'],
+				'payer_id' => $curren_user->ID,
+				'payer_email' => $curren_user->user_email ,
+				'order_type' 	=>$args['order_type'], // buy credit, widthdraw
+				'payment_type' 	=>$args['payemnt_tytpe'],
+				//'receiver_id' => 1,// need to update - default is admin.
+				'receiver_email' => $this->receiver_email,
+				'order_mode' => $this->mode,
+			)
+		);
+		return $this->create($args);
+	}
 	function create_order( $args ){
 		$curren_user = wp_get_current_user();
 		$args_order = array(

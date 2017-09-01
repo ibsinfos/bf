@@ -228,9 +228,23 @@ Class BX_Credit {
 
 		$ballance = $this->get_ballance($user_ID);
 
+		if( $amout < 10 )
+			return new WP_Error( 'not_enough', __( "Your amout must bigger than 15$", "boxtheme" ) );
+
 		if( $ballance->available < $amout ){
 			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
 		}
+		$this->subtract_credit_available($user_ID, $amout);
+		//create order
+		$curren_user = wp_get_current_user();
 
+		$args_wdt = array(
+			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
+			'amout' => $amout,
+			'order_type' => 'widthdraw' ,
+			'payment_type' => 'none' ,
+		);
+		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
+		return true;
 	}
 }

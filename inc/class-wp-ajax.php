@@ -801,15 +801,15 @@ class BX_AJAX {
 	static function request_widthraw(){
 
 		$request= $_REQUEST['request'];
-		$amout = $request['withdraw_amout'];
+		$amout = (float) $request['withdraw_amout'];
 		$type = $request['withdraw_type'];
 		$response = array( 'success' => true,'msg'=> 'Widthdraw done' );
 
 
 		$credit = BX_Credit::get_instance();
 		$result = $credit->widthraw($amout);
-		if( ! is_wp_error( $result ) ){
-			$response['msg'] = $result->get_message();
+		if( is_wp_error( $result ) ){
+			$response = array( 'success' => false,'msg' => $result->get_error_message() );
 		}
 		wp_send_json( $response );
 	}
