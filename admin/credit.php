@@ -27,8 +27,8 @@ class BX_Credit_Setting{
 		$args = array(
 			'post_type' => '_order',
 			'posts_per_page' => 35,
-
-
+			'meta_key' => 'order_type',
+			'meta_value' => 'buy_credit',
 		);
 		$query = new WP_query($args);
 		echo '<h3>List Order</h3>';
@@ -75,8 +75,8 @@ class BX_Credit_Setting{
 		$args = array(
 			'post_type' => '_order',
 			'posts_per_page' => 35,
-
-
+			'meta_key' => 'order_type',
+			'meta_value' => 'widthraw',
 		);
 		$query = new WP_query($args);
 		echo '<h3>List Order</h3>';
