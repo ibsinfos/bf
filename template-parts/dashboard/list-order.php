@@ -1,15 +1,6 @@
-<?php
-global $user_ID;
-$credit = BX_Credit::get_instance()->get_ballance($user_ID);
-?>
+
 <div class="col-md-12">
-  	<ul class="none-style padding-bottom-20">
-  		<li><?php printf(__('Your credit: %s','boxtheme'),$credit->available);?></li>
-  		<?php if($credit->pending > 0){ ?>
-  			<li><?php printf(__('Your pending credit: %s','boxtheme'),$credit->pending);?></li>
-  		<?php } ?>
-  		<li><a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a></li>
-  	</ul>
+
   	<h5> <?php _e('History of credit','boxtheme');?> </h5>
   	<ul class="none-style row">
   		<li>
