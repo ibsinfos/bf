@@ -26,16 +26,17 @@ class BX_Admin{
     public function box_enqueue_scripts($hook) {
         // Load only on ?page=theme-options
     	$credit_page = 'box-settings_page_credit-setting';
+    	$widthdraw_order_page = 'box-settings_widthraw-order';
         $sub_page = array('box-settings_page_credit-setting');
         //var_dump($hook); //box-settings_page_credit-setting
-        if( $hook == 'toplevel_page_'.self::$main_setting_slug || in_array($hook, $sub_page ) ) {
+        if( $hook == 'toplevel_page_'.self::$main_setting_slug || in_array( $hook, array($sub_page,$widthdraw_order_page ) ) ) {
 
 	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.min.css' ) );
 	        wp_enqueue_style( 'box_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
 	        wp_enqueue_script( 'box-js', get_theme_file_uri('admin/js/admin.js'), array('jquery','wp-util') );
-	        if($hook == $credit_page){
+	        if( $hook == $credit_page || $hook == $widthdraw_order_page ){
 	        	wp_enqueue_script('credit-js',get_theme_file_uri('admin/js/credit.js') );
 	        }
 	    }
@@ -59,7 +60,7 @@ class BX_Admin{
     }
     static function box_admin_footer_html(){
     	$page = isset($_GET['page']) ? $_GET['page'] : '';
-    	if( in_array($page, array('credit-setting','box-settings')) ) {	?>
+    	if( in_array($page, array('credit-setting','box-settings', 'widthraw-order') ) ) {	?>
 	    	<script type="text/javascript">
 	            var bx_global = {
 	                'home_url' : '<?php echo home_url() ?>',
