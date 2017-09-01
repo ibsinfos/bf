@@ -76,7 +76,7 @@ class BX_Credit_Setting{
 			'post_type' => '_order',
 			'posts_per_page' => 35,
 			'meta_key' => 'order_type',
-			'meta_value' => 'widthraw',
+			'meta_value' => 'withdraw',
 		);
 		$query = new WP_query($args);
 		echo '<h3>List Order</h3>';

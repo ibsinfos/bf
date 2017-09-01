@@ -241,7 +241,7 @@ Class BX_Credit {
 		$args_wdt = array(
 			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
 			'amout' => $amout,
-			'order_type' => 'widthdraw' ,
+			'order_type' => 'withdraw' ,
 			'payment_type' => 'none' ,
 		);
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
