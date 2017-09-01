@@ -79,8 +79,6 @@
 					<?php
 				}
 			} else if( is_user_logged_in() ) {
-				var_dump('123b');
-
 				$user 	= wp_get_current_user();
 			 ?>
 			<div id="verify_content">
