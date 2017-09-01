@@ -391,6 +391,7 @@ include_once ( 'inc/requires.php' );
 require_once ( 'admin/requires.php' );
 
 function init_theme() {
+
   	if ( isset( $_GET['activated'] ) ) { // Test if theme is activated
 
   		if ( wp_get_theme()->get('TextDomain')== 'boxtheme' ) {
