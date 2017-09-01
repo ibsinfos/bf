@@ -21,7 +21,7 @@ Class Box_Email{
 		$header = '<!DOCTYPE html>
 		<html dir="'.$rlt.'">
 			<head>
-				<meta http-equiv="Content-Type" content="text/html; charset='.bloginfo( 'charset' ).'" />
+				<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo( 'charset' ).'" />
 				<title>'.get_bloginfo( 'name', 'display' ).'</title>
 				<style type="text/css">
 					#template_header_image img{max-width: 100%; width: 350px; text-align: left; padding:15px 0;}
