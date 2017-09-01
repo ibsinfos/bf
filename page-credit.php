@@ -14,13 +14,11 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 
 			<div class="col-md-12 line-item">
 				<div class="form-group"><h3> Your credit info</h3></div>
-				<ul class="none-style padding-bottom-20">
-			  		<li><?php printf(__('Avaibale: %s','boxtheme'),$credit->available);?></li>
-			  		<?php if( $credit->pending > 0 ) { ?>
-			  			<li><?php printf(__('Your pending credit: %s','boxtheme'),$credit->pending);?></li>
-			  		<?php } ?>
-			  		<li><a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a></li>
-			  	</ul>
+			  		<div class="col-md-6"><?php printf(__('Avaibale: %s','boxtheme'),$credit->available);?></div>
+			  		<div class="col-md-6">
+			  			<div class="col-md-12"> <a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a></div>
+			  			<div class="col-md-12"> <a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Widthdrawal','boxtheme');?> </a></div>
+			  		</div>
 			</div>
 
 			<div class="col-md-12 line-item">
@@ -68,6 +66,8 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 		margin-bottom: 25px;
 		padding-top:30px;
 		padding-bottom: 30px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 	.site-content{
 		padding-top: 0;
