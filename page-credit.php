@@ -25,29 +25,28 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 
 			<div class="col-md-12 line-item">
 				<form>
-					<div class="form-group"><h3> Setup your bank account </h3></div>
+					<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Name on account</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
+						<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
+						<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Account number or IBAN</label>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
+						<input type="text" class="form-control" id="account_number" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputPassword1">Bank name</label>
-						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
+						<input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank name">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Note</label>
+						<label for="note"><?php _e('Note','boxtheme');?></label>
 						<textarea  class="form-control" name="note" placeholder="Add your note"></textarea>
-						<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+						<small id="noteHelp" class="form-text text-muted">Add your phone or note some tips to help admin easy to transfer money to your bank account.</small>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 				</form>
 			</div>
 
@@ -69,6 +68,9 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 		margin-bottom: 25px;
 		padding-top:30px;
 		padding-bottom: 30px;
+	}
+	.site-content{
+		padding-top: 0;
 	}
 </style>
 
