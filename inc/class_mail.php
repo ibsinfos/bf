@@ -213,4 +213,3 @@ Class Box_Email{
 function box_mail( $to, $subject, $message ) {
 	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
 }
-box_mail('danng@gmail.vn','test','123');

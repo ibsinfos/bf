@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Enqueue scripts and styles.
  */
-function bx_error_log($input, $file_store = ''){
+function box_log($input, $file_store = ''){
 	$file_store =LOG_FILE;
 	//WP_CONTENT_DIR.'/ipn.log');
 	if( is_array($input) ){
