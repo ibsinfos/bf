@@ -15,7 +15,8 @@ class BX_Install{
 	}
 
 	public static function init() {
-		add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
+		//add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
+		self::install(); // install
 	}
 	public static function check_version() {
 		self::install();
@@ -71,4 +72,3 @@ class BX_Install{
 		return $tables;
 	}
 }
-BX_Install::init();
