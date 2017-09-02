@@ -175,8 +175,8 @@ Class Box_Email{
 
 
 
-		$header = $this->get_header($option);
-		$footer = $this->get_footer($option);
+		$header = $this->get_header($this->option);
+		$footer = $this->get_footer($this->option);
 		$msg = $header.$message.$footer;
 
 		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
@@ -200,7 +200,7 @@ Class Box_Email{
 	}
 	function get_from_name(){
 		$from_name = 'From BoxThemes';
-		return wp_specialchars_decode( esc_html( $this->option->from_address ), ENT_QUOTES );
+		return wp_specialchars_decode( esc_html( $this->option->from_name ), ENT_QUOTES );
 	}
 	public function get_from_address() {
 
