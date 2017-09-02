@@ -71,6 +71,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 									<div class="form-group">
 										<label for="withdraw_type"><?php _e('Note','boxtheme');?></label>
 										<textarea class="form-control" name="withdraw_note" required></textarea>
+										<small>Add your phone or note some tips to help admin easy to transfer money to you.</small>
 									</div>
 									<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
 								</form>
@@ -107,12 +108,6 @@ if( ! empty ($withdraw_info->bank_account) ){
 								<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
 								<input type="text" class="form-control required" id="bank_name" name="bank_name" value="<?php echo $bank_account->bank_name;?>" placeholder="Bank name">
 							</div>
-							<div class="form-group">
-								<label for="note"><?php _e('Note','boxtheme');?></label>
-								<textarea  class="form-control" name="note" placeholder="Add your note"></textarea>
-								<small id="noteHelp" class="form-text text-muted">Add your phone or note some tips to help admin easy to transfer money to your bank account.</small>
-							</div>
-
 							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 						</form>
 					</div>
