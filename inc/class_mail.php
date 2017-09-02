@@ -81,7 +81,7 @@ Class Box_Email{
 											<table border="0" cellpadding="15" cellspacing="0" width="600" id="template_header" >
 												<tr>
 													<td id="header_wrapper">
-														<h1 style="margin:0; padding:0;">'.$email_heading.'</h1>
+
 													</td>
 												</tr>
 											</table>

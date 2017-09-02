@@ -235,7 +235,7 @@ Class BX_Credit {
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 		$to = 'admin@boxthemes.net';
 		$subject = 'Has a withdraw request';
-		$content =  sprintf( __('<p>Detail of withdraw</p><p>Amout %f</p><p> Payment: %s </p> <p> <label> Notes:</label> %s </p>','boxtheme'), $amout, $type, $note ) ;
+		$content =  sprintf( __('<p><h1>Detail of withdraw</h1></p><p>Amout %f</p><p> Payment: %s </p> <p> <label> Notes:</label> %s </p>','boxtheme'), $amout, $type, $note ) ;
 
 		box_mail($to, $subject, $content);
 		return true;
