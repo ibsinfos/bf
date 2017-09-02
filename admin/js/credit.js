@@ -13,7 +13,7 @@
 
 		$(".btn-approve-widthraw").click(function(){
 			var _this = $(event.currentTarget);
-			var type = 'approve_widthdraw';
+			var type = 'approve_withdraw';
 			var data = {order_id: _this.attr('id') };
 
 			window.ajaxSend.Approve(data, type, _this);

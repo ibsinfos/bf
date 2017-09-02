@@ -1,13 +1,13 @@
 ( function( $ ) {
 	var db_credit = {
 		init: function() {
-			$('form#frm_widthdraw' ).on( 'submit', this.sendWidthDraw);
+			$('form#frm_withdraw' ).on( 'submit', this.sendWithDraw);
 			$('.btn-delete-job' ).on( 'click', this.actDelJob);
 		},
-		sendWidthDraw : function(event){
+		sendWithDraw : function(event){
 			var _this = $(event.currentTarget);
 			var id = _this.attr('id');
-			var action = 'request_widthraw',method = 'null';
+			var action = 'request_withdraw',method = 'null';
 			var success = function(res){
 				if(res.success)
 					_this.closest('li').remove();

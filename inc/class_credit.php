@@ -206,6 +206,38 @@ Class BX_Credit {
 	 * @param   [type] $order_id [description]
 	 * @return  [type]           [description]
 	 */
+	function request_withdraw( $amout, $notes = ''){ //widthraw_request
+
+		global $user_ID;
+
+		$ballance = $this->get_ballance($user_ID);
+
+		if( $amout < 10 )
+			return new WP_Error( 'inlimitted', __( "Your amout must bigger than 15$", "boxtheme" ) );
+
+		if( $ballance->available < $amout ){
+			return new WP_Error( 'not_enough', __( "Your ballance does not enough to perform this withdraw.", "boxtheme" ) );
+		}
+		$this->subtract_credit_available($user_ID, $amout); //deducte in available credit of this user.
+		//create order
+		$curren_user = wp_get_current_user();
+
+		$args_wdt = array(
+			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
+			'amout' => $amout,
+			'order_type' => 'withdraw' ,
+			'payment_type' => 'none' ,
+		);
+
+		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
+		$to = 'admin@boxthemes.net';
+		$subject = 'Has a withdraw request';
+		$content =  sprintf( __('<p>Detail of withdraw</p> <p>Amout %f</p><p> Payment: </p><p> <label> Notes:</label> % </p> ','boxtheme'), $amout, $notes ) ;
+
+		box_email($to, $subject, $content);
+		return true;
+	}
+
 	function approve_buy_credit($order_id){
 		try{
 			$order = BX_Order::get_instance()->get_order($order_id);
@@ -238,7 +270,7 @@ Class BX_Credit {
 	 * @version 1.0
 	 * @return  [type] [description]
 	 */
-	function approve_widthdraw($order_id){
+	function approve_withdraw($order_id){
 
 		try{
 
@@ -252,7 +284,7 @@ Class BX_Credit {
 			$this->increase_credit_available($order->post_author, $order->amout);
 
 		} catch(Exception  $e){
-			
+
 			$code = $e->getCode();
 
 			if($code == 101){
@@ -266,29 +298,5 @@ Class BX_Credit {
 		return true;
 	}
 
-	function widthraw( $amout){
 
-		global $user_ID;
-
-		$ballance = $this->get_ballance($user_ID);
-
-		if( $amout < 10 )
-			return new WP_Error( 'not_enough', __( "Your amout must bigger than 15$", "boxtheme" ) );
-
-		if( $ballance->available < $amout ){
-			return new WP_Error( 'not_enough', __( "Your ballance does not enough to perform this withdraw.", "boxtheme" ) );
-		}
-		$this->subtract_credit_available($user_ID, $amout);
-		//create order
-		$curren_user = wp_get_current_user();
-
-		$args_wdt = array(
-			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
-			'amout' => $amout,
-			'order_type' => 'withdraw' ,
-			'payment_type' => 'none' ,
-		);
-		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
-		return true;
-	}
 }

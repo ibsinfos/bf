@@ -22,16 +22,16 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 
 			<div class="col-md-12 line-item">
 				<ul class="nav nav-tabs">
-				  <li class="active"><a href="#widthdraw">Widthdraw</a></li>
+				  <li class="active"><a href="#withdraw">Widthdraw</a></li>
 				  <li><a href="#paypal" href="#">PayPal</a></li>
 				  <li><a href="#bank_info"> Bank account</a></li>
 				</ul>
 				<div class="tab-content">
-					<div id="widthdraw" class="tab-content-item">
-						<form id="frm_widthdraw">
+					<div id="withdraw" class="tab-content-item">
+						<form id="frm_withdraw">
 							<div class="form-group">
 								<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
-								<input type="text" class="form-control" id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
+								<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
 								<small id="withdraw_amout" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
 							</div>
 							<div class="form-group">

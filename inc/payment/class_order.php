@@ -105,7 +105,7 @@ Class BX_Order {
 				'amout' => $args['amout'],
 				'payer_id' => $curren_user->ID,
 				'payer_email' => $curren_user->user_email ,
-				'order_type' 	=>$args['order_type'], // buy credit, widthdraw
+				'order_type' 	=>$args['order_type'], // buy credit, withdraw
 				'payment_type' 	=>$args['payemnt_tytpe'],
 				//'receiver_id' => 1,// need to update - default is admin.
 				'receiver_email' => $this->receiver_email,

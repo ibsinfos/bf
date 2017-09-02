@@ -48,7 +48,7 @@ class BX_AJAX {
 			'custom_avatar' 		=> false,
 			'social_signup' 		=> true,
 
-			'request_widthraw' => false,
+			'request_withdraw' => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -798,16 +798,26 @@ class BX_AJAX {
 		}
 		wp_send_json( $response );
 	}
-	static function request_widthraw(){
+
+	/**
+	 * freelancer request 1 withdraw request.
+	 * This is a cool function
+	 * @author danng
+	 * @version 1.0
+	 * @return  [type] [description]
+	 */
+	static function request_withdraw(){
 
 		$request= $_REQUEST['request'];
 		$amout = (float) $request['withdraw_amout'];
+		$notes = isset($request['notes']) ? $request['notes'] : '';
 		$type = $request['withdraw_type'];
 		$response = array( 'success' => true,'msg'=> 'Widthdraw done' );
 
 
 		$credit = BX_Credit::get_instance();
-		$result = $credit->widthraw($amout);
+		$result = $credit->request_withdraw($amout, $notes); //request_withdraw
+
 		if( is_wp_error( $result ) ){
 			$response = array( 'success' => false,'msg' => $result->get_error_message() );
 		}
