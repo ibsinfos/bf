@@ -8,6 +8,7 @@ Class BX_Order {
 	public $order_title;
 	public $payment_type;
 	public $receiver_email;
+	public $mode;
 	static function get_instance(){
 		if (null === static::$instance) {
         	static::$instance = new static();
@@ -106,10 +107,10 @@ Class BX_Order {
 				'payer_id' => $curren_user->ID,
 				'payer_email' => $curren_user->user_email ,
 				'order_type' 	=>$args['order_type'], // buy credit, withdraw
-				'payment_type' 	=>$args['payemnt_tytpe'],
+				'payment_type' 	=>$args['payment_type'],
 				//'receiver_id' => 1,// need to update - default is admin.
 				'receiver_email' => $this->receiver_email,
-				'order_mode' => $this->mode,
+				'order_mode' => $this->use_sandbox,
 			)
 		);
 		return $this->create($args);
@@ -125,7 +126,7 @@ Class BX_Order {
 				'amout' => $args['amout'],
 				'project_id' => $args['project_id'],
 				'order_type' => $args['order_type'],
-				'order_mode' => $this->mode,
+				'order_mode' => $this->use_sandbox,
 				'payment_type' => $args['payment_type'],
 				//'payer_id' => $curren_user->ID,
 				//'payer_email' => $curren_user->user_email ,

@@ -234,7 +234,7 @@ Class BX_Credit {
 		$subject = 'Has a withdraw request';
 		$content =  sprintf( __('<p>Detail of withdraw</p> <p>Amout %f</p><p> Payment: </p><p> <label> Notes:</label> % </p> ','boxtheme'), $amout, $notes ) ;
 
-		box_email($to, $subject, $content);
+		box_mail($to, $subject, $content);
 		return true;
 	}
 
