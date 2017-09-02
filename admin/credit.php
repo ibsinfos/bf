@@ -70,7 +70,7 @@ class BX_Credit_Setting{
 	 *
 	 */
 		function widthraw_menu_link(){
-			echo '<div class="full" style="background:#fff; padding:30px 0;  margin-top:50px; ">';
+			echo '<div class="full" style=" padding:30px 0;  margin-top:50px; ">';
 				$args = array(
 					'post_type' => '_order',
 					'posts_per_page' => 35,
