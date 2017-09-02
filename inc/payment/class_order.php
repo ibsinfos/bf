@@ -1,6 +1,6 @@
 <?php
 Class BX_Order {
-	private $use_sandbox;
+	public $use_sandbox;
 	public $post_type;
 	public $post_status;
 	public static $instance;

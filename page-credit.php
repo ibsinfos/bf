@@ -49,6 +49,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 
 						if( $credit->available > 30  ){
 							if(  empty( $paypal_email ) && empty($account_number)  ){
+								echo '<p>&nbsp;</p>';
 								_e(' Please setup paypal email or bank account to widthdraw','boxtheme');
 							} else {?>
 								<form id="frm_withdraw" class="">
@@ -82,7 +83,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 						<?php } ?>
 					</div>
 					<div id="paypal" class="tab-content-item hidding">
-						<form id="frm_paypal">
+						<form id="frm_paypal" class="withdraw-info">
 							<div class="form-group">
 								<label for="paypal_email"><?php _e('PayPal Email','boxtheme');?></label>
 								<input type="text" class="form-control" id="paypal_email" name="paypal_email" aria-describedby="paypal_email" value="<?php echo $paypal_email;?>" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
