@@ -8,7 +8,7 @@
   			<div class="col-md-2">Type </div>
   			<div class="col-md-2">Payment </div>
   			<div class="col-md-2">Status </div>
-  			<div class="col-md-2">Balance </div>
+  			<div class="col-md-2 align-center">Balance </div>
   			<!-- <div class="col-md-2"> </div> -->
   		</div>
   		<?php
@@ -38,7 +38,7 @@
 	  				<div class="col-md-2"><?php echo $types[$order->order_type];?> </div>
 	      			<div class="col-md-2"><?php echo $order->payment_type;?> </div>
 	      			<div class="col-md-2"><?php echo $status[$order->post_status];?> </div>
-	      			<div class="col-md-2"><?php echo $order->amout . $check;?>  </div>
+	      			<div class="col-md-2 align-center"><?php echo $order->amout . $check;?>  </div>
       			</div>
       			<!-- <div class="col-md-2"><button>Arhive</button> </div> -->
   				<?php
