@@ -206,9 +206,12 @@ Class BX_Credit {
 	 * @param   [type] $order_id [description]
 	 * @return  [type]           [description]
 	 */
-	function request_withdraw( $amout, $notes = ''){ //widthraw_request
+	function request_withdraw( $request){ //widthraw_request
 
 		global $user_ID;
+		$amout = (float) $request['withdraw_amout'];
+		$type =  $request['withdraw_type'];
+		$note =  $request['withdraw_note'];
 
 		$ballance = $this->get_ballance($user_ID);
 
@@ -232,7 +235,7 @@ Class BX_Credit {
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 		$to = 'admin@boxthemes.net';
 		$subject = 'Has a withdraw request';
-		$content =  sprintf( __('<p>Detail of withdraw</p> <p>Amout %f</p><p> Payment: </p><p> <label> Notes:</label> % </p> ','boxtheme'), $amout, $notes ) ;
+		$content =  sprintf( __('<p>Detail of withdraw</p> <p>Amout %f</p><p> Payment: %s </p><p> <label> Notes:</label> % </p> ','boxtheme'), $amout, $type, $note ) ;
 
 		box_mail($to, $subject, $content);
 		return true;

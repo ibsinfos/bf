@@ -809,14 +809,12 @@ class BX_AJAX {
 	static function request_withdraw(){
 
 		$request= $_REQUEST['request'];
-		$amout = (float) $request['withdraw_amout'];
-		$notes = isset($request['notes']) ? $request['notes'] : '';
 		$type = $request['withdraw_type'];
 		$response = array( 'success' => true,'msg'=> 'Widthdraw done' );
 
 
 		$credit = BX_Credit::get_instance();
-		$result = $credit->request_withdraw($amout, $notes); //request_withdraw
+		$result = $credit->request_withdraw($request); //request_withdraw
 
 		if( is_wp_error( $result ) ){
 			$response = array( 'success' => false,'msg' => $result->get_error_message() );

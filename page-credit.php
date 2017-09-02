@@ -36,10 +36,15 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 							</div>
 							<div class="form-group">
 								<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
-								<select class="form-control" name="withdraw_type">
+								<select class="form-control required" required name="withdraw_type">
+									<option >Select method</option>
 									<option value="paypal"> PayPal</option>
 									<option value="banking"> Bank Account</option>
 								</select>
+							</div>
+							<div class="form-group">
+								<label for="withdraw_type"><?php _e('Note','boxtheme');?></label>
+								<textarea class="form-control" name="withdraw_note" required></textarea>
 							</div>
 							<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
 						</form>
