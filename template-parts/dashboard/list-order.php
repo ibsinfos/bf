@@ -20,6 +20,7 @@
   			'author' => $user_ID,
   			'posts_per_page' => -1,
   		);
+  		$status = array('pending' => __('Pending','boxtheme'),'publish' => __('Approved','boxtheme') );
   		$query = new WP_Query($args);
   		if( $query->have_posts() ){
   			while ( $query->have_posts() ) {
@@ -34,7 +35,7 @@
   				<div class="col-md-2"><?php echo get_the_date();?> </div>
   				<div class="col-md-2"><?php echo $order->order_type;?> </div>
       			<div class="col-md-2"><?php echo $order->payment_type;?> </div>
-      			<div class="col-md-2"><?php echo $order->post_status;?> </div>
+      			<div class="col-md-2"><?php echo $status[$order->post_status];?> </div>
       			<div class="col-md-2"><?php echo $order->amout . $check;?>  </div>
       			<div class="col-md-2"><button>Arhive</button> </div>
   				<?php
