@@ -101,6 +101,7 @@ Class BX_Order {
 		$args = array(
 			'post_title' => $args['post_title'],
 			'post_status' => 'pending',
+			'post_content' => $args['post_content'],
 			'author' => $curren_user->ID,
 			'meta_input' => array(
 				'amout' => $args['amout'],

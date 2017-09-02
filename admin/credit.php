@@ -36,7 +36,7 @@ class BX_Credit_Setting{
 			if( $query->have_posts() ){
 
 				echo '<ul class="box-table">';
-				echo '<li class="row li-heading">';echo '<div class="col-md-3">Buyer</div>';echo '<div class="col-md-2">Type</div>';
+				echo '<li class="row li-heading">';echo '<div class="col-md-1"> ID</div><div class="col-md-2">Buyer</div>';echo '<div class="col-md-2">Type</div>';
 				echo '<div class="col-md-2">';echo "Price";	echo '</div>';echo '<div class="col-md-2">Date</div>';echo '<div class="col-md-1">';	echo "Status";	echo '</div>';echo '<div class="col-md-2">Action</div>';
 				echo '</li>';
 				$bx_order = BX_Order::get_instance();
@@ -46,7 +46,8 @@ class BX_Credit_Setting{
 					$order = $bx_order->get_order($post);
 
 					echo '<li class="row">';
-						echo '<div class="col-md-3">'.get_the_author();				echo '</div>';
+						echo '<div class="col-md-1">'.get_the_ID().'</div>';
+						echo '<div class="col-md-2">'.get_the_author();				echo '</div>';
 						echo '<div class="col-md-2">';				echo $order->payment_type;				echo '</div>';
 
 						echo '<div class="col-md-2">';					echo $order->amout;					echo '</div>';
@@ -82,8 +83,8 @@ class BX_Credit_Setting{
 				if( $query->have_posts() ){
 
 					echo '<table class="widefat">';
-					echo '<thead><tr class="li-heading">';	echo '<th class="col-md-3">Author</th>';echo '<th class="col-md-2">Type</th>';echo '<th class="col-md-2">';echo "Amount";	echo '</th>';
-					echo '<th class="col-md-2">Date</th>';echo '<th class="col-md-1">';	echo "Status";	echo '</th>';echo '<th class="col-md-2">Action</th>';
+					echo '<thead><tr class="li-heading">'; echo '<td class="col-md-1">ID</td>';	echo '<th class="col-md-2">Author</th>';echo '<th class="col-md-2">Type</th>';echo '<th class="col-md-2">';echo "Amount";	echo '</th>';
+					echo '<th class="col-md-2">Date</th>'; echo '<th class="col-md-1">';	echo "Status";	echo '</th>';echo '<th class="col-md-2">Action</th>';
 					echo '</tr></thead>';
 					$bx_order = BX_Order::get_instance();
 					while ($query->have_posts()) {
@@ -92,19 +93,21 @@ class BX_Credit_Setting{
 						$order = $bx_order->get_order($post);
 						?>
 						<tr  class="">
+							<td class="col-md-2"><?php echo get_the_ID();?></td>
 							<td class="col-md-3"><?php echo get_the_author();?></td>
 							<td class="col-md-2"><?php echo $order->payment_type;?></td>
 							<td class="col-md-2"><?php echo $order->amout; ?></td>
 							<td class="col-md-2"><?php echo get_the_date();?></td>
 							<td class="col-md-1"><?php echo $order->post_status; ?></td>
 
-							<td class="col-md-2"> <?php
+							<td class="col-md-1"> <?php
 							if( $order->post_status != 'publish' )
-								echo '<button class="btn-approve-widthraw " id="'.get_the_ID().'"><span class="	glyphicon glyphicon-ok"></span></button>';
-							echo '</td>';
-						echo '</tr>';
+								echo '<button class="btn-approve-widthraw " id="'.get_the_ID().'"><span class="	glyphicon glyphicon-ok"></span></button>'; ?>
+							</td>
+							<td class="col-md-1"><a href="<?php echo get_edit_post_link(get_the_ID() )?>"> Detail</a></td>
+						</tr> <?php
 					}
-					echo '</tavke>';
+					echo '</table>';
 				} else {
 					_e('There is not any order yet','boxtheme');
 				}

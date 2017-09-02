@@ -316,7 +316,7 @@ function bx_theme_init() {
 
 	$args = array(
 		'labels'             => $labels,
-                'description'        => __( 'Description.', 'boxtheme' ),
+         'description'        => __( 'Description.', 'boxtheme' ),
 		'public'             => false,
 		'publicly_queryable' => false,
 		'show_ui'            => true,
@@ -327,24 +327,7 @@ function bx_theme_init() {
 		'has_archive'        => false,
 		'hierarchical'       => false,
 		'menu_position'      => null,
-		'supports'           => array( 'title', 'excerpt', )
-	);
-
-	register_post_type( ORDER, $args );
-	$args = array(
-		'labels'             => $labels,
-                'description'        => __( 'Description.', 'boxtheme' ),
-		'public'             => false,
-		'publicly_queryable' => false,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
-		'rewrite'            => array( 'slug' => '_order' ),
-		'capability_type'    => 'post',
-		'has_archive'        => false,
-		'hierarchical'       => false,
-		'menu_position'      => null,
-		'supports'           => array( 'title', 'excerpt', )
+		'supports'           => array( 'title', 'excerpt','editor' )
 	);
 
 	register_post_type( ORDER, $args );
@@ -378,7 +361,7 @@ function bx_theme_init() {
 
 	$args = array(
 		'labels'             => $labels,
-                'description'        => __( 'Description.', 'boxtheme' ),
+        'description'        => __( 'Description.', 'boxtheme' ),
 		'public'             => false,
 		'publicly_queryable' => false,
 		'show_ui'            => true,

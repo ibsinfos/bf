@@ -234,14 +234,7 @@ Class BX_Credit {
 		//create order
 		$curren_user = wp_get_current_user();
 
-		$args_wdt = array(
-			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
-			'amout' => $amout,
-			'order_type' => 'withdraw' ,
-			'payment_type' => 'none' ,
-		);
 
-		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 		$to = 'admin@boxthemes.net';
 		$subject = 'Has a withdraw request';
 		$method_text = '';
@@ -253,8 +246,20 @@ Class BX_Credit {
 			$method_text .= '<p> &nbsp; &nbsp; Account name: '.$method_detail->account_name.'</p>';
 			$method_text .= '<p> &nbsp; &nbsp; Account number: '.$method_detail->account_number.'</p>';
 		}
-
 		$content =  sprintf( __('<p><h1>Detail of withdraw</h1></p><p><label> Amout:</label> %f</p><p><label>Method:</label> %s </p> <p> <label> Notes:</label> %s </p><p> Detail of method: %s','boxtheme'), $amout,$method, $note, $method_text) ;
+
+		$args_wdt = array(
+			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
+			'amout' => $amout,
+			'order_type' => 'withdraw' ,
+			'payment_type' => 'none' ,
+			'post_content' =>$content
+		);
+
+		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
+
+
+
 
 		box_mail($to, $subject, $content);
 		return true;
