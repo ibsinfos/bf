@@ -45,31 +45,38 @@ if( ! empty ($withdraw_info->bank_account) ){
 				</ul>
 				<div class="tab-content">
 					<div id="withdraw" class="tab-content-item">
-						<?php if($credit->available > 30 ){ ?>
-							<form id="frm_withdraw" class="withdraw-info">
-								<div class="form-group">
-									<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
-									<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
-								</div>
-								<div class="form-group">
-									<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
-									<select class="form-control required" required name="withdraw_type">
-										<?php if( !empty( $paypal_email ) ) { ?>
-											<option value="paypal"> PayPal</option>
-										<?php } ?>
-										<?php if( !empty( $account_number ) ) { ?>
-											<option value="banking"> Bank Account</option>
-										<?php } ?>
+						<?php
 
-									</select>
-								</div>
-								<div class="form-group">
-									<label for="withdraw_type"><?php _e('Note','boxtheme');?></label>
-									<textarea class="form-control" name="withdraw_note" required></textarea>
-								</div>
-								<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
-							</form>
+						if( $credit->available > 30  ){
+							if(  empty( $paypal_email ) || empty($account_number)  ){
+								_e(' Please setup paypal email or bank account to widthdraw','boxtheme');
+							} else {?>
+								<form id="frm_withdraw" class="withdraw-info">
+									<div class="form-group">
+										<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
+										<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
+									</div>
+									<div class="form-group">
+										<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
+										<select class="form-control required" required name="withdraw_type">
+											<?php if( !empty( $paypal_email ) ) { ?>
+												<option value="paypal"> PayPal</option>
+											<?php } ?>
+											<?php if( !empty( $account_number ) ) { ?>
+												<option value="banking"> Bank Account</option>
+											<?php } ?>
+
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="withdraw_type"><?php _e('Note','boxtheme');?></label>
+										<textarea class="form-control" name="withdraw_note" required></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
+								</form> 
+							<?php } ?>
 						<?php } else {?>
+							<p></p>
 							<?php _e('Your ballance is not enough to withdraw','boxtheme');?>
 						<?php } ?>
 					</div>
