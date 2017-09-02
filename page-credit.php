@@ -4,29 +4,31 @@
  */
 ?>
 <?php get_header(); ?>
+
+<div class="full-width">
+
+	<div class="container site-container">
 <?php
 global $user_ID;
 $ins_credit = BX_Credit::get_instance();
 $credit = $ins_credit->get_ballance($user_ID);
 $withdraw_info = $ins_credit->get_withdraw_info($user_ID);
-echo '<pre>';
-
-var_dump($withdraw_info);
-echo '</pre>';
 $paypal_email= $account_number = '';
 
 if( ! empty ($withdraw_info->paypal_email) )
 	$paypal_email = $withdraw_info->paypal_email;
 
 if( ! empty ($withdraw_info->bank_account) ){
-	$bank_account = $withdraw_info->bank_account;
-	if( !empty($bank_account->account_number) )
-		$account_number = $withdraw_info->account_number;
+	$bank_account = (object) $withdraw_info->bank_account;
+	// echo '<pre>';
+	// var_dump( $bank_account );
+	// var_dump($bank_account->account_number);
+	// echo '</pre>';
+	if( !empty( $bank_account->account_number ) )
+		$account_number = $bank_account->account_number;
 }
 ?>
-<div class="full-width">
 
-	<div class="container site-container">
 		<div  id="content" class="site-content page-credit">
 
 			<div class="col-md-12 line-item">
@@ -74,7 +76,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 						<form id="frm_paypal">
 							<div class="form-group">
 								<label for="paypal_email"><?php _e('PayPal Email','boxtheme');?></label>
-								<input type="text" class="form-control" id="paypal_email" name="paypal_email" aria-describedby="paypal_email" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
+								<input type="text" class="form-control" id="paypal_email" name="paypal_email" aria-describedby="paypal_email" value="<?php echo $paypal_email;?>" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
 							</div>
 							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 						</form>
