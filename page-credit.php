@@ -9,7 +9,10 @@
 
 	<div class="container site-container">
 <?php
+
 global $user_ID;
+$bank_account = (OBJECT) array('account_name' => 'empty', 'account_number' => 'bank_name', ''=>'' );
+
 $ins_credit = BX_Credit::get_instance();
 $credit = $ins_credit->get_ballance($user_ID);
 $withdraw_info = $ins_credit->get_withdraw_info($user_ID);
@@ -17,14 +20,9 @@ $paypal_email= $account_number = '';
 
 if( ! empty ($withdraw_info->paypal_email) )
 	$paypal_email = $withdraw_info->paypal_email;
-
 if( ! empty ($withdraw_info->bank_account) ){
 	$bank_account = (object) $withdraw_info->bank_account;
-	// echo '<pre>';
-	// var_dump( $bank_account );
-	// var_dump($bank_account->account_number);
-	// echo '</pre>';
-	if( !empty( $bank_account->account_number ) )
+	if( ! empty( $bank_account->account_number ) )
 		$account_number = $bank_account->account_number;
 }
 ?>
@@ -32,7 +30,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 		<div  id="content" class="site-content page-credit">
 
 			<div class="col-md-12 line-item">
-				<div class="form-group"><h3> Your credit info</h3></div>
+				<div class="form-group"><h3><?php _e('Your credit info','boxtheme');?></h3></div>
 			  		<div class="col-md-6"><?php printf(__('Avaibale: %s','boxtheme'),$credit->available);?></div>
 			  		<div class="col-md-6">
 			  			<div class="col-md-12"> <a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a></div>
@@ -41,9 +39,9 @@ if( ! empty ($withdraw_info->bank_account) ){
 
 			<div class="col-md-12 line-item">
 				<ul class="nav nav-tabs">
-				  <li class="active"><a href="#withdraw">Widthdraw</a></li>
-				  <li><a href="#paypal" href="#">PayPal</a></li>
-				  <li><a href="#bank_info"> Bank account</a></li>
+				  <li class="active"><a href="#withdraw"><?php _e('Widthdraw','boxtheme');?></a></li>
+				  <li><a href="#paypal" href="#"><?php _e('PayPal','boxtheme');?></a></li>
+				  <li><a href="#bank_info"><?php _e('Bank account','boxtheme');?></a></li>
 				</ul>
 				<div class="tab-content">
 					<div id="withdraw" class="tab-content-item">
@@ -87,17 +85,17 @@ if( ! empty ($withdraw_info->bank_account) ){
 							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
 							<div class="form-group">
 								<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
-								<input type="text" class="form-control required" id="account_name" required name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
+								<input type="text" class="form-control required" id="account_name" required name="account_name" aria-describedby="account_name" value="<?php echo $bank_account->account_name;?>" placeholder="<?php _e('Name on account','boxtheme');?>">
 								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
 							</div>
 							<div class="form-group">
 								<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
-								<input type="text" class="form-control required" required id="account_number" name="account_number" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
+								<input type="text" class="form-control required" required id="account_number" name="account_number" value="<?php echo $bank_account->account_number;?>" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
-								<input type="text" class="form-control required" id="bank_name" name="bank_name" placeholder="Bank name">
+								<input type="text" class="form-control required" id="bank_name" name="bank_name" value="<?php echo $bank_account->bank_name;?>" placeholder="Bank name">
 							</div>
 							<div class="form-group">
 								<label for="note"><?php _e('Note','boxtheme');?></label>
