@@ -1078,10 +1078,7 @@ form #heading_signup{
 .col-md-4.port-item img:hover{
 	cursor: pointer;
 }
-.col-md-4.port-item.middle-item{
-	padding-left: 7.5px;
-	padding-right: 7.5px;
-}
+
 .port-item img{
 	height: auto;
 	max-width: 100%;
@@ -1231,12 +1228,15 @@ h1.profile-title{
 .archive-profile-item .profile-title a{
 	color: #575757;
 }
+.bg-section .port-item .full {
+    position: relative;
+    overflow: hidden;
+    bottom: 45px;
+    height: 45px;
+}
 h5.port-title {
-    position: absolute;
-    bottom: -11px;
-    display: none;
+	display: none;
     color: #fff;
-    width: 95%;
     text-align: center;
     background: rgba(132, 128, 128, 0.36);
     padding: 10px;

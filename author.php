@@ -129,18 +129,17 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 
 			if( $result->have_posts() ){ ?>
 				<div class="bg-section">
-					<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
-					<div class="col-md-12 res-line"> <?php
+
+						<div class="col-md-12"> <div class="header-title"><h3> Portfolio </h3></div></div>
+
+
+					<div class=" res-line"> <?php
 
 						while ( $result->have_posts() ) {
-							$result->the_post();
-							$class = "middle-item";
-							if($i %3 == 0) $class = "no-padding-left";
-							if($i%3==2) $class = "no-padding-right"; ?>
-
-							<div class="col-md-4 port-item <?php echo $class;?>">
+							$result->the_post(); ?>
+							<div class="col-md-4 port-item ">
 								<?php the_post_thumbnail('full' ); ?>
-								<h5 class="h5 port-title"><?php the_title();?></h5>
+								<div class="full"><h5 class="h5 port-title"><?php the_title();?></h5></div>
 							</div> <?php
 							$i++;
 						}
