@@ -27,10 +27,11 @@ class BX_Admin{
         // Load only on ?page=theme-options
     	$credit_page = 'box-settings_page_credit-setting';
 
+    	$default = 'toplevel_page_box-settings';
         $hook_wdt = 'box-settings_page_widthraw-order';
         $hook_order = 'box-settings_page_credit-setting';
 
-        if( in_array( $hook, array( $hook_wdt,$hook_order ) ) ){
+        if( in_array( $hook, array($default, $hook_wdt,$hook_order ) ) ){
 	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.min.css' ) );
 	        wp_enqueue_style( 'box_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );

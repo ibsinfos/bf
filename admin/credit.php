@@ -84,7 +84,7 @@ class BX_Credit_Setting{
 
 			echo '<ul class="box-table">';
 			echo '<li class="row li-heading">';
-			echo '<div class="col-md-3">Buyer</div>';		echo '<div class="col-md-2">Type</div>';			echo '<div class="col-md-2">';echo "Price";	echo '</div>';
+			echo '<div class="col-md-3">Author</div>';		echo '<div class="col-md-2">Type</div>';			echo '<div class="col-md-2">';echo "Amount";	echo '</div>';
 			echo '<div class="col-md-2">Date</div>';echo '<div class="col-md-1">';	echo "Status";	echo '</div>';echo '<div class="col-md-2">Action</div>';
 			echo '</li>';
 			$bx_order = BX_Order::get_instance();
@@ -96,14 +96,13 @@ class BX_Credit_Setting{
 				echo '<li class="row">';
 					echo '<div class="col-md-3">'.get_the_author();				echo '</div>';
 					echo '<div class="col-md-2">';				echo $order->payment_type;				echo '</div>';
-
 					echo '<div class="col-md-2">';					echo $order->amout;					echo '</div>';
 					echo '<div class="col-md-2">';					echo get_the_date();					echo '</div>';
 					echo '<div class="col-md-1">';					echo $order->post_status;					echo '</div>';
 
 					echo '<div class="col-md-2">';
 					if( $order->post_status != 'publish' )
-						echo '<button class="btn-approve" id="'.get_the_ID().'">Approve</button>';
+						echo '<button class="btn-approve" id="'.get_the_ID().'"><span class="	glyphicon glyphicon-ok"></span></button>';
 					echo '</div>';
 				echo '</li>';
 			}

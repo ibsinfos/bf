@@ -10,7 +10,7 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div  id="content" class="site-content">
+		<div  id="content" class="site-content page-credit">
 
 			<div class="col-md-12 line-item">
 				<div class="form-group"><h3> Your credit info</h3></div>
@@ -123,6 +123,9 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 	.tab-content .hidding{
 		visibility: hidden;
 		display: none;
+	}
+	.page-credit .nav-tabs>li>a{
+		border-radius: 0;
 	}
 </style>
 <script type="text/javascript">
