@@ -103,6 +103,8 @@ Class Box_Email{
 	}
 	function get_footer(){
 		$foo_txt = wpautop( wp_kses_post( wptexturize( apply_filters( 'box_email_footer_text', get_option( 'box_email_footer_text' ) ) ) ) );
+		$option = BX_Option::get_instance();
+		$box_mail = (object)$option->get_mailing_setting();
 														$foo_txt = 	'</div>
 																</td>
 															</tr>
@@ -115,15 +117,14 @@ Class Box_Email{
 										</td>
 									</tr>
 									<tr>
-										<td align="center" valign="top" bgcolor="#33cc66">
+										<td align="center" valign="top" bgcolor="'.$box_mail->main_bg.'">
 											<!-- Footer -->
 											<table border="0" cellpadding="15" cellspacing="0" width="600" id="template_footer">
 												<tr>
 													<td valign="top">
 														<table border="0" cellpadding="0" cellspacing="0" width="100%">
 															<tr>
-																<td colspan="2" valign="middle" id="credit">
-																© 2009-2017. BoxThemes, Inc. USA. All Rights Reserved.</td>
+																<td colspan="2" valign="middle" id="credit">'.$box_mail->footer_text.'</td>
 															</tr>
 														</table>
 													</td>
@@ -135,7 +136,7 @@ Class Box_Email{
 									</tr>
 
 									<tr>
-										<td valign="top" bgcolor="#33cc66">
+										<td valign="top" bgcolor="'.$box_mail->main_bg.'">
 											<table border="0" cellpadding="15" cellspacing="0" width="228px" align="left">
 												<tr>
 													<td colspan="2" valign="middle" id="credit"><h3 style="padding:0; margin:0;"> Connect Us</h3></td>

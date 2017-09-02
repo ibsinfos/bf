@@ -102,6 +102,18 @@ class BX_Option {
 	function get_logo(){
 
 	}
+	function get_mailing_setting(){
+		$default = array(
+			'header_image' => get_template_directory_uri().'/img/header-email.png',
+			'main_bg' => '#33cc66',
+			'from_name' => 'admin@boxthemes.net',
+			'footer_text' => '© 2009-2017. BoxThemes, Inc. USA. All Rights Reserved.',
+
+		);
+		$setting =  get_option('box_mail');
+		$result = wp_parse_args($setting,$default);
+		return (object)$result;
+	}
 
 }
 function get_sandbox_mode(){
