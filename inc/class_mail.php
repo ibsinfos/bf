@@ -180,7 +180,7 @@ Class Box_Email{
 		$msg = $header.$message.$footer;
 
 
-		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
+		//add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
 		return wp_mail( $to, $subject, $msg );
@@ -213,5 +213,3 @@ Class Box_Email{
 function box_mail( $to, $subject, $message ) {
 	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
 }
-$t = box_mail('danng@abc.vn','test','test');
-var_dump($t);

@@ -260,8 +260,8 @@ Class BX_Credit {
 		$subject = 'Has a withdraw request';
 		box_mail( $to, $subject, $content ); // mail to admin.
 
-		$subject = __( 'You have just requested a withdrawal.','boxtheme' );
-		//box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
+		$subject = __( 'You have just sen a  requested to withdraw.','boxtheme' );
+		box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
 
 
 		return true;
