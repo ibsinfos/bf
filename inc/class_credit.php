@@ -333,20 +333,26 @@ Class BX_Credit {
 	 * @return  [type]       [description]
 	 */
 	function update_withdraw_info( $args ){
+
 		global $user_ID;
-		$withdraw = get_user_meta( $user_ID, 'withdraw_info', true );
+		$withdraw_info = get_user_meta( $user_ID, 'withdraw_info', true );
+
+		if( !is_array($withdraw_info) )
+			$withdraw_info = array();
+
 		if( isset($args['paypal_email']) ){
-			$withdraw['paypal_email'] = $args['paypal_email'];
+			$withdraw_info['paypal_email'] = $args['paypal_email'];
 		} else {
 			// update bank infor
-			$withdraw['bank_account'] = array(
+			$withdraw_info['bank_account'] = array(
 				'account_name' => $args['account_name'],
 				'account_number' => $args['account_number'],
 				'bank_name' => $args['bank_name'],
 				'account_name' => $args['account_name'],
 			);
 		}
-		return update_user_meta( $user_ID, 'withdraw_info', $withdraw );
+		return update_user_meta( $user_ID, 'withdraw_info', $withdraw_info );
+
 	}
 	function get_withdraw_info($user_id = 0){
 		if( empty( $user_id )){

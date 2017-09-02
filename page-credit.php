@@ -25,6 +25,10 @@ if( ! empty ($withdraw_info->bank_account) ){
 	if( ! empty( $bank_account->account_number ) )
 		$account_number = $bank_account->account_number;
 }
+// echo '<pre>';
+// var_dump($withdraw_info);
+// echo phpversion();
+// echo '</pre>';
 ?>
 
 		<div  id="content" class="site-content page-credit">
