@@ -212,8 +212,17 @@ Class BX_Credit {
 		$amout = (float) $request['withdraw_amout'];
 		$method =  $request['withdraw_method'];
 		$note =  $request['withdraw_note'];
+		$payment_method = $this->get_withdraw_info();
 
 		$ballance = $this->get_ballance($user_ID);
+
+		$method_detail = array('paypay' => '', 'bank_account' => array( 'account_name' => '', 'bank_name' => '', 'account_number' => '' ) );
+
+		if( !empty( $payment_method->$method ) ){
+			return new WP_Error( 'unset_method', __( "Please set your payment method to withdraw", "boxtheme" ) );
+		}
+		
+		$method_detail = $payment_method->$method;
 
 		if( $amout < 10 )
 			return new WP_Error( 'inlimitted', __( "Your amout must bigger than 15$", "boxtheme" ) );
@@ -235,7 +244,8 @@ Class BX_Credit {
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 		$to = 'admin@boxthemes.net';
 		$subject = 'Has a withdraw request';
-		$content =  sprintf( __('<p><h1>Detail of withdraw</h1></p><p>Amout %f</p><p> Method: %s </p> <p> <label> Notes:</label> %s </p>','boxtheme'), $amout, $method, $note ) ;
+
+		$content =  sprintf( __('<p><h1>Detail of withdraw</h1></p><p><label> Amout:</label> %f</p><p><label>Method:</label> %s </p> <p> <label> Notes:</label> %s </p><p> Detail of method: %s','boxtheme'), $amout, $method, $note ) ;
 
 		box_mail($to, $subject, $content);
 		return true;
