@@ -235,8 +235,8 @@ Class BX_Credit {
 		$curren_user = wp_get_current_user();
 
 
-		$to = 'admin@boxthemes.net';
-		$subject = 'Has a withdraw request';
+
+
 		$method_text = '';
 		if( $method == 'paypal_email'){
 			$method_text = '<p> &nbsp; &nbsp; PayPal email: '.$payment_method->paypal_email.'</p>';
@@ -254,15 +254,16 @@ Class BX_Credit {
 			'amout' => $amout,
 			'order_type' => 'withdraw' ,
 			'payment_type' => 'none' ,
-			'post_content' =>$content
+			'post_content' => $content,
 		);
 
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 
 
+		$to = get_option('admin_email', true);
+		$subject = 'Has a withdraw request';
+		box_mail( $to, $subject, $content );
 
-
-		box_mail($to, $subject, $content);
 		return true;
 	}
 
