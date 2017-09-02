@@ -170,7 +170,7 @@ Class BX_Credit {
 		$current = $this->get_credit_available($user_id);
 		$new_available = $this->get_credit_available($user_id) - (float)$value;
 
-		if( $new_available >= 0)
+		if( $new_available >= 0 )
 			return update_user_meta($user_id, $this->meta_available, $new_available);
 
 		return false;
@@ -234,9 +234,6 @@ Class BX_Credit {
 		//create order
 		$curren_user = wp_get_current_user();
 
-
-
-
 		$method_text = '';
 		if( $method == 'paypal_email'){
 			$method_text = '<p> &nbsp; &nbsp; PayPal email: '.$payment_method->paypal_email.'</p>';
@@ -259,10 +256,13 @@ Class BX_Credit {
 
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 
-
 		$to = get_option('admin_email', true);
 		$subject = 'Has a withdraw request';
-		box_mail( $to, $subject, $content );
+		box_mail( $to, $subject, $content ); // mail to admin.
+
+		$subject = __( 'You have just requested a withdrawal.','boxtheme' );
+		box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
+
 
 		return true;
 	}
