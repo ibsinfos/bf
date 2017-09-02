@@ -103,7 +103,7 @@ Class Box_Email{
 	}
 	function get_footer(){
 		$foo_txt = wpautop( wp_kses_post( wptexturize( apply_filters( 'box_email_footer_text', get_option( 'box_email_footer_text' ) ) ) ) );
-														$footer = 	'</div>
+														$foo_txt = 	'</div>
 																</td>
 															</tr>
 														</table>
@@ -151,12 +151,12 @@ Class Box_Email{
 
 													$social_link = '';
 													if ( !empty( $general->fb_link ) )
-									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'">'.get_template_directory_uri().'/img/email-fb.png.'.'</a></li>';
+									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><img src="'.get_template_directory_uri().'/img/email-fb.png" /></a></li>';
 										    		if ( !empty( $general->tw_link ) )
-										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->tw_link).'">'.get_template_directory_uri().'/img/email-tw.png.'.'</a></li>';
+										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->tw_link).'"><img src="'.get_template_directory_uri().'/img/email-tw.png" /></a></li>';
 
 										    		if ( !empty( $general->gg_link ) )
-										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->gg_link).'">'.get_template_directory_uri().'/img/email-gg.png.'.'</a></li>';
+										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->gg_link).'"><img src="'.get_template_directory_uri().'/img/email-gg.png" /></a></li>';
 
 										    		$foo_txt.=$social_link;
 										    		$foo_txt.='
@@ -174,7 +174,7 @@ Class Box_Email{
 				</div>
 			</body>
 		</html>';
-		return $footer;
+		return $foo_txt;
 	}
 	function send_mail( $to, $subject, $message ){
 		$header = $this->get_header();
