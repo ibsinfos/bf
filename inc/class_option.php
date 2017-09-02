@@ -106,7 +106,8 @@ class BX_Option {
 		$default = array(
 			'header_image' => get_template_directory_uri().'/img/header-email.png',
 			'main_bg' => '#33cc66',
-			'from_name' => 'admin@boxthemes.net',
+			'from_name' => 'BoxThemes Inc',
+			'from_address' => 'admin@boxthemes',
 			'footer_text' => '© 2009-2017. BoxThemes, Inc. USA. All Rights Reserved.',
 
 		);

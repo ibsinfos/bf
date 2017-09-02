@@ -1,8 +1,9 @@
 <?php
 Class Box_Email{
 	static $_instance;
+	public $option;
 	function __construct(){
-
+		$this->option = BX_Option::get_instance()->get_mailing_setting();
 	}
 	static function get_instance(){
 		if ( ! isset(self::$instance) ){
@@ -172,7 +173,7 @@ Class Box_Email{
 	}
 	function send_mail( $to, $subject, $message ){
 
-		$option = BX_Option::get_instance()->get_mailing_setting();
+
 
 		$header = $this->get_header($option);
 		$footer = $this->get_footer($option);
@@ -199,11 +200,11 @@ Class Box_Email{
 	}
 	function get_from_name(){
 		$from_name = 'From BoxThemes';
-		return wp_specialchars_decode( esc_html( $from_name ), ENT_QUOTES );
+		return wp_specialchars_decode( esc_html( $this->option->from_address ), ENT_QUOTES );
 	}
 	public function get_from_address() {
-		$from_address = 'admin@lab.boxthemes.net';
-		return sanitize_email( $from_address );
+
+		return sanitize_email( $this->option->from_address );
 	}
 
 }

@@ -65,6 +65,11 @@ $label = array(
 			<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('From name','boxtheme');?></label>
 			<div class="col-md-12"><input class="form-control auto-save"  multi="0"  type="text" name="from_name" multi="0"  value="<?php echo $box_mail->from_name;?>" id="from_name"></div>
 		</div>
+		<div class="form-group row">
+			<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('From Address','boxtheme');?></label>
+			<div class="col-md-12"><input class="form-control auto-save"  multi="0"  type="text" name="from_address" multi="0"  value="<?php echo $box_mail->from_address;?>" id="from_address"></div>
+		</div>
+
 
 		</div>
 	</div>
