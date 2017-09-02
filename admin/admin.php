@@ -38,8 +38,8 @@ class BX_Admin{
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
 	        wp_enqueue_script( 'box-js', get_theme_file_uri('admin/js/admin.js'), array('jquery','wp-util') );
 
-	        if( in_array( $hook, array($hook_wdt, $hook_order ) ) ){
-	        	wp_enqueue_script('credit-js',get_theme_file_uri('admin/js/credit.js') );
+	        if( in_array( $hook, array( $hook_wdt, $hook_order ) ) ){
+	        	wp_enqueue_script('credit-js',get_theme_file_uri('admin/js/credit.js'), array('jquery','box-js') );
 	        }
 	    }
 

@@ -55,7 +55,7 @@ class BX_Credit_Setting{
 
 						echo '<div class="col-md-2">';
 						if( $order->post_status != 'publish' )
-							echo '<button class="btn-approve" id="'.get_the_ID().'">Approve</button>';
+							echo '<button class="btn-approve-order" id="'.get_the_ID().'">Approve</button>';
 						echo '</div>';
 					echo '</li>';
 				}
@@ -100,7 +100,7 @@ class BX_Credit_Setting{
 
 							<td class="col-md-2"> <?php
 							if( $order->post_status != 'publish' )
-								echo '<button class="btn-approve" id="'.get_the_ID().'"><span class="	glyphicon glyphicon-ok"></span></button>';
+								echo '<button class="btn-approve-widthraw " id="'.get_the_ID().'"><span class="	glyphicon glyphicon-ok"></span></button>';
 							echo '</td>';
 						echo '</tr>';
 					}

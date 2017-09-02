@@ -21,7 +21,7 @@ class BX_ajax_backend{
 		add_action( 'wp_ajax_save-option', array( __CLASS__, 'save_option' ) );
 		add_action( 'wp_ajax_create-packge',array( __CLASS__, 'create_package' ) );
 		add_action( 'wp_ajax_del-post',array( __CLASS__, 'del_post' ) );
-		add_action( 'wp_ajax_approve-order', array( __CLASS__, 'approve_order' ) );
+		add_action( 'wp_ajax_admin_approve', array( __CLASS__, 'admin_approve' ) );
 
 	}
 
@@ -98,7 +98,7 @@ class BX_ajax_backend{
 		}
 		return false;
 	}
-	static function approve_order(){
+	static function admin_approve(){
 		if( ! self::check_permission() ){
 			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
 			die();
@@ -106,7 +106,9 @@ class BX_ajax_backend{
 
 		$request= $_REQUEST['request'];
 		$order_id = $request['order_id'];
-		$credit = BX_Credit::get_instance()->approve($order_id);
+		$type = $_REQUEST['type'];
+
+		$credit = BX_Credit::get_instance()->$type($order_id);
 		if($credit){
 			wp_send_json(array('success'=> true,'msg' => 'Update ok') );
 		}

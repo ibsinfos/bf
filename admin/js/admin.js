@@ -70,6 +70,25 @@ var ajaxSend = {};
 	    });
 	    return false;
 	};
+	window.ajaxSend.Approve = function(data, type, _this){
+	    $.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: 'admin_approve',
+	                type: type,
+	                request: data,
+	        },
+	        success  : function(event){
+
+	        },
+	        beforeSend  : function(event){
+	        	console.log('Insert message');
+	        },
+	    });
+	    return false;
+	};
 	$(document).ready(function(){
 		$('.auto-save, .wrap-auto-save textarea, iframe ').change(function(event){
 			var _this = $(event.currentTarget);

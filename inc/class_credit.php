@@ -197,7 +197,16 @@ Class BX_Credit {
 		}
 		return 0;
 	}
-	function approve($order_id){
+
+	/**
+	 * admin approve 1 buy_credit order
+	 * This is a cool function
+	 * @author danng
+	 * @version 1.0
+	 * @param   [type] $order_id [description]
+	 * @return  [type]           [description]
+	 */
+	function approve_buy_credit($order_id){
 		try{
 			$order = BX_Order::get_instance()->get_order($order_id);
 			$order_access = BX_Order::get_instance()->approve($order_id);
@@ -221,6 +230,18 @@ Class BX_Credit {
 			return false;
 		}
 		return true;
+	}
+	/**
+	 * admin approve 1 widthraw
+	 * This is a cool function
+	 * @author danng
+	 * @version 1.0
+	 * @return  [type] [description]
+	 */
+	function approve_widthdraw($args){
+
+		$order_id = $args['order_id'];
+		var_dump($args);
 	}
 	function widthraw( $amout){
 
