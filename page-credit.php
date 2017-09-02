@@ -11,7 +11,7 @@
 <?php
 
 global $user_ID;
-$bank_account = (OBJECT) array('account_name' => 'empty', 'account_number' => '', 'bank_name'=>'' );
+$bank_account = (OBJECT) array('account_name' => '', 'account_number' => '', 'bank_name'=>'' );
 
 $ins_credit = BX_Credit::get_instance();
 $credit = $ins_credit->get_ballance($user_ID);
