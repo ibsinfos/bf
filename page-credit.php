@@ -57,8 +57,8 @@ if( ! empty ($withdraw_info->bank_account) ){
 										<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
 									</div>
 									<div class="form-group">
-										<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
-										<select class="form-control required" required name="withdraw_type">
+										<label for="withdraw_type"><?php _e('Select Method','boxtheme');?></label>
+										<select class="form-control required" required name="withdraw_method">
 											<?php if( !empty( $paypal_email ) ) { ?>
 												<option value="paypal"> PayPal</option>
 											<?php } ?>

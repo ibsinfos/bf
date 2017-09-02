@@ -809,10 +809,8 @@ class BX_AJAX {
 	 */
 	static function request_withdraw(){
 
-		$request= $_REQUEST['request'];
-		$type = $request['withdraw_type'];
 		$response = array( 'success' => true,'msg'=> 'Widthdraw done' );
-
+		$request= $_REQUEST['request'];
 
 		$credit = BX_Credit::get_instance();
 		$result = $credit->request_withdraw($request); //request_withdraw
