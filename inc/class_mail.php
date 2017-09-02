@@ -123,8 +123,7 @@ Class Box_Email{
 														<table border="0" cellpadding="0" cellspacing="0" width="100%">
 															<tr>
 																<td colspan="2" valign="middle" id="credit">
-																© 2009-2017. Depositphotos, Inc. USA.
-																All Rights Reserved.</td>
+																© 2009-2017. BoxThemes, Inc. USA. All Rights Reserved.</td>
 															</tr>
 														</table>
 													</td>
