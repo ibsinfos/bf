@@ -53,11 +53,10 @@ if( ! empty ($withdraw_info->bank_account) ){
 							<div class="form-group">
 								<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
 								<select class="form-control required" required name="withdraw_type">
-									<option >Select method</option>
-									<?php if( !empty($paypal_email)) { ?>
+									<?php if( !empty( $paypal_email ) ) { ?>
 										<option value="paypal"> PayPal</option>
 									<?php } ?>
-									<?php if( !empty($account_number)) { ?>
+									<?php if( !empty( $account_number ) ) { ?>
 										<option value="banking"> Bank Account</option>
 									<?php } ?>
 
