@@ -238,11 +238,34 @@ Class BX_Credit {
 	 * @version 1.0
 	 * @return  [type] [description]
 	 */
-	function approve_widthdraw($args){
+	function approve_widthdraw($order_id){
 
-		$order_id = $args['order_id'];
-		var_dump($args);
+		try{
+
+			$order_access = BX_Order::get_instance()->approve($order_id);
+
+			if( !$order_access ){
+				throw new Exception("Some error message", 101);
+			}
+			$order = BX_Order::get_instance()->get_order($order_id);
+
+			$this->increase_credit_available($order->post_author, $order->amout);
+
+		} catch(Exception  $e){
+			
+			$code = $e->getCode();
+
+			if($code == 101){
+				// update order to pending
+			}
+			if($code == 100){
+
+			}
+			return false;
+		}
+		return true;
 	}
+
 	function widthraw( $amout){
 
 		global $user_ID;

@@ -109,10 +109,10 @@ class BX_ajax_backend{
 		$type = $_REQUEST['type'];
 
 		$credit = BX_Credit::get_instance()->$type($order_id);
-		if($credit){
-			wp_send_json(array('success'=> true,'msg' => 'Update ok') );
+		if( is_wp_error( $credit ) ){
+			wp_send_json(array('success'=> false,'msg' => $credit->get_error_message() ) );
 		}
-		wp_send_json(array('success'=> false,'msg' => 'Update fail') );
+		wp_send_json(array('success'=> tre,'msg' => 'Update OK') );
 	}
 
 }
