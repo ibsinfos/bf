@@ -32,7 +32,6 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 							<div class="form-group">
 								<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
 								<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
-								<small id="withdraw_amout" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
 							</div>
 							<div class="form-group">
 								<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
@@ -54,10 +53,9 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 
 							<div class="form-group">
 								<label for="account_name"><?php _e('PayPal Email','boxtheme');?></label>
-								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
-								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
 							</div>
-							<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
+							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 						</form>
 					</div>
 
