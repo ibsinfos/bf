@@ -222,7 +222,7 @@ Class BX_Credit {
 			return new WP_Error( 'unset_method', __( "Please set your payment method to withdraw", "boxtheme" ) );
 		}
 
-		$method_detail = (object)$payment_method->$method;
+
 
 		if( $amout < 10 )
 			return new WP_Error( 'inlimitted', __( "Your amout must bigger than 15$", "boxtheme" ) );
@@ -239,9 +239,10 @@ Class BX_Credit {
 		$subject = 'Has a withdraw request';
 		$method_text = '';
 		if( $method == 'paypal_email'){
-			$method_text = '<p> &nbsp; &nbsp; PayPal email: '.$method_detail->paypal_email.'</p>';
+			$method_text = '<p> &nbsp; &nbsp; PayPal email: '.$payment_method->paypal_email.'</p>';
 		} else {
 			// array('account_name' => 'empty', 'account_number' => '', 'bank_name'=>'' );
+			$method_detail = (object)$payment_method->$method;
 			$method_text = '<p> &nbsp; &nbsp; Bank name: '.$method_detail->bank_name.'</p>';
 			$method_text .= '<p> &nbsp; &nbsp; Account name: '.$method_detail->account_name.'</p>';
 			$method_text .= '<p> &nbsp; &nbsp; Account number: '.$method_detail->account_number.'</p>';
