@@ -48,10 +48,10 @@ if( ! empty ($withdraw_info->bank_account) ){
 						<?php
 
 						if( $credit->available > 30  ){
-							if(  empty( $paypal_email ) || empty($account_number)  ){
+							if(  empty( $paypal_email ) && empty($account_number)  ){
 								_e(' Please setup paypal email or bank account to widthdraw','boxtheme');
 							} else {?>
-								<form id="frm_withdraw" class="withdraw-info">
+								<form id="frm_withdraw" class="">
 									<div class="form-group">
 										<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
 										<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
@@ -60,10 +60,10 @@ if( ! empty ($withdraw_info->bank_account) ){
 										<label for="withdraw_type"><?php _e('Select Method','boxtheme');?></label>
 										<select class="form-control required" required name="withdraw_method">
 											<?php if( !empty( $paypal_email ) ) { ?>
-												<option value="paypal"> PayPal</option>
+												<option value="paypal_email"> PayPal</option>
 											<?php } ?>
 											<?php if( !empty( $account_number ) ) { ?>
-												<option value="banking"> Bank Account</option>
+												<option value="bank_account"> Bank Account</option>
 											<?php } ?>
 
 										</select>
