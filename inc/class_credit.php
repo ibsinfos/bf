@@ -247,7 +247,7 @@ Class BX_Credit {
 		$content =  sprintf( __('<p><h1>Detail of withdraw</h1></p><p><label> Amout:</label> %f</p><p><label>Method:</label> %s </p> <p> <label> Notes:</label> %s </p><p> Detail of method: %s','boxtheme'), $amout,$method, $note, $method_text) ;
 
 		$args_wdt = array(
-			'post_title' => sprintf( __('%s request widdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
+			'post_title' => sprintf( __('%s request withdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
 			'amout' => $amout,
 			'order_type' => 'withdraw' ,
 			'payment_type' => 'none' ,
