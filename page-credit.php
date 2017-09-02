@@ -6,9 +6,26 @@
 <?php get_header(); ?>
 <?php
 global $user_ID;
-$credit = BX_Credit::get_instance()->get_ballance($user_ID);
+$ins_credit = BX_Credit::get_instance();
+$credit = $ins_credit->get_ballance($user_ID);
+$withdraw_info = $ins_credit->get_withdraw_info($user_ID);
+echo '<pre>';
+
+var_dump($withdraw_info);
+echo '</pre>';
+$paypal_email= $account_number = '';
+
+if( ! empty ($withdraw_info->paypal_email) )
+	$paypal_email = $withdraw_info->paypal_email;
+
+if( ! empty ($withdraw_info->bank_account) ){
+	$bank_account = $withdraw_info->bank_account;
+	if( !empty($bank_account->account_number) )
+		$account_number = $withdraw_info->account_number;
+}
 ?>
 <div class="full-width">
+
 	<div class="container site-container">
 		<div  id="content" class="site-content page-credit">
 
@@ -28,7 +45,7 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 				</ul>
 				<div class="tab-content">
 					<div id="withdraw" class="tab-content-item">
-						<form id="frm_withdraw">
+						<form id="frm_withdraw" class="withdraw-info">
 							<div class="form-group">
 								<label for="withdraw_amout"><?php _e('Amout','boxtheme');?></label>
 								<input type="number" class="form-control required" required id="withdraw_amout" name="withdraw_amout" aria-describedby="withdraw_amout" placeholder="<?php _e('How much you want to withdraw?','boxtheme');?>">
@@ -37,8 +54,13 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 								<label for="withdraw_type"><?php _e('Select type','boxtheme');?></label>
 								<select class="form-control required" required name="withdraw_type">
 									<option >Select method</option>
-									<option value="paypal"> PayPal</option>
-									<option value="banking"> Bank Account</option>
+									<?php if( !empty($paypal_email)) { ?>
+										<option value="paypal"> PayPal</option>
+									<?php } ?>
+									<?php if( !empty($account_number)) { ?>
+										<option value="banking"> Bank Account</option>
+									<?php } ?>
+
 								</select>
 							</div>
 							<div class="form-group">
@@ -49,32 +71,31 @@ $credit = BX_Credit::get_instance()->get_ballance($user_ID);
 						</form>
 					</div>
 					<div id="paypal" class="tab-content-item hidding">
-						<form>
-
+						<form id="frm_paypal">
 							<div class="form-group">
-								<label for="account_name"><?php _e('PayPal Email','boxtheme');?></label>
-								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
+								<label for="paypal_email"><?php _e('PayPal Email','boxtheme');?></label>
+								<input type="text" class="form-control" id="paypal_email" name="paypal_email" aria-describedby="paypal_email" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
 							</div>
 							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 						</form>
 					</div>
 
 					<div id="bank_info" class=" tab-content-item hidding">
-						<form>
+						<form id="frm_bank_info" class="withdraw-info">
 							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
 							<div class="form-group">
 								<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
-								<input type="text" class="form-control" id="account_name" name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
+								<input type="text" class="form-control required" id="account_name" required name="account_name" aria-describedby="account_name" placeholder="<?php _e('Name on account','boxtheme');?>">
 								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
 							</div>
 							<div class="form-group">
 								<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
-								<input type="text" class="form-control" id="account_number" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
+								<input type="text" class="form-control required" required id="account_number" name="account_number" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
-								<input type="text" class="form-control" id="bank_name" name="bank_name" placeholder="Bank name">
+								<input type="text" class="form-control required" id="bank_name" name="bank_name" placeholder="Bank name">
 							</div>
 							<div class="form-group">
 								<label for="note"><?php _e('Note','boxtheme');?></label>

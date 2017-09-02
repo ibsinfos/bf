@@ -3,6 +3,7 @@
 		init: function() {
 			$('form#frm_withdraw' ).on( 'submit', this.sendWithDraw);
 			$('.btn-delete-job' ).on( 'click', this.actDelJob);
+			$('form.withdraw-info' ).on( 'submit', this.updateWithdrawInfo);
 		},
 		sendWithDraw : function(event){
 			var _this = $(event.currentTarget);
@@ -33,7 +34,18 @@
 			}
 
 			return false;
+		},
+		updateWithdrawInfo: function (event){
+			var _this = $(event.currentTarget);
+			var action = 'update_withdraw_info',method = 'null';
+			var success = function(res){
+				console.log('res');
+			}
+			window.ajaxSend.Form(event, action, method, success);
+
+			return false;
 		}
+
 	}
 
 

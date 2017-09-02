@@ -300,6 +300,35 @@ Class BX_Credit {
 		}
 		return true;
 	}
-
+	/**
+	 *
+	 * This is a cool function
+	 * @author danng
+	 * @version 1.0
+	 * @param   [type] $args [description]
+	 * @return  [type]       [description]
+	 */
+	function update_withdraw_info( $args ){
+		global $user_ID;
+		$withdraw = get_user_meta( $user_ID, 'withdraw_info', true );
+		if( isset($args['paypal_email']) ){
+			$withdraw['paypal_email'] = $args['paypal_email'];
+		} else {
+			// update bank infor
+			$withdraw['bank_account'] = array(
+				'account_name' => $args['account_name'],
+				'account_number' => $args['account_number'],
+				'bank_name' => $args['bank_name'],
+				'account_name' => $args['account_name'],
+			);
+		}
+		return update_user_meta( $user_ID, 'withdraw_info', $withdraw );
+	}
+	function get_withdraw_info($user_id){
+		if( empty( $user_id )){
+			$user_id = $user_ID;
+		}
+		return (object) get_user_meta( $user_id, 'withdraw_info', true );
+	}
 
 }

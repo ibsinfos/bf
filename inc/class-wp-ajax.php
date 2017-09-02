@@ -49,6 +49,7 @@ class BX_AJAX {
 			'social_signup' 		=> true,
 
 			'request_withdraw' => false,
+			'update_withdraw_info' => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -821,6 +822,18 @@ class BX_AJAX {
 		}
 		wp_send_json( $response );
 	}
+
+	/**
+	 *
+	 */
+	static function update_withdraw_info(){
+		$request= $_REQUEST['request'];
+		$response = array( 'success' => true,'msg'=> 'Update withdraw info done.' );
+		$credit = BX_Credit::get_instance();
+		$result = $credit->update_withdraw_info($request); //request_withdraw
+		wp_send_json( $response );
+	}
+
 
 }
 
