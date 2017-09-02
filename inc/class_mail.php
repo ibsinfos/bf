@@ -10,14 +10,9 @@ Class Box_Email{
 		}
 		return self::$_instance;
 	}
-	function get_header(){
+	function get_header($option){
 		$rlt =  is_rtl() ? "rtl" : "ltr";
 		$rightmargin = is_rtl() ? 'rightmargin' : 'leftmargin';
-		$url_img = '';
-		$email_heading = 'Register successful';
-		if ( get_option( 'box_email_header_image' ) == '' ) {
-			$url_img =  get_template_directory_uri().'/img/header-email.png';
-		}
 		$header = '<!DOCTYPE html>
 		<html dir="'.$rlt.'">
 			<head>
@@ -68,7 +63,7 @@ Class Box_Email{
 											<!-- Header -->
 											<table border="0" cellpadding="0" cellspacing="0" width="600" id="image_header">
 												<tr>
-													<td style="border-bottom:solid 1px #ececec;" id="image_wrapper"><img width="75%" style="display:block;margin:0 auto; padding:15px 0;"   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$url_img.'"></td>
+													<td style="border-bottom:solid 1px #ececec;" id="image_wrapper"><img width="75%" style="display:block;margin:0 auto; padding:15px 0;"   alt="' . get_bloginfo( 'name', 'display' ) . '" src="'.$option->header_image.'"></td>
 												</tr>
 											</table>
 											<!-- End IMG Header -->
@@ -101,10 +96,9 @@ Class Box_Email{
 																	<div id="body_content_inner">';
 		return $header;
 	}
-	function get_footer(){
+	function get_footer( $option ){
 		$foo_txt = wpautop( wp_kses_post( wptexturize( apply_filters( 'box_email_footer_text', get_option( 'box_email_footer_text' ) ) ) ) );
-		$option = BX_Option::get_instance();
-		$box_mail = (object)$option->get_mailing_setting();
+
 														$foo_txt = 	'</div>
 																</td>
 															</tr>
@@ -117,14 +111,14 @@ Class Box_Email{
 										</td>
 									</tr>
 									<tr>
-										<td align="center" valign="top" bgcolor="'.$box_mail->main_bg.'">
+										<td align="center" valign="top" bgcolor="'.$option->main_bg.'">
 											<!-- Footer -->
 											<table border="0" cellpadding="15" cellspacing="0" width="600" id="template_footer">
 												<tr>
 													<td valign="top">
 														<table border="0" cellpadding="0" cellspacing="0" width="100%">
 															<tr>
-																<td colspan="2" valign="middle" id="credit">'.$box_mail->footer_text.'</td>
+																<td colspan="2" valign="middle" id="credit">'.$option->footer_text.'</td>
 															</tr>
 														</table>
 													</td>
@@ -136,7 +130,7 @@ Class Box_Email{
 									</tr>
 
 									<tr>
-										<td valign="top" bgcolor="'.$box_mail->main_bg.'">
+										<td valign="top" bgcolor="'.$option->main_bg.'">
 											<table border="0" cellpadding="15" cellspacing="0" width="228px" align="left">
 												<tr>
 													<td colspan="2" valign="middle" id="credit"><h3 style="padding:0; margin:0;"> Connect Us</h3></td>
@@ -177,8 +171,11 @@ Class Box_Email{
 		return $foo_txt;
 	}
 	function send_mail( $to, $subject, $message ){
-		$header = $this->get_header();
-		$footer = $this->get_footer();
+
+		$option = BX_Option::get_instance()->get_mailing_setting();
+
+		$header = $this->get_header($option);
+		$footer = $this->get_footer($option);
 		$msg = $header.$message.$footer;
 
 		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );

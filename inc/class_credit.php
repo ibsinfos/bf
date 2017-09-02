@@ -225,7 +225,7 @@ Class BX_Credit {
 
 
 		if( $amout < 10 )
-			return new WP_Error( 'inlimitted', __( "Your amout must bigger than 15$", "boxtheme" ) );
+			return new WP_Error( 'inlimitted', __( "Your amout must bigger than 10$", "boxtheme" ) );
 
 		if( $ballance->available < $amout ){
 			return new WP_Error( 'not_enough', __( "Your ballance does not enough to perform this withdraw.", "boxtheme" ) );
