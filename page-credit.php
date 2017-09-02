@@ -11,7 +11,7 @@
 <?php
 
 global $user_ID;
-$bank_account = (OBJECT) array('account_name' => 'empty', 'account_number' => 'bank_name', ''=>'' );
+$bank_account = (OBJECT) array('account_name' => 'empty', 'account_number' => '', 'bank_name'=>'' );
 
 $ins_credit = BX_Credit::get_instance();
 $credit = $ins_credit->get_ballance($user_ID);
@@ -73,7 +73,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 										<textarea class="form-control" name="withdraw_note" required></textarea>
 									</div>
 									<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
-								</form> 
+								</form>
 							<?php } ?>
 						<?php } else {?>
 							<p></p>
