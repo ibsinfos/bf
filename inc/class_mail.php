@@ -179,10 +179,12 @@ Class Box_Email{
 		$footer = $this->get_footer($this->option);
 		$msg = $header.$message.$footer;
 
+
 		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
-		return  wp_mail( $to, $subject, $msg );
+		return wp_mail( $to, $subject, $msg );
+
 		remove_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
 		remove_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		remove_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
@@ -199,7 +201,7 @@ Class Box_Email{
 		// }
 	}
 	function get_from_name(){
-		$from_name = 'From BoxThemes';
+
 		return wp_specialchars_decode( esc_html( $this->option->from_name ), ENT_QUOTES );
 	}
 	public function get_from_address() {
@@ -211,3 +213,5 @@ Class Box_Email{
 function box_mail( $to, $subject, $message ) {
 	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
 }
+$t = box_mail('danng@abc.vn','test','test');
+var_dump($t);

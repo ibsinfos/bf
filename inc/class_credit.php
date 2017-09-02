@@ -261,7 +261,7 @@ Class BX_Credit {
 		box_mail( $to, $subject, $content ); // mail to admin.
 
 		$subject = __( 'You have just requested a withdrawal.','boxtheme' );
-		box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
+		//box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
 
 
 		return true;
