@@ -11,7 +11,7 @@
 			var action = 'request_withdraw',method = 'null';
 			var success = function(res){
 				if(res.success)
-					_this.closest('li').remove();
+					window.location.reload(true);
 				else
 					alert(res.msg);
 			}
@@ -40,6 +40,7 @@
 			var action = 'update_withdraw_info',method = 'null';
 			var success = function(res){
 				console.log('res');
+				window.location.reload(true);
 			}
 			window.ajaxSend.Form(event, action, method, success);
 
