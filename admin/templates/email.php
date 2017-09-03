@@ -40,7 +40,7 @@ $label = array(
        	</table>
    	</div>
    	<p>&nbsp;</p>
-   	<h2> Setting content email </h2>
+   	<h2> <?php _e('Setting email','boxtheme');?> </h2>
    	<div class="sub-section " id="box_mail">
 
 		<div class="full">
