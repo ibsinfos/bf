@@ -378,8 +378,8 @@ function bx_theme_init() {
 	//register_post_type( '_package', $args );
 }
 
-	$currency_sign = $option['currency']['sign'];
-	$currency_code = $option['currency']['code'];
+	// $currency_sign = $option['currency']['sign'];
+	// $currency_code = $option['currency']['code'];
 
 
 

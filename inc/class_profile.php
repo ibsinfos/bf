@@ -5,8 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 Class BX_Profile extends BX_Post{
 	static protected $instance;
 	protected $post_type;
+	public $symbol;
 	function __construct(){
 		$this->post_type = PROFILE;
+		global $general;
+		$code = $general->currency['code'];
+		$this->symbol = box_get_currency_symbol($code);
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -74,8 +78,8 @@ Class BX_Profile extends BX_Post{
 		$post->{EARNED_TXT} = sprintf( __('($)%s earned ','boxtheme'), $post->{EARNED} );
 		$post->{RATING_SCORE} 	= (float)get_user_meta($post->post_author,RATING_SCORE, true);
 		$post->{PROJECTS_WORKED} = (int) get_user_meta($post->post_author,PROJECTS_WORKED, true);
-		global $currency_sign;
-		$post->{HOUR_RATE_TEXT} = sprintf( __('%s %s/h','boxtheme'),$currency_sign, $post->{HOUR_RATE} );
+
+		$post->{HOUR_RATE_TEXT} = sprintf( __('%s %s/h','boxtheme'), $this->symbol, $post->{HOUR_RATE} );
 		$post->skill_text = '';
 		$skill_text = '';
 		$skills = get_the_terms( $post->ID, 'skill' );
