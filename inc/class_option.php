@@ -96,6 +96,16 @@ class BX_Option {
 		}
 		return update_option($group, $current);
 	}
+	function get_currency_code(){
+		$default = array(
+			'code' => 'USD',
+			'position' => 'left',
+			'price_thousand_sep' => ',',
+			'price_decimal_sep' => '.',
+		);
+		$general = (object) $this->get_group_option('general');
+		return (object) wp_parse_args($general->currency, $default);
+	}
 	function set_logo(){
 
 	}
@@ -124,6 +134,9 @@ class BX_Option {
 		return (object)$result;
 	}
 
+}
+function box_get_currency(){
+	return BX_Option::get_instance()->get_currency_code();
 }
 function get_sandbox_mode(){
 	$payment = (object) BX_Option::get_instance()->get_group_option('payment');
