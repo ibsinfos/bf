@@ -24,6 +24,8 @@
 	border-top: 1px solid #ccc;
 	padding-top: 15px;
 	margin-top: 30px;
+	padding-bottom: 30px;
+	overflow: hidden;
 }
 .list-bid .row{
 	padding-bottom: 15px;
