@@ -20,6 +20,7 @@ $start_class = 'core-'.$profile->{RATING_SCORE};
 if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 	$start_class = 'score-'.(int)$profile->{RATING_SCORE}.'-half';
 }
+
 ?>
 <div class="row archive-profile-item">
 	<div class="full">
@@ -42,7 +43,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 
 			<span class="inline list-info ">
 				<span class=" item hour-rate "> <span class="glyphicon glyphicon-time"> </span><span class="txt-rate"> $<?php echo $profile->hour_rate;?>/hr </span></span>
-				<span class=" item eared-txt   "> Earned: <?php echo $profile->{EARNED};?> </span>
+				<span class=" item eared-txt   "><?php printf(__('Earned: %s','boxtheme'),$profile->{EARNED} ) ;?> </span>
 				<span class=" item country-profile "> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
 				<span class="item profile-rating "> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
 			</span>
