@@ -96,6 +96,25 @@ class BX_Option {
 		}
 		return update_option($group, $current);
 	}
+	function get_general_option(){
+		$default = array(
+				'pending_post' => false,
+				'google_analytic' => '',
+				'copyright' => '2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>',
+				'fb_link' => 'https://fb.com/boxthemes/',
+				'gg_link' => 'https://https://plus.google.com/boxthemes/',
+				'tw_link' => 'https://twitter.com/',
+				'le_link.' => 'https://linkedin.com.com/boxthemes/',
+				'currency' => array(
+					'code' => 'USD',
+					'position' => 'left',
+					'price_thousand_sep' => ',',
+					'price_decimal_sep' => '.',
+				),
+		);
+		$general = get_option('general', false);
+		return (object) wp_parse_args($general, $default);
+	}
 	function get_currency_code(){
 		$default = array(
 			'code' => 'USD',

@@ -13,7 +13,7 @@ add_action( 'wp_head', 'box_add_meta_head', 11 );
 function box_add_meta_head(){
 
 	global $general;
-	$general = (object) BX_Option::get_instance()->get_group_option('general');
+	$general = (object) BX_Option::get_instance()->get_general_option();
 
 	if( !empty( $general->google_analytic ) ){
 		echo stripslashes($general->google_analytic);

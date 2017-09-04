@@ -5,8 +5,9 @@
 
 global $project, $class_bidded, $bidding;
 $budget = (float) $project->_budget;
-$currency = box_get_currency();
-$symbol = box_get_currency_symbol($currency->code);
+global $general;
+$code = $general->currency['code'];
+$symbol = box_get_currency_symbol($code);
 ?>
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
     <h2> <?php _e('Bid on project','boxtheme');?></h2>

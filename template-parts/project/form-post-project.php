@@ -39,6 +39,9 @@ $skills = array();
 		}
 	}
 	echo $id_field;
+	global $general;
+	$code = $general->currency['code'];
+	$symbol = box_get_currency_symbol($code);
 	?>
 	<div class="form-group ">
 	 	<h1 class="page-title"><?php the_title(); ?></h1>
@@ -50,7 +53,7 @@ $skills = array();
 
 	<div class="form-group ">
 	 	<label for="example-text-input" class="col-3  col-form-label"><?php _e('What budget do you have in mind?','boxtheme');?></label>
-	 	<input class="form-control" type="number" value="<?php echo !empty($project) ? $project->{BUDGET}:'';?>" required name="<?php echo BUDGET;?>"   placeholder="<?php _e('Set your budget here','boxtheme');?> " id="example-text-input">
+	 	<input class="form-control" type="number" value="<?php echo !empty($project) ? $project->{BUDGET}:'';?>" required name="<?php echo BUDGET;?>"   placeholder="<?php printf(__('Set your budget here(%s)','boxtheme'), $symbol);?> " id="example-text-input">
 
 	</div>
 	<div class="form-group ">
