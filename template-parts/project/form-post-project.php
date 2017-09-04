@@ -44,7 +44,7 @@ $skills = array();
 	$symbol = box_get_currency_symbol($code);
 	?>
 	<div class="form-group ">
-	 	<h1 class="page-title"><?php the_title(); ?></h1>
+	 	<h1 class="page-title"><?php if( ! $p_id){ the_title();} else { _e('Renew project','boxtheme'); } ?></h1>
 	</div>
 	<div class="form-group">
 		<label for="example-text-input" class="col-3  col-form-label"><?php _e('PROJECT NAME:','boxtheme');?></label>
