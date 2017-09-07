@@ -109,7 +109,7 @@
 
 				var _this = $(event.currentTarget);
 				if( _this.hasClass('disable') ){
-					//return false;
+					return false;
 				}
 				_this.addClass('disable');
 
@@ -118,7 +118,7 @@
 
 				var success = function(response){
 					console.log(response);
-					//$(".show-btn").hide();
+					$(".show-btn").hide();
 				}
 				window.ajaxSend.Custom(data, success);
 
