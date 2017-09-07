@@ -46,7 +46,7 @@ if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 	echo '<ul class="list-skill">';
 	echo '<h3>'.__('SKILLS REQUIRED','boxtheme').'</h3>';
 	foreach ( $terms as $term ) {
-	  	echo '<li><a href="#">' . $term->name . '</a></li>';
+	  	echo '<li><a href="' . get_term_link($term).'">' . $term->name . '</a></li>';
 	}
 	echo '</ul>';
 }
