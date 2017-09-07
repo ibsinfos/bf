@@ -50,6 +50,7 @@ class BX_AJAX {
 
 			'request_withdraw' => false,
 			'update_withdraw_info' => false,
+			'send_new_confirm_email' => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -831,7 +832,31 @@ class BX_AJAX {
 		$result = $credit->update_withdraw_info($request); //request_withdraw
 		wp_send_json( $response );
 	}
+	static function send_new_confirm_email(){
+		$response = array('success' => false, 'msg' => __('Can not send new email','boxtheme') );
+		if( is_user_logged_in() ){
 
+			$current_user = wp_get_current_user();
+			$activation_key =  bx_get_verify_key( $current_user->user_login );
+
+
+			if ( !is_wp_error( $activation_key ) ){
+
+				$response = array( 'success' => true, 'msg' => __( 'New email is sent','boxtheme') );
+
+				$link = bx_get_static_link('verify');
+				$link = add_query_arg( array('user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
+
+				$message = sprintf( __('<p>Hi %s, <br />New confirmation email.</p>Click here to active <a href="%s">your account </a>.','boxtheme'),$current_user->user_login, $link );
+				$subject = sprintf( __('New confirmation email from %s.','boxtheme'), get_bloginfo('name') );
+
+				box_mail( $current_user->user_email, $subject, $message );
+
+				wp_send_json( $response );
+			}
+		}
+		wp_send_json( $response );
+	}
 
 }
 

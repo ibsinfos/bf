@@ -82,7 +82,7 @@
 					<h2 class="primary-font"><?php _e('Verify your account to access website','boxtheme');?></h2>
 					<div class="col-md-12 mt50">
 						<?php printf (__('We\'ve sent an email to your address: <strong>%s</strong><br /> Please check your email and click on the link provided to verify your account.','boxtheme'), $user->user_email) ; ?>
-
+						<p><?php _e('If you did not receive that email. You can click <a href="#" class="btn-resend"> here</a> to resend a new email','boxtheme');?>
 					</div>
 				</div>
 				<?php } ?>
@@ -104,7 +104,21 @@
 				h_expected = h_expected - 38;
 				$("#content").css('height', h_expected );
 			}
-		})
+			$(".btn-resend").click(function(event){
+				var _this = $(event.currentTarget);
+				var data = {action:'send_new_confirm_email'};
+				var success = function(event){
+					console.log(response);
+				}
+				window.ajaxSend.Custom(data, success);
+
+			})
+		});
 	})(jQuery);
 </script>
+<style type="text/css">
+	.btn-resend{
+		text-decoration: underline;
+	}
+</style>
 <?php get_footer();?>
