@@ -385,6 +385,7 @@ get_header(); ?>
 }
 .how-us-work{
 	padding: 50px 0;
+	background: #fff;
 }
 .how-us-work .col-md-3 .full{
 	padding: 0 6px;
@@ -393,7 +394,7 @@ get_header(); ?>
 	border-bottom: 3px solid #ccc;
 	display: inline-block;
 	clear: both;
-	padding: 0 5px;
+	padding: 0 5px 10px 5px  ;
 }
 .img_main{
 	height: 100px;
