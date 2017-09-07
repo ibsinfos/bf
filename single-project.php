@@ -29,7 +29,7 @@
 ?>
 
 <div <?php post_class('container single-project site-container');?>>
-	<div id="content" class="row site-content">
+	<div id="content" class="site-content">
 
         <div class="col-md-12">	<h1 class="project-title"><?php the_title();?></h1>  </div>
 
