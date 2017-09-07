@@ -82,7 +82,8 @@
 					<h2 class="primary-font"><?php _e('Verify your account to access website','boxtheme');?></h2>
 					<div class="col-md-12 mt50">
 						<?php printf (__('We\'ve sent an email to your address: <strong>%s</strong><br /> Please check your email and click on the link provided to verify your account.','boxtheme'), $user->user_email) ; ?>
-						<p><?php _e('If you did not receive that email. You can click <a href="#" class="btn-resend"> here</a> to resend a new email','boxtheme');?>
+						<p class="show-btn"><?php _e('If you did not receive that email. You can click <a href="#" class="btn-resend"> here</a> to resend a new email','boxtheme');?>
+						<input type="hidden" id="nonce_new_email" value="<?php echo wp_create_nonce('new_confirm_email');?>" name="nonce_new_email">
 					</div>
 				</div>
 				<?php } ?>
@@ -105,10 +106,19 @@
 				$("#content").css('height', h_expected );
 			}
 			$(".btn-resend").click(function(event){
+
 				var _this = $(event.currentTarget);
-				var data = {action:'send_new_confirm_email'};
-				var success = function(event){
+				if( _this.hasClass('disable') ){
+					return false;
+				}
+				_this.addClass('disable');
+
+				var nonce = $("#nonce_new_email").val();
+				var data = {action:'send_new_confirm_email',nonce: nonce};
+
+				var success = function(response){
 					console.log(response);
+					$(".show-btn").hide();
 				}
 				window.ajaxSend.Custom(data, success);
 

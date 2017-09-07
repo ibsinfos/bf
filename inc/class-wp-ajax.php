@@ -810,7 +810,7 @@ class BX_AJAX {
 	 */
 	static function request_withdraw(){
 
-		$response = array( 'success' => true,'msg'=> 'Widthdraw done' );
+		$response = array( 'success' => true,'msg'=> __('Your withdrawal request is sent','boxtheme') );
 		$request= $_REQUEST['request'];
 
 		$credit = BX_Credit::get_instance();
@@ -827,13 +827,20 @@ class BX_AJAX {
 	 */
 	static function update_withdraw_info(){
 		$request= $_REQUEST['request'];
-		$response = array( 'success' => true,'msg'=> 'Update withdraw info done.' );
+		$response = array( 'success' => true,'msg'=> __('Update withdraw info done.','boxtheme') );
 		$credit = BX_Credit::get_instance();
 		$result = $credit->update_withdraw_info($request); //request_withdraw
 		wp_send_json( $response );
 	}
 	static function send_new_confirm_email(){
-		$response = array('success' => false, 'msg' => __('Can not send new email','boxtheme') );
+		$response = array('success' => false, 'msg' => __('Can not send new email.','boxtheme') );
+		$request = $_REQUEST['request'];
+		$new_confirm_email = $request['nonce'];
+
+		if ( ! wp_verify_nonce( $new_confirm_email, 'new_confirm_email' ) ) {
+			$response['msg'] = __('Unsecurity request','boxtheme');
+			wp_send_json( $response );
+		}
 		if( is_user_logged_in() ){
 
 			$current_user = wp_get_current_user();
@@ -842,7 +849,7 @@ class BX_AJAX {
 
 			if ( !is_wp_error( $activation_key ) ){
 
-				$response = array( 'success' => true, 'msg' => __( 'New email is sent','boxtheme') );
+				$response = array( 'success' => true, 'msg' => __( 'New email is sent.','boxtheme') );
 
 				$link = bx_get_static_link('verify');
 				$link = add_query_arg( array('user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
