@@ -854,11 +854,10 @@ class BX_AJAX {
 				$link = bx_get_static_link('verify');
 				$link = add_query_arg( array('user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
 
-				$message = sprintf( __('<p>Hi %s, <br />New confirmation email.</p>Click here to active <a href="%s">your account </a>.','boxtheme'),$current_user->user_login, $link );
 				$subject = sprintf( __('New confirmation email from %s.','boxtheme'), get_bloginfo('name') );
+				$message = sprintf( __('<p>Hi %s, <br />New confirmation email.</p>Click <a href="%s">here</a> to active your account.','boxtheme'),$current_user->user_login, $link );
 
 				box_mail( $current_user->user_email, $subject, $message );
-
 				wp_send_json( $response );
 			}
 		}

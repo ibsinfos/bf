@@ -48,7 +48,7 @@ function bx_signon($info){
 
 		$response['success'] 		= false;
     }
-    if(!empty($info['redirect_url']))
+    if( !empty( $info['redirect_url'] ) )
     	$response['redirect_url'] 	= $info['redirect_url'];
 	return $response;
 }
