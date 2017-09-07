@@ -258,20 +258,26 @@ class BX_AJAX {
 			update_user_meta($user_id, EMPLOYER_TYPE, $employer_type);
 			//auto login
 			bx_signon($request);
+			$user = get_userdata($user_id);
 			$response = array(
 				'success' 	=>	true,
 				'redirect_url' => bx_get_static_link('verify'),
 				'msg' 		=> __('You have registered successful','boxtheme'),
-				'data' 		=> get_userdata($user_id)
+				'data' 		=> $user
 			);
 			//user_activation_key meta_user
 			//retrieve_password method
-			$user_login = $request['user_login'];
-			$activation_key =  bx_get_verify_key( $user_login);
-			$link = bx_get_static_link('verify');
-			$link = add_query_arg( array('user_login' => $user_login,  'key' => $activation_key) , $link );
+			// $user_login = $request['user_login'];
+			// $activation_key =  bx_get_verify_key( $user_login);
+			// $link = bx_get_static_link('verify');
+			// $link = add_query_arg( array('user_login' => $user_login,  'key' => $activation_key) , $link );
 
-			$message = sprintf( __('<p>Hi %s, <br />Thank you for register.</p>Click here to active <a href="%s">your account </a>.','boxtheme'),$user_login, $link );
+
+			$activation_key =  get_password_reset_key( $user);
+			$link = bx_get_static_link('verify');
+			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
+
+			$message = sprintf( __('<p>Hi %s, <br />Thank you for register.</p>Click here to active <a href="%s">your account </a>.','boxtheme'),$user->user_login, $link );
 			$subject = sprintf( __('Congratulations! You have successfully registered to %s.','boxtheme'), get_bloginfo('name') );
 			box_mail( $request['user_email'], $subject, $message );
 
@@ -843,11 +849,24 @@ class BX_AJAX {
 		}
 		if( is_user_logged_in() ){
 
+
 			$current_user = wp_get_current_user();
-			$activation_key =  bx_get_verify_key( $current_user->user_login );
+			$current_key = $current_user->user_activation_key;
+
+			list( $pass_request_time, $pass_key ) = explode( ':', $current_key, 2 );
+			$count_time  = time() - $pass_request_time;// senconds
+
+			if( $count_time < 60*10 ){ // 10 minutes check
+				$response['msg'] = __('Time between of 2 requests has to greater than 10 minutes','boxtheme');
+				wp_send_json( $response );
+			}
 
 
-			if ( !is_wp_error( $activation_key ) ){
+			//$activation_key =  bx_get_verify_key( $current_user->user_login );
+			$activation_key = get_password_reset_key($current_user);
+
+
+			if ( ! is_wp_error( $activation_key ) ){
 
 				$response = array( 'success' => true, 'msg' => __( 'New email is sent.','boxtheme') );
 
