@@ -22,7 +22,7 @@
 	                            'meta_value' => 'buy_credit'
 	                        );
 	                        $the_query = new WP_Query($args);
-
+	                        $id  = isset($_GET['id']) ? $_GET['id'] : '';
 	                        // The Loop
 	                        if ( $the_query->have_posts() ) {
 	                        	 while ( $the_query->have_posts() ) {
@@ -38,7 +38,7 @@
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
-									    		<input type="radio" class="required radio" value="<?php echo get_the_ID();?>"  name="package_id" required >
+									    		<input type="radio"<?php if(get_the_ID() == $id) echo 'checked'; ?> class="required radio" value="<?php echo get_the_ID();?>"  name="package_id" required >
 									    		<span class=" no-radius btn align-right btn-select " ><?php _e('Select','boxtheme');?></span>
 									    	</label>
 								    	</div>
@@ -122,7 +122,7 @@
 				<!--
 			    <?php
                 $paypal_url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-                $return     = bx_get_static_link('process-payment');
+                $return     = box_get_static_link('process-payment');
                 ?>
                 <div class="col-md-4">
                     <form class="paypal" action="<?php echo $paypal_url; ?>" method="GET" id="paypal_form">

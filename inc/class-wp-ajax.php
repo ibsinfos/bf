@@ -261,7 +261,7 @@ class BX_AJAX {
 			$user = get_userdata($user_id);
 			$response = array(
 				'success' 	=>	true,
-				'redirect_url' => bx_get_static_link('verify'),
+				'redirect_url' => box_get_static_link('verify'),
 				'msg' 		=> __('You have registered successful','boxtheme'),
 				'data' 		=> $user
 			);
@@ -269,12 +269,12 @@ class BX_AJAX {
 			//retrieve_password method
 			// $user_login = $request['user_login'];
 			// $activation_key =  bx_get_verify_key( $user_login);
-			// $link = bx_get_static_link('verify');
+			// $link = box_get_static_link('verify');
 			// $link = add_query_arg( array('user_login' => $user_login,  'key' => $activation_key) , $link );
 
 
 			$activation_key =  get_password_reset_key( $user);
-			$link = bx_get_static_link('verify');
+			$link = box_get_static_link('verify');
 			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
 			$message = sprintf( __('<p>Hi %s, <br />Thank you for register.</p>Click here to active <a href="%s">your account </a>.','boxtheme'),$user->user_login, $link );
@@ -797,9 +797,9 @@ class BX_AJAX {
 
 			$code = $result->get_error_code();
 			if( $code == 'exists_email' ){
-				$redirect_url = add_query_arg( array('email' => $request['user_email']), bx_get_static_link('login') );
+				$redirect_url = add_query_arg( array('email' => $request['user_email']), box_get_static_link('login') );
 			} else {
-				$redirect_url =  bx_get_static_link('login');
+				$redirect_url =  box_get_static_link('login');
 			}
 
 			$response = array('success' => false,'msg'=> $result->get_error_message(), 'redirect_url' => $redirect_url );
@@ -870,7 +870,7 @@ class BX_AJAX {
 
 				$response = array( 'success' => true, 'msg' => __( 'New email is sent.','boxtheme') );
 
-				$link = bx_get_static_link('verify');
+				$link = box_get_static_link('verify');
 				$link = add_query_arg( array('user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
 
 				$subject = sprintf( __('New confirmation email from %s.','boxtheme'), get_bloginfo('name') );

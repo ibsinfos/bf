@@ -18,7 +18,7 @@
                     <div class="loading-item" id="login-loading" style="display: none;"><div class="loadinghdo"></div></div>
                     <div class="login-via block">
                         <span class="f-left"><a onclick="show_forgot()" title="Forgot password?"><?php _e('Forgot password?','boxtheme');?></a></span>
-                        <span class="f-right"><a class="link-signup"  href="<?php echo bx_get_static_link('signup');?>" title="<?php _e('New Member','boxtheme');?>"><?php _e('New Member','boxtheme');?></a></span>
+                        <span class="f-right"><a class="link-signup"  href="<?php echo box_get_static_link('signup');?>" title="<?php _e('New Member','boxtheme');?>"><?php _e('New Member','boxtheme');?></a></span>
                         <div class="clearfix"></div>
                     </div>
                 </form>

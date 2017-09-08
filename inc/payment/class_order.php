@@ -21,7 +21,7 @@ Class BX_Order {
 		$this->use_sandbox = get_sandbox_mode();
 		$this->receiver_email = '';
 
-		$this->redirect_link = bx_get_static_link('process-payment');
+		$this->redirect_link = box_get_static_link('process-payment');
 
 	}
 	function get_redirect_link(){

@@ -52,7 +52,7 @@
 	<ul class="none-style">
 		<?php
 		global $role;
-		$page_link =bx_get_static_link('history');
+		$page_link =box_get_static_link('history');
 		if($role == FREELANCER ){ ?>
 			<li><a href="<?php echo add_query_arg('status','publish',$page_link); ?>">Projet bidding</a> </li>
 			<li><a href="<?php echo add_query_arg('status','awarded',$page_link); ?>">Projects working</a></li>

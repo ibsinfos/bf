@@ -527,10 +527,17 @@ function bx_page_template_redirect(){
 	global $user_ID;
 
 
-	if( !is_user_logged_in() ){
+	if( ! is_user_logged_in() ){
 
-		if( is_page_template( 'page-post-project.php' ) ){
-			$login_page = add_query_arg( array('redirect'=>bx_get_static_link( 'post-project' ) ),bx_get_static_link( 'login' ) );
+		if( is_page_template( 'page-post-project.php' )  ){
+			$login_page = add_query_arg( array('redirect'=>box_get_static_link( 'post-project' ) ),box_get_static_link( 'login' ) );
+			wp_redirect( $login_page);
+			exit();
+		}
+		if(  is_page_template( 'page-buy-credit.php' ) ){
+			$id = isset($_GET['id']) ? $_GET['id'] : '';
+			$buy_credit = add_query_arg( 'id',$id, box_get_static_link('buy-credit' ) );
+			$login_page = add_query_arg( array('redirect'=>$buy_credit ),box_get_static_link( 'login' ) );
 			wp_redirect( $login_page);
 			exit();
 		}
@@ -558,7 +565,7 @@ function bx_page_template_redirect(){
 			return;
 		}
 		if( ! is_account_verified( $user_ID) )  {
-	        wp_redirect( bx_get_static_link( 'verify' ) );
+	        wp_redirect( box_get_static_link( 'verify' ) );
 	        exit();
 	    }
 	}

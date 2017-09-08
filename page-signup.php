@@ -26,7 +26,7 @@
                     <p class="fs-sm m-lg-bottom">
                         <?php _e('Find, collaborate with,<br>and pay an expert.','boxtheme');?>
                     </p>
-                    <a class="btn btn-primary text-capitalize m-0" href="<?php echo bx_get_static_link('signup-employer'); ?>"><?php _e('Hire','boxtheme');?></a>
+                    <a class="btn btn-primary text-capitalize m-0" href="<?php echo box_get_static_link('signup-employer'); ?>"><?php _e('Hire','boxtheme');?></a>
                 </div>
 
                 <div class="col-md-2 o-or-divider"><?php _e('OR','boxtheme');?></div>
@@ -39,7 +39,7 @@
                     <p class="fs-sm m-lg-bottom">
                         <?php _e('Find freelance projects and <br> grow your business.','boxtheme');?>
                     </p>
-                    <a class="btn btn-primary text-capitalize m-0" href="<?php echo bx_get_static_link('signup-jobseeker');?>">Work</a>
+                    <a class="btn btn-primary text-capitalize m-0" href="<?php echo box_get_static_link('signup-jobseeker');?>">Work</a>
                 </div>
 
                 <div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">

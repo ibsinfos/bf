@@ -33,7 +33,7 @@
 						$role =  bx_get_user_role($user->ID);
 
 						if( $role == FREELANCER ){
-							$redirect_link =  bx_get_static_link('profile');
+							$redirect_link =  box_get_static_link('profile');
 							// save status 1 as verified of this user.
 							$args = array(
 								'post_title' 	=> $user->first_name . ' '.$user->last_name ,

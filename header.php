@@ -65,10 +65,10 @@ $role = bx_get_user_role();
 					if ( is_user_logged_in() ) { box_account_dropdow_menu(); } else { ?>
 					<ul class="main-login">
 						<li class="login text-center desktop-only ">
-							<a href="<?php echo bx_get_static_link('login');?>" class="sign-text btn btn-login"><?php _e('Log In','boxtheme');?></a>
+							<a href="<?php echo box_get_static_link('login');?>" class="sign-text btn btn-login"><?php _e('Log In','boxtheme');?></a>
 						</li>
 						<li class=" sign-up desktop-only">
-							<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-signup sign-text"> <?php _e('Sign Up','boxtheme');?></a>
+							<a href="<?php echo box_get_static_link('signup');?>" class="btn btn-signup sign-text"> <?php _e('Sign Up','boxtheme');?></a>
 						</li>
 						<li class=" mobile-only">
 							<button type="button" class="btn btn-login " data-toggle="modal" data-target="#loginModal">

@@ -46,7 +46,7 @@
 							</div>
 						</li>
 						<li class="sign-up desktop-only">
-							<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-account btn-signup"> <?php _e('Sign up','boxtheme');?></a>
+							<a href="<?php echo box_get_static_link('signup');?>" class="btn btn-account btn-signup"> <?php _e('Sign up','boxtheme');?></a>
 						</li>
 						<li class="mobile-only">
 							<button type="button" class="btn btn-login" data-toggle="modal" data-target="#loginModal">

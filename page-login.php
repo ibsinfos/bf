@@ -39,7 +39,7 @@
 						           	<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
 						          	<div class="forgotLink"><a href="#" class=""><?php _e('Forgot password?','boxtheme');?></a></div>
 						          	<div class="form-group">
-						          		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-success btn-block btn-signup" >
+						          		<a href="<?php echo box_get_static_link('signup');?>" class="btn btn-success btn-block btn-signup" >
 			                                <?php _e('Sign Up','boxtheme');?>
 			                            </a>
 			                    	</div>

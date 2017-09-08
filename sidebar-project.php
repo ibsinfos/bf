@@ -1,7 +1,7 @@
 <?php
 global $user_ID, $project, $is_owner, $access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding;
 function show_bid_buton($post){
-	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), bx_get_static_link('login') );
+	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
 	echo '<a class ="btn btn-login" href ="'.$back_url.'">'.__('Login to bid','boxtheme').'</a>';
 }
 if ( is_user_logged_in() ) {

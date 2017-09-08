@@ -84,7 +84,7 @@ get_header(); ?>
 	        <!-- CREATE PRODILE BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	        	<?php if ( !is_user_logged_in() ) { ?>
-	        		<a href="<?php echo bx_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create a Profile','boxtheme');?></a>
+	        		<a href="<?php echo box_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create a Profile','boxtheme');?></a>
 	        	<?php } else { ?>
 		        	<?php if($role == EMPLOYER){?>
 		        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
@@ -97,7 +97,7 @@ get_header(); ?>
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	        	<?php if( is_user_logged_in() ){ ?>
 		        	<?php if( $role == EMPLOYER || current_user_can('manage_options' ) ){?>
-		            	<a href="<?php echo bx_get_static_link("post-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
+		            	<a href="<?php echo box_get_static_link("post-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
 		            <?php } ?>
 	            <?php }?>
 	        </div>
@@ -260,6 +260,9 @@ get_header(); ?>
     background-image: radial-gradient(circle farthest-side at center bottom,#6c7378,#2c2e2f 125%);
     border-bottom: 1px solid #ccc;
 }
+.packge-plan .package-item{
+	margin-bottom: 10px;
+}
 .pricing-table-plan {
     padding: 2em;
     text-align: center;
@@ -315,7 +318,8 @@ get_header(); ?>
 	display: inline;
 }
 .pack-des{
-	min-height: 200px;
+	min-height: 130px;
+	text-align: left;
 }
 .pack-des p{
 	margin: 0;
@@ -386,6 +390,9 @@ get_header(); ?>
 .how-us-work{
 	padding: 50px 0;
 	background: #fff;
+}
+.how-us-work .a-step{
+	padding-bottom: 30px;
 }
 .how-us-work .col-md-3 .full{
 	padding: 0 6px;

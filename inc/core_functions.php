@@ -28,9 +28,9 @@ function bx_list_start($score){ ?>
 	</start>
 	<?php
 }
-if( !function_exists('bx_get_static_link')):
+if( !function_exists('box_get_static_link')):
 
-	function bx_get_static_link($page_args, $create = false){
+	function box_get_static_link($page_args, $create = false){
 
 		$slug = $page_args;
 		if( is_array($page_args) ){
