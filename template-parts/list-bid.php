@@ -41,7 +41,6 @@
 			$query->the_post();
 			get_template_part( 'template-parts/bid', 'loop' );
 			//$list_bid[] = $post;
-
 		endwhile;
 
 		$projet_link = get_the_permalink($project->ID);

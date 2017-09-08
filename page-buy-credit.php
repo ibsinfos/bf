@@ -8,7 +8,7 @@
 	<div class="container site-container">
 		<div class="row site-content" id="content" >
 			<div class="col-md-8 col-sm-offset-2">
-				<?php the_post(); ?>
+				<?php the_post(); $packages = array(); ?>
 				<h1><?php the_title();?></h1>
 				<?php if( is_user_logged_in() ){ ?>
 				<form class="frm-buy-credit" disabled>
@@ -21,30 +21,37 @@
 	                            'meta_key' => 'type',
 	                            'meta_value' => 'buy_credit'
 	                        );
+
 	                        $the_query = new WP_Query($args);
 	                        $g_id  = isset($_GET['id']) ? $_GET['id'] : '';
 	                        // The Loop
+	                        $key = 0;
 	                        if ( $the_query->have_posts() ) {
 	                        	 while ( $the_query->have_posts() ) {
 	                                $the_query->the_post();
-	                                $price = get_post_meta(get_the_ID(),'price', true);			                                //echo $price;
-	                                $sku = get_post_meta(get_the_ID(),'sku', true);
+	                                global $post;
+
+
+	                                $post->price = get_post_meta(get_the_ID(),'price', true);
+	                                $post->sku = get_post_meta(get_the_ID(),'sku', true);
+
+	                               array_push( $packages, $post);
 	                                ?>
 	                                <div class="col-sm-12  package-plan record-line <?php if( get_the_ID() == $g_id ) echo 'activate';?>">
 								    	<div class="col-sm-9">
-								    		<div class="col-md-8 no-padding-left"><h2 class="pack-name"><?php the_title();?></h2></div><div class="col-md-4 primary-color"><h4> <?php box_price($price);?> </h4></div
+								    		<div class="col-md-8 no-padding-left"><h2 class="pack-name"><?php the_title();?></h2></div><div class="col-md-4 primary-color"><h4> <?php box_price($post->price);?> </h4></div
 								    		<p><?php echo get_the_content(); ?></p>
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
-									    		<input type="radio"<?php if( get_the_ID() == $g_id) echo 'checked'; ?> class="required radio radio-package-item" value="<?php echo get_the_ID();?>"  name="package_id" required >
+									    		<input type="radio"<?php if( $post->ID == $g_id) echo 'checked'; ?> class="required radio radio-package-item" value="<?php echo get_the_ID();?>"  name="package_id" required >
 
-									    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
+									    		<span class=" no-radius btn align-right btn-select " id="<?php echo $key;?>" ><span class="default"><?php _e('Select','boxtheme');?></span><span class="activate"><?php _e('Selected','boxtheme');?></span></span>
 									    	</label>
 								    	</div>
 								    	<div class="full f-left"></div>
 								    </div>
-	                                <?php
+	                                <?php $key ++;
 
 	                            }
 	                              wp_reset_postdata();
@@ -82,7 +89,7 @@
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 								    		<label>
-								    		<input type="radio" class="required radio"  name="_gateway" required value="paypal">
+								    		<input type="radio" class="required radio radio-gateway-item"  name="_gateway" required value="paypal">
 								    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
 								    		</label>
 								    	</div>
@@ -104,6 +111,7 @@
 								    	</div>
 								    	<div class="full f-left"></div>
 								    </div>
+								    <input type="radio" class="required radio radio-gateway-item" name="_gateway" id="free" required value="free">
 								<?php } ?>
 							<?php if( !$has_payment){ ?>
 								<?php _e('The is not any payment gateways','boxtheme');?>
@@ -252,29 +260,11 @@
 <script type="text/javascript">
 	(function($){
 		$(document).ready(function(){
-			$(".btn-select").click(function(event){
-				var _this = $(event.currentTarget);
 
-				_this.closest('.step').find('.record-line').removeClass('activate');
-				_this.closest('.record-line').addClass('activate');
-				var numItems = $('div.activate').length;
-				if ( numItems > 1 ) {
-
-					$("button.btn-submit").removeClass('disable');
-				} else {
-					console.log('not ready');
-					console.log($("input[name='package_id']").is(':checked') );
-					console.log($("input[name='_gateway']").is(':checked') );
-				}
-
-
-				// $(".btn-select").removeClass('activate');
-				// _this.addClass('activate');
-			});
 		});
 	})( jQuery, window.ajaxSend );
 
 </script>
-
+<script type="text/template" id="json_packages"><?php   echo json_encode($packages); ?></script>
 <?php get_footer();?>
 
