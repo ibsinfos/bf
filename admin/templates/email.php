@@ -36,8 +36,8 @@ $label = array(
        			$edit_link = add_query_arg('name',$key, $email_link);
        			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="'.$edit_link.'" class="btn-config"><span class="glyphicon glyphicon-cog"></span></a></td></tr>';
        			echo '<tr class="tr-config-cotent hide"> <td colspan = "4" class="td-config-content">';
-       			echo '<div class="col-md-12"><input type="text" name="" value="'.$mail->subject.'" /></div>';
-       			echo '<div class="col-md-12"><textarea  name="content">'.$mail->content.'</textarea></div>';
+       			echo '<div class="form-group row"><div class="col-md-12"><label> Subject </label><input type="text" class="form-control auto-save" name="" value="'.$mail->subject.'" /></div></div>';
+       			echo '<div class="form-group row"><div class="col-md-12"><label> Mail content </label><textarea  class="form-control auto-save"  name="content">'.$mail->content.'</textarea></div></dov>';
 
        			echo '</td>';
        			echo '</tr>';
