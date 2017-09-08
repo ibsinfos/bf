@@ -1,5 +1,18 @@
 var ajaxSend = {};
 ( function( $ ) {
+	function get_tinymce_content(id) {
+	    var content;
+	    var inputid = id;
+	    var editor = tinyMCE.get(inputid);
+	    var textArea = jQuery('textarea#' + inputid);
+	    if (textArea.length>0 && textArea.is(':visible')) {
+	        content = textArea.val();
+	    } else {
+	        content = editor.getContent();
+	    }
+	    return content;
+	}
+
 	window.ajaxSend.Form = function(event, action, method, success){
 		var form 	= $(event.currentTarget),
 			data   	= {};
@@ -12,6 +25,33 @@ var ajaxSend = {};
 	    	var key 	= $(this).attr('name');
 	        data[key] 	= $(this).val();
 	    });
+
+	    $.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: action,
+	                request: data,
+	                method : method,
+	        },
+	        beforeSend  : function(event){
+	        	console.log('Insert message');
+	        },
+	        success: success,
+	    });
+	    return false;
+	};
+	window.ajaxSend.formEmail = function(event, action, method, success){
+		var form 	= $(event.currentTarget),
+			data   	= {};
+	    form.find(' input[type=text],input[type=number], input[type=hidden],  input[type=checkbox],textarea,select').each(function() {
+	    	var key 	= $(this).attr('name');
+	        data[key] 	= $(this).val();
+	    });
+	    var email_key= form.find('.key-input').val();
+
+	   data['content'] = get_tinymce_content(email_key);
 
 	    $.ajax({
 	        emulateJSON: true,
@@ -204,7 +244,8 @@ var ajaxSend = {};
 			var success = function(respond){
 				console.log(respond);
 			}
-			window.ajaxSend.Form(event, action, method, success);
+
+			window.ajaxSend.formEmail(event, action, method, success);
 			return false;
 		})
 

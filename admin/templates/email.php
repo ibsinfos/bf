@@ -43,8 +43,8 @@ $settings = array(
        			echo '<tr class="tr-config-cotent hide"> <td colspan = "4" class="td-config-content">';
        			echo '<div class="form-group row"><form class="frm-update-mail"><div class="col-md-12"><h3> Update Email </h3><label> Subject </label><input type="text" class="form-control " name="subject" value="'.$mail->subject.'" /></div>';
        			echo '<div class="col-md-12"><label> Mail content </label>';
-       			echo '<textarea name="content">'.$mail->content.'</textarea>';
-       			echo '<input type="hidden" name="key" value="'.$key.'" />';
+       			echo '<textarea name="content" id="'.$key.'">'.$mail->content.'</textarea>';
+       			echo '<input type="hidden" class="key-input" name="key" value="'.$key.'" />';
        			echo '</div>';
        			echo '<div class="col-md-12"><label> &nbsp; </label><br /><button class="btn btn-submit aign-right f-right btn-bg-white" type="submit">Save</button></div>';
        			echo '</form></div>';
