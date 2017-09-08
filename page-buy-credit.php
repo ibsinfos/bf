@@ -32,8 +32,7 @@
 	                                ?>
 	                                <div class="col-sm-12  package-plan record-line <?php if( get_the_ID() == $g_id ) echo 'activate';?>">
 								    	<div class="col-sm-9">
-								    		<h4> <?php echo $price;?>$ </h4>
-
+								    		<div class="col-md-8 no-padding-left"><h2 class="pack-name"><?php the_title();?></h2></div><div class="col-md-4 primary-color"><h4> <?php box_price($price);?> </h4></div
 								    		<p><?php echo get_the_content(); ?></p>
 								    	</div>
 								    	<div class="col-sm-3 align-right">
@@ -155,12 +154,17 @@
 	.frm-buy-credit{
 
 	}
+	.pack-name{
+		text-transform: uppercase;
+	}
 	.frm-buy-credit h3{
 		font-size: 21px;
 		background: #eaeaea;
 		margin-top: 0;
 		line-height: 29px;
-		margin-bottom: 20px;
+		margin-bottom: 0px;
+		padding: 6px 10px ;
+		text-transform: uppercase;
 	}
 	.frm-buy-credit h3 span {
     border-radius: 50%;
@@ -213,7 +217,7 @@
     	text-transform: uppercase;
 	}
 	.frm-buy-credit .record-line{
-		padding-bottom: 10px;
+		padding: 15px 0;
 	}
 	.frm-buy-credit .record-line .col-sm-3 label{
 		sfloat: right;
