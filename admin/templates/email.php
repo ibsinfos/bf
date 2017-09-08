@@ -9,7 +9,7 @@ $box_mail = (object)$option->get_mailing_setting();
 $list = $option->list_email();
 
 $label = array(
-	'new_register' =>'New account register',
+	'new_account' =>'New account register',
 	'new_job' => 'New project',
 	'new_bidding' => 'New bidding',
 	'assign_job' => 'Assign job',
