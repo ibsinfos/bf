@@ -39,8 +39,9 @@
 	                                ?>
 	                                <div class="col-sm-12  package-plan record-line <?php if( get_the_ID() == $g_id ) echo 'activate';?>">
 								    	<div class="col-sm-9">
-								    		<div class="col-md-8 no-padding-left"><h2 class="pack-name"><?php the_title();?></h2></div><div class="col-md-4 primary-color"><h4> <?php box_price($post->price);?> </h4></div
-								    		<p><?php echo get_the_content(); ?></p>
+								    		<div class="col-md-8 no-padding-left"><h2 class="pack-name"><?php the_title();?></h2></div><div class="col-md-4 primary-color"><h4 class="pack-price"> <?php box_price($post->price);?> </h4></div>
+								    		<div class="pack-detail col-md-12 no-padding-left"><?php echo get_the_content(); ?></div>
+
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
@@ -198,6 +199,14 @@
 	input[type=radio]:checked:after{
 		z-index: 1000;
 		z-index: 10;
+	}
+	.pack-detail{
+		font-size: 13px;
+		font-style: italic;
+		padding-bottom: 15px;
+	}
+	.pack-price{
+		font-size: 19px;
 	}
 	.frm-buy-credit .record-line span.activate{
 		display: none;
