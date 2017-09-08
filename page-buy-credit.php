@@ -77,7 +77,7 @@
 								    <div class="col-sm-12  gateway-payment  record-line"">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/PayPal.jpg');?>" width="200">
-								    		<p>You will pay via paypal payment </p>
+								    		<p>You will checkout via paypal payment </p>
 
 								    	</div>
 								    	<div class="col-sm-3 align-right">
@@ -94,7 +94,7 @@
 								    <div class="col-sm-12  gateway-payment record-line">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">
-								    		<p>You will pay via cash method </p>
+								    		<p>You will checkout via cash method </p>
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
@@ -178,6 +178,7 @@
 	}
 	.frm-buy-credit img{
 		background: #fff;
+		margin-bottom: 10px;
 	}
 	input[type=radio]{
 		z-index: -1;
