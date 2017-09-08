@@ -40,6 +40,18 @@ class BX_Option {
 					'price_thousand_sep' => ',',
 					'price_decimal_sep' => '.',
 				),
+				'static_link' => array (
+					'post-project' => '',
+					'buy-credit' => '',
+					'dashboard' => '',
+					'profile' => '',
+					'profile' => '',
+					'profile' => '',
+					'login' =>'',
+					'signup' => '',
+					'verify' => '',
+					'messages' =>'',
+				),
 
 			),
 			'payment' => array(
