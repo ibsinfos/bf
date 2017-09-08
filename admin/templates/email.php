@@ -46,7 +46,7 @@ $settings = array(
        			echo '<textarea name="content" id="'.$key.'">'.$mail->content.'</textarea>';
        			echo '<input type="hidden" class="key-input" name="key" value="'.$key.'" />';
        			echo '</div>';
-       			echo '<div class="col-md-12"><label> &nbsp; </label><br /><button class="btn btn-submit aign-right f-right btn-bg-white" type="submit">Save</button></div>';
+       			echo '<div class="col-md-12"><button class="btn btn-submit aign-right f-right btn-bg-white" type="submit">Save</button></div>';
        			echo '</form></div>';
 
        			echo '</td>';
