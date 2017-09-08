@@ -11,7 +11,7 @@
 				<?php the_post(); ?>
 				<h1><?php the_title();?></h1>
 				<?php if( is_user_logged_in() ){ ?>
-				<form class="frm-buy-credit">
+				<form class="frm-buy-credit" disabled>
 					<div class="step step-1">
 						<div class="form-group">
 						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> Select your package</h3>
@@ -37,7 +37,7 @@
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
-									    		<input type="radio"<?php if( get_the_ID() == $g_id) echo 'checked'; ?> class="required radio" value="<?php echo get_the_ID();?>"  name="package_id" required >
+									    		<input type="radio"<?php if( get_the_ID() == $g_id) echo 'checked'; ?> class="required radio radio-package-item" value="<?php echo get_the_ID();?>"  name="package_id" required >
 
 									    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
 									    	</label>
@@ -98,7 +98,7 @@
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
-									    		<input type="radio" class="required radio" name="_gateway" required value="cash">
+									    		<input type="radio" class="required radio radio-gateway-item" name="_gateway" required value="cash">
 									    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
 									    	</label>
 								    	</div>
@@ -111,7 +111,7 @@
 					    </div>
 					</div>
 					<div class="form-group">
-						<button class="btn f-right no-radius btn-submit" type="submit"><?php _e('Buy Credit','boxtheme');?> </button>
+						<button class="btn f-right no-radius btn-submit disable" type="submit"><?php _e('Buy Credit','boxtheme');?> </button>
 					</div>
 
 				</form>
@@ -157,9 +157,10 @@
 	}
 	.pack-name{
 		text-transform: uppercase;
+		font-size: 17px;
 	}
 	.frm-buy-credit h3{
-		font-size: 21px;
+		font-size: 19px;
 		background: #eaeaea;
 		margin-top: 0;
 		line-height: 29px;
@@ -230,9 +231,6 @@
 	.frm-buy-credit .record-line{
 		padding: 15px 0;
 	}
-	.frm-buy-credit .record-line .col-sm-3 label{
-		sfloat: right;
-	}
 	.frm-buy-credit .record-line:first-child{
 
 	}
@@ -241,9 +239,12 @@
 	}
 	.frm-buy-credit .btn-submit{
 		margin-top: 25px;
-		margin-right: 29px;
+		margin-right: 18px;
 		color: #fff;
 		text-transform: uppercase;
+	}
+	.frm-buy-credit .btn-submit.disable{
+		background-color: #ccc;
 	}
 </style>
 <script type="text/javascript">
@@ -254,6 +255,15 @@
 
 				_this.closest('.step').find('.record-line').removeClass('activate');
 				_this.closest('.record-line').addClass('activate');
+				var numItems = $('div.activate').length;
+				if ( numItems > 1 ) {
+
+					$("button.btn-submit").removeClass('disable');
+				} else {
+					console.log('not ready');
+					console.log($("input[name='package_id']").is(':checked') );
+					console.log($("input[name='_gateway']").is(':checked') );
+				}
 
 
 				// $(".btn-select").removeClass('activate');
