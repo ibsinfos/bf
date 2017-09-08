@@ -11,16 +11,13 @@
 			if( $result->have_posts() ){
 				while( $result->have_posts() ){
 					$result->the_post();
-					$price = get_post_meta(get_the_ID(),'price', true);
-					?>
+					$price = get_post_meta(get_the_ID(),'price', true); ?>
 					<div class="col-md-4 package-item">
 						<div class="pricing-table-plan">
-							<header data-plan="basic" class="pricing-plan-header basic-plan">
-								<span class="plan-name"><?php the_title();?></span>
-							</header>
+							<header data-plan="basic" class="pricing-plan-header basic-plan"><span class="plan-name"><?php the_title();?></span></header>
 				    		<div class="plan-features">
-				    		<span class="plan-monthly primary-color"><?php box_price($price);?></span>
-				    		<span class="pack-des">	<?php the_content();?> </span>
+					    		<span class="plan-monthly primary-color"><?php box_price($price);?></span>
+					    		<span class="pack-des">	<?php the_content();?> </span>
 							</div>
 							<?php $link = add_query_arg( array('id' =>get_the_ID() ), $buy_link ); ?>
 				            <a class="btn btn-primary btn-xlarge " href="<?php echo esc_url($link);?>">Check out</a>
