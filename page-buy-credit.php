@@ -237,11 +237,13 @@
 	.frm-buy-credit .record-line:nth-child(2) .full {
     	border-bottom: 1px solid #ddd;
 	}
-	.frm-buy-credit .btn-submit{
-		margin-top: 25px;
-		margin-right: 18px;
-		color: #fff;
-		text-transform: uppercase;
+
+	.frm-buy-credit .btn-submit {
+	    margin-top: 25px;
+	    margin-right: 16px;
+	    color: #fff;
+	    text-transform: uppercase;
+	    min-width: 110px;
 	}
 	.frm-buy-credit .btn-submit.disable{
 		background-color: #ccc;
