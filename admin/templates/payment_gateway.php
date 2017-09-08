@@ -6,11 +6,8 @@ $option = BX_Option::get_instance();
 $payment = $option->get_group_option($group);
 $paypal = $payment->paypal;
 
-$mode = 0;// sandbox = 0
+$mode = $payment->mode;
 
-if( isset($payment['mode'] ) ){
-	$mode = $payment['mode'];
-}
 $pp_enable = 0;
 if(isset($paypal->enable) )
     $pp_enable = $paypal->enable;
