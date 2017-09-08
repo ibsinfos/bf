@@ -5,7 +5,7 @@ var ajaxSend = {};
 	    var inputid = id;
 	    var editor = tinyMCE.get(inputid);
 	    var textArea = jQuery('textarea#' + inputid);
-	    if (textArea.length>0 && textArea.is(':visible')) {
+	    if (textArea.lengt h >0 && textArea.is(':visible') ) {
 	        content = textArea.val();
 	    } else {
 	        content = editor.getContent();
