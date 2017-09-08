@@ -61,7 +61,7 @@ $opt_credit = BX_Option::get_instance()->get_group_option('opt_credit');
    	<div class="sub-item" id="opt_credit">
 		<form style="max-width: 600px;">
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Number Credit Autu Deposit for new account','boxtheme');?></label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Number Credit Auto Deposit for new account','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="number_credit_default" multi="0" value="<?php echo $opt_credit->number_credit_default;?>" name = "number_credit_default" id="number_credit_default"></div>
 			</div>
 		</form>
