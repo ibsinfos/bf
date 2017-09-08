@@ -22,6 +22,7 @@ class BX_ajax_backend{
 		add_action( 'wp_ajax_create-packge',array( __CLASS__, 'create_package' ) );
 		add_action( 'wp_ajax_del-post',array( __CLASS__, 'del_post' ) );
 		add_action( 'wp_ajax_admin_approve', array( __CLASS__, 'admin_approve' ) );
+		add_action( 'wp_ajax_save_mail_setup',array( __CLASS__, 'save_email' ) );
 
 	}
 
@@ -113,6 +114,30 @@ class BX_ajax_backend{
 			wp_send_json(array('success'=> false,'msg' => $credit->get_error_message() ) );
 		}
 		wp_send_json(array('success'=> tre,'msg' => 'Update OK') );
+	}
+	static function save_email(){
+		$response = array('success' => tru, 'msg' =>'done');
+		$request = $_REQUEST['request'];
+		$subject = $request['subject'];
+		$content = $request['content'];
+		$key = $request['key'];
+		$new_value = array(
+			'subject' => $subject,
+			'content' => $content,
+		);
+
+
+		$option = BX_Option::get_instance();
+		$list = $option->list_email();
+
+		$default_content = $option->get_default_mail_content($key);
+		$new_value = wp_parse_args($new_value, $default_content );
+		$list[$key] = $new_value;
+		$option->set_mails($list);
+
+
+		wp_send_json( $response );
+
 	}
 
 }

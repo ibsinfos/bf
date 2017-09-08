@@ -8,7 +8,8 @@ $option = BX_Option::get_instance();
 $box_mail = (object)$option->get_mailing_setting();
 
 
-$list = (object) list_email();
+$list = $option->list_email();
+
 $label = array(
 	'new_register' =>'New account register',
 	'new_job' => 'New project',
@@ -43,6 +44,7 @@ $settings = array(
        			echo '<div class="form-group row"><form class="frm-update-mail"><div class="col-md-12"><h3> Update Email </h3><label> Subject </label><input type="text" class="form-control " name="subject" value="'.$mail->subject.'" /></div>';
        			echo '<div class="col-md-12"><label> Mail content </label>';
        			echo '<textarea name="content">'.$mail->content.'</textarea>';
+       			echo '<input type="hidden" name="key" value="'.$key.'" />';
        			echo '</div>';
        			echo '<div class="col-md-12"><label> &nbsp; </label><br /><button class="btn btn-submit aign-right f-right btn-bg-white" type="submit">Save</button></div>';
        			echo '</form></div>';

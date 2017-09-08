@@ -15,36 +15,6 @@ function bx_swap_button($group, $name, $is_active, $multipe = true){
 
 
 
-function list_email(){
-	return array(
-		'new_register' => array(
-			'receiver' => 'register',
-			'subject' =>	'New register',
-			'name' =>	'New register',
-			'content' =>	'Has new register'
-		),
-		'new_job' => array(
-			'receiver' => 'admin',
-			'subject' =>	'The job %s has been posted',
-			'content' =>	'The job %s has been posted'
-		),
-		'new_bidding' => array(
-			'receiver' => 'employer',
-			'subject' =>	'New bidding in your project %s',
-			'content' =>	'Has new bidding'
-		),
-		'new_message' => array(
-			'receiver' => 'receiver',
-			'subject' =>	'Have a new message for you',
-			'content' =>	'Hi, Have new message for you.'
-		),
-		'assign_job' => array(
-			'receiver' => 'freelancer',
-			'subject' =>	'Your bidding is choosen for project %s',
-			'content' =>	'Congart, Your bidding is choosen'
-		),
-	);
-}
 
 
 	require_once dirname(__FILE__) . '/admin.php';

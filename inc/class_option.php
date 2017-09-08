@@ -101,8 +101,81 @@ class BX_Option {
 			'opt_credit'=>array(
 				'number_credit_default' => 10,
 			),
+			'box_mail_content' => $this->list_email(),
 
 		);
+	}
+
+	function list_email(){
+		$setting = get_option('box_mail_content', true);
+		if( !is_array($setting) )
+			$setting = array();
+		$defaults = array(
+			'new_register' => array(
+				'receiver' => 'register',
+				'subject' =>	'New register',
+				'name' =>	'New register',
+				'content' =>	'Has new register'
+			),
+			'new_job' => array(
+				'receiver' => 'admin',
+				'subject' =>	'The job %s has been posted',
+				'content' =>	'The job %s has been posted'
+			),
+			'new_bidding' => array(
+				'receiver' => 'employer',
+				'subject' =>	'New bidding in your project %s',
+				'content' =>	'Has new bidding'
+			),
+			'new_message' => array(
+				'receiver' => 'receiver',
+				'subject' =>	'Have a new message for you',
+				'content' =>	'Hi, Have new message for you.'
+			),
+			'assign_job' => array(
+				'receiver' => 'freelancer',
+				'subject' =>	'Your bidding is choosen for project %s',
+				'content' =>	'Congart, Your bidding is choosen'
+			),
+		);
+		return wp_parse_args( $setting, $defaults );
+	}
+	function get_default_mails_content(){
+		return array(
+			'new_register' => array(
+				'receiver' => 'register',
+				'subject' =>	'New register',
+				'name' =>	'New register',
+				'content' =>	'Has new register'
+			),
+			'new_job' => array(
+				'receiver' => 'admin',
+				'subject' =>	'The job %s has been posted',
+				'content' =>	'The job %s has been posted'
+			),
+			'new_bidding' => array(
+				'receiver' => 'employer',
+				'subject' =>	'New bidding in your project %s',
+				'content' =>	'Has new bidding'
+			),
+			'new_message' => array(
+				'receiver' => 'receiver',
+				'subject' =>	'Have a new message for you',
+				'content' =>	'Hi, Have new message for you.'
+			),
+			'assign_job' => array(
+				'receiver' => 'freelancer',
+				'subject' =>	'Your bidding is choosen for project %s',
+				'content' =>	'Congart, Your bidding is choosen'
+			),
+		);
+	}
+	function get_default_mail_content($key){
+		return $this->get_default_mails_content()[$key];
+	}
+	function set_mails($args){
+		update_option('box_mail_content', $args);
+
 	}
 	function set_option($group, $section, $name, $new_value, $multi = true){
 
@@ -172,6 +245,7 @@ class BX_Option {
 			'footer_text' => '© 2009-2017. BoxThemes, Inc. USA. All Rights Reserved.',
 			'header_image' => get_template_directory_uri().'/img/header-email.png',
 			'from_address' => 'admin@boxthemes',
+			'emails' => $this->list_email(),
 		);
 		$setting =  get_option('box_mail');
 		$result = wp_parse_args( $setting, $default );

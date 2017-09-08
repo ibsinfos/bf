@@ -198,8 +198,13 @@ var ajaxSend = {};
 
 			return false;
 		});
-		$(".frm-update-mail").submit(function(event){
-			console.log(event);
+		$(".frm-update-mail").submit(function( event ){
+			var action = 'save_mail_setup';
+			var method ='update';
+			var success = function(respond){
+				console.log(respond);
+			}
+			window.ajaxSend.Form(event, action, method, success);
 			return false;
 		})
 
