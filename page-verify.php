@@ -35,7 +35,7 @@
 						// add default credit for new acccount.
 						$default_credit = (int) BX_Option::get_instance()->get_group_option('opt_credit')->number_credit_default;
 						if( $default_credit > 0 )
-						BX_Credit::get_instance()->increase_credit_available($price);
+							BX_Credit::get_instance()->increase_credit_available($default_credit);
 						// add done.
 
 						if( $role == FREELANCER ){
