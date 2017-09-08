@@ -8,7 +8,7 @@ $pending_post = false;
 $google_analytic = $copyright = $tw_link = $fb_link = $gg_link = '' ;
 $group_option = "general";
 $option = BX_Option::get_instance();
-$general = (object)$option->get_group_option($group_option);
+$general = $option->get_group_option($group_option);
 
 
 if( isset($general->pending_post) ){

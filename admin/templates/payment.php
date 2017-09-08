@@ -4,7 +4,7 @@ $sub_item = "currency";
 
 $box_option = BX_Option::get_instance();
 $general = $box_option->get_group_option($group_option);
-$currency = (OBJECT)$general[$sub_item];
+$currency = $general->$sub_item;
 
 
 $code = 'USD';

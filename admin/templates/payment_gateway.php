@@ -4,7 +4,7 @@
 $group = "payment";
 $option = BX_Option::get_instance();
 $payment = $option->get_group_option($group);
-$paypal = (object)$payment['paypal'];
+$paypal = $payment->paypal;
 
 $mode = 0;// sandbox = 0
 
