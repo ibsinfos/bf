@@ -67,6 +67,47 @@ if( !function_exists('box_get_static_link')):
 	    return $link;
 	}
 endif;
+
+function box_editor_settings() {
+	return apply_filters( 'box_editor_settings', array(
+		'quicktags'     => false,
+		'media_buttons' => false,
+		'wpautop'       => false,
+
+		//'tabindex'    =>  '2',
+		'teeny'         => true,
+		'tinymce'       => array(
+			'height'                            => 250,
+			'editor_class'                      => 'input-item',
+			'autoresize_min_height'             => 250,
+			'autoresize_max_height'             => 550,
+			'theme_advanced_buttons1'           => 'bold,|,italic,|,underline,|,bullist,numlist,|,link,unlink,|,wp_fullscreen',
+			'theme_advanced_buttons2'           => '',
+			'theme_advanced_buttons3'           => '',
+			'theme_advanced_statusbar_location' => 'none',
+			'theme_advanced_resizing'           => true,
+			'paste_auto_cleanup_on_paste'       => true,
+			'setup'                             => "function(ed){
+                ed.onChange.add(function(ed, l) {
+                    var content = ed.getContent();
+                    if(ed.isDirty() || content === '' ){
+                        ed.save();
+                        jQuery(ed.getElement()).blur(); // trigger change event for textarea
+                    }
+
+                });
+
+                // We set a tabindex value to the iframe instead of the initial textarea
+                ed.onInit.add(function() {
+                    var editorId = ed.editorId,
+                        textarea = jQuery('#'+editorId);
+                    jQuery('#'+editorId+'_ifr').attr('tabindex', textarea.attr('tabindex'));
+                    textarea.attr('tabindex', null);
+                });
+            }"
+		)
+	) );
+}
 function box_get_currency_symbol($code){
 	$symbols = array('AED' => '&#x62f;.&#x625;',
 		'AFN' => '&#x60b;',

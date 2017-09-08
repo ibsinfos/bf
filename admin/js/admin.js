@@ -149,6 +149,10 @@ var ajaxSend = {};
 		});
 		if (typeof(tinyMCE) != "undefined") {
 			tinymce.init({
+				quicktags: false,
+				media_buttons: false,
+				tinymce: false,
+				wpautop: false,
 				plugins: "lists",
 	  			toolbar: "bold italic  link unlink numlist bullist alignleft aligncenter alignright",
 	  			menubar: "insert",
@@ -188,7 +192,14 @@ var ajaxSend = {};
 		});
 		$(".btn-config").click(function(){
 			var _this = $(event.currentTarget);
+			$(".tr-config-cotent").addClass('hiden');
 			_this.closest('tr').next().toggleClass('hide');
+
+
+			return false;
+		});
+		$(".frm-update-mail").submit(function(event){
+			console.log(event);
 			return false;
 		})
 

@@ -202,3 +202,22 @@ thead:nth-child,thead th,thead tr, thead{
 	padding: 10px 0;
 	margin-bottom: 0;
 }
+.frm-update-mail {
+    background: #ccc;
+    overflow: hidden;
+    display: block;
+    padding: 15px 0;
+}
+.frm-update-mail  textarea{
+	height: 79px;
+}
+.f-right{
+	float: right;
+}
+.btn-bg-white{
+	background: #fff;
+}
+.frm-update-mail .col-md-12{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
