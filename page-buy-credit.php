@@ -47,7 +47,7 @@
 									    	<label>
 									    		<input type="radio"<?php if( $post->ID == $g_id) echo 'checked'; ?> class="required radio radio-package-item" value="<?php echo get_the_ID();?>"  name="package_id" required >
 
-									    		<span class=" no-radius btn align-right btn-select " id="<?php echo $key;?>" ><span class="default"><?php _e('Select','boxtheme');?></span><span class="activate"><?php _e('Selected','boxtheme');?></span></span>
+									    		<span class=" no-radius btn align-right btn-select btn-slect-package" id="<?php echo $key;?>" ><span class="default"><?php _e('Select','boxtheme');?></span><span class="activate"><?php _e('Selected','boxtheme');?></span></span>
 									    	</label>
 								    	</div>
 								    	<div class="full f-left"></div>

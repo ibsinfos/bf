@@ -26,16 +26,9 @@
 			var numItems = $('div.activate').length;
 
 			var key = _this.attr('id');
-			var price = packages[key].price;
-			console.log(key);
-			console.log(price);
-
-			if(price == 0 || price == 'null'){
-				$('.radio-gateway-item').prop('disabled', true);
-				//$(".rad")
-				$("button.btn-submit").removeClass('disable');
+			if( _this.hasClass('btn-slect-package') ){
+				var price = packages[key].price;
 			}
-
 			if ( numItems > 1 ) {
 				$("button.btn-submit").removeClass('disable');
 			}
