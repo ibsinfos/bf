@@ -153,7 +153,7 @@ $payment = $box_option->get_group_option($group_option);
 	                            <input type="text" class="form-control" required name="sku" placeholder="<?php _e('SKU');?>">&nbsp; <i>SKU code</i>
 	                        </div>
 	                        <div class="col-sm-4 one-line">
-	                            <input type="number" class="form-control" required name="price" placeholder="<?php _e('Price');?>"  >&nbsp;<i>Price of this package</i>
+	                            <input type="number" class="form-control" required name="price"  min="1" placeholder="<?php _e('Price');?>"  >&nbsp;<i>Price of this package</i>
 	                        </div>
 	                        <div class="col-sm-12 one-line">
 	                        	<textarea id="post_content" name="post_content" class="" placeholder="<?php _e('Description of new package','boxtheme');?>"></textarea>
