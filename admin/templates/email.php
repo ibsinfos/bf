@@ -6,8 +6,6 @@ $email_link 	= add_query_arg('section','email', $main_page);
 $group_option ="box_mail";
 $option = BX_Option::get_instance();
 $box_mail = (object)$option->get_mailing_setting();
-
-
 $list = $option->list_email();
 
 $label = array(

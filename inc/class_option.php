@@ -110,43 +110,15 @@ class BX_Option {
 		$setting = get_option('box_mail_content', true);
 		if( !is_array($setting) )
 			$setting = array();
-		$defaults = array(
-			'new_register' => array(
-				'receiver' => 'register',
-				'subject' =>	'New register',
-				'name' =>	'New register',
-				'content' =>	'Has new register'
-			),
-			'new_job' => array(
-				'receiver' => 'admin',
-				'subject' =>	'The job %s has been posted',
-				'content' =>	'The job %s has been posted'
-			),
-			'new_bidding' => array(
-				'receiver' => 'employer',
-				'subject' =>	'New bidding in your project %s',
-				'content' =>	'Has new bidding'
-			),
-			'new_message' => array(
-				'receiver' => 'receiver',
-				'subject' =>	'Have a new message for you',
-				'content' =>	'Hi, Have new message for you.'
-			),
-			'assign_job' => array(
-				'receiver' => 'freelancer',
-				'subject' =>	'Your bidding is choosen for project %s',
-				'content' =>	'Congart, Your bidding is choosen'
-			),
-		);
+		$defaults = $this->get_default_mails_content();
 		return wp_parse_args( $setting, $defaults );
 	}
 	function get_default_mails_content(){
 		return array(
-			'new_register' => array(
+			'new_account' => array(
 				'receiver' => 'register',
-				'subject' =>	'New register',
-				'name' =>	'New register',
-				'content' =>	'Has new register'
+				'subject' =>	'Congratulations! You have successfully registered to #blog_name.',
+				'content' =>	'<p>Hi #user_login, <br />Thank you for register.</p>Click here to active <a href="#link">your account </a>.'
 			),
 			'new_job' => array(
 				'receiver' => 'admin',
@@ -172,6 +144,13 @@ class BX_Option {
 	}
 	function get_default_mail_content($key){
 		return $this->get_default_mails_content()[$key];
+	}
+	function get_mail_settings($key){
+		$list = $this->list_email();
+		$setting = $list[$key];
+		$defaults = $this->get_default_mail_content($key);
+		return (object) wp_parse_args( $setting, $defaults );
+
 	}
 	function set_mails($args){
 		update_option('box_mail_content', $args);
