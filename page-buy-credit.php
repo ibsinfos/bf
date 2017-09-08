@@ -71,13 +71,11 @@
 							    $option = BX_Option::get_instance();
 						        $payment = $option->get_group_option('payment');
 						        $paypal = array();
-						        $cash =  array();
 
-						        if(isset($payment['paypal']))
-						        	$paypal = (object)$payment['paypal'];
+						        $paypal = (object)$payment->paypal     	;
 
-						        if( isset($payment['cash']) )
-						        	$cash = (object)$payment['cash'];
+
+						        $cash = (object)$payment->cash;
 
 						        if( !empty($paypal) && $paypal->enable ) { 	$has_payment= 1;
 							 		?>

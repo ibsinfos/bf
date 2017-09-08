@@ -272,6 +272,7 @@ get_header(); ?>
 .plan-monthly {
     font-size: 2.5em;
     line-height: 140%;
+    padding: 15px 0;
 }
 .plan-monthly span{
 
@@ -289,7 +290,7 @@ get_header(); ?>
 .plan-features {
     width: 100%;
     margin: 0.5em 0;
-    padding: 2em 0;
+    padding: 1em 0;
     list-style: none;
     border-top: 1px solid #DFDFD0;
     text-align: center;
