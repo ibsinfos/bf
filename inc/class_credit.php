@@ -81,7 +81,7 @@ Class BX_Credit {
 
 	// call this action when employer mark as finish a project.
 	function release($freelancer_id, $amout){
-		return $this->increase_credit_available($freelancer_id, $amout);
+		return $this->increase_credit_available( $amout, $freelancer_id );
 	}
 
 	function undeposit_bk($employer_id, $bid_id, $project_id = 0) {
@@ -103,7 +103,7 @@ Class BX_Credit {
 		//$result =  $this->increase_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
 		$result =  $this->remove_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
 		if( ! $result ) {
-			$this->increase_credit_available( $employer_id, $emp_pay);
+			$this->increase_credit_available( $emp_pay, $employer_id);
 			return new WP_Error( 'increase_pending_1', __( "Can not increase the credit of freelancer", "boxtheme" ) );
 			die();
 		}
@@ -133,7 +133,7 @@ Class BX_Credit {
 	 * @return  void
 	 */
 	function process_verified_order( $user_receice_id, $amout ){
-		$return =  $this->increase_credit_available($user_receice_id, $amout);
+		$return =  $this->increase_credit_available($amout, $user_receice_id);
 		bx_error_log('User Receiver ID Input:'.$user_receice_id);
 		bx_error_log('Amout order:'.$amout);
 		if($return){
@@ -151,7 +151,13 @@ Class BX_Credit {
 	function get_credit_available($user_id){
 		return (float) get_user_meta($user_id, $this->meta_available, true) ;
 	}
-	function increase_credit_available($user_id, $available){
+	function increase_credit_available($available, $user_id =0 ){
+
+		if( !$user_id ){
+			global $user_ID;
+			$user_id = $user_ID;
+		}
+
 
 		$current_available = $this->get_credit_available($user_id);
 		$new_available = $current_available + (float) $available;
@@ -163,7 +169,7 @@ Class BX_Credit {
 	}
 	function approve_credit_pending($user_id, $value){
 		$this->subtract_credit_pending($user_id,$value);
-		$this->increase_credit_available($user_id, $value);
+		$this->increase_credit_available( $value, $user_id);
 	}
 	//deduct
 	function subtract_credit_available($user_id, $value){
@@ -277,7 +283,7 @@ Class BX_Credit {
 			}
 
 			$this->subtract_credit_pending($order->post_author, $order->amout);
-			$this->increase_credit_available($order->post_author, $order->amout);
+			$this->increase_credit_available( $order->amout, $order->post_author);
 
 		} catch(Exception  $e){
 			$code = $e->getCode();
@@ -310,7 +316,7 @@ Class BX_Credit {
 			}
 			$order = BX_Order::get_instance()->get_order($order_id);
 
-			$this->increase_credit_available($order->post_author, $order->amout);
+			$this->increase_credit_available( $order->amout, $order->post_author);
 
 		} catch(Exception  $e){
 

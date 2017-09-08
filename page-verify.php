@@ -32,7 +32,14 @@
 						$user_id = $user->ID;
 						$role =  bx_get_user_role($user->ID);
 
+						// add default credit for new acccount.
+						$default_credit = (int) BX_Option::get_instance()->get_group_option('opt_credit')->number_credit_default;
+						if( $default_credit > 0 )
+						BX_Credit::get_instance()->increase_credit_available($price);
+						// add done.
+
 						if( $role == FREELANCER ){
+
 							$redirect_link =  box_get_static_link('profile');
 							// save status 1 as verified of this user.
 							$args = array(
