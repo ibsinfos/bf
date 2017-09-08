@@ -80,8 +80,8 @@ $app_api = $option->get_group_option($group_option);
 // var_dump($app_api);
 // echo '</pre>';
 
-$facebook = (object) $app_api[$item1];
-$google = (object) $app_api[$item2];
+$facebook =  $app_api->$item1;
+$google = $app_api->$item2;
 
 
 $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
@@ -129,7 +129,7 @@ $app_api = $option->get_group_option($group_option);
 
 $secret_key = $site_key  = '';
 $enable_catcha = 0;
-$gg_captcha = (object) $app_api[$item3];
+$gg_captcha = (object) $app_api->$item3;
 if( !empty($gg_captcha->site_key) ){
 	$site_key = $gg_captcha->site_key;
 }
