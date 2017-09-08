@@ -221,3 +221,6 @@ thead:nth-child,thead th,thead tr, thead{
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+.glyphicon{
+	font-size: 20px;
+}
