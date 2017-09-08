@@ -17,12 +17,13 @@ class BX_Option {
 	}
 	function get_group_option($group){
 		$group_args =$this->get_default();
-		return wp_parse_args(get_option($group), $group_args[$group]);
+		return (object)wp_parse_args(get_option($group), $group_args[$group]);
 	}
 	function get_default_option($group, $section, $key){
 			$default = $this->get_default();
 			return $default[$group][$section][$key];
 	}
+
 	function get_default(){
 		return array(
 			'general'=> array(
@@ -73,14 +74,18 @@ class BX_Option {
 				),
 			),
 			'escrow' => array(
+
 				'activate' => 'credit',
 				'commision' => array(
 					'number' => '10',
 					'type'   => 'fit',
-					'user_pay' => 'fre'
+					'user_pay' => 'fre',
+					'system' => 'credit',
 				),
-				'paypal' => array(
-				),
+
+			),
+			'opt_credit'=>array(
+				'number_credit_default' => 10,
 			),
 
 		);
@@ -95,6 +100,12 @@ class BX_Option {
 			$current[$name] = $new_value;
 		}
 		return update_option($group, $current);
+	}
+	function get_opt_credit_default(){
+		$default =$this->get_default_option('opt_credit');
+		$setting =  get_option('opt_credit');
+		$result = wp_parse_args( $setting, $default );
+		return (object)$result;
 	}
 	function get_general_option(){
 		$default = array(

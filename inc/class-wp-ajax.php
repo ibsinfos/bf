@@ -720,6 +720,7 @@ class BX_AJAX {
 		$package_id = $request['package_id'];
 		$price = get_post_meta($package_id, PRICE, true);
 		if($price == 0 || empty($price) ){
+			//$add_credit = BX_Credit::get_instance()->increase_credit_available($price);
 			$url = 'cash';
 			wp_send_json( array(
 				'msg' => 'Check done',

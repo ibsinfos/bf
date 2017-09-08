@@ -1,4 +1,4 @@
-<h2> <?php _e('Config Escrow system','boxtheme');?> </h2> <br />
+
 <?php
 // group = escrow
 // section = commision
@@ -6,7 +6,7 @@
 $group_option = "escrow";
 $option = BX_Option::get_instance();
 $escrow = $option->get_group_option($group_option);
-$commision = (object)$escrow['commision'];
+$commision = $escrow->commision;
 $number = 10;
 $type = 'fix';
 $user_pay = 'fre';
@@ -22,13 +22,12 @@ if( isset( $commision->user_pay ) ){
 ?>
 
 <div class="sub-section " id="<?php echo $group_option;?>" >
+	<h2> <?php _e('Config Escrow system','boxtheme');?> </h2> <br />
    	<div class="sub-item" id="commision">
 		<form style="max-width: 600px;">
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commision','boxtheme');?></label>
-				<div class="col-md-8">
-				<input class="form-control auto-save" type="number" value="<?php echo $number;?>" name = "number" id="example-text-input">
-				</div>
+				<div class="col-md-8"><input class="form-control auto-save" type="number" value="<?php echo $number;?>" name = "number" id="example-text-input"></div>
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion type','boxtheme');?></label>
@@ -49,6 +48,21 @@ if( isset( $commision->user_pay ) ){
 
 					</select>
 				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<?php
+$opt_credit = BX_Option::get_instance()->get_group_option('opt_credit');
+
+?>
+<div class="sub-section " id="opt_credit" >
+	<h2> <?php _e('Credit System','boxtheme');?> </h2> <br />
+   	<div class="sub-item" id="opt_credit">
+		<form style="max-width: 600px;">
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Number Credit Autu Deposit for new account','boxtheme');?></label>
+				<div class="col-md-8"><input class="form-control auto-save" type="number_credit_default" multi="0" value="<?php echo $opt_credit->number_credit_default;?>" name = "number_credit_default" id="number_credit_default"></div>
 			</div>
 		</form>
 	</div>

@@ -9,12 +9,12 @@ Class Box_Google{
 	function __construct(){
 
 		$app_api = BX_Option::get_instance()->get_group_option('app_api');
-		if(isset($app_api['google'])){
-			$google = (object) $app_api['google'];
-			$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
-			if( isset($this->client_id) )
-				$this->client_id = $google->client_id;
-		}
+
+		$google =  $app_api->google;
+		$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
+		if( isset($this->client_id) )
+			$this->client_id = $google->client_id;
+
 
 		add_action( 'wp_head', array($this, 'enqueue_google_script') );
 	}
