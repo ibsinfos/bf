@@ -22,7 +22,7 @@
 	                            'meta_value' => 'buy_credit'
 	                        );
 	                        $the_query = new WP_Query($args);
-	                        $id  = isset($_GET['id']) ? $_GET['id'] : '';
+	                        $g_id  = isset($_GET['id']) ? $_GET['id'] : '';
 	                        // The Loop
 	                        if ( $the_query->have_posts() ) {
 	                        	 while ( $the_query->have_posts() ) {
@@ -30,7 +30,7 @@
 	                                $price = get_post_meta(get_the_ID(),'price', true);			                                //echo $price;
 	                                $sku = get_post_meta(get_the_ID(),'sku', true);
 	                                ?>
-	                                <div class="col-sm-12  package-plan record-line">
+	                                <div class="col-sm-12  package-plan record-line <?php if( get_the_ID() == $g_id ) echo 'activate';?>">
 								    	<div class="col-sm-9">
 								    		<h4> <?php echo $price;?>$ </h4>
 
@@ -38,7 +38,7 @@
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
-									    		<input type="radio"<?php if(get_the_ID() == $id) echo 'checked'; ?> class="required radio" value="<?php echo get_the_ID();?>"  name="package_id" required >
+									    		<input type="radio"<?php if( get_the_ID() == $g_id) echo 'checked'; ?> class="required radio" value="<?php echo get_the_ID();?>"  name="package_id" required >
 									    		<span class=" no-radius btn align-right btn-select " ><?php _e('Select','boxtheme');?></span>
 									    	</label>
 								    	</div>
