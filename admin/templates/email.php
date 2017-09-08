@@ -34,7 +34,13 @@ $label = array(
        		foreach ($list as $key=> $email) {
        			$mail = (object)$email;
        			$edit_link = add_query_arg('name',$key, $email_link);
-       			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="'.$edit_link.'"><span class="glyphicon glyphicon-cog"></span></a></td></tr>';
+       			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="'.$edit_link.'" class="btn-config"><span class="glyphicon glyphicon-cog"></span></a></td></tr>';
+       			echo '<tr class="tr-config-cotent hide"> <td colspan = "4" class="td-config-content">';
+       			echo '<div class="col-md-12"><input type="text" name="" value="'.$mail->subject.'" /></div>';
+       			echo '<div class="col-md-12"><textarea  name="content">'.$mail->content.'</textarea></div>';
+
+       			echo '</td>';
+       			echo '</tr>';
        		}
        		?>
        	</table>

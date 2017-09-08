@@ -186,6 +186,11 @@ var ajaxSend = {};
 			}
 
 		});
+		$(".btn-config").click(function(){
+			var _this = $(event.currentTarget);
+			_this.closest('tr').next().toggleClass('hide');
+			return false;
+		})
 
 	});
 
