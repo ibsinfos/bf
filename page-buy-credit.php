@@ -38,7 +38,8 @@
 								    	<div class="col-sm-3 align-right">
 									    	<label>
 									    		<input type="radio"<?php if( get_the_ID() == $g_id) echo 'checked'; ?> class="required radio" value="<?php echo get_the_ID();?>"  name="package_id" required >
-									    		<span class=" no-radius btn align-right btn-select " ><?php _e('Select','boxtheme');?></span>
+
+									    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
 									    	</label>
 								    	</div>
 								    	<div class="full f-left"></div>
@@ -82,7 +83,7 @@
 								    	<div class="col-sm-3 align-right">
 								    		<label>
 								    		<input type="radio" class="required radio"  name="_gateway" required value="paypal">
-								    		<span class=" no-radius btn align-right btn-select " >Select</span>
+								    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
 								    		</label>
 								    	</div>
 								    	<div class="full f-left"></div>
@@ -98,7 +99,7 @@
 								    	<div class="col-sm-3 align-right">
 									    	<label>
 									    		<input type="radio" class="required radio" name="_gateway" required value="cash">
-									    		<span class=" no-radius btn align-right btn-select " >Select</span>
+									    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
 									    	</label>
 								    	</div>
 								    	<div class="full f-left"></div>
@@ -191,6 +192,15 @@
 		z-index: 1000;
 		z-index: 10;
 	}
+	.frm-buy-credit .record-line span.activate{
+		display: none;
+	}
+	.frm-buy-credit .record-line.activate span.activate{
+		display: block;
+	}
+	.frm-buy-credit .record-line.activate span.default{
+		display: none;
+	}
 	.frm-buy-credit .record-line.activate .btn-select{
 		background: #00a200;
 		color: #fff;
@@ -215,6 +225,7 @@
 		padding: 6px 20px;
     	font-style: initial;
     	text-transform: uppercase;
+    	min-width: 110px;
 	}
 	.frm-buy-credit .record-line{
 		padding: 15px 0;
