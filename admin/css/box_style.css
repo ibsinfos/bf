@@ -12,9 +12,12 @@
     right: 28px;
     color: #5cb85c;
 }
-.wrap-conent{
-
-
+.full.field-control-success::after{
+	bottom: 22px;
+	right: 15px;
+}
+.form-group{
+	position: relative;
 }
 .align-right{
 	text-align: right;
@@ -181,6 +184,7 @@ div.mce-tinymce{
 	display: block;
 	width: 100%;
 	padding: 0;
+	position: relative;
 	overflow: hidden;
 }
 .sub-section  .full{

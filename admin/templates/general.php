@@ -34,9 +34,8 @@ if( isset($general->gg_link) ){
 <h2><?php _e('Main options','boxtheme');?></h2>
 <div class="sub-section " id="<?php echo $group_option;?>">
 	<div class="full sub-item" id="pending_post" >
-		<div class="col-md-3">
-		<h3><?php _e('Pending jobs','boxtheme');?></h3>
-		</div> <div class="col-md-9"><?php bx_swap_button($group_option,'pending_post', $pending_post, $multipe = false);?>  <br /><span><?php _e('if enable this option, all job only appearances in the site after admin manually approve it.','boxtheme');?></span></div>
+		<div class="col-md-3"><h3><?php _e('Pending jobs','boxtheme');?></h3></div>
+		<div class="col-md-9"><?php bx_swap_button($group_option,'pending_post', $pending_post, $multipe = false);?><br /><span><?php _e('if enable this option, all job only appearances in the site after admin manually approve it.','boxtheme');?></span></div>
 
 	</div>
 	<div class="full" id="google_analytic">
@@ -63,7 +62,6 @@ if( isset($general->gg_link) ){
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
 				<div class="col-md-12"><input class="form-control auto-save" type="text" name="gg_link" multi="0"  value="<?php echo $gg_link;?>" id="gg_link"></div>
 			</div>
-
 		</div>
 	</div>
 </div>
@@ -104,9 +102,13 @@ if( isset($facebook->enable) ){
 	  	<div class="form-group row">
   			<div class="col-md-3"><h3> Facebook Setting </h3></div>
   			<div class="col-md-9 form-group">
-		    	<label for="app_id">APP ID</label>
-		    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
-		    	<div class="form-group toggle-line">  	<?php bx_swap_button( $group_option, 'enable', $fb_enable );?>   </div>
+  				<div class="full">
+			    	<label for="app_id">APP ID</label>
+			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+			    </div>
+		    	<div class="full">
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button( $group_option, 'enable', $fb_enable );?>   </div>
+		    	</div>
 		    </div>
 	    </div>
 
@@ -115,8 +117,10 @@ if( isset($facebook->enable) ){
 	  	<div class="form-group row">
 	  		<div class="col-md-3"><h3> Google Setting </h3></div>
 	  		<div class="col-md-9 ">
-		    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
-		    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
+	  			<div class="full">
+			    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
+			    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
+		    	</div>
 		    	<div class="form-group toggle-line"><?php bx_swap_button($group_option,'enable', $gg_enable);?></div>
 	    	</div>
 	  	</div>
@@ -130,20 +134,20 @@ $app_api = $option->get_group_option($group_option);
 $secret_key = $site_key  = '';
 $enable_catcha = 0;
 $gg_captcha = (object) $app_api->$item3;
-if( !empty($gg_captcha->site_key) ){
+if( !empty($gg_captcha->site_key) ) {
 	$site_key = $gg_captcha->site_key;
 }
-if( !empty($gg_captcha->secret_key) ){
+if( !empty($gg_captcha->secret_key) ) {
 	$secret_key = $gg_captcha->secret_key;
 }
-if( !empty($gg_captcha->enable) ){
+if( !empty($gg_captcha->enable) ) {
 	$enable_catcha = $gg_captcha->enable;
 }
 
 ?>
 <h2><?php _e('Google Captcha','boxtheme');?></h2>
 <div class="sub-section" id="<?php echo $group_option;?>">
-		<div class="sub-item" id="<?php echo $item3;?>">
+	<div class="sub-item" id="<?php echo $item3;?>">
 	  	<div class="form-group row">
   			<div class="col-md-3"><h3><?php _e('Settings','boxtheme');?></h3></div>
   			<div class="col-md-9 form-group">
@@ -160,8 +164,6 @@ if( !empty($gg_captcha->enable) ){
 		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>
-
 	    </div>
-
 	</div>
 </div>
