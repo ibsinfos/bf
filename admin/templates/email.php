@@ -46,9 +46,9 @@ $settings = array(
        			echo '</div>';
        			echo '<div class="col-md-12"><button class="btn btn-submit aign-right f-right btn-bg-white" type="submit">Save</button></div>';
        			echo '</form></div>';
-
        			echo '</td>';
        			echo '</tr>';
+       			echo '<tr class="hidden"><td colspan = "4" ></td></tr>';
        		}
 
        		?>
@@ -64,9 +64,9 @@ $settings = array(
 			<div class="col-md-12"><input class="form-control auto-save" multi="0" type="text" value="<?php echo $box_mail->header_image;?>"  multi="0" name="header_image" id="header_image"></div>
 		</div>
 
-		<div class="form-group row">
+		<div class="form-group row has-success">
 			<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Main bg color','boxtheme');?></label>
-			<div class="col-md-12"><input class="form-control auto-save"   type="text" name="main_bg"  multi="0"  value="<?php echo $box_mail->main_bg;?>" id="main_bg"></div>
+			<div class="col-md-12 "><input class="form-control auto-save"   type="text" name="main_bg"  multi="0"  value="<?php echo $box_mail->main_bg;?>" id="main_bg"></div>
 		</div>
 
 

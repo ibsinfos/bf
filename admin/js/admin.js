@@ -80,12 +80,35 @@ var ajaxSend = {};
 	                request: data,
 	        },
 	        success  : function(event){
-	        	console.log('Success msg');
+
 	        	_this.attr('value',data.value);
 
 	        },
 	        beforeSend  : function(event){
-	        	console.log('Insert message');
+
+	        },
+	    });
+	    return false;
+	};
+	window.ajaxSend.autoSave = function(data, action, _this){
+	    $.ajax({
+	        emulateJSON: true,
+	        method :'post',
+	        url : bx_global.ajax_url,
+	        data: {
+	                action: action,
+	                request: data,
+	        },
+	        success  : function(event){
+
+	        	_this.attr('value',data.value);
+	        	_this.removeClass('loadinggif');
+	        	_this.closest("div").addClass('field-control-success');
+
+	        },
+	        beforeSend  : function(event){
+	        	_this.closest("div").removeClass('field-control-success');
+	        	_this.addClass('loadinggif');
 	        },
 	    });
 	    return false;
@@ -132,6 +155,7 @@ var ajaxSend = {};
 	$(document).ready(function(){
 		$('.auto-save, .wrap-auto-save textarea, iframe ').change(function(event){
 			var _this = $(event.currentTarget);
+
 			var action = 'save-option';
 			var data = {group:'', section: '', name:'',value:'', multi : 1};
 
@@ -150,7 +174,7 @@ var ajaxSend = {};
 				data.multi = 0;
 			}
 
-			window.ajaxSend.Custom(data, action, _this);
+			window.ajaxSend.autoSave(data, action, _this);
 		});
 		$("#sub_heading_menu a").click(function(){
 			var _this = $(event.currentTarget);
