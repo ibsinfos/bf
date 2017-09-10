@@ -20,7 +20,7 @@ class BX_Admin{
         return static::$instance;
     }
     public function bx_register_my_custom_menu_page() {
-        add_menu_page(__( 'Theme Options', 'boxtheme' ),'Box settings','manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),'url_img.png',6);
+        add_menu_page(__( 'Theme Options', 'boxtheme' ),'Box settings','manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),get_stylesheet_directory_uri().'/ico.png',6);
 	}
 
     public function box_enqueue_scripts($hook) {
