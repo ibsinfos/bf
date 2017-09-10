@@ -55,8 +55,8 @@ class BX_User{
 
 	}
 	function sync($args, $method){
-		$bid = self::get_instance();
-		return $bid->$method($args);
+		$user = self::get_instance();
+		return $user->$method($args);
 	}
 	function is_verified($user_ID){
 

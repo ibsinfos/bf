@@ -70,16 +70,16 @@ endif;
 
 function box_editor_settings() {
 	return apply_filters( 'box_editor_settings', array(
-		'quicktags'     => false,
+		'quicktags'     => true,
 		'media_buttons' => false,
-		'wpautop'       => false,
+		'wpautop'       => true,
 
 		//'tabindex'    =>  '2',
 		'teeny'         => true,
 		'tinymce'       => array(
-			'height'                            => 250,
+			'height'                            => 150,
 			'editor_class'                      => 'input-item',
-			'autoresize_min_height'             => 250,
+			'autoresize_min_height'             => 150,
 			'autoresize_max_height'             => 550,
 			'theme_advanced_buttons1'           => 'bold,|,italic,|,underline,|,bullist,numlist,|,link,unlink,|,wp_fullscreen',
 			'theme_advanced_buttons2'           => '',

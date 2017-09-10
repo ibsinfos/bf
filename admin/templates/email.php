@@ -41,7 +41,8 @@ $settings = array(
        			echo '<tr class="tr-config-cotent hide"> <td colspan = "4" class="td-config-content">';
        			echo '<div class="form-group row"><form class="frm-update-mail"><div class="col-md-12"><h3> Update Email </h3><label> Subject </label><input type="text" class="form-control " name="subject" value="'.$mail->subject.'" /></div>';
        			echo '<div class="col-md-12"><label> Mail content </label>';
-       			echo '<textarea name="content" id="'.$key.'">'.$mail->content.'</textarea>';
+       			//echo '<textarea name="content" id="'.$key.'">';.stripslashes($mail->content).'</textarea>';
+       			wp_editor(stripslashes($mail->content),$key, box_editor_settings() );
        			echo '<input type="hidden" class="key-input" name="key" value="'.$key.'" />';
        			echo '</div>';
        			echo '<div class="col-md-12"><button class="btn btn-submit aign-right f-right btn-bg-white" type="submit">Save</button></div>';
@@ -85,7 +86,7 @@ $settings = array(
 			<div class="col-md-12"><input class="form-control auto-save"  multi="0"  type="text" name="from_address" multi="0"  value="<?php echo $box_mail->from_address;?>" id="from_address"></div>
 		</div>
 
-		<div class="hide"><?php wp_editor($mail->content,'contenttest' ); ?></div>
+		<div class="hide1"><?php //wp_editor($mail->content,'contenttest' ); ?></div>
 		</div>
 	</div>
 </div>
