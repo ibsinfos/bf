@@ -1,6 +1,6 @@
 <?php
 /**
- *	Template Name: Profile user
+ *	Template Name: Profile of current user.
  */
 ?>
 <?php get_header(); ?>

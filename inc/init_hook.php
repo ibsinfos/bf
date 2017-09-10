@@ -444,7 +444,7 @@ function boxtheme_scripts() {
 		wp_enqueue_style( 'chosen-css', get_theme_file_uri( '/library/chosen/chosen.min.css' ), array( 'boxtheme-style' ), BX_VERSION );
 	}
 
-	if ( is_page_template( 'page-profile.php') ){
+	if ( is_page_template( 'page-my-profile.php') ){
 		wp_enqueue_style( 'profile-css', get_theme_file_uri( '/assets/css/profile.css' ), array( 'boxtheme-style' ), BX_VERSION );
 		if ( is_user_logged_in() ){
 			wp_enqueue_script( 'chosen-js', get_theme_file_uri( '/library/chosen/chosen.jquery.min.js' ), array( 'jquery' ), BX_VERSION, true );
@@ -461,7 +461,7 @@ function boxtheme_scripts() {
 		wp_enqueue_script( 'dashboard-js', get_theme_file_uri( '/assets/js/dashboard.js' ), array( 'front' ), BX_VERSION, true );
 		wp_enqueue_style( 'dashboard-css', get_theme_file_uri( '/assets/css/dashboard.css' ), array( 'boxtheme-style' ), BX_VERSION );
 	}
-	if( is_page_template('page-credit.php' ) ){
+	if( is_page_template('page-my-credit.php' ) ){
 		wp_enqueue_script( 'credit-js', get_theme_file_uri( '/assets/js/credit.js' ), array( 'front' ), BX_VERSION, true );
 
 	}
@@ -541,7 +541,7 @@ function bx_page_template_redirect(){
 			wp_redirect( $login_page);
 			exit();
 		}
-		if( is_page_template( 'page-profile.php' ) ){
+		if( is_page_template( 'page-my-profile.php' ) ){
 			wp_redirect( home_url() );
 			exit();
 		}
