@@ -1,6 +1,6 @@
 <?php
 
-global $cvs_id, $project, $list_bid;
+global $cvs_id, $project, $list_bid, $role;
 $project->cvs_id = $cvs_id;
 $list_bid
 ?>

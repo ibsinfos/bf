@@ -61,10 +61,11 @@ Class BX_Credit {
 
 		$ballance = $this->get_ballance($employer_id);
 		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
-		$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
 
+		$pay_info = box_get_pay_info($bid_price);
 
-		$emp_pay = $commision_fee + $bid_price;
+		$emp_pay = $pay_info->emp_pay;
+
 		$new_available = $ballance->available + $emp_pay;
 
 		global $wpdb;
@@ -75,6 +76,7 @@ Class BX_Credit {
 			    $new_available, $employer_id, $this->meta_available
 			)
 		);
+		// should update order of this deposit // not implement.
 		return true;
 
 	}
@@ -82,46 +84,6 @@ Class BX_Credit {
 	// call this action when employer mark as finish a project.
 	function release($freelancer_id, $amout){
 		return $this->increase_credit_available( $amout, $freelancer_id );
-	}
-
-	function undeposit_bk($employer_id, $bid_id, $project_id = 0) {
-		$bidding = get_post($bid_id);
-		$freelaner_id = $bidding->post_author;
-
-		$ballance = $this->get_ballance($employer_id);
-		$bid_price = (float) get_post_meta($bidding->ID, BID_PRICE, true);
-
-		$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
-
-		$emp_pay = $bid_price;
-		$amout_fre_receive = $bid_price - $commision_fee;
-
-		$pay_ok =  $this->subtract_credit_available( $employer_id, $emp_pay );// subtract credit in employer account.
-
-
-
-		//$result =  $this->increase_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
-		$result =  $this->remove_credit_pending( $freelaner_id, $amout_fre_receive );// change to available
-		if( ! $result ) {
-			$this->increase_credit_available( $emp_pay, $employer_id);
-			return new WP_Error( 'increase_pending_1', __( "Can not increase the credit of freelancer", "boxtheme" ) );
-			die();
-		}
-		if( $result ){
-			// create order here
-			$order_args = array(
-				'order_type' => 'pay_service',
-				'project_id' => $project_id,
-				'payment_type'=>'credit',
-				'amout' => $emp_pay,
-			);
-
-			$order  = BX_Order::get_instance()->create_order($order_args);
-		}
-		// update the number spent of this employer
-		$spent = (float) get_user_meta($employer_id, SPENT, true) + $emp_pay ;
-		update_user_meta( $employer_id, SPENT, $spent );
-		return true;
 	}
 
 	/**

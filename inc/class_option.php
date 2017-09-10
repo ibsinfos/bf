@@ -251,9 +251,9 @@ function get_sandbox_mode(){
 	}
 	return $sanbox_mode;
 }
-function get_commision_fee( $total, $commision ){
-	$number = $commision->number; // fix price
-	if( $commision->type == 'percent' ) {
+function get_commision_fee( $total, $setting ){
+	$number = $setting->number; // fix price
+	if( $setting->type == 'percent' ) {
 		return ( $number/100 ) * (float) $total;
 	}
 

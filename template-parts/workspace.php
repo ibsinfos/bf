@@ -103,6 +103,7 @@
 				'done' 		=> 'Done',
 				'disputing' => 'Disputing',
 				'disputed' 	=> 'Disputed',
+				'archived' 	=> 'Archived',
 			);
 			?>
 			<li> Award date: March 20, 2017</li>
