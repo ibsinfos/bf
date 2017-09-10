@@ -341,6 +341,7 @@ var single_project = {
 		var data = { action:'generate_price',price: this.value };
 		var success = function(respond){
 			$("#_bid_receive").val(respond.data.fre_receive);
+			$("#fee_servicce").val(respond.data.cms_fee)
 
 		}
 		window.ajaxSend.Custom(data, success);
