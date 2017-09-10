@@ -9,7 +9,7 @@ function box_set_favicon( $url, $size, $blog_id ) {
 		$url = get_stylesheet_directory_uri().'/ico.png';
 	return $url;
 }
-add_action( 'wp_head', 'box_add_meta_head', 11 );
+add_action( 'wp_head', 'box_add_meta_head', 99);
 function box_add_meta_head(){
 
 	global $general;
@@ -18,4 +18,25 @@ function box_add_meta_head(){
 	if( !empty( $general->google_analytic ) ){
 		echo stripslashes($general->google_analytic);
 	}
+	if( is_singular( PROJECT ) ){
+		if( have_posts() ){
+
+			//facebook meta tag ?>
+			<meta property="og:url"           content="<?php echo get_permalink();?>" />
+			<meta property="og:type"          content="website" />
+			<meta property="og:title"         content="<?php echo get_the_title();?>" />
+			<meta property="og:description"   content="<?php echo wp_trim_words( get_the_content(), 300); ?>" />
+			<!--<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> !-->
+			<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+			<?php wp_reset_query();
+		}
+	}
+	//end facebook meta
 }
