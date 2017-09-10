@@ -40,7 +40,11 @@
                   	<div class="col-md-3"><?php printf(__('Post date: %s','boxtheme'),get_the_date() );?></div>
                   	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),get_box_price($project->_budget,true) ); ?> </div>
                   	<div class="col-md-3">
-                  		<div class="fb-share-button" data-href="<?php the_permalink();?>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink();?>&amp;src=sdkpreparse">Share</a></div>
+                  		<div class="fb-share-button" data-href="<?php the_permalink();?>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink();?>&amp;src=sdkpreparse">Share</a> </div>
+                  		<div style="float: right">
+						  <g:plusone align="right"></g:plusone>
+						</div>
+
                   	</div>
        			</div> <!-- full !-->
 

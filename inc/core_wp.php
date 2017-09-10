@@ -28,13 +28,17 @@ function box_add_meta_head(){
 			<meta property="og:description"   content="<?php echo wp_trim_words( get_the_content(), 300); ?>" />
 			<!--<meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> !-->
 			<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+
+			<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 			<?php wp_reset_query();
 		}
 	}
