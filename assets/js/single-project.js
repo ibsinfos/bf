@@ -337,19 +337,30 @@ var single_project = {
 	},
 	generatePrice: function(e){
 		var input = $(e.currentTarget);
-		if( input.attr('name') == '_bid_price'){
-			var total = parseFloat(this.value).toFixed(2);
-			var fee = 0.1*total;
-			var receive = total - fee.toFixed(2);
-			$("#fee_servicce").val(fee.toFixed(2));
-			$("#_bid_receive").val(receive.toFixed(2));
-		} else  if( input.attr('name') == '_bid_receive'){
-			var receive = parseFloat(this.value).toFixed(2);
-			var total 	= 100*receive/90;
-			var fee = total.toFixed(2) - receive;
-			$("#_bid_price").val(total.toFixed(2));
-			$("#fee_servicce").val(fee.toFixed(2));
+
+		var data = { action:'generate_price',price: this.value };
+		var success = function(respond){
+			$("#_bid_receive").val(respond.data.fre_receive);
+
 		}
+		window.ajaxSend.Custom(data, success);
+		// console.log(escrow);
+		// if( input.attr('name') == '_bid_price'){
+		// 	var total = parseFloat(this.value).toFixed(2);
+		// 	var fee = 0;
+		// 	if(escrow.user_pay =='fre'){
+		// 	fee = escrow.fee*total;
+		// 	var receive = total - fee.toFixed(2);
+		// 	$("#fee_servicce").val(fee.toFixed(2));
+		// 	$("#_bid_receive").val(receive.toFixed(2));
+		// }
+		// else  if( input.attr('name') == '_bid_receive'){
+		// 	var receive = parseFloat(this.value).toFixed(2);
+		// 	var total 	= 100*receive/90;
+		// 	var fee = total.toFixed(2) - receive;
+		// 	$("#_bid_price").val(total.toFixed(2));
+		// 	$("#fee_servicce").val(fee.toFixed(2));
+		// }
 	},
 }
 

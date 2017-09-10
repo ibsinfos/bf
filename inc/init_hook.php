@@ -428,6 +428,8 @@ function boxtheme_scripts() {
 
 			wp_enqueue_style( 'single-project', get_theme_file_uri( '/assets/css/single-project.css' ), array( 'boxtheme-style' ), BX_VERSION );
 			wp_enqueue_script( 'single-project-js', get_theme_file_uri( '/assets/js/single-project.js' ), array( 'front' ), BX_VERSION, true );
+
+			wp_localize_script( 'single-project-js', 'escrow', get_commision_setting(false) );
 		}
 
 		if ( is_page_template('page-login.php') ) {

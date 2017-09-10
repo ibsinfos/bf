@@ -259,7 +259,7 @@ function get_commision_fee( $total, $setting ){
 
 	return $number;
 }
-function get_commision_setting(){
+function get_commision_setting($object = true){
 	$option = BX_Option::get_instance();
 	$escrow = $option->get_group_option('escrow');
 	$commision = (object)$escrow->commision;
@@ -275,7 +275,9 @@ function get_commision_setting(){
 	if( isset( $commision->user_pay ) ){
 		$result['user_pay']= $commision->user_pay;
 	}
-	return (object)$result;
+	if($object)
+		return (object)$result;
+	return $result;
 }
 function box_get_pay_info($bid_price){
 	$setting = get_commision_setting();

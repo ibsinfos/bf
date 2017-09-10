@@ -51,6 +51,7 @@ class BX_AJAX {
 			'request_withdraw' => false,
 			'update_withdraw_info' => false,
 			'send_new_confirm_email' => false,
+			'generate_price' => false,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -887,6 +888,13 @@ class BX_AJAX {
 			}
 		}
 		wp_send_json( $response );
+	}
+	static function generate_price(){
+		$request = $_REQUEST['request'];
+		$amout = (float) $request['price'];
+		$info = box_get_pay_info($amout);
+		wp_send_json(array('sucess'=> true,'data'=>$info) );
+
 	}
 
 }
