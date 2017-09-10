@@ -266,7 +266,7 @@ Class BX_Credit {
 		);
 
 		$order_id = BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
-		$admin_content = $content . '<p> Link to detail.<a href="'.get_edit_post_link($order_id).'">check</a></p>';
+		$admin_content = $content . '<p> Link to check detail: <a href="'.get_edit_post_link($order_id).'">link</a></p>';
 
 		$to = get_option('admin_email', true);
 		box_mail( $to, $subject, $admin_content ); // mail to admin.
