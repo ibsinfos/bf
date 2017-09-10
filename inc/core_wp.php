@@ -50,7 +50,7 @@ function box_footer_script(){
 		<script type="text/javascript">
 				(function($){
 					$('.popup').click(function(event) {
-						alert('123');
+
 					    var width  = 575,
 					        height = 400,
 					        left   = ($(window).width()  - width)  / 2,
