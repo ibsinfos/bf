@@ -51,7 +51,7 @@ if(isset($paypal->enable) )
                     $cash_des = $cash->description;
             	?>
                 <div class="col-sm-9 wrap-auto-save">
-                	 <textarea name="description" id="description" class="auto-save"> <?php echo stripslashes($cash_des);?></textarea>
+                	 <textarea name="description" id="description" class="auto-save simple"> <?php echo esc_html($cash_des);?></textarea>
                 	<div class="hide">
                 	<?php wp_editor($cash->description,'call');?>
 

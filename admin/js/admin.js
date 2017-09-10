@@ -211,39 +211,38 @@ var ajaxSend = {};
 			}
 			return false;
 		});
-		// if (typeof(tinyMCE) != "undefined") {
-		// 	tinymce.init({
-		// 		quicktags: false,
-		// 		media_buttons: true,
-		// 		tinymce: true,
-		// 		branding: false,
-		// 		preview_styles: true,
-		// 		wpautop: true,
-		// 		 mode : "exact",
-		// 		plugins: "lists wplink ",
-	 //  			toolbar: "bold italic link unlink numlist bullist alignleft aligncenter alignright",
-	 //  			menubar: "insert",
-	 //  			link_assume_external_targets: true,
-		// 	  	selector: 'textarea',
+		if (typeof(tinyMCE) != "undefined") {
+			tinymce.init({
+				quicktags: true,
+				media_buttons: false,
+				tinymce: true,
+				branding: false,
+				wpautop: true,
 
-		// 		setup : function(ed) {
-		// 	    	ed.onChange.add(function(ed, l) {
+				plugins: "lists ",
+	  			toolbar: "bold italic   numlist bullist alignleft aligncenter alignright",
+	  			menubar: false,
+	  			link_assume_external_targets: true,
+			  	selector: 'textarea.simple',
 
-		// 	        	var _this = $(document.getElementById(ed.id));
-		// 	        	if( _this.hasClass('auto-save') ){
-		// 					var action = 'save-option';
-		// 					var data = {section: '',group:'',name:'',value:''};
-		// 					data.group  = _this.closest('.sub-section').attr('id');
-		// 					data.section = _this.closest('.sub-item').attr('id');
-		// 					data.name = _this.attr('name');
-		// 					data.value = tinyMCE.activeEditor.getContent();
-		// 					window.ajaxSend.Custom(data, action, _this);
-		// 				}
+				setup : function(ed) {
+			    	ed.onChange.add(function(ed, l) {
 
-		// 	 	    });
-		// 	 	}
-		// 	});
-		// } // end TinyMCE init
+			        	var _this = $(document.getElementById(ed.id));
+			        	if( _this.hasClass('auto-save') ){
+							var action = 'save-option';
+							var data = {section: '',group:'',name:'',value:''};
+							data.group  = _this.closest('.sub-section').attr('id');
+							data.section = _this.closest('.sub-item').attr('id');
+							data.name = _this.attr('name');
+							data.value = tinyMCE.activeEditor.getContent();
+							window.ajaxSend.Custom(data, action, _this);
+						}
+
+			 	    });
+			 	}
+			});
+		} // end TinyMCE init
 
 		$(".btn-edit-package").click(function(event){
 			var _this = $(event.currentTarget);
