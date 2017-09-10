@@ -217,7 +217,7 @@ Class BX_Credit {
 		global $user_ID;
 		$amout = (float) $request['withdraw_amout'];
 		$method =  $request['withdraw_method'];
-		$note =  $request['withdraw_note'];
+		$notes =  $request['withdraw_note'];
 		$payment_method = $this->get_withdraw_info();
 
 		$ballance = $this->get_ballance($user_ID);
@@ -250,10 +250,15 @@ Class BX_Credit {
 			$method_text .= '<p> &nbsp; &nbsp; Account name: '.$method_detail->account_name.'</p>';
 			$method_text .= '<p> &nbsp; &nbsp; Account number: '.$method_detail->account_number.'</p>';
 		}
-		$content =  sprintf( __('<p><h1>Detail of withdraw</h1></p><p><label> Amout:</label> %f</p><p><label>Method:</label> %s </p> <p> <label> Notes:</label> %s </p><p> Detail of method: %s','boxtheme'), $amout,$method, $note, $method_text) ;
+		$mail = BX_Option::get_instance()->get_mail_settings('request_withdrawal');
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes($mail->subject) );
+		$content = str_replace('#amount', $amout, $mail->content);
+		$content = str_replace('#method', $method, $content);
+		$content = str_replace('#notes', $notes, $content);
+		$content = str_replace('#detail', $method_text, $content);
 
 		$args_wdt = array(
-			'post_title' => sprintf( __('%s request withdraw %f ','boxthemee'), $curren_user->user_login, $amout ),
+			'post_title' => sprintf( __('%s send a request withdraw: %f ','boxtheme'), $curren_user->user_login, $amout ),
 			'amout' => $amout,
 			'order_type' => 'withdraw' ,
 			'payment_type' => 'none' ,
@@ -263,13 +268,9 @@ Class BX_Credit {
 		BX_Order::get_instance()->create_custom_pending_order( $args_wdt );
 
 		$to = get_option('admin_email', true);
-		$subject = 'Has a withdraw request';
 		box_mail( $to, $subject, $content ); // mail to admin.
-
-		$subject = __( 'You have just sen a  requested to withdraw.','boxtheme' );
-		box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
-
-
+		//$subject = __( 'You have just sen a  requested to withdraw.','boxtheme' );
+		//box_mail( $curren_user->user_email, $subject, $content ); // mail to freelancer.
 		return true;
 	}
 

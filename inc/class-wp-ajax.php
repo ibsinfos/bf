@@ -270,7 +270,7 @@ class BX_AJAX {
 			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 			$mail = BX_Option::get_instance()->get_mail_settings('new_account');
 
-			$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes($mail->subject) );
+			$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail->subject) );
 			$content = str_replace('#user_login', $user->user_login, $mail->content);
 			$content = str_replace('#link', esc_url($link), $content);
 

@@ -141,6 +141,11 @@ class BX_Option {
 				'subject' =>	'Your bidding is choosen for project %s',
 				'content' =>	'Congart, Your bidding is choosen'
 			),
+			'request_withdrawal' => array(
+				'receiver' => 'Admin',
+				'subject' =>	'Has a new withdrawal request',
+				'content' =>	'<p><h1>Detail of withdraw</h1></p><p><label> Amout:</label> #amount</p><p><label>Method:</label> #method </p> <p> <label> Notes:</label> #notes </p><p> Detail of method: #detail'
+			),
 		);
 	}
 	function get_default_mail_content($key){
