@@ -44,3 +44,30 @@ function box_add_meta_head(){
 	}
 	//end facebook meta
 }
+add_action('wp_footer','box_footer_script', 99);
+function box_footer_script(){
+	if( is_singular( PROJECT ) ){ ?>
+		<script type="text/javascript">
+				(function($){
+					$('.popup').click(function(event) {
+						alert('123');
+					    var width  = 575,
+					        height = 400,
+					        left   = ($(window).width()  - width)  / 2,
+					        top    = ($(window).height() - height) / 2,
+					        url    = this.href,
+					        opts   = 'status=1' +
+					                 ',width='  + width  +
+					                 ',height=' + height +
+					                 ',top='    + top    +
+					                 ',left='   + left;
+
+					    window.open(url, 'twitter', opts);
+
+					    return false;
+					  });
+				})(jQuery);
+			</script>
+
+	<?php }
+}
