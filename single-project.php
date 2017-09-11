@@ -62,15 +62,17 @@
 
        			<?php
 
-       			if ( !$is_workspace ) { ?>
+       			if ( ! $is_workspace ) { ?>
        				<div class="col-md-8">
        					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
-			       		<?php  	get_template_part( 'template-parts/list', 'bid' ); ?>
 			       	</div> <!-- .col-md-8  Job details !-->
 				    <div class="col-md-4 sidebar" id="single_sidebar">
 				    	<?php 	step_process();?>
 	          			<?php  	get_sidebar('project');?>
-      				</div> <?php
+      				</div>
+      				<div class="col-md-12">
+      				<?php get_template_part( 'template-parts/list', 'bid' ); ?>
+      				</div><?php
       			} else {
 			       		get_template_part( 'template-parts/workspace' );
 			    } ?>

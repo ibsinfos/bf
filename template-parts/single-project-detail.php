@@ -17,7 +17,7 @@ if( $att_query-> have_posts() ){
         global $post;
         $att_query->the_post();
         $feat_image_url = wp_get_attachment_url( $post->ID );
-        $files[] = '<span><span class="glyphicon glyphicon-paperclip primary-color"></span>&nbsp;<a class="text-color " href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
+        $files[] = '<span><i class="fa fa-paperclip primary-color" aria-hidden="true"></i>&nbsp;<a class="text-color " href="'.$feat_image_url.'">'.get_the_title().'</a></span> ';
     }
     echo join(",",$files);
     echo '</p>';
