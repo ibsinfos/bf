@@ -41,13 +41,13 @@
 					  	$skill_html = join( ", ", $draught_links );
 					}?>
 
-					<div class="col-md-6 profile-item" >
+					<div class="col-md-6 col-xs-12 profile-item" >
 						<div class="full box-bg">
-							<div class="left avatar col-md-4 no-padding-right">
+							<div class="left avatar col-md-4 col-xs-5 no-padding-right">
 								<?php echo '<a class="primary-color" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author).'</a>';
 								$userdata = get_userdata($post->post_author); ?>
 							</div>
-							<div class="right col-md-8 ">
+							<div class="right col-md-8 col-xs-7">
 								<h3 class="profile-title no-margin">
 									<?php echo '<a class="" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 								</h3>

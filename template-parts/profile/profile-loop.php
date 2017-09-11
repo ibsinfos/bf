@@ -24,11 +24,11 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 ?>
 <div class="row archive-profile-item">
 	<div class="full">
-		<div class="col-md-2 no-padding col-xs-4 col-avatar">
+		<div class="col-md-2 no-padding col-xs-3 col-avatar">
 		<?php echo '<a class="avatar" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author, 150).'</a>';
 		$userdata = get_userdata($post->post_author); ?>
 		</div>
-		<div class="col-md-10 align-left  col-xs-8 res-content res-second-line">
+		<div class="col-md-10 align-left  col-xs-9 res-content res-second-line">
 
 			<h3 class="profile-title no-margin col-xs-12">
 				<?php echo '<a class="" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
@@ -43,9 +43,9 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 
 			<span class="inline list-info ">
 				<span class=" item hour-rate "> <span class="glyphicon glyphicon-time"> </span><span class="txt-rate"><?php echo $profile->{HOUR_RATE_TEXT};?> </span></span>
-				<span class=" item eared-txt   "><?php printf(__('Earned: %s','boxtheme'),$profile->{EARNED} ) ;?> </span>
-				<span class=" item country-profile "> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
-				<span class="item profile-rating "> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
+				<span class=" item eared-txt  col-xs-6"><?php printf(__('Earned: %s','boxtheme'),$profile->{EARNED} ) ;?> </span>
+				<span class=" item country-profile col-xs-6 pull-right text-right"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
+				<span class="item profile-rating col-xs-12"> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
 			</span>
 		</div>
 		<div class="col-md-10 align-left  col-xs-12 res-content">

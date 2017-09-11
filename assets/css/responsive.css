@@ -54,10 +54,15 @@
 		float: right;
 
 	}
+	.archive-profile-item .list-info .hour-rate{
+		width: 100px;
+		position: relative;
+	}
 
 }
 
 @media only screen and (max-width: 768px) {
+
 	* {
 	  margin: 0;
 	  padding: 0;
@@ -542,4 +547,5 @@
 	.author-view img.avatar{
 		max-width: 150px;
 	}
+
 }
