@@ -49,7 +49,7 @@
 	      				<div class="img-container">
 	      					<div class="centar-avatar">
 		              			<img id="btn-upload-avatar1" class="avatar-popup" src="<?php echo $avatar_url;?>" id="thumbnail">
-		              			<span id="btn-upload-avatar" class="btn-upload-avatar"> <span class="glyphicon glyphicon-camera"></span> </span>
+		              			<span id="btn-upload-avatar" class="btn-upload-avatar"> <i class="fa fa-camera" aria-hidden="true"></i> </span>
 	              			</div>
 	              		</div>
 						<br style="clear:both;">
