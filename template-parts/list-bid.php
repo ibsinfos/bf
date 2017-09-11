@@ -2,6 +2,7 @@
 	<?php
 	global $user_ID, $project, $list_bid;
 
+
 	$paged = isset($_GET['pid']) ? $_GET['pid'] : 1;
 	$args = array(
 		'post_type' => BID,

@@ -1,22 +1,15 @@
 <?php
-global $user_ID, $project, $is_owner, $access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding;
+global $user_ID, $project, $is_owner, $access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding, $is_logged, $current_user_can_bid;
 function show_bid_buton($post){
 	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
 	echo '<a class ="btn btn-login" href ="'.$back_url.'">'.__('Login to bid','boxtheme').'</a>';
 }
-if ( is_user_logged_in() ) {
+if ( $is_logged ) {
 
-	if( current_user_can_bid( $project) && $project->post_author != $user_ID ){ // chec post_status = publish and freelancer role.
+	if( $current_user_can_bid  ){ // chec post_status = publish and freelancer role.
 		// is freelancer and logged
-		$bidding = is_current_user_bidded($project->ID);
 		if( ! $bidding){
 			get_template_part( 'template-parts/project/bid', 'form' ); //bid_form include bid-form.php file
-		} else {
-			// echo '<pre>';
-			// var_dump($bidding->ID);
-			// echo '</pre>';
-			echo '<div class="full"><button class="btn btn-cancel-bid" rel="'.$bidding->ID.'">'.__('Cancel','boxtheme').' &nbsp;  <span class="glyphicon "></span></button></div>';
-			// show button cancel here.
 		}
 
 	} else {
@@ -29,24 +22,19 @@ if ( is_user_logged_in() ) {
 	//is visitor
 	show_bid_buton($project);
 }
+?>
+<div class="block-employer-info">
+<?php
+$user = get_userdata($project->post_author );
 
-$terms = get_the_terms( $project, 'project_cat' );
-if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-	echo '<h3 class="sb-heading">'.__('Categories','boxtheme').'</h3>';
-	echo '<ul class="list-category">';
-
-	foreach ( $terms as $term ) {
-	  echo '<li><a href="' . get_term_link($term).'">' . $term->name . '</a></li>';
-	}
-	echo '</ul>';
-}
-
-$terms = get_the_terms( $project, 'skill' );
-if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-	echo '<ul class="list-skill">';
-	echo '<h3>'.__('SKILLS REQUIRED','boxtheme').'</h3>';
-	foreach ( $terms as $term ) {
-	  	echo '<li><a href="' . get_term_link($term).'">' . $term->name . '</a></li>';
-	}
-	echo '</ul>';
-}
+?>
+	<h3> Employer Information</h3>
+	<ul class="list-employer-info">
+		<li><?php echo $user->display_name;?></li>
+		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i>France</li>
+		<li><i class="fa fa-flag bcon" aria-hidden="true"></i>Project posted: 120.</li>
+		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i>Freelancers Hired: 120.</li>
+		<li><i class="fa fa-money bcon" aria-hidden="true"></i>Total Spent 120.000</li>
+		<li class="rating"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
+	</ul>
+</div>

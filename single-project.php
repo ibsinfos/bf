@@ -1,7 +1,7 @@
 <?php
 	get_header();
 
-	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid;
 
 	$cvs_id = $is_owner = $access_workspace = 0;
 	$role = bx_get_user_role();
@@ -15,6 +15,15 @@
 
 	if( can_access_workspace($project) )
 		$access_workspace = 1;
+
+	if ( is_user_logged_in() ) {
+		$is_logged = 1;
+		if( current_user_can_bid( $project) && $project->post_author != $user_ID ){ // chec post_status = publish and freelancer role.
+			// is freelancer and logged
+			$current_user_can_bid = 1;
+			$bidding = is_current_user_bidded($project->ID);
+		}
+	}
 
 	function step_process(){
 		global $project, $access_workspace, $winner_id;
@@ -45,24 +54,14 @@
 	                  		<div class="fb-share-button" data-href="<?php the_permalink();?>" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink();?>&amp;src=sdkpreparse">Share</a> </div>
 	                  		</li>
                   		<li class="share-item gplus-share"><g:plusone align="right"></g:plusone></li>
-						<li class="share-item  tw-share"><a class="twitter popup" href="http://twitter.com/share">Tweet</a>
-						<!-- <a class="twitter-share-button"
-						  href="https://twitter.com/share"
-						  data-size="large"
-						  data-text="custom share text"
-						  data-url="<?php the_permalink();?>"
-						  data-hashtags="example,demo"
-						  data-via="twitterdev"
-						  data-related="twitterapi,twitter">
-						Tweet
-						</a> -->
-						</li>
+						<li class="share-item  tw-share"><a class="twitter popup" href="http://twitter.com/share">Tweet</a></li>
 						</ul>
 
                   	</div>
        			</div> <!-- full !-->
 
        			<?php
+
        			if ( !$is_workspace ) { ?>
        				<div class="col-md-8">
        					<?php 	get_template_part('template-parts/single','project-detail' ); ?>

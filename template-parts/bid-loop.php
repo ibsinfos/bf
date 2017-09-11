@@ -1,5 +1,5 @@
 <?php
-global $project, $post, $user_ID, $list_bid, $cms_setting;
+global $project, $post, $user_ID, $list_bid, $cms_setting, $bidding;
 
 $bid = new BX_Bid();
 $bid = $bid->convert( $post );
@@ -68,33 +68,8 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 			 	<button class="btn inline btn-status-display no-radius btn-toggle-award" id="<?php echo $bid->ID;?>"><?php _e('Award','boxtheme');?></button>
 
 			</div>
-		<?php } else { ?>
-
-		<?php }?>
-	</div>
-
-	<div class="col-md-12">
-
-		<form class="frm-award123 hide" >
-			<div class="form-group row">
-		 		<label  class="col-sm-4 col-form-label"><?php _e('Total amount','boxtheme');?></label>
-	      		<div class="col-sm-8">
-	      			<?php echo $bid->{BID_PRICE};?> ($)
-	      			<p><small><?php printf(__('System auto deducts %s in your balance.','boxtheme'),$bid->{BID_PRICE});?></small></p>
-	      		</div>
-			</div>
-			<div class="form-group row">
-		 		<label  class="col-sm-4 col-form-label"><?php _e('Message','boxtheme');?></label>
-		 		<div class="col-sm-8">
-		 			<textarea name="cvs_content" class="full " rows="3" placeholder="<?php _e('Leave a message to winner','boxtheme');?>"></textarea>
-		 		</div>
-	 		</div>
-
-			<input type="hidden" name="freelancer_id" value="<?php echo $bid->post_author;?>">
-			<input type="hidden" name="project_id" value="<?php echo $bid->post_parent;?>">
-			<input type="hidden" name="bid_id" value="<?php echo $bid->ID;?>">
-			<br />
-			<button type="submit" class="btn btn-award-job align-right f-right no-radius"><?php _e('Award job','boxtheme');?></button>
-		</form>
+		<?php } else if ( $bidding && $bidding->ID == $bid->ID ) { // show cancel bid for current freelancer .
+			echo '<div class="full"><a class="btn-cancel-bid" rel="'.$bidding->ID.'">'.__('CANCEL (X)','boxtheme').' &nbsp;</a></div>';
+		}?>
 	</div>
 </div>

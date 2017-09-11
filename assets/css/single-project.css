@@ -164,16 +164,22 @@
 .full-info .reply_input{
 	display: none;
 }
+ul li a:hover {
+	text-decoration: none;
+}
 ul.list-skill li{
 	display: inline-block;
 	overflow: hidden;
 	margin-bottom: 3px;
-	margin-right: 3px;
+	margin-right: 10px;
 }
 ul.list-skill li a{
-	padding: 0px 10px;
+	padding: 3px 12px;
 	background-color: #eee;
 	border:1px solid #eee;
+}
+ul.list-category li{
+	margin-right: 10px;
 }
 .job-process-heading {
     display: block;
@@ -257,4 +263,41 @@ li.share-item {
 }
 .fb-share-button iframe{
 
+}
+.list-employer-info{
+	padding: 0;
+	margin: 0;
+}
+.list-employer-info li {
+	padding-bottom: 15px;
+	vertical-align: top;
+}
+.list-employer-info li i.bcon{
+
+    padding-right: 15px;
+    width: 33px;
+    font-size: 19px;
+
+}
+div.block-employer-info{
+	background: #ececec;
+	padding: 15px;
+	overflow: hidden;
+	margin-top: 20px;
+}
+.block-employer-info h3{
+	padding: 7px 0px 14px 0;
+	font-size: 19px;
+}
+.list-employer-info  .rating{ padding: 0; }
+.list-employer-info  .rating i{padding-right: 10px; font-size: 19px;}
+.btn-cancel-bid{
+	position: absolute;
+	right: 5px;
+	cursor: pointer;
+	top:0px;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
 }

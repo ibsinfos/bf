@@ -115,6 +115,10 @@ var single_project = {
 	},
 	cancelBid: function(){
 		var _this = $(event.currentTarget);
+		var res = confirm('Do you want to cancel this bi?');
+		if( ! res ){
+			return false;
+		}
 		var bid_id = _this.attr('rel');
 		var data = {action:'sync_bid', ID:bid_id, method:'delete'};
 

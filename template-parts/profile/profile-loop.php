@@ -42,10 +42,18 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 			</span>
 
 			<span class="inline list-info col-md-12 no-padding-right no-padding-left">
-				<span class=" item hour-rate col-md-3"> <span class="glyphicon glyphicon-time"> </span><span class="txt-rate"><?php echo $profile->{HOUR_RATE_TEXT};?> </span></span>
+				<span class=" item hour-rate col-md-3"><i class="fa fa-clock-o pull-left" aria-hidden="true"></i><span class="txt-rate"><?php echo $profile->{HOUR_RATE_TEXT};?> </span></span>
 				<span class=" item eared-txt col-md-3 col-xs-4 text-center"><?php printf(__('Earned: %s','boxtheme'),$profile->{EARNED} ) ;?> </span>
-				<span class=" item country-profile col-md-3 col-xs-4 text-center"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
-				<span class="item profile-rating col-md-3 col-xs-4 no-padding-right text-right"> <start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
+				<span class=" item country-profile col-md-3 col-xs-4 text-center"> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $profile->country;?> </span>
+				<span class="item profile-rating col-md-3 col-xs-4 no-padding-right text-right">
+					<start class="rating-score <?php echo $start_class;?> ">
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+					</start>
+				</span>
 			</span>
 		</div>
 		<div class="col-md-10 align-left  col-xs-12 res-content no-padding-right">
