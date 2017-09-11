@@ -59,7 +59,14 @@
 								<span class="absolute abs-top abs-right-15 hour-rate ">$<?php echo $profile->hour_rate;?>/hr</span>
 								<span class="padding-top-15"><span>Join since June, 2017 </span></span>
 								<span class="full">
-									<start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start><span></span>
+									<start class="rating-score <?php echo $start_class;?> ">
+										<i class="fa fa-star" aria-hidden="true"></i>
+										<i class="fa fa-star" aria-hidden="true"></i>
+										<i class="fa fa-star" aria-hidden="true"></i>
+										<i class="fa fa-star" aria-hidden="true"></i>
+										<i class="fa fa-star" aria-hidden="true"></i>
+									</start>
+									<span></span>
 									<span class="absolute  abs-right-15"><img src="<?php echo get_stylesheet_directory_uri();?>/img/flag.png"></span>
 								</span>
 							</div>
