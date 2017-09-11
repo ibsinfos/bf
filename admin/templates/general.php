@@ -78,8 +78,8 @@ $app_api = $option->get_group_option($group_option);
 // var_dump($app_api);
 // echo '</pre>';
 
-$facebook =  $app_api->$item1;
-$google = $app_api->$item2;
+$facebook =  (object)$app_api->$item1;
+$google = (object) $app_api->$item2;
 
 
 $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
@@ -103,8 +103,12 @@ if( isset($facebook->enable) ){
   			<div class="col-md-3"><h3> Facebook Login API </h3></div>
   			<div class="col-md-9 form-group">
   				<div class="full">
-			    	<label for="app_id">APP ID</label>
-			    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+  					<div class="full">
+				    	<label for="app_id">APP ID</label>
+				    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+				    </div>
+			    	<span class="text-muted">Go to this <a href="https://developers.facebook.com/apps/">link</a> and create new app then get the API for this section.</span>
+
 			    </div>
 		    	<div class="full">
 		    		<div class="form-group toggle-line">  	<?php bx_swap_button( $group_option, 'enable', $fb_enable );?>   </div>
@@ -118,10 +122,17 @@ if( isset($facebook->enable) ){
 	  		<div class="col-md-3"><h3> Google Login API </h3></div>
 	  		<div class="col-md-9 ">
 	  			<div class="full">
+	  				<div class="full">
 			    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
 			    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
+			    	</div>
+			    	<span class="text-muted">Go to this <a href="https://console.developers.google.com/projectselector/apis/library?pli=1">link</a> and create new api and setup for this section</span>
 		    	</div>
-		    	<div class="form-group toggle-line"><?php bx_swap_button($group_option,'enable', $gg_enable);?></div>
+		    	<div class="form-group toggle-line">
+		    		<?php bx_swap_button($group_option,'enable', $gg_enable);?>
+
+		    	</div>
+		    	<div class="form-group toggle-line"><span class="text-muted clear"> Enable or disable this option</span></div>
 	    	</div>
 	  	</div>
 	</div>
