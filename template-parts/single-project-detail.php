@@ -1,5 +1,7 @@
+<div class="full job-content">
 <h3> <?php _e('Job details','boxtheme');?> </h3>
 <?php the_content(); ?>
+</div>
 <?php
 global $project;
 
