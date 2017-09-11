@@ -28,7 +28,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 		<?php echo '<a class="avatar" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author, 150).'</a>';
 		$userdata = get_userdata($post->post_author); ?>
 		</div>
-		<div class="col-md-10 align-left  col-xs-9 res-content res-second-line">
+		<div class="col-md-10 align-left  col-xs-9 res-content res-second-line no-padding-right">
 
 			<h3 class="profile-title no-margin col-xs-12">
 				<?php echo '<a class="" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
@@ -41,14 +41,14 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 				</span>
 			</span>
 
-			<span class="inline list-info ">
+			<span class="inline list-info col-md-12 no-padding-right no-padding-left">
 				<span class=" item hour-rate col-md-3"> <span class="glyphicon glyphicon-time"> </span><span class="txt-rate"><?php echo $profile->{HOUR_RATE_TEXT};?> </span></span>
 				<span class=" item eared-txt col-md-3 col-xs-4 text-center"><?php printf(__('Earned: %s','boxtheme'),$profile->{EARNED} ) ;?> </span>
 				<span class=" item country-profile col-md-3 col-xs-4 text-center"> <span class="glyphicon glyphicon-map-marker"></span>  <?php echo $profile->country;?> </span>
-				<span class="item profile-rating col-md-3 col-xs-4 no-padding-right text-right"> <start class="rating-score clear block <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
+				<span class="item profile-rating col-md-3 col-xs-4 no-padding-right text-right"> <start class="rating-score <?php echo $start_class;?> "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
 			</span>
 		</div>
-		<div class="col-md-10 align-left  col-xs-12 res-content">
+		<div class="col-md-10 align-left  col-xs-12 res-content no-padding-right">
 			<span class="overview-profile clear col-xs-12">
 			<?php
 			$str = str_replace( array("\n", "\r"), '', get_the_content() );

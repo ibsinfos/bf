@@ -541,7 +541,12 @@
 	.author-view img.avatar{
 		max-width: 150px;
 	}
-	.archive-profile-item .list-info .hour-rate{
-		position: absolute;
+	.profile-item .list-info .hour-rate {
+	    position: absolute;
+	    top: -50px;
+	    right: -51px;
+	}
+	.site-container{
+		background: #fff;
 	}
 }

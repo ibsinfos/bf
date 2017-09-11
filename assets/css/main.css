@@ -789,7 +789,6 @@ ul.pagination{
 	clear: both;
 }
 .archive-profile-item .list-info span.item{
-	min-width: 135px;
 	float: left;
 }
 .archive-profile-item .list-info .hour-rate{
@@ -810,11 +809,10 @@ ul.pagination{
     white-space: nowrap;
 }
 .archive-profile-item .txt-rate {
-    max-width: 75px;
     white-space: nowrap;
     overflow: hidden;
     float: left;
-    padding-left: 20px;
+    padding-left: 6px;
     text-overflow: clip;
 }
 .archive-profile-item  .second-line .item{
