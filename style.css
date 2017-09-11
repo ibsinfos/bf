@@ -334,7 +334,7 @@ body .f-right{
 }
 div.no-padding-right,
 .no-padding-right {
-	padding-right: 0;
+	padding-right: 0 !important;
 }
 div.no-padding-left{
 	padding-left: 0;

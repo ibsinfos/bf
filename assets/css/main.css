@@ -792,7 +792,10 @@ ul.pagination{
 	min-width: 135px;
 	float: left;
 }
-
+.archive-profile-item .list-info .hour-rate{
+	width: 100px;
+	position: relative;
+}
 .archive-profile-item .list-info .hour-rate .glyphicon{
 	position: absolute;
 	left: 0;
