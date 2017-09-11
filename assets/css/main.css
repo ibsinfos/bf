@@ -800,6 +800,11 @@ ul.pagination{
 	left: 0;
 
 }
+.archive-profile-item a.avatar{
+	float: left;
+	max-height: 130px;
+	overflow: hidden;
+}
 .archive-profile-item  .second-line{
 	display: block;
     clear: both;
@@ -812,7 +817,7 @@ ul.pagination{
     white-space: nowrap;
     overflow: hidden;
     float: left;
-    padding-left: 6px;
+    padding-left: 0px;
     text-overflow: clip;
 }
 .archive-profile-item  .second-line .item{
