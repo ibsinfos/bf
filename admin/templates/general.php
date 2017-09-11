@@ -100,7 +100,7 @@ if( isset($facebook->enable) ){
 <div class="sub-section" id="<?php echo $group_option;?>">
 		<div class="sub-item" id="<?php echo $item1;?>">
 	  	<div class="form-group row">
-  			<div class="col-md-3"><h3> Facebook Setting </h3></div>
+  			<div class="col-md-3"><h3> Facebook Login API </h3></div>
   			<div class="col-md-9 form-group">
   				<div class="full">
 			    	<label for="app_id">APP ID</label>
@@ -115,7 +115,7 @@ if( isset($facebook->enable) ){
 	</div>
 	<div class="sub-item" id="google">
 	  	<div class="form-group row">
-	  		<div class="col-md-3"><h3> Google Setting </h3></div>
+	  		<div class="col-md-3"><h3> Google Login API </h3></div>
 	  		<div class="col-md-9 ">
 	  			<div class="full">
 			    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
