@@ -276,7 +276,7 @@ class BX_AJAX {
 			$content = str_replace('#link', esc_url($link), $content);
 
 
-			box_mail( $request['user_email'], $subject, $content );
+			box_mail( $request['user_email'], $subject, stripslashes($content) );
 
 		} else {
 			$response['msg'] =  $user_id->get_error_message();
@@ -863,10 +863,10 @@ class BX_AJAX {
 			list( $pass_request_time, $pass_key ) = explode( ':', $current_key, 2 );
 			$count_time  = time() - $pass_request_time;// senconds
 
-			if( $count_time < 60*10 ){ // 10 minutes check
-				$response['msg'] = __('Time between of 2 requests has to greater than 10 minutes','boxtheme');
-				wp_send_json( $response );
-			}
+			// if( $count_time < 60*5 ){ // 10 minutes check
+			// 	$response['msg'] = __('Time between of 2 requests has to greater than 10 minutes','boxtheme');
+			// 	wp_send_json( $response );
+			// }
 
 
 			//$activation_key =  bx_get_verify_key( $current_user->user_login );
