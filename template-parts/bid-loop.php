@@ -41,15 +41,16 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> - </h5>
 			<h5 class="bid-title inline f-left"><?php echo $bid->professional_title;?></h5>
 		</div>
+
+		<div class="full clear">
+			<span><?php _e('Deadline: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </span>
+			<?php if ( $project->post_author == $user_ID || current_user_can( 'manage_options' ) ) { ?>
+				<span><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></span>
+			<?php } ?>
+			<span><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></span>
+		</div>
 		<div class="full clear bid-content">
 			<?php the_content(); ?>
-		</div>
-		<div class="full clear">
-			<small><?php _e('Deadline: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </small>
-			<?php if ($project->post_author == $user_ID || current_user_can( 'manage_options' )) { ?>
-				<small><?php printf(__(' - Price: %s','boxtheme'), get_box_price($bid->_bid_price )) ?></small>
-			<?php } ?>
-			<small><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></small>
 		</div>
 		<?php if( $user_ID == $project->post_author && $project->post_status == 'publish' ){ ?>
 			<div class="full clear align-right">
