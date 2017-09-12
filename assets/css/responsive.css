@@ -54,6 +54,9 @@
 		float: right;
 
 	}
+	.hidden-md-up{
+		display: none;
+	}
 
 }
 
