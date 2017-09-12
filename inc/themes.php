@@ -135,11 +135,7 @@ function countr_of_user($profile){
 
 function count_rating($user_id,$type ='emp_review'){
 	global $wpdb;
-	//comment_type
-	//comment_ID
-	//comment_id
-	//rating_score
-	//SELECT cm.comment_ID, mt.meta_value FROM wp_2_comments cm INNER JOIN wp_2_commentmeta mt ON cm.comment_ID = mt.comment_id AND cm.user_id = '25' AND cm.comment_type = 'emp_review' AND mt.meta_key = 'rating_score' AND mt.meta_value > 0
+
 	return $wpdb->get_var(
 				$wpdb->prepare(
 					"
@@ -173,7 +169,7 @@ function box_get_notify($user_ID = 0) {
 	$notifies = wp_cache_get( $key, 'notify' );
 
 	if( ! $notifies ){
-		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $user_ID,'notify' ) );
+		//$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $user_ID,'notify' ) );
 
 		if( ! $notifies ) {
 			return false;
@@ -183,7 +179,6 @@ function box_get_notify($user_ID = 0) {
 	$unread = 0;
 	echo '<ul class="ul-notification">';
 		foreach ($notifies as $noti) {
-
 			if($noti->msg_unread == 1)
 				$unread ++;
 			echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
@@ -218,7 +213,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
 
 		<li class="icon-bell first-sub">
-			<span class="glyphicon glyphicon-bell toggle-msg"></span>
+			<i class="fa fa-bell" aria-hidden="true"></i>
 			<?php box_get_notify(); ?>
 		</li>
 	</ul>

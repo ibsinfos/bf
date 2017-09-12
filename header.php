@@ -72,7 +72,7 @@ $role = bx_get_user_role();
 						</li>
 						<li class=" mobile-only">
 							<button type="button" class="btn btn-login " data-toggle="modal" data-target="#loginModal">
-		  						<span class="glyphicon glyphicon-user login-icon"></span>
+		  						<i class="fa fa-user-circle-o login-icon" aria-hidden="true"></i>
 							</button>
 						</li>
 					</ul>
