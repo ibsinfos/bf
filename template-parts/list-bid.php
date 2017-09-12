@@ -16,7 +16,7 @@
 	?>
 	<div class="list-bid-heading">
 		<div class="col-md-5 no-padding">
-			<h3><?php printf(__('TOTAL BID(S): %s','boxtheme'), $query->found_posts); ?></h3>
+			<h3><?php printf(__('Total Bid(s): %s','boxtheme'), $query->found_posts); ?></h3>
 		</div>
 		<div class="col-md-6 f-right no-padding hide">
 			<?php if( $query->found_posts > 1) { ?>
