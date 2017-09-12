@@ -6,7 +6,7 @@
     content: "\f00c";
     position: absolute;
     bottom: 10px;
-    right: 28px;
+    right: 6px;
     color: #5cb85c;
 }
 .full.field-control-success::after{
