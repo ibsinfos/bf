@@ -50,7 +50,7 @@
                     } else {
                     	echo '<h5 class="footer-list-header">Contact Us</h5><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>
 								<p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p>';
-						if(current_user_can( 'manage_options' ) ){ ?>
+						if( current_user_can( 'manage_options' ) ) { ?>
 						<a class="box-customizer-link" href="<?php echo $customier_link;?>"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13.89 3.39l2.71 2.72c.46.46.42 1.24.03 1.64l-8.01 8.02-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.03c.39-.39 1.22-.39 1.68.07zm-2.73 2.79l-5.59 5.61 1.11 1.11 5.54-5.65zm-2.97 8.23l5.58-5.6-1.07-1.08-5.59 5.6z"></path></svg></a>
 						<?php }
     				} ?>
