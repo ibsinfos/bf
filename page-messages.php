@@ -58,34 +58,35 @@
 
 
 				<?php
-				if($conversations){ ?>
+				if( $conversations ){ ?>
 					<h3> <?php _e('Detail of conversation','boxtheme'); ?> </h3> <?php
-				}
-				$first_cvs = 0;
 
-				if( isset($conversations[0]) )
-					$first_cvs = $conversations[0]->cvs_id;
-				echo '<input type="hidden" value="'.$first_cvs.'" id="first_cvs" />';
-				?>
-				<div id="container_msg">
-					<?php
-					if($first_cvs){
-						$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
+					$first_cvs = 0;
 
-						foreach ($msgs as $key => $msg) {
-
-							$user_label = 'You:';
-							$user_label = ($user_ID == $msg->sender_id) ? 'You: ':'Partner: ';
-							echo '<div class="msg-record msg-item"><div class="col-md-2">'.$user_label.'</div> <div class="col-md-10">'.$msg->msg_content.'</div></div>';
-						}
-					}
+					if( isset($conversations[0]) )
+						$first_cvs = $conversations[0]->cvs_id;
+					echo '<input type="hidden" value="'.$first_cvs.'" id="first_cvs" />';
 					?>
-				</div>
-				<div id="form_reply">
-					<?php if($first_cvs){?>
-						<form class="frm-send-message" ><textarea name="msg_content" class="full msg_content" rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>
-					<?php } ?>
-				</div>
+					<div id="container_msg">
+						<?php
+						if($first_cvs){
+							$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
+
+							foreach ($msgs as $key => $msg) {
+
+								$user_label = 'You:';
+								$user_label = ($user_ID == $msg->sender_id) ? 'You: ':'Partner: ';
+								echo '<div class="msg-record msg-item"><div class="col-md-2">'.$user_label.'</div> <div class="col-md-10">'.$msg->msg_content.'</div></div>';
+							}
+						}
+						?>
+					</div>
+					<div id="form_reply">
+						<?php if($first_cvs){?>
+							<form class="frm-send-message" ><textarea name="msg_content" class="full msg_content" rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>
+						<?php } ?>
+					</div>
+				<?php  } ?>
 			</div>
 		</div>
 	</div>
