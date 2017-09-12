@@ -189,7 +189,7 @@ function box_get_notify($user_id = 0) {
 				if($noti->msg_unread == 1) { $unread ++; $class="noti-unread"; }
 				?>
 				<li class="dropdown-item <?php echo $class;?>">
-					<div class='left-noti'><a href=''><?php echo get_avatar( $noti->sender_id ); ?></a></div>
+					<div class='left-noti'><a href='#'><?php echo get_avatar( $noti->sender_id ); ?></a></div>
 					<div class='right-noti'>
 						<a href="<?php echo $noti->msg_link;?>"><?php echo $noti->msg_content;?></a>
 						<?php
