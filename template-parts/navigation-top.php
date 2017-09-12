@@ -16,6 +16,6 @@
 		'container' => 'div',
 		'container_class' =>'menu-header'
 	) ); ?>
-	<i class="fa fa-bars  menu-hamburger" aria-hidden="true"></i>
+	<i class="fa fa-bars  menu-hamburger hidden-md-up" aria-hidden="true"></i>
 
 </nav><!-- #site-navigation -->

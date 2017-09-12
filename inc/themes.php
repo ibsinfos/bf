@@ -205,9 +205,9 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span></a>
 			<ul class="dropdown-menu  ">
 				<?php if( in_array($role, array(EMPLOYER,'administrator')) ){ ?>
-					<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
+					<li> <i class="fa fa-th-list" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
 				<?php } else  if($role == FREELANCER){ ?>
-					<li> <span class="glyphicon glyphicon-th"></span> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
+					<li> <i class="fa fa-th-list" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
 				<?php } ?>
 				<li><i class="fa fa-credit-card" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('my-credit');?>"><?php _e('My Credit','boxtheme');?></a></li>
 				<li> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('my-profile');?>"><?php _e('My profile','boxtheme');?></a></li>
