@@ -32,7 +32,7 @@ class BX_Admin{
         $hook_order = 'box-settings_page_credit-setting';
 
         if( in_array( $hook, array($default, $hook_wdt,$hook_order ) ) ){
-	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.min.css' ) );
+	        wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.css' ) );
 	        wp_enqueue_style( 'box_wp_admin_css', get_theme_file_uri('admin/css/box_style.css') );
 	        wp_enqueue_style( 'bootraps-toggle', get_theme_file_uri('admin/css/bootstrap-toggle.min.css') );
 	        wp_enqueue_script('toggle-button',get_theme_file_uri('admin/js/bootstrap-toggle.min.js') );
