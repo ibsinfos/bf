@@ -158,7 +158,7 @@ class BX_Bid extends BX_Post{
 				'msg_link' => get_permalink($project_id),
 				'receiver_id' => $project->post_author,
 				);
-			var_dump($args);
+
 			$notify = Box_Notify::get_instance()->insert($args);
 		}
 		return $bid_id;

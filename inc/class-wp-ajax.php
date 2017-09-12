@@ -52,6 +52,7 @@ class BX_AJAX {
 			'update_withdraw_info' => false,
 			'send_new_confirm_email' => false,
 			'generate_price' => false,
+			'sync_notify' => true,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -897,6 +898,17 @@ class BX_AJAX {
 		$info = box_get_pay_info($amout);
 		wp_send_json(array('sucess'=> true,'data'=>$info) );
 
+	}
+	static function sync_notify(){
+		$request = $_REQUEST['request'];
+		$id = $request['id'];
+		$result = Box_Notify::get_instance()->delete($id);
+
+		$response = array('success' => true, 'msg' => 'Update done' );
+		if ( is_wp_error( $result ) ){
+			$response = array('success' => false, 'msg' => $result->get_error_message());
+		}
+		wp_send_json( $response );
 	}
 
 }

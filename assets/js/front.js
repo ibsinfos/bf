@@ -2,10 +2,11 @@
 
 	var front = {
 		init: function() {
-			$('#signup' ).on( 'submit', this.submitSignup);
-			$('form.sign-in').on('submit',this.signIn);
-			$('.toggle-menu' ).on( 'click', this.toggleMenu);
-			$( "#search_type").on( 'change',this.setSearchUrl);
+			$('#signup' ).on( 'submit', this.submitSignup );
+			$('form.sign-in').on( 'submit',this.signIn );
+			$('.toggle-menu' ).on( 'click', this.toggleMenu );
+			$( "#search_type").on( 'change',this.setSearchUrl );
+			$(".btn-del-noti").on('click',this.delNotify );
 			//$( ".pagination").on('click',this.pagingProject);
 			var view = this;
 			$(".menu-hamburger").click(function(){
@@ -92,6 +93,15 @@
 		$("form.frm-search").attr('action',_this.val() );
 		$("input#keyword").attr('placeholder', status );
 	},
+	delNotify : function(event){
+		var _this = $(event.currentTarget);
+		var data = {id:_this.attr('rel'),action : 'sync_notify'};
+		var success = function(res){
+			_this.closest("li").remove();
+		}
+		window.ajaxSend.Custom( data, success);
+		return false;
+	}
 
 
 }

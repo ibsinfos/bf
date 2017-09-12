@@ -77,4 +77,16 @@ class Box_Notify extends Box_Custom_Type{
 		$msg =  $wpdb->get_results($sql);
 		return $msg;
 	}
+	function delete($id){
+		global $wpdb, $user_ID;
+		return $wpdb->query(
+			$wpdb->prepare( "
+		        DELETE FROM {$wpdb->prefix}box_messages
+				WHERE ID = %d
+				AND receiver_id = %d
+				", $id, $user_ID
+		    )
+		);
+
+	}
 }

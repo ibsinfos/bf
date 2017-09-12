@@ -382,12 +382,24 @@ ul.ul-notification li{
 	clear: both;
 	float: left;
 	width: 100%;
-	border-bottom: 1px solid #f0f0f0;
+	border-bottom: 1px solid #f3f3f3;
 	padding: 15px;
 
 }
+ul.ul-notification li .btn-del-noti{
+	visibility: hidden;
+	font-size: 21px;
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	cursor: pointer;
+}
+ul.ul-notification li:hover .btn-del-noti{
+	visibility: visible;
+}
+
 ul.ul-notification li:hover{
-	background: #ccc;
+	background: #fbfbfb;
 }
 ul.ul-notification li a{
 	display: block;
