@@ -127,6 +127,7 @@
 	.cv-right{
 		width: 75%;
 		float: left;
+		overflow: hidden;
 	}
 	.mdate{
 		position: absolute; top:0;
@@ -135,6 +136,15 @@
 	.msg-record{
 		width: 100%;
 		clear: both;
+	}
+	.cv-right small{
+		display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+	textarea{
+		border-color: #ececec;
 	}
 </style>
 <?php get_footer();?>
