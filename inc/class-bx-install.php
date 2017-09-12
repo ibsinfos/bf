@@ -60,7 +60,7 @@ class BX_Install{
 			  	receiver_id  bigint(20) NOT NULL,
 			  	cvs_content longtext NOT NULL,
 			 	cvs_status char(15) NOT NULL,
-			 	msg_unread char(15) NOT NULL,
+			 	msg_unread bigint(20) NULL,
 			 	date_created datetime NULL default null,
 			 	date_modify datetime NULL default null,
 			  	PRIMARY KEY  (ID),

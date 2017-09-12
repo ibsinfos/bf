@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 class BX_Conversations{
 	static protected $instance;
 	private $table;
@@ -96,11 +97,7 @@ class BX_Message{
 		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
 
 		$cvs_project_id = isset($args['cvs_project_id']) ? $args['cvs_project_id'] : 0;
-
 		$cvs_id = isset($args['cvs_id']) ? $args['cvs_id'] : 0;
-
-
-
 		if( empty($args['sender_id']) ){
 			$sender_id = 0;
 		}
@@ -167,4 +164,5 @@ class BX_Message{
 function is_sent_msg($project_id, $receiver_id){
 	return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
 }
+
 ?>

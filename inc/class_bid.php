@@ -9,6 +9,7 @@ class BX_Bid extends BX_Post{
 	protected $budget;
 	function __construct(){
 		$this->post_type = BID;
+
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -21,6 +22,33 @@ class BX_Bid extends BX_Post{
 		return array('_bid_price', '_dealine');
 	}
 
+	function delete($args){
+		global $user_ID;
+
+
+		$id = $args['ID'];
+		$bid = get_post($id);
+		$project = get_post($bid->post_parent);
+
+		if($user_ID != $bid->post_author){
+			return new WP_Error('not_author',__('You can not delete a portfolio of another account','boxtheme'));
+			wp_die('not_athor');
+		}
+		$current_user = wp_get_current_user();
+		$args = array(
+			'msg_content' => sprintf( __('%s just canceled bid  on the project %s','boxtheme'), $current_user->user_login, $project->post_title ),
+			'msg_link' => get_permalink($project->ID),
+			'receiver_id' => $project->post_author,
+			);
+
+
+
+		wp_delete_post($id, true );
+
+		$notify = Box_Notify::get_instance()->insert($args);
+
+		return true;
+	}
 	function convert($bid){
 
 		$result 			= parent::convert($bid);
@@ -126,20 +154,17 @@ class BX_Bid extends BX_Post{
 		if( ! is_wp_error( $bid_id) ){
 
 			$current_user = wp_get_current_user();
+
 			$project_id = $args['post_parent'];
 			$project = get_post($project_id);
 
 			$args = array(
-				'sender_id' => 0,
-				'msg_content' => sprintf(__('%s just bid on project: %d','boxtheme'),$current_user->display_name, $project->post_title),
+				'msg_content' => sprintf( __('%s just bid on project %s','boxtheme'), $current_user->display_name, $project->post_title ),
 				'msg_link' => get_permalink($project_id),
 				'receiver_id' => $project->post_author,
-				'msg_unread' => 0,
-				'msg_status' => 1,
-				'msg_type' => 'notify',
 				);
 
-			$notify 	= BX_Message::get_instance()->insert($args);
+			$notify = Box_Notify::get_instance()->insert($args);
 		}
 		return $bid_id;
 
@@ -190,7 +215,6 @@ class BX_Bid extends BX_Post{
 		return false;
 
 	}
-
 
 }
 new BX_Bid();

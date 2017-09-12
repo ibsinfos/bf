@@ -17,7 +17,9 @@ require get_parent_theme_file_path( '/inc/class_post.php' );
 require get_parent_theme_file_path( '/inc/payment/requires.php' );
 require get_parent_theme_file_path( '/inc/class_credit.php' );
 
+require get_parent_theme_file_path( '/inc/class_custom_type.php' );
 require get_parent_theme_file_path( '/inc/class_message.php' );
+require get_parent_theme_file_path( '/inc/class_notify.php' );
 require get_parent_theme_file_path( '/inc/class_project.php' );
 require get_parent_theme_file_path( '/inc/class_profile.php' );
 require get_parent_theme_file_path( '/inc/class_portfolio.php' );

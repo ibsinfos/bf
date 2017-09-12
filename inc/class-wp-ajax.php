@@ -233,8 +233,11 @@ class BX_AJAX {
 			$response = array('success' => false,'msg' => $bid_id->get_error_message() );
 
 		}
+
 		if( isset( $data['ID']) )
 			$response['msg'] = __('Update  successful','boxtheme');
+
+
 		wp_send_json($response );
 	}
 	public static function bx_signup(){
@@ -329,7 +332,6 @@ class BX_AJAX {
 
 			$response = array('success'=> true,'msg' => 'Createa converstaion done','boxtheme', 'result'=>  $msg);
 			wp_send_json( $response );
-			die('insert cvs end');
 		}
 		$message 	= BX_Message::get_instance();
 		$msg_id = $message->sync($request, $method);

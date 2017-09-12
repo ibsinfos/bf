@@ -162,6 +162,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 				wp_die('not_athor');
 			}
 			wp_delete_post($id, true );
+			do_action('box_after_delete_'.$this->post_type);
 			return true;
 		}
 
