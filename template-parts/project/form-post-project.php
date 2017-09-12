@@ -111,7 +111,7 @@ $skills = array();
 		    <span class="btn btn-plain btn-file-uploader border-color">
 		      	<span class="fl-icon-plus"></span>
 		      	<input type="hidden" class="nonce_upload_field" name="nonce_upload_field" value="<?php echo wp_create_nonce( 'box_upload_file' ); ?>" />
-		      	<span id="file-upload-button-text " class="text-color"><span class="glyphicon glyphicon-plus text-color"></span> <?php _e('Upload Files','boxtheme');?></span>
+		      	<span id="file-upload-button-text " class="text-color"><i class="fa fa-plus text-color" aria-hidden="true"></i> <?php _e('Upload Files','boxtheme');?></span>
 		      	<input type="file" name="upload[]" id="sp-upload" multiple="" class="fileupload-input">
 		      	<input type="hidden" name="fileset" class="upload-fileset">
 		  	</span>
