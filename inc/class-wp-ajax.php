@@ -904,7 +904,7 @@ class BX_AJAX {
 		$id = $request['id'];
 		$result = Box_Notify::get_instance()->delete($id);
 
-		$response = array('success' => true, 'msg' => 'Update done' );
+		$response = array('success' => true, 'msg' => 'Remove notify done' );
 		if ( is_wp_error( $result ) ){
 			$response = array('success' => false, 'msg' => $result->get_error_message());
 		}
