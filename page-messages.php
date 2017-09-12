@@ -21,7 +21,7 @@
 				$conversations = $wpdb->get_results($sql); // list conversations
 				if($conversations) {
 					echo '<ul class="none-style" id="list_converstaion">';
-					echo '<h2>'.__('List Conversation','boxtheme').'</h2>';
+					echo '<h3>'.__('List Conversation','boxtheme').'</h3>';
 
 					foreach ($conversations as $cv) {
 						$user = array();
@@ -56,7 +56,7 @@
 			</div>
 			<div id="box_chat" class="col-md-8">
 
-				<h2> Details </h2>
+				<h3> Details </h3>
 				<?php
 				$first_cvs = 0;
 
