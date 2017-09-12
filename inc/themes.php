@@ -197,7 +197,7 @@ function box_get_notify($user_id = 0) {
 						echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
 						?>
 					</div>
-					<span class="btn-del-noti" rel="<?php echo $noti->ID;?>" href="#"><i class="fa fa-times primary-color" aria-hidden="true"></i></span>
+					<span class="btn-del-noti" title="remove this notify" rel="<?php echo $noti->ID;?>" href="#"><i class="fa fa-times primary-color" aria-hidden="true"></i></span>
 				</li> <?php
 
 			}

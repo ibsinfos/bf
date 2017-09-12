@@ -386,6 +386,7 @@ ul.ul-notification li{
 	padding: 15px;
 
 }
+.right-noti a:first-letter {text-transform: uppercase}
 ul.ul-notification li .btn-del-noti{
 	visibility: hidden;
 	font-size: 21px;
