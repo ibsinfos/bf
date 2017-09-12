@@ -1280,4 +1280,13 @@ h5.port-title {
     position: relative;
     top: 3px;
 }
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close{
+	background: none !important;
+}
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close::before{
+	content: "\f00d";
+	font-family: "FontAwesome";
+	color:#fff;
+	font-size: 13px;
+
 }
