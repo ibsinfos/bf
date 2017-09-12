@@ -83,7 +83,9 @@
 					</div>
 					<div id="form_reply">
 						<?php if($first_cvs){?>
-							<form class="frm-send-message" ><textarea name="msg_content" class="full msg_content required" required rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>
+							<form class="frm-send-message" ><textarea name="msg_content" class="full msg_content required" required rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button>
+							<input type="reset" name="reset" class="hidden">
+							</form>
 						<?php } ?>
 					</div>
 				<?php  } ?>

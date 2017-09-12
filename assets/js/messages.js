@@ -62,10 +62,12 @@
 	        		$(".msg_content").html('');
 	        		var textarea = document.getElementById('container_msg');
 					textarea.scrollTop = textarea.scrollHeight;
-	        		$("form.send-message").trigger("reset");
+					console.log('reset');
+	        		$("form.frm-send-message").trigger("reset");
 		        } else {
 		        	alert(res.msg);
 		        }
+
 			}
 			msg_submit.method = 'insert';
 			window.ajaxSend.Custom(msg_submit, success);
