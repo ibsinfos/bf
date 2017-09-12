@@ -331,12 +331,17 @@ body.home li.icon-bell span.toggle-msg{
 body.home.fixed li.icon-bell span.toggle-msg{
 	color: #666;
 }
-body.home .account-dropdown li.profile-account a.account-name .username{
-	color: #fff;
+.account-dropdown .username{
 	width: 91px;
+	text-align: center;
 }
-body.home.fixed .account-dropdown li.profile-account a.account-name .username{
+body.page-template-landing-page-one.fixed  .username, .account-dropdown .username{
 	color: #666;
+}
+
+
+body.page-template-landing-page-one  .username{
+	color: #fff;
 }
 body.home .caret{
 	color: #fff;
