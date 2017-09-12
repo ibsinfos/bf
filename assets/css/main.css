@@ -651,6 +651,9 @@ button.btn-info.active, button.btn-info:active, .open>.dropdown-toggle.btn-info,
 	position: absolute;
 	cursor: pointer;
 }
+.sidebar-search ul.list-checkbox li{
+	padding-bottom: 10px;
+}
 .sidebar-search ul.list-checkbox li label{
 	cursor: pointer;
 	font-weight: normal;
