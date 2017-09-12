@@ -200,7 +200,7 @@ function count_bids($project_id){
 
 function box_account_dropdow_menu(){ global $role; global $user_ID; $current_user = wp_get_current_user(); ?>
 	<ul class="account-dropdown">
-		<li class="inline profile-account dropdown text-center first-sub col-md-9">
+		<li class="profile-account dropdown ">
 
 			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span></a>
 			<ul class="dropdown-menu  ">
@@ -217,13 +217,9 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 				<li> <i class="fa fa-sign-out" aria-hidden="true"></i>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
 			</ul>
 		</li>
-		<li class="icon-bell first-sub col-md-3">
+		<li class="icon-bell first-sub no-padding-left pull-left"">
 			<div class="dropdown">
-
-			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="fa fa-bell toggle-msg" aria-hidden="true"></i>
-				</span>
-
+			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell toggle-msg" aria-hidden="true"></i></span>
 				<?php box_get_notify(); ?>
 			</div>
 		</li>

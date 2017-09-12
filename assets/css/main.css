@@ -271,7 +271,7 @@ div.col-nav{
 	float: left;
 }
 div.header-action{
-	width: 20%;
+	width: 180px;
 }
 ul.account-dropdown li{
 	padding-top: 5px;
@@ -333,7 +333,7 @@ body.home.fixed li.icon-bell span.toggle-msg{
 }
 body.home .account-dropdown li.profile-account a.account-name .username{
 	color: #fff;
-	min-width: 59px;
+	width: 91px;
 }
 body.home.fixed .account-dropdown li.profile-account a.account-name .username{
 	color: #666;
@@ -403,28 +403,25 @@ ul.ul-notification li a{
 	height: 15px;
 
 }
-.forgot-pass{
-	display: none;
-}
-ul.account-dropdown li.first-sub{
-	padding-left: 8px;
-}
+
 .account-dropdown  .fa-bell{
 	font-size: 16px;
 	position: relative;
 	top:10px;
 	cursor:pointer;
+	color: #fff;
+}
+body.fixed .account-dropdown  .fa-bell{
+	color: #666;
 }
 .head-avatar{
 	float: left;
 	width: 50px;
 }
 .account-dropdown img.avatar {
-
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid #ccc;
 
 }
 .account-dropdown li.profile-account ul li{
