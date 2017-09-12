@@ -28,7 +28,7 @@ class BX_Bid extends BX_Post{
 
 		$id = $args['ID'];
 		$bid = get_post($id);
-		$project = get_post($bid->post_parent);
+		$project = get_post( $bid->post_parent );
 
 		if($user_ID != $bid->post_author){
 			return new WP_Error('not_author',__('You can not delete a portfolio of another account','boxtheme'));
@@ -158,7 +158,7 @@ class BX_Bid extends BX_Post{
 				'msg_link' => get_permalink($project_id),
 				'receiver_id' => $project->post_author,
 				);
-
+			var_dump($args);
 			$notify = Box_Notify::get_instance()->insert($args);
 		}
 		return $bid_id;

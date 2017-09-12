@@ -20,17 +20,17 @@ class Box_Notify extends Box_Custom_Type{
 
 	function insert( array $args ) {
 
-		global $wpdb;
-		global $user_ID;
+		global $wpdb, $user_ID;
+
 		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']: 0;
-		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
-		$msg_link = isset($args['sender_id']) ? $args['sender_id']: $user_ID;
+		$msg_link = isset( $args['msg_link'] ) ? $args['msg_link']: '';
+		$sender_id = isset($args['sender_id']) ? $args['sender_id']: $user_ID;
 
 		$wpdb->insert( $wpdb->prefix . 'box_messages', array(
 				'msg_content' => $args['msg_content'],
 				'msg_date'	=> current_time('mysql'),
 				'msg_unread' => 1,
-				'sender_id' => $user_ID,
+				'sender_id' => $sender_id,
 				'msg_status' => 'new',
 				'msg_link' => $msg_link,
 				'msg_type' => $this->type,
