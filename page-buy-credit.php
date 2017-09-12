@@ -14,7 +14,7 @@
 				<form class="frm-buy-credit" disabled>
 					<div class="step step-1">
 						<div class="form-group">
-						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> Select your package</h3>
+						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> Select a package</h3>
 					    	<?php
 					    	 $args = array(
 	                            'post_type' => '_package',
@@ -65,7 +65,7 @@
 					</div>
 					<div class="step step-2">
 						<div class="form-group">
-						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">2</span> Select your payment gateway</h3>
+						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">2</span> Select a payment gateway</h3>
 						    <?php
 						    	global $has_payment;
 						    	$has_payment= 0;
