@@ -39,11 +39,6 @@
 				$(".search-adv").slideToggle(300);
 			});
 
-
-			$(".toggle-msg").click(function(){
-				$(".ul-notification").slideToggle(300);
-			});
-
 			$(window).scroll(function() {
 		    var height = $(window).scrollTop();
 		    if(height  > 0) {

@@ -182,12 +182,12 @@ function box_get_notify($user_id = 0) {
 
 
 	$unread = 0;
-	echo '<ul class="ul-notification">';
+	echo '<ul class=" dropdown-menu ul-notification">';
 		if( !empty( $notifies) ){
 			foreach ($notifies as $noti) {
 				if($noti->msg_unread == 1)
 					$unread ++;
-				echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
+				echo '<li class="dropdown-item"><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
 			}
 		}
 	echo '</ul>';
@@ -220,8 +220,14 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
 
 		<li class="icon-bell first-sub">
-			<i class="fa fa-bell toggle-msg" aria-hidden="true"></i>
-			<?php box_get_notify(); ?>
+			<div class="dropdown">
+
+			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fa fa-bell toggle-msg" aria-hidden="true"></i>
+				</span>
+
+				<?php box_get_notify(); ?>
+			</div>
 		</li>
 	</ul>
 <?php }
