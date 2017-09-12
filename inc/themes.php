@@ -160,22 +160,24 @@ function count_rating($user_id,$type ='emp_review'){
  * @param   integer $user_ID ID of user ID
  * @return  integer number message unread
  */
-function box_get_notify($user_ID = 0) {
+function box_get_notify($user_id = 0) {
 	global $user_ID, $wpdb;
-	if( !$user_ID ){
-		global $user_ID;
+	$u_id = $user_ID;
+	if( $user_id ){
+		$u_id = $user_id;
 	}
-	$key = 'notify_of_'.$user_ID;
-	$notifies = wp_cache_get( $key, 'notify' );
+	$cache_key = 'notify_of_'.$u_id;
+	$notifies = wp_cache_get( $cache_key, 'notify' );
 
 	if( ! $notifies ){
-		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $user_ID, 'notify' ) );
+
+		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $u_id, 'notify' ) );
 
 		if( ! $notifies || empty($notifies) ) {
-			wp_cache_set( $key, 'empty', 'notify' );
+			wp_cache_set( $cache_key, 'empty', 'notify' );
 			return false;
 		}
-		wp_cache_set( $key, $notifies, 'notify' );
+		wp_cache_set( $cache_key, $notifies, 'notify' );
 	}
 	$unread = 0;
 	echo '<ul class="ul-notification">';
