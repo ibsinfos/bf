@@ -409,7 +409,13 @@ ul.ul-notification li a{
 	position: relative;
 	top:10px;
 	cursor:pointer;
+	color: #666;
+}
+body.page-template-landing-page-one .fa-bell{
 	color: #fff;
+}
+body.page-template-landing-page-one.fixed .fa-bell{
+	color: #666;
 }
 body.fixed .account-dropdown  .fa-bell{
 	color: #666;
