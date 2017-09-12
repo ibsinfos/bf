@@ -1250,4 +1250,34 @@ h5.port-title {
 .port-item:hover .port-title{
 	display: block;
 }
-/*******END AUTHOR *//////////
+/*******END AUTHOR */
+.box-customizer-link{
+	width: 30px;
+	height: 30px;
+	overflow: hidden;
+	background: #0085ba !important;
+	color: #fff;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    line-height: 1em !important;
+    font-size: 18px;
+    box-shadow: 0 2px 1px rgba(46,68,83,0.15);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.box-customizer-link img,
+.box-customizer-link svg {
+    fill: #fff;
+    min-width: 20px;
+    min-height: 20px;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    position: relative;
+    top: 3px;
+}
+}
