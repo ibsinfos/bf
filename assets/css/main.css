@@ -387,7 +387,7 @@ ul.ul-notification li{
 
 }
 ul.ul-notification li:hover{
-	background: #f7f7f7;
+	background: #ccc;
 }
 ul.ul-notification li a{
 	display: block;
@@ -650,9 +650,6 @@ button.btn-info.active, button.btn-info:active, .open>.dropdown-toggle.btn-info,
 	z-index: 1;
 	position: absolute;
 	cursor: pointer;
-}
-.sidebar-search ul.list-checkbox li{
-	padding-bottom: 10px;
 }
 .sidebar-search ul.list-checkbox li label{
 	cursor: pointer;
