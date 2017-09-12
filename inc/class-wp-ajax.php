@@ -317,11 +317,12 @@ class BX_AJAX {
 		$method 	= isset($submit['method']) ? $submit['method'] : '';
 		$request 	= $submit['request'];
 		$response 	= array('success' => true, 'msg'=> $request['msg_content'] );
+		$receiver_id = isset($request['receiver_id']) ? $request['receiver_id']:0;
 		$cvs_id 	= isset($request['cvs_id']) ? $request['cvs_id'] : 0;
 		if( !$cvs_id && $method == 'insert'){
 			$cvs 	= BX_Conversations::get_instance();
 			$project_id = isset($request['project_id']) ? $request['project_id']:0;
-			$receiver_id = isset($request['receiver_id']) ? $request['receiver_id']:0;
+
 
 			$cvs_args = array(
 				'cvs_content' => $request['msg_content'],

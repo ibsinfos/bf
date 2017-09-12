@@ -160,63 +160,45 @@ function count_rating($user_id,$type ='emp_review'){
  * @param   integer $user_ID ID of user ID
  * @return  integer number message unread
  */
-function box_get_notify($user_id = 0) {
-	global $user_ID, $wpdb;
-	$u_id = $user_ID;
-	if( $user_id ){
-		$u_id = $user_id;
-	}
-	$cache_key = 'notify_of_'.$u_id;
-	$notifies = wp_cache_get( $cache_key, 'notify' );
 
-	if( ! $notifies ){
-
-		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $u_id, 'notify' ) );
-
-		if( ! $notifies || empty($notifies) ) {
-			wp_cache_set( $cache_key, array('empty'=>'123'), 'notify' , 3000);
-			return false;
-		}
-		wp_cache_set( $cache_key, $notifies, 'notify' , 3000 );
-	}
-
-
-	$unread = 0;
-	echo '<ul class=" dropdown-menu ul-notification">';
-		if( !empty( $notifies) ){
-			foreach ($notifies as $noti) {
-				$class ="noti-read";
-				if($noti->msg_unread == 1) { $unread ++; $class="noti-unread"; }
-				?>
-				<li class="dropdown-item <?php echo $class;?>">
-					<div class="left-noti"><a href="#"><?php echo get_avatar( $noti->sender_id ); ?></a></div>
-					<div class='right-noti'>
-						<a href="<?php echo esc_url($noti->msg_link);?>"><?php echo stripslashes($noti->msg_content);?></a>
-						<?php
-						$date = date_create( $noti->msg_date );
-						echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
-						?>
-					</div>
-					<span class="btn-del-noti" title="<?php _e('Remove','boxtheme');?>" rel="<?php echo $noti->ID;?>" href="#"><i class="fa fa-times primary-color" aria-hidden="true"></i></span>
-				</li> <?php
-
-			}
-		}
-	echo '</ul>';
-	if( $unread )
-		echo '<span class="notify-acti">'.$unread.'</span>';
-}
 function count_bids($project_id){
 	global $wpdb;
 	return $wpdb->get_var( " SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'bid' AND post_parent= {$project_id}" );
 }
 
-function box_account_dropdow_menu(){ global $role; global $user_ID; $current_user = wp_get_current_user(); ?>
+function box_account_dropdow_menu(){ global $role; global $user_ID; $current_user = wp_get_current_user();
+
+	global $user_ID, $wpdb;
+
+	$cache_key = 'notify_of_'.$user_ID;
+	$notifies = wp_cache_get( $cache_key, 'notify' );
+	$messages = array();
+
+	$list_unread  = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d ", $user_ID) );
+
+	if( $list_unread ){
+		foreach ($list_unread as $custom) {
+
+			if( $custom->msg_type == 'message' )
+				$messages[] = $custom;
+
+			if( $custom->msg_type  == 'notify' )
+				$notifies[] = $custom;
+		}
+	}
+	$number_new_msg = count($messages);
+	$msg_class= 'empty-msg';
+	if( $number_new_msg > 0 )
+		$msg_class = "has-msg-unread"
+
+?>
 	<ul class="account-dropdown">
 		<li class="profile-account dropdown ">
 
-			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span></a>
-			<ul class="dropdown-menu  ">
+			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span>
+			<span class="<?php echo $msg_class;?>"><?php echo $number_new_msg;?></span>
+			</a>
+			<ul class="dropdown-menu" >
 				<?php if($role == FREELANCER){ ?>
 					<li> <i class="fa fa-th-list" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
 				<?php } else { ?>
@@ -225,15 +207,39 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 				<li><i class="fa fa-credit-card" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('my-credit');?>"><?php _e('My Credit','boxtheme');?></a></li>
 				<li> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('my-profile');?>"><?php _e('My profile','boxtheme');?></a></li>
 
-				<li> <i class="fa fa-envelope" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a></li>
+				<li> <i class="fa fa-envelope" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a> <span class="<?php echo $msg_class;?>"><?php echo $number_new_msg ?></span></li>
 
 				<li> <i class="fa fa-sign-out" aria-hidden="true"></i>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
 			</ul>
 		</li>
 		<li class="icon-bell first-sub no-padding-left pull-left"">
 			<div class="dropdown">
-			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell toggle-msg" aria-hidden="true"></i></span>
-				<?php box_get_notify(); ?>
+			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell toggle-msg" aria-hidden="true"></i></span> <?php
+			  	echo '<ul class=" dropdown-menu ul-notification">';
+			  	$unread = 0;
+				if( !empty( $notifies) ){
+					foreach ($notifies as $noti) {
+						$class ="noti-read";
+						if($noti->msg_unread == 1) { $unread ++; $class="noti-unread"; }
+						?>
+						<li class="dropdown-item <?php echo $class;?>">
+							<div class="left-noti"><a href="#"><?php echo get_avatar( $noti->sender_id ); ?></a></div>
+
+							<div class='right-noti'>
+								<a href="<?php echo esc_url($noti->msg_link);?>"><?php echo stripslashes($noti->msg_content);?></a>
+								<?php
+								$date = date_create( $noti->msg_date );
+								echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
+								?>
+							</div>
+							<span class="btn-del-noti" title="<?php _e('Remove','boxtheme');?>" rel="<?php echo $noti->ID;?>" href="#"><i class="fa fa-times primary-color" aria-hidden="true"></i></span>
+						</li> <?php
+
+					}
+				}
+				echo '</ul>';
+				if( $unread )
+					echo '<span class="notify-acti">'.$unread.'</span>'; ?>
 			</div>
 		</li>
 	</ul>

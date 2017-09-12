@@ -356,6 +356,10 @@ ul.account-dropdown li.icon-bell  ul{
 	min-width: 475px;
 	z-index: 10;
 }
+.empty-msg{
+	display: none;
+}
+
 .left-noti{
 	width: 50px;
 	float: left;
@@ -443,6 +447,23 @@ body.fixed .account-dropdown  .fa-bell{
 .head-avatar{
 	float: left;
 	width: 50px;
+	position: relative;
+}
+.account-name .has-msg-unread {
+    position: absolute;
+    left: 38px;
+    top: 4px;
+    background: #54bf03;
+    min-width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    vertical-align: text-top;
+    line-height: 13px;
+    text-align: center;
+    text-transform: inherit;
+    font-style: initial;
 }
 .account-dropdown img.avatar {
     width: 45px;
