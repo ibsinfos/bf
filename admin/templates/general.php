@@ -107,7 +107,7 @@ if( isset($facebook->enable) ){
 				    	<label for="app_id">APP ID</label>
 				    	<input type="text" value="<?php echo $app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
 				    </div>
-			    	<span class="text-muted">Go to this <a href="https://developers.facebook.com/apps/">link</a> and create new app then get the API for this section.</span>
+			    	<span class="text-muted">Go to this <a  target="_blank" href="https://developers.facebook.com/apps/">link</a> and create new app then set the API for this section.</span>
 
 			    </div>
 		    	<div class="full">
@@ -126,7 +126,7 @@ if( isset($facebook->enable) ){
 			    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
 			    	<input type="text" class="form-control auto-save" value="<?php echo $client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
 			    	</div>
-			    	<span class="text-muted">Go to this <a href="https://console.developers.google.com/projectselector/apis/library?pli=1">link</a> and create new api and setup for this section</span>
+			    	<span class="text-muted">Go to this <a  target="_blank" href="https://console.developers.google.com/projectselector/apis/library?pli=1">link</a> and create new api and set api for this section</span>
 		    	</div>
 		    	<div class="form-group toggle-line">
 		    		<?php bx_swap_button($group_option,'enable', $gg_enable);?>
@@ -172,7 +172,7 @@ if( !empty($gg_captcha->enable) ) {
 		    	</div>
 		    	<div class="form-group">
 		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $enable_catcha);?>   </div>
-		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
+		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a target="_blank" href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>
 	    </div>
