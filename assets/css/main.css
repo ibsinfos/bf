@@ -353,7 +353,7 @@ body.home.fixed .caret{
 ul.account-dropdown li.icon-bell  ul{
 	position: absolute;
 	right: 0;
-	min-width: 500px;
+	min-width: 475;
 	z-index: 10;
 }
 .left-noti{
@@ -361,7 +361,7 @@ ul.account-dropdown li.icon-bell  ul{
 	float: left;
 }
 .right-noti{
-	width: 415px; float: right;
+	width: 399px; float: right;
 }
 li.icon-bell .notify-acti {
     color: red;
@@ -383,7 +383,7 @@ ul.ul-notification li{
 	float: left;
 	width: 100%;
 	border-bottom: 1px solid #f3f3f3;
-	padding: 15px;
+	padding: 15px 10px;
 
 }
 .right-noti a:first-letter {text-transform: uppercase}
@@ -445,8 +445,8 @@ body.fixed .account-dropdown  .fa-bell{
 	width: 50px;
 }
 .account-dropdown img.avatar {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
 
 }
