@@ -174,17 +174,21 @@ function box_get_notify($user_id = 0) {
 		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $u_id, 'notify' ) );
 
 		if( ! $notifies || empty($notifies) ) {
-			wp_cache_set( $cache_key, 'empty', 'notify' );
+			wp_cache_set( $cache_key, array('empty'=>'123'), 'notify' , 3000);
 			return false;
 		}
-		wp_cache_set( $cache_key, $notifies, 'notify' );
+		wp_cache_set( $cache_key, $notifies, 'notify' , 3000 );
 	}
+
+
 	$unread = 0;
 	echo '<ul class="ul-notification">';
-		foreach ($notifies as $noti) {
-			if($noti->msg_unread == 1)
-				$unread ++;
-			echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
+		if( !empty( $notifies) ){
+			foreach ($notifies as $noti) {
+				if($noti->msg_unread == 1)
+					$unread ++;
+				echo '<li><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
+			}
 		}
 	echo '</ul>';
 	if( $unread )
