@@ -39,11 +39,7 @@
 				$(".search-adv").slideToggle(300);
 			});
 
-			$(".toggle-signup").click(function(){
 
-				$(".sign-in").slideDown(300);
-				$(".forgot-pass").slideUp(300);
-			});
 			$(".toggle-msg").click(function(){
 				$(".ul-notification").slideToggle(300);
 			});

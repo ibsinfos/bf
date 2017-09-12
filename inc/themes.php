@@ -220,7 +220,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
 
 		<li class="icon-bell first-sub">
-			<i class="fa fa-bell" aria-hidden="true"></i>
+			<i class="fa fa-bell toggle-msg" aria-hidden="true"></i>
 			<?php box_get_notify(); ?>
 		</li>
 	</ul>
