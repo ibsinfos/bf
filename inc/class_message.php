@@ -61,6 +61,10 @@ class BX_Conversations{
 		);
 		return $wpdb->insert_id;
 	}
+	function get_conversation($id){
+		global $wpdb;
+		return  $wpdb->get_row( "SELECT * FROM  $wpdb->prefix{$this->table}  WHERE ID = ".$id );
+	}
 
 	function is_sent_msg( $project_id, $receiver_id ) {
 		global $wpdb;
@@ -74,12 +78,23 @@ class BX_Message{
 	public $receiver_id;
 	public $content;
 	static protected $instance;
-	function  __construct(){
+	function  __construct( $cvs_id = 0){
 
+		if( $cvs_id ){
+			global $user_ID;
+			$cvs = BX_Conversations::get_instance()->get_conversation($cvs_id);
+			if( $user_ID == $cvs->cvs_author ){
+				$this->receiver_id = $cvs->receiver_id;
+			} else {
+					$this->receiver_id = $cvs->cvs_author;
+			}
+			$this->cvs_id = $cvs_id;
+		}
+		$this->msg_type = 'message';
 	}
-	static function get_instance(){
+	static function get_instance($cvs_id = 0){
 		if (null === static::$instance) {
-        	static::$instance = new static();
+        	static::$instance = new static($cvs_id);
     	}
     	return static::$instance;
 	}
@@ -91,7 +106,6 @@ class BX_Message{
 
 		global $wpdb;
 		global $user_ID;
-		$sender_id = isset($args['sender_id'])? $args['sender_id']:0;
 		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']:0;
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
 		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
@@ -112,10 +126,11 @@ class BX_Message{
 				'msg_unread' => 1,
 				'msg_status' => 'new',
 				'msg_link' => $msg_link,
-				'msg_type' => $msg_type,
-				'receiver_id' => $receiver_id
+				'msg_type' => $this->msg_type,
+				'receiver_id' => $this->receiver_id,
 			)
 		);
+
 		// update modify time of this conversiaion.
 		$sql = "UPDATE {$wpdb->prefix}box_conversations SET `date_modify` = '".current_time('mysql')."'  WHERE  `ID` = {$cvs_id} ";
 		$wpdb->query( $sql );

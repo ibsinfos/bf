@@ -335,7 +335,7 @@ class BX_AJAX {
 			$response = array('success'=> true,'msg' => 'Createa converstaion done','boxtheme', 'result'=>  $msg);
 			wp_send_json( $response );
 		}
-		$message 	= BX_Message::get_instance();
+		$message 	= BX_Message::get_instance($cvs_id);
 		$msg_id = $message->sync($request, $method);
 		if( is_wp_error( $msg_id )){
 			$response = array('success' => false,'msg' =>$msg_id->get_error_message());

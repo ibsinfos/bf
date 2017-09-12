@@ -68,7 +68,9 @@
 					<?php
 					if($first_cvs){
 						$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
+
 						foreach ($msgs as $key => $msg) {
+
 							$user_label = 'You:';
 							$user_label = ($user_ID == $msg->sender_id) ? 'You: ':'Partner: ';
 							echo '<div class="msg-record msg-item"><div class="col-md-2">'.$user_label.'</div> <div class="col-md-10">'.$msg->msg_content.'</div></div>';
