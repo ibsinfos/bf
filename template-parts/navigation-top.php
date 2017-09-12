@@ -16,6 +16,6 @@
 		'container' => 'div',
 		'container_class' =>'menu-header'
 	) ); ?>
-	<span class="glyphicon menu-hamburger"></span>
+	<i class="fa fa-bars  menu-hamburger" aria-hidden="true"></i>
 
 </nav><!-- #site-navigation -->

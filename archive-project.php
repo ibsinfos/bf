@@ -16,7 +16,7 @@ get_header(); ?>
 							<form action="" class="full frm-search">
 								<div class="input-group full">
 							       <input type="text" name="s" id="keyword" placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
-							       <div class="input-group-btn">  <button class="btn btn-info primary-bg"><span class="glyphicon glyphicon-search"></span></button> </div>
+							       <div class="input-group-btn">  <button class="btn btn-info primary-bg"><i class="fa fa-search" aria-hidden="true"></i></button> </div>
 							   </div>
 							</form>
 							<div class="full hide" id="count_results">

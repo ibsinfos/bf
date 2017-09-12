@@ -449,6 +449,11 @@ get_header(); ?>
 	.top-profile .right.col-md-8{
 		width:360px
 	}
+	.top-profile .left.avatar a{
+		max-height: 100px;
+		overflow: hidden;
+		float: left;
+	}
 }
 body.home .site-container{
 	min-height: 0;
