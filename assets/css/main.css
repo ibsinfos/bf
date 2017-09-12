@@ -376,20 +376,18 @@ li.icon-bell .notify-acti {
     height: 12px;
     line-height: 0;
 }
-ul.ul-notification{
-	background: #fff;
-	width: 350px;
-	display: none;
-	border:1px solid #ccc;
-}
+
 ul.ul-notification li{
 	display: block;
 	clear: both;
 	float: left;
 	width: 100%;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #f0f0f0;
 	padding: 15px;
 
+}
+ul.ul-notification li:hover{
+	background: #f7f7f7;
 }
 ul.ul-notification li a{
 	display: block;
