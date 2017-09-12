@@ -442,7 +442,7 @@ body.fixed .account-dropdown  .fa-bell{
 	width: 100%;
 	clear: both;
 	padding-left: 10px;
-	border-bottom:1px solid #e0e0e0
+	border-bottom:1px solid #ececec
 }
 .account-dropdown li.profile-account a.account-name{
 	float: right;
