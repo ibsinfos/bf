@@ -201,7 +201,9 @@ function count_bids($project_id){
 
 function box_account_dropdow_menu(){ global $role; global $user_ID; $current_user = wp_get_current_user(); ?>
 	<ul class="account-dropdown">
-		<li class="inline profile-account dropdown text-center first-sub">
+		<li class="inline profile-account dropdown text-center first-sub col-md-9">
+			<div class="head-avatar"><?php echo get_avatar($user_ID);?></div>
+
 			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span></a>
 			<ul class="dropdown-menu  ">
 				<?php if( in_array($role, array(EMPLOYER,'administrator')) ){ ?>
@@ -217,9 +219,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 				<li> <i class="fa fa-sign-out" aria-hidden="true"></i>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
 			</ul>
 		</li>
-		<li class="inline avatar first-sub"><?php echo get_avatar($user_ID);?></li>
-
-		<li class="icon-bell first-sub">
+		<li class="icon-bell first-sub col-md-3">
 			<div class="dropdown">
 
 			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

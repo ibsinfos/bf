@@ -408,12 +408,23 @@ ul.ul-notification li a{
 ul.account-dropdown li.first-sub{
 	padding-left: 8px;
 }
-ul.account-dropdown li.icon-bell.first-sub{
-	padding-left: 0;
+.account-dropdown  .fa-bell{
+	font-size: 16px;
+	position: relative;
+	top:10px;
+	cursor:pointer;
+}
+.head-avatar{
+	float: left;
+	width: 50px;
 }
 .account-dropdown img.avatar {
-	width: 30px;
-	height: 30px;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+
 }
 .account-dropdown li.profile-account ul li{
 	display: block;

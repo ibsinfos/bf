@@ -60,7 +60,7 @@ $role = bx_get_user_role();
 				<?php if ( has_nav_menu( 'top' ) ) { get_template_part( 'template-parts/navigation', 'top' );} ?>
 			</div>
 			<!-- seach form here !-->
-			<div class="col-md-3 f-right align-right no-padding-left header-action">
+			<div class="col-md-4 f-right align-right no-padding-left header-action">
 				<?php
 					if ( is_user_logged_in() ) { box_account_dropdow_menu(); } else { ?>
 					<ul class="main-login">
