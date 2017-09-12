@@ -169,12 +169,13 @@ function box_get_notify($user_ID = 0) {
 	$notifies = wp_cache_get( $key, 'notify' );
 
 	if( ! $notifies ){
-		//$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $user_ID,'notify' ) );
+		$notifies = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d AND msg_type = %s", $user_ID, 'notify' ) );
 
-		if( ! $notifies ) {
+		if( ! $notifies || empty($notifies) ) {
+			wp_cache_set( $key, 'empty', 'notify' );
 			return false;
 		}
-		wp_cache_add( $key, $notifies, 'notify' );
+		wp_cache_set( $key, $notifies, 'notify' );
 	}
 	$unread = 0;
 	echo '<ul class="ul-notification">';
