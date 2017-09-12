@@ -41,7 +41,10 @@ function box_customizer_footer($wp_customize){
 		foreach ($menus as $key => $menu) {
 			$result[$menu->slug] = $menu->name;
 		}
+	} else {
+		$result[] = __('No menu to select','boxtheme');
 	}
+
 
 $label = array(
         'first_title' => __('Contact Us','boxtheme'),

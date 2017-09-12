@@ -31,7 +31,7 @@
                 			);
                 		} else if( current_user_can( 'manage_options' ) ) {
                 			$link = admin_url( 'customize.php?autofocus[section]=footer_setup');
-                			printf(__('Go to  <a href="%s"> there </a> and setup this menu','boxtheme'), $link );
+                			printf(__('Go to this <a href="%s"> <i>link</i> </a> and setup this menu','boxtheme'), $link );
 
                 		} ?>
                     </div> <?php
