@@ -353,7 +353,7 @@ body.home.fixed .caret{
 ul.account-dropdown li.icon-bell  ul{
 	position: absolute;
 	right: 0;
-	min-width: 475;
+	min-width: 475px;
 	z-index: 10;
 }
 .left-noti{
@@ -361,7 +361,7 @@ ul.account-dropdown li.icon-bell  ul{
 	float: left;
 }
 .right-noti{
-	width: 399px; float: right;
+	width: 399px; float: right; padding-top: 4px;
 }
 li.icon-bell .notify-acti {
     color: red;
