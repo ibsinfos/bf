@@ -6,7 +6,7 @@
 		init: function(){
 			msg_submit = {action: 'sync_message', msg_content: '', method: 'insert', cvs_id:0 };
 			msg_submit.cvs_id = $("#first_cvs").val();
-			$( '.render-conv' ).on('click', this.rederConversation);
+			$( '.render-conv' ).on('click', this.renderConversation);
 			$( "form.frm-send-message").live('submit', this.sendMessage);
 
 			console.log('init MSG');
@@ -14,7 +14,7 @@
 				textarea.scrollTop = textarea.scrollHeight;
 
 		},
-		rederConversation: function(event){
+		renderConversation: function(event){
 			var element = $(event.currentTarget);
 			var id = element.attr('id');
 			msg_submit.cvs_id = id;
