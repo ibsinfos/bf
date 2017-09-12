@@ -333,6 +333,7 @@ body.home.fixed li.icon-bell span.toggle-msg{
 }
 body.home .account-dropdown li.profile-account a.account-name .username{
 	color: #fff;
+	min-width: 59px;
 }
 body.home.fixed .account-dropdown li.profile-account a.account-name .username{
 	color: #666;

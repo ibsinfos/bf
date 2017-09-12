@@ -202,9 +202,8 @@ function count_bids($project_id){
 function box_account_dropdow_menu(){ global $role; global $user_ID; $current_user = wp_get_current_user(); ?>
 	<ul class="account-dropdown">
 		<li class="inline profile-account dropdown text-center first-sub col-md-9">
-			<div class="head-avatar"><?php echo get_avatar($user_ID);?></div>
 
-			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span></a>
+			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span></a>
 			<ul class="dropdown-menu  ">
 				<?php if( in_array($role, array(EMPLOYER,'administrator')) ){ ?>
 					<li> <i class="fa fa-th-list" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Project','boxtheme');?></a></li>
