@@ -35,17 +35,17 @@ class BX_Bid extends BX_Post{
 			wp_die('not_athor');
 		}
 		$current_user = wp_get_current_user();
+		global $user_ID;
 		$args = array(
-			'msg_content' => sprintf( __('%s just canceled bid  on the project %s','boxtheme'), $current_user->user_login, $project->post_title ),
+			'msg_content' => sprintf( __('%s just canceled bid  on the project <i>%s</i>','boxtheme'), $current_user->user_login, $project->post_title ),
 			'msg_link' => get_permalink($project->ID),
 			'receiver_id' => $project->post_author,
-			);
-
-
+		);
 
 		wp_delete_post($id, true );
 
 		$notify = Box_Notify::get_instance()->insert($args);
+
 
 		return true;
 	}
@@ -58,10 +58,6 @@ class BX_Bid extends BX_Post{
 		$result->project_title = $project->post_title;
 		$result->professional_title = get_post_meta( $profile_id, 'professional_title' , true );
 		$result->project_link = get_permalink($project_id);
-		// $user = get_userdata($bid->post_author);
-		// if($user){
-		// 	$result->display_name = $user->display_name;
-		// }
 
 		return $result;
 	}
@@ -152,14 +148,13 @@ class BX_Bid extends BX_Post{
 		$bid_id 	= wp_insert_post( $args );
 
 		if( ! is_wp_error( $bid_id) ){
-
+			global $user_ID;
 			$current_user = wp_get_current_user();
-
 			$project_id = $args['post_parent'];
 			$project = get_post($project_id);
 
 			$args = array(
-				'msg_content' => sprintf( __('%s just bid on project %s','boxtheme'), $current_user->display_name, $project->post_title ),
+				'msg_content' => sprintf( __('%s just bid on project <i>%s</i','boxtheme'), $current_user->display_name, $project->post_title ),
 				'msg_link' => get_permalink($project_id),
 				'receiver_id' => $project->post_author,
 				);

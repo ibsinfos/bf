@@ -184,8 +184,13 @@ function box_get_notify($user_id = 0) {
 	$unread = 0;
 	echo '<ul class=" dropdown-menu ul-notification">';
 		if( !empty( $notifies) ){
-			foreach ($notifies as $noti) {
-				echo '<li class="dropdown-item"><a href="'.$noti->msg_link.'">'.$noti->msg_content.'</a></li>';
+			foreach ($notifies as $noti) { ?>
+				<li class="dropdown-item">
+					<div class='left-noti'><a href=''><?php echo get_avatar( $noti->sender_id ); ?></a></div>
+					<div class='right-noti'>
+						<a href="<?php echo $noti->msg_link;?>"><?php echo $noti->msg_content;?></a>
+					</div>
+				</li> <?php
 				if($noti->msg_unread == 1) $unread ++;
 			}
 		}

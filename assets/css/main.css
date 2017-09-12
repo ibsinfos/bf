@@ -353,8 +353,15 @@ body.home.fixed .caret{
 ul.account-dropdown li.icon-bell  ul{
 	position: absolute;
 	right: 0;
-	min-width: 350px;
+	min-width: 500px;
 	z-index: 10;
+}
+.left-noti{
+	width: 50px;
+	float: left;
+}
+.right-noti{
+	width: 415px; float: right;
 }
 li.icon-bell .notify-acti {
     color: red;
@@ -379,20 +386,17 @@ ul.ul-notification li{
 	display: block;
 	clear: both;
 	float: left;
-	padding: 0px;
 	width: 100%;
+	border-bottom: 1px solid #ccc;
+	padding: 15px;
 
 }
 ul.ul-notification li a{
-	padding: 10px;
 	display: block;
 	text-align: left;
 	color:#494949;
 	text-decoration: none;
-	padding: 13px 18px;
 	line-height: 18px;
-	border-bottom: 1px solid #e0e0e0;
-
 }
 .main-login .dropdown-menu .sign-in a{
 	color: #555;
