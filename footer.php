@@ -22,13 +22,17 @@
             		?>
                     <div class="col-md-3 col-xs-4">
                 		<h5 class="footer-list-header"> <?php echo $title; ?></h5> <?php
-                        if( !empty( $general->$key ) ) {
+                        if( ! empty( $general->$key ) ) {
                 			wp_nav_menu( array(
                         		'menu'        => $general->$key,
                         		'menu_class' =>'full',
                 				'container' => '',
                         		)
                 			);
+                		} else if( current_user_can( 'manage_options' ) ) {
+                			$link = admin_url( 'customize.php?autofocus[section]=footer_setup');
+                			printf(__('Go to  <a href="%s"> there </a> and setup this menu','boxtheme'), $link );
+
                 		} ?>
                     </div> <?php
                 } ?>

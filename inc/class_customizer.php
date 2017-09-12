@@ -43,10 +43,16 @@ function box_customizer_footer($wp_customize){
 		}
 	}
 
+$label = array(
+        'first_title' => __('Contact Us','boxtheme'),
+        'second_title' => __('Help & Resources','boxtheme'),
+        'third_title' => __('Commercial','boxtheme'),
+    );
 
 	$wp_customize->add_setting( 'general[first_title]', array(
 		'type'       => 'option',
 		'capability' => 'manage_options',
+		'default' => $label['first_title'],
 	) );
 	$wp_customize->add_control( 'general[first_title]', array(
 		'label' => __( 'Set title Menu 1' ),
@@ -70,6 +76,7 @@ function box_customizer_footer($wp_customize){
 	$wp_customize->add_setting( 'general[second_title]', array(
 			'type'       => 'option',
 			'capability' => 'manage_options',
+			'default' => $label['second_title'],
 		) );
 	$wp_customize->add_control( 'general[second_title]', array(
 		'label' => __( 'Set title Menu 2' ),
@@ -92,6 +99,7 @@ function box_customizer_footer($wp_customize){
 	$wp_customize->add_setting( 'general[third_title]', array(
 			'type'       => 'option',
 			'capability' => 'manage_options',
+			'default' => $label['third_title'],
 		) );
 	$wp_customize->add_control( 'general[third_title]', array(
 		'label' => __( 'Set title Menu 3' ),
