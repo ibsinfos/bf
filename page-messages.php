@@ -56,8 +56,11 @@
 			</div>
 			<div id="box_chat" class="col-md-8">
 
-				<h3> Details </h3>
+
 				<?php
+				if($conversations){ ?>
+					<h3> <?php _e('Detail of conversation','boxtheme'); ?> </h3> <?php
+				}
 				$first_cvs = 0;
 
 				if( isset($conversations[0]) )
@@ -109,6 +112,7 @@
 		border-bottom: 1px solid #f1f1f1;
 		margin-bottom: 5px;
 		position: relative;
+		margin-top: 20px;
 	}
 	.cv-item img{
 		max-width: 55px;
