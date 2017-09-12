@@ -394,9 +394,10 @@ function init_theme() {
 
   	if ( isset( $_GET['activated'] ) ) { // Test if theme is activated
 
-  		if ( wp_get_theme()->get('TextDomain')== 'boxtheme' ) {
-  			BX_Install::init();
+  		if ( wp_get_theme()->get('TextDomain') == 'boxtheme' ) {
+  			BX_Install::install();
   		}
+
   	}
 }
 add_action( 'load-themes.php', 'init_theme' );

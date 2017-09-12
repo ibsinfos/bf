@@ -8,31 +8,30 @@ class BX_Install{
 	private static function create_tables() {
 		global $wpdb;
 		$wpdb->hide_errors();
-
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
 		dbDelta( self::get_schema() );
+
+		$flag_name = $wpdb->prefix.'_installed';
+		update_option($flag_name, 1);
 	}
 
-	public static function init() {
-		//add_action( 'init', array( __CLASS__, 'check_version' ), 5 );
-		self::install(); // install
-	}
-	public static function check_version() {
-		self::install();
-	}
+
 	public static function install() {
 		global $wpdb;
-		if( (int) get_option( 'is_installed', true ) != 1 ){
+		$flag_name = $wpdb->prefix.'_installed1';
+
+		if( (int) get_option( $flag_name, true ) != 1 ){
 			self::create_tables();
 		}
+
 	}
 
 	private static function get_schema() {
 
 		global $wpdb;
 
-		update_option('is_installed', 1);
+
 		$collate = '';
 		if ( $wpdb->has_cap( 'collation' ) ) {
 			$collate = $wpdb->get_charset_collate();

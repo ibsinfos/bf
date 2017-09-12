@@ -7,6 +7,11 @@
         'third_title' => __('Commercial','boxtheme'),
     );
 ?>
+<?php
+	if( function_exists( 'box_debug') ){
+		box_debug();
+	}
+?>
 
     <footer id="main-footer">
         <div class="pre-footer ">
