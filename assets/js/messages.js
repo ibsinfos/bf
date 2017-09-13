@@ -12,17 +12,14 @@
 			console.log('init MSG');
 			var textarea = document.getElementById('container_msg');
 				textarea.scrollTop = textarea.scrollHeight;
-
-			$(".msg_content").keyup(function(event){
+			$(document).on('keyup', '.msg_content', function(event){
 				var _this = $(event.currentTarget);
-				console.log( $(".msg_content").val() );
-				if ( ! $.trim( $(".msg_content").val()  ) == '' ){
+				if ( ! $.trim( _this.val()  ) == '' ){
 					_this.closest('form').addClass('focus');
 				} else {
 					_this.removeClass('focus');
 				}
-
-			})
+			});
 
 		},
 		renderConversation: function(event){
