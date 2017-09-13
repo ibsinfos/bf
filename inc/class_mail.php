@@ -29,6 +29,9 @@ Class Box_Email{
 					body{
 						font-family: "Roboto", sans-serif;
 					}
+					#credit{
+						font-family: 'Raleway', sans-serif;
+					}
 					#template_header_image img{max-width: 100%; width: 350px; text-align: left; padding:15px 0;}
 					img{max-width:100%;}
 					#template_header_image{
