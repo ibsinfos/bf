@@ -39,10 +39,10 @@ if( isset($general->gg_link) ){
 
 	</div>
 	<div class="full" id="google_analytic">
-		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo stripslashes($google_analytic);?></textarea></div>
+		<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9 no-padding"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo stripslashes($google_analytic);?></textarea></div>
 	</div>
 	<div class="full">
-		<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9"><textarea class="form-control auto-save" multi="0"  name="copyright" ><?php echo stripslashes($copyright);?> </textarea></div>
+		<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9  no-padding"><textarea class="form-control auto-save" multi="0"  name="copyright" ><?php echo stripslashes($copyright);?> </textarea></div>
 	</div>
 	<div class="full">
 		<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>
@@ -50,18 +50,17 @@ if( isset($general->gg_link) ){
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
-				<div class="col-md-12"><input class="form-control auto-save" type="text" value="<?php echo $fb_link;?>"  multi="0" name="fb_link" id="fb_link"></div>
+				<input class="form-control auto-save" type="text" value="<?php echo $fb_link;?>"  multi="0" name="fb_link" id="fb_link">
 			</div>
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Twitter link','boxtheme');?></label>
-				<div class="col-md-12"><input class="form-control auto-save" type="text" name="tw_link"  multi="0"  value="<?php echo $tw_link;?>" id="tw_link"></div>
+				<input class="form-control auto-save" type="text" name="tw_link"  multi="0"  value="<?php echo $tw_link;?>" id="tw_link">
 			</div>
 
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
-				<div class="col-md-12"><input class="form-control auto-save" type="text" name="gg_link" multi="0"  value="<?php echo $gg_link;?>" id="gg_link"></div>
-			</div>
+				<input class="form-control auto-save" type="text" name="gg_link" multi="0"  value="<?php echo $gg_link;?>" id="gg_link">
 		</div>
 	</div>
 </div>
