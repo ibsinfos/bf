@@ -13,11 +13,11 @@
 			var textarea = document.getElementById('container_msg');
 				textarea.scrollTop = textarea.scrollHeight;
 
-			$(".frm-send-message").keyup(function(event){
+			$(".msg_content").keyup(function(event){
 				var _this = $(event.currentTarget);
 				console.log( $(".msg_content").val() );
 				if ( ! $.trim( $(".msg_content").val()  ) == '' ){
-					_this.addClass('focus');
+					_this.closest('form').addClass('focus');
 				} else {
 					_this.removeClass('focus');
 				}
