@@ -15,6 +15,7 @@ Class Box_Email{
 		//font-family: 'Roboto Condensed', sans-serif;
 		//font-family: 'Roboto', sans-serif;
 		//font-family: 'Raleway', sans-serif;
+		//font-family: 'Open Sans', sans-serif;
 		$rlt =  is_rtl() ? "rtl" : "ltr";
 		$rightmargin = is_rtl() ? 'rightmargin' : 'leftmargin';
 		$header = '<!DOCTYPE html>
@@ -22,15 +23,15 @@ Class Box_Email{
 			<head>
 				<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo( 'charset' ).'" />
 				<title>'.get_bloginfo( 'name', 'display' ).'</title>
-				<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto|Roboto+Condensed" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto|Roboto+Condensed|Open+Sans" rel="stylesheet">
 
 
 				<style type="text/css">
 					body{
-						font-family: "Roboto", sans-serif;
+						font-family: "Open Sans", sans-serif;
 					}
 					#credit{
-						font-family: 'Raleway', sans-serif;
+						font-family: "Raleway", sans-serif;
 					}
 					#template_header_image img{max-width: 100%; width: 350px; text-align: left; padding:15px 0;}
 					img{max-width:100%;}
@@ -131,7 +132,7 @@ Class Box_Email{
 													<td valign="top">
 														<table border="0" cellpadding="0" cellspacing="0" width="100%">
 															<tr>
-																<td colspan="2" valign="middle" id="credit">'.$option->footer_text.'</td>
+																<td colspan="2" valign="middle" id="credit"><font color="#FFFFFF">'.$option->footer_text.'</font></td>
 															</tr>
 														</table>
 													</td>
@@ -146,12 +147,12 @@ Class Box_Email{
 										<td valign="top" bgcolor="'.$option->main_bg.'">
 											<table border="0" cellpadding="15" cellspacing="0" width="228px" align="left">
 												<tr>
-													<td colspan="2" valign="middle" id="credit"><h3 style="padding:0; margin:0;"> Connect Us</h3></td>
+													<td colspan="2" valign="middle" id="credit"><h3 style="padding:0; margin:0;"> <font color="#FFFFFF">Connect Us</font></h3></td>
 												</tr>
 											</table>
 											<table border="0" class="connect-us" cellpadding="15" cellspacing="0" width="150" align="right">
 												<tr>
-													<td colspan="2" valign="middle" id="credit">';
+													<td colspan="2" valign="middle" id="credit" color="#FFFFFF">';
 													global $general;
 													if( !isset($general) )
 														$general = (object) BX_Option::get_instance()->get_group_option('general');
