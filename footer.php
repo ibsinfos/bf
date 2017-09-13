@@ -1,5 +1,4 @@
 <?php
-box_mail('abc@gmail.vn','tesst','test');
     global $general;
     $args = array( 'first'=>'','second' => '','third' => '');
     $label = array(
