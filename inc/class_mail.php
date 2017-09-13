@@ -28,7 +28,12 @@ Class Box_Email{
 
 				<style type="text/css">
 					body{
-						font-family: "Open Sans", sans-serif;
+						word-break: break-word;
+					    color: #666;
+					    font-family: Helvetica;
+					    font-size: 14px;
+					    line-height: 160%;
+					    text-align: left;
 					}
 					#credit{
 						font-family: "Raleway", sans-serif;
