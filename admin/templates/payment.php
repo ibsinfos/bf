@@ -108,7 +108,7 @@ $payment = $box_option->get_group_option($group_option);
                         echo '<div class="block  row-item '.$class.'">'; echo '<div class="col-md-1">'.$i.'</div>';   echo '<div class="col-md-2">'.$sku.'</div>';
                         echo '<div class="col-md-7">';  echo get_the_title();  echo '</div>';
                         echo '<div class="col-md-2 align-center">
-                        	<span class="btn-act-wrap" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete 	glyphicon glyphicon-trash"></span> &nbsp; <span  class=" btn-act btn-edit-package	glyphicon glyphicon-edit"></span></span>';
+                        	<span class="btn-act-wrap" id="'.get_the_ID().'"><span attr="'.get_the_ID().'" class="btn-act btn-delete "> <i class="fa fa-trash-o" aria-hidden="true"></i> </span> &nbsp; <span  class=" btn-act btn-edit-package	glyphicon glyphicon-edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></span>';
                         echo '</div>';
                         echo '</div>';
                         $post->price = $price; $post->sku = $sku;
