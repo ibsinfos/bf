@@ -12,6 +12,9 @@ Class Box_Email{
 		return self::$_instance;
 	}
 	function get_header($option){
+		//font-family: 'Roboto Condensed', sans-serif;
+		//font-family: 'Roboto', sans-serif;
+		//font-family: 'Raleway', sans-serif;
 		$rlt =  is_rtl() ? "rtl" : "ltr";
 		$rightmargin = is_rtl() ? 'rightmargin' : 'leftmargin';
 		$header = '<!DOCTYPE html>
@@ -19,7 +22,13 @@ Class Box_Email{
 			<head>
 				<meta http-equiv="Content-Type" content="text/html; charset='.get_bloginfo( 'charset' ).'" />
 				<title>'.get_bloginfo( 'name', 'display' ).'</title>
+				<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto|Roboto+Condensed" rel="stylesheet">
+
+
 				<style type="text/css">
+					body{
+						font-family: "Roboto", sans-serif;
+					}
 					#template_header_image img{max-width: 100%; width: 350px; text-align: left; padding:15px 0;}
 					img{max-width:100%;}
 					#template_header_image{
