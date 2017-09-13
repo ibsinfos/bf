@@ -17,7 +17,7 @@
 				if ( ! $.trim( _this.val()  ) == '' ){
 					_this.closest('form').addClass('focus');
 				} else {
-					_this.removeClass('focus');
+					_this.closest('form').removeClass('focus');
 				}
 			});
 
