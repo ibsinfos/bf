@@ -23,8 +23,8 @@
 					echo '<ul class="none-style" id="list_converstaion">';
 					echo '<h3>'.__('List Conversation','boxtheme').'</h3>';
 
-					foreach ($conversations as $cv) {
-						$user = array();
+					foreach ($conversations as $key=>$cv) {
+							$user = array();
 						if($cv->sender_id == $user_ID){
 							$user = get_userdata($cv->receiver_id);
 						} else {
@@ -32,7 +32,11 @@
 						}
 						$project = get_post($cv->project_id);
 						if($user && $project){
-							echo '<li class="cv-item">';
+							if($key == 0){
+								echo '<li class="cv-item acti">';
+							} else {
+								echo '<li class="cv-item">';
+							}
 							echo '<div class="cv-left">';
 								echo get_avatar($user->ID);
 							echo '</div>';
@@ -111,15 +115,22 @@
 		display: block;
 		width: 100%;
 		float: left;
-		padding-bottom: 5px;
 		border-bottom: 1px solid #f1f1f1;
-		margin-bottom: 5px;
+		padding: 10px;
 		position: relative;
-		margin-top: 20px;
+		border-left:3px solid #fff;
+	}
+	.cv-item.acti{
+		border-left:3px solid #54bf03;
+		background-color: #f3f6f8;
+	}
+	.cv-item:hover{
+		background-color: #f3f6f8;
 	}
 	.cv-item img{
-		max-width: 55px;
-		height: auto;
+		width: 55px;
+		height: 55px;
+		border-radius: 50%;
 		vertical-align: top;
 	}
 	.cv-left{
@@ -132,8 +143,8 @@
 		overflow: hidden;
 	}
 	.mdate{
-		position: absolute; top:0;
-		right: 10px;
+		position: absolute; top:10px;
+		right: 0px;
 	}
 	.msg-record{
 		width: 100%;

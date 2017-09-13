@@ -27,6 +27,8 @@
 		},
 		renderConversation: function(event){
 			var element = $(event.currentTarget);
+			$(".cv-item").removeClass("acti");
+			element.closest(".cv-item").addClass('acti');
 			var id = element.attr('id');
 			msg_submit.cvs_id = id;
 			var success = function(res){

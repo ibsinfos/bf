@@ -236,7 +236,9 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 						</li> <?php
 
 					}
-				}
+				} else { ?>
+					<?php _e('There is no new notification','boxtheme');?>
+				<?php }
 				echo '</ul>';
 				if( $unread )
 					echo '<span class="notify-acti">'.$unread.'</span>'; ?>
