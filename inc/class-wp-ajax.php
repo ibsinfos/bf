@@ -600,17 +600,12 @@ class BX_AJAX {
             	$attach_data = wp_generate_attachment_metadata($attach_id, $file_name_and_location);
         	    wp_update_attachment_metadata($attach_id, $attach_data);
 
-				// if( $method == 'upload_full_avatar' ){
-				// 	update_user_meta( $user_ID,'full_avatar', $attach_id );
-				// 	wp_send_json( array('success' => true,'file' => $attachment, 'msg' => __('Uploaded is successful','box_theme') ,'attach_id' => $attach_id ));
-
-				// }
 				$msg_arg = array(
 					'msg_content' 	=> sprintf(__('Upload new file: %s','boxtheme'), $file_title_for_media_library ),
 					'cvs_id' 		=> $cvs_id,
 				);
 
-				BX_Message::get_instance()->insert($msg_arg);
+				//BX_Message::get_instance()->insert($msg_arg);
 
         	    wp_send_json( array('success' => true,'file' => $attachment, 'msg' => __('Uploaded is successful','box_theme') ,'attach_id' => $attach_id ));
         	}
