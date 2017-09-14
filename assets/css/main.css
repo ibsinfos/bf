@@ -744,30 +744,30 @@ content: "";
 	font-size: 11px;
 	top:3px;
 }
-.row.archive-profile-item{
+.archive-profile-item{
 	color: #666;
 }
-.row.archive-profile-item .full{
+.archive-profile-item .full{
 	min-height: 150px;
 	border-bottom:1px solid #eee;
-	padding: 10px;
+	padding: 15px;
 	float: left;
-	padding-bottom: 20px;
 }
-.row.archive-profile-item:last-child .full{
+.archive-profile-item:last-child .full{
 	border-width: 0;
 }
-.row.archive-profile-item .overview-profile{
+.archive-profile-item .overview-profile{
 	font-size: 1em;
 	padding: 7px 0;
 }
-.row.archive-profile-item .overview-profile p{
+.archive-profile-item .overview-profile p{
 	margin-bottom: 0;
 }
 .list-project{
-	padding: 10px 20px 20px ;
+	padding: 10px 0;
 	overflow: hidden;
 	min-height: 31.3em;
+	width: 100%;
 }
 .list-project h3{
 	margin:0;
