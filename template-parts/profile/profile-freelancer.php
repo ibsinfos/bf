@@ -100,7 +100,7 @@
 			 <div class="col-sm-9">
 			    <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
 			    <div class="invisible-default">
-			       <input type="text" class="update form-control " value="<?php echo $profile->hour_rate;?>" name="hour_rate">
+			       <input type="number" min="1"  class="update form-control" value="<?php echo $profile->hour_rate;?>" name="hour_rate">
 			    </div>
 			 </div>
 			</div>
