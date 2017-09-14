@@ -78,6 +78,7 @@ input[type="file"] {
     top:-45px;
     right: 1px;
     z-index: 1;
+    cursor: pointer;
 }
 .btn-edit i{
 	padding-right: 10px;

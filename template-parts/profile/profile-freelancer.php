@@ -59,7 +59,7 @@
    <div class="col-md-12 clear hide">
       <div class="video block">
 
-         <span href="#" class="btn btn-edit btn-edit-video"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
+         <span href="#" class="btn-edit btn-edit-video"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
          <h2> Video </h2>
          <?php
          $video_id = get_post_meta($profile_id, 'video_id', true);
@@ -94,7 +94,7 @@
    		<div class="col-md-12 clear">
    				<h2> <?php _e('Profile info','boxtheme');?></h2>
 			<form id="update_profile_meta" class="update-profile row-section">
-			<span class="btn btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
+			<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
 			<div class="form-group row">
 			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
 			 <div class="col-sm-9">

@@ -12,7 +12,7 @@
 	</div>
 	<div class="col-md-9 col-sm-12">
 		<form id="update_profile" class="row-section">
-	      		<span class="btn btn-edit btn-edit-default"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</span>
+	      		<span class="btn-edit btn-edit-default"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</span>
 	            <div class="form-group">
 	        	   <h2 class="static visible-default" > <?php echo $current_user->display_name;?></h2>
 	        	   <input class=" update hide form-control" type="text" value="<?php echo $current_user->display_name;?>" name="post_title">
@@ -28,7 +28,7 @@
 	            </div>
 
 	      	<div class="form-group">
-		      	<div class="offset-sm-10 col-sm-12 align-right">
+		      	<div class="offset-sm-10 col-sm-12 align-right  no-padding-right">
 		        	<button type="submit" class="btn btn-primary update hide"> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
 		      	</div>
 		    </div>
