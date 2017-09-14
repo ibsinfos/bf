@@ -845,6 +845,9 @@ ul.pagination{
 	text-transform: capitalize;
 	white-space:nowrap;
 }
+.archive-profile-item .profile-title a:first-letter{
+	text-transform: uppercase;
+}
 .archive-profile-item .profile-title a:hover{
 	color: none;
 }

@@ -420,6 +420,9 @@ get_header(); ?>
     font-size: 1.4em;
     font-weight: 400;
 }
+.profile-title:first-letter{
+	text-transform: uppercase;
+}
 .rating-score{
 	font-size: 18px;
 	margin-top: 3px;
