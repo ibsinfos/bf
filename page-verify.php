@@ -12,7 +12,7 @@
 ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div class="row " id="content" >
+		<div class="site-content" id="content" >
 			<div class="col-md-12  text-justify mt50" style="min-height: 450px; padding-top: 100px;">
 				<?php
 

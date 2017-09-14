@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <div class="full-width">
 	<div class="container site-container ">
-		<div class="row site-content" id="content" >
+		<div class="site-content" id="content" >
 			<div class="col-md-4">
 				<?php
 				global $user_ID;

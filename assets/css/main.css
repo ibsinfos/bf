@@ -274,7 +274,7 @@ div.header-action{
 	width: 180px;
 }
 ul.account-dropdown li{
-	padding-top: 5px;
+	padding-top: 0px;
 	list-style: none;
 	display: inline;
 	float: right;
@@ -431,7 +431,7 @@ ul.ul-notification li a{
 .account-dropdown  .fa-bell{
 	font-size: 16px;
 	position: relative;
-	top:10px;
+	top:18px;
 	cursor:pointer;
 	color: #666;
 }
@@ -493,6 +493,12 @@ body.fixed .account-dropdown  .fa-bell{
 	vertical-align: middle;
 	overflow: hidden;
 	float: left;
+	position: relative;
+	top:10px;
+}
+.profile-account  .caret{
+	position: relative;
+	top: 10px;
 }
 a.account-name:hover{
 	text-decoration: none;
