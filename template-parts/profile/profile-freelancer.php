@@ -57,7 +57,7 @@
    <div class="col-md-12 clear hide">
       <div class="video block">
 
-         <span href="#" class="btn btn-edit btn-edit-video">Edit</span>
+         <span href="#" class="btn btn-edit btn-edit-video"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
          <h2> Video </h2>
          <?php
          $video_id = get_post_meta($profile_id, 'video_id', true);
@@ -88,15 +88,11 @@
       </div>
    </div>
 
-   	<div class="col-md-12 clear">
+   	<div class="edit-profile-section profile-info-section col-md-12 clear" >
    		<div class="col-md-12 clear">
+   				<h2> <?php _e('Profile info','boxtheme');?></h2>
 			<form id="update_profile_meta" class="update-profile row-section">
-			<span class="btn btn-edit btn-edit-second"> Edit</span>
-			<div class="form-group row">
-				<div class="col-sm-10">
-				<h2> <?php _e('Profile info','boxtheme');?></h2>
-				</div>
-			</div>
+			<span class="btn btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
 			<div class="form-group row">
 			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
 			 <div class="col-sm-10">
@@ -162,38 +158,42 @@
 	</div>
 
 
-<div class="col-md-12 center frame-add-port">
-	<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
-</div>
+<div class="col-md-12 center frame-add-port edit-profile-section portfolio-section">
+	<div class="full">
+		<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
+	</div>
 
-<div class="row-section col-md-12" id="list_portfolio">
-	<!-- portfolio !-->
+	<div class="row-section col-md-12" id="list_portfolio">
+		<!-- portfolio !-->
 
-	<?php
-	global $user_ID, $list_portfolio;
-	$args = array(
-		'post_type' 	=> 'portfolio',
-		'author' 		=> $user_ID,
-	);
-	$result =  new WP_Query($args);
-	$list_portfolio = array();
-	if( $result->have_posts() ){
-		while ($result->have_posts()) {
+		<?php
+		global $user_ID, $list_portfolio;
+		$args = array(
+			'post_type' 	=> 'portfolio',
+			'author' 		=> $user_ID,
+		);
+		$result =  new WP_Query($args);
+		$list_portfolio = array();
+		if( $result->have_posts() ){
+			while ($result->have_posts()) {
 
-			$result->the_post();
-			$post->feature_image = get_the_post_thumbnail_url($post->ID, 'full');
-			$post->thumbnail_id = get_post_thumbnail_id($post->ID);
-			$list_portfolio[$post->ID] = $post;
-			echo '<div class="col-md-4 port-item" id="'.$post->ID.'">';
-				the_post_thumbnail('full' );
-				echo '<div class="btns-act"><span class="btn-sub-act btn-edit-port "><span class="glyphicon glyphicon-pencil
-"></span></span>';
-				echo '<span class="btn-sub-act btn-del-port" > <span class="glyphicon glyphicon-trash"></span></span></div>';
-			echo '</div>';
+				$result->the_post();
+				$post->feature_image = get_the_post_thumbnail_url($post->ID, 'full');
+				$post->thumbnail_id = get_post_thumbnail_id($post->ID);
+				$list_portfolio[$post->ID] = $post;
+				echo '<div class="col-md-4 port-item" id="'.$post->ID.'">';
+					the_post_thumbnail('full' );
+					echo '<div class="btns-act"><span class="btn-sub-act btn-edit-port "><span class="glyphicon glyphicon-pencil
+	"></span></span>';
+					echo '<span class="btn-sub-act btn-del-port" > <span class="glyphicon glyphicon-trash"></span></span></div>';
+				echo '</div>';
+			}
+			wp_reset_query();
+		} else {
+			_e('There is no portfolio yet','boxtheme');
 		}
-		wp_reset_query();
-	}
-	?>
+		?>
 
+	</div>
+	<!-- end portfolio !-->
 </div>
-<!-- end portfolio !-->

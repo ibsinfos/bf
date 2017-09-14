@@ -78,9 +78,12 @@ input[type="file"] {
 
 .btn-edit{
     position: absolute;
-    top:0;
-    right: 0;
+    top:-45px;
+    right: 1px;
     z-index: 1000;
+}
+.btn-edit i{
+	padding-right: 10px;
 }
 .post-title{
     font-size: 30px;
@@ -268,4 +271,25 @@ form.add-portfolio .modal-body .body-bg {
 	border-radius: 0;
 	box-shadow: none;
 	background: none !important;
+}
+form.is-edit{
+
+}
+.profile-info-section h2{
+	padding-bottom: 20px;
+}
+.profile-info-section {
+
+}
+.site-content{
+	background:none !important;
+}
+.edit-profile-section {
+    background: #fff;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    border: 3px solid #d4d1d1;
+}
+#list_portfolio{
+	padding-top: 50px;
 }

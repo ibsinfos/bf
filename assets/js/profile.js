@@ -73,6 +73,7 @@
 
 			$(".btn-edit-default").click(function(event){
 				var form 	= $(event.currentTarget);
+				form.closest("form").toggleClass("is-edit");
 
 				$(".update").toggleClass('hide');
 				$(".static").toggleClass('hide');
