@@ -1,5 +1,9 @@
 <?php get_header(); ?>
 <?php
+global $general;
+$code = $general->currency['code'];
+$symbol = box_get_currency_symbol($code);
+
 global $author_id;
 $author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
 $author_id = $author->ID;
@@ -36,7 +40,7 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 				      	<div class="col-md-9 no-padding-left">
 				      		<div class="col-md-10 col-xs-10 no-padding"><h1 class="profile-title no-margin"> <?php echo $profile->post_title;?></12></div>
 				      		<div class="col-md-2 col-xs-2 no-padding align-right">
-				      			<span class="absolute1 top right align-right hour-rate">$<?php echo $profile->hour_rate;?>/hr</span>
+				      			<span class="absolute1 top right align-right hour-rate"><?php echo $symbol .' '.$profile->hour_rate;?>/hr</span>
 				      		</div>
 				      		<div class="full clear">
 				        		<h4 class="professional-title no-margin primary-color" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
