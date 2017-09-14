@@ -389,6 +389,9 @@ get_header(); ?>
 	.small, small{
 		font-size: 100%;
 	}
+	.top-profile .profile-item{
+		padding-bottom1: 20px;
+	}
 }
 .how-us-work{
 	padding: 50px 0;
@@ -414,9 +417,9 @@ get_header(); ?>
 	vertical-align: bottom;
 }
 .top-profile .profile-item{
-	height: 160px;
     overflow: hidden;
     margin-top: 30px;
+    height: 179px;
 }
 .profile-title{
     font-size: 1.4em;
@@ -446,6 +449,7 @@ get_header(); ?>
 .avatar img{
 	border:1px solid #f3f3f3;
 	width: 110px;
+	max-height: 110px;
 }
 @media only screen and (min-width: 960px) {
 	.top-profile .left.avatar{
