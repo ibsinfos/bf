@@ -233,6 +233,8 @@ get_header(); ?>
 }
 .top-profile .container h2{
 	padding: 5px 0 15px 0;
+	margin-top: 35px;
+	text-align: center;
 }
 
 .col-md-6.archive-profile-item .full{
@@ -477,6 +479,9 @@ body.home .site-container{
     border-bottom: 2px solid #5cb85c;
     padding: 6px 5px 6px 16px;
     background: #fff;
+}
+.why-paypal .organism__header__headline{
+	padding: 0 15px;
 }
 </style>
 

@@ -18,7 +18,7 @@ $profile_query = new WP_Query( array (
 
 if( $profile_query->have_posts() ){ ?>
 	<section class="full-width top-profile">
-		<div class=" container site-container">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<h2 class="pypl-heading"> Looking for Professional Freelancers?</h2>
