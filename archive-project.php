@@ -3,7 +3,7 @@
  * @key:archive-project.php
  */
 get_header(); ?>
-<div class="full-width">
+<div class="full-width main-archive">
 	<div class="container site-container">
 		<div  id="content" >
 			<div class="set-bg full">

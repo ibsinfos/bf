@@ -593,4 +593,7 @@
 	#full_header{
 		z-index: 99;
 	}
+	.post-type-archive .main-archive .container{
+		padding: 0;
+	}
 }
