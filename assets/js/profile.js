@@ -72,16 +72,19 @@
 		    });
 
 			$(".btn-edit-default").click(function(event){
-				var form 	= $(event.currentTarget);
-				form.closest("form").toggleClass("is-edit");
+				var _this 	= $(event.currentTarget);
+				var form = _this.closest("form");
+				//form.closest("form").toggleClass("is-edit");
 
-				$(".update").toggleClass('hide');
-				$(".static").toggleClass('hide');
+				form.find(".update").toggleClass('hide');
+				form.find(".static").toggleClass('hide');
 			});
 			$(".btn-edit-second").click(function(event){
-				var form 	= $(event.currentTarget);
-				form.closest('form').find('.visible-default').toggleClass('invisible');
-				form.closest('form').find('.invisible-default').toggleClass('visible');
+				var _this 	= $(event.currentTarget);
+				var form = _this.closest("form");
+				form.toggleClass("is-edit");
+				// form.closest('form').find('.visible-default').toggleClass('invisible');
+				// form.closest('form').find('.invisible-default').toggleClass('visible');
 			});
 			$(".btn-edit").click(function(){
 				var element 	= $(event.currentTarget);

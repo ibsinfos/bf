@@ -13,12 +13,14 @@
     	'hide_empty' => false)
    	);
 
-   if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
+   if ( ! empty( $countries ) || ! is_wp_error( $countries ) ){
       	$country_select.= '<select name="country" id="country" class="chosen-select form-control" data-placeholder="Choose a country" >';
       	foreach ( $countries as $country ) {
         	$country_select .= '<option value="'.$country->slug.'" '. selected($country->slug, $slug, false) .' >' . $country->name . '</option>';
       	}
       	$country_select.= '</select>';
+   } else {
+   	$country_select == __('List country is empty','boxtheme');
    }
 
 
@@ -94,55 +96,48 @@
 			<form id="update_profile_meta" class="update-profile row-section">
 			<span class="btn btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
 			<div class="form-group row">
-			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
-			 <div class="col-sm-10">
+			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
+			 <div class="col-sm-9">
 			    <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
 			    <div class="invisible-default">
 			       <input type="text" class="update form-control " value="<?php echo $profile->hour_rate;?>" name="hour_rate">
 			    </div>
 			 </div>
-			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
 			</div>
 			<div class="form-group row">
-			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Phone','boxtheme');?></label>
-			 <div class="col-sm-10">
+			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Phone','boxtheme');?></label>
+			 <div class="col-sm-9">
 			    <span class="visible-default"><?php echo  $profile->phone_number ;?></span>
 			    <div class="invisible-default">
 			       <input type="text" class="update form-control " value="<?php echo $profile->phone_number;?>" name="phone_number">
 			    </div>
 			 </div>
-			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
 			</div>
 			<div class="form-group row">
-			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Address','boxtheme');?></label>
-			 <div class="col-sm-10">
+			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Address','boxtheme');?></label>
+			 <div class="col-sm-9">
 			    <span class="visible-default"><?php echo $profile->address ;?></span>
 			    <div class="invisible-default">
 			        <input type="text" class="update form-control" value="<?php echo $profile->address;?>" name="address">
 			    </div>
 			 </div>
-			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
 			</div>
 
 
 			<div class="form-group row">
-			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Country','boxtheme');?></label>
-			 <div class="col-sm-10">
-			    <span class="visible-default"><?php echo $txt_country;?></span>
-			    <div class="invisible-default">
+			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Country','boxtheme');?></label>
+			 <div class="col-sm-9">
+			    <span class="visible-default"><?php echo !empty($txt_country) ? $txt_country : __('Unset','boxtheme');?></span>
+			    <div class="chosen-edit-wrap">
 			       <?php echo $country_select;?>
 			    </div>
 			 </div>
 			</div>
 			<div class="form-group row">
-			 <label for="country" class="col-sm-2 col-form-label"><?php _e('Skill','boxtheme');?></label>
-			 <div class="col-sm-10">
+			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Skill','boxtheme');?></label>
+			 <div class="col-sm-9">
 			    <span class="visible-default"><?php echo  $skill_val ;?></span>
-			    <div class="invisible-default">
-			       <?php
-			       echo $skill_list;
-			       ?>
-			    </div>
+			    <div class="chosen-edit-wrap">  <?php echo $skill_list;?></div>
 			 </div>
 			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
 			</div>

@@ -113,17 +113,20 @@ h3{
 margin: 0;
 }
 .invisible-default{
-    visibility: hidden;
-    position: absolute1;
+	display: none;
 }
-.invisible-default.visible{
-    visibility: visible;
-    display: block;
-    position: absolute1;
+.is-edit .invisible-default{
+	display: block;
 }
-.visible-default.invisible{
-    visibility: hidden;
-    position: absolute;
+.chosen-edit-wrap{
+	visibility: visible;
+	opacity: 0;
+}
+.is-edit .chosen-edit-wrap{
+	opacity: 1;
+}
+.is-edit .visible-default{
+	display: none;
 }
 #update_profile_meta .col-sm-10{
     height: 35px;
@@ -289,7 +292,11 @@ form.is-edit{
     margin-bottom: 20px;
     border-radius: 7px;
     border: 3px solid #d4d1d1;
+    padding-bottom: 25px;
 }
 #list_portfolio{
 	padding-top: 50px;
+}
+.edit-profile-content{
+	min-height: 153px;
 }
