@@ -1,4 +1,8 @@
 <?php
+global $general;
+$code = $general->currency['code'];
+$symbol = box_get_currency_symbol($code);
+
 $profile_query = new WP_Query( array (
 	'post_type' => PROFILE,
 	'post_status' => 'publish',
@@ -10,6 +14,8 @@ $profile_query = new WP_Query( array (
 	'showposts' => 6
 	)
 );
+
+
 if( $profile_query->have_posts() ){ ?>
 	<section class="full-width top-profile">
 		<div class=" container site-container">
@@ -57,7 +63,7 @@ if( $profile_query->have_posts() ){ ?>
 											<?php echo $profile->professional_title;?>
 										<?php } ?>
 									</h5>
-									<span class="absolute abs-top abs-right-15 hour-rate ">$<?php echo $profile->hour_rate;?>/hr</span>
+									<span class="absolute abs-top abs-right-15 hour-rate "><?php echo $symbol.' '.$profile->hour_rate;?>/hr</span>
 									<span class="padding-top-15"><span>Join since June, 2017 </span></span>
 									<span class="full">
 										<start class="rating-score <?php echo $start_class;?> ">
