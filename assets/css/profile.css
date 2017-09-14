@@ -300,3 +300,6 @@ form.is-edit{
 .edit-profile-content{
 	min-height: 153px;
 }
+.profile-info-section form .form-group.row{
+	min-height: 33px;
+}
