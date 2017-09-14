@@ -431,6 +431,8 @@
 	.account-dropdown{
 		position: relative;
 		padding-top: 0;
+		padding: 0;
+		margin:0;
 	}
 	.account-dropdown li.profile-account a.account-name{
 		float: left;
