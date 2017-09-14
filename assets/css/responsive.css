@@ -581,4 +581,13 @@
 		text-align: right;
 		padding-right: 0;
 	}
+	ul.account-dropdown li.icon-bell  ul{
+		min-width: 274px;
+	}
+	ul.account-dropdown li.icon-bell  ul{
+		right: -25px;
+	}
+	#full_header{
+		z-index: 99;
+	}
 }
