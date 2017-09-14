@@ -23,7 +23,7 @@
 	            	<input type="hidden" name ="ID" value="<?php echo $profile->ID;?>">
 	            </div>
 	            <div class="form-group ">
-	            	<div class="static visible-default edit-profile-content"> <?php if( empty($profile->post_content) ) _e('Update your cover letter here','boxtheme'); else echo $profile->post_content; ?></div>
+	            	<div class="static visible-default edit-profile-content author-overview"> <?php if( empty($profile->post_content) ) _e('Update your cover letter here','boxtheme'); else echo $profile->post_content; ?></div>
 	            	<textarea class="update hide form-control" name="post_content" cols="50" rows="6" placeholder="<?php _e("Update your cover letter here","boxtheme");?>" ><?php echo $profile->post_content;?></textarea>
 	            </div>
 
