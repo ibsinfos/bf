@@ -110,6 +110,9 @@ h3{
 .row-section h2.static {
 margin: 0;
 }
+.row-section h2.static:first-letter{
+	text-transform: uppercase;
+}
 .invisible-default{
 	display: none;
 }
@@ -286,8 +289,8 @@ form.add-portfolio .modal-body .body-bg {
 form.is-edit{
 
 }
-.profile-info-section h2{
-	padding-bottom: 20px;
+.edit-profile-section h2{
+	padding-bottom: 15px;
 }
 .profile-info-section {
 
