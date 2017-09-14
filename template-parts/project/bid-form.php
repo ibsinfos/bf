@@ -27,7 +27,7 @@ $symbol = box_get_currency_symbol($code);
         	$label_text = __('Employer pay this fee','boxtheme');
         }
 ?>
-        <input type="number" size="6" class="form-control inline input-price" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
+        <input type="number" size="6" class="form-control inline input-price" min ="<?php echo $cms_fee;?>" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
       </div>
    	</div>
    	<div class="form-group row bd-bottom">
@@ -37,7 +37,7 @@ $symbol = box_get_currency_symbol($code);
       	</div>
    	</div>
    	<div class="form-group row bd-bottom">
-      	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('You\'ll receive','boxtheme');?> <span class="f-right"><?php echo $symbol;?></span></label>
+      	<label for="inputEmail5" class="col-sm-8 col-form-label"><?php _e('You\'ll receive','boxtheme');?> <span class="f-right"><?php echo $symbol;?></span></label>
       	<div class="col-sm-4">
         	<input type="text" class="form-control input-price" readonly id="_bid_receive" name="_bid_receive" value="<?php echo $fre_receive;?>" />
       	</div>
