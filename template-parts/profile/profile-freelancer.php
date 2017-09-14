@@ -96,8 +96,8 @@
 			<form id="update_profile_meta" class="update-profile row-section">
 			<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
 			<div class="form-group row">
-			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
-			 <div class="col-sm-9">
+			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
+			 	<div class="col-sm-9">
 			    <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
 			    <div class="invisible-default">
 			       <input type="number" min="1"  class="update form-control" value="<?php echo $profile->hour_rate;?>" name="hour_rate">
