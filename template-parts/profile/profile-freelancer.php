@@ -126,7 +126,7 @@
 
 			<div class="form-group row">
 			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Country','boxtheme');?></label>
-			 <div class="col-sm-9">
+			 <div class="col-sm-9 set-relative">
 			    <span class="visible-default"><?php echo !empty($txt_country) ? $txt_country : __('Unset','boxtheme');?></span>
 			    <div class="chosen-edit-wrap">
 			       <?php echo $country_select;?>
@@ -135,7 +135,7 @@
 			</div>
 			<div class="form-group row">
 			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Skill','boxtheme');?></label>
-			 <div class="col-sm-9">
+			 <div class="col-sm-9 set-relative">
 			    <span class="visible-default"><?php echo  $skill_val ;?></span>
 			    <div class="chosen-edit-wrap">  <?php echo $skill_list;?></div>
 			 </div>
