@@ -15,7 +15,7 @@ get_header(); ?>
 						<div class="col-md-12" id = "search_line">
 							<form action="" class="full frm-search">
 								<div class="input-group full">
-							       <input type="text" name="s" id="keyword" class="required" required placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control" />
+							       <input type="text" name="s" id="keyword"  required placeholder="Search..." value="<?php echo get_search_query();?>" class="form-control required" />
 							       <div class="input-group-btn">
 							           <button class="btn btn-info primary-bg"> <i class="fa fa-search" aria-hidden="true"></i>  </button>
 							       </div>
