@@ -53,14 +53,16 @@ $role = bx_get_user_role();
 <div class="row-nav full-width header" id="full_header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 col-logo">
-				<a class="logo" href="<?php echo home_url();?>"> <?php echo !empty( $html_logo ) ? $html_logo : $default_logo; ?>	</a>
+			<div class="col-md-2 col-logo col-xs-8">
+				<?php if( ! empty( $html_logo ) ){ echo $html_logo; } else { ?>
+				<a class="logo" href="<?php echo home_url();?>"> <?php echo $default_logo; ?>	</a>
+				<?php }?>
 			</div>
-			<div class="no-padding col-nav col-md-6">
+			<div class="no-padding col-nav col-md-6 ">
 				<?php if ( has_nav_menu( 'top' ) ) { get_template_part( 'template-parts/navigation', 'top' );} ?>
 			</div>
 			<!-- seach form here !-->
-			<div class="col-md-4 ">
+			<div class="col-md-4 col-xs-3 col-account-menu">
 				<div class="f-right align-right no-padding-left header-action">
 					<?php
 						if ( is_user_logged_in() ) { box_account_dropdow_menu(); } else { ?>

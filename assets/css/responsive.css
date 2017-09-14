@@ -130,8 +130,8 @@
 	}
 	.header .container{
 		margin-top: 0;
-		padding-top: 0;
-
+		padding:5px 0;
+		background-color: #fff;
 	}
 	.header ul.menu{
 		float: left;
@@ -241,13 +241,7 @@
 	div.col-nav.visible .menu-hamburger:before{
 		1content: "\e014";
 	}
-	.col-logo{
-		width: 100%;
-		text-align: center;
-		float: left;
-		padding: 0;
-		background: #fff;
-	}
+
 	a.logo img{
 		max-width: 80%;
 		vertical-align: top;
@@ -260,6 +254,15 @@
 		right: 0;
 		padding-right: 0;
 		z-index: 10;
+	}
+	.col-account-menu{
+		float: right;
+	}
+	div.header-action{
+		width: 100%;
+	}
+	span.username{
+		display: none;
 	}
 	.main-login {
 		display: block;
@@ -410,37 +413,44 @@
 		display: none;
 	}
 	.account-dropdown .account-name{
-		opacity: 0;
+
 		z-index: 11;
 	}
 	.account-dropdown img.avatar{
-		top:0;
-		right: 0;
+		float: left;
+	}
+	.head-avatar{
+
+	}
+	.account-dropdown img.avatar{
+		width: 39px;
+		height: 39px;
 	}
 	.account-dropdown{
 		position: relative;
 		padding-top: 0;
 	}
-	ul.account-dropdown li.first-sub{
-		padding-top: 0;
+	.account-dropdown li.profile-account a.account-name{
+		float: left;
+		width: 100%;
 	}
 	ul.account-dropdown li.profile-account{
-		position1: absolute;
 		z-index: 5;
+		width: 88px;
+		padding-left: 5px;
+	}
+	.profile-account  .caret{
+		right: 20px;
+		top: 4px;
+		color: #666 !important;
 	}
 	ul.account-dropdown li.avatar {
 		position: absolute;
 		top: 5px;
 		right: 0;
 	}
-	ul.account-dropdown li.icon-bell{
-		position: absolute;
-		top: 0;
-		right: 25px;
-	}
-	li.icon-bell span.toggle-msg{
-		font-size: 23px;
-	}
+
+
 	.frm-submit-project .btn-file-uploader{
 		width: 100%;
 		clear: both;
@@ -551,5 +561,21 @@
 	}
 	.site-container{
 		background: #fff;
+	}
+	body.page-template-landing-page-one .fa-bell{
+		color: #666;
+		top:0px;
+	}
+	ul.account-dropdown li.icon-bell{
+		width: 20px;
+		float: left;
+	}
+	ul.account-dropdown li.icon-bell .dropdown-toggle{
+	    width: 100%;
+	    padding-top: 11px;
+	    float: left;
+	}
+	.col-logo {
+		text-align: right;
 	}
 }
