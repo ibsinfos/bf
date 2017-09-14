@@ -1,4 +1,6 @@
-
+a:hover{
+	text-decoration: none;
+}
 .currency-icon{
 	position: relative;
 	top:-3px;
@@ -965,7 +967,7 @@ ul.pagination{
 .author-skills a{
 	text-decoration: none;
 	color: #555;
-	padding: 0px 12px;
+	padding: 4px 15px;
 	background-color: #ececec;
 	margin-right: 5px;
 }
