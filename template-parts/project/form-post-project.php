@@ -2,7 +2,7 @@
 $p_id = isset($_GET['p_id']) ? $_GET['p_id'] : 0;
 $project = array();
 $lbl_btn = __('Post Project Now','boxtheme');
-$skills = array();
+$skills = $cat_ids =$skill_ids = array();
 
 ?>
 <form id="submit_project" class="frm-submit-project">
@@ -20,7 +20,7 @@ $skills = array();
 
 
 			$skills = get_the_terms( $project, 'skill' );
-			$skill_ids = array();
+
 			if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
 				foreach ( $skills as $skill ) {
 				  	$skill_ids[] = $skill->term_id;
@@ -28,7 +28,7 @@ $skills = array();
 			}
 
 			$cats = get_the_terms( $project, 'project_cat' );
-			$cat_ids = array();
+
 			if ( ! empty( $cats ) && ! is_wp_error( $cats ) ){
 				foreach ( $cats as $cat ) {
 				  	$cat_ids[] = $cat->term_id;

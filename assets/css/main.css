@@ -477,6 +477,8 @@ body.fixed .account-dropdown  .fa-bell{
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    background-color: #e6e6e6;
+    padding: 1px;
 
 }
 .account-dropdown li.profile-account ul li{
