@@ -53,7 +53,7 @@ $role = bx_get_user_role();
 <div class="row-nav full-width header" id="full_header">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2 col-logo col-xs-6 col-xs-offset-2">
+			<div class="col-md-2 col-logo col-xs-6">
 				<?php if( ! empty( $html_logo ) ){ echo $html_logo; } else { ?>
 				<a class="logo" href="<?php echo home_url();?>"> <?php echo $default_logo; ?>	</a>
 				<?php }?>

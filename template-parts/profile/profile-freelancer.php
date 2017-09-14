@@ -125,7 +125,7 @@
 
 
 			<div class="form-group row">
-			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Country','boxtheme');?></label>
+			 <label for="country" class="col-sm-3 col-xs-12 col-form-label"><?php _e('Country','boxtheme');?></label>
 			 <div class="col-sm-9 set-relative">
 			    <span class="visible-default"><?php echo !empty($txt_country) ? $txt_country : __('Unset','boxtheme');?></span>
 			    <div class="chosen-edit-wrap">

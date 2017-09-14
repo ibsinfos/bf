@@ -582,6 +582,7 @@
 	.col-logo {
 		text-align: right;
 		padding-right: 0;
+		margin-left: 20%;
 	}
 	ul.account-dropdown li.icon-bell  ul{
 		min-width: 274px;

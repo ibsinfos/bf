@@ -126,11 +126,9 @@ margin: 0;
 }
 .set-relative{
 	position: relative;
-	max-height: 33px;
 }
 .is-edit .chosen-edit-wrap{
 	opacity: 1;
-	position: absolute;
 }
 .is-edit .visible-default{
 	display: none;
