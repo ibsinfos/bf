@@ -3,7 +3,7 @@ global $post;
 $project = BX_Project::get_instance()->convert($post);
 //echo '<pre>';var_dump($project);echo '</pre>';
 ?>
-<div class="row project-loop-item">
+<div class="project-loop-item">
 	<div class="col-md-12">
 	<?php echo '<h3 class="project-title"><a class="primary-color second-font" href="'.get_permalink().'">'.get_the_title().'</a></h3>';?>
 	</div>
