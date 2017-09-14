@@ -110,7 +110,7 @@ Class BX_Profile extends BX_Post{
 		$full_info['description'] = $user->description;
 		$full_info['avatar'] =  get_avatar($user->user_email, 96 );
 
-		$profile_id = get_user_meta($user_id,'profile_id', true);
+		$profile_id = get_user_meta($user_id, 'profile_id', true);
 		$profile_info = $this->convert($profile_id);
 		$full_info['skill_text'] = '';
 		$skills 	= get_the_terms( $profile_id, 'skill' );

@@ -510,6 +510,9 @@ body.fixed .account-dropdown  .fa-bell{
 	position: relative;
 	top:10px;
 }
+.account-dropdown li.profile-account a.account-name .username:first-letter{
+	text-transform: uppercase;
+}
 .account-dropdown li.profile-account ul li .account-link li{
 	padding:10px  0 6px 0;
 }
