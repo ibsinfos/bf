@@ -213,11 +213,15 @@ form.add-portfolio .modal-body .body-bg {
 }
 .btns-act .btn-sub-act {
     margin-left: 4px;
-    background: rgba(195, 191, 191, 0.42);
+    background: #fff;
     text-align: center;
     padding: 3px 3px;
-	cursor: pointer;
-	color: #fff;
+    width: 22px;
+    height: 23px;
+    text-align: center;
+    cursor: pointer;
+    color: #17a717;
+    float: left;
 }
 .imgareaselect-border1,
 .imgareaselect-border2{

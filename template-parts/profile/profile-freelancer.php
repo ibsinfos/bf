@@ -155,7 +155,7 @@
 
 <div class="col-md-12 center frame-add-port edit-profile-section portfolio-section">
 	<div class="full">
-		<button class="btn btn-show-portfolio-modal"><?php _e('+ Add portfolio','boxtheme');?></button>
+		<button class="btn btn-show-portfolio-modal"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; <?php _e('Add portfolio','boxtheme');?></button>
 	</div>
 
 	<div class="row-section col-md-12" id="list_portfolio">
@@ -178,14 +178,13 @@
 				$list_portfolio[$post->ID] = $post;
 				echo '<div class="col-md-4 port-item" id="'.$post->ID.'">';
 					the_post_thumbnail('full' );
-					echo '<div class="btns-act"><span class="btn-sub-act btn-edit-port "><span class="glyphicon glyphicon-pencil
-	"></span></span>';
-					echo '<span class="btn-sub-act btn-del-port" > <span class="glyphicon glyphicon-trash"></span></span></div>';
+					echo '<div class="btns-act"><span class="btn-sub-act btn-edit-port "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>';
+					echo '<span class="btn-sub-act btn-del-port" ><i class="fa fa-times" aria-hidden="true"></i></span></div>';
 				echo '</div>';
 			}
 			wp_reset_query();
 		} else {
-			_e('There is no portfolio yet','boxtheme');
+			_e('There is no any portfolio yet','boxtheme');
 		}
 		?>
 
