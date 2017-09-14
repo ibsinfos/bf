@@ -12,7 +12,7 @@
                     <div class="block mt10">
                         <input type="password" class="form-control no-radius" name="user_password" placeholder="<?php _e('Password','boxtheme');?>" required>
                     </div>
-                    <?php wp_nonce_field( 'bx_login_action', 'nonce_login_field' ); ?>
+                    <?php wp_nonce_field( 'bx_login', 'nonce_login_field' ); ?>
 
                     <button id="login-submit" type="submit" class="btn btn-block btn-lg btn-go mt30 no-radius"><?php _e('Login','boxtheme');?></button>
                     <div class="loading-item" id="login-loading" style="display: none;"><div class="loadinghdo"></div></div>
