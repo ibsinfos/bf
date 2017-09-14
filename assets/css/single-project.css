@@ -308,3 +308,5 @@ a:hover{
 .job-content ul, .job-content ol{
 	margin-left: 40px;
 }
+
+.emp-name:first-letter {text-transform: uppercase}

@@ -65,6 +65,7 @@
        			if ( ! $is_workspace ) { ?>
        				<div class="col-md-8">
        					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
+
 			       	</div> <!-- .col-md-8  Job details !-->
 				    <div class="col-md-4 sidebar" id="single_sidebar">
 				    	<?php 	step_process();?>
