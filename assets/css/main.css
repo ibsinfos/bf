@@ -972,8 +972,10 @@ ul.pagination{
 	padding: 5px 0;
 	font-size: 17px;
 }
-.author-overview{
-	line-height: 22px;
+.author-overview {
+    line-height: 1.75em;
+    font-size1: 15px;
+    color1: #676767;
 }
 .author-address{
 	padding-bottom: 10px;

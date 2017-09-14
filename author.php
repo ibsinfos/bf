@@ -51,9 +51,8 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 					<!-- Ovreview line !-->
 					<div class="full bd-bottom">
 						<div class="col-sm-8 text-justify">
-
 							<h3>  <?php _e('Overviews','boxtheme');?> </h3>
-							<div class="full author-overview"><?php echo $profile->post_content;?></div>
+							<div class="full author-overview  second-font1"><?php echo $profile->post_content;?></div>
 							<?php
 							//$video_id = get_post_meta($profile->ID, 'video_id', true);
 							$video_id = '';
