@@ -358,6 +358,12 @@ ul.account-dropdown li.icon-bell  ul{
 	min-width: 475px;
 	z-index: 10;
 }
+ul.account-dropdown li.icon-bell  ul.ul-notification{
+	min-height: 33px;
+}
+ul.account-dropdown li.icon-bell  ul.ul-notification .empty-noty{
+	padding: 15px 0 15px 15px;
+}
 .empty-msg{
 	display: none;
 }
@@ -480,6 +486,10 @@ body.fixed .account-dropdown  .fa-bell{
 	padding-left: 10px;
 	border-bottom:1px solid #ececec
 }
+.account-dropdown li.profile-account ul.account-link li{
+	padding-top: 6px;
+	padding-bottom: 5px;
+}
 .account-dropdown li.profile-account a.account-name{
 	float: right;
     white-space: nowrap;
@@ -497,6 +507,9 @@ body.fixed .account-dropdown  .fa-bell{
 	float: left;
 	position: relative;
 	top:10px;
+}
+.account-dropdown li.profile-account ul li .account-link li{
+	padding:10px  0 6px 0;
 }
 .profile-account  .caret{
 	position: relative;

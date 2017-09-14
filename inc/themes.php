@@ -198,7 +198,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span>
 			<span class="<?php echo $msg_class;?>"><?php echo $number_new_msg;?></span>
 			</a>
-			<ul class="dropdown-menu" >
+			<ul class="dropdown-menu account-link" >
 				<?php if($role == FREELANCER){ ?>
 					<li> <i class="fa fa-th-list" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('dashboard');?>"><?php _e('My Job','boxtheme');?></a></li>
 				<?php } else { ?>
@@ -237,7 +237,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 					}
 				} else { ?>
-					<?php _e('There is no new notification','boxtheme');?>
+					<p class="empty-noty"><?php _e('There is no new notification','boxtheme');?></p>
 				<?php }
 				echo '</ul>';
 				if( $unread )
