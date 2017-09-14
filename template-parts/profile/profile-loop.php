@@ -59,8 +59,8 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 		<div class="col-md-10 align-left  col-xs-12 res-content no-padding-right">
 			<span class="overview-profile clear col-xs-12">
 			<?php
-			$str = str_replace( array("\n", "\r"), '', get_the_content() );
-			the_excerpt_max_charlength($str, 170);
+			$str = str_replace( array("\n", "\r"), '', $post->post_content );
+			echo wp_trim_words($str, 50);
 			?>
 
 			</span>
