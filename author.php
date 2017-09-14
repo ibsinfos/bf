@@ -65,7 +65,6 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 						<div class="col-md-4">
 
 							<ul class="work-status">
-								<li><label><h3>Profile info &nbsp;</h3></label> </li>
 								<li><label> Job worked: </label> <?php echo  $projects_worked;?></li>
 								<li><label> Total earn: </label><?php  echo $earned;?></li>
 								<li><label>Country:</label><?php if( !empty( $pcountry ) ){ echo $pcountry[0]->name; } ?></li>
