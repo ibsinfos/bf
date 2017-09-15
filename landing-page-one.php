@@ -27,8 +27,46 @@ function box_after_cover_img(){
 }
 $main_img = get_theme_mod('main_img',  get_template_directory_uri().'/img/banner.jpg' );
 get_header(); ?>
+<?php global $role;?>
+<div class="full-width cover-content">
+	<div class="container">
+		<div class="heading-aligner">
+	        <h1>#JOIN OUR FREELANCE COMMUNITY</h1>
+	        <p>We know it's hard to find a online expert when you need one,
+	            which is why we've set on a mission to bring them all to one place.
+	        </p>
+	        <!-- CREATE PRODILE BUTTON -->
+	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	        	<?php if ( !is_user_logged_in() ) { ?>
+	        		<a href="<?php echo box_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create a Profile','boxtheme');?></a>
+	        	<?php } else { ?>
+		        	<?php if($role == EMPLOYER){?>
+		        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
+		            <?php } else {?>
+		            	<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Job','boxtheme');?></a>
+		            <?php }?>
+		        <?php } ?>
+	        </div>
+	        <!-- POST A PROJECT BUTTON -->
+	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	        	<?php if( is_user_logged_in() ){ ?>
+		        	<?php if( $role == EMPLOYER || current_user_can('manage_options' ) ){?>
+		            	<a href="<?php echo box_get_static_link("post-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
+		            <?php } ?>
+	            <?php }?>
+	        </div>
+	    </div>
+	</div>
+</div>
+<?php do_action('after_cover_img' );?>
+<?php get_template_part( 'static-block/one', 'how-we-work' );?>
+<?php get_template_part( 'static-block/one', 'why-us' );?>
+<?php get_template_part( 'static-block/one', 'package-plan' );?>
+<?php get_template_part( 'static-block/one', 'list-profiles' );?>
+<?php // get_template_part( 'static-block/one', 'stats' );?>
+
 <style type="text/css">
-	.cover-img{
+.cover-img{
 		background:url('<?php echo $main_img;?>') top center no-repeat;
 	    background-size: cover;
 	}
@@ -71,47 +109,6 @@ get_header(); ?>
 	.cover-content{
 		padding-top: 150px;
 	}
-
-</style>
-<?php global $role;?>
-<div class="full-width cover-content">
-	<div class="container">
-		<div class="heading-aligner">
-	        <h1>#JOIN OUR FREELANCE COMMUNITY</h1>
-	        <p>We know it's hard to find a online expert when you need one,
-	            which is why we've set on a mission to bring them all to one place.
-	        </p>
-	        <!-- CREATE PRODILE BUTTON -->
-	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	        	<?php if ( !is_user_logged_in() ) { ?>
-	        		<a href="<?php echo box_get_static_link('signup');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('Create a Profile','boxtheme');?></a>
-	        	<?php } else { ?>
-		        	<?php if($role == EMPLOYER){?>
-		        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
-		            <?php } else {?>
-		            	<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Job','boxtheme');?></a>
-		            <?php }?>
-		        <?php } ?>
-	        </div>
-	        <!-- POST A PROJECT BUTTON -->
-	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-	        	<?php if( is_user_logged_in() ){ ?>
-		        	<?php if( $role == EMPLOYER || current_user_can('manage_options' ) ){?>
-		            	<a href="<?php echo box_get_static_link("post-project");?>" class="btn  find-btn btn-action btn-biggest"><?php _e('Post a Job','boxtheme');?></a>
-		            <?php } ?>
-	            <?php }?>
-	        </div>
-	    </div>
-	</div>
-</div>
-<?php do_action('after_cover_img' );?>
-<?php get_template_part( 'static-block/one', 'how-we-work' );?>
-<?php get_template_part( 'static-block/one', 'why-us' );?>
-<?php get_template_part( 'static-block/one', 'package-plan' );?>
-<?php get_template_part( 'static-block/one', 'list-profiles' );?>
-<?php // get_template_part( 'static-block/one', 'stats' );?>
-
-<style type="text/css">
 
 /************* WHY PAYPAL */
 .organism__header {
