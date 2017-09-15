@@ -410,7 +410,7 @@ function boxtheme_scripts() {
 
 	// Load the html5 shiv.
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
-	wp_register_script( 'bootstrap-js', get_theme_file_uri( '/library/js/bootstrap.min.js' ), array('jquery'), BX_VERSION );
+	wp_register_script( 'bootstrap-js', get_theme_file_uri( '/library/bootstrap/js/bootstrap.min.js' ), array('jquery'), BX_VERSION );
 
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
