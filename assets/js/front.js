@@ -21,7 +21,7 @@
 
 			});
 
-			$('[data-toggle="tooltip"]').tooltip()
+			//$('[data-toggle="tooltip"]').tooltip()
 
 			$(".toggle-check").click(function(event){
 				var block = $(this).closest(".block");
