@@ -132,6 +132,7 @@
 		margin-top: 0;
 		padding:10px 0;
 		background-color: #fff;
+		border-bottom: 1px solid #e6e6e6;
 	}
 	.header ul.menu{
 		float: left;
@@ -284,6 +285,10 @@
 	.list-project{
 		border:0;
 		padding: 15px 0;
+	}
+	.archive-profile-item .full{
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	.col-md-6.archive-profile-item .full{
 		border:0;
@@ -492,9 +497,20 @@
 		width: 100%;
 		float: left;
 	}
+
+	}
 	.archive-profile-item .list-info span.item{
 		min-width: 0;
 		padding: 0;
+	}
+	.archive-profile-item .list-info .hour-rate{
+		position: absolute;
+		top:-50px;
+		right:0;
+		width: 56px;
+	}
+	.archive-profile-item .txt-rate{
+		float: right;
 	}
 	.archive-profile-item .list-info span.item.eared-txt{
 		text-align: left !important;
@@ -502,13 +518,14 @@
 	.archive-profile-item .hour-rate{
 		top:10px; right: 0;
 		position: absolute;
+
 	}
 	.archive-profile-item .res-content{
 		padding: 0;
 	}
 	.archive-profile-item .res-content.res-second-line{
 		padding-right: 0;
-		padding-left: 15px;
+		padding-left: 10px;
 		padding-top: 10px;
 	}
 	.archive-profile-item  .second-line{
