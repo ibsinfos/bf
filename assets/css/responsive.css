@@ -80,13 +80,12 @@
 		padding-top: 15px;
 		border:0;
 	}
-	.modal-open
-
-	div.desktop-only,
+	.modal-open	div.desktop-only,
 	.desktop-only,
 	ul li.desktop-only{
 		display: none;
 	}
+
 	.mobile-only{
 		display: block;
 	}
@@ -177,11 +176,7 @@
 		top:6px;
 		display: none;
 	}
-	.frm-search .search-icon1{
-		z-index: 10;
-		right: 10px;
-		left: auto;
-	}
+
 	input.keyword{
 		text-indent: 10px;
 		padding-top: 0px;
@@ -189,6 +184,7 @@
 		height: 35px;
 		line-height: 35px;
 	}
+
 	.frm-search button.mobile-only{
 		position: absolute;
 		right: 0px;
@@ -242,7 +238,11 @@
 	div.col-nav.visible .menu-hamburger:before{
 		1content: "\e014";
 	}
-
+	.col-logo {
+		text-align: right;
+		padding-right: 0;
+		margin-left: 20%;
+	}
 	a.logo img{
 		max-width: 80%;
 		vertical-align: top;
@@ -497,8 +497,6 @@
 		width: 100%;
 		float: left;
 	}
-
-	}
 	.archive-profile-item .list-info span.item{
 		min-width: 0;
 		padding: 0;
@@ -596,11 +594,7 @@
 	    padding-top: 11px;
 	    float: left;
 	}
-	.col-logo {
-		text-align: right;
-		padding-right: 0;
-		margin-left: 20%;
-	}
+
 	ul.account-dropdown li.icon-bell  ul{
 		min-width: 274px;
 	}
