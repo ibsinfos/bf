@@ -37,7 +37,7 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 				    		else {	echo get_avatar($author_id);	}
 				    		?>
 				    	</div>
-				      	<div class="col-md-9 no-padding-left">
+				      	<div class="col-md-9">
 				      		<div class="col-md-10 col-xs-10 no-padding"><h1 class="profile-title no-margin"> <?php echo $profile->post_title;?></12></div>
 				      		<div class="col-md-2 col-xs-2 no-padding align-right">
 				      			<span class="absolute1 top right align-right hour-rate"><?php echo $symbol .' '.$profile->hour_rate;?>/hr</span>

@@ -997,6 +997,8 @@ ul.pagination{
 	padding: 4px 15px;
 	background-color: #ececec;
 	margin-right: 5px;
+	float: left;
+	margin-bottom: 10px;
 }
 .bid-history-item{
 	margin-bottom: 10px;
