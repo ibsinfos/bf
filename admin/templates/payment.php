@@ -165,7 +165,7 @@ $payment = $box_option->get_group_option($group_option);
                 <input type="text" class="form-control" required="" name="sku" placeholder="SKU" value="{{{data.sku}}}"><small>SKU</small>
             </div>
             <div class="col-sm-4 one-line">
-                <input type="number" class="form-control" required="" name="price" placeholder="Price" value="{{{data.price}}}"><small>$</small>
+                <input type="number" class="form-control" required="" min="1" name="price" placeholder="Price" value="{{{data.price}}}"><small>$</small>
             </div>
             <div class="col-sm-12 one-line">
             	<textarea id="post_content" name="post_content" class="">{{{data.post_content}}}</textarea>

@@ -889,6 +889,7 @@ ul.pagination{
 	float: left;
 	max-height: 130px;
 	overflow: hidden;
+	max-width: 130px;
 }
 .archive-profile-item  .second-line{
 	display: block;
