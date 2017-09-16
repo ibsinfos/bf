@@ -1,14 +1,13 @@
-
 <div class="col-md-12">
 
   	<h5> <?php _e('History of credit','boxtheme');?> </h5>
   	<div class="none-style row history-order">
   		<div class="full line-heading">
-  			<div class="col-md-4">Date </div>
-  			<div class="col-md-2">Type </div>
-  			<div class="col-md-2">Payment </div>
-  			<div class="col-md-2">Status </div>
-  			<div class="col-md-2 align-center">Balance </div>
+  			<div class="col-md-4 col-xs-4">Date </div>
+  			<div class="col-md-2 col-xs-3 hidden-xs">Type </div>
+  			<div class="col-md-2 hidden-xs">Payment </div>
+  			<div class="col-md-2 col-xs-4 hidden-xs">Status </div>
+  			<div class="col-md-2 align-center col-xs-4 ">Balance </div>
   			<!-- <div class="col-md-2"> </div> -->
   		</div>
   		<?php
@@ -35,9 +34,9 @@
   				?>
   				<div class="line full">
 	  				<div class="col-md-4"><?php echo get_the_date();?> </div>
-	  				<div class="col-md-2"><?php echo $types[$order->order_type];?> </div>
-	      			<div class="col-md-2"><?php echo $order->payment_type;?> </div>
-	      			<div class="col-md-2"><?php echo $status[$order->post_status];?> </div>
+	  				<div class="col-md-2 hidden-xs"><?php echo $types[$order->order_type];?> </div>
+	      			<div class="col-md-2 hidden-xs"><?php echo $order->payment_type;?> </div>
+	      			<div class="col-md-2 hidden-xs"><?php echo $status[$order->post_status];?> </div>
 	      			<div class="col-md-2 align-center"><?php echo $order->amout . $check;?>  </div>
       			</div>
       			<!-- <div class="col-md-2"><button>Arhive</button> </div> -->

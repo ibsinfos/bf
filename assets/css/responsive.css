@@ -613,4 +613,8 @@
 	.archive-profile-item .list-info .hour-rate i{
 		display: none;
 	}
+	.container.site-container{
+		padding-left: 0;
+		padding-right: 0;
+	}
 }

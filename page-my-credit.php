@@ -161,6 +161,18 @@ if( ! empty ($withdraw_info->bank_account) ){
 	.page-credit .nav-tabs>li>a{
 		border-radius: 0;
 	}
+	@media only screen and (max-width: 768px) {
+		.line-item{
+			padding-left: 10px;
+			padding-right: 10px;
+			border: 0;
+			border-bottom: 1px solid #ccc;
+		}
+		.page-credit .nav-tabs > li > a{
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
 </style>
 <script type="text/javascript">
 	(function($){
