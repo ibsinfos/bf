@@ -17,8 +17,9 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
 						<div class="col-xs-12">
 						  	<div class="well" id="login_section">
 						      	<h1 class="margin-b20 margin-t30 span7">Choose your new password</h1>
-							    <div id="error-text" class="alert alert-error span7" style="display: none"></div>
-							    <form class="well span7" id="reset_password_form" method="POST">
+
+							    <div id="loginErrorMsg" class="alert alert-error alert-warning" style="display: none;"></div>
+							    <form class="span7" id="reset_password_form" method="POST">
 
 							        <input type="hidden" id="token" name="token" value="<?php echo $key;?>">
 
@@ -92,10 +93,10 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
 	            success : function(res){
 	            	form.find(".btn-submit").removeClass("loading");
 	                if ( res.success ){
-
+	                	$("#login_section").html('Your password is update. Please relogin to access your account');
 	                } else {
 	                	$("#loginErrorMsg").html(res.msg);
-	                	$("#loginErrorMsg").removeClass("hide");
+	                	$("#loginErrorMsg").show();
 	                }
 	            }
 	        });
@@ -114,6 +115,7 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
 		margin: 0;
 		font-size: 12px;
 		text-indent: 15px;
+		margin-bottom: 10px;
 	}
 	.form-control{
 		-webkit-box-shadow: 0;

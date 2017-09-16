@@ -23,13 +23,15 @@
 			                	</div>
 
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
+
+						      		<div id="loginErrorMsg"  class="loginErrorMsg alert alert-error alert-warning hide"></div>
 						          	<div class="form-group">
 						              	<input type="text" class="form-control required" id="login-username" name="user_login" value="<?php echo $email;?>" title="<?php _e('Enter you username','boxtheme');?>" placeholder="<?php _e('Username or Email','boxtheme');?>">
 						          	</div>
 						          	<div class="form-group">
 						              	<input type="password" class="form-control required" id="password" required name="user_password" value=""  title="<?php _e('Enter your password','boxtheme');?>" placeholder="<?php _e('Password','boxtheme');?>">
 						          	</div>
-						          	<div id="loginErrorMsg" class="alert alert-error alert-warning hide"><?php _e('Wrong username og password','boxtheme');?></div>
+
 						          	<div class="checkbox"><label><input type="checkbox" name="remember" id="remember"><?php _e('Remember login','boxtheme');?>  </label></div>
 					           		<?php
 				                        if( ! empty( $_GET['redirect'] ) ){
@@ -52,6 +54,7 @@
 						  	<div class="well hide forgetpass" id="reset_pass_section">
 						  		<form class="fre-reset-pw " id="resetPass">
 						      		<h2><?php _e('Reset your password','boxtheme');?></h2>
+						      		<div id="loginErrorMsg" class="loginErrorMsg alert alert-error alert-warning hide"><?php _e('Wrong username og password','boxtheme');?></div>
 						      		<div class="form-group">
 						              	<input type="email" class="form-control required" required="" id="login-email" name="email" value="" title="<?php _e('Enter you email','boxtheme');?>" placeholder="<?php _e('Enter you email','boxtheme');?>">
 						              	<input type="hidden" name="method" value="send_request">
@@ -108,8 +111,8 @@
                             window.location.href= bx_global.home_url;
                         }
                     } else {
-                    	$("#loginErrorMsg").html(res.msg);
-                    	$("#loginErrorMsg").removeClass("hide");
+                    	$(".loginErrorMsg").html(res.msg);
+                    	$(".loginErrorMsg").removeClass("hide");
                     }
                 }
             });
@@ -147,8 +150,8 @@
                     if ( res.success ){
                     	$(".forgetpass").html(res.msg);
                     } else {
-                    	$("#loginErrorMsg").html(res.msg);
-                    	$("#loginErrorMsg").removeClass("hide");
+                    	$(".loginErrorMsg").html(res.msg);
+                    	$(".loginErrorMsg").removeClass("hide");
                     }
                 }
             });
@@ -162,11 +165,12 @@
 	.row-login-avatar{
 		margin-bottom: 25px;
 	}
-	#loginErrorMsg{
+	.loginErrorMsg{
 		padding: 10px 0;
 		margin: 0;
 		font-size: 12px;
 		text-indent: 15px;
+		margin-bottom: 10px;
 	}
 	.form-control{
 		-webkit-box-shadow: 0;

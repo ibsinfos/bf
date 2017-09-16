@@ -962,9 +962,12 @@ class BX_AJAX {
 				wp_send_json( $response );
 			}
 			$user = check_password_reset_key( $token, $username );
+			if( is_wp_error($user ) ){
+				$response['msg'] = $user->get_error_message();
+			}
 			if( !is_wp_error($user)  ){
 				reset_password( $user, $new_password );
-				$response = array('success' => false, 'msg' => 'Your password is updated.','boxthemes');
+				$response = array('success' => true, 'msg' => 'Your password is updated.','boxthemes');
 				wp_send_json( $response );
 			}
 			wp_send_json( $response );
