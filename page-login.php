@@ -10,16 +10,18 @@
             <div class="panel panel-info" >
                 <div style="padding-top:25px" class="panel-body" >
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                	<div class="input-group full center">
-                		<img class="avatar" src="<?php echo get_theme_file_uri('img/avatar_login.png');?>" />
-                	</div>
+
                 	<?php
                 		$warning = array();
                 		$email = isset($_GET['email'])? $_GET['email'] : '';
                 	?>
                     <div class="row">
 						<div class="col-xs-12">
-						  	<div class="well">
+						  	<div class="well" id="login_section">
+								<div class="input-group full center row-login-avatar">
+			                		<img class="avatar" src="<?php echo get_theme_file_uri('img/avatar_login.png');?>" />
+			                	</div>
+
 						      	<form id="loginform" class="loginform"  method="POST" action="/login/" novalidate="novalidate">
 						          	<div class="form-group">
 						              	<input type="text" class="form-control required" id="login-username" name="user_login" value="<?php echo $email;?>" title="<?php _e('Enter you username','boxtheme');?>" placeholder="<?php _e('Username or Email','boxtheme');?>">
@@ -44,6 +46,22 @@
 			                            </a>
 			                    	</div>
 			                    	<div class="no-padding-bottom no-margin-bottom form-group "><div class="center"><?php bx_social_button_signup();?></div></div>
+						      	</form>
+
+						  	</div>
+						  	<div class="well hide forgetpass" id="reset_pass_section">
+						  		<form class="fre-reset-pw " id="resetPass">
+						      		<h2><?php _e('Reset your password','boxtheme');?></h2>
+						      		<div class="form-group">
+						              	<input type="email" class="form-control required" required="" id="login-email" name="email" value="" title="<?php _e('Enter you email','boxtheme');?>" placeholder="<?php _e('Enter you email','boxtheme');?>">
+						              	<?php  wp_nonce_field( 'box_resetpass', 'nonce_resetpass_field' ); ?>
+						          	</div>
+						          	<div class="form-group">
+						          		<button type="submit" class="btn btn-success btn-block " >
+			                                <?php _e('Reset Password','boxtheme');?>
+			                            </button>
+			                    	</div>
+			                    	<!-- Please check your mailbox for instructions to reset your password. -->
 						      	</form>
 						  	</div>
 						</div>
@@ -96,12 +114,54 @@
                 }
             });
             return false;
-        })
+        });
+        $(".forgotLink").click(function(event){
+        	var _this = $(event.currentTarget);
+        	$("#login_section").hide();
+        	$("#reset_pass_section").removeClass('hide');
+        });
+
+        $("#resetPass").submit(function(event){
+            event.preventDefault();
+            var form    = $(event.currentTarget);
+            var send    = {};
+            form.find( 'input' ).each( function() {
+                var key     = $(this).attr('name');
+                send[key]   = $(this).val();
+            });
+
+           $.ajax({
+                emulateJSON: true,
+                url : bx_global.ajax_url,
+                data: {
+                        action: 'bx_resetpass',
+                        request: send,
+                },
+                beforeSend  : function(event){
+                	form.attr('disabled', 'disabled');
+                	//$(".btn-submit").
+                	form.find(".btn-submit").addClass("loading");
+                },
+                success : function(res){
+                	form.find(".btn-submit").removeClass("loading");
+                    if ( res.success ){
+
+                    } else {
+                    	$("#loginErrorMsg").html(res.msg);
+                    	$("#loginErrorMsg").removeClass("hide");
+                    }
+                }
+            });
+            return false;
+        });
     })(jQuery);
 
 </script>
 
 <style type="text/css">
+	.row-login-avatar{
+		margin-bottom: 25px;
+	}
 	#loginErrorMsg{
 		padding: 10px 0;
 		margin: 0;
@@ -155,9 +215,17 @@
 		border-color: #ccc;
 		padding-top: 9px;
 	}
-	.loginform .btn{
+	.loginform .btn,.forgetpass .btn{
 		height: 39px;
 		border-radius: 3px;
 		font-weight: bold;
+	}
+	.forgetpass .btn{
+		float: left;
+		margin-top: 10px;
+	}
+	.fre-reset-pw h2{
+		padding-bottom: 15px;
+		margin-top: 0;
 	}
 </style>

@@ -53,6 +53,7 @@ class BX_AJAX {
 			'send_new_confirm_email' => false,
 			'generate_price' => false,
 			'sync_notify' => true,
+			'bx_resetpass' => true,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -906,6 +907,44 @@ class BX_AJAX {
 		if ( is_wp_error( $result ) ){
 			$response = array('success' => false, 'msg' => $result->get_error_message());
 		}
+		wp_send_json( $response );
+	}
+	static function bx_resetpass(){
+		$request = $_REQUEST['request'];
+		$email = $request['email'];
+
+		$response = array('success' => false, 'msg' => 'Has something wrong.');
+
+		var_dump($email);
+		$check = email_exists($email);
+
+		if( ! $check ){
+			$response['msg'] = __('This is email not available','boxtheme');
+			wp_send_json( $response );
+		}
+		$user = get_userdata($email);
+
+
+		if( ! is_wp_error($user ) ){
+			$response = array(
+				'success' 	=>	true,
+				'data' 		=> $user,
+				'msg' => 'Please check your mailbox for instructions to reset your password.',
+			);
+			$activation_key =  get_password_reset_key( $user);
+			$link = box_get_static_link('reset-passs');
+			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
+			//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+			$mail_content = 'CLick <a href="#reset_link"> here </a> to reset your password';
+			$subject = 'Reset your email';
+			//$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail_content) );
+			$content = str_replace('#user_login', $user->user_login, $mail_content);
+			$content = str_replace('#reset_link', esc_url($link), $content);
+
+
+			box_mail( $email, $subject, stripslashes($content) );
+		}
+
 		wp_send_json( $response );
 	}
 
