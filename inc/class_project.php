@@ -94,10 +94,10 @@ Class BX_Project extends BX_Post{
 		$result = parent::convert($post);
 		$profile_id =get_user_meta($post->post_author,'profile_id', true);
 		global $currency_sign;
-		$spent = get_user_meta( $post->post_author, SPENT, true);
+		$spent = (float) get_user_meta( $post->post_author, SPENT, true);
 
 		$result->spent_txt = sprintf( __( 'Spent %s','boxtheme'),box_get_price_format($spent) );
-		$result->budget_txt = sprintf( __( 'Budget: %s','boxtheme'),box_get_price_format($result->_budget) );
+		$result->budget_txt = sprintf( __( 'Budget: %s','boxtheme'), box_get_price_format($result->_budget) );
 
 		$not_set = __('Not set','boxtheme');
 		$result->country = $not_set;
