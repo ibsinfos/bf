@@ -102,6 +102,7 @@ Class BX_Project extends BX_Post{
 		$result->spent_txt = sprintf( __( ' %s%s spent ','boxtheme'),$currency_sign, $spent );
 		$not_set = __('Not set','boxtheme');
 		$result->country = $not_set;
+		$result->short_des = wp_trim_words( $result->post_content, 62);
 
 		if( $profile_id ){
 

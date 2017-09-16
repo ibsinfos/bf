@@ -62,7 +62,7 @@ get_header(); ?>
 			</span>
 			<span class="js-posted"> - <time>{{{data.post_date_text}}}</time></span>
 		</div>
-		<div class="col-md-12">{{{data.post_excerpt}}}</div>
+		<div class="col-md-12">{{{data.short_des}}}</div>
 		<div class="col-md-12 employer-info">
 			<span>
 	            <span class="text-muted display-inline-block m-sm-top">Client:</span>

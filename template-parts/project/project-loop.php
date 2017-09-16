@@ -20,7 +20,7 @@ $project = BX_Project::get_instance()->convert($post);
 		</span>
 	</div>
 	<div class="col-md-12 project-third-line">
-			<?php the_excerpt_max_charlength(get_the_excerpt(), 300); ?>
+			<?php echo wp_trim_words( get_the_content(), 62); ?>
 	</div>
 	<div class="col-md-12 employer-info">
 		<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
