@@ -55,7 +55,7 @@ if($type == 'paypal'){
 								if( $order->post_status == 'publish') {
 									 _e('Your order is approved ','boxtheme');
 								 } else { ?>
-									<p> Your have credit 200 credit and waiting for admin approve this. </p>
+
 									<?php
 										$option = BX_Option::get_instance();
         								$payment = $option->get_group_option('payment');
