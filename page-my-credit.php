@@ -35,10 +35,8 @@ if( ! empty ($withdraw_info->bank_account) ){
 
 			<div class="col-md-12 line-item">
 				<div class="form-group"><h3><?php _e('Your credit info','boxtheme');?></h3></div>
-			  		<div class="col-md-6"><?php printf(__('Avaibale: %s','boxtheme'), box_get_price($credit->available) );?></div>
-			  		<div class="col-md-6">
-			  			<div class="col-md-12"> <a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a></div>
-			  		</div>
+			  		<div class="col-md-6 col-xs-6"><?php printf(__('Avaibale: %s','boxtheme'), box_get_price($credit->available) );?></div>
+			  		<div class="col-md-6 col-xs-6">	<a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a>		</div>
 			</div>
 
 			<div class="col-md-12 line-item">
@@ -142,6 +140,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 		padding-bottom: 30px;
 		padding-left: 30px;
 		padding-right: 30px;
+
 	}
 	.site-content{
 		padding-top: 0;
@@ -164,6 +163,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 	}
 	@media only screen and (max-width: 768px) {
 		.line-item{
+			overflow: hidden;
 			padding-left: 10px;
 			padding-right: 10px;
 			border: 0;
@@ -195,7 +195,11 @@ if( ! empty ($withdraw_info->bank_account) ){
 			margin-left: -15px;
 		    font-weight: normal;
 		    font-size: 16px;
-
+		}
+		.btn-buy-credit{
+			float: right;
+			position: relative;
+   			top: -10px;
 		}
 	}
 </style>
