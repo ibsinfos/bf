@@ -1,12 +1,12 @@
-<div class="col-md-12">
+<div class="col-md-12 custom-res">
 
   	<h5> <?php _e('History of credit','boxtheme');?> </h5>
   	<div class="none-style row history-order">
   		<div class="full line-heading">
-  			<div class="col-md-4 col-xs-4">Date </div>
-  			<div class="col-md-2 col-xs-3 hidden-xs">Type </div>
+  			<div class="col-md-4 col-xs-5">Date </div>
+  			<div class="col-md-2 col-xs-3 ">Type </div>
   			<div class="col-md-2 hidden-xs">Payment </div>
-  			<div class="col-md-2 col-xs-4 hidden-xs">Status </div>
+  			<div class="col-md-2 hidden-xs">Status </div>
   			<div class="col-md-2 align-center col-xs-4 ">Balance </div>
   			<!-- <div class="col-md-2"> </div> -->
   		</div>
@@ -32,10 +32,10 @@
   				if( in_array($order->order_type, array('withdraw','pay_service') ) )
   					$check = '(-)';
   				?>
-  				<div class="line full">
+  				<div class="line full row-order-item">
 	  				<div class="col-md-4 col-xs-5"><?php echo get_the_date();?> </div>
-	  				<div class="col-md-2 col-xs-3hidden-xs"><?php echo $types[$order->order_type];?> </div>
-	      			<div class="col-md-2 "><?php echo $order->payment_type;?> </div>
+	  				<div class="col-md-2 col-xs-3 hidden-xs"><?php echo $types[$order->order_type];?> </div>
+	      			<div class="col-md-2 col-xs-3"><?php echo $order->payment_type;?> </div>
 	      			<div class="col-md-2 hidden-xs"><?php echo $status[$order->post_status];?> </div>
 	      			<div class="col-md-2 align-center col-xs-4"><?php echo $order->amout . $check;?>  </div>
       			</div>

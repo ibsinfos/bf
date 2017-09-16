@@ -168,10 +168,34 @@ if( ! empty ($withdraw_info->bank_account) ){
 			padding-right: 10px;
 			border: 0;
 			border-bottom: 1px solid #ccc;
+			padding-top: 0;
 		}
 		.page-credit .nav-tabs > li > a{
 			padding-left: 10px;
 			padding-right: 10px;
+		}
+		.history-order{
+			border: 0;
+		}
+
+		.history-order .line-heading .col-xs-5,
+		.history-order .row-order-item .col-xs-5{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.tab-content-item{
+			min-height: 0;
+		}
+		.tab-content-item form{
+			border: 0;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.custom-res h5{
+			margin-left: -15px;
+		    font-weight: normal;
+		    font-size: 16px;
+
 		}
 	}
 </style>
