@@ -45,7 +45,7 @@ get_header(); ?>
 	        		<a href="<?php echo box_get_static_link('signup-employer');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('I want to work','boxtheme');?></a>
 	        	</div>
 	        	<?php } else { ?>
-	        	 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
 		        	<?php if($role == EMPLOYER){?>
 		        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
 		            <?php } else {?>
