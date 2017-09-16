@@ -73,7 +73,7 @@
 						        $payment = $option->get_group_option('payment');
 						        $paypal = array();
 
-						        $paypal = (object)$payment->paypal     	;
+						        $paypal = (object)$payment->paypal;
 
 
 						        $cash = (object)$payment->cash;

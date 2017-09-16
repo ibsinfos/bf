@@ -4,10 +4,12 @@
 $group = "payment";
 $option = BX_Option::get_instance();
 $payment = $option->get_group_option($group);
-$paypal = $payment->paypal;
 
+$paypal = (object) $payment->paypal;
+$cash = (object) $payment->cash;
 $mode = $payment->mode;
-
+var_dump($paypal);
+$cash_enable = 1;
 $pp_enable = 0;
 if(isset($paypal->enable) )
     $pp_enable = $paypal->enable;
@@ -42,8 +44,8 @@ if(isset($paypal->enable) )
             	<label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
             	<?php
 
-            	$cash = (object) $payment->cash;
-                $cash_enable = 1;
+
+
                 if( isset($cash->enable) )
                     $cash_enable = $cash->enable;
                 $cash_des = $option->get_default_option($group,'cash','description');
