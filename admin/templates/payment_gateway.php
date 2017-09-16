@@ -9,7 +9,8 @@ $paypal = (object) $payment->paypal;
 $cash = (object) $payment->cash;
 $mode = $payment->mode;
 
-$cash_enable = 1;
+
+$cash_enable = $cash->enable;
 $pp_enable = 0;
 
 if(isset($paypal->enable) )
@@ -45,10 +46,6 @@ if(isset($paypal->enable) )
             	<label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
             	<?php
 
-
-
-                if( isset($cash->enable) )
-                    $cash_enable = $cash->enable;
                 $cash_des = $option->get_default_option($group,'cash','description');
                 if( isset($cash->description) )
                     $cash_des = $cash->description;

@@ -96,7 +96,7 @@
 								    </div>
 							   	<?php } ?>
 
-								<?php if( !empty($cash) &&  $cash->enable ){  $has_payment = 1;?>
+								<?php if( $cash->enable ){  $has_payment = 1;?>
 								    <div class="col-sm-12  gateway-payment record-line">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">

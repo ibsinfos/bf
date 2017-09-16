@@ -46,32 +46,27 @@ if($type == 'paypal'){
 					//var_dump($order);
 					//echo '</pre>';
 
-						if( !empty($order) ){ ?>
+						if( !empty( $order ) ){
 
-							<?php _e('Thank you for your purching. You have buy credit successful','boxtheme'); ?>
+							_e('Thank you for your purching. You have buy credit successful','boxtheme'); ?>
 							<h3><?php _e('Detail:','boxtheme'); ?></h3>
 							<p><label>Price:</label><?php echo $order->amout;?></p>
 							<?php if( $type == 'cash'){
-								if( $order->post_status == 'publish') { ?>
-									<?php _e('Your order is approved and 200 credit is depositted to your ballance','boxtheme');?>
-								<?php } else { ?>
+								if( $order->post_status == 'publish') {
+									 _e('Your order is approved ','boxtheme');
+								 } else { ?>
 									<p> Your have credit 200 credit and waiting for admin approve this. </p>
 									<?php
 										$option = BX_Option::get_instance();
         								$payment = $option->get_group_option('payment');
-        								if( !empty($payment['cash']) ){
-	        								$cash = (object) $payment['cash'];
-			            					if( ! empty($cash->description) ){
-			            						echo $cash->description;
-			            					}
-			            				}
+	        							$cash = (object) $payment->cash;
+		            					if( ! empty( $cash->description) ){
+		            						echo $cash->description;
+		            					}
+					 			}
+					 		}
+					 	} ?>
 
-									?>
-							<?php } } ?>
-					<?php } else {
-						_e('This order it not available','boxtheme');
-						}
-					?>
 				</div>
 			</div>
 
@@ -80,4 +75,3 @@ if($type == 'paypal'){
 </div>
 
 <?php get_footer();?>
-
