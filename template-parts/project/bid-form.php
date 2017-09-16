@@ -26,7 +26,7 @@ if( $emp_pay > $budget ) {
       	<label  class="col-sm-6 col-form-label"><?php _e('Price','boxtheme') ;?></label>
       	<div class="col-sm-6 bid-col-right">
       		<span class="f-left col-md-1"><?php echo $symbol;?></span>
-        	<input type="number" size="6" class="col-md-10 pull-right inline input-price col-xs-11" min ="<?php echo $cms_fee;?>" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
+        	<input type="number" size="6" class="col-md-10 pull-right inline input-price col-xs-11" mizn ="<?php echo $cms_fee;?>" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
       </div>
    	</div>
    	<div class="form-group row bd-bottom">
