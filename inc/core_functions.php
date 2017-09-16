@@ -313,7 +313,7 @@ function box_get_currency_symbol( $code = ''){
 		global $box_currency;
 		$code = $box_currency->code;
 	}
-	var_dump($code);
+
 	$currency_symbol = isset( $symbols[$code] ) ? $symbols[$code ] : '';
 	return $currency_symbol;
 }
