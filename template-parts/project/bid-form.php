@@ -8,38 +8,37 @@ $budget = (float) $project->_budget;
 global $general;
 $code = $general->currency['code'];
 $symbol = box_get_currency_symbol($code);
+$pay_ifo = box_get_pay_info($budget);
+$cms_fee = $pay_ifo->cms_fee;
+$emp_pay = $pay_ifo->emp_pay;
+$fre_receive = $pay_ifo->fre_receive;
+
+$label_text = __('Freelancer pay this fee','boxtheme');
+
+if( $emp_pay > $budget ) {
+	$label_text = __('Employer pay this fee','boxtheme');
+}
+
 ?>
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
     <h2> <?php _e('Bid on project','boxtheme');?></h2>
    	<div class="form-group row bd-bottom">
-      	<label  class="col-sm-8 col-form-label"><?php printf(__('Price <span class="f-right">%s</span','boxtheme'), $symbol) ;?>></label>
-      	<div class="col-sm-4">
-        <?php
-
-        $pay_ifo = box_get_pay_info($budget);
-        $cms_fee = $pay_ifo->cms_fee;
-        $emp_pay = $pay_ifo->emp_pay;
-        $fre_receive = $pay_ifo->fre_receive;
-
-        $label_text = __('Freelancer pay this fee','boxtheme');
-
-        if( $emp_pay > $budget ) {
-        	$label_text = __('Employer pay this fee','boxtheme');
-        }
-?>
-        <input type="number" size="6" class="form-control inline input-price" min ="<?php echo $cms_fee;?>" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
+      	<label  class="col-sm-6 col-form-label"><?php _e('Price','boxtheme') ;?></label>
+      	<div class="col-sm-6 bid-col-right">
+      		<span class="f-left col-md-1"><?php echo $symbol;?></span>
+        	<input type="number" size="6" class="col-md-10 pull-right inline input-price col-xs-11" min ="<?php echo $cms_fee;?>" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
       </div>
    	</div>
    	<div class="form-group row bd-bottom">
-      	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="tooltip" title="<?php echo $label_text;?>">?</span>  <span class="f-right"><?php echo $symbol;?></span> </label>
-      	<div class="col-sm-4 bid-col-right">
-         	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $cms_fee;?>" />
+      	<label for="inputEmail3" class="col-sm-6 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="tooltip" title="<?php echo $label_text;?>">?</span> </label>
+      	<div class="col-sm-6 bid-col-right">
+         	<span class="f-left col-md-1"><?php echo $symbol;?></span> <input type="text" class="col-xs-11 col-md-10 pull-right" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $cms_fee;?>" />
       	</div>
    	</div>
    	<div class="form-group row bd-bottom">
-      	<label for="inputEmail5" class="col-sm-8 col-form-label"><?php _e('You\'ll receive','boxtheme');?> <span class="f-right"><?php echo $symbol;?></span></label>
-      	<div class="col-sm-4 bid-col-right">
-        	<input type="text" class="form-control input-price" readonly id="_bid_receive" name="_bid_receive" value="<?php echo $fre_receive;?>" />
+      	<label for="inputEmail5" class="col-sm-6 col-form-label"><?php _e('You\'ll receive','boxtheme');?> </label>
+      	<div class="col-sm-6 bid-col-right">
+        	<span class="f-left col-md-1"><?php echo $symbol;?></span> <input type="text" class="col-md-10 col-xs-11 input-price pull-right" readonly id="_bid_receive" name="_bid_receive" value="<?php echo $fre_receive;?>" />
       	</div>
     </div>
 

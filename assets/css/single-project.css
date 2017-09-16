@@ -32,8 +32,22 @@
 	padding-bottom: 15px;
 }
 
-.col-sm-4.bid-col-right input{
+.bid-col-right input{
 	padding-right: 0;
+	padding-left: 0;
+}
+.bid-col-right span{
+	padding: 0;
+}
+.bid-col-right  input[disabled], .bid-col-right input[readonly]{
+    background-color: #eeeeee;
+    border:0;
+}
+.bid-col-right  input{
+	padding: 4px 7px;
+	opacity: 1;
+
+    box-shadow: none;
 }
 .tooltip{
 	display: none;
