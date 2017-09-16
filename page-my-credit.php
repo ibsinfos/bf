@@ -35,7 +35,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 
 			<div class="col-md-12 line-item">
 				<div class="form-group"><h3><?php _e('Your credit info','boxtheme');?></h3></div>
-			  		<div class="col-md-6"><?php printf(__('Avaibale: %s','boxtheme'),$credit->available);?></div>
+			  		<div class="col-md-6"><?php printf(__('Avaibale: %s','boxtheme'), box_get_price($credit->available) );?></div>
 			  		<div class="col-md-6">
 			  			<div class="col-md-12"> <a class="btn btn-radius btn-buy-credit" href="<?php echo home_url('buy-credit');?>"><?php _e('Buy Credit','boxtheme');?> </a></div>
 			  		</div>

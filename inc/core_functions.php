@@ -26,7 +26,6 @@ function get_box_price($price) {
  */
 function box_get_price( $price ){
 	global $box_currency;
-
 	$decimals = 2;
 	return floatval(number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep ) );
 }
