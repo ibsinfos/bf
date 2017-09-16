@@ -102,6 +102,9 @@ footer .container{
  .primary-color, a.primary-color, span.primary-color, .main-color{
 	color: #17a717;
 }
+.pagination.current, .prev.pagination, .next.pagination{
+	color: #17a717;
+}
 .btn-primary-bg,  .btn, .btn-action, button.btn-action{
 	background-color: #17a717;
 }
@@ -812,9 +815,6 @@ ul.pagination{
 .pagination li{
 	float: left;
 	margin: 0 2px;
-}
-.pagination.current{
-	color: #2b2b2b;
 }
 
 /* END ARCHIVE PROJECT PAGE */
