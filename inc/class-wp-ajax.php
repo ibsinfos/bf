@@ -942,7 +942,7 @@ class BX_AJAX {
 				$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
 
 				$content = str_replace('#user_login', $user->user_login, $mail_content);
-				$content = str_replace('#blog_name', $user->user_login, $content);
+				$content = str_replace('#blog_name', get_bloginfo('name'), $content);
 				$content = str_replace('#blog_link', home_url(), $content);
 				$content = str_replace('#reset_link', esc_url($link), $content);
 
