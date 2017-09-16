@@ -729,7 +729,7 @@ content: "";
     border-radius: 0px;
     background-color: #fff;
 }
-.sidebar-search ul.list-checkbox li label span{
+.sidebar-search ul.list-checkbox li label i{
 	display: none;
 }
 .sidebar-search ul.list-checkbox li label.activate:after{
@@ -737,7 +737,7 @@ content: "";
 	position: absolute;
 	right: 2px;
 }
-.sidebar-search ul.list-checkbox li label.activate span{
+.sidebar-search ul.list-checkbox li label.activate i{
 	display: block;
 	position: absolute;
 	right: 2px;

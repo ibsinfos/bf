@@ -2645,7 +2645,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #23527c;
+
 
 }
 a:focus {
@@ -4568,7 +4568,6 @@ select[multiple].input-lg {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #333333;
   text-decoration: none;
 }
 .btn:active,
@@ -4762,7 +4761,6 @@ tbody.collapse.in {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: #ffffff;
   text-decoration: none;
   outline: 0;
   background-color: #337ab7;

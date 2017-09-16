@@ -11,7 +11,7 @@
 	            ) );
 	            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 	                foreach ( $terms as $key=>$term ) {
-	                   echo '<li><label class="skil-item"> <input type="checkbox" name="cat" class="search_cat" alt="'.$key.'"  value="' . $term->term_id . '">' . $term->name . '<span class="glyphicon glyphicon-ok"></span></label></li>';
+	                   echo '<li><label class="skil-item"> <input type="checkbox" name="cat" class="search_cat" alt="'.$key.'"  value="' . $term->term_id . '">' . $term->name . '<i class="fa fa-check primary-color" aria-hidden="true"></i></label></li>';
 	                }
 	            }
 	     	?>
@@ -29,7 +29,7 @@
 	            ) );
 	            if ( ! empty( $skills ) && ! is_wp_error( $skills ) ){
 	                foreach ( $skills as $key=>$skill ) {
-	                   	echo '<li><label class="skil-item"> <input type="checkbox" name="skill" class="search_skill" alt="'.$key.'" value="' . $skill->term_id . '">' . $skill->name . '<span class="glyphicon glyphicon-ok"></span></label></li>';
+	                   	echo '<li><label class="skil-item"> <input type="checkbox" name="skill" class="search_skill" alt="'.$key.'" value="' . $skill->term_id . '">' . $skill->name . '<i class="fa fa-check  primary-color" aria-hidden="true"></i></label></li>';
 	                }
 	             }
 	         ?>
