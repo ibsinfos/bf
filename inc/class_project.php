@@ -102,6 +102,7 @@ Class BX_Project extends BX_Post{
 		$not_set = __('Not set','boxtheme');
 		$result->country = $not_set;
 		$result->short_des = wp_trim_words( $result->post_content, 62);
+		$result->time_txt = bx_show_time($result);
 
 		if( $profile_id ){
 

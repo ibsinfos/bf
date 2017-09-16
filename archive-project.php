@@ -60,7 +60,7 @@ get_header(); ?>
 			   	<span class="js-type">Fixed-Price</span>
 		        <span class="js-budget">-<span  data-itemprop="baseSalary">{{{data.budget_txt}}} </span></span>
 			</span>
-			<span class="js-posted"> - <time>{{{data.post_date_text}}}</time></span>
+			<span class="js-posted"> - <time>{{{data.time_txt}}}</time></span>
 		</div>
 		<div class="col-md-12">{{{data.short_des}}}</div>
 		<div class="col-md-12 employer-info">

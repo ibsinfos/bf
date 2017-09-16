@@ -133,7 +133,7 @@ function bx_show_time( $post ) {
 			$h_time = date(get_option('date_format'),strtotime($h_time));
 		}
 		/** This filter is documented in wp-admin/includes/class-wp-posts-list-table.php */
-		echo '<abbr title="' . $t_time . '"> Posted ' . $h_time . '</abbr>';
+		return '<abbr title="' . $t_time . '"> Posted ' . $h_time . '</abbr>';
 	}
 if (  ! function_exists( 'bx_pagenate' )):
 
