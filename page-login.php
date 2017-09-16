@@ -79,8 +79,6 @@
         $("#loginform").submit(function(event){
             event.preventDefault();
             var form    = $(event.currentTarget);
-
-
             var send    = {};
             form.find( 'input' ).each( function() {
                 var key     = $(this).attr('name');
@@ -223,6 +221,7 @@
 	.forgetpass .btn{
 		float: left;
 		margin-top: 10px;
+		margin-bottom: 15px;
 	}
 	.fre-reset-pw h2{
 		padding-bottom: 15px;
