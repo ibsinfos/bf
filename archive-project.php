@@ -79,6 +79,7 @@ get_header(); ?>
 	(function($){
 		var h_right = $("#right_column").css('height'),
 			h_left = $("#sidebar").css('height');
+			$(".list-project").css('min-height',h_left);
 		if( parseInt(h_left) > parseInt(h_right) ){
 			$(".list-project").css('height',h_left);
 		}
