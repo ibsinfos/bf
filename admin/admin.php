@@ -141,22 +141,22 @@ class BX_Admin{
         'title' => 'List Credit Order',
         'href'  => admin_url('admin.php?page=credit-setting'),
         'meta'  => array(
-            'title' => __('My Sub Menu Item'),
-            'target' => '_blank',
+            'title' => __('List Credit Order'),
+            //'target' => '_blank',
             'class' => 'my_menu_item_class'
         ),
     ));
-    $admin_bar->add_menu( array(
-        'id'    => 'my-second-sub-item',
-        'parent' => 'box-settings',
-        'title' => 'List Withdrawal Order',
-       'href'  => admin_url('admin.php?page=widthraw-order'),
-        'meta'  => array(
-            'title' => __('My Second Sub Menu Item'),
-            'target' => '_blank',
-            'class' => 'my_menu_item_class'
-        ),
-    ));
+    // $admin_bar->add_menu( array(
+    //     'id'    => 'my-second-sub-item',
+    //     'parent' => 'box-settings',
+    //     'title' => 'List Withdrawal Order',
+    //    'href'  => admin_url('admin.php?page=widthraw-order'),
+    //     'meta'  => array(
+    //         'title' => __('My Second Sub Menu Item'),
+    //        // 'target' => '_blank',
+    //         'class' => 'my_menu_item_class'
+    //     ),
+    // ));
 }
 }
 
