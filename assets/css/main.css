@@ -289,12 +289,12 @@ ul.account-dropdown li{
 }
 ul.main-login{
 	padding:0;
-	overflow1: hidden;
+
 	width: 100%;
 }
 ul.main-login li{
 	list-style: none;
-	padding-top: 8px;
+	padding-top: 5px;
 	float: right;
 }
 

@@ -201,6 +201,9 @@ if( ! empty ($withdraw_info->bank_account) ){
 			position: relative;
    			top: -10px;
 		}
+		.line-item .col-md-6.col-xs-6{
+			padding-left: 0;
+		}
 	}
 </style>
 <script type="text/javascript">
