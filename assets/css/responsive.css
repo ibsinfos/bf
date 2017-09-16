@@ -610,4 +610,7 @@
 	body.single-project .container.single-project{
 		padding: 0;
 	}
+	.archive-profile-item .list-info .hour-rate i{
+		display: none;
+	}
 }
