@@ -31,6 +31,10 @@
 .list-bid .row{
 	padding-bottom: 15px;
 }
+
+.col-sm-4.bid-col-right input{
+	padding-right: 0;
+}
 .tooltip{
 	display: none;
 	padding: 10px;

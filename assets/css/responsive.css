@@ -607,4 +607,7 @@
 	.post-type-archive .main-archive .container{
 		padding: 0;
 	}
+	body.single-project .container.single-project{
+		padding: 0;
+	}
 }

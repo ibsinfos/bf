@@ -1292,9 +1292,14 @@ body.author .site-content{
 	margin-left: 15px;
 	margin-right: 15px;
 }
-div.header-title,.bd-bottom{
+div.header-title{
 	border-bottom: 2px solid #ccc;
 	width: 100%;
+	display: block;
+	overflow: hidden;
+}
+.bd-bottom{
+	border-bottom: 2px solid #ccc;
 	display: block;
 	overflow: hidden;
 }

@@ -32,13 +32,13 @@ $symbol = box_get_currency_symbol($code);
    	</div>
    	<div class="form-group row bd-bottom">
       	<label for="inputEmail3" class="col-sm-8 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="tooltip" title="<?php echo $label_text;?>">?</span>  <span class="f-right"><?php echo $symbol;?></span> </label>
-      	<div class="col-sm-4">
+      	<div class="col-sm-4 bid-col-right">
          	<input type="text" class="form-control" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $cms_fee;?>" />
       	</div>
    	</div>
    	<div class="form-group row bd-bottom">
       	<label for="inputEmail5" class="col-sm-8 col-form-label"><?php _e('You\'ll receive','boxtheme');?> <span class="f-right"><?php echo $symbol;?></span></label>
-      	<div class="col-sm-4">
+      	<div class="col-sm-4 bid-col-right">
         	<input type="text" class="form-control input-price" readonly id="_bid_receive" name="_bid_receive" value="<?php echo $fre_receive;?>" />
       	</div>
     </div>
