@@ -20,7 +20,7 @@
 			        <div class="control-group">
 			            <label for="new_password">New Password:</label>
 			            <div>
-			                <input type="password" name="new_password" id="new_password">
+			                <input type="password"  class="required"   required  name="new_password" id="new_password">
 			                <i class="icon-16-green-tick" style="display:none"></i>
 			                <span class="help-inline small" style="display:block"></span>
 			                <span id="passwd_hint_id" class="hint" style="display:block"></span>
@@ -30,7 +30,7 @@
 			        <div class="control-group">
 			            <label for="confirm_password">Confirm Password:</label>
 			            <div>
-			                <input type="password" name="confirm_password" id="confirm_password">
+			                <input type="password" class="required" required name="confirm_password" id="confirm_password">
 			                <i class="icon-16-green-tick" style="display:none"></i>
 			                <span class="help-inline small" style="display:block"></span>
 
