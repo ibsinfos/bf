@@ -58,7 +58,7 @@ get_header(); ?>
 		<div class="col-md-12">
 			<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
 			   	<span class="js-type">Fixed-Price</span>
-		        <span class="js-budget">- <span> Budget:</span><span  data-itemprop="baseSalary">{{{data._budget}}} </span></span>
+		        <span class="js-budget">-<span  data-itemprop="baseSalary">{{{data.budget_txt}}} </span></span>
 			</span>
 			<span class="js-posted"> - <time>{{{data.post_date_text}}}</time></span>
 		</div>
@@ -66,7 +66,7 @@ get_header(); ?>
 		<div class="col-md-12 employer-info">
 			<span>
 	            <span class="text-muted display-inline-block m-sm-top">Client:</span>
-				<span class="inline"><span class="client-spendings display-inline-block">{{{data.spent}}}</span></span>
+				<span class="inline"><span class="client-spendings display-inline-block">{{{data.spent_txt}}}</span></span>
 				<span  class="nowrap">
 					<span class="glyphicon glyphicon-md air-icon-location m-0"></span>
 				    <span class="text-muted client-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{{data.country}}}</span>

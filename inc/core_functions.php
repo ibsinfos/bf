@@ -38,7 +38,18 @@ function box_get_price_format($price ){
 
 	$currency =  BX_Option::get_instance()->get_currency_code();
 	$symbol = box_get_currency_symbol($currency->code);
-	$string = floatval($price).'<span class="currency-icon">('.$symbol.') </span>';
+	$string ='<span class="currency-icon">('.$symbol.')</span>'. floatval($price);
+
+	if( $currency->position == 'right' ){
+		$string = floatval($price). '<span class="currency-icon">('.$symbol.')</span>';
+	} else if($currency->position == 'left_space'){
+
+		$string = '<span class="currency-icon">('.$symbol.') </span>' . floatval($price);
+	}
+	else if($currency->position == 'right_space'){
+		$string = floatval($price).'<span class="currency-icon"> ('.$symbol.')</span>' ;
+	}
+
 
 	return  $string;
 }

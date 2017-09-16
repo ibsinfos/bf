@@ -95,11 +95,10 @@ Class BX_Project extends BX_Post{
 		$profile_id =get_user_meta($post->post_author,'profile_id', true);
 		global $currency_sign;
 		$spent = get_user_meta( $post->post_author, SPENT, true);
-		if( ! $spent ){
-			$spent = 0;
-		}
-		$result->spent = $spent;
-		$result->spent_txt = sprintf( __( ' %s%s spent ','boxtheme'),$currency_sign, $spent );
+
+		$result->spent_txt = sprintf( __( 'Spent %s','boxtheme'),box_get_price_format($spent) );
+		$result->budget_txt = sprintf( __( 'Budget: %s','boxtheme'),box_get_price_format($result->_budget) );
+
 		$not_set = __('Not set','boxtheme');
 		$result->country = $not_set;
 		$result->short_des = wp_trim_words( $result->post_content, 62);
