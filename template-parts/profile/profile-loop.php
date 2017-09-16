@@ -58,10 +58,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 		</div>
 		<div class="col-md-10 align-left  col-xs-12 res-content no-padding-right">
 			<span class="overview-profile clear col-xs-12">
-			<?php
-			$str = str_replace( array("\n", "\r"), '', $post->post_content );
-			echo wp_trim_words($str, 50);
-			?>
+			<?php echo wp_trim_words($post->post_content, 62);	?>
 
 			</span>
 			<small class="clear skills"><?php echo $skill_val;?></small>
