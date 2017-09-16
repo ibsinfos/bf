@@ -4,9 +4,39 @@ function box_price($price,$echo = true){
 	echo get_box_price($price);
 }
 function get_box_price($price) {
-	global $general;
-	if( !isset($general) )
-		$general = (object) BX_Option::get_instance()->get_group_option('general');
+
+	$currency =  BX_Option::get_instance()->get_currency_code();
+	$decimals = 2;
+
+	number_format( $price, $decimals, $currency->price_decimal_sep, $currency->price_thousand_sep );
+
+	$symbol = box_get_currency_symbol($currency->code);
+
+	$string = $price.'<span class="currency-icon">('.$symbol.') </span>';
+
+	return  $string;
+}
+
+/**
+ * this function get the float number only withouth currency  symbol
+ * This is a cool function
+ * @author danng
+ * @version 1.0
+ * @return  [type] [description]
+ */
+function box_get_price($price, $setting  = array() ){
+
+	$currency =  BX_Option::get_instance()->get_currency_code();
+	$decimals = 2;
+	$currency =  BX_Option::get_instance()->get_currency_code();
+	return number_format( $price, $decimals, $currency->price_decimal_sep, $currency->price_thousand_sep );
+}
+
+/** this function will be refund float number with the symbol */
+
+function box_get_price_format( $setting = array() ){
+	$currency =  BX_Option::get_instance()->get_currency_code();
+	$decimals = 2;
 
 	$currency = (object) $general->currency;
 	if( !empty( $currency->code ) )
@@ -18,6 +48,7 @@ function get_box_price($price) {
 
 	return  $string;
 }
+
 function bx_list_start($score){ ?>
 	<start class="rating-score clear block core-<?php echo $score;?>">
 		<span class="glyphicon glyphicon-star"></span>

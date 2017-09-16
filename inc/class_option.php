@@ -286,12 +286,12 @@ function box_get_pay_info($bid_price){
 	$emp_pay = $bid_price;
 	$fre_receive = $bid_price - $cms_fee;
 
-	$result = array( 'emp_pay' => $emp_pay, 'fre_receive' => max($fre_receive, 0), 'cms_fee' => $cms_fee );
+	$result = array( 'emp_pay' => $emp_pay, 'fre_receive' => box_get_price(max($fre_receive, 0) ), 'cms_fee' => box_get_price($cms_fee) );
 
 	if($setting->user_pay == 'emp'){
 
-		$result['emp_pay'] = $bid_price + $cms_fee;
-		$result['fre_receive'] = $bid_price;
+		$result['emp_pay'] = box_get_price($bid_price + $cms_fee);
+		$result['fre_receive'] = box_get_price($bid_price);
 
 	}
 	return (object)$result;
