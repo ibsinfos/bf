@@ -71,7 +71,7 @@ Class BX_Profile extends BX_Post{
 			$post->country =  $pcountry[0]->name;
 		}
 
-		$post->avatar = get_avatar($post->post_author, 96 );
+		$post->avatar = get_avatar($post->post_author, 130 );
 		$post->{EARNED}	= (float)get_user_meta($post->post_author,EARNED, true);
 		$post->earned_txt = sprintf( __('Earned : %s','boxtheme'), box_get_price($post->{EARNED}) );
 		$post->{RATING_SCORE} 	= floatval(get_user_meta($post->post_author,RATING_SCORE, true) );
