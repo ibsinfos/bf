@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div class="site-content" id="content" >
+		<div class="site-content1" id="content" >
 			<div class="col-md-12 ">
 				 <h1 class="margin-b20 margin-t30 span7">Choose your new password</h1>
 
