@@ -12,6 +12,8 @@ class BX_Admin{
         add_action( 'admin_menu', array($this,'bx_register_my_custom_menu_page' ), 9);
        	add_action( 'admin_enqueue_scripts', array($this, 'box_enqueue_scripts' ) );
         add_action( 'admin_footer', array($this,'box_admin_footer_html'), 9 );
+        add_action('admin_bar_menu', array($this,'add_toolbar_items'), 100);
+
     }
     static function get_instance(){
         if (null === static::$instance) {
@@ -124,6 +126,38 @@ class BX_Admin{
             </div>
         </div> <?php
     }
+    function add_toolbar_items($admin_bar){
+    $admin_bar->add_menu( array(
+        'id'    => 'box-settings',
+        'title' => '<img src="'.get_stylesheet_directory_uri().'/ico.png" /> BoxThemes Settings',
+        'href'  => admin_url('admin.php?page=box-settings'),
+        'meta'  => array(
+            'title' => __('BoxThemes Settings'),
+        ),
+    ));
+    $admin_bar->add_menu( array(
+        'id'    => 'my-sub-item',
+        'parent' => 'box-settings',
+        'title' => 'List Credit Order',
+        'href'  => admin_url('admin.php?page=credit-setting'),
+        'meta'  => array(
+            'title' => __('My Sub Menu Item'),
+            'target' => '_blank',
+            'class' => 'my_menu_item_class'
+        ),
+    ));
+    $admin_bar->add_menu( array(
+        'id'    => 'my-second-sub-item',
+        'parent' => 'box-settings',
+        'title' => 'List Withdrawal Order',
+       'href'  => admin_url('admin.php?page=widthraw-order'),
+        'meta'  => array(
+            'title' => __('My Second Sub Menu Item'),
+            'target' => '_blank',
+            'class' => 'my_menu_item_class'
+        ),
+    ));
+}
 }
 
 ?>
