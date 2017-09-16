@@ -121,7 +121,8 @@ if( ! empty ($withdraw_info->bank_account) ){
 
 			</div>
 
-			<div id="profile" class="col-md-12 line-item"> <!-- start left !-->
+			<div id="profile" class="col-md-12 line-item history-order-section"> <!-- start left !-->
+
 			     <?php get_template_part( 'template-parts/dashboard/list', 'order' ); ?>
 			</div> <!-- end left !-->
 		</div>
