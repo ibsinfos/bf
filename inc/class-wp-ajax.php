@@ -921,9 +921,9 @@ class BX_AJAX {
 			wp_send_json( $response );
 		}
 		$user = get_user_by('email', $email);
-		var_dump($email);
-		var_dump($user);
+
 		if( ! is_wp_error($user ) &&  $user  ){
+
 			$response = array(
 				'success' 	=>	true,
 				'data' 		=> $user,
@@ -943,9 +943,9 @@ class BX_AJAX {
 
 			box_mail( $email, $subject, stripslashes($content) );
 		}
-
-		wp_send_json( $response );
 	}
+
+	wp_send_json( $response );
 
 }
 
