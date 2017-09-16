@@ -292,9 +292,9 @@ function box_get_pay_info($bid_price){
 		$result['fre_receive'] = box_get_price($bid_price);
 
 	} else if( $setting->user_pay =='share'){
-		$emp_pay = $bid_price + ($cms_fee/2) ; 	$result['emp_pay'] = box_get_price( $emp_pay );
+		$emp_pay = $bid_price + ( $cms_fee/2 ) ; 	$result['emp_pay'] = box_get_price( $emp_pay );
 
-		$fre_receive = $bid_price - ($cms_fee/2); 	$result['fre_receive'] = box_get_price($fre_receive );
+		$fre_receive = $bid_price - ( $cms_fee/2 ); 	$result['fre_receive'] = box_get_price( $fre_receive );
 	}
 	return (object)$result;
 }

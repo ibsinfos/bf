@@ -65,7 +65,7 @@ get_header(); ?>
 		<div class="col-md-12">{{{data.short_des}}}</div>
 		<div class="col-md-12 employer-info">
 			<span>
-	            <span class="text-muted display-inline-block m-sm-top">Client:</span>
+	            <strong class="text-muted display-inline-block m-sm-top">Client:</strong>
 				<span class="inline"><span class="client-spendings display-inline-block">{{{data.spent_txt}}}</span></span>
 				<span  class="nowrap">
 					<span class="glyphicon glyphicon-md air-icon-location m-0"></span>
