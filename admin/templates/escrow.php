@@ -1,24 +1,14 @@
-
 <?php
-// group = escrow
-// section = commision
-//
+
 $group_option = "escrow";
 $option = BX_Option::get_instance();
-$escrow = $option->get_group_option($group_option);
-$commision = $escrow->commision;
-$number = 10;
-$type = 'fix';
-$user_pay = 'fre';
-if( isset( $commision->number ) ){
-	$number = $commision->number;
-}
-if( isset( $commision->type ) ){
-	$type = $commision->type;
-}
-if( isset( $commision->user_pay ) ){
-	$user_pay = $commision->user_pay;
-}
+$escrow = $option->get_escrow_setting($group_option);
+$commision = (object) $escrow->commision;
+// echo '<pre>';
+// var_dump($escrow);
+// var_dump($commision);
+// echo '</pre>';
+
 ?>
 
 <div class="sub-section " id="<?php echo $group_option;?>" >
@@ -27,14 +17,14 @@ if( isset( $commision->user_pay ) ){
 		<form style="max-width: 600px;">
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commision','boxtheme');?></label>
-				<div class="col-md-8"><input class="form-control auto-save" type="number" value="<?php echo $number;?>" name = "number" id="example-text-input"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="number" value="<?php echo $commision->number;?>" name = "number" min="1" step="any" id="example-text-input"></div>
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commistion type','boxtheme');?></label>
 				<div class="col-md-8">
 					<select class="form-control auto-save" name="type" id="exampleSelect2">
-						<option value="fix" <?php selected( $type, 'emp' ); ?> > <?php _e('Fix number','boxtheme');?></option>
-						<option value="percent" <?php selected( $type, 'fre' ); ?> ><?php _e('Percent','boxtheme');?></option>
+						<option value="fix" <?php selected( $commision->type, 'emp' ); ?> > <?php _e('Fix number','boxtheme');?></option>
+						<option value="percent" <?php selected( $commision->type, 'fre' ); ?> ><?php _e('Percent','boxtheme');?></option>
 					</select>
 				</div>
 			</div>
@@ -42,9 +32,9 @@ if( isset( $commision->user_pay ) ){
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Who is pay commision','boxtheme');?></label>
 				<div class="col-md-8">
 					<select class="form-control auto-save" name="user_pay" id="exampleSelect2">
-						<option value="emp" <?php selected( $user_pay, 'emp' ); ?> >Employer</option>
-						<option value="fre"<?php selected( $user_pay, 'fre' ); ?> >Freelancer</option>
-						<option value="share" <?php selected( $user_pay, 'share' ); ?> >50/50</option>
+						<option value="emp" <?php selected( $commision->user_pay, 'emp' ); ?> >Employer</option>
+						<option value="fre"<?php selected( $commision->user_pay, 'fre' ); ?> >Freelancer</option>
+						<option value="share" <?php selected( $commision->user_pay, 'share' ); ?> >50/50</option>
 
 					</select>
 				</div>

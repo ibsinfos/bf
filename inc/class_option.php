@@ -57,8 +57,8 @@ class BX_Option {
 			);
 
 	}
-	function get_default(){
-		return array(
+	function get_default($key = ''){
+		$default =  array(
 			'general'=> $this->get_general_default(),
 			'payment' => array(
 				'mode' => 0,
@@ -108,6 +108,9 @@ class BX_Option {
 			'box_mail_content' => $this->list_email(),
 
 		);
+		if( !empty($key) )
+			return $default[$key];
+		return $default;
 	}
 
 	function list_email(){
@@ -204,6 +207,15 @@ class BX_Option {
 		);
 		return $default;
 	}
+	function get_escrow_setting(){
+		$default = $this->get_default('escrow');
+
+		$opt_escrow = get_option('escrow', true);
+
+		$opt_escrow['commision'] = wp_parse_args( $opt_escrow['commision'], $default['commision'] );
+
+		return (object)wp_parse_args( $opt_escrow, $default );
+	}
 	/**
 	 * mailing setting in dashboar and be used in mail content.
 	 * This is a cool function
@@ -248,41 +260,41 @@ function get_commision_fee( $total, $setting ){
 
 	return $number;
 }
+/**
+ * get commsion setting in dashboard.
+ * This is a cool function
+ * @author danng
+ * @version 1.0
+ * @param   boolean $object return 1 object or 1 array type
+ * @return  1 object or 1 array
+ */
 function get_commision_setting($object = true){
 
-	$option = BX_Option::get_instance();
-	$escrow = $option->get_group_option('escrow');
-	$commision = (object)$escrow->commision;
-
-	$result = array('number' => 10, 'type' => 'fix', 'user_pay' => 'fre');
-
-	if( isset( $commision->number ) ){
-		$result['number'] = (int) $commision->number;
-	}
-	if( isset( $commision->type ) ){
-		$result['type'] = $commision->type;
-	}
-	if( isset( $commision->user_pay ) ){
-		$result['user_pay']= $commision->user_pay;
-	}
-	if($object)
-		return (object)$result;
-	return $result;
+	$escrow = BX_Option::get_instance()->get_escrow_setting();
+	$commision = $escrow->commision;
+	$commision['number'] = floatval($commision['number']);
+	if( $object )
+		return (object) $commision;
+	return $commision;
 }
 function box_get_pay_info($bid_price){
 	$setting = get_commision_setting();
-	$cms_fee = get_commision_fee($bid_price, $setting);
+	$cms_fee = get_commision_fee( $bid_price, $setting );
 
 	$emp_pay = $bid_price;
 	$fre_receive = $bid_price - $cms_fee;
 
 	$result = array( 'emp_pay' => $emp_pay, 'fre_receive' => box_get_price(max($fre_receive, 0) ), 'cms_fee' => box_get_price($cms_fee) );
 
-	if($setting->user_pay == 'emp'){
+	if( $setting->user_pay == 'emp') {
 
 		$result['emp_pay'] = box_get_price($bid_price + $cms_fee);
 		$result['fre_receive'] = box_get_price($bid_price);
 
+	} else if( $setting->user_pay =='share'){
+		$emp_pay = $bid_price + ($cms_fee/2) ; 	$result['emp_pay'] = box_get_price( $emp_pay );
+
+		$fre_receive = $bid_price - ($cms_fee/2); 	$result['fre_receive'] = box_get_price($fre_receive );
 	}
 	return (object)$result;
 }
