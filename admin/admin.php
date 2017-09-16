@@ -146,17 +146,17 @@ class BX_Admin{
             'class' => 'my_menu_item_class'
         ),
     ));
-    // $admin_bar->add_menu( array(
-    //     'id'    => 'my-second-sub-item',
-    //     'parent' => 'box-settings',
-    //     'title' => 'List Withdrawal Order',
-    //    'href'  => admin_url('admin.php?page=widthraw-order'),
-    //     'meta'  => array(
-    //         'title' => __('My Second Sub Menu Item'),
-    //        // 'target' => '_blank',
-    //         'class' => 'my_menu_item_class'
-    //     ),
-    // ));
+    $admin_bar->add_menu( array(
+        'id'    => 'my-second-sub-item',
+        'parent' => 'box-settings',
+        'title' => 'List Withdrawal Order',
+       	'href'  => admin_url('admin.php?page=widthraw-order'),
+        'meta'  => array(
+            'title' => __('List Withdrawal Order'),
+           // 'target' => '_blank',
+            'class' => 'my_menu_item_class'
+        ),
+    ));
 }
 }
 
