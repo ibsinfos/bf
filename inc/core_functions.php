@@ -314,8 +314,8 @@ function box_get_currency_symbol( $code = ''){
 		$code = $box_currency->code;
 	}
 
-	$currency_symbol = isset( $symbols[$code] ) ? $symbols[$code ] : '';
-	return $currency_symbol;
+	//$currency_symbol = isset( $symbols[$code] ) ? $symbols[$code ] : '';
+	return $symbols[$code];
 }
 function list_currency(){
 	return array(
