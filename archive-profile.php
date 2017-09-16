@@ -44,7 +44,7 @@ get_header(); ?>
 	</div>
 </div>
 <script type="text/html" id="tmpl-search-record">
-	<div class="row archive-profile-item">
+	<div class=" archive-profile-item">
 		<div class="full">
 			<div class="col-md-2 no-padding col-xs-4">
 			<a class="avatar" href="{{{data.author_link}}}">{{{data.avatar}}}</a></div>

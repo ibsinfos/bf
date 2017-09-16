@@ -53,7 +53,7 @@ get_header(); ?>
     </a>
 </script>
 <script type="text/html" id="tmpl-search-record">
-	<div class="row project-loop-item">
+	<div class="project-loop-item">
 		<div class="col-md-12"><h3 class="project-title"><a href="{{{data.guid}}}">{{{data.post_title}}}</a></div>
 		<div class="col-md-12">
 			<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
