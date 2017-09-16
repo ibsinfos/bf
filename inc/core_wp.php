@@ -12,11 +12,11 @@ function box_set_favicon( $url, $size, $blog_id ) {
 add_action( 'wp_head', 'box_add_meta_head', 99);
 function box_add_meta_head(){
 
-	global $general;
-	$general = (object) BX_Option::get_instance()->get_general_option();
+	global $box_general;
+	$box_general = (object) BX_Option::get_instance()->get_general_option();
 
-	if( !empty( $general->google_analytic ) ){
-		echo stripslashes($general->google_analytic);
+	if( !empty( $box_general->google_analytic ) ){
+		echo stripslashes($box_general->google_analytic);
 	}
 	if( is_singular( PROJECT ) ){
 		if( have_posts() ){

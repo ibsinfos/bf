@@ -283,18 +283,9 @@ function bx_theme_init() {
 
 	register_post_type( 'portfolio', $args );
 
-
-	global $option, $currency_code, $currency_sign, $box_option; //box_option  box_options, global_option
-
-
-	$box_option =  BX_Option::get_instance();
-
-	$option = array(
-		'currency' => array(
-			'sign' => '$',
-			'code'	=> 'USD'
-		)
-	);
+	global $box_general, $box_currency;
+	$box_general = (object) BX_Option::get_instance()->get_general_option();
+	$box_currency = (object) $box_general->currency;
 
 
 	$labels = array(
@@ -341,7 +332,12 @@ function bx_theme_init() {
 		'label_count'               => _n_noop( 'Sanbox <span class="count">(%s)</span>', 'Sanbox <span class="count">(%s)</span>' ),
 		)
 	);
-	function codex_Package_init() {
+
+
+
+}
+
+function codex_Package_init() {
 	$labels = array(
 		'name'               => _x( 'Packages Plan', 'post type general name', 'boxtheme' ),
 		'singular_name'      => _x( 'Package', 'post type singular name', 'boxtheme' ),
@@ -378,12 +374,6 @@ function bx_theme_init() {
 	//register_post_type( '_package', $args );
 }
 
-	// $currency_sign = $option['currency']['sign'];
-	// $currency_code = $option['currency']['code'];
-
-
-
-}
 function boxtheme_scripts() {
 	// Add custom fonts, used in the main stylesheet.
 	wp_enqueue_style( 'boxtheme-fonts', boxtheme_fonts_url(), array(), null );

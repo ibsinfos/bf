@@ -24,10 +24,8 @@ class BX_Option {
 			$default = $this->get_default();
 			return $default[$group][$section][$key];
 	}
-
-	function get_default(){
+	function get_general_default(){
 		return array(
-			'general'=> array(
 				'pending_post' => false,
 				'google_analytic' => '',
 				'copyright' => '2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>',
@@ -56,7 +54,12 @@ class BX_Option {
 					'process-payment' => array( 'id' => 0, 'link' =>'' ),
 				),
 
-			),
+			);
+
+	}
+	function get_default(){
+		return array(
+			'general'=> $this->get_general_default(),
 			'payment' => array(
 				'mode' => 0,
 				'paypal' => array(
@@ -180,41 +183,27 @@ class BX_Option {
 		return (object)$result;
 	}
 	function get_general_option(){
-		$default = array(
-				'pending_post' => false,
-				'google_analytic' => '',
-				'copyright' => '2017 © Boxthemes. All rights reserved. <a href="https://boxthemes.net/terms-and-conditions/" target="_blank">Term of Use</a> and <a href="https://boxthemes.net/terms-and-condition/" target="_blank">Privacy Policy</a>',
-				'fb_link' => 'https://fb.com/boxthemes/',
-				'gg_link' => 'https://https://plus.google.com/boxthemes/',
-				'tw_link' => 'https://twitter.com/',
-				'le_link.' => 'https://linkedin.com.com/boxthemes/',
-				'currency' => array(
-					'code' => 'USD',
-					'position' => 'left',
-					'price_thousand_sep' => ',',
-					'price_decimal_sep' => '.',
-				),
-		);
+
 		$general = get_option('general', false);
-		return (object) wp_parse_args($general, $default);
+		$general['currency'] = wp_parse_args( $general['currency'], $this->get_currency_default() );
+		$general_parse = wp_parse_args( $general, $this->get_general_default() );
+
+		return (object) $general_parse;
 	}
 	function get_currency_code(){
-		$default = array(
+		$default = $this->get_currency_default();
+		$general = (object) $this->get_group_option('general');
+		return (object) wp_parse_args($general->currency, $default);
+	}
+	function get_currency_default(){
+		$default= array(
 			'code' => 'USD',
 			'position' => 'left',
 			'price_thousand_sep' => ',',
 			'price_decimal_sep' => '.',
 		);
-		$general = (object) $this->get_group_option('general');
-		return (object) wp_parse_args($general->currency, $default);
+		return $default;
 	}
-	function set_logo(){
-
-	}
-	function get_logo(){
-
-	}
-
 	/**
 	 * mailing setting in dashboar and be used in mail content.
 	 * This is a cool function
@@ -260,6 +249,7 @@ function get_commision_fee( $total, $setting ){
 	return $number;
 }
 function get_commision_setting($object = true){
+
 	$option = BX_Option::get_instance();
 	$escrow = $option->get_group_option('escrow');
 	$commision = (object)$escrow->commision;

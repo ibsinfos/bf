@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <?php
-global $general;
-$code = $general->currency['code'];
-$symbol = box_get_currency_symbol($code);
+global $box_general, $box_currency;
+
+$symbol = box_get_currency_symbol( $box_currency->code );
 
 global $author_id;
 $author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );

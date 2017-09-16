@@ -4,13 +4,13 @@ function box_price($price,$echo = true){
 	echo get_box_price($price);
 }
 function get_box_price($price) {
+	global $box_currency;
 
-	$currency =  BX_Option::get_instance()->get_currency_code();
 	$decimals = 2;
 
-	number_format( $price, $decimals, $currency->price_decimal_sep, $currency->price_thousand_sep );
+	number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep );
 
-	$symbol = box_get_currency_symbol($currency->code);
+	$symbol = box_get_currency_symbol($box_currency->code);
 
 	$string = $price.'<span class="currency-icon">('.$symbol.') </span>';
 
@@ -24,31 +24,29 @@ function get_box_price($price) {
  * @version 1.0
  * @return  [type] [description]
  */
-function box_get_price($price, $setting  = array() ){
-
-	$currency =  BX_Option::get_instance()->get_currency_code();
+function box_get_price( $price ){
+	global $box_currency;
 	$decimals = 2;
-	$currency =  BX_Option::get_instance()->get_currency_code();
-	return number_format( $price, $decimals, $currency->price_decimal_sep, $currency->price_thousand_sep );
+	return floatval(number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep ) );
 }
 
 /** this function will be return float number with the symbol */
 
 function box_get_price_format($price ){
 
-	$currency =  BX_Option::get_instance()->get_currency_code();
-	$symbol = box_get_currency_symbol($currency->code);
+	global $box_currency ;
 
+	$symbol = box_get_currency_symbol($box_currency->code);
 	$price = floatval($price);
 	$string ='<span class="currency-icon">('.$symbol.')</span>'. $price;
 
-	if( $currency->position == 'right' ){
+	if( $box_currency->position == 'right' ){
 		$string = $price. '<span class="currency-icon">('.$symbol.')</span>';
-	} else if($currency->position == 'left_space'){
+	} else if($box_currency->position == 'left_space'){
 
 		$string = '<span class="currency-icon">('.$symbol.') </span>' . $price;
 	}
-	else if($currency->position == 'right_space'){
+	else if($box_currency->position == 'right_space'){
 		$string = $price.'<span class="currency-icon"> ('.$symbol.')</span>' ;
 	}
 

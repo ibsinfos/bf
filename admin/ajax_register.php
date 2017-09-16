@@ -37,7 +37,7 @@ class BX_ajax_backend{
 		$name = $request['name'];
 		$group = $request['group'];
 		$value = $request['value'];
-		$section = $request['section'];
+		$section = isset($request['section']) ? $request['section']: '';
 		$multi = isset($request['multi']) ? $request['multi']: 1;
 
 		$option = BX_Option::get_instance();
