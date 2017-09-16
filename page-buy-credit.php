@@ -11,7 +11,7 @@
 				<?php the_post(); $packages = array(); ?>
 				<h1><?php the_title();?></h1>
 				<?php if( is_user_logged_in() ){ ?>
-				<form class="frm-buy-credit" disabled>
+				<form class="frm-buy-credit">
 					<div class="step step-1">
 						<div class="form-group">
 						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> Select a package</h3>

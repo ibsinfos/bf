@@ -9,7 +9,7 @@
 
 
 			var success = function(res){
-				console.log(res.success);
+
 				if(res.success){
 					window.location.href = res.redirect_url;
 				}
