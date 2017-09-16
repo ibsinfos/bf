@@ -4,23 +4,26 @@
 		<h2 class="sidebar-title"> <?php _e('Advance Filters','boxtheme');?>
 	</div>
 	<div class="block full">
-		<h3><?php _e('Locations','boxtheme');?>  <span class=" toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
+		<h3><?php _e('Locations','boxtheme');?><i class="toggle-check fa fa-sort-desc pull-right" aria-hidden="true"></i></h3>
 		<ul class="list-checkbox ul-cats">
 			<?php
 				$countries = get_terms( array(
 	                'taxonomy' => 'country',
 	                'hide_empty' => false,
-	            ) );
+	            	)
+				);
 	            if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
 	                foreach ( $countries as $key=>$country ) {
 	                   echo '<li><label class="skil-item"> ' . $country->name . ' <input type="checkbox" name="country" class="search_country" alt="'.$key.'"  value="' . $country->term_id . '"> <i class="fa fa-check primary-color" aria-hidden="true"></i></label></li>';
 	                }
-	            }
+	            } else { ?>
+	            <li> <?php _e('The is not any locations','boxtheme');?></li>
+	            <?php }
 	     	?>
 	    </ul>
 	</div>
 	<div class="block full">
-		<h3> <?php _e('Skills','boxtheme');?> <span class="toggle-check glyphicon pull-right glyphicon-menu-down"></span></h3>
+		<h3> <?php _e('Skills','boxtheme');?>  <i class="toggle-check fa fa-sort-desc pull-right" aria-hidden="true"></i></span></h3>
 
 	 	<ul class="list-checkbox ul-skills">
 

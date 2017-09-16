@@ -1,8 +1,7 @@
 
 <div class="full search-adv">
-
 	<div class="block full">
-		<h3> Categories  <span class=" toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
+		<h3> Categories  <i class="toggle-check fa fa-sort-desc pull-right" aria-hidden="true"></i></h3>
 		<ul class="list-checkbox ul-cats">
 			<?php
 				$terms = get_terms( array(
@@ -18,7 +17,7 @@
 	    </ul>
 	</div>
 	<div class="block full">
-		<h3> Skills <span class="toggle-check glyphicon  pull-right glyphicon-menu-down"></span></h3>
+		<h3> Skills <i class="toggle-check fa fa-sort-desc pull-right" aria-hidden="true"></i></h3>
 
 	 	<ul class="list-checkbox ul-skills">
 

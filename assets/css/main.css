@@ -870,8 +870,12 @@ ul.pagination{
 	color: #555;
 	text-decoration: none;
 	font-size: 14px;
-	padding: 4px 12px;
+	padding: 1px 10px;
 	background-color: #ececec;
+	margin-bottom: 10px;
+    float: left;
+    margin-right: 6px;
+
 }
 .archive-profile-item .profile-inline{
 	width: 100%;
