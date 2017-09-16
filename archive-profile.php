@@ -44,19 +44,26 @@ get_header(); ?>
 	</div>
 </div>
 <script type="text/html" id="tmpl-search-record">
-	<div class=" archive-profile-item">
+	<div class="archive-profile-item">
 		<div class="full">
-			<div class="col-md-2 no-padding col-xs-4">
-			<a class="avatar" href="{{{data.author_link}}}">{{{data.avatar}}}</a></div>
-			<div class="col-md-10 align-left  col-xs-8">
-				<h3 class="profile-title no-margin"><a href="{{{data.author_link}}}">{{{data.post_title}}}</a></h3>
-				<span class="inline second-line"><span class="item professional-title primary-color">{{{data.professional_title}}}</span> </span>
-				<span class="inline list-info">
-					<span class="item hour-rate"><span class="glyphicon glyphicon-time"></span> {{{data.hour_rate_text}}}</span>
-					<span class=" item eared-txt"> Earned: {{{data.earned}}}</span>
-					<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>{{{data.country}}}</span>
-					<span class="item profile-rating">
-						<start class="rating-score clear block core-{{{data.rating_scrore}}} ">
+			<div class="col-md-2 no-padding col-xs-3 col-avatar">
+				<a class="avatar" href = "{{{data.author_link}}}">{{{data.avatar}}}</a>
+			</div>
+			<div class="col-md-10 align-left  col-xs-9 res-content res-second-line no-padding-right">
+
+				<h3 class="profile-title no-margin col-xs-12">
+					<a class="" href = "{{{data.author_link}}}">{{{data.post_title}}}</a>
+				</h3>
+				<span class="inline second-line col-md-12 col-xs-12">
+					<span class="item professional-title primary-color">{{{data.professional_title}}}</span>
+				</span>
+
+				<span class="inline list-info col-md-12 no-padding-right no-padding-left">
+					<span class=" item hour-rate col-md-3  no-padding-left"><i class="fa fa-clock-o " aria-hidden="true"></i><span class="txt-rate">{{{data.hour_rate_text}}}</span></span>
+					<span class=" item eared-txt col-md-3 col-xs-4 text-center">{{{data.earned_txt}}} </span>
+					<span class=" item country-profile col-md-3 col-xs-4 text-center"> <i class="fa fa-map-marker" aria-hidden="true"></i> {{{data.country}}} </span>
+					<span class="item profile-rating col-md-3 col-xs-4 no-padding-right text-right">
+						<start class="rating-score {{{data.score_class}}}">
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
 							<i class="fa fa-star" aria-hidden="true"></i>
@@ -65,11 +72,14 @@ get_header(); ?>
 						</start>
 					</span>
 				</span>
-				<span class="overview-profile clear">{{{data.short_des}}}</span>
+			</div>
+			<div class="col-md-10 align-left  col-xs-12 res-content no-padding-right">
+				<span class="overview-profile clear col-xs-12">{{{data.short_des}}}</span>
 				<small class="clear skills">{{{data.skill_text}}}</small>
 			</div>
 		</div>
 	</div>
+
 </script>
 <script type="text/javascript">
 	(function($){

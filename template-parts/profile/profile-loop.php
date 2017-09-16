@@ -22,7 +22,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 }
 
 ?>
-<div class=" archive-profile-item">
+<div class="archive-profile-item">
 	<div class="full">
 		<div class="col-md-2 no-padding col-xs-3 col-avatar">
 		<?php echo '<a class="avatar" href = "'.get_author_posts_url($profile->post_author).'">'.get_avatar($profile->post_author, 150).'</a>';
@@ -43,7 +43,7 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 
 			<span class="inline list-info col-md-12 no-padding-right no-padding-left">
 				<span class=" item hour-rate col-md-3  no-padding-left"><i class="fa fa-clock-o " aria-hidden="true"></i><span class="txt-rate"><?php echo $profile->{HOUR_RATE_TEXT};?> </span></span>
-				<span class=" item eared-txt col-md-3 col-xs-4 text-center"><?php printf(__('Earned: %s','boxtheme'),$profile->{EARNED} ) ;?> </span>
+				<span class=" item eared-txt col-md-3 col-xs-4 text-center"><?php echo $profile->earned_txt;?> </span>
 				<span class=" item country-profile col-md-3 col-xs-4 text-center"> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $profile->country;?> </span>
 				<span class="item profile-rating col-md-3 col-xs-4 no-padding-right text-right">
 					<start class="rating-score <?php echo $start_class;?> ">
@@ -63,7 +63,5 @@ if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 			</span>
 			<small class="clear skills"><?php echo $skill_val;?></small>
 		</div>
-
-
 	</div>
 </div>
