@@ -8,9 +8,10 @@ $payment = $option->get_group_option($group);
 $paypal = (object) $payment->paypal;
 $cash = (object) $payment->cash;
 $mode = $payment->mode;
-var_dump($paypal);
+
 $cash_enable = 1;
 $pp_enable = 0;
+
 if(isset($paypal->enable) )
     $pp_enable = $paypal->enable;
 ?>
