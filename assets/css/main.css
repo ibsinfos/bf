@@ -784,7 +784,7 @@ content: "";
 }
 .list-project .project-loop-item{
 	padding-bottom: 20px;
-
+	overflow: hidden;
 	border-bottom: 1px solid #e2e2e2;
 }
 .list-project .pagination {
@@ -912,46 +912,45 @@ ul.pagination{
 .archive-profile-item  .second-line  .profile-rating{
 	float: right;
 }
-.rating-score.core-1 span{
+
+.rating-score.core-1 i:nth-child(1){
 	color: #ffb200;
 }
-.rating-score.core-2 span:nth-child(1),
-.rating-score.core-2-half span:nth-child(1),
-.rating-score.core-2 span:nth-child(2),
-.rating-score.core-2-half span:nth-child(2){
+
+.rating-score.core-2 i:nth-child(1),
+.rating-score.core-2-half i:nth-child(1),
+.rating-score.core-2 i:nth-child(2),
+.rating-score.core-2-half i:nth-child(2){
 	color: #ffb200;
 }
-.rating-score.core-3 span:nth-child(1),
-.rating-score.score-3-half span:nth-child(1),
-.rating-score.core-3 span:nth-child(2),
-.rating-score.score-3-half span:nth-child(2),
-.rating-score.core-3 span:nth-child(3),
-.rating-score.score-3-half span:nth-child(3){
+.rating-score.core-3 i:nth-child(1),
+.rating-score.score-3-half i:nth-child(1),
+.rating-score.core-3 i:nth-child(2),
+.rating-score.score-3-half i:nth-child(2),
+.rating-score.core-3 i:nth-child(3),
+.rating-score.score-3-half i:nth-child(3){
 	color: #ffb200;
 
 }
 
-.rating-score.score-1-half span:nth-child(2),
-.rating-score.score-2-half span:nth-child(3),
-.rating-score.score-3-half span:nth-child(4){
+.rating-score.score-1-half i:nth-child(2),
+.rating-score.score-2-half i:nth-child(3),
+.rating-score.score-3-half i:nth-child(4){
 	color: #ffb200;
 }
 
-.rating-score.core-4 span:nth-child(1),
-.rating-score.score-4-half span:nth-child(1),
-.rating-score.core-4 span:nth-child(2),
-.rating-score.score-4-half span:nth-child(2),
-.rating-score.core-4 span:nth-child(3),
-.rating-score.score-4-half span:nth-child(3),
-.rating-score.core-4 span:nth-child(4),
-.rating-score.score-4-half span:nth-child(4){
+.rating-score.core-4 i:nth-child(1),
+.rating-score.score-4-half i:nth-child(1),
+.rating-score.core-4 i:nth-child(2),
+.rating-score.score-4-half i:nth-child(2),
+.rating-score.core-4 i:nth-child(3),
+.rating-score.score-4-half i:nth-child(3),
+.rating-score.core-4 i:nth-child(4),
+.rating-score.score-4-half i:nth-child(4){
 		color: #ffb200;
 }
-.rating-score.core-5 span:nth-child(1),
-.rating-score.core-5 span:nth-child(2),
-.rating-score.core-5 span:nth-child(3),
-.rating-score.core-5 span:nth-child(4),
-.rating-score.core-5 span:nth-child(5){
+.rating-score.core-5,
+.rating-score.core-0 {
 		color: #ffb200;
 }
 /****************** AUTHOR PAGE*************/
