@@ -33,7 +33,7 @@
 				echo '<div class ="col-md-2">';				echo count_bids($post->ID);				echo '</div>';
 				echo '<div class ="col-md-2">';				box_price($project->_budget);				echo '</div>';
 				echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
-				?><div class ="col-md-2 text-center"><a class="btn-board"  data-toggle="tooltip" title= "Renew this job" href="<?php echo $new_url;?>"><span class="glyphicon glyphicon-refresh"></span></a> <a href="#" class="btn-board btn-delete-job"   data-toggle="tooltip"  title="<?php _e('Delete this job','boxtheme');?>" id ="<?php echo $project->ID;?>"><span class="glyphicon glyphicon-remove"></span></a></div> <?php
+				?><div class ="col-md-2 text-center"><a class="btn-board"  data-toggle="tooltip" title= "Renew this job" href="<?php echo $new_url;?>"><i class="fa fa-refresh" aria-hidden="true"></i></a> <a href="#" class="btn-board btn-delete-job"   data-toggle="tooltip"  title="<?php _e('Delete this job','boxtheme');?>" id ="<?php echo $project->ID;?>"><i class="fa fa-times" aria-hidden="true"></i></a></div> <?php
 			echo '</li>';
 			$i ++;
 		}

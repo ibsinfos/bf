@@ -53,7 +53,7 @@ $skills = $cat_ids =$skill_ids = array();
 
 	<div class="form-group ">
 	 	<label for="example-text-input" class="col-3  col-form-label"><?php printf(__('What budget do you have in mind(%s)?','boxtheme'), '<small>'.$symbol.'</small>');?></label>
-	 	<input class="form-control" type="number" value="<?php echo !empty($project) ? $project->{BUDGET}:'';?>" required name="<?php echo BUDGET;?>"   placeholder="<?php printf(__('Set your budget here(%s)','boxtheme'), $symbol);?> " id="example-text-input">
+	 	<input class="form-control" type="number" step="any" value="<?php echo !empty($project) ? $project->{BUDGET}:'';?>" required name="<?php echo BUDGET;?>"   placeholder="<?php printf(__('Set your budget here(%s)','boxtheme'), $symbol);?> " id="example-text-input">
 
 	</div>
 	<div class="form-group ">

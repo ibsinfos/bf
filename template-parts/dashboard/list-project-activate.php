@@ -28,7 +28,7 @@
 				echo '<div class ="col-md-2">';				echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-2">';				box_price($project->_budget);echo '</div>';
 				echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
-				?><div class ="col-md-2"><a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>"><span class="	glyphicon glyphicon-trash"></span></a> <?php
+				?><div class ="col-md-2"><a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a> <?php
 			echo '</li>';
 		}
 		// if($loadmore){
