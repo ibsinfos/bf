@@ -884,6 +884,12 @@ ul.pagination{
 	width: 100px;
 	position: relative;
 }
+.archive-profile-item .list-info .hour-rate i{
+	float: left;
+	padding-right: 5px;
+	position: relative;
+	top: 2px;
+}
 .archive-profile-item .list-info .hour-rate .glyphicon{
 	position: absolute;
 	left: 0;
