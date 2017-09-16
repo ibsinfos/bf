@@ -936,11 +936,14 @@ class BX_AJAX {
 				$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
 				//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
-				$mail_content = '<p>Hi danhoat,</p><p>Abc.com has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
+				$mail_content = '<p>Hi #user_login,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
 				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
 				$subject = 'Reset your #blog_name password';
 				$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
+
 				$content = str_replace('#user_login', $user->user_login, $mail_content);
+				$content = str_replace('#blog_name', $user->user_login, $content);
+				$content = str_replace('#blog_link', home_url(), $content);
 				$content = str_replace('#reset_link', esc_url($link), $content);
 
 
