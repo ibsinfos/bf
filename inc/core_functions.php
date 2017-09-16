@@ -32,7 +32,7 @@ function box_get_price($price, $setting  = array() ){
 	return number_format( $price, $decimals, $currency->price_decimal_sep, $currency->price_thousand_sep );
 }
 
-/** this function will be refund float number with the symbol */
+/** this function will be return float number with the symbol */
 
 function box_get_price_format( $setting = array() ){
 	$currency =  BX_Option::get_instance()->get_currency_code();
