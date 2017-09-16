@@ -145,7 +145,7 @@
                 success : function(res){
                 	form.find(".btn-submit").removeClass("loading");
                     if ( res.success ){
-
+                    	$(".forgetpass").html(res.msg);
                     } else {
                     	$("#loginErrorMsg").html(res.msg);
                     	$("#loginErrorMsg").removeClass("hide");
