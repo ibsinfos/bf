@@ -55,14 +55,14 @@ get_header(); ?>
 <script type="text/html" id="tmpl-search-record">
 	<div class="project-loop-item">
 		<div class="col-md-12"><h3 class="project-title "><a class="primary-color second-font" href="{{{data.guid}}}">{{{data.post_title}}}</a></div>
-		<div class="col-md-12">
+		<div class="col-md-12 project-second-line">
 			<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
 			   	<span class="js-type">Fixed-Price</span>
 		        <span class="js-budget">-<span  data-itemprop="baseSalary">{{{data.budget_txt}}} </span></span>
 			</span>
 			<span class="js-posted"> - <time>{{{data.time_txt}}}</time></span>
 		</div>
-		<div class="col-md-12">{{{data.short_des}}}</div>
+		<div class="col-md-12 project-third-line">{{{data.short_des}}}</div>
 		<div class="col-md-12 employer-info">
 			<span>
 	            <strong class="text-muted display-inline-block m-sm-top">Client:</strong>
