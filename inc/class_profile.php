@@ -81,6 +81,7 @@ Class BX_Profile extends BX_Post{
 
 		$post->{HOUR_RATE_TEXT} = sprintf( __('%s %s/h','boxtheme'), $this->symbol, $post->{HOUR_RATE} );
 		$post->skill_text = '';
+		$post->short_des =  wp_trim_words( $post->post_content, 62);
 		$skill_text = '';
 		$skills = get_the_terms( $post->ID, 'skill' );
 		if ( $skills && ! is_wp_error( $skills ) ){

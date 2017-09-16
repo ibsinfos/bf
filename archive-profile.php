@@ -57,7 +57,7 @@ get_header(); ?>
 					<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>{{{data.country}}}</span>
 					<span class="item profile-rating"> <start class="rating-score clear block core-{{{data.rating_scrore}}} "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
 				</span>
-				<span class="overview-profile clear">{{{data.post_content}}}</span>
+				<span class="overview-profile clear">{{{data.short_des}}}</span>
 				<small class="clear skills">{{{data.skill_text}}}</small>
 			</div>
 		</div>
