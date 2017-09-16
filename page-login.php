@@ -54,6 +54,8 @@
 						      		<h2><?php _e('Reset your password','boxtheme');?></h2>
 						      		<div class="form-group">
 						              	<input type="email" class="form-control required" required="" id="login-email" name="email" value="" title="<?php _e('Enter you email','boxtheme');?>" placeholder="<?php _e('Enter you email','boxtheme');?>">
+						              	<input type="hidden" name="method" value="send_request">
+
 						              	<?php  wp_nonce_field( 'box_resetpass', 'nonce_resetpass_field' ); ?>
 						          	</div>
 						          	<div class="form-group">

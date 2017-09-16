@@ -911,40 +911,64 @@ class BX_AJAX {
 	}
 	static function bx_resetpass(){
 		$request = $_REQUEST['request'];
-		$email = $request['email'];
+		$method = $request['method'];
 
-		$response = array('success' => false, 'msg' => 'Has something wrong.');
-		$check = email_exists($email);
 
-		if( ! $check ){
-			$response['msg'] = __('This is email not available','boxtheme');
+		if( 'send_request' == $method ){
+			$email = $request['email'];
+			$response = array('success' => false, 'msg' => 'Has something wrong.');
+			$check = email_exists($email);
+
+			if( ! $check ){
+				$response['msg'] = __('This is email not available','boxtheme');
+				wp_send_json( $response );
+			}
+			$user = get_user_by('email', $email);
+
+			if( ! is_wp_error($user ) &&  $user  ){
+
+				$response = array(
+					'success' 	=>	true,
+					'msg' => 'Please check your mailbox for instructions to reset your password.',
+				);
+				$activation_key =  get_password_reset_key( $user);
+				$link = box_get_static_link('reset-password');
+				$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
+
+				//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+				$mail_content = '<p>Hi danhoat,</p><p>Abc.com has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
+				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
+				$subject = 'Reset your #blog_name password';
+				$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
+				$content = str_replace('#user_login', $user->user_login, $mail_content);
+				$content = str_replace('#reset_link', esc_url($link), $content);
+
+
+				box_mail( $email, $subject, stripslashes($content) );
+			}
+
+			wp_send_json( $response );
+		} else if('setpass' == $method ){
+
+			$token = $request['token'];
+			$username = $request['username'];
+			$new_password = $request['new_password'];
+			$confirm_password = $request['confirm_password'];
+
+			$response = array( 'success' => false, 'msg' => 'Fail' );
+
+			if ( $new_password != $confirm_password ) {
+				$response = array('success' => false, 'msg' => 'Your confirm password don\'t match.','boxthemes');
+				wp_send_json( $response );
+			}
+			$user = check_password_reset_key( $token, $username );
+			if( !is_wp_error($user)  ){
+				reset_password( $user, $new_password );
+				$response = array('success' => false, 'msg' => 'Your password is updated.','boxthemes');
+				wp_send_json( $response );
+			}
 			wp_send_json( $response );
 		}
-		$user = get_user_by('email', $email);
-
-		if( ! is_wp_error($user ) &&  $user  ){
-
-			$response = array(
-				'success' 	=>	true,
-				'msg' => 'Please check your mailbox for instructions to reset your password.',
-			);
-			$activation_key =  get_password_reset_key( $user);
-			$link = box_get_static_link('reset-password');
-			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
-
-			//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
-			$mail_content = '<p>Hi danhoat,</p><p>Abc.com has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
-			<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
-			$subject = 'Reset your #blog_name password';
-			$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
-			$content = str_replace('#user_login', $user->user_login, $mail_content);
-			$content = str_replace('#reset_link', esc_url($link), $content);
-
-
-			box_mail( $email, $subject, stripslashes($content) );
-		}
-
-		wp_send_json( $response );
 	}
 
 
