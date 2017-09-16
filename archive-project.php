@@ -54,7 +54,7 @@ get_header(); ?>
 </script>
 <script type="text/html" id="tmpl-search-record">
 	<div class="project-loop-item">
-		<div class="col-md-12"><h3 class="project-title primary-color second-font"><a href="{{{data.guid}}}">{{{data.post_title}}}</a></div>
+		<div class="col-md-12"><h3 class="project-title "><a class="primary-color second-font" href="{{{data.guid}}}">{{{data.post_title}}}</a></div>
 		<div class="col-md-12">
 			<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
 			   	<span class="js-type">Fixed-Price</span>
