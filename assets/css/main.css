@@ -895,6 +895,9 @@ ul.pagination{
 	overflow: hidden;
 	max-width: 130px;
 }
+.archive-profile-item a.avatar:hover{
+	opacity: 0.8;
+}
 .archive-profile-item  .second-line{
 	display: block;
     clear: both;

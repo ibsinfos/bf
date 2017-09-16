@@ -137,8 +137,8 @@ var ajaxSend = {};
 					$("#ajax_result").append( res.pagination );
 
 					if( data.href ){
-					 	window.location.hash = data.href; // update the url
-					 	window.location.hash.split('#')[1];
+					 	//window.location.hash = data.href; // update the url
+					 	//window.location.hash.split('#')[1];
 					}
 				}
 	        },
