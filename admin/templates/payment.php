@@ -2,31 +2,16 @@
 $group_option = "general";
 $sub_item = "currency";
 
-$box_option = BX_Option::get_instance();
-$general = $box_option->get_group_option($group_option);
-$currency = $general->$sub_item;
+$box_general = BX_Option::get_instance()->get_general_option();
 
+$currency = (object)$box_general->$sub_item;
 
-$code = 'USD';
-$position = 'left';
-$price_thousand_sep = ",";
-$price_decimal_sep = ".";
+$code = $currency->code;
 
-if( !empty($currency->code) ){
-	$code = $currency->code;
-}
+$position = $currency->position;
+$price_thousand_sep = $currency->price_thousand_sep;
+$price_decimal_sep = $currency->price_decimal_sep;
 
-if( !empty($currency->position) ){
-	$position = $currency->position;
-}
-
-if( !empty($currency->price_thousand_sep) ){
-	$price_thousand_sep = $currency->price_thousand_sep;
-}
-
-if( !empty($currency->price_decimal_sep) ){
-	$price_decimal_sep = $currency->price_decimal_sep;
-}
 
 ?>
 <div class="sub-section " id="<?php echo $group_option;?>">
@@ -39,7 +24,7 @@ if( !empty($currency->price_decimal_sep) ){
 		        	<?php
 		        	$list = list_currency();
 		        	foreach ($list as $cur => $value) { ?>
-		        		<option <?php selected($code, $cur );?> value='<?php echo $cur;?>'><?php echo $value;?></option>";
+		        		<option <?php selected($code, $cur );?> value='<?php echo $cur;?>'><?php echo $value;?></option>
 		        		<?php
 		        	}
 		        	?>
@@ -71,7 +56,7 @@ if( !empty($currency->price_decimal_sep) ){
 <?php
 
 $group_option = "payment";
-$payment = $box_option->get_group_option($group_option);
+$payment = BX_Option::get_instance()->get_group_option($group_option);
 ?>
 
 <div class="section box-section" id="<?php echo $group_option;?>">
