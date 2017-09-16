@@ -930,22 +930,25 @@ class BX_AJAX {
 				'msg' => 'Please check your mailbox for instructions to reset your password.',
 			);
 			$activation_key =  get_password_reset_key( $user);
-			$link = box_get_static_link('reset-passs');
+			$link = box_get_static_link('reset-password');
 			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
-			var_dump($user);
+
 			//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
-			$mail_content = 'Click <a href="#reset_link"> here </a> to reset your password';
-			$subject = 'Reset your password';
-			//$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail_content) );
+			$mail_content = '<p>Hi danhoat,</p><p>Abc.com has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
+			<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
+			$subject = 'Reset your #blog_name password';
+			$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
 			$content = str_replace('#user_login', $user->user_login, $mail_content);
 			$content = str_replace('#reset_link', esc_url($link), $content);
 
 
 			box_mail( $email, $subject, stripslashes($content) );
 		}
+
+		wp_send_json( $response );
 	}
 
-	wp_send_json( $response );
+
 
 }
 
