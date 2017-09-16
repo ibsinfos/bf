@@ -920,9 +920,9 @@ class BX_AJAX {
 			$response['msg'] = __('This is email not available','boxtheme');
 			wp_send_json( $response );
 		}
-		$user = get_userdata($email);
-
-
+		$user = get_user_by('email', $email);
+		var_dump($email);
+		var_dump($user);
 		if( ! is_wp_error($user ) &&  $user  ){
 			$response = array(
 				'success' 	=>	true,
