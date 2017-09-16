@@ -926,7 +926,6 @@ class BX_AJAX {
 
 			$response = array(
 				'success' 	=>	true,
-				'data' 		=> $user,
 				'msg' => 'Please check your mailbox for instructions to reset your password.',
 			);
 			$activation_key =  get_password_reset_key( $user);
