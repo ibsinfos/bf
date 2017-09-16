@@ -1,10 +1,8 @@
 <?php get_header(); ?>
 <?php
-global $box_general, $box_currency;
-
-$symbol = box_get_currency_symbol( $box_currency->code );
-
 global $author_id;
+$symbol = box_get_currency_symbol();
+
 $author 	= get_user_by( 'slug', get_query_var( 'author_name' ) );
 $author_id = $author->ID;
 
@@ -13,6 +11,7 @@ $profile_id = get_user_meta($author_id,'profile_id', true);
 $profile 	= BX_Profile::get_instance()->convert($profile_id);
 $skills 	= get_the_terms( $profile_id, 'skill' );
 $skill_text = '';
+
 if ( $skills && ! is_wp_error( $skills ) ){
 	$draught_links = array();
 	foreach ( $skills as $term ) {

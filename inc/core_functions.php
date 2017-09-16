@@ -10,7 +10,7 @@ function get_box_price($price) {
 
 	number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep );
 
-	$symbol = box_get_currency_symbol($box_currency->code);
+	$symbol = box_get_currency_symbol($box_currency);
 
 	$string = $price.'<span class="currency-icon">('.$symbol.') </span>';
 
@@ -143,7 +143,8 @@ function box_editor_settings() {
 		)
 	) );
 }
-function box_get_currency_symbol($code){
+function box_get_currency_symbol($code = ''){
+
 	$symbols = array('AED' => '&#x62f;.&#x625;',
 		'AFN' => '&#x60b;',
 		'ALL' => 'L',
@@ -307,7 +308,11 @@ function box_get_currency_symbol($code){
 		'ZAR' => '&#82;',
 		'ZMW' => 'ZK',
 	);
-	$currency_symbol = isset( $symbols[ $code ] ) ? $symbols[ $code ] : '';
+	if ( empty($code) ) {
+		global $box_currency;
+		$code = $box_currency->code;
+	}
+	$currency_symbol = isset( $symbols[ $code] ) ? $symbols[ $code ] : '';
 	return $currency_symbol;
 }
 function list_currency(){

@@ -1,7 +1,6 @@
 <?php
-global $general;
-$code = $general->currency['code'];
-$symbol = box_get_currency_symbol($code);
+
+$symbol = box_get_currency_symbol();
 
 $profile_query = new WP_Query( array (
 	'post_type' => PROFILE,

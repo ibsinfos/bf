@@ -39,9 +39,9 @@ $skills = $cat_ids =$skill_ids = array();
 		}
 	}
 	echo $id_field;
-	global $box_currency;
 
-	$symbol = box_get_currency_symbol( $box_currency->code );
+
+	$symbol = box_get_currency_symbol( );
 	?>
 	<div class="form-group ">
 	 	<h1 class="page-title"><?php if( ! $p_id){ the_title();} else { _e('Renew project','boxtheme'); } ?></h1>

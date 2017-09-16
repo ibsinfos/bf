@@ -8,8 +8,7 @@ Class BX_Profile extends BX_Post{
 	public $symbol;
 	function __construct(){
 		$this->post_type = PROFILE;
-		global $box_currency;
-		$this->symbol = box_get_currency_symbol($box_currency->code);
+		$this->symbol = box_get_currency_symbol();
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
