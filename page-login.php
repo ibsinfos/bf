@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <div class="full-width ">
 	<div class="container page-nosidebar site-container">
-        <div id="loginbox" style="margin-top:15px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div id="loginbox" style="margin-top:15px; min-height: 40em;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div style="padding-top:25px" class="panel-body" >
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
