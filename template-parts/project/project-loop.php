@@ -12,7 +12,7 @@ $project = BX_Project::get_instance()->convert($post);
 		    <span>Fixed-Price</span>
             <span >
 	            <span class="js-budget">- <span>Budget:</span>
-	           		<span  data-itemprop="baseSalary"><?php box_price($project->_budget);?> </span>
+	           		<span  data-itemprop="baseSalary"><?php echo box_get_price_format($project->_budget);?> </span>
 				</span>
 			</span>
 			<span class="js-posted"> - <time><?php bx_show_time($post);?></time></span>
@@ -26,7 +26,7 @@ $project = BX_Project::get_instance()->convert($post);
 		<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
             <strong class="text-muted display-inline-block m-sm-top">Client:</strong>
 			<span class="inline">
-				<span><?php echo $project->spent_txt;?></span>
+				<span><?php printf( __('Spent %s','boxtheme'), box_get_price($project->spent_txt) );?></span>
 			</span>
 			<span  class="nowrap">
 			    <span> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $project->country;?></span>

@@ -69,7 +69,7 @@ get_header(); ?>
 				<span class="inline"><span class="client-spendings display-inline-block">{{{data.spent}}}</span></span>
 				<span  class="nowrap">
 					<span class="glyphicon glyphicon-md air-icon-location m-0"></span>
-				    <span class="text-muted client-location"><span class="glyphicon glyphicon-map-marker"></span> {{{data.country}}}</span>
+				    <span class="text-muted client-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{{data.country}}}</span>
 				</span><!---->
 	        </span>
 		</div> <!-- . employer-info !-->

@@ -55,7 +55,15 @@ get_header(); ?>
 					<span class="item hour-rate"><span class="glyphicon glyphicon-time"></span> {{{data.hour_rate_text}}}</span>
 					<span class=" item eared-txt"> Earned: {{{data.earned}}}</span>
 					<span class=" item country-profile"> <span class="glyphicon glyphicon-map-marker"></span>{{{data.country}}}</span>
-					<span class="item profile-rating"> <start class="rating-score clear block core-{{{data.rating_scrore}}} "><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span></start></span>
+					<span class="item profile-rating">
+						<start class="rating-score clear block core-{{{data.rating_scrore}}} ">
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+							<i class="fa fa-star" aria-hidden="true"></i>
+						</start>
+					</span>
 				</span>
 				<span class="overview-profile clear">{{{data.short_des}}}</span>
 				<small class="clear skills">{{{data.skill_text}}}</small>

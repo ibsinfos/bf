@@ -47,7 +47,7 @@
        			<div class="full heading">
        				<div class ="col-md-2 no-padding-right"><?php printf(__('Status: %s','boxtheme'),$project->post_status); ?></div>
                   	<div class="col-md-3"><?php printf(__('Post date: %s','boxtheme'),get_the_date() );?></div>
-                  	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),get_box_price($project->_budget,true) ); ?> </div>
+                  	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),box_get_price_format($project->_budget) ); ?> </div>
                   	<div class="col-md-4">
                   		<ul class="social-shares">
                   			<li class="share-item fb-share">

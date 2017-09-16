@@ -34,17 +34,11 @@ function box_get_price($price, $setting  = array() ){
 
 /** this function will be return float number with the symbol */
 
-function box_get_price_format( $setting = array() ){
+function box_get_price_format($price ){
+
 	$currency =  BX_Option::get_instance()->get_currency_code();
-	$decimals = 2;
-
-	$currency = (object) $general->currency;
-	if( !empty( $currency->code ) )
-		$code = $currency->code;
-
-	$symbol = box_get_currency_symbol($code);
-
-	$string = $price.'<span class="currency-icon">('.$symbol.') </span>';
+	$symbol = box_get_currency_symbol($currency->code);
+	$string = floatval($price).'<span class="currency-icon">('.$symbol.') </span>';
 
 	return  $string;
 }
