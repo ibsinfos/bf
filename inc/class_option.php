@@ -75,24 +75,8 @@ class BX_Option {
 					'enable' => 1,
 				),
 			),
-			'app_api' => array(
-				'facebook' => array(
-					'app_id' => '',
-					'enable' => 0,
-
-				),
-				'google' => array(
-					'client_id' => '',
-					'enable' => 0,
-				),
-				'gg_captcha' => array(
-					'site_key' => '',
-					'secret_key' => '',
-					'enable' => 0,
-				),
-			),
+			'app_api' => $this->get_app_api_default(),
 			'escrow' => array(
-
 				'activate' => 'credit',
 				'commision' => array(
 					'number' => '10',
@@ -112,7 +96,27 @@ class BX_Option {
 			return $default[$key];
 		return $default;
 	}
+	function get_app_api_default( $key = 0 ){
+		$default = array(
+			'facebook' => array(
+				'app_id' => '',
+				'enable' => 0,
 
+			),
+			'google' => array(
+				'client_id' => '',
+				'enable' => 0,
+			),
+			'gg_captcha' => array(
+				'site_key' => '',
+				'secret_key' => '',
+				'enable' => 0,
+			),
+		);
+		if( $key )
+			return $default[$key];
+		return $default;
+	}
 	function list_email(){
 		$setting = get_option('box_mail_content', true);
 		if( !is_array($setting) )
@@ -189,6 +193,14 @@ class BX_Option {
 
 		$general = get_option('general', false);
 		$general['currency'] = wp_parse_args( $general['currency'], $this->get_currency_default() );
+		$general_parse = wp_parse_args( $general, $this->get_general_default() );
+
+		return (object) $general_parse;
+	}
+	function get_app_api_option(){
+
+		$general = get_option('app_api', false);
+		$general['app_api'] = wp_parse_args( $general['currency'], $this->get_app_api_default() );
 		$general_parse = wp_parse_args( $general, $this->get_general_default() );
 
 		return (object) $general_parse;

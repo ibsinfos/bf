@@ -1163,7 +1163,17 @@ form #heading_signup{
 	border-radius: 3px;
 }
 .frm-signup .form-group{
-	margin-bottom: 25px;
+	margin-bottom: 15px;
+}
+.g-recaptcha{
+	margin: 10px 0;
+}
+.g-recaptcha div:first-child{
+	margin: 0 auto;
+	width: 100% !important;
+}
+.rc-anchor-light.rc-anchor-normal{
+
 }
 #container_msg{
 	height: 150px;

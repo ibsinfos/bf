@@ -39,6 +39,10 @@
 				                        }
 				                        wp_nonce_field( 'bx_login', 'nonce_login_field' );
 			                    	?>
+			                    	<!-- <div class="g-recaptcha1" data-sitekey="6LfaagYTAAAAAINBy-JHFEOOBU115cNMa5cSSv77" data-size="normal"></div> -->
+
+			                    	<?php box_add_captcha_field(); ?>
+
 						          	<button type="submit" class="btn btn-success btn-block btn-submit"><?php _e('Log In','boxtheme');?></button>
 						           	<div class="loginSignUpSeparator"><span class="textInSeparator" aria-label="or ">or </span></div>
 						          	<div class="forgotLink"><a href="#" class=""><?php _e('Forgot password?','boxtheme');?></a></div>
@@ -96,6 +100,8 @@
                 data: {
                         action: 'bx_login',
                         request: send,
+                        captcha: grecaptcha.getResponse(),
+
                 },
                 beforeSend  : function(event){
                 	form.attr('disabled', 'disabled');

@@ -43,6 +43,10 @@ function box_add_meta_head(){
 		}
 	}
 	//end facebook meta
+	?>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<?php
+
 }
 add_action('wp_footer','box_footer_script', 99);
 function box_footer_script(){

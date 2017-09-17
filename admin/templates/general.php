@@ -8,27 +8,7 @@ $pending_post = false;
 $google_analytic = $copyright = $tw_link = $fb_link = $gg_link = '' ;
 $group_option = "general";
 $option = BX_Option::get_instance();
-$general = $option->get_group_option($group_option);
-
-
-if( isset($general->pending_post) ){
-	$pending_post = $general->pending_post;
-}
-if( isset($general->google_analytic) ){
-	$google_analytic = $general->google_analytic;
-}
-if( isset($general->copyright) ){
-	$copyright = $general->copyright;
-}
-if( isset($general->tw_link) ){
-	$tw_link = $general->tw_link;
-}
-if( isset($general->fb_link) ){
-	$fb_link = $general->fb_link;
-}
-if( isset($general->gg_link) ){
-	$gg_link = $general->gg_link;
-}
+$general = $option->get_general_option();
 
 ?>
 <h2><?php _e('Main options','boxtheme');?></h2>
@@ -143,7 +123,10 @@ $app_api = $option->get_group_option($group_option);
 
 $secret_key = $site_key  = '';
 $enable_catcha = 0;
+
 $gg_captcha = (object) $app_api->$item3;
+
+
 if( !empty($gg_captcha->site_key) ) {
 	$site_key = $gg_captcha->site_key;
 }

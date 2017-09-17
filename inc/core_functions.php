@@ -143,6 +143,43 @@ function box_editor_settings() {
 		)
 	) );
 }
+function box_get_response(  $captcha_response) {
+	$remote_ip = $_SERVER['REMOTE_ADDR'];
+	$app_api = BX_Option::get_instance()->get_group_option('app_api');
+	$gg_captcha = (object) $app_api->gg_captcha;
+	$enable = intval($gg_captcha->enable);
+
+	if( ! $enable ){
+		return true;
+	}
+	$args = array(
+		'body' => array(
+			'secret'   => $gg_captcha->secret_key,
+			'response' => stripslashes( esc_html( $captcha_response ) ),
+			'remoteip' => $remote_ip,
+		),
+		'sslverify' => is_ssl(),
+	);
+	$resp = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', $args );
+	$response = json_decode( wp_remote_retrieve_body( $resp ), true );
+	if ( isset( $response['success'] ) && !! $response['success'] ) {
+		return true;
+	}
+	new WP_Error( 'gglcptch_error', __('Captcha Invalid','boxtheme') );
+}
+function box_add_captcha_field(){
+
+	$app_api = BX_Option::get_instance()->get_group_option('app_api');
+	$gg_captcha = (object) $app_api->gg_captcha;
+	$enable = (int) $gg_captcha->enable;
+
+	if( $enable){ ?>
+		<div class="g-recaptcha" data-sitekey="<?php echo $gg_captcha->site_key;?>"></div>
+	<?php }
+
+
+}
+
 function box_get_currency_symbol( $code = ''){
 
 	$symbols = array('AED' => '&#x62f;.&#x625;',

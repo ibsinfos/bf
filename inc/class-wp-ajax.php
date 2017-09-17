@@ -141,10 +141,21 @@ class BX_AJAX {
 
 		$request 	= $_REQUEST;
 		$info 		= $request['request'];
+		$captcha = isset($_REQUEST['captcha']) ? $_REQUEST['captcha'] : '';
+
+		$response = box_get_response( $captcha );
+
+		if ( is_wp_error($response) ) {
+			$response= array( 'success'=> false,
+				'msg' => __('Invalid captcha','boxtheme')
+			);
+			wp_send_json( $response );
+		}
+
 		/*
 		 * check security
 		 */
-		if( !wp_verify_nonce( $info['nonce_login_field'], 'bx_login' ) ) {
+		if( ! wp_verify_nonce( $info['nonce_login_field'], 'bx_login' ) ) {
 			wp_send_json( array( 'success' => false, 'msg'=> _e('The nonce field is incorrect','boxtheme') ) ) ;
 	    }
 	    $response = bx_signon($info);
