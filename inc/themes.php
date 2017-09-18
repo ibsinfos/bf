@@ -172,10 +172,15 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 	$messages = $notifies = array();
 
-	$has_new_noti = get_user_meta($user_ID,'has_new_notify', true);
-	if( ! $has_new_noti ){
+	$has_new_noti = (int) get_user_meta($user_ID,'has_new_notify', true);
 
-		$list_unread  = $wpdb->get_results( $wpdb->prepare( "SELECT msg.msg_unread, msg.sender_id, msg.msg_date , msg.msg_content  FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d ", $user_ID) );
+	if(  $has_new_noti ){
+
+		$list_unread  = $wpdb->get_results( $wpdb->prepare(
+			"SELECT msg.ID, msg.msg_unread, msg.sender_id, msg.msg_date , msg.msg_content, msg.msg_type, msg.msg_link
+			FROM {$wpdb->prefix}box_messages msg
+			WHERE msg_unread = 1 AND receiver_id = %d ", $user_ID)
+		);
 
 		if( $list_unread){
 
@@ -189,8 +194,6 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 			}
 		}
 	}
-
-
 
 	$number_new_msg = count($messages);
 	$msg_class= 'empty-msg';
@@ -220,7 +223,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		</li>
 		<li class="icon-bell first-sub no-padding-left pull-left"">
 			<div class="dropdown">
-			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell <?php if( !empty( $notifies) ) echo 'toggle-msg';?> " aria-hidden="true"></i></span> <?php
+			  	<span class="dropdown-toggle <?php if ( $has_new_noti)  echo 'toggle-msg';?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell  " aria-hidden="true"></i></span> <?php
 			  	echo '<ul class=" dropdown-menu ul-notification">';
 			  	$unread = 0;
 				if( !empty( $notifies) ){

@@ -912,11 +912,11 @@ class BX_AJAX {
 	static function sync_notify(){
 		$request = $_REQUEST['request'];
 
-		$id = $request['id'];
 		$method = $request['method'];
 		$result = false;
 
 		if('delete' == $method){
+			$id = $request['id'];
 			$response = array('success' => true, 'msg' => 'Remove notify done' );
 			$result = Box_Notify::get_instance()->delete($id);
 		}

@@ -106,7 +106,7 @@ var single_project = {
         		console.log(res.success);
         		window.location.reload(true);
 	        } else {
-	        	console.log(ress.msg);
+	        	console.log(res.msg);
 	        }
 	    }
 		window.ajaxSend.Form(event, action, method, successRes);

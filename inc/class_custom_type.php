@@ -7,9 +7,8 @@ Class Box_Custom_Type{
 	public $type;
 	static protected $instance;
 	public $table;
-	function __construct($typ){
+	function __construct(){
 		global $wpdb;
-		$this->type = $type;
 		$this->table = $wpdb->prefix."box_messages";
 	}
 	static function get_instance(){

@@ -160,6 +160,7 @@ class BX_Bid extends BX_Post{
 				);
 
 			$notify = Box_Notify::get_instance()->insert($args);
+
 		}
 		return $bid_id;
 
