@@ -401,3 +401,8 @@ function init_theme() {
   	}
 }
 add_action( 'load-themes.php', 'init_theme' );
+// add_action( 'parse_request','box_check_paypal' );
+// function box_check_paypal(){
+// 	box_log('check paypal in function.php');
+// 	box_log($_POST);
+// }

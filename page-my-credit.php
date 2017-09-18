@@ -104,8 +104,8 @@ if( ! empty ($withdraw_info->bank_account) ){
 
 					<div id="bank_info" class=" tab-content-item hidding">
 						<form id="frm_bank_info" class="withdraw-info">
-							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
-							<span class="btn-edit-self 123 "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> <span class="btn-edit-self "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span></h3></div>
+
 							<div class="full is-view">
 								<div class="form-group">
 									<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
@@ -185,6 +185,8 @@ if( ! empty ($withdraw_info->bank_account) ){
 	}
 	.tab-content-item h3{
 		margin-top: 0;
+		position: relative;
+		padding-right: 20px;
 	}
 	.tab-withdraw{}
 	.tab-content .hidding{

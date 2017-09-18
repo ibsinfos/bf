@@ -7,11 +7,15 @@ $type  = isset($_GET['type']) ? $_GET['type'] : '';
 $order = array();
 $order_id = isset($_GET['order_id']) ? $_GET['order_id'] : 0;
 
-$verified = BX_Paypal::get_instance()->verifyIPN();
+// box_log('page-process-payment.php');
+// box_log($_POST);
+
 if($type == 'paypal'){
+	$verified = BX_Paypal::get_instance()->verifyIPN();
 	if ($verified) {
+
 		// appove order_status and add amout of this order to ballance of payer.
-		bx_error_log('Verified successful');
+		//box_log('Verified successful');
 		bx_process_payment($_POST);
 	    /*
 	     * Process IPN

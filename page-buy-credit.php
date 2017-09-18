@@ -126,12 +126,13 @@
 				<?php _e('Please login to buy credit','boxtheme');?>
 				<?php }?>
 				<!-- PAYPAL FORM !-->
-				<!--
+
 			    <?php
-                $paypal_url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-                $return     = box_get_static_link('process-payment');
+               // $paypal_url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+               // $return     = box_get_static_link('process-payment');
                 ?>
-                <div class="col-md-4">
+               <!--  <div class="col-md-4">
+                	<h2> Test PayPal</h2>
                     <form class="paypal" action="<?php echo $paypal_url; ?>" method="GET" id="paypal_form">
                         <input type="hidden" name="cmd" value="_xclick" />
                         <input type="hidden" name="currency_code" value="USD" />
@@ -150,6 +151,28 @@
                         <input type="hidden" name="notify_url" value="<?php echo $return;?>" / >
                         <input type="submit" name="submit" class="btn btn-green" value="Select"/>
                     </form>
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+					  <!-- Identify your business so that you can collect the payments. -->
+					  <input type="hidden" name="business" value="wpcodev@gmail.com">
+
+					  <!-- Specify a Buy Now button. -->
+					  <input type="hidden" name="cmd" value="_xclick">
+
+					  <!-- Specify details about the item that buyers will purchase. -->
+					  <input type="hidden" name="item_name" value="Hot Sauce-12oz. Bottle">
+					  <input type="hidden" name="amount" value="5.95">
+					  <input type="hidden" name="currency_code" value="USD">
+					  <input type="hidden" name="return" value="<?php echo $return?>" / >
+					  <!-- Display the payment button. -->
+					  <input type="image" name="submit" border="0"
+					  src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_buynow_107x26.png"
+					  alt="Buy Now">
+					  <img alt="" border="0" width="1" height="1"
+					  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+					</form>
+                </div> -->
 			    <!-- END PAYPAL !-->
 
 			</div>
