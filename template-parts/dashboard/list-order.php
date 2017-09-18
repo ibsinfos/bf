@@ -20,7 +20,8 @@
   			'posts_per_page' => -1,
   		);
   		$status = array('pending' => __('Pending','boxtheme'),'publish' => __('Approved','boxtheme') );
-		$types = array('buy_credit' => __('Buy credit','boxtheme'),'withdraw' => __('Withdraw','boxtheme') ,'none' =>'None');
+		$types = array('buy_credit' => __('Buy credit','boxtheme'),'withdraw' => __('Withdraw','boxtheme') ,'none' =>'None', 'deposit' => __('Deposit','boxtheme'), 'undeposit' => __('Refund','boxtheme') );
+
   		$query = new WP_Query($args);
   		if( $query->have_posts() ){
   			while ( $query->have_posts() ) {
@@ -29,7 +30,7 @@
   				global $post;
   				$query->the_post();
   				$order = BX_Order::get_instance()->get_order($post);
-  				if( in_array($order->order_type, array('withdraw','pay_service') ) )
+  				if( in_array($order->order_type, array('withdraw','pay_service','deposit') ) )
   					$check = '(-)';
   				?>
   				<div class="line full row-order-item">

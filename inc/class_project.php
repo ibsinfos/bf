@@ -140,10 +140,10 @@ Class BX_Project extends BX_Post{
 			// check balance and deducts.
 
 			$employer_id = $project->post_author;
-
+			$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 			$credit = BX_Credit::get_instance();
 			// perform the action deposite - transfer credit from employer to freelancer account.
-			$transfered = $credit->deposit( $employer_id, $bid_id, $project );
+			$transfered = $credit->deposit( $employer_id, $bid_price, $project );
 
 			if ( is_wp_error($transfered) ){
 				return $transfered;
@@ -155,8 +155,8 @@ Class BX_Project extends BX_Post{
 				BID_ID_WIN => $bid_id,
 			);
 
-			$res = wp_update_post($request);
-			if($res){
+			$res = wp_update_post( $request );
+			if( $res ){
 
 				// create coversation
 				// update bid status to AWARDED
@@ -168,6 +168,10 @@ Class BX_Project extends BX_Post{
 					'receiver_id' => $request['freelancer_id']
 				);
 				BX_Conversations::get_instance()->insert($args);
+				$order_id = BX_Order::get_instance()->create_deposit_order($bid_price, $project);
+				if(!is_wp_error( $order_id ) ){
+					update_post_meta( $project->ID,'deposit_order_id', $order_id );
+				}
 
 				return $res;
 			}
@@ -219,10 +223,6 @@ Class BX_Project extends BX_Post{
 
 				);
 				$bid = wp_update_post( $bid_args);
-
-
-
-
 
 				$current_user = wp_get_current_user();
 				$time = current_time('mysql');
@@ -307,13 +307,17 @@ Class BX_Project extends BX_Post{
 		$employer_id = $project->post_author;
 
 		$bid_id = get_post_meta($project_id, BID_ID_WIN, true);
+		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 
 		$credit = BX_Credit::get_instance();
-		$transfered = $credit->undeposit( $employer_id, $bid_id, $project_id );
+		$transfered = $credit->undeposit( $employer_id, $bid_price, $project_id );
 
 		if ( is_wp_error($transfered) ){
 			return $transfered;
 		}
+		$order_id = BX_Order::get_instance()->create_undeposit_order($bid_price, $project);
+
+
 		$request['ID'] = $project_id;
 		$request['post_status'] = ARCHIVED;
 		//$request['post_status'] = 'publish';

@@ -49,7 +49,6 @@ Class BX_Order {
 			'payment_type', // paypal, stripe or cash.
 			'order_type', // pay credit, pay post project or pay to bid .
 			'order_mode', //sandbox or live
-			'payment_type', //  cash, paypal or stripe ...
 		);
 	}
 
@@ -118,24 +117,22 @@ Class BX_Order {
 	}
 	function create_order( $args ){
 		$curren_user = wp_get_current_user();
-		$args_order = array(
-			'post_type' => $this->post_type,
+
+		$default =  array(
 			'post_title' =>'Pay service',
-			'post_status' => 'publish',
 			'author' => $curren_user->ID,
 			'meta_input' => array(
-				'amout' => $args['amout'],
-				'project_id' => $args['project_id'],
-				'order_type' => $args['order_type'],
-				'order_mode' => $this->use_sandbox,
-				'payment_type' => $args['payment_type'],
-				//'payer_id' => $curren_user->ID,
-				//'payer_email' => $curren_user->user_email ,
-
-				//'receiver_email' => $this->receiver_email,
+				'amout' => '',
+				'project_id' => '',
+				'order_type' => '',
+				'payment_type' => '',
 			)
 		);
-		return wp_insert_post($args_order);
+		$new_args = wp_parse_args( $args, $default );
+		$new_args['post_status'] = 'publish';
+		$new_args['post_type'] = $this->post_type;
+		$new_args['meta_input']['order_mode'] = $this->use_sandbox;
+		return wp_insert_post($new_args);
 	}
 	/**
 	 * create orders
@@ -163,6 +160,38 @@ Class BX_Order {
 				)
 			);
 		return $this->create($args);
+	}
+	function create_deposit_order($bid_price, $project){
+		$args_order = array(
+			'post_title' => sprintf( __('Deposit for the project %s','boxtheme'),$project->post_title ),
+			'post_status' =>'publish',
+			'author' => $curren_user->ID,
+			'post_type' => $this->post_type,
+			'meta_input' => array(
+				'amout' => $bid_price,
+				'project_id' => $project->ID,
+				'order_type' => 'deposit',
+				'payment_type' => 'credit',
+				'order_mode' => $this->mode,
+			)
+		);
+		return wp_insert_post($args_order);
+	}
+	function create_undeposit_order($bid_price, $project){
+		$args_order = array(
+			'post_title' => sprintf( __('Refund for the project %s','boxtheme'),$project->post_title ),
+			'post_status' =>'publish',
+			'author' => $curren_user->ID,
+			'post_type' => $this->post_type,
+			'meta_input' => array(
+				'amout' => $bid_price,
+				'project_id' => $project->ID,
+				'order_type' => 'undeposit',
+				'payment_type' => 'credit',
+				'order_mode' => $this->mode,
+			)
+		);
+		return wp_insert_post($args_order);
 	}
 
 }

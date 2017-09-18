@@ -32,11 +32,9 @@ Class BX_Credit {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit($employer_id, $bid_id, $project = 0) {
+	function deposit($employer_id, $bid_price, $project = 0) {
 
 		$ballance = $this->get_ballance($employer_id);
-
-		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 
 		$pay_ifo = box_get_pay_info($bid_price);
 
@@ -47,20 +45,19 @@ Class BX_Credit {
 		}
 		$new_available = $ballance->available - $emp_pay;
 		global $wpdb;
-		$wpdb->query( $wpdb->prepare(			"
+		$ok = $wpdb->query( $wpdb->prepare(			"
 				UPDATE $wpdb->usermeta
 				SET  meta_value = %f
 				WHERE user_id = %d AND meta_key ='%s' ",
 			    $new_available, $employer_id, $this->meta_available
 			)
 		);
-		return true;
+		return $ok;
 
 	}
-	function undeposit($employer_id, $bid_id, $project_id = 0) {
+	function undeposit($employer_id, $bid_price, $project_id = 0) {
 
 		$ballance = $this->get_ballance($employer_id);
-		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 
 		$pay_info = box_get_pay_info($bid_price);
 
