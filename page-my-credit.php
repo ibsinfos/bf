@@ -196,6 +196,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 	}
 	div.is-edit{
 		visibility: hidden;
+		display: none;
 	}
 	form.is-edit .is-edit{
 		display: block;
