@@ -58,7 +58,7 @@ function bx_process_payment($post) {
 	}
 
 	if ( (float) $order_record->amout != (float)$payment_gross ) {
-		bx_error_log('not_equal');
+		box_log('not_equal');
 		return new WP_Error( 'not_equal', __( "The order is not equal", "boxtheme" ) );
 	}
 	// only update status of order

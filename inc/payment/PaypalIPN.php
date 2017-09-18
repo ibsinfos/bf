@@ -1,6 +1,6 @@
 <?php
 
-//https://github.com/paypal/ipn-code-samples/tree/master/php 
+//https://github.com/paypal/ipn-code-samples/tree/master/php
 //link download
 class PaypalIPN
 {
@@ -89,7 +89,7 @@ class PaypalIPN
                 $myPost[$keyval[0]] = urldecode($keyval[1]);
             }
         }
-        //bx_error_log($myPost);
+        //box_log($myPost);
         // Build the body of the verification post request, adding the _notify-validate command.
         $req = 'cmd=_notify-validate';
         $get_magic_quotes_exists = false;

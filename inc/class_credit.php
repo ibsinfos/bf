@@ -93,12 +93,12 @@ Class BX_Credit {
 	 */
 	function process_verified_order( $user_receice_id, $amout ){
 		$return =  $this->increase_credit_available($amout, $user_receice_id);
-		bx_error_log('User Receiver ID Input:'.$user_receice_id);
-		bx_error_log('Amout order:'.$amout);
+		box_log('User Receiver ID Input:'.$user_receice_id);
+		box_log('Amout order:'.$amout);
 		if($return){
-			bx_error_log('Process verified order : OK');
+			box_log('Process verified order : OK');
 		} else {
-			bx_error_log('Process verified order : Fail');
+			box_log('Process verified order : Fail');
 		}
 	}
 	function get_ballance($user_id) {

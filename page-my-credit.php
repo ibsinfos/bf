@@ -88,7 +88,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 						<form id="frm_paypal" class="withdraw-info">
 							<span class="btn-edit-self 111"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
 							<div class="form-group is-view">
-								<span for="paypal_email"><strong><?php _e('PayPal Email','boxtheme');?></strong></span> <p><?php echo $paypal_email;?>123</p>
+								<span for="paypal_email"><strong><?php _e('PayPal Email','boxtheme');?></strong></span> <p><?php echo $paypal_email;?></p>
 							</div>
 							<div class="full is-edit">
 								<div class="form-group">
