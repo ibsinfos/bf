@@ -619,4 +619,7 @@
 	ul.main-login li{
 		padding-top: 0;
 	}
+	#wp-admin-bar-my-account{
+		display: none !important;
+	}
 }

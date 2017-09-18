@@ -4,9 +4,11 @@ class Box_Notify extends Box_Custom_Type{
 	public $receiver_id;
 	public $content;
 	public $type;
+	public $table;
 	static protected $instance;
 	function  __construct(){
 		$this->type = 'notify';
+
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -46,37 +48,18 @@ class Box_Notify extends Box_Custom_Type{
 		return $wpdb->get_row($sql);
 
 	}
-
-	function get_converstaion1($args){
-		$group = $args['group'];
-
-		$gr = explode(",",$group);
-		$sender_id = $gr[0];
-		$receiver_id = $gr[1];
-		global $wpdb;
-		return 1;
-		$sql = "SELECT *
-				FROM {$wpdb->prefix}box_messages msg
-				WHERE sender_id = {$sender_id}
-					AND receiver_id = {$receiver_id}
-					AND msg_type = 'message'
-				ORDER BY id ASC";
-
-		$msg =  $wpdb->get_results($sql);
-		return $msg;
+	function seen_all(){
+		global $wpdb, $user_ID;
+		update_post_meta($user_ID, 'has_new_notify',0);
+		return $wpdb->query( $wpdb->prepare(
+			"
+			UPDATE $this->table
+			SET msg_unread = %d
+			WHERE receiver_id = %d and notify = %s
+			",0 , $user_ID, 'notify')
+		);
 	}
-	function get_converstaion($args){
-		$id = $args['id'];
-		global $wpdb;
-		$sql = "SELECT *
-				FROM {$wpdb->prefix}box_messages msg
-				WHERE cvs_id = {$id}
-					AND msg_type = 'message'
-				ORDER BY id ASC";
 
-		$msg =  $wpdb->get_results($sql);
-		return $msg;
-	}
 	function delete($id){
 		global $wpdb, $user_ID;
 		return $wpdb->query(

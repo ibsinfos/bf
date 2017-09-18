@@ -911,10 +911,21 @@ class BX_AJAX {
 	}
 	static function sync_notify(){
 		$request = $_REQUEST['request'];
-		$id = $request['id'];
-		$result = Box_Notify::get_instance()->delete($id);
 
-		$response = array('success' => true, 'msg' => 'Remove notify done' );
+		$id = $request['id'];
+		$method = $request['method'];
+		$result = false;
+
+		if('delete' == $method){
+			$response = array('success' => true, 'msg' => 'Remove notify done' );
+			$result = Box_Notify::get_instance()->delete($id);
+		}
+		if('seenall' == $method){
+			$response = array('success' => true, 'msg' => 'Seen all' );
+			$result = Box_Notify::get_instance()->seen_all();
+		}
+
+
 		if ( is_wp_error( $result ) ){
 			$response = array('success' => false, 'msg' => $result->get_error_message());
 		}

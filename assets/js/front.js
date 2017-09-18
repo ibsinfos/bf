@@ -7,6 +7,7 @@
 			$('.toggle-menu' ).on( 'click', this.toggleMenu );
 			$( "#search_type").on( 'change',this.setSearchUrl );
 			$(".btn-del-noti").on('click',this.delNotify );
+			$(".toggle-msg").on( 'click', this.setNotifySeen);
 			//$( ".pagination").on('click',this.pagingProject);
 			var view = this;
 			$(".menu-hamburger").click(function(){
@@ -93,9 +94,19 @@
 		$("form.frm-search").attr('action',_this.val() );
 		$("input#keyword").attr('placeholder', status );
 	},
+	setNotifySeen: function(event){
+		var _this = $(event.currentTarget);
+		var data = {id:_this.attr('rel'), method: 'seenall', action : 'sync_notify'};
+
+		var success = function(res){
+
+		}
+		window.ajaxSend.Custom( data, success);
+		return true;
+	},
 	delNotify : function(event){
 		var _this = $(event.currentTarget);
-		var data = {id:_this.attr('rel'),action : 'sync_notify'};
+		var data = {id:_this.attr('rel'), method: 'delete', action : 'sync_notify'};
 		var success = function(res){
 			_this.closest("li").remove();
 		}

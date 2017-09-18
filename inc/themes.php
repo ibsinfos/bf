@@ -170,22 +170,28 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 	global $user_ID, $wpdb;
 
-	$cache_key = 'notify_of_'.$user_ID;
-	$notifies = wp_cache_get( $cache_key, 'notify' );
-	$messages = array();
+	$messages = $notifies = array();
 
-	$list_unread  = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d ", $user_ID) );
+	$has_new_noti = get_user_meta($user_ID,'has_new_notify', true);
+	if( ! $has_new_noti ){
 
-	if( $list_unread ){
-		foreach ($list_unread as $custom) {
+		$list_unread  = $wpdb->get_results( $wpdb->prepare( "SELECT msg.msg_unread, msg.sender_id, msg.msg_date , msg.msg_content  FROM {$wpdb->prefix}box_messages msg WHERE msg_unread = 1 AND receiver_id = %d ", $user_ID) );
 
-			if( $custom->msg_type == 'message' )
-				$messages[] = $custom;
+		if( $list_unread){
 
-			if( $custom->msg_type  == 'notify' )
-				$notifies[] = $custom;
+			foreach ($list_unread as $custom) {
+
+				if( $custom->msg_type == 'message' )
+					$messages[] = $custom;
+
+				if( $custom->msg_type  == 'notify' )
+					$notifies[] = $custom;
+			}
 		}
 	}
+
+
+
 	$number_new_msg = count($messages);
 	$msg_class= 'empty-msg';
 	if( $number_new_msg > 0 )
@@ -214,13 +220,13 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		</li>
 		<li class="icon-bell first-sub no-padding-left pull-left"">
 			<div class="dropdown">
-			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell toggle-msg" aria-hidden="true"></i></span> <?php
+			  	<span class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell <?php if( !empty( $notifies) ) echo 'toggle-msg';?> " aria-hidden="true"></i></span> <?php
 			  	echo '<ul class=" dropdown-menu ul-notification">';
 			  	$unread = 0;
 				if( !empty( $notifies) ){
 					foreach ($notifies as $noti) {
 						$class ="noti-read";
-						if($noti->msg_unread == 1) { $unread ++; $class="noti-unread"; }
+						if( $noti->msg_unread == 1) { $unread ++; $class="noti-unread"; }
 						?>
 						<li class="dropdown-item <?php echo $class;?>">
 							<div class="left-noti"><a href="#"><?php echo get_avatar( $noti->sender_id ); ?></a></div>
