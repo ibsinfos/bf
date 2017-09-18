@@ -86,32 +86,60 @@ if( ! empty ($withdraw_info->bank_account) ){
 					</div>
 					<div id="paypal" class="tab-content-item hidding">
 						<form id="frm_paypal" class="withdraw-info">
-							<div class="form-group">
-								<label for="paypal_email"><?php _e('PayPal Email','boxtheme');?></label>
-								<input type="text" class="form-control required" id="paypal_email" name="paypal_email" required aria-describedby="paypal_email" value="<?php echo $paypal_email;?>" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
+							<span class="btn-edit-self 111"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+							<div class="form-group is-view">
+								<span for="paypal_email"><strong><?php _e('PayPal Email','boxtheme');?></strong></span> <p><?php echo $paypal_email;?>123</p>
 							</div>
-							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
+							<div class="full is-edit">
+								<div class="form-group">
+									<label for="paypal_email"><?php _e('PayPal Email:','boxtheme');?></label>
+									<input type="text" class="form-control required" id="paypal_email" name="paypal_email" required aria-describedby="paypal_email" value="<?php echo $paypal_email;?>" placeholder="<?php _e('Your PayPal Email','boxtheme');?>">
+
+								</div>
+								<button type="submit" class="btn btn-primary is-edit"><?php _e('Save','boxtheme');?></button>
+							</div>
+
 						</form>
 					</div>
 
 					<div id="bank_info" class=" tab-content-item hidding">
 						<form id="frm_bank_info" class="withdraw-info">
 							<div class="form-group"><h3><?php _e('Setup your bank account','boxtheme');?> </h3></div>
-							<div class="form-group">
-								<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
-								<input type="text" class="form-control required" id="account_name" required name="account_name" aria-describedby="account_name" value="<?php echo $bank_account->account_name;?>" placeholder="<?php _e('Name on account','boxtheme');?>">
-								<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
-							</div>
-							<div class="form-group">
-								<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
-								<input type="text" class="form-control required" required id="account_number" name="account_number" value="<?php echo $bank_account->account_number;?>" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
+							<span class="btn-edit-self 123 "><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
+							<div class="full is-view">
+								<div class="form-group">
+									<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
+									<p><span><?php echo !empty($bank_account->account_name) ? $bank_account->account_name : 'Not set';?></span></p>
+
+								</div>
+								<div class="form-group">
+									<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
+									<p><?php echo !empty($bank_account->account_number) ? $bank_account->account_number : 'Not set'; ?></p>
+								</div>
+
+								<div class="form-group">
+									<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
+									<p><?php echo !empty($bank_account->bank_name) ? $bank_account->bank_name :'Not set';?></p>
+								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
-								<input type="text" class="form-control required" id="bank_name" name="bank_name" value="<?php echo $bank_account->bank_name;?>" placeholder="Bank name">
+							<div class="full is-edit">
+								<div class="form-group">
+									<label for="account_name"><?php _e('Name on account','boxtheme');?></label>
+									<input type="text" class="form-control required" id="account_name" required name="account_name" aria-describedby="account_name" value="<?php echo $bank_account->account_name;?>" placeholder="<?php _e('Name on account','boxtheme');?>">
+									<small id="emailHelp" class="form-text text-muted"><?php _e('Your bank account name','boxtheme');?></small>
+								</div>
+								<div class="form-group">
+									<label for="account_number"><?php _e('Account number or IBAN','boxtheme');?></label>
+									<input type="text" class="form-control required" required id="account_number" name="account_number" value="<?php echo $bank_account->account_number;?>" aria-describedby="" placeholder="<?php _e('Account number or IBAN','boxtheme');?>">
+								</div>
+
+								<div class="form-group">
+									<label for="exampleInputPassword1"><?php _e('Bank name','boxtheme');?></label>
+									<input type="text" class="form-control required" id="bank_name" name="bank_name" value="<?php echo $bank_account->bank_name;?>" placeholder="Bank name">
+								</div>
+								<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 							</div>
-							<button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
 						</form>
 					</div>
 				</div>
@@ -132,6 +160,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 	.site-content{
 		background-color: transparent;
 	}
+
 	.line-item{
 		background: #fff;
 		border:3px solid #e6e6e6;
@@ -147,11 +176,15 @@ if( ! empty ($withdraw_info->bank_account) ){
 	}
 	.tab-content-item{
 		min-height: 299px;
+		position: relative;
 	}
 	.tab-content-item form{
 		padding: 25px 15px;
-		border:1px solid #ddd;
+		border1:1px solid #ddd;
 		border-top: 0;
+	}
+	.tab-content-item h3{
+		margin-top: 0;
 	}
 	.tab-withdraw{}
 	.tab-content .hidding{
@@ -160,6 +193,22 @@ if( ! empty ($withdraw_info->bank_account) ){
 	}
 	.page-credit .nav-tabs>li>a{
 		border-radius: 0;
+	}
+	div.is-edit{
+		visibility: hidden;
+	}
+	form.is-edit .is-edit{
+		display: block;
+		visibility: visible;
+	}
+	form.is-edit .is-view{
+		display: none;
+	}
+	.btn-edit-self{
+		position: absolute;
+		right: 20px;
+		top: 10px;
+		cursor: pointer;
 	}
 	@media only screen and (max-width: 768px) {
 		.line-item{
@@ -219,6 +268,11 @@ if( ! empty ($withdraw_info->bank_account) ){
 				$(section).removeClass('hidding');
 				return false;4
 			});
+			$(".btn-edit-self").click(function(event){
+				var _this = $(event.currentTarget);
+				_this.closest("form").toggleClass('is-edit');
+
+			})
 
 		})
 
