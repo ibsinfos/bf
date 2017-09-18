@@ -330,6 +330,7 @@ var single_project = {
 	        } else {
 	        	alert(res.msg);
 	        }
+	        $('#quytModal').modal().hide();
 		}
 		window.ajaxSend.Form(event, action, method, success);
 

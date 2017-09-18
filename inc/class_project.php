@@ -301,9 +301,18 @@ Class BX_Project extends BX_Post{
 	}
 	function quit_job($args){
 		// undepost
+		global $user_ID;
 
 		$project_id = $args['project_id'];
 		$project = get_post($project_id);
+
+		if($user_ID != $project->post_author ){
+			return new WP_Error( 'unsecurity', __('You don\'t have permissiton to perform this action','boxtheme') );
+		}
+
+		if($project->post_status != AWARDED){
+			return new WP_Error( 'status_wrong', __('This job is archived','boxtheme') );
+		}
 		$employer_id = $project->post_author;
 
 		$bid_id = get_post_meta($project_id, BID_ID_WIN, true);

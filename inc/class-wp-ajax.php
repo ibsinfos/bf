@@ -395,7 +395,7 @@ class BX_AJAX {
 	static function workspace_action(){
 		$request 	= $_REQUEST;
 		$args 		= $request['request'];
-		$method 	= $_REQUEST['method'];
+		$method 	= $_REQUEST['method']; //quit_job,
 
 		$response 	= array('success' => true, 'msg' => __('Review job','boxtheme'), 'data' => array() );
 		$project 	= BX_Project::get_Instance();
