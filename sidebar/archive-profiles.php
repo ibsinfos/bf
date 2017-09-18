@@ -9,7 +9,7 @@
 			<?php
 				$countries = get_terms( array(
 	                'taxonomy' => 'country',
-	                'hide_empty' => false,
+	                'hide_empty' => true,
 	            	)
 				);
 	            if ( ! empty( $countries ) && ! is_wp_error( $countries ) ){
