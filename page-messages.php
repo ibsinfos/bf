@@ -81,7 +81,7 @@
 									</div><?php
 								} else { ?>
 									<div class="msg-record msg-item">
-										 <div class="col-md-9 pull-right text-right"><span class="wrap-text-me"><span class="my-reply"><?php echo $msg->msg_content;?></span><br /><small class="msg-mdate"> </small><?php echo date_format($date,"m/d/Y");?></small></div>
+										 <div class="col-md-9 pull-right text-right"><span class="wrap-text-me"><span class="my-reply"><?php echo $msg->msg_content;?></span><br /><small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small></div>
 									</div><?php
 								}
 							}
@@ -158,6 +158,9 @@
 	.my-reply small{
 		float: right;
 		clear: both;
+	}
+	.msg-mdate{
+		font-size: 13px;
 	}
 	#list_msg{
 		height: 200px;
