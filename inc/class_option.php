@@ -173,22 +173,28 @@ class BX_Option {
 		update_option('box_mail_content', $args);
 
 	}
-	function set_option($group, $section,$item, $name, $new_value, $multi = true){
+	function set_option($group, $section,$item, $name, $new_value, $level = 0 ){
 
 		$current = get_option($group, false);
+
 		if ( !is_array($current) )
 			$current = array();
 
-		if( $multi ){
+		$level = (int) $level;
+
+		if(  $level == 0 ) {
+			$current[$name] = $new_value; // copyright, pending_post,
+		} else  if( $level == 1 ) {
+
+			$current[$section][$name]= $new_value; // social link, currency
+
+		} else if( $level == 2 ) {
 			$cur_item = $current[$section][$item];
 			$new_item = wp_parse_args( $cur_item, $this->get_item_default( $group, $section, $item ) );
 			$new_item[$name] = $new_value;
-
 			$current[$section][$item]= $new_item;
-		} else {
-			$current[$name] = $new_value;
 		}
-		//var_dump($current);
+
 		return update_option($group, $current);
 	}
 

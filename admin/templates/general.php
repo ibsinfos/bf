@@ -23,10 +23,10 @@ $general = $option->get_general_option();
 
 		</div>
 		<div class="full" id="google_analytic">
-			<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9 no-padding"><textarea class="auto-save" multi="0" name="google_analytic"><?php echo stripslashes($general->google_analytic);?></textarea></div>
+			<div class="col-md-3"><h3><?php _e('Google Analytics Script','boxtheme');?></h3></div> <div class="col-md-9 no-padding"><textarea class="auto-save" level="0" name="google_analytic"><?php echo stripslashes($general->google_analytic);?></textarea></div>
 		</div>
 		<div class="full">
-			<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9  no-padding"><textarea class="form-control auto-save" multi="0"  name="copyright" ><?php echo stripslashes($general->copyright);?> </textarea></div>
+			<div class="col-md-3"><h3><?php _e('Copyright text','boxtheme');?></h3></div> <div class="col-md-9  no-padding"><textarea class="form-control auto-save" level="0"  name="copyright" ><?php echo stripslashes($general->copyright);?> </textarea></div>
 		</div>
 		<div class="full">
 			<div class="col-md-3"><h3><?php _e('Social Links','boxtheme');?></h3><span><?php _e('List social link in the footer','boxtheme');?></span></div>
@@ -34,17 +34,17 @@ $general = $option->get_general_option();
 
 				<div class="form-group row">
 					<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
-					<input class="form-control auto-save" type="text" value="<?php echo $general->fb_link;?>"  multi="0" name="fb_link" id="fb_link">
+					<input class="form-control auto-save" type="text" value="<?php echo $general->fb_link;?>"  level="1" name="fb_link" id="fb_link">
 				</div>
 
 				<div class="form-group row">
 					<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Twitter link','boxtheme');?></label>
-					<input class="form-control auto-save" type="text" name="tw_link"  multi="0"  value="<?php echo $general->tw_link;?>" id="tw_link">
+					<input class="form-control auto-save" type="text" name="tw_link"  level="0"  value="<?php echo $general->tw_link;?>" id="tw_link">
 				</div>
 
 				<div class="form-group row">
 					<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Google Plus link','boxtheme');?></label>
-					<input class="form-control auto-save" type="text" name="gg_link" multi="0"  value="<?php echo $general->gg_link;?>" id="gg_link">
+					<input class="form-control auto-save" type="text" name="gg_link" level="0"  value="<?php echo $general->gg_link;?>" id="gg_link">
 			</div>
 		</div>
 	</div>
@@ -73,13 +73,13 @@ $google = (object) $app_api->google;
   				<div class="full">
   					<div class="full">
 				    	<label for="app_id">APP ID</label>
-				    	<input type="text" value="<?php echo $facebook->app_id;?>" class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
+				    	<input type="text" value="<?php echo $facebook->app_id;?>" level='2' class="form-control auto-save" name="app_id" id="app_id" aria-describedby="app_id" placeholder="Enter APP ID">
 				    </div>
 			    	<span class="text-muted">Go to this <a  target="_blank" href="https://developers.facebook.com/apps/">link</a> and create new app then set the API for this section.</span>
 
 			    </div>
 		    	<div class="full">
-		    		<div class="form-group toggle-line">  	<?php bx_swap_button( $group_option, 'enable', $facebook->enable, 1 );?>   </div>
+		    		<div class="form-group toggle-line"> <?php bx_swap_button( $group_option, 'enable', $facebook->enable, 2 );?>   </div>
 		    	</div>
 		    </div>
 	    </div>
@@ -92,12 +92,12 @@ $google = (object) $app_api->google;
 	  			<div class="full">
 	  				<div class="full">
 			    	<label for="client_id"><?php _e('Client ID','boxtheme');?></label>
-			    	<input type="text" class="form-control auto-save" value="<?php echo $google->client_id;?>" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
+			    	<input type="text" class="form-control auto-save" value="<?php echo $google->client_id;?>" level="2" name="client_id" id="client_id" aria-describedby="client_id" placeholder="Client ID">
 			    	</div>
 			    	<span class="text-muted">Go to this <a  target="_blank" href="https://console.developers.google.com/projectselector/apis/library?pli=1">link</a> and create new api and set api for this section</span>
 		    	</div>
 		    	<div class="form-group toggle-line">
-		    		<?php bx_swap_button($group_option,'enable', $google->enable);?>
+		    		<?php bx_swap_button($group_option,'enable', $google->enable, 2);?>
 
 		    	</div>
 		    	<div class="form-group toggle-line"><span class="text-muted clear"> Enable or disable this option</span></div>
@@ -118,14 +118,14 @@ $item3  = 'gg_captcha';
   			<div class="col-md-9 form-group">
   				<div class="form-group">
 			    	<label for="app_id"><?php _e('reCaptcha Site Key','boxtheme');?></label>
-			    	<input type="text" value="<?php echo $gg_captcha->site_key;?>" class="form-control auto-save"  name="site_key" id="site_key" aria-describedby="site_key" placeholder="<?php _e('reCaptcha Site Key','boxtheme');?>">
+			    	<input type="text" value="<?php echo $gg_captcha->site_key;?>" class="form-control auto-save" level="2" name="site_key" id="site_key" aria-describedby="site_key" placeholder="<?php _e('reCaptcha Site Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
 		    		<label for="app_id"><?php _e('reCaptcha Secret Key','boxtheme');?></label>
-		    		<input type="text" value="<?php echo $gg_captcha->secret_key;?>" class="form-control auto-save"  name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
+		    		<input type="text" value="<?php echo $gg_captcha->secret_key;?>" class="form-control auto-save" level="2"  name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
-		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $gg_captcha->enable);?>   </div>
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $gg_captcha->enable, 2);?>   </div>
 		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a target="_blank" href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>

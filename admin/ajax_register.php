@@ -39,11 +39,11 @@ class BX_ajax_backend{
 		$value = $request['value'];
 		$item =  isset( $request['item'] ) ? $request['item'] : 0;
 		$section = isset($request['section']) ? $request['section']: '';
-		$multi = isset($request['multi']) ? $request['multi']: 1;
+		$level = isset($request['level']) ? $request['level']: 0;
 
 		$option = BX_Option::get_instance();
 
-		$option->set_option( $group, $section, $item, $name, $value, $multi);
+		$option->set_option( $group, $section, $item, $name, $value, $level);
 		wp_send_json(array('success' => true, 'msg' => 'save done'));
 	}
 	function create_package() {

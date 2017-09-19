@@ -4,12 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-function bx_swap_button($group, $name, $is_active, $multipe = true){
+function bx_swap_button($group, $name, $is_active, $level = 0){
 	$checked  = '';
-	$multi =  'multi = "1" ';
+	$level =  'level = "'.$level.'" ';
 	if( $is_active ) $checked = 'checked';
-	if( !$multipe ) $multi = 'multi = "0" ';
-	echo '<input type="checkbox" class="auto-save" '.$multi.' name="'.$name.'" value="'.$is_active.'" '.$checked.' data-toggle="toggle">';
+	if( ! $level ) $multi = 'level = "0" ';
+	echo '<input type="checkbox" class="auto-save" '.$level.' name="'.$name.'" value="'.$is_active.'" '.$checked.' data-toggle="toggle">';
 
 }
 

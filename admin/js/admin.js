@@ -157,9 +157,9 @@ var ajaxSend = {};
 			var _this = $(event.currentTarget);
 
 			var action = 'save-option';
-			var data = {group:'', section: '', name:'',value:'', multi : 1};
+			var data = {group:'', section: '', name:'',value:'', level : 0};
 
-			
+
 			data.group  = _this.closest('.main-group').attr('id');
 			data.section  = _this.closest('.sub-section').attr('id');
 			data.item = _this.closest('.sub-item').attr('id');
@@ -172,9 +172,7 @@ var ajaxSend = {};
 					data.value = 1;
 				}
 			}
-			if( _this.attr('multi') == '0' ){
-				data.multi = 0;
-			}
+			data.level = _this.attr('level');
 
 			window.ajaxSend.autoSave(data, action, _this);
 		});
