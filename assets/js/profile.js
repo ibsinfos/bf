@@ -45,8 +45,6 @@
 			// open modal
 			$('.update-avatar img').on('click', function() {
 			    $('#modal_avatar').modal('show');
-
-
 		    });
 
 
@@ -70,11 +68,13 @@
 
 		        $('#modal_add_portfolio').modal('show');
 		    });
-
+		    $(".btn-emp-edit").click(function(event){
+		    	var _this = $(event.currentTarget);
+		    	_this.closest("form").toggleClass('is-edit');
+		    })
 			$(".btn-edit-default").click(function(event){
 				var _this 	= $(event.currentTarget);
 				var form = _this.closest("form");
-				//form.closest("form").toggleClass("is-edit");
 
 				form.find(".update").toggleClass('hide');
 				form.find(".static").toggleClass('hide');

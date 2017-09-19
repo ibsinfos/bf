@@ -317,11 +317,32 @@ form.is-edit{
 	float: left;
 }
 .edit-em-profile .form-group{
-	padding-bottom: 15px;
 	clear: both;
 	width: 100%;
 
 }
 .edit-em-profile .update-avatar{
 	text-align: center;
+}
+.edit-em-profile{
+	position: relative;
+	background: #fff;
+	overflow: hidden;
+}
+.edit-em-profile form .is-edit{
+	display: none1;
+	opacity: 0;
+	position: absolute;
+	top:0;
+}
+.edit-em-profile form.is-edit .is-edit{
+	display:block;
+	opacity: 1;
+	position:relative;
+}
+.edit-em-profile form.is-edit .is-view{
+	display: none;
+}
+.edit-em-profile .chosen-container{
+	width: 100% !important;
 }

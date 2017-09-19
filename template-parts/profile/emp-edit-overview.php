@@ -4,9 +4,12 @@
 	$user_data = get_userdata($user_ID );
 
 	$country_id  = get_user_meta( $user_ID, 'location', true );
+	$txt_country = 'Unset';
+	$ucountry = get_term( $country_id, 'country' );
 
-	$country = get_term( $country_id, 'country' );
-
+	if( !is_wp_error($ucountry ) ){
+		$txt_country = $ucountry->name;
+	}
 	$country_select = '';
 	$countries = get_terms( 'country', array(
     	'hide_empty' => false)
@@ -23,7 +26,7 @@
    }
 ?>
 <div id="profile" class="col-md-12 edit-profile-section edit-em-profile">
-	<form id="update_profile" class="row-section">
+	<form id="update_profile" class="">
 		<div class="form-group "><div class="col-md-3 text-center"> <h2><?php _e('Your Profile','boxtheme');?></h2></div></div>
 	    <div class="form-group ">
 	    	<div class="col-md-3 update-avatar">
@@ -38,22 +41,46 @@
 	    		?>
 	    	</div>
 	      	<div class="col-md-9 col-sm-12">
-	      		<div class="col-sm-12"><span class="btn btn-edit btn-edit-default"> Edit</span></div>
-	      		<div class="form-group row">
-	      			<label>First name</label>: <span><?php echo $user_data->first_name;?></span>
-	      		</div>
-	      		<div class="form-group row">
-	      			<label>Last name</label>: <span><?php echo $user_data->last_name;?></span>
-	      		</div>
-	      		<div class="form-group row">
-	      			<label>Username</label>: <span><?php echo $user_data->user_login;?></span>
-	      		</div>
-	      		<div class="form-group row">
-	      			<label>Email</label>: <span><?php echo $user_data->user_email;?></span>
-	      		</div>
-	      		<div class="form-group row">
-	      			<label>Country</label>: <span><?php echo $country->name;?></span>
-	      		</div>
+	      		<div class="col-sm-12"><span class="btn btn-edit btn-edit-default btn-emp-edit"> Edit</span></div>
+	      		<div class="full is-view">
+		      		<div class="form-group ">
+		      			<label>First name</label>: <span><?php echo $user_data->first_name;?></span>
+		      		</div>
+		      		<div class="form-group ">
+		      			<label>Last name</label>: <span><?php echo $user_data->last_name;?></span>
+		      		</div>
+		      		<div class="form-group ">
+		      			<label>Username</label>: <span><?php echo $user_data->user_login;?></span>
+		      		</div>
+		      		<div class="form-group ">
+		      			<label>Email</label>: <span><?php echo $user_data->user_email;?></span>
+		      		</div>
+		      		<div class="form-group ">
+		      			<label>Country</label>: <span><?php echo $txt_country;?></span>
+		      		</div>
+		      	</div>
+		      	<div class="is-edit full">
+		      		<div class="form-group">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('First name:','boxtheme');?></label>
+						<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->first_name;?>"  placeholder="<?php _e('First Name','boxtheme');?> " id="example-text-input">
+					</div>
+					<div class="form-group">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Last name:','boxtheme');?></label>
+						<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="example-text-input">
+					</div>
+					<div class="form-group">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username:','boxtheme');?></label>
+						<input class="form-control" type="text" required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="example-text-input">
+					</div>
+					<div class="form-group">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email:','boxtheme');?></label>
+						<input class="form-control" type="text" required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Email','boxtheme');?> " id="example-text-input">
+					</div>
+					<div class="form-group">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Country:','boxtheme');?></label>
+						<?php echo $country_select;?>
+					</div>
+		      	</div>
 	      	</div>
 	      	<div class="form-group row">
 		      	<div class="offset-sm-10 col-sm-12 align-right">
