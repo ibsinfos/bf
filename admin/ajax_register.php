@@ -117,7 +117,7 @@ class BX_ajax_backend{
 		wp_send_json(array('success'=> tre,'msg' => 'Update OK') );
 	}
 	static function save_email(){
-		$response = array('success' => tru, 'msg' =>'done');
+		$response = array('success' => true, 'msg' =>'done');
 		$request = $_REQUEST['request'];
 		$subject = $request['subject'];
 		$content = $request['content'];
