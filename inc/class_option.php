@@ -39,6 +39,7 @@ class BX_Option {
 					'price_thousand_sep' => ',',
 					'price_decimal_sep' => '.',
 				),
+				'enable_captcha' => 0,
 				'static_link' => array (
 					'login' => array( 'id' => 0, 'link' =>'' ),
 					'signup' => array( 'id' => 0, 'link' =>'' ),

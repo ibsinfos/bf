@@ -93,14 +93,18 @@
                 var key     = $(this).attr('name');
                 send[key]   = $(this).val();
             });
+            var captcha = '';
 
+            if (typeof grecaptcha != "undefined") {
+            	captcha = grecaptcha.getResponse();
+            }
            $.ajax({
                 emulateJSON: true,
                 url : bx_global.ajax_url,
                 data: {
                         action: 'bx_login',
                         request: send,
-                        captcha: grecaptcha.getResponse(),
+                        captcha: captcha,
 
                 },
                 beforeSend  : function(event){
