@@ -21,7 +21,8 @@ $settings = array(
 );
 
 ?>
-<div class="section box-section" id="<?php echo $group_option;?>">
+<div id="<?php echo $group_option;?>" class="main-group">
+<div class="section box-section" id="email">
    	<div class="sub-section " id="email">
        	<h2><?php _e('Email Notifications','boxtheme');?> </h2>
        	<p><?php _e('Email notifications sent from job board are listed below. Click on an email to configure it.','boxtheme');?></p>
@@ -58,6 +59,7 @@ $settings = array(
    	</div>
    	<p>&nbsp;</p>
    	<h2> <?php _e('Setting email','boxtheme');?> </h2>
+   	<div id="box_mail" class="main-group">
    	<div class="sub-section " id="box_mail">
 
 		<div class="full">

@@ -34,7 +34,7 @@ $general = $option->get_general_option();
 
 				<div class="form-group row">
 					<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Facebook link','boxtheme');?></label>
-					<input class="form-control auto-save" type="text" value="<?php echo $general->fb_link;?>"  level="1" name="fb_link" id="fb_link">
+					<input class="form-control auto-save" type="text" value="<?php echo $general->fb_link;?>"  level="0" name="fb_link" id="fb_link">
 				</div>
 
 				<div class="form-group row">

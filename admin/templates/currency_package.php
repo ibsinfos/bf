@@ -3,8 +3,13 @@ $group_option = "general";
 $section = "currency";
 
 $box_general = BX_Option::get_instance()->get_general_option();
+ $currency = BX_Option::get_instance()->get_currency_option($box_general);
+// echo '<pre>';
+// //var_dump($box_general);
+//var_dump($currency);
+//echo '</pre>';
 
-$currency = (object)$box_general->$section;
+
 $code = $currency->code;
 
 $position = $currency->position;

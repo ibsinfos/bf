@@ -224,10 +224,9 @@ class BX_Option {
 		return  $this->get_app_api_default();
 
 	}
-	function get_currency_code(){
-		$default = $this->get_currency_default();
-		$general = (object) $this->get_group_option('general');
-		return (object) wp_parse_args($general->currency, $default);
+	function get_currency_option($box_global){
+		return  (object) wp_parse_args( $box_global->currency, $this->get_currency_default() );
+
 	}
 	function get_currency_default(){
 		$default= array(
@@ -271,7 +270,7 @@ class BX_Option {
 
 }
 function box_get_currency(){
-	return BX_Option::get_instance()->get_currency_code();
+	return BX_Option::get_instance()->get_currency_option();
 }
 function get_sandbox_mode(){
 	$payment = (object) BX_Option::get_instance()->get_group_option('payment');
