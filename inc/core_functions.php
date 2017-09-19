@@ -177,7 +177,7 @@ function box_add_captcha_field(){
 	$gg_captcha = (object) $app_api->gg_captcha;
 	$enable = (int) $gg_captcha->enable;
 
-	if( $enable){ ?>
+	if ( $enable && ! empty ( $gg_captcha->site_key ) ) { ?>
 		<div class="g-recaptcha" data-sitekey="<?php echo $gg_captcha->site_key;?>"></div>
 	<?php }
 

@@ -45,7 +45,7 @@ function box_add_meta_head(){
 	}
 	//end facebook meta
 	if( $enable ){ 	?>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script> 	<?php
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script><?php
 	}
 
 }
