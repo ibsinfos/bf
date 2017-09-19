@@ -42,7 +42,7 @@ if($type == 'paypal'){
 <?php get_header(); ?>
 <div class="full-width">
 	<div class="container site-content-contain">
-		<div class="row site-content" id="content" >
+		<div class="site-content" id="content" >
 			<div class="col-md-12 detail-project text-justify" style="min-height: 500px; padding-top: 100px; padding-bottom: 250px;">
 				<div class="msg" style="width: 500px; margin: 0 auto; text-align: left;">
 					<?php

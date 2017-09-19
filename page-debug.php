@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <div class="full-width">
 	<div class="container site-content-contain">
-		<div class="row site-content" id="content" >
+		<div class="site-content" id="content" >
 			<div class="col-md-12 detail-project text-justify">
 				<?php
 

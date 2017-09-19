@@ -6,7 +6,7 @@
 <?php get_header(); ?>
 <div class="full-width">
 	<div class="container site-container">
-		<div class="row site-content" id="content" >
+		<div class="site-content" id="content" >
 			<div id="profile" class="col-md-12">
 				<ul  class = "nav nav-pills dashboard-tab" id = "heading_dashboard">
 					<li class="active" > <a  href="#1a" data-toggle="tab"><?php _e('ACTIVATE','boxtheme');?></a>			</li>
