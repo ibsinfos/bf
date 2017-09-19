@@ -231,10 +231,12 @@ var ajaxSend = {};
 			        	var _this = $(document.getElementById(ed.id));
 			        	if( _this.hasClass('auto-save') ){
 							var action = 'save-option';
-							var data = {section: '',group:'',name:'',value:''};
-							data.group  = _this.closest('.sub-section').attr('id');
-							data.section = _this.closest('.sub-item').attr('id');
+							var data = {section: '',group:'',name:'',value:'', level:0};
+							data.group  = _this.closest('.main-group').attr('id');
+							data.section  = _this.closest('.sub-section').attr('id');
+							data.item = _this.closest('.sub-item').attr('id');
 							data.name = _this.attr('name');
+							data.level = _this.attr('level');
 							data.value = tinyMCE.activeEditor.getContent();
 							window.ajaxSend.Custom(data, action, _this);
 						}
