@@ -1,12 +1,21 @@
 <?php
 global $user_ID, $project, $is_owner, $access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding, $is_logged, $current_user_can_bid;
 $user = get_userdata($project->post_author );
+
+$country_id  = get_user_meta( $project->post_author, 'location', true );
+$txt_country = 'Unset';
+$ucountry = get_term( $country_id, 'country' );
+
+if( !is_wp_error($ucountry ) ){
+	$txt_country = $ucountry->name;
+}
+
 ?>
 <div class="block-employer-info">
 <h3> <?php _e('Employer Information','boxtheme');?></h3>
 	<ul class="list-employer-info">
 		<li><span class="emp-name"><?php echo $user->display_name;?></span></li>
-		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i>France</li>
+		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php echo $txt_country;?></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i>Project posted: 120.</li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i>Freelancers Hired: 120.</li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i>Total Spent 120.000</li>
