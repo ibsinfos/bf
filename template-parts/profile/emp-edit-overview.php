@@ -2,11 +2,9 @@
 	global $user_ID;
 
 	$user_data = get_userdata($user_ID );
-	echo '<pre>';
-	var_dump($user_data->user_login);
-	echo '</pre>';
+
 	$country_id  = get_user_meta( $user_ID, 'location', true );
-	var_dump($country_id);
+
 	$country = get_term( $country_id, 'country' );
 
 	$country_select = '';
