@@ -24,9 +24,7 @@
 ?>
 <div id="profile" class="col-md-12 edit-profile-section edit-em-profile">
 	<form id="update_profile" class="row-section">
-		<div class="form-group ">
-			<h2 class="col-md-12"> <?php _e('Overview','boxtheme');?></h2>
-		</div>
+		<div class="form-group "><div class="col-md-3 text-center"> <h2><?php _e('Your Profile','boxtheme');?></h2></div></div>
 	    <div class="form-group ">
 	    	<div class="col-md-3 update-avatar">
 	    		<?php

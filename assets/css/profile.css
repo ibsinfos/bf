@@ -318,4 +318,10 @@ form.is-edit{
 }
 .edit-em-profile .form-group{
 	padding-bottom: 15px;
+	clear: both;
+	width: 100%;
+
+}
+.edit-em-profile .update-avatar{
+	text-align: center;
 }
