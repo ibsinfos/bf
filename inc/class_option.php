@@ -207,7 +207,7 @@ class BX_Option {
 
 		$general = get_option('general', true);
 		if( !$object ) return $general;
-		return (object) $general;
+		return (object) wp_parse_args($general, $this->get_general_default() );
 	}
 	function get_app_api_option( $general, $object = true ){
 		return  (object) wp_parse_args( $general['app_api'], $this->get_app_api_default() );
