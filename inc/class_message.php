@@ -144,24 +144,6 @@ class BX_Message{
 
 	}
 
-	function get_converstaion1($args){
-		$group = $args['group'];
-
-		$gr = explode(",",$group);
-		$sender_id = $gr[0];
-		$receiver_id = $gr[1];
-		global $wpdb;
-		return 1;
-		$sql = "SELECT *
-				FROM {$wpdb->prefix}box_messages msg
-				WHERE sender_id = {$sender_id}
-					AND receiver_id = {$receiver_id}
-					AND msg_type = 'message'
-				ORDER BY id ASC";
-
-		$msg =  $wpdb->get_results($sql);
-		return $msg;
-	}
 	function get_converstaion($args){
 		$id = $args['id'];
 		global $wpdb;
