@@ -1141,9 +1141,9 @@ form#signup .lb-checkbox{
 	cursor: pointer;
 }
 form#signup .lb-checkbox input{
-	padding-top: 3px;
-	position: relative;
-	top:3px;
+    position: relative;
+    top: 2px;
+    margin-right: 6px;
 }
 form#signup {
 	padding-top: 50px;
