@@ -8,7 +8,7 @@ function setup_enroviment() {
 	global $box_general, $box_currency, $app_api;
 	$box_general = BX_Option::get_instance()->get_general_option(); // return not an object - arrray.
 
-	$box_currency = (object) $box_general->currency;
+	$box_currency = (OBJECT) BX_Option::get_instance()->get_currency_option($box_general);
 	$app_api = (OBJECT) BX_Option::get_instance()->get_app_api_option($box_general);
 }
 add_action( 'after_setup_theme','setup_enroviment');

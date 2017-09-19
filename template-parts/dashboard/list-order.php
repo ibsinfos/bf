@@ -35,7 +35,7 @@
   				?>
   				<div class="line full row-order-item">
 	  				<div class="col-md-4 col-xs-5"><?php echo get_the_date();?> </div>
-	  				<div class="col-md-2 col-xs-3 hidden-xs"><?php echo $types[$order->order_type];?> </div>
+	  				<div class="col-md-2 col-xs-3 hidden-xs"><?php echo isset($types[$order->order_type]) ? $types[$order->order_type] : 'Unknow';?> </div>
 	      			<div class="col-md-2 col-xs-3"><?php echo $order->payment_type;?> </div>
 	      			<div class="col-md-2 hidden-xs"><?php echo $status[$order->post_status];?> </div>
 	      			<div class="col-md-2 align-center col-xs-4"><?php echo $order->amout . $check;?>  </div>
