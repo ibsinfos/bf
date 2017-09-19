@@ -65,25 +65,25 @@
 		      	</div>
 		      	<div class="is-edit full">
 		      		<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('First name:','boxtheme');?></label>
-						<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->first_name;?>"  placeholder="<?php _e('First Name','boxtheme');?> " id="example-text-input">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('First name','boxtheme');?></label>
+						<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->first_name;?>"  placeholder="<?php _e('First Name','boxtheme');?> " id="first-text-input">
 					</div>
 					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Last name:','boxtheme');?></label>
-						<input class="form-control" type="text" required name="last_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="example-text-input">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Last name','boxtheme');?></label>
+						<input class="form-control" type="text" required name="last_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="last-text-input">
 					</div>
 					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Display name:','boxtheme');?></label>
-						<input class="form-control" type="text" required name="display_name" value="<?php  echo $user_data->display_name;?>"  placeholder="<?php _e('Display Name','boxtheme');?> " id="example-text-input">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Display name','boxtheme');?></label>
+						<input class="form-control" type="text" required name="display_name" value="<?php  echo $user_data->display_name;?>"  placeholder="<?php _e('Display Name','boxtheme');?> " id="display-text-input">
 					</div>
 
 					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username:','boxtheme');?></label>
-						<input class="form-control" type="text" required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="example-text-input">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username','boxtheme');?></label>
+						<input class="form-control" type="text" required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="userlogin-text-input">
 					</div>
 					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email:','boxtheme');?></label>
-						<input class="form-control" type="text" required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Email','boxtheme');?> " id="example-text-input">
+						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email','boxtheme');?></label>
+						<input class="form-control" type="email" required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Email','boxtheme');?> " id="email-text-input">
 						<input type="hidden" name="is_emp" value="1">
 					</div>
 					<div class="form-group">
