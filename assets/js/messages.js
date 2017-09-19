@@ -7,7 +7,7 @@
 			msg_submit = {action: 'sync_message', msg_content: '', method: 'insert', cvs_id:0 };
 			msg_submit.cvs_id = $("#first_cvs").val();
 			$( '.render-conv' ).on('click', this.renderConversation);
-			$( "form.frm-send-message").live('submit', this.sendMessage);
+			$(document).on('submit', '.frm-send-message' , this.sendMessage);
 
 			console.log('init MSG');
 			var textarea = document.getElementById('container_msg');
@@ -42,7 +42,7 @@
 				var textarea = document.getElementById('container_msg');
 				textarea.scrollTop = textarea.scrollHeight;
 
-				$("#form_reply").html('<form class="frm-send-message" ><textarea name="msg_content"  class="full msg_content" rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
+				$("#form_reply").html('<form class="frm-send-message" ><textarea required name="msg_content"  class="full msg_content required" rows="3" placeholder="Type your message here"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button></form>');
 			};
 
 			var data = {action: 'sync_msg', method: 'get_converstaion', id:id};
