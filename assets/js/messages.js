@@ -65,9 +65,10 @@
 			msg_submit.msg_content = element.find(".msg_content").val();
 
 			var success = function(res){
-		        console.log(res);
+
+		        var me_template = wp.template( 'msg_record_me' );
 	        	if ( res.success ){
-	        		$("#container_msg").append('<div class="msg-record msg-item"><div class="col-md-2">&nbsp;</div><div class="col-md-10">' +msg_submit.msg_content+'</div></div>');
+	        		$("#container_msg").append(me_template(msg_submit));
 	        		$(".msg_content").html('');
 	        		var textarea = document.getElementById('container_msg');
 					textarea.scrollTop = textarea.scrollHeight;
