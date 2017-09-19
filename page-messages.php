@@ -179,7 +179,7 @@
 		height: 200px;
 		padding-left: 15px;
 		padding-left: 15px;
-		border:1px solid #f1f1f1;
+		border:1px solid #e6e6e6;
 
 	}
 	.top-line{
@@ -188,31 +188,32 @@
 		background: #fff;
 	}
 	#container_msg{
-		min-height: 420px;
+		min-height: 419px;
 	    border: 0;
 	    padding-left: 15px;
-	    overflow-y: scroll;
-	    border-bottom: 1px solid #f1f1f1;
+	    overflow-y: auto;
+	    border-bottom: 1px solid #e6e6e6;
 	    margin-bottom: 0;
 	}
 	.list-conversation{
 		background: #fff;
-		border-right: 1px solid #e2e2e2;
+		border-right: 1px solid #e6e6e6;
 		padding: 0;
 	}
 	ul#list_converstaion{
-		height: 425px;
+		height: 444px;
 		float: left;
-		overflow-y: hidden;
 		width: 100%;
 		padding: 0;
-		overflow-y: scroll;
+		overflow-y: auto;
+		margin: 0;
 	}
 	.list-conversation .full-content{
 		background: #fff;
 		overflow: hidden;
-		min-height: 500px;
+		min-height: 493px;
 		padding: 15px 0;
+		padding-bottom: 0;
 	}
 	.right-message{
 		background: #fff;
@@ -297,7 +298,7 @@
 	#form_reply{
 		background: #f9f9f9;
 		overflow: hidden;
-		padding: 20px 30px 21px 30px;
+		padding: 17px 30px 17px 30px;
 	}
 	.frm-send-message textarea {
 	    background: #fff;
