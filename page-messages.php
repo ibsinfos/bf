@@ -119,6 +119,7 @@
 		background: transparent;
 		padding-top: 0;
 		padding-bottom: 0;
+		min-height: auto;
 	}
 	.triangle-border.left {
 	    margin-left: 30px;
@@ -197,6 +198,14 @@
 		border-right: 1px solid #e2e2e2;
 		padding: 0;
 	}
+	ul#list_converstaion{
+		max-height: 425px;
+		float: left;
+		overflow-y: hidden;
+		width: 100%;
+		padding: 0;
+		overflow-y: scroll;
+	}
 	.list-conversation .full-content{
 		background: #fff;
 		overflow: hidden;
@@ -239,7 +248,7 @@
 		width: 100%;
 		float: left;
 		border-bottom: 1px solid #f1f1f1;
-		padding: 10px;
+		padding: 9px 10px;
 		position: relative;
 		border-left:3px solid transparent;
 	}
