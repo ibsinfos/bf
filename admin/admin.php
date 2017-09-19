@@ -115,9 +115,9 @@ class BX_Admin{
                 		<div id="general">
                         <?php
                             if( in_array($section, $methods) ){
-                            	//$admin->$section();
+                            	$admin->$section();
                             } else {
-                            	//$admin->general();
+                            	$admin->general();
                             }
                         ?>
                         </div>
