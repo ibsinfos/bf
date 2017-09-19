@@ -312,3 +312,10 @@ form.is-edit{
 .profile-info-section form .form-group.row{
 	min-height: 33px;
 }
+.edit-em-profile label{
+	width: 111px;
+	float: left;
+}
+.edit-em-profile .form-group{
+	padding-bottom: 15px;
+}
