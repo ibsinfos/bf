@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'EMPLOYER','employer');
 	define( 'PROFILE', 'profile' );
 	define( 'ORDER', '_order');
-
+	define ('PRICE','price'); // price of package plan.
 	//Profile meta
 	define( 'HOUR_RATE', 'hour_rate' );
 	define( 'HOUR_RATE_TEXT', 'hour_rate_text' );
