@@ -117,6 +117,7 @@
 <style type="text/css">
 	.site-content{
 		background: transparent;
+		padding-top: 0;
 	}
 	.triangle-border.left {
 	    margin-left: 30px;
