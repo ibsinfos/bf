@@ -255,7 +255,7 @@
 		position: relative;
 	}
 	.mdate{
-		position: absolute; top:10px;
+		position: absolute; top:0;
 		right: 0px;
 	}
 	.msg-record{
