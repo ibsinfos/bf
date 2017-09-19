@@ -74,7 +74,7 @@
 							foreach ($msgs as $key => $msg) {
 								$date = date_create( $msg->msg_date );
 								if( $msg->sender_id != $user_ID ){
-									$user_label = get_avatar($user->ID ); ?>
+									$user_label = get_avatar($msg->sender_id  ); ?>
 									<div class="msg-record msg-item">
 										<div class="col-md-1 no-padding"><?php echo $user_label;?></div>
 										<div class="col-md-10 no-padding-left"><span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?>> </span> <br /><small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small></span></div>
