@@ -107,6 +107,7 @@ $google = (object) $app_api->google;
 </div>
 <?php
 $gg_captcha = (object) $app_api->gg_captcha;
+
 $item3  = 'gg_captcha';
 ?>
 <h2><?php _e('Google Captcha','boxtheme');?></h2>
