@@ -90,13 +90,14 @@
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Country:','boxtheme');?></label>
 						<?php echo $country_select;?>
 					</div>
+					<div class="form-group">
+				      	<div class="offset-sm-10 col-sm-12 pull-right align-right no-padding-right">
+				        	<button type="submit" class="btn btn-primary update hide "> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
+				      	</div>
+				    </div>
 		      	</div>
 	      	</div>
-	      	<div class="form-group row">
-		      	<div class="offset-sm-10 col-sm-12 align-right">
-		        	<button type="submit" class="btn btn-primary update hide"> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
-		      	</div>
-		    </div>
+
 	    </div>
 	</form>
 </div> <!-- end left !-->
