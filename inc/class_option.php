@@ -54,7 +54,7 @@ class BX_Option {
 					'post-project' => array( 'id' => 0, 'link' =>'' ),
 					'process-payment' => array( 'id' => 0, 'link' =>'' ),
 				),
-
+				'app_api' => $this->get_app_api_default(),
 			);
 
 	}
@@ -76,7 +76,7 @@ class BX_Option {
 					'enable' => 1,
 				),
 			),
-			'app_api' => $this->get_app_api_default(),
+
 			'escrow' => array(
 				'activate' => 'credit',
 				'commision' => array(
@@ -173,38 +173,37 @@ class BX_Option {
 		update_option('box_mail_content', $args);
 
 	}
-	function set_option($group, $section, $name, $new_value, $multi = true){
+	function set_option($group, $section,$item, $name, $new_value, $multi = true){
 
-		$current = get_option($group);
-
+		$current = get_option($group, true);
+		var_dump($group);
+		var_dump($current);
 		if( $multi ){
-			$current[$section][$name] = $new_value;
+			$current[$section][$item][$name] = $new_value;
 		} else {
-			$current[$name] = $new_value;
+			$current[$section][$name] = $new_value;
 		}
 		return update_option($group, $current);
 	}
+
+
+
 	function get_opt_credit_default(){
 		$default =$this->get_default_option('opt_credit');
 		$setting =  get_option('opt_credit');
 		$result = wp_parse_args( $setting, $default );
 		return (object)$result;
 	}
-	function get_general_option(){
+	function get_general_option($object = true){
 
-		$general = get_option('general', false);
-		$general['currency'] = wp_parse_args( $general['currency'], $this->get_currency_default() );
-		$general_parse = wp_parse_args( $general, $this->get_general_default() );
-
-		return (object) $general_parse;
+		$general = get_option('general', true);
+		if( !$object ) return $general;
+		return (object) $general;
 	}
-	function get_app_api_option(){
+	function get_app_api_option( $general, $object = true ){
 
-		$general = get_option('app_api', false);
-		$general['app_api'] = wp_parse_args( $general['currency'], $this->get_app_api_default() );
-		$general_parse = wp_parse_args( $general, $this->get_general_default() );
+		return  wp_parse_args( $general['app_api'], $this->get_app_api_default() );
 
-		return (object) $general_parse;
 	}
 	function get_currency_code(){
 		$default = $this->get_currency_default();

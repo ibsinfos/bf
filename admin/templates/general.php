@@ -8,8 +8,11 @@ $pending_post = false;
 $google_analytic = $copyright = $tw_link = $fb_link = $gg_link = '' ;
 $group_option = "general";
 $option = BX_Option::get_instance();
-$general = $option->get_general_option();
+$general = $option->get_general_option(false);
 
+// echo '<pre>';
+// var_dump($general);
+// echo '</pre>';
 ?>
 <h2><?php _e('Main options','boxtheme');?></h2>
 <div class="sub-section " id="<?php echo $group_option;?>">
@@ -45,24 +48,25 @@ $general = $option->get_general_option();
 	</div>
 </div>
 <?php
-$group_option = "app_api";
-
+$group_option = "general";
+$section = 'app_api';
 $item1  = 'facebook';
 $item2  = 'google';
 $app_id = $app_secret = '';
 
-$app_api = $option->get_group_option($group_option);
+$app_api = $option->get_app_api_option($general);
 
-// echo '<pre>';
-// var_dump($app_api);
-// echo '</pre>';
+echo '<pre>';
+var_dump($app_api);
+echo '</pre>';
 
-$facebook =  (object)$app_api->$item1;
-$google = (object) $app_api->$item2;
+
 
 
 $app_id = isset($facebook->app_id) ? $facebook->app_id : '';
 
+$facebook =  (object)$app_api->$item1;
+$google = (object) $app_api->$item2;
 
 $app_secret = isset($facebook->app_secret) ? $facebook->app_secret : '';
 $client_id = isset($google->client_id) ? $google->client_id : '';
@@ -74,9 +78,11 @@ if( isset($facebook->enable) ){
 	$fb_enable = $facebook->enable;
 }
 
+
 ?>
 <h2><?php _e('Social Login','boxtheme');?></h2>
-<div class="sub-section" id="<?php echo $group_option;?>">
+<div id="<?php echo $group_option;?>" class="main-group">
+<div class="sub-section" id="<?php echo $section;?>">
 		<div class="sub-item" id="<?php echo $item1;?>">
 	  	<div class="form-group row">
   			<div class="col-md-3"><h3> Facebook Login API </h3></div>

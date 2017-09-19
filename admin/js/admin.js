@@ -159,8 +159,10 @@ var ajaxSend = {};
 			var action = 'save-option';
 			var data = {group:'', section: '', name:'',value:'', multi : 1};
 
-			data.group  = _this.closest('.sub-section').attr('id');
-			data.section = _this.closest('.sub-item').attr('id');
+			
+			data.group  = _this.closest('.main-group').attr('id');
+			data.section  = _this.closest('.sub-section').attr('id');
+			data.item = _this.closest('.sub-item').attr('id');
 			data.name = _this.attr('name');
 			data.value = _this.val();
 			if( _this.attr('data-toggle') == 'toggle'){
