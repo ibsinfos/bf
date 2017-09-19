@@ -42,8 +42,12 @@ function box_add_meta_head(){
 			<?php wp_reset_query();
 		}
 	}
+	global $app_api;
+	$gg_captcha = (object) $app_api->gg_captcha;
+	$enable = (int) $gg_captcha->enable;
+
 	//end facebook meta
-	if( $box_general->enable_captcha ){ 	?>
+	if( $enable ){ 	?>
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script> 	<?php
 	}
 
