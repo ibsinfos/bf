@@ -12,10 +12,11 @@ function box_set_favicon( $url, $size, $blog_id ) {
 add_action( 'wp_head', 'box_add_meta_head', 99);
 function box_add_meta_head(){
 
-	global $box_general;
-	$box_general = (object) BX_Option::get_instance()->get_general_option();
+	global $box_general, $app_api;
+	$gg_captcha = (object) $app_api->gg_captcha;
+	$enable = (int) $gg_captcha->enable;
 
-	if( !empty( $box_general->google_analytic ) ){
+	if( ! empty ( $box_general->google_analytic ) ){
 		echo stripslashes($box_general->google_analytic);
 	}
 	if( is_singular( PROJECT ) ){
@@ -42,10 +43,6 @@ function box_add_meta_head(){
 			<?php wp_reset_query();
 		}
 	}
-	global $app_api;
-	$gg_captcha = (object) $app_api->gg_captcha;
-	$enable = (int) $gg_captcha->enable;
-
 	//end facebook meta
 	if( $enable ){ 	?>
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script> 	<?php
