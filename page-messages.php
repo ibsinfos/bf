@@ -188,10 +188,12 @@
 		background: #fff;
 	}
 	#container_msg{
-		min-height: 389px;
+		min-height: 420px;
 	    border: 0;
 	    padding-left: 15px;
 	    overflow-y: scroll;
+	    border-bottom: 1px solid #f1f1f1;
+	    margin-bottom: 0;
 	}
 	.list-conversation{
 		background: #fff;
@@ -199,7 +201,7 @@
 		padding: 0;
 	}
 	ul#list_converstaion{
-		max-height: 425px;
+		height: 425px;
 		float: left;
 		overflow-y: hidden;
 		width: 100%;
@@ -295,7 +297,7 @@
 	#form_reply{
 		background: #f9f9f9;
 		overflow: hidden;
-		padding: 26px 30px;
+		padding: 20px 30px 21px 30px;
 	}
 	.frm-send-message textarea {
 	    background: #fff;
