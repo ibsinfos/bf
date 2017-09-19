@@ -125,7 +125,7 @@ $item3  = 'gg_captcha';
 		    		<input type="text" value="<?php echo $gg_captcha->secret_key;?>" class="form-control auto-save"  name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
-		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $enable_catcha);?>   </div>
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $gg_captcha->enable);?>   </div>
 		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a target="_blank" href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>
