@@ -33,16 +33,16 @@ class BX_Conversations{
 				'date_modify' => current_time('mysql'),
 			)
 		);
-
+		$cvs_id = $wpdb->insert_id;  // cvs_id just inserted
 		$msg_arg = array(
 			'msg_content' 	=> $args['cvs_content'],
-			'cvs_id' 		=> $wpdb->insert_id, // cvs_id just inserted
+			'cvs_id' 		=> $cvs_id,
 			'receiver_id'=> $args['receiver_id'],
 			'sender_id' => $user_ID,
 			'msg_type' => 'message',
 		);
 
-		$msg_id =  BX_Message::get_instance($wpdb->insert_id)->insert($msg_arg); // msg_id
+		$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
 		return BX_Message::get_instance()->get_message($msg_id);
 	}
 
