@@ -91,7 +91,6 @@
 					<div id="form_reply">
 						<?php if($first_cvs){?>
 							<form class="frm-send-message" ><textarea name="msg_content" class="full msg_content required" required rows="3" placeholder="Write a message"></textarea><button type="submit" class="btn btn-send-message align-right f-right">Send</button>
-							<input type="reset" name="reset" class="hidden">
 							</form>
 						<?php } ?>
 					</div>
@@ -288,9 +287,10 @@
 	.frm-send-message .btn-send-message {
 	    background: #ccc;
 	    position: absolute;
-	    right: 5px;
+	    right: 2px;
 	    top: 2px;
 	}
+
 
 </style>
 <?php get_footer();?>
