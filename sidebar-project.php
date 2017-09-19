@@ -32,7 +32,7 @@ if ( $is_logged ) {
 		if ( is_owner_project( $project ) ) {
 		}
 	}
-} else if ( $project->post_status == 'publish') {
+} else if ( $project->post_status == 'publish' ) {
 	//is visitor
 	show_bid_buton($project);
 }
