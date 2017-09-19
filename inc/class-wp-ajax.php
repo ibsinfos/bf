@@ -325,6 +325,7 @@ class BX_AJAX {
 	 */
 	static function sync_message(){
 
+		$response = array( 'success' => false,'msg' =>'' );
 		$submit 	= $_REQUEST;
 		$method 	= isset($submit['method']) ? $submit['method'] : '';
 		$request 	= $submit['request'];
@@ -333,9 +334,7 @@ class BX_AJAX {
 		$cvs_id 	= isset($request['cvs_id']) ? $request['cvs_id'] : 0;
 		if( !$cvs_id && $method == 'insert'){
 			$cvs 	= BX_Conversations::get_instance();
-			$project_id = isset($request['project_id']) ? $request['project_id']:0;
-
-
+			$project_id = isset($request['project_id']) ? $request['project_id'] : 0;
 			$cvs_args = array(
 				'cvs_content' => $request['msg_content'],
 				'project_id' => $project_id,
@@ -346,11 +345,14 @@ class BX_AJAX {
 
 			$response = array('success'=> true,'msg' => 'Createa converstaion done','boxtheme', 'result'=>  $msg);
 			wp_send_json( $response );
-		}
-		$message 	= BX_Message::get_instance($cvs_id);
-		$msg_id = $message->sync($request, $method);
-		if( is_wp_error( $msg_id )){
-			$response = array('success' => false,'msg' =>$msg_id->get_error_message());
+		} else {
+
+			$message 	= BX_Message::get_instance($cvs_id);
+			$msg_id = $message->sync($request, $method);
+			if( is_wp_error( $msg_id )){
+				$response = array('success' => false,'msg' =>$msg_id->get_error_message());
+				wp_send_json($response );
+			}
 		}
 		wp_send_json($response );
 	}

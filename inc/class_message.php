@@ -41,7 +41,8 @@ class BX_Conversations{
 			'sender_id' => $user_ID,
 			'msg_type' => 'message',
 		);
-		$msg_id =  BX_Message::get_instance()->insert($msg_arg); // msg_id
+
+		$msg_id =  BX_Message::get_instance($wpdb->insert_id)->insert($msg_arg); // msg_id
 		return BX_Message::get_instance()->get_message($msg_id);
 	}
 
@@ -104,9 +105,8 @@ class BX_Message{
 
 	function insert( array $args ) {
 
-		global $wpdb;
-		global $user_ID;
-		var_dump($args);
+		global $wpdb, $user_ID;
+
 		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']:0;
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
 		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
