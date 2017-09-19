@@ -56,8 +56,8 @@ class BX_Admin{
     	get_template_part( 'admin/templates/escrow');
 
     }
-    function payment(){
-    	get_template_part( 'admin/templates/payment');
+    function currency_package(){
+    	get_template_part( 'admin/templates/currency_package');
     }
     function payment_gateway(){
     	get_template_part( 'admin/templates/payment_gateway');
@@ -85,7 +85,7 @@ class BX_Admin{
     static function box_custom_menu_page(){
     	$section = isset($_GET['section']) ? $_GET['section'] : 'general';
         $admin = BX_Admin::get_instance();
-        $methods = array('escrow','install','payment','payment_gateway','email');
+        $methods = array('escrow','install','currency_package','payment_gateway','email');
         ?>
         <div class="wrap">
             <h1><?php _e('Theme Options','boxtheme');?></h1>
@@ -98,7 +98,7 @@ class BX_Admin{
                         $general_link 	= add_query_arg('section','general', $main_page);
                         $install_link 	= add_query_arg('section','install', $main_page);
                         $email_link 	= add_query_arg('section','email', $main_page);
-                        $payment_link 	= add_query_arg('section','payment', $main_page);
+                        $payment_link 	= add_query_arg('section','currency_package', $main_page);
                         $gateway_link 	= add_query_arg('section','payment_gateway', $main_page);
 
                         ?>
