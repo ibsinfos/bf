@@ -47,8 +47,8 @@ class BX_Conversations{
 	}
 
 	function create_conversation( $args ){
-		global $wpdb;
-		global $user_ID;
+		global $wpdb, $user_ID;
+
 		$wpdb->insert( $wpdb->prefix . 'box_conversations', array(
 				'cvs_author' => $user_ID,
 				'project_id' => $args['project_id'],
