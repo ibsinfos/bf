@@ -12,7 +12,7 @@
 				<div class="row" id="heading_signup">
 				    <div class="col-md-12 align-center">
 				        <h1><?php _e('SIGN UP','boxtheme');?></h1>
-				    	<h3>Create a employer account in seconds and post a job right now</h3>
+				    	<h3><?php _e('Create a employer account in seconds and post a job right now','boxtheme');?></h3>
 				    </div>
 				</div>
 				<div class="row">
@@ -49,7 +49,7 @@
 				<?php signup_nonce_fields(); ?>
 				<div class="row">
 				 	<div class="form-group col-md-12">
-                        <label class="lb-checkbox"><input type="checkbox" required="" name="agree"> I agree all our <a href="#" target="_blank">Terms of Services</a></label>
+                        <label class="lb-checkbox"><input type="checkbox" required="" name="agree"> <?php printf(__('I agree  with <a href="%s" target="_blank">All Terms of Services</a>','boxtheme'),'#');?> </label>
                     </div>
                 </div>
 
