@@ -17,6 +17,7 @@
 
    if ( ! empty( $countries ) || ! is_wp_error( $countries ) ){
       	$country_select.= '<select name="country" id="country" class="chosen-select form-control" data-placeholder="Choose a country" >';
+      	$country_select.= '<option value="">Select your country</option>';
       	foreach ( $countries as $country ) {
         	$country_select .= '<option value="'.$country->term_id .'" '. selected($country->term_id , $country_id, false) .' >' . $country->name . '</option>';
       	}
@@ -66,7 +67,7 @@
 					</div>
 					<div class="form-group">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Last name:','boxtheme');?></label>
-						<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="example-text-input">
+						<input class="form-control" type="text" required name="last_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="example-text-input">
 					</div>
 					<div class="form-group">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username:','boxtheme');?></label>
@@ -75,6 +76,7 @@
 					<div class="form-group">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email:','boxtheme');?></label>
 						<input class="form-control" type="text" required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Email','boxtheme');?> " id="example-text-input">
+						<input type="hidden" name="is_emp" value="1">
 					</div>
 					<div class="form-group">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Country:','boxtheme');?></label>

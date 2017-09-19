@@ -313,7 +313,7 @@ form.is-edit{
 	min-height: 33px;
 }
 .edit-em-profile label{
-	width: 111px;
+	width: 79;
 	float: left;
 }
 .edit-em-profile .form-group{
@@ -327,7 +327,7 @@ form.is-edit{
 .edit-em-profile{
 	position: relative;
 	background: #fff;
-	overflow: hidden;
+
 }
 .edit-em-profile form .is-edit{
 	display: none1;

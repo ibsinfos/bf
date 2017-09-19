@@ -303,7 +303,29 @@ class BX_AJAX {
 		$request 	= $_REQUEST;
 		$method 	= isset($request['method']) ? $request['method'] : '';
 		$args 		= $_REQUEST['request'];
+		$is_emp 	= 	isset( $args['is_emp'] ) ? $args['is_emp'] : 0;
 
+		if( $is_emp ){
+			global $user_ID;
+			// update employer;
+			$country = isset($args['country']) ? $args['country'] : 0;
+			if( $country ) {
+				update_user_meta( $user_ID, 'location', $country );
+			}
+			$first_name = isset($args['first_name']) ? $args['first_name'] : '';
+			$last_name = isset($args['last_name']) ? $args['last_name'] : '';
+			$user_email = isset($args['user_email']) ? $args['user_email'] : '';
+			$new_arrgs = array(
+				'ID' 	=> $user_ID,
+				'first_name' => $first_name,
+				'last_name' => $last_name,
+				'user_email' => $user_email,
+			);
+			wp_update_user($new_arrgs);
+
+			$response = array('success' => true, 'msg' => 'OK');
+			wp_send_json($response );
+		}
 
 		$profile 	= BX_Profile::get_instance();
 		$result = $profile->sync($args, $method);
