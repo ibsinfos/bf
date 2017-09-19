@@ -12,8 +12,8 @@ class BX_Facebook{
 	static $instance;
 	function __construct(){
 
-		$app_api = BX_Option::get_instance()->get_group_option('app_api');
-		$facebook = array();
+		global $app_api;
+
 		$facebook = (object) $app_api->facebook;
 		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
 

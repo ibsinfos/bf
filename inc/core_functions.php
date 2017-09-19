@@ -145,7 +145,7 @@ function box_editor_settings() {
 }
 function box_get_response(  $captcha_response) {
 	$remote_ip = $_SERVER['REMOTE_ADDR'];
-	$app_api = BX_Option::get_instance()->get_group_option('app_api');
+	global $app_api;
 	$gg_captcha = (object) $app_api->gg_captcha;
 	$enable = intval($gg_captcha->enable);
 
@@ -168,8 +168,8 @@ function box_get_response(  $captcha_response) {
 	new WP_Error( 'gglcptch_error', __('Captcha Invalid','boxtheme') );
 }
 function box_add_captcha_field(){
+	global $app_api;
 
-	$app_api = BX_Option::get_instance()->get_group_option('app_api');
 	$gg_captcha = (object) $app_api->gg_captcha;
 	$enable = (int) $gg_captcha->enable;
 

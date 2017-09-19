@@ -17,8 +17,8 @@ class BX_Option {
 		return $current[$name];
 	}
 	function get_group_option($group){
-		$group_args =$this->get_default();
-		return (object)wp_parse_args(get_option($group), $group_args[$group]);
+		$group_args = $this->get_default();
+		return (object)wp_parse_args( get_option($group), $group_args[$group]);
 	}
 	function get_default_option($group, $section, $key){
 			$default = $this->get_default();

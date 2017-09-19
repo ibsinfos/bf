@@ -283,9 +283,10 @@ function bx_theme_init() {
 
 	register_post_type( 'portfolio', $args );
 
-	global $box_general, $box_currency;
+	global $box_general, $box_currency, $app_api;
 	$box_general = (object) BX_Option::get_instance()->get_general_option();
 	$box_currency = (object) $box_general->currency;
+	$app_api = (OBJECT) $box_general->app_api;
 
 
 	$labels = array(

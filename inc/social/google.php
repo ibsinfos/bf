@@ -7,9 +7,7 @@ Class Box_Google{
 	public $is_active;
 	public $client_id;
 	function __construct(){
-
-		$app_api = BX_Option::get_instance()->get_group_option('app_api');
-
+		global $app_api;
 		$google =  $app_api->google;
 		$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
 		if( isset($this->client_id) )
