@@ -106,6 +106,7 @@ class BX_Message{
 
 		global $wpdb;
 		global $user_ID;
+		var_dump($args);
 		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']:0;
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
 		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';

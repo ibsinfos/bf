@@ -133,7 +133,7 @@
                 ?>
                <!--  <div class="col-md-4">
                 	<h2> Test PayPal</h2>
-                    <form class="paypal" action="<?php echo $paypal_url; ?>" method="GET" id="paypal_form">
+                    <form class="paypal" action="<?php // echo $paypal_url; ?>" method="GET" id="paypal_form">
                         <input type="hidden" name="cmd" value="_xclick" />
                         <input type="hidden" name="currency_code" value="USD" />
                         <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHostedGuest" />
@@ -146,9 +146,9 @@
                         <input type="hidden" name="item_name" value="Deposite credit" / >
                         <input type="hidden" name="custom" id="custom_field" value="123">
                         <input type="hidden" name="amount" value="1" / >
-                        <input type="hidden" name="return" value="<?php echo $return?>" / >
-                        <input type="hidden" name="cancel_return" value="<?php echo $return;?>" / >
-                        <input type="hidden" name="notify_url" value="<?php echo $return;?>" / >
+                        <input type="hidden" name="return" value="<?php //echo $return?>" / >
+                        <input type="hidden" name="cancel_return" value="<?php //echo $return;?>" / >
+                        <input type="hidden" name="notify_url" value="<?php //echo $return;?>" / >
                         <input type="submit" name="submit" class="btn btn-green" value="Select"/>
                     </form>
                     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
@@ -156,15 +156,11 @@
 					  <!- Identify your business so that you can collect the payments. -->
 
 					  <!-- <input type="hidden" name="business" value="wpcodev@gmail.com">
-
-
 					  <input type="hidden" name="cmd" value="_xclick">
-
-
 					  <input type="hidden" name="item_name" value="Hot Sauce-12oz. Bottle">
 					  <input type="hidden" name="amount" value="5.95">
 					  <input type="hidden" name="currency_code" value="USD">
-					  <input type="hidden" name="return" value="<?php echo $return?>" / >
+					  <input type="hidden" name="return" value="<?php //echo $return?>" / >
 					  <!- Display the payment button.
 
 					  <input type="image" name="submit" border="0"
