@@ -315,11 +315,13 @@ class BX_AJAX {
 			$first_name = isset($args['first_name']) ? $args['first_name'] : '';
 			$last_name = isset($args['last_name']) ? $args['last_name'] : '';
 			$user_email = isset($args['user_email']) ? $args['user_email'] : '';
+			$display_name = isset($args['display_name']) ? $args['display_name'] : '';
 			$new_arrgs = array(
 				'ID' 	=> $user_ID,
 				'first_name' => $first_name,
 				'last_name' => $last_name,
 				'user_email' => $user_email,
+				'display_name' => $display_name,
 			);
 			wp_update_user($new_arrgs);
 

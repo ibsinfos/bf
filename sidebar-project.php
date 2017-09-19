@@ -14,7 +14,7 @@ if( !is_wp_error($ucountry ) ){
 <div class="block-employer-info">
 <h3> <?php _e('Employer Information','boxtheme');?></h3>
 	<ul class="list-employer-info">
-		<li><span class="emp-name"><?php echo $user->display_name;?></span></li>
+		<li><span class="emp-name"><?php echo $user->display_name ;?></span></li>
 		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php echo $txt_country;?></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i>Project posted: 120.</li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i>Freelancers Hired: 120.</li>
