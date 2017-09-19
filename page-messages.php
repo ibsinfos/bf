@@ -76,7 +76,7 @@
 									$user_label = get_avatar($msg->sender_id  ); ?>
 									<div class="msg-record msg-item">
 										<div class="col-md-1 no-padding"><?php echo $user_label;?></div>
-										<div class="col-md-10 no-padding-left"><span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?>> </span> <br /><small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small></span></div>
+										<div class="col-md-10 no-padding-left"><span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?></span> <br /><small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small></span></div>
 									</div><?php
 								} else { ?>
 									<div class="msg-record msg-item">
@@ -118,6 +118,7 @@
 	.site-content{
 		background: transparent;
 		padding-top: 0;
+		padding-bottom: 0;
 	}
 	.triangle-border.left {
 	    margin-left: 30px;
