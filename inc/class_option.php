@@ -179,7 +179,6 @@ class BX_Option {
 		if ( !is_array($current) )
 			$current = array();
 
-
 		if( $multi ){
 			$cur_item = $current[$section][$item];
 			$new_item = wp_parse_args( $cur_item, $this->get_item_default( $group, $section, $item ) );
@@ -189,7 +188,7 @@ class BX_Option {
 		} else {
 			$current[$name] = $new_value;
 		}
-		var_dump($current);
+		//var_dump($current);
 		return update_option($group, $current);
 	}
 
