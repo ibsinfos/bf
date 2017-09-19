@@ -3,7 +3,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 function setup_enroviment() {
-		BX_User::add_role();
+
+	BX_User::add_role();
+	global $box_general, $box_currency, $app_api;
+	$box_general = BX_Option::get_instance()->get_general_option(); // return not an object - arrray.
+
+	$box_currency = (object) $box_general->currency;
+	$app_api = (OBJECT) BX_Option::get_instance()->get_app_api_option($box_general);
 }
 add_action( 'after_setup_theme','setup_enroviment');
 function bx_pre_get_filter( $query ) {
@@ -18,7 +24,7 @@ function bx_pre_get_filter( $query ) {
 add_action( 'pre_get_posts', 'bx_pre_get_filter', 1 );
 
 
-add_action( 'init', 'bx_theme_init' , 15);
+add_action( 'init', 'bx_theme_init' , 9);
 
 /**
  * Register a Project post type.
@@ -26,6 +32,7 @@ add_action( 'init', 'bx_theme_init' , 15);
  * @link http://codex.wordpress.org/Function_Reference/register_post_type
  */
 function bx_theme_init() {
+
 	$labels = array(
 		'name'               => _x( 'Projects', 'post type general name', 'your-plugin-boxtheme' ),
 		'singular_name'      => _x( 'Project', 'post type singular name', 'your-plugin-boxtheme' ),
@@ -283,10 +290,9 @@ function bx_theme_init() {
 
 	register_post_type( 'portfolio', $args );
 
-	global $box_general, $box_currency, $app_api;
-	$box_general = (object) BX_Option::get_instance()->get_general_option();
-	$box_currency = (object) $box_general->currency;
-	$app_api = (OBJECT) $box_general->app_api;
+
+
+
 
 
 	$labels = array(

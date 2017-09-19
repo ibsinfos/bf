@@ -49,6 +49,14 @@ require get_parent_theme_file_path( '/inc/class_customizer.php' );
  * Customizer additions.
  */
 ///require get_parent_theme_file_path( '/inc/customizer.php' );
-
+add_action('init','box_init_class', 19 );
+function box_init_class(){
+global $fb_activate, $is_social; // init is_social
+global $gg_activate;
+	$fb = new BX_Facebook();
+	$fb_activate = $fb->is_active;
+	$gg = new Box_Google();
+	$gg_activate = $gg->is_active;
+}
 
 ?>

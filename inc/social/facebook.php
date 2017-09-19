@@ -13,7 +13,6 @@ class BX_Facebook{
 	function __construct(){
 
 		global $app_api;
-
 		$facebook = (object) $app_api->facebook;
 		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
 
@@ -89,12 +88,8 @@ class BX_Facebook{
 	}
 }
 
-global $fb_activate, $is_social; // init is_social
-$fb = new BX_Facebook();
-$fb_activate = $fb->is_active;
-if($fb_activate){
-	$is_social= true;
-}
+
+
 function btn_fb_login(){
 	global $fb_activate;
 
@@ -107,3 +102,5 @@ function btn_fb_login(){
 		</li> <?php
 	}
 }
+
+

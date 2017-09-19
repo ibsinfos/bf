@@ -8,7 +8,7 @@ Class Box_Google{
 	public $client_id;
 	function __construct(){
 		global $app_api;
-		$google =  $app_api->google;
+		$google =  (object) $app_api->google;
 		$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
 		if( isset($this->client_id) )
 			$this->client_id = $google->client_id;
@@ -63,13 +63,7 @@ Class Box_Google{
 		}
 	}
 }
-global $gg_activate;
-$gg = new Box_Google();
-$gg_activate = $gg->is_active;
-if($gg_activate){
-	global $is_social;
-	$is_social = true;
-}
+
 
 function btn_google_login(){
 	global $gg_activate, $social_log;
