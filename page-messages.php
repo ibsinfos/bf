@@ -183,12 +183,13 @@
 	.list-conversation{
 		background: #fff;
 		border-right: 1px solid #e2e2e2;
+		padding: 0;
 	}
 	.list-conversation .full-content{
 		background: #fff;
 		overflow: hidden;
 		min-height: 500px;
-		padding: 15px;
+		padding: 15px 0;
 	}
 	.right-message{
 		background: #fff;
@@ -228,7 +229,7 @@
 		border-bottom: 1px solid #f1f1f1;
 		padding: 10px;
 		position: relative;
-		border-left:3px solid #fff;
+		border-left:3px solid transparent;
 	}
 	.cv-item.acti{
 		border-left:3px solid #54bf03;
@@ -251,6 +252,7 @@
 		width: 75%;
 		float: left;
 		overflow: hidden;
+		position: relative;
 	}
 	.mdate{
 		position: absolute; top:10px;
