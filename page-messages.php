@@ -34,7 +34,6 @@
 							if($cv->sender_id == $user_ID){			$user = get_userdata($cv->receiver_id);
 							} else {$user = get_userdata($cv->sender_id);	}
 							$avatars[$cv->cvs_id] = get_avatar($user->ID );
-
 							$project = get_post($cv->project_id);
 							if($user && $project){
 								if($key == 0){
@@ -101,6 +100,18 @@
 </div>
 <script type="text/html" id="tmpl-msg_record">
 	<div class="row">{{{username_sender}}}: {{{msg_content}}} {{{msg_date}}}</div>
+</script>
+<script type="text/html" id="tmpl-msg_record_not_me"> <!-- use for not current user !-->
+	<div class="msg-record msg-item">
+		<div class="col-md-1 no-padding">{{{data.avatar}}}</div>
+		<div class="col-md-10 no-padding-left"><span class="wrap-text "><span class="triangle-border left">{{{data.msg_content}}} </span> <br /><small class="msg-mdate">{{{data.msg_date}}}</small></span></div>
+	</div>
+</script>
+<script type="text/html" id="tmpl-msg_record_me"> <!-- use for not current user !-->
+	<div class="msg-record msg-item">
+		<div class="col-md-9 pull-right text-right"><span class="wrap-text-me"><span class="my-reply">{{{data.msg_content}}}</span><br /><small class="msg-mdate">{{{data.msg_date}}}</small> </span></div>
+	</div>
+
 </script>
 <script type="text/template" id="json_avatar"><?php  echo json_encode($avatars); ?></script>
 <style type="text/css">
