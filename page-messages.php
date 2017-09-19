@@ -69,12 +69,21 @@
 						<?php
 						echo '<span> To: Kent wp </span>';
 						if($first_cvs){
-							$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
 
+							$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
 							foreach ($msgs as $key => $msg) {
-								$user_label = 'You:';
-								$user_label = ($user_ID == $msg->sender_id) ? 'You: ':'Partner: ';
-								echo '<div class="msg-record msg-item"><div class="col-md-2">'.$user_label.'</div> <div class="col-md-10">'.$msg->msg_content.'</div></div>';
+								$date = date_create( $msg->msg_date );
+								if( $msg->sender_id != $user_ID ){
+									$user_label = get_avatar($user->ID ); ?>
+									<div class="msg-record msg-item">
+										<div class="col-md-1 no-padding"><?php echo $user_label;?></div>
+										<div class="col-md-10 no-padding-left"><span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?>> </span> <br /><small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small></span></div>
+									</div><?php
+								} else { ?>
+									<div class="msg-record msg-item">
+										 <div class="col-md-9 pull-right text-right"><span class="wrap-text-me"><span class="my-reply"><?php echo $msg->msg_content;?></span><br /><small class="msg-mdate"> </small><?php echo date_format($date,"m/d/Y");?></small></div>
+									</div><?php
+								}
 							}
 						}
 						?>
@@ -99,6 +108,57 @@
 	.site-content{
 		background: transparent;
 	}
+	.triangle-border.left {
+	    margin-left: 30px;
+	}
+
+	.triangle-border {
+		width: 95%;
+		float: left;
+	    position: relative;
+	    padding: 3px 15px;
+	    margin: 0;
+	    border: 5px solid #ecf8ff;
+	    color: #616161;
+	    background: #ecf8ff;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 10px;
+	    border-radius: 10px;
+	}
+	.triangle-border.left:before {
+	    top: -5px;
+	    bottom: auto;
+	    left: -30px;
+	    border-width: 7px 38px 6px 0px;
+	    border-color: transparent #ecf8ff;
+	}
+
+	.triangle-border:before {
+	    content: "";
+	    position: absolute;
+	    bottom: -20px;
+	    left: 40px;
+	    border-width: 20px 20px 0;
+	    border-style: solid;
+	    border-color: #ecf8ff transparent;
+	    display: block;
+	    width: 0;
+	}
+	.wrap-text-me{
+		float: right;
+		clear: both;
+	}
+	.my-reply{
+		float: right;
+	    background: rgba(0, 157, 175, 0.95);
+	    padding: 5px 15px;
+	    color: #fff;
+	    border-radius: 5px;
+	}
+	.my-reply small{
+		float: right;
+		clear: both;
+	}
 	#list_msg{
 		height: 200px;
 		padding-left: 15px;
@@ -114,7 +174,7 @@
 	#container_msg{
 		min-height: 389px;
 	    border: 0;
-	    overflow: hidden;
+	    overflow-y: scroll;
 	}
 	.list-conversation{
 		background: #fff;
@@ -129,6 +189,31 @@
 	.right-message{
 		background: #fff;
 		padding-bottom: 25px;
+	}
+	.msg-item{
+		overflow: hidden;
+		padding-bottom: 15px;
+		width: 100%;
+		clear: both;
+		margin-bottom: 10px;
+	}
+	.msg-item img.avatar{
+		width: 50px;
+		height: 50px;
+		margin-right: 13px;
+		float: left;
+		border-radius: 50%;
+	}
+	.msg-item .wrap-text{
+		position: relative;
+		float: left;
+		min-width: 120px;
+		padding-bottom: 20px;
+	}
+	.msg-item .wrap-text small{
+		position: absolute;
+		right: 0;
+		bottom: 0;
 	}
 	.cv-item{
 		clear: both;
