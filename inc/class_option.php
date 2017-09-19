@@ -176,17 +176,26 @@ class BX_Option {
 	function set_option($group, $section,$item, $name, $new_value, $multi = true){
 
 		$current = get_option($group, true);
-		var_dump($group);
-		var_dump($current);
+
 		if( $multi ){
-			$current[$section][$item][$name] = $new_value;
+			$cur_item = $current[$section][$item];
+			$new_item = wp_parse_args( $cur_item, $this->get_item_default( $group, $section, $item ) );
+			$new_item[$name] = $new_value;
+
+			$current[$section][$item]= $new_item;
 		} else {
-			$current[$section][$name] = $new_value;
+			$current[$name] = $new_value;
 		}
+
 		return update_option($group, $current);
 	}
 
+	function get_item_default($group,$section, $item){
 
+		$default = $this->get_default($group);
+		return $default[$section][$item];
+
+	}
 
 	function get_opt_credit_default(){
 		$default =$this->get_default_option('opt_credit');
@@ -201,8 +210,7 @@ class BX_Option {
 		return (object) $general;
 	}
 	function get_app_api_option( $general, $object = true ){
-
-		return  wp_parse_args( $general['app_api'], $this->get_app_api_default() );
+		return  (object) wp_parse_args( $general['app_api'], $this->get_app_api_default() );
 
 	}
 	function get_currency_code(){
