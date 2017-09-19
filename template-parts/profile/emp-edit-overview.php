@@ -42,7 +42,7 @@
 	    		?>
 	    	</div>
 	      	<div class="col-md-9 col-sm-12">
-	      		<div class="col-sm-12"><span class="btn btn-edit btn-edit-default btn-emp-edit"> Edit</span></div>
+	      		<div class="col-sm-12"><span class="btn-edit btn-edit-default btn-emp-edit"> Edit</span></div>
 	      		<div class="full is-view">
 		      		<div class="form-group ">
 		      			<label>First name</label>: <span><?php echo $user_data->first_name;?></span>
