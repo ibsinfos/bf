@@ -67,7 +67,7 @@
 						          	</div>
 						          	<div class="form-group">
 						          		<button type="submit" class="btn btn-success btn-block " >
-			                                <?php _e('Reset Password','boxtheme');?>
+			                                <?php _e('Send','boxtheme');?>
 			                            </button>
 			                    	</div>
 			                    	<!-- Please check your mailbox for instructions to reset your password. -->
@@ -238,6 +238,13 @@
 		float: left;
 		margin-top: 10px;
 		margin-bottom: 15px;
+	}
+	#reset_pass_section{
+		padding-top: 0p
+	}
+	.fre-reset-pw {
+		padding-bottom: 20px;
+		overflow: hidden;
 	}
 	.fre-reset-pw h2{
 		padding-bottom: 15px;
