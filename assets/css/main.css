@@ -1145,6 +1145,7 @@ form#signup {
 	border:1px solid #eee;
 	margin: 100px auto 0px auto;
 	max-width: 450px;
+	border-radius: 5px;
 }
 .frm-signup h3{
 	font-size: 15px;

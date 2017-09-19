@@ -43,12 +43,16 @@
 						<div id="loginErrorMsg" class="alert alert-error alert-warning hide"></div>
 						<?php signup_nonce_fields(); ?>
 						<input type="hidden" name="role" value="<?php echo FREELANCER;?>">
+						<div class="row">
+						 	<div class="form-group col-md-12">
+		                        <label class="lb-checkbox"><input type="checkbox" required="" name="agree"> I agree all our <a href="#" target="_blank">Terms of Services</a></label>
+		                    </div>
+		                </div>
 
 						<div class="form-group row">
-						<div class="col-md-12">
-						    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('SIGN UP','boxtheme');?></button>
-						</div>
-
+							<div class="col-md-12">
+							    <button class="btn btn-xlarge btn-action" type="submit"><?php _e('SIGN UP','boxtheme');?></button>
+							</div>
 						</div>
 					</form>
 				<?php } else { ?>
