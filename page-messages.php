@@ -174,6 +174,7 @@
 	#container_msg{
 		min-height: 389px;
 	    border: 0;
+	    padding-left: 15px;
 	    overflow-y: scroll;
 	}
 	.list-conversation{
@@ -188,7 +189,8 @@
 	}
 	.right-message{
 		background: #fff;
-		padding-bottom: 25px;
+		padding-bottom: 0;
+		padding-left: 0;
 	}
 	.msg-item{
 		overflow: hidden;
@@ -264,12 +266,27 @@
 	textarea{
 		border-color: #ececec;
 	}
-	.frm-send-message .btn-send-message{
-		background:#ccc;
+	#form_reply{
+		background: #f9f9f9;
+		overflow: hidden;
+		padding: 26px 30px;
 	}
-	.frm-send-message.focus .btn-send-message{
-		background: #17a717;
+	.frm-send-message textarea {
+	    background: #fff;
+	    height: 39px;
+	    border: 0;
+	    padding: 10px;
+	    float: left;
+	    border:1px solid #f1f1f1;
+	    overflow: hidden;
 	}
+	.frm-send-message .btn-send-message {
+	    background: #ccc;
+	    position: absolute;
+	    right: 5px;
+	    top: 2px;
+	}
+
 </style>
 <?php get_footer();?>
 
