@@ -150,7 +150,7 @@ function box_get_response(  $captcha_response) {
 	$gg_captcha = (object) $app_api->gg_captcha;
 	$enable = (int) $gg_captcha->enable;
 
-	if( ! $enable ){
+	if ( $enable && ! empty ( $gg_captcha->site_key ) ) {
 		return true;
 	}
 	$args = array(
