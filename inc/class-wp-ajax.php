@@ -327,6 +327,7 @@ class BX_AJAX {
 
 			$response = array('success' => true, 'msg' => 'OK');
 			wp_send_json($response );
+			wp_die('done');
 		}
 
 		$profile 	= BX_Profile::get_instance();
