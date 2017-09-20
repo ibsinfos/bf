@@ -14,9 +14,10 @@ $general = $option->get_general_option();
 // var_dump($general);
 // echo '</pre>';
 ?>
-<h2><?php _e('Main options','boxtheme');?></h2>
+
 <div id="<?php echo $group_option;?>" class="main-group">
 	<div class="sub-section " id="<?php echo $group_option;?>">
+		<h2 class="section-title"><?php _e('Main options','boxtheme');?> </h2>
 		<div class="full sub-item" id="pending_post" >
 			<div class="col-md-3"><h3><?php _e('Pending jobs','boxtheme');?></h3></div>
 			<div class="col-md-9"><?php bx_swap_button($group_option,'pending_post', $general->pending_post, $multipe = false);?><br /><span><?php _e('if enable this option, all job only appearances in the site after admin manually approve it.','boxtheme');?></span></div>

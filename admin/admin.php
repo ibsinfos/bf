@@ -112,7 +112,7 @@ class BX_Admin{
                 </div>
                 <div class="tab-content clear">
                 	<div id="main_content" class="wrap ">
-                		<div id="general">
+
                         <?php
                             if( in_array($section, $methods) ){
                             	$admin->$section();
@@ -120,7 +120,7 @@ class BX_Admin{
                             	$admin->general();
                             }
                         ?>
-                        </div>
+
                     </div>
                 </div>
             </div>

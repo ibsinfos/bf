@@ -12,10 +12,17 @@
 
 global $user_ID;
 $bank_account = (OBJECT) array('account_name' => '', 'account_number' => '', 'bank_name'=>'' );
-
 $ins_credit = BX_Credit::get_instance();
-$credit = $ins_credit->get_ballance($user_ID);
-$withdraw_info = $ins_credit->get_withdraw_info($user_ID);
+// $t1 = get_user_meta($user_ID,'_credit_total', 'true' );
+// $t2 = get_user_meta($user_ID,'_sandbox_credit_available', 'true' );
+// echo '<pre>';
+// var_dump($t1);
+// var_dump($t2);
+// var_dump($ins_credit);
+// echo '</pre>';
+// $credit = $ins_credit->get_ballance($user_ID);
+// $withdraw_info = $ins_credit->get_withdraw_info($user_ID);
+
 $paypal_email= $account_number = '';
 
 if( ! empty ($withdraw_info->paypal_email) )

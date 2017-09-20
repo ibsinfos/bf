@@ -33,6 +33,7 @@ class BX_Option {
 				'gg_link' => 'https://https://plus.google.com/boxthemes/',
 				'tw_link' => 'https://twitter.com/',
 				'le_link.' => 'https://linkedin.com.com/boxthemes/',
+				'checkout_mode' => 0,
 				'currency' => array(
 					'code' => 'USD',
 					'position' => 'left',
@@ -173,7 +174,7 @@ class BX_Option {
 		update_option('box_mail_content', $args);
 
 	}
-	function set_option($group, $section,$item, $name, $new_value, $level = 0 ){
+	function set_option($group, $section, $item, $name, $new_value, $level = 0 ){
 
 		$current = get_option($group, false);
 
@@ -272,16 +273,7 @@ class BX_Option {
 function box_get_currency(){
 	return BX_Option::get_instance()->get_currency_option();
 }
-function get_sandbox_mode(){
-	$payment = (object) BX_Option::get_instance()->get_group_option('payment');
 
-	$sanbox_mode = 1;// sandbox = 0
-
-	if( isset( $payment->mode ) ){
-		$sanbox_mode = $payment->mode;
-	}
-	return $sanbox_mode;
-}
 function get_commision_fee( $total, $setting ){
 	$number = $setting->number; // fix price
 	if( $setting->type == 'percent' ) {

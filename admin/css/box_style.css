@@ -1,3 +1,7 @@
+.main-group{
+	overflow: hidden;
+	background: #fff;
+}
 .loadinggif{
    background: url('http://www.hsi.com.hk/HSI-Net/pages/images/en/share/ajax-loader.gif')     no-repeat     right center !important;
  }
@@ -25,12 +29,12 @@
 .align-center{
 	text-align: center;
 }
-#general{
+.main-gropup{
 	background: #fff;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-#general h2{
+.main-gropup h2{
 	border-bottom: 1px solid #ccc;
 	padding-bottom: 15px;
 	margin-bottom: 30px;
@@ -180,6 +184,7 @@ div.mce-tinymce{
 	background: #fff;
 	padding-left: 15px;
 	padding-right: 15px;
+	overflow: hidden;
 }
 .mce-branding-powered-by{
 	display: none;

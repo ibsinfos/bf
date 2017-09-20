@@ -10,11 +10,13 @@ Class BX_Credit {
 	public $meta_pending;
 	private $mode;
 	function __construct(){
-		$this->mode = 'sandbox';
-		$this->meta_total = '_credit_total';
-		$this->meta_pending = '_credit_pending';
-		$this->meta_available = '_credit_available';
-		if( $this->mode == 'sandbox' ){
+		global $checkout_mode; // 0 = sandbox, 1 == real
+		$this->mode = $checkout_mode;
+		if( $checkout_mode === 1 ) {
+			$this->meta_total = '_credit_total';
+			$this->meta_pending = '_credit_pending';
+			$this->meta_available = '_credit_available';
+		} else {
 			$this->meta_total = '_sandbox_credit_total';
 			$this->meta_pending = '_sandbox_credit_pending';
 			$this->meta_available = '_sandbox_credit_available';
@@ -108,6 +110,7 @@ Class BX_Credit {
 		);
 	}
 	function get_credit_available($user_id){
+		var_dump('meta_available = '.$this->meta_available);
 		return (float) get_user_meta($user_id, $this->meta_available, true) ;
 	}
 	function increase_credit_available($available, $user_id =0 ){
@@ -242,8 +245,8 @@ Class BX_Credit {
 			if( !$order_access ){
 				throw new Exception("Some error message", 101);
 			}
+			//$this->subtract_credit_pending($order->post_author, $order->amout);
 
-			$this->subtract_credit_pending($order->post_author, $order->amout);
 			$this->increase_credit_available( $order->amout, $order->post_author);
 
 		} catch(Exception  $e){

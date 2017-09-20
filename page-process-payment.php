@@ -7,8 +7,8 @@ $type  = isset($_GET['type']) ? $_GET['type'] : '';
 $order = array();
 $order_id = isset($_GET['order_id']) ? $_GET['order_id'] : 0;
 
-// box_log('page-process-payment.php');
-// box_log($_POST);
+box_log('page-process-payment.php');
+box_log($_POST);
 
 
 //if($type == 'paypal'){

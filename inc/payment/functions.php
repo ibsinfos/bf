@@ -65,6 +65,8 @@ function bx_process_payment($post) {
 	$order->approve($invoice);
 	$order_type = $order_record->order_type;
 
+	box_log('Order type '.$order_type);
+
 	$payer = get_user_by('email',$order_record->payer_email);
 	$payer_id = $payer->ID;
 

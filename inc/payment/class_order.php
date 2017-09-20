@@ -18,7 +18,7 @@ Class BX_Order {
 
 	function __construct(){
 		$this->post_type = ORDER;
-		$this->use_sandbox = get_sandbox_mode();
+		$this->use_sandbox = $this->get_sandbox_mode();
 		$this->receiver_email = '';
 
 		$this->redirect_link = box_get_static_link('process-payment');
@@ -51,7 +51,11 @@ Class BX_Order {
 			'order_mode', //sandbox or live
 		);
 	}
+	function get_sandbox_mode(){
+		global $checkout_mode; // 1= real mode. 0 or empty => sandbox.
 
+		return ! $checkout_mode;
+	}
 	function get_order($post) {
 
 		if(is_numeric($post)){

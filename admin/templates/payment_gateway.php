@@ -1,13 +1,17 @@
 <?php
 
 // group = escrow
-$group = "payment";
 $option = BX_Option::get_instance();
-$payment = $option->get_group_option($group);
+
+$general = $option->get_general_option();
+$checkout_mode = (int) $general->checkout_mode;
+$group_option = "payment";
+$payment = $option->get_group_option($group_option);
 
 $paypal = (object) $payment->paypal;
 $cash = (object) $payment->cash;
 $mode = $payment->mode;
+
 // // echo '<pre>';
 // // var_dump($cash);
 // echo '</pre>';
@@ -17,18 +21,26 @@ $pp_enable = 0;
 
 if(isset($paypal->enable) )
     $pp_enable = $paypal->enable;
+
+
 ?>
-<div id="<?php echo $group;?>" class="main-group">
 
-   		<h2 class="section-title"><?php _e('Payment gateways','boxtheme');?></h2>
+<div id="general" class="main-group">
+	<h2 class="section-title">Payent Gateways Settings </h2>
 
-     	<div class="sub-wrap col-sm-12">
-     		<div class="full">
-    			<div class="col-md-3">
-    			<h3>Sandbox mode</h3>
-    			</div> <div class="col-md-9"><?php  bx_swap_button($group,'mode', $mode, 1);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+	<div class="form-group -row">
+		<div class="col-md-3">		<label>Checkout out mode</label></div>
+		<div class="col-md-9">Live mode is <?php  bx_swap_button('general','checkout_mode', $checkout_mode, 0);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+	</div>
 
-    		</div>
+</div>
+<?php
+$section = 'paypal';
+$item = 'email';
+?>
+<div id="<?php echo $group_option;?>" class="main-group">
+	<div class="sub-section " id="<?php echo $section;?>">
+		<div class="full sub-item" id="<?php echo $section;?>" >
 
      		<div class="sub-section" id="paypal">
                 <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
@@ -48,7 +60,7 @@ if(isset($paypal->enable) )
 	            	<label for="inputEmail3" class="col-sm-3 col-form-label">Cash</label>
 	            	<?php
 
-	                $cash_des = $option->get_default_option($group,'cash','description',1);
+	                $cash_des = $option->get_default_option($group_option,'cash','description',1);
 	                if( isset($cash->description) )
 	                    $cash_des = $cash->description;
 	            	?>
@@ -66,5 +78,7 @@ if(isset($paypal->enable) )
 	                </div>
 	            </div>
 	       	</div>
-        </div><!-- .end sub-wrap !-->
+
+	    </div>
+	</div>
 </div>
