@@ -41,7 +41,7 @@ function box_edit_icon(){?>
                 		} else if( current_user_can( 'manage_options' ) ) {
 
                 			if( current_user_can( 'manage_options' ) ) { ?>
-							    <a class="box-customizer-link" href="<?php echo $customier_link;?>"><?php box_edit_icon();?>></a> <?php
+							    <a class="box-customizer-link" href="<?php echo $customier_link;?>"><?php box_edit_icon();?></a> <?php
 							}
                 		} ?>
                     </div> <?php

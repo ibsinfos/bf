@@ -16,8 +16,8 @@
 					if( $profile_id ){
 						$profile = BX_Profile::get_instance()->convert($profile_id);
 						if( $role == FREELANCER ){
-							get_template_part( 'template-parts/profile/profile', 'overview' );
-							get_template_part( 'template-parts/profile/profile', 'freelancer' );
+							get_template_part( 'template-parts/profile/fre', 'edit-overview' );
+							get_template_part( 'template-parts/profile/fre', 'edit-freelancer' );
 						}
 					} else {
 						get_template_part( 'template-parts/profile/emp', 'edit-overview' );

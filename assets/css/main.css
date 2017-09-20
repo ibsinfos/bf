@@ -797,6 +797,12 @@ content: "";
 	float: left;
 	clear: both;
 }
+.count-result{
+	border-bottom: 1px solid #e2e2e2;
+}
+.count-result .full{
+	padding-bottom: 5px;
+}
 .list-project .pagination {
 	margin-bottom: 0;
 	border-radius: 0;
