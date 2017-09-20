@@ -165,7 +165,7 @@ Class BX_Profile extends BX_Post{
 			}
 			if( isset($args['user_email']) ){
 				// update user email of user
-				wp_update_user(array('ID' => $user_ID, 'display_name' => $args['user_email']) );
+				wp_update_user(array('ID' => $user_ID, 'user_email' => $args['user_email']) );
 			}
 
 		}

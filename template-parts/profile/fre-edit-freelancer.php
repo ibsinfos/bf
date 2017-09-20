@@ -101,7 +101,7 @@
 			<div class="form-group row">
 			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Email','boxtheme');?></label>
 			 	<div class="col-sm-9">
-			    <span class="visible-default"><?php echo  $user_data->user_email ;?></span>
+			    <span class="visible-default"><?php echo $user_data->user_email ;?></span>
 			    <div class="invisible-default">
 			       <input type="text"  class="update form-control" value="<?php echo $user_data->user_email;?>" name="user_email">
 			    </div>
