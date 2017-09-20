@@ -284,6 +284,12 @@
 	.frm-buy-credit .btn-submit.disable{
 		background-color: #ccc;
 	}
+	.selected .record-line{
+		display: none;
+	}
+	.selected .record-line.activate{
+		display: block;
+	}
 </style>
 <script type="text/javascript">
 	(function($){

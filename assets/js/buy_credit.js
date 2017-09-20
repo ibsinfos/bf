@@ -21,6 +21,7 @@
 		$(".btn-select").click(function(event){
 			var _this = $(event.currentTarget);
 
+			_this.closest('.step ').toggleClass('selected');
 			_this.closest('.step').find('.record-line').removeClass('activate');
 			_this.closest('.record-line').addClass('activate');
 			var numItems = $('div.activate').length;
