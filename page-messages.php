@@ -57,7 +57,7 @@ $avatars = array();
 							}
 						} // end foreach
 					} else { ?>
-						<li><?php_e('There is no any conversations yet.','boxtheme');?></li>
+						<li class="cv-item no-item"><?php _e('There is no any conversations yet.','boxtheme');?> </li>
 					<?php }?>
 				</ul>
 				</div>
@@ -224,6 +224,7 @@ $avatars = array();
 		background: #fff;
 		padding-bottom: 0;
 		padding-left: 0;
+		min-height: 493px;
 	}
 	.msg-item{
 		overflow: hidden;
@@ -272,6 +273,9 @@ $avatars = array();
 		height: 55px;
 		border-radius: 50%;
 		vertical-align: top;
+	}
+	.no-item{
+		padding-bottom: 21px;
 	}
 	.cv-left{
 		width: 25%;
