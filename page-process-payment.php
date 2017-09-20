@@ -52,9 +52,10 @@ if($type == 'cash'){
 
 						if( !empty( $order ) ){
 
-							_e('Thank you for your purching. You have buy credit successful','boxtheme'); ?>
+							_e('Thank you for your order and Your ballances is added.','boxtheme'); ?>
 							<h3><?php _e('Detail:','boxtheme'); ?></h3>
-							<p><label>Price:</label><?php echo $order->amout;?></p>
+							<p> Your order ID: <strong><?php echo $order_id;?></strong></p>
+							<p><label> Price: </label> <?php echo $order->amout;?></p>
 							<?php if( $type == 'cash'){
 								if( $order->post_status == 'publish') {
 									 _e('Your order is approved ','boxtheme');
