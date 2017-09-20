@@ -10,22 +10,9 @@ $order_id = isset($_GET['order_id']) ? $_GET['order_id'] : 0;
 // box_log('page-process-payment.php');
 // box_log($_POST);
 
-if($type == 'paypal'){
-	$verified = BX_Paypal::get_instance()->verifyIPN();
-	if ($verified) {
 
-		// appove order_status and add amout of this order to ballance of payer.
-		//box_log('Verified successful');
-		bx_process_payment($_POST);
-	    /*
-	     * Process IPN
-	     * A list of variables is available here:
-	     * https://developer.paypal.com/webapps/developer/docs/classic/ipn/integration-guide/IPNandPDTVariables/
-	     */
-	}
-	// Reply with an empty 200 response to indicate to paypal the IPN was received correctly.
-	//header("HTTP/1.1 200 OK");
-} else if($type == 'cash'){
+//if($type == 'paypal'){
+if($type == 'cash'){
 	global $user_ID;
 
 	$order = BX_Order::get_instance()->get_order($order_id);
@@ -37,7 +24,22 @@ if($type == 'paypal'){
 		$credit->increase_credit_pending($order->post_author, $order->amout);
 		update_post_meta($order->ID,'is_access', 1);
 	}
+} else {
+
+	$verified = BX_Paypal::get_instance()->verifyIPN();
+	if ($verified) {
+		box_log('verified');
+		// appove order_status and add amout of this order to ballance of payer.
+		//box_log('Verified successful');
+		bx_process_payment($_POST);
+	    /*
+	     * Process IPN
+	     * A list of variables is available here:
+	     * https://developer.paypal.com/webapps/developer/docs/classic/ipn/integration-guide/IPNandPDTVariables/
+	     */
+	 }
 }
+
 ?>
 <?php get_header(); ?>
 <div class="full-width">
