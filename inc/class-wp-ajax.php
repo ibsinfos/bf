@@ -305,7 +305,7 @@ class BX_AJAX {
 		$args 		= $_REQUEST['request'];
 		$is_emp 	= 	isset( $args['is_emp'] ) ? $args['is_emp'] : 0;
 
-		if( $is_emp ){
+		if( $is_emp ) {
 			global $user_ID;
 			// update employer;
 			$country = isset($args['country']) ? $args['country'] : 0;

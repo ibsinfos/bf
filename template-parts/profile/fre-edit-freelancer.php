@@ -1,6 +1,9 @@
 <?php
+
+	global $user_ID;
 	$profile_id 	= get_user_meta($user_ID,'profile_id', true);
 	$profile 		= BX_Profile::get_instance()->convert($profile_id);
+	$user_data = get_userdata($user_ID );
 
    	$txt_country = $slug = $skill_val = $country_select = $phone_number = $address ='';
    	$pcountry = get_the_terms( $profile_id, 'country' );
@@ -95,6 +98,16 @@
    				<h2> <?php _e('Profile info','boxtheme');?></h2>
 			<form id="update_profile_meta" class="update-profile row-section">
 			<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
+			<div class="form-group row">
+			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Email','boxtheme');?></label>
+			 	<div class="col-sm-9">
+			    <span class="visible-default"><?php echo  $user_data->user_email ;?></span>
+			    <div class="invisible-default">
+			       <input type="text"  class="update form-control" value="<?php echo $user_data->user_email;?>" name="user_email">
+			    </div>
+			 </div>
+			</div>
+
 			<div class="form-group row">
 			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
 			 	<div class="col-sm-9">

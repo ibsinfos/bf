@@ -156,10 +156,16 @@ Class BX_Profile extends BX_Post{
 			if( isset($args['professional_title']) ){
 				update_post_meta( $id, 'professional_title', $args['professional_title'] );
 			}
+
+			global $user_ID;
 			if( isset($args['post_title']) ){
-				global $user_ID;
+
 				// update display name of user
 				wp_update_user(array('ID' => $user_ID, 'display_name' => $args['post_title']) );
+			}
+			if( isset($args['user_email']) ){
+				// update user email of user
+				wp_update_user(array('ID' => $user_ID, 'display_name' => $args['user_email']) );
 			}
 
 		}
