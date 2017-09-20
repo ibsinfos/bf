@@ -64,7 +64,7 @@ if($type == 'cash'){
 								<p> Your order ID: <strong><?php echo $order_id;?></strong></p>
 								<p><label> Price: </label> <?php echo $order->amout;?></p>
 								<p><label> Payment method: </label> <?php echo $order->payment_type;?></p>
-								<p><label> Price: </label> <?php echo $order->amout;?></p>
+								<p><label> Price: </label> <?php echo box_get_price($order->amout);?></p>
 								<?php if( $type == 'cash'){
 									if( $order->post_status == 'publish') {
 										 _e('Your order is approved ','boxtheme');
