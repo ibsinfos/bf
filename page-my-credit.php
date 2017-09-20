@@ -20,8 +20,9 @@ $ins_credit = BX_Credit::get_instance();
 // var_dump($t2);
 // var_dump($ins_credit);
 // echo '</pre>';
-// $credit = $ins_credit->get_ballance($user_ID);
-// $withdraw_info = $ins_credit->get_withdraw_info($user_ID);
+
+$credit = $ins_credit->get_ballance($user_ID);
+$withdraw_info = $ins_credit->get_withdraw_info($user_ID);
 
 $paypal_email= $account_number = '';
 
