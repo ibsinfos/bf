@@ -718,7 +718,11 @@ class BX_AJAX {
 		$result = array();
 		$pagination = false;
 
-		$job_found = sprintf( '<h5>'._n( '%s job found', '%s jobs found', $the_query->found_posts, 'boxtheme' ).'</h5>', $the_query->found_posts);
+		$rlabel = array(
+			PROJECT  => sprintf( '<h5>'._n( '%s job found', '%s jobs found', $the_query->found_posts, 'boxtheme' ).'</h5>', $the_query->found_posts),
+			PROFILE  => sprintf( '<h5>'._n( '%s profile found', '%s profiles found', $the_query->found_posts, 'boxtheme' ).'</h5>', $the_query->found_posts)
+		);
+
 		if( $the_query->have_posts() ){
 			while ( $the_query->have_posts()) {
 				global $post;
@@ -736,12 +740,13 @@ class BX_AJAX {
 			}
 			// add paging html
 		}
+		$msg = __('Search result is empty','boxtheme');
 		wp_send_json(
 			array(
 				'success' => true,
-				'msg' => 'Search done',
+				'msg' => $msg,
 				'result' => $result,
-				'job_found' => $job_found,
+				'job_found' => $rlabel[$post_type],
 				'pagination' => $pagination,
 
 			)
