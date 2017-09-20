@@ -59,7 +59,7 @@ $role = bx_get_user_role();
 				<?php }?>
 			</div>
 			<div class="no-padding col-nav col-md-6 ">
-				<?php if ( has_nav_menu( 'top' ) ) { get_template_part( 'template-parts/navigation', 'top' );} ?>
+				<?php if ( has_nav_menu( 'top' ) ) { get_template_part( 'template-parts/navigation', 'top' ); } ?>
 			</div>
 			<!-- seach form here !-->
 			<div class="col-md-4 col-xs-3 col-account-menu">
