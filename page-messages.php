@@ -4,57 +4,62 @@
  */
 ?>
 <?php get_header(); ?>
+<?php
+global $user_ID;
+$sql = "SELECT *
+	FROM  {$wpdb->prefix}box_conversations cv
+	INNER JOIN {$wpdb->prefix}box_messages  msg
+	ON  cv.ID = msg.cvs_id
+	WHERE  ( msg.sender_id = {$user_ID} OR msg.receiver_id = {$user_ID} )
+	GROUP BY msg.cvs_id ORDER BY cv.date_modify DESC";
+$conversations = $wpdb->get_results($sql); // list conversations
+$avatars = array();
+?>
 <div class="full-width">
 	<div class="container site-container ">
 		<div class="site-content" id="content" >
 			<div class="col-md-12 top-line">&nbsp;</div>
 			<div class="col-md-4 list-conversation">
 				<div class="full-content">
+					<?php if( $conversations ){?>
 					<form>
-						<input type="text" name="s" placeholder="Search messsages" class="form-control" />
+							<input type="text" name="s" placeholder="Search messsages" class="form-control" />
 					</form>
+					<?php }?>
+					<ul class="none-style" id="list_converstaion">
 					<?php
-					global $user_ID;
-		    		$sql = "SELECT *
-							FROM  {$wpdb->prefix}box_conversations cv
-							INNER JOIN {$wpdb->prefix}box_messages  msg
-							ON  cv.ID = msg.cvs_id
-							WHERE  ( msg.sender_id = {$user_ID} OR msg.receiver_id = {$user_ID} )
-							GROUP BY msg.cvs_id ORDER BY cv.date_modify DESC";
-
-
-					$conversations = $wpdb->get_results($sql); // list conversations
-					$avatars = array();
-					if($conversations) {
-						echo '<ul class="none-style" id="list_converstaion">';
+					if( $conversations) {
 
 						foreach ( $conversations as $key=>$cv ) {
 							$user = array();
 							$date = date_create( $cv->date_modify );
-							if($cv->sender_id == $user_ID){			$user = get_userdata($cv->receiver_id);
-							} else {$user = get_userdata($cv->sender_id);	}
+							$date = date_format($date,"m/d/Y");
+
+							if($cv->sender_id == $user_ID)
+								$user = get_userdata($cv->receiver_id);
+							else
+								$user = get_userdata($cv->sender_id);
+
 							$avatars[$cv->cvs_id] = get_avatar($user->ID );
 							$project = get_post($cv->project_id);
-							if($user && $project){
-								if($key == 0){
-									echo '<li class="cv-item acti">';
-								} else {
-									echo '<li class="cv-item">';
-								}
-										echo '<div class="cv-left">'.get_avatar($user->ID).'</div>';
-										echo '<div class="cv-right">';
-											echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
-											echo '<a href="#" class="render-conv" id="'.$cv->cvs_id.'">'.$user->display_name.'</a> <span>('.$cv->msg_unread.')</span>';
-											if( $project )
-												echo '<p><small>'.$project->post_title.'</small></p>';
-										echo '</div>';
-								echo '</li>';
+
+							if( $user && $project ){
+								$class = ''; if($key == 0){	$class = 'acti';	} ?>
+
+								<li class="cv-item <?php echo $class;?>">
+									<div class="cv-left"><?php echo get_avatar($user->ID);?></div>
+									<div class="cv-right">
+										<small class="mdate"><?php echo $date; ?></small>
+										<a href="#" class="render-conv" id="<?php echo $cv->cvs_id;?>"><?php echo $user->display_name;?></a> <span>( <?php  echo $cv->msg_unread;?>)</span>';
+										<p><small><?php $project->post_title; ?></small></p>
+									</div>
+								</li><?php
 							}
-						}
-						echo '</ul>';
-					} else {
-						_e('There is no any conversations yet.','boxtheme');
-					}?>
+						} // end foreach
+					} else { ?>
+						<li><?php_e('There is no any conversations yet.','boxtheme');?></li>
+					<?php }?>
+				</ul>
 				</div>
 			</div>
 			<div id="box_chat" class="col-md-8 right-message"><?php
