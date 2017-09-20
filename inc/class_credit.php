@@ -110,7 +110,7 @@ Class BX_Credit {
 		);
 	}
 	function get_credit_available($user_id){
-		var_dump('meta_available = '.$this->meta_available);
+
 		return (float) get_user_meta($user_id, $this->meta_available, true) ;
 	}
 	function increase_credit_available($available, $user_id =0 ){

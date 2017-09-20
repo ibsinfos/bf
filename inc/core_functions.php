@@ -24,10 +24,15 @@ function get_box_price($price) {
  * @version 1.0
  * @return  [type] [description]
  */
+function boxtrim_zeros( $price, $price_decimal_sep ) {
+	return preg_replace( '/' . preg_quote( $price_decimal_sep, '/' ) . '0++$/', '', $price );
+}
 function box_get_price( $price ){
 	global $box_currency;
 	$decimals = 2;
-	return floatval(number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep ) );
+	//return floatval(number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep ) );
+	$price =  number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep );
+	return boxtrim_zeros( $price, $box_currency->price_decimal_sep );
 }
 
 /** this function will be return float number with the symbol */

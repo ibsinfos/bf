@@ -37,6 +37,8 @@ if( ! empty ($withdraw_info->bank_account) ){
 // var_dump($withdraw_info);
 // echo phpversion();
 // echo '</pre>';
+//
+
 ?>
 
 		<div  id="content" class="site-content page-credit">

@@ -109,8 +109,10 @@ Class BX_Paypal extends BX_Order {
         //https://developer.paypal.com/docs/classic/paypal-payments-standard/integration-guide/formbasics/
         $receiver_email =  $this->get_receiver_email();
         $redirect_link = $this->get_redirect_link();
-        $redirect_link = add_query_arg( 'type','paypal', $redirect_link );
+
+        $redirect_link = add_query_arg('order_id', $order_id, $redirect_link );
         $notify_url = $redirect_link;
+
         $redirect_url = $this->get_submit_url().'?cmd=_xclick&currency_code=USD&business='.$receiver_email.'&item_name=abc act&item_number=123&amount='.$amount.'&invoice='.$order_id.'&return='.$redirect_link.'&notify_url='.$notify_url;
 
         return $redirect_url;
