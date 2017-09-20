@@ -57,7 +57,7 @@ $avatars = array();
 							}
 						} // end foreach
 					} else { ?>
-						<li class="cv-item no-item"><?php _e('There is no any conversations yet.','boxtheme');?> </li>
+						<li class="no-item"><?php _e('There is no any conversations yet.','boxtheme');?> </li>
 					<?php }?>
 				</ul>
 				</div>
@@ -276,6 +276,7 @@ $avatars = array();
 	}
 	.no-item{
 		padding-bottom: 21px;
+		padding-left: 15px;
 	}
 	.cv-left{
 		width: 25%;

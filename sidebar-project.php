@@ -19,7 +19,7 @@ if( !is_wp_error($ucountry ) ){
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i>Project posted: 120.</li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i>Freelancers Hired: 120.</li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i>Total Spent 120.000</li>
-		<li class="rating"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
+		<li class="rating rating-score core-0"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
 	</ul>
 </div>
 <?php
