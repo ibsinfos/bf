@@ -226,25 +226,24 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 			  	<span class="dropdown-toggle <?php if ( $has_new_noti)  echo 'toggle-msg';?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell  " aria-hidden="true"></i></span> <?php
 			  	echo '<ul class=" dropdown-menu ul-notification">';
 			  	$unread = 0;
-				if( !empty( $notifies) ){
+				if( !empty ( $notifies) ) {
+
 					foreach ($notifies as $noti) {
 						$class ="noti-read";
 						if( $noti->msg_unread == 1) { $unread ++; $class="noti-unread"; }
-						?>
+						$date = date_create( $noti->msg_date );
+						$date = date_format($date,"m/d/Y");	?>
+
 						<li class="dropdown-item <?php echo $class;?>">
 							<div class="left-noti"><a href="#"><?php echo get_avatar( $noti->sender_id ); ?></a></div>
-
 							<div class='right-noti'>
 								<a href="<?php echo esc_url($noti->msg_link);?>"><?php echo stripslashes($noti->msg_content);?></a>
-								<?php
-								$date = date_create( $noti->msg_date );
-								echo '<small class="mdate">'. date_format($date,"m/d/Y") .'</small>';
-								?>
+								<?php echo '<small class="mdate">'.$date.'</small>'; ?>
 							</div>
 							<span class="btn-del-noti" title="<?php _e('Remove','boxtheme');?>" rel="<?php echo $noti->ID;?>" href="#"><i class="fa fa-times primary-color" aria-hidden="true"></i></span>
 						</li> <?php
-
 					}
+
 				} else { ?>
 					<p class="empty-noty"><?php _e('There is no new notification','boxtheme');?></p>
 				<?php }

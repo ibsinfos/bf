@@ -50,7 +50,7 @@ require get_parent_theme_file_path( '/inc/class_customizer.php' );
  */
 ///require get_parent_theme_file_path( '/inc/customizer.php' );
 add_action('init','box_init_class', 19 );
-function box_init_class(){
+function box_init_class() {
 global $fb_activate, $is_social; // init is_social
 global $gg_activate;
 	$fb = new BX_Facebook();
@@ -58,5 +58,4 @@ global $gg_activate;
 	$gg = new Box_Google();
 	$gg_activate = $gg->is_active;
 }
-
 ?>
