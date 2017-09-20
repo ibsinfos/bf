@@ -113,7 +113,11 @@ Class BX_Paypal extends BX_Order {
         $redirect_link = add_query_arg('order_id', $order_id, $redirect_link );
         $notify_url = $redirect_link;
 
-        $redirect_url = $this->get_submit_url().'?cmd=_xclick&currency_code=USD&business='.$receiver_email.'&item_name=abc act&item_number=123&amount='.$amount.'&invoice='.$order_id.'&return='.$redirect_link.'&notify_url='.$notify_url;
+        global $box_currency;
+
+        //$symbol = box_get_currency_symbol($box_currency->code);
+
+        $redirect_url = $this->get_submit_url().'?cmd=_xclick&currency_code='.$box_currency->code.'&business='.$receiver_email.'&item_name=abc act&item_number=123&amount='.$amount.'&invoice=box_'.$order_id.'&return='.$redirect_link.'&notify_url='.$notify_url;
 
         return $redirect_url;
     }

@@ -46,12 +46,12 @@
  * @param   arrray $post  $_POSt send respond form APN of paypal
  * @return  [type]
  */
-function bx_process_payment($post) {
+function bx_process_payment($order_id) {
 
-	$invoice = $_POST['invoice']; // order_id - which is stored in current database- it is pending status.
+
 	$payment_gross = $_POST['payment_gross'];
 	$order = BX_Order::get_instance();
-	$order_record = $order->get_order($invoice);
+	$order_record = $order->get_order($order_id);
 
 	if ( $order_record->post_status == 'publish' ){
 		return 0;// this order is approved, exit the verify step.
@@ -62,7 +62,7 @@ function bx_process_payment($post) {
 		return new WP_Error( 'not_equal', __( "The order is not equal", "boxtheme" ) );
 	}
 	// only update status of order
-	$order->approve($invoice);
+	$order->approve($order_id);
 	$order_type = $order_record->order_type;
 
 	box_log('Order type '.$order_type);

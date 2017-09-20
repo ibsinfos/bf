@@ -29,7 +29,7 @@ if($type == 'cash'){
 		box_log('verified');
 		// appove order_status and add amout of this order to ballance of payer.
 		//box_log('Verified successful');
-		bx_process_payment($_POST);
+		bx_process_payment($order_id);
 	    /*
 	     * Process IPN
 	     * A list of variables is available here:
