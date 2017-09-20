@@ -63,10 +63,10 @@ if( ! empty ($withdraw_info->bank_account) ){
 										<label for="withdraw_type"><?php _e('Select Method','boxtheme');?></label>
 										<select class="form-control required" required name="withdraw_method">
 											<?php if( !empty( $paypal_email ) ) { ?>
-												<option value="paypal_email"> PayPal</option>
+												<option value="paypal_email"><?php _e('PayPal','boxtheme');?></option>
 											<?php } ?>
 											<?php if( !empty( $account_number ) ) { ?>
-												<option value="bank_account"> Bank Account</option>
+												<option value="bank_account"><?php _e('Bank Account','boxtheme');?></option>
 											<?php } ?>
 
 										</select>
@@ -74,7 +74,7 @@ if( ! empty ($withdraw_info->bank_account) ){
 									<div class="form-group">
 										<label for="withdraw_type"><?php _e('Note','boxtheme');?></label>
 										<textarea class="form-control" name="withdraw_note" required></textarea>
-										<small>Add your phone or note some tips to help admin easy to transfer money to you.</small>
+										<small><?php _e('Add your phone or note some tips to help admin easy to transfer money to you.','boxtheme');?></small>
 									</div>
 									<button type="submit" class="btn btn-primary"><?php _e('Send request','boxtheme');?></button>
 								</form>
