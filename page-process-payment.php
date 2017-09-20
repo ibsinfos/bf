@@ -44,32 +44,42 @@ if($type == 'cash'){
 	<div class="container site-content-contain">
 		<div class="site-content" id="content" >
 			<div class="col-md-12 detail-project text-justify" style="min-height: 500px; padding-top: 100px; padding-bottom: 250px;">
-				<div class="msg" style="width: 500px; margin: 0 auto; text-align: left;">
+				<div class="msg" style="width: 500px; margin: 0 auto; text-align: left; padding-top: 88px;">
 					<?php
 					//echo '<pre>';
 					//var_dump($order);
 					//echo '</pre>';
 
 						if( !empty( $order ) ){
+							global $user_ID;
+							$user_data = get_userdata($user_ID );
+							if(is_user_logged_in() && $order->payer_id == $user_ID ){
+								echo '<p>';
+								printf(__('Hi %s ,','boxtheme') , $user_data->display_name );
+								echo '</p>';
 
-							_e('Thank you for your order and Your ballances is added.','boxtheme'); ?>
-							<h3><?php _e('Detail:','boxtheme'); ?></h3>
-							<p> Your order ID: <strong><?php echo $order_id;?></strong></p>
-							<p><label> Price: </label> <?php echo $order->amout;?></p>
-							<?php if( $type == 'cash'){
-								if( $order->post_status == 'publish') {
-									 _e('Your order is approved ','boxtheme');
-								 } else { ?>
+								_e('Thank you for your order and Your credit is depositted.','boxtheme'); ?>
+								<p> </p>
+								<p><label><?php _e('This is detail of your order:','boxtheme'); ?></label></p>
+								<p> Your order ID: <strong><?php echo $order_id;?></strong></p>
+								<p><label> Price: </label> <?php echo $order->amout;?></p>
+								<p><label> Payment method: </label> <?php echo $order->payment_type;?></p>
+								<p><label> Price: </label> <?php echo $order->amout;?></p>
+								<?php if( $type == 'cash'){
+									if( $order->post_status == 'publish') {
+										 _e('Your order is approved ','boxtheme');
+									 } else { ?>
 
-									<?php
-										$option = BX_Option::get_instance();
-        								$payment = $option->get_group_option('payment');
-	        							$cash = (object) $payment->cash;
-		            					if( ! empty( $cash->description) ){
-		            						echo $cash->description;
-		            					}
-					 			}
-					 		}
+										<?php
+											$option = BX_Option::get_instance();
+	        								$payment = $option->get_group_option('payment');
+		        							$cash = (object) $payment->cash;
+			            					if( ! empty( $cash->description) ){
+			            						echo $cash->description;
+			            					}
+						 			}
+						 		}
+						 	}
 					 	} ?>
 
 				</div>

@@ -49,6 +49,7 @@ Class BX_Order {
 			'payment_type', // paypal, stripe or cash.
 			'order_type', // pay credit, pay post project or pay to bid .
 			'order_mode', //sandbox or live
+
 		);
 	}
 	function get_sandbox_mode(){
