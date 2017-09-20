@@ -50,7 +50,7 @@ $avatars = array();
 									<div class="cv-left"><?php echo get_avatar($user->ID);?></div>
 									<div class="cv-right">
 										<small class="mdate"><?php echo $date; ?></small>
-										<a href="#" class="render-conv" id="<?php echo $cv->cvs_id;?>"><?php echo $user->display_name;?></a> <span>( <?php  echo $cv->msg_unread;?>)</span>';
+										<a href="#" class="render-conv" id="<?php echo $cv->cvs_id;?>"><?php echo $user->display_name;?></a> <span>( <?php  echo $cv->msg_unread;?>)</span>
 										<p><small><?php $project->post_title; ?></small></p>
 									</div>
 								</li><?php
