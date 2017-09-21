@@ -25,6 +25,14 @@ Class Box_Email{
 				<title>'.get_bloginfo( 'name', 'display' ).'</title>
 				<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto|Roboto+Condensed|Open+Sans" rel="stylesheet">
 
+				<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<defs>
+					<symbol id="icon-facebook" viewBox="0 0 32 32">
+					<title>facebook</title>
+					<path d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z"></path>
+					</symbol>
+					</defs>
+				</svg>
 
 				<style type="text/css">
 					body{
@@ -164,7 +172,7 @@ Class Box_Email{
 
 													$social_link = '';
 													if ( !empty( $general->fb_link ) )
-									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><img src="'.get_template_directory_uri().'/img/email-fb.png" /></a></li>';
+									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>/a></li>';
 										    		if ( !empty( $general->tw_link ) )
 										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->tw_link).'"><img src="'.get_template_directory_uri().'/img/email-tw.png" /></a></li>';
 
