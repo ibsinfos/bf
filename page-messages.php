@@ -179,6 +179,8 @@ $avatars = array();
 	}
 	.msg-mdate{
 		font-size: 13px;
+		display: block;
+		clear: both;
 	}
 	#list_msg{
 		height: 200px;
