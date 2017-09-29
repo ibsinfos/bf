@@ -66,6 +66,15 @@
 	position: relative;
 	margin-top: 0;
 }
+.bid-title:first-title{
+	text-transform: uppercase;
+}
+.author-url{
+
+}
+.author-url:first-letter{
+	text-transform: uppercase;
+}
 .bid-title:hover .tooltip{
 	display: block;
 	opacity: 1;
