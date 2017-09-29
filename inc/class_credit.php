@@ -54,6 +54,10 @@ Class BX_Credit {
 			    $new_available, $employer_id, $this->meta_available
 			)
 		);
+		if( $ok ){
+			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
+			update_user_meta( $employer_id, 'total_spent', $total_spent );
+		}
 		return $ok;
 
 	}

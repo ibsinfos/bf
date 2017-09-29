@@ -176,6 +176,9 @@ Class BX_Project extends BX_Post{
 				if(!is_wp_error( $order_id ) ){
 					update_post_meta( $project->ID,'deposit_order_id', $order_id );
 				}
+				//global $user_ID;
+				$fre_hired = (int) get_user_meta($employer_id, 'fre_hired', true) + 1;
+				update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
 
 				return $res;
 			}
