@@ -133,8 +133,18 @@ function is_current_user_bidded($project_id){
 function countr_of_user($profile){
 }
 
+/**
+ *
+ * This is a cool function
+ * @author danng
+ * @version 1.0
+ * @param   int $user_id who will receive this rating.
+ * @param   string $type    emp_review ==> author of this review is employer.
+ * @return  [type]          [description]
+ */
 function count_rating($user_id,$type ='emp_review'){
 	global $wpdb;
+
 
 	return $wpdb->get_var(
 				$wpdb->prepare(
@@ -148,7 +158,7 @@ function count_rating($user_id,$type ='emp_review'){
 								AND mt.meta_key = '%s'
 								AND mt.meta_value > 0
 					",
-					$user_id,$type, RATING_SCORE
+					$user_id, $type, RATING_SCORE
 				)
 	);
 }
