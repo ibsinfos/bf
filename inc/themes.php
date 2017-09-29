@@ -204,7 +204,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 	<ul class="account-dropdown">
 		<li class="profile-account dropdown ">
 
-			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->user_login;?></span> <span class="caret"></span>
+			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->display_name;?></span> <span class="caret"></span>
 			<span class="<?php echo $msg_class;?>"><?php echo $number_new_msg;?></span>
 			</a>
 			<ul class="dropdown-menu account-link" >

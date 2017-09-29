@@ -29,7 +29,7 @@ if(isset($paypal->enable) )
 	<h2 class="section-title">Payent Gateways Settings </h2>
 
 	<div class="form-group -row">
-		<div class="col-md-3">		<label>Checkout out mode</label></div>
+		<div class="col-md-3"><label>Checkout out mode</label></div>
 		<div class="col-md-9">Live mode is <?php  bx_swap_button('general','checkout_mode', $checkout_mode, 0);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
 	</div>
 
