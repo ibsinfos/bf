@@ -70,7 +70,7 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 							<ul class="work-status">
 								<li><?php printf(__("<label>Job worked:</label> %d",'boxtheme'), $projects_worked);?></li>
 								<li><?php printf(__("<label>Total earn:</label> %d",'boxtheme'), $earned);?></li>
-								<li><label>Country:</label><?php if( !empty( $pcountry ) ){ echo $pcountry[0]->name; } ?></li>
+								<li><label>Country:</label><?php if( !empty( $pcountry ) ){ echo $pcountry[0]->name; }else { _e('Not set','boxtheme');} ?></li>
 						      	<li><label> Language:</label> English </li>
 							</ul>
 						</div>
