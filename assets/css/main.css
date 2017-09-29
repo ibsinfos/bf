@@ -1000,6 +1000,9 @@ ul.pagination{
 .author-view h1.profile-title{
 	padding: 5px 0 10px 0 ;
 }
+.author-view h1.profile-title:first-letter{
+	text-transform: uppercase;
+}
 .author-view .professional-title{
 	padding: 5px 0;
 	font-size: 17px;
