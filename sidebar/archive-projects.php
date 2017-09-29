@@ -36,7 +36,7 @@
 	</div>
 		<?php if( current_user_can('manage_option') ){ ?>
 
-	 	<ul class="list-checkbox ul-status">
+	 	<ul class="list-checkbox ul-status hide">
 			<li><h3> Post status</h3><small>Admin only</small></li>
 			<li><label> <input type="checkbox" name="post_status" class="post_status" alt="0"  value="publish"> Publish</label></li>
 			<li><label> <input type="checkbox" name="post_status" class="post_status" alt="1"  value="pending"> Pending</label></li>
