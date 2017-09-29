@@ -9,14 +9,14 @@ $ucountry = get_term( $country_id, 'country' );
 if( !is_wp_error($ucountry ) ){
 	$txt_country = $ucountry->name;
 }
-
+$project_posted = (int) get_user_meta( $project->post_author, 'project_posted', true);
 ?>
 <div class="block-employer-info">
 <h3> <?php _e('Employer Information','boxtheme');?></h3>
 	<ul class="list-employer-info">
 		<li><span class="emp-name"><?php echo $user->display_name ;?></span></li>
 		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php echo $txt_country;?></li>
-		<li><i class="fa fa-flag bcon" aria-hidden="true"></i>Project posted: 120.</li>
+		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted: %d",'boxtheme'), $project_posted);?></li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i>Freelancers Hired: 120.</li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i>Total Spent 120.000</li>
 		<li class="rating rating-score core-0"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>

@@ -4,6 +4,7 @@ Class BX_Project extends BX_Post{
 	static protected $instance;
 	function __construct(){
 		$this->post_type = PROJECT;
+		add_action( 'after_insert_'.$this->post_type, 'do_after_insert');
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -69,6 +70,9 @@ Class BX_Project extends BX_Post{
 				if( !current_user_can( 'manage_option' ) ){
 					$this->update_post_taxonomies($project_id, $args); // #222 - back up for #111 when employer post project.
 				}
+
+				$count_posted = (int) get_user_meta( $user_ID,'project_posted', true ) + 1;
+				update_user_meta( $user_ID, 'project_posted', $count_posted);
 				return $project_id;
 
 			}
