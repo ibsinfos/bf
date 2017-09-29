@@ -448,9 +448,7 @@ get_header(); ?>
 	margin: 0;
 	padding: 6px 0 10px 0;
 }
-.top-profile .profile-item .hour-rate{
-	font-size: 13px;
-}
+
 .avatar img{
 	border:1px solid #f3f3f3;
 	width: 110px;
