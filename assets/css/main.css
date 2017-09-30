@@ -1200,9 +1200,9 @@ form #heading_signup{
 
 }
 #container_msg{
-	height: 150px;
+	height: 239px;
 	overflow-x: hidden;
-	overflow-y:scroll;
+	overflow-y:auto;
 	margin-bottom:20px;
 	padding-top: 10px;
 	border:1px solid #ececec;
