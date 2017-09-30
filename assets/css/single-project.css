@@ -301,7 +301,8 @@ li.share-item {
 	vertical-align: top;
 }
 .list-employer-info li i.bcon{
-
+	position: relative;
+	top: 3px;
     padding-right: 15px;
     width: 33px;
     font-size: 19px;
@@ -313,7 +314,7 @@ div.block-employer-info{
 	overflow: hidden;
 	margin-top: 25px;
 }
-.btn-login {
+.detail-project .btn-login {
     width: 200px;
     margin-top: 30px;
     text-align: center;
