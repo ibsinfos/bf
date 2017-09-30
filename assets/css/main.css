@@ -754,6 +754,7 @@ content: "";
 .archive-profile-item{
 	color: #666;
 	float: left;
+	width: 100%;
 }
 .archive-profile-item .full{
 	min-height: 150px;
