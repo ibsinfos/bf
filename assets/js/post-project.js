@@ -37,10 +37,15 @@
 			        },
 			        BeforeUpload: function(up, file) {
 			        	console.log(uploader);
+			        	console.log(uploader.id);
+			        	$(uploader.id).closest('.btn-file-uploader').addClass('uploading');
+			        	$(up.id).closest('.btn-file-uploader').addClass('uploading');
+			        	//console.log(up.settings.browse_button);
+			        	$(up.settings.container).addClass('uploading');
 		                // Called right before the upload for a given file starts, can be used to cancel it if required
 		                console.log('[BeforeUpload]', 'File: ', file);
 		                up.disableBrowse(true);
-		                $(".btn-file-uploader").addClass('uploading');
+		               // $(".btn-file-uploader").addClass('uploading');
 		            },
 			        FilesAdded: function(up, files) {
 			        	console.log('123');
@@ -61,7 +66,7 @@
 					    } else{
 					    	container.log(obj);
 					    }
-					    $(".btn-file-uploader").removeClass('uploading');
+					    $(up.settings.container).removeClass('uploading');
 					    up.disableBrowse(false);
 			        }
 			    }

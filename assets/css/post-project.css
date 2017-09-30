@@ -124,9 +124,9 @@ ul.list-attach li{
     top: 12px;
     right: 3px;
 }
-.btn-file-uploader.uploading .fa-spinner{
+.uploading .fa-spinner{
 	display: block;
 }
-.btn-file-uploader.uploading{
+.uploading .btn-file-uploader{
 	opacity: 0.5;
 }
