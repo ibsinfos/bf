@@ -14,7 +14,7 @@ $label = array(
 	'new_bidding' => 'New bidding',
 	'assign_job' => 'Assign job',
 	'new_message' => "New Message",
-	'request_withdrawal' => 'New withdrawal request',
+	'request_withdrawal' => __('New withdrawal request','boxtheme'),
 );
 $settings = array(
 	'quicktags' => array( 'buttons' => 'strong,em,del,ul,ol,li,close' ), // note that spaces in this list seem to cause an issue

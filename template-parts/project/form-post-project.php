@@ -108,13 +108,16 @@ $skills = $cat_ids =$skill_ids = array();
 	</div>
 	<div class="form-group ">
 	 	<div id="fileupload-container" class="file-uploader-area">
-		    <span class="btn btn-plain btn-file-uploader border-color">
+		    <span class="btn btn-plain btn-file-uploader border-color ">
+
 		      	<span class="fl-icon-plus"></span>
 		      	<input type="hidden" class="nonce_upload_field" name="nonce_upload_field" value="<?php echo wp_create_nonce( 'box_upload_file' ); ?>" />
 		      	<span id="file-upload-button-text " class="text-color"><i class="fa fa-plus text-color" aria-hidden="true"></i> <?php _e('Upload Files','boxtheme');?></span>
 		      	<input type="file" name="upload[]" id="sp-upload" multiple="" class="fileupload-input">
 		      	<input type="hidden" name="fileset" class="upload-fileset">
+		      	<i class='fa fa-spinner fa-spin '></i>
 		  	</span>
+
 	  		<p class="file-upload-text txt-term"><?php _e('Drag drop any images or documents that might be helpful in explaining your project brief here','boxtheme');?></p>
 
 	 	</div>

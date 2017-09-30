@@ -35,8 +35,16 @@
 
 
 			        },
+			        BeforeUpload: function(up, file) {
+			        	console.log(uploader);
+		                // Called right before the upload for a given file starts, can be used to cancel it if required
+		                console.log('[BeforeUpload]', 'File: ', file);
+		                up.disableBrowse(true);
+		                $(".btn-file-uploader").addClass('uploading');
+		            },
 			        FilesAdded: function(up, files) {
 			        	console.log('123');
+			        	//up.disableBrowse(true);
 			        },
 
 			        Error: function(up, err) {
@@ -53,6 +61,8 @@
 					    } else{
 					    	container.log(obj);
 					    }
+					    $(".btn-file-uploader").removeClass('uploading');
+					    up.disableBrowse(false);
 			        }
 			    }
 			});
