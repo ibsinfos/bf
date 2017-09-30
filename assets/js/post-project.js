@@ -66,7 +66,8 @@
 					    } else{
 					    	container.log(obj);
 					    }
-					    $(up.settings.container).removeClass('uploading');
+
+					    setTimeout(function(){ $(up.settings.container).removeClass('uploading'); }, 300);
 					    up.disableBrowse(false);
 			        }
 			    }
