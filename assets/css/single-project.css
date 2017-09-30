@@ -278,6 +278,7 @@ ul.list-category li{
 }
 #single_sidebar{
 	padding-top: 0;
+	overflow:hidden;
 }
 .social-shares{margin:0; padding: 0;}
 .social-shares li{
