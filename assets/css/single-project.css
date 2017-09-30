@@ -313,6 +313,15 @@ div.block-employer-info{
 	overflow: hidden;
 	margin-top: 25px;
 }
+.btn-login {
+    width: 200px;
+    margin-top: 30px;
+    text-align: center;
+    border: 1px solid #17a717;
+    border-radius: 26px;
+    padding: 7px 0;
+    color: #17a717;
+}
 .block-employer-info h3{
 	padding: 7px 0px 14px 0;
 	font-size: 19px;

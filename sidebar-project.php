@@ -32,7 +32,7 @@ if(empty($score) || !$score){
 <?php
 function show_bid_buton($post){
 	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
-	echo '<a class ="btn btn-login" href ="'.$back_url.'">'.__('Login to bid','boxtheme').'</a>';
+	echo '<a class ="btn-login text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Login to bid','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
 }
 if ( $is_logged ) {
 
