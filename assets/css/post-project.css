@@ -120,9 +120,9 @@ ul.list-attach li{
 .btn-file-uploader .fa-spinner {
     display: none;
     top: 0;
-    width: 100%;
     position: absolute;
     top: 12px;
+    right: 3px;
 }
 .btn-file-uploader.uploading .fa-spinner{
 	display: block;
