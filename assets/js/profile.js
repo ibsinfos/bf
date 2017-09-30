@@ -114,6 +114,10 @@
 			        FilesAdded: function(up, files) {
 
 			        },
+			        BeforeUpload: function(up, file) {
+			        	$(up.settings.container).addClass('uploading');
+		                up.disableBrowse(true);
+		            },
 
 			        Error: function(up, err) {
 			            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
@@ -153,6 +157,10 @@
 			    init: {
 			        PostInit: function() {
 			        },
+			        BeforeUpload: function(up, file) {
+			        	$(up.settings.container).addClass('uploading');
+		                up.disableBrowse(true);
+		            },
 			        FilesAdded: function(up, files) { },
 
 			        Error: function(up, err) {
@@ -168,6 +176,7 @@
 					    } else{
 					    	alert(obj.msg);
 					    }
+					    up.disableBrowse(false);
 			        }
 			    }
 			});
