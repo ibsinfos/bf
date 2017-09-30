@@ -43,11 +43,12 @@ $list_bid
 					<div class="col-md-9 no-padding">{{{feeback.project_link}}}</div>
 					<div class="col-md-3 no-padding">
 					<start class="rating-score clear block core-{{{feeback.rating}}}">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true"></i>
+
 					</start>
 					</div>
 					<div class="review"><i>{{{feeback.comment_content}}}</i></div>
@@ -127,11 +128,11 @@ $list_bid
 	            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>"></textarea>
 	            	Rating:
 	            	<start class="rating-score clear block" title="1">
-		            	<span class="glyphicon glyphicon-star" title="1"></span>
-		            	<span class="glyphicon glyphicon-star" title="2"></span>
-		            	<span class="glyphicon glyphicon-star" title="3"></span>
-		            	<span class="glyphicon glyphicon-star" title="4"></span>
-		            	<span class="glyphicon glyphicon-star" title="5"></span>
+		            	<i class="fa fa-star" aria-hidden="true"></i>
+		            	<i class="fa fa-star" aria-hidden="true"></i>
+		            	<i class="fa fa-star" aria-hidden="true"></i>
+		            	<i class="fa fa-star" aria-hidden="true"></i>
+		            	<i class="fa fa-star" aria-hidden="true"></i>
 	            	</start>
 	            	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
 	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
@@ -147,11 +148,11 @@ $list_bid
             	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>"></textarea>
             	Rating:
             	<start class="rating-score clear block" title="1">
-	            	<span class="glyphicon glyphicon-star" title="1"></span>
-	            	<span class="glyphicon glyphicon-star" title="2"></span>
-	            	<span class="glyphicon glyphicon-star" title="3"></span>
-	            	<span class="glyphicon glyphicon-star" title="4"></span>
-	            	<span class="glyphicon glyphicon-star" title="5"></span>
+	            	<i class="fa fa-star" aria-hidden="true"></i>
+	            	<i class="fa fa-star" aria-hidden="true"></i>
+	            	<i class="fa fa-star" aria-hidden="true"></i>
+	            	<i class="fa fa-star" aria-hidden="true"></i>
+	            	<i class="fa fa-star" aria-hidden="true"></i>
             	</start>
             	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
             	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
