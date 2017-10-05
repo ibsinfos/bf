@@ -10,7 +10,7 @@
 						<img class="panels__panel__image" src="<?php echo get_stylesheet_directory_uri();?>/img//wherever-you-do-business-icon.png" alt="Wherever you do business "><h3 class="pypl-heading pp-sans-big-light panels__panel__headline h4">Wherever you do business </h3>
 						<span class="panels__panel__arrow arrow-indicator"></span>
 					</div>
-					<div class="panels__panel__text-hatch-area"><div class="panels__panel__paragraph" style="height: 88px;">Online, on mobile, in person or by email; PayPal’s merchant services make it easier for you to get paid anywhere you do business.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="">Payment solutions</a></p>
+					<div class="panels__panel__text-hatch-area"><div class="panels__panel__paragraph" style="height: 88px;">Online, on mobile, in person or by email; Credit system make it easier for you to get paid anywhere you do business.</div><p class="panels__panel__hatchlink"><a class="contentLink" href="">Payment solutions</a></p>
 					</div>
 				</div>
 				<div class="panels__panel panels__panel-1 col-lg-4  col-sm-12 col-md-4" data-idx="1">
