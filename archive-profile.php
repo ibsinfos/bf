@@ -29,12 +29,12 @@ get_header(); ?>
 						<div class="list-project" id="ajax_result">
 							<?php
 								if( have_posts() ):
-									while( have_posts() ):
-										the_post();
+									while( have_posts() ):the_post();
 										get_template_part( 'template-parts/profile/profile', 'loop' );
 									endwhile;
 									bx_pagenate();
 								endif;
+								wp_reset_query();
 							?>
 						</div>
 					</div>
