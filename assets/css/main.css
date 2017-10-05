@@ -797,6 +797,8 @@ content: "";
 	border-bottom: 1px solid #e2e2e2;
 	float: left;
 	clear: both;
+	width: 100%;
+	overflow: hidden;
 }
 .count-result{
 	border-bottom: 1px solid #e2e2e2;
