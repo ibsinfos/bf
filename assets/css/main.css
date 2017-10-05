@@ -918,6 +918,9 @@ ul.pagination{
 .archive-profile-item a.avatar:hover{
 	opacity: 0.8;
 }
+.archive-profile-item a.avatar img{
+
+}
 .archive-profile-item  .second-line{
 	display: block;
     clear: both;
