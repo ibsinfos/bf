@@ -1222,9 +1222,9 @@ form #heading_signup{
 	position: relative;
 }
 .btn-send-message{
-	position: absolute;
-	top: 20px;
-	right: 30px;
+    position: absolute;
+    top: 7px;
+    right: 10px;
 }
 .col-md-4.port-item{
 	padding-bottom: 30px;

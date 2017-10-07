@@ -85,7 +85,7 @@
 
 	<h3> <?php _e('Chat coversation','boxtheme');?></h3>
 	<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
-<?php show_conversation($winner_id, $project->ID, $cvs_id); ?>
+<?php show_conversation($winner_id, $project, $cvs_id); ?>
 
 <?php  echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
 </div> <!-- wrap-workspace !-->

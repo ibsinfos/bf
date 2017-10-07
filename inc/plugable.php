@@ -35,11 +35,17 @@ function get_conversation_id_of_user($freelancer_id, $project_id){
 
 	return  $convs;
 }
-function show_conversation($freelancer_id, $project_id, $cvs_id = 0){
+function show_conversation( $freelancer_id, $project, $cvs_id = 0) {
+	$project_id = $project->ID;
+	$employer_id = $project->post_author;
 	global $user_ID;
 
-
 	$messages = BX_Message::get_instance()->get_converstaion(array('id' => $cvs_id));
+
+	$avatar = array(
+		$freelancer_id => get_avatar($freelancer_id),
+		$employer_id => get_avatar($employer_id),
+	);
 
 	if(null !== $messages){
 
@@ -48,8 +54,9 @@ function show_conversation($freelancer_id, $project_id, $cvs_id = 0){
 				foreach ( $messages as $msg ){ $date = date_create( $msg->msg_date );?>
 					<div class="msg-record msg-item full">
 							<div class="msg-record msg-item">
-								<div class="col-md-1 no-padding-right col-chat-avatar"><?php echo get_avatar($msg->sender_id);?></div>
+								<div class="col-md-1 no-padding-right col-chat-avatar"><?php echo $avatar[$msg->sender_id]; ?></div>
 								<div class="col-md-9 no-padding-right col-msg-content">
+									<label><?php ?></label>
 									<span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?></span></span>
 								</div>
 								<div class="col-md-2 col-msg-time"><span class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></span></div>

@@ -363,3 +363,9 @@ a:hover{
 .msg-record .col-msg-time{
 	text-align: right;
 }
+.msg_content{
+	height: 47px;
+    padding: 0;
+    line-height: 39px;
+    text-indent: 10px;
+}
