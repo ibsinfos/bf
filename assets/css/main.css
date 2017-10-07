@@ -240,8 +240,8 @@ body.page-template-landing-page-one .header nav ul.menu li.menu-item-has-childre
 }
 
 .header nav ul.menu li.menu-item-has-children:after{
-	content:"\e259";
-	font-family: 'Glyphicons Halflings';
+	content:"\f107";
+	font-family: 'FontAwesome';
 	position: absolute;
 	right: 11px;
     top: 16px;
