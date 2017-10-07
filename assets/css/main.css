@@ -1225,6 +1225,19 @@ form #heading_signup{
     position: absolute;
     top: 7px;
     right: 10px;
+    background: #ccc;
+}
+.frm-send-message textarea {
+	    background: #fff;
+	    height: 39px;
+	    border: 0;
+	    padding: 10px;
+	    float: left;
+	    border:1px solid #f1f1f1;
+	    overflow: hidden;
+}
+form.focus .btn-send-message{
+	background:#54bf03;
 }
 .col-md-4.port-item{
 	padding-bottom: 30px;

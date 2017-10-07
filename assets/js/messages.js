@@ -16,14 +16,7 @@
 			console.log('init MSG');
 			var textarea = document.getElementById('container_msg');
 				textarea.scrollTop = textarea.scrollHeight;
-			$(document).on('keyup', '.msg_content', function(event){
-				var _this = $(event.currentTarget);
-				if ( ! $.trim( _this.val()  ) == '' ){
-					_this.closest('form').addClass('focus');
-				} else {
-					_this.closest('form').removeClass('focus');
-				}
-			});
+
 
 		},
 

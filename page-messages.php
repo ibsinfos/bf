@@ -312,18 +312,8 @@ $avatars = array();
 		overflow: hidden;
 		padding: 17px 30px 17px 30px;
 	}
-	.frm-send-message textarea {
-	    background: #fff;
-	    height: 39px;
-	    border: 0;
-	    padding: 10px;
-	    float: left;
-	    border:1px solid #f1f1f1;
-	    overflow: hidden;
-	}
+
 	.frm-send-message .btn-send-message {
-	    background: #ccc;
-	    position: absolute;
 	    right: 2px;
 	    top: 2px;
 	}

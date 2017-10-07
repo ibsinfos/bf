@@ -22,6 +22,16 @@
 
 			});
 
+			$(document).on('keyup', '.msg_content', function(event){
+				var _this = $(event.currentTarget);
+				console.log( $.trim( _this.val()) );
+				if ( ! $.trim( _this.val()  ) == '' ){
+					_this.closest('form').addClass('focus');
+				} else {
+					_this.closest('form').removeClass('focus');
+				}
+			});
+
 			//$('[data-toggle="tooltip"]').tooltip()
 
 			$(".toggle-check").click(function(event){

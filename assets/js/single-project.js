@@ -258,6 +258,7 @@ var single_project = {
         		console.log(res.data);
         		var frm_send_message = wp.template("msg_record_wsp");
         		$("#container_msg").append( frm_send_message(res.data) );
+        		$("form.swp-send-message").trigger("reset");
 
 	        } else {
 	        	alert(res.msg);
