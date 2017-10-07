@@ -11,9 +11,7 @@
 		'posts_per_page' => -1,
 	);
 
-	$query = new WP_Query($args);
-	//show_conversation($user_ID, $project->ID);
-	?>
+	$query = new WP_Query($args);	?>
 	<div class="list-bid-heading">
 		<div class="col-md-5 no-padding">
 			<h3><?php printf(__('Total Bid(s): %s','boxtheme'), $query->found_posts); ?></h3>
