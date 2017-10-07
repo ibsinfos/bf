@@ -8,7 +8,7 @@
 ?>
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
-		<div class="col-md-7"><h3> <?php _e('Workspace place','boxtheme');?> </h3> </div>
+		<div class="col-md-7"><h3> <?php _e('Workspace','boxtheme');?> </h3> </div>
 		<div class="col-md-5">
 			<div class="full align-right f-right ws-btn-action"> <?php
 
@@ -94,24 +94,7 @@
 	<?php step_process();?>
 
 	<div class="full">
-		<h3>Process info:</h3>
-		<ul class="none-style">
-			<?php
-			$status = array('awarded' => 'Working',
-				'done' 		=> 'Done',
-				'disputing' => 'Disputing',
-				'disputed' 	=> 'Disputed',
-				'archived' 	=> 'Archived',
-			);
-			?>
-			<li> Award date: March 20, 2017</li>
-			<li> Status: <?php echo $status[$project->post_status];?></li>
-			<li> Bid price: <?php echo get_box_price($_bid_price) ?></li>
-			<?php if($project->post_status == 'done'){?>
-				<li>Finish: March 20, 2017</li>
-			<?php } ?>
-		</ul>
-		<?php if( !$is_fre_review  ){?>
+		<?php if( ! $is_fre_review  ){?>
 			<div id="container_file" class="clear block">
 			    <button class="btn f-right btn-add-file" id="pickfiles"><i class="fa fa-upload" aria-hidden="true"></i> + Add File </button>
 			</div>
@@ -126,14 +109,22 @@
 			   'post_parent' => $post->ID
 			  );
 
+			$fre_acc = get_userdata($winner_id);
+			$emp_acc = get_userdata($project->post_author);
+
 			$attachments = get_posts( $args );
+			$display = array(
+				$project->post_author => $emp_acc->display_name,
+				$winner_id =>$fre_acc->display_name,
+			);
 			echo '<ul class="list-attach clear block none-style">';
 		    if ( $attachments ) {
 		        foreach ( $attachments as $attachment ) {
-		           echo '<li class="inline f-left">';
-		           //the_attachment_link( $attachment->ID, true );
+		           echo '<li class="full f-left">';
+		           echo '<label>'.$display[$attachment->post_author] .'</label>';
 		           echo $attachment->post_title;
 		           echo '<span id="'.$attachment->ID.'" class="btn-del-attachment">(x)</span> </li>';
+
 		        }
 		    }
 		    echo '</ul>'; ?>

@@ -227,11 +227,9 @@ var single_project = {
 	},
 
 	sendMessage: function(e){
-		console.log('123');
 		var success = function(res){
-			console.log('999');
-			console.log(res);
-        	if ( res.success ){
+
+	       	if ( res.success ){
         		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
         		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
         		record = record + '</span></div></div>';
