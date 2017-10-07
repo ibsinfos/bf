@@ -492,6 +492,9 @@ body.fixed .account-dropdown  .fa-bell{
 	padding-left: 10px;
 	border-bottom:1px solid #ececec
 }
+.account-dropdown li.profile-account ul li:last-child{
+	border-bottom: 0;
+}
 .account-dropdown li.profile-account ul.account-link li{
 	padding-top: 6px;
 	padding-bottom: 5px;
