@@ -45,19 +45,17 @@ function show_conversation($freelancer_id, $project_id, $cvs_id = 0){
 
 		if ( $messages ){
 			echo '<div id="container_msg">';
-			foreach ( $messages as $msg ){
-
-				echo '<div class="msg-record msg-item row">';
-				echo '<div class="col-md-12">';
-
-				if($msg->sender_id == $user_ID){
-					echo '<span class="msg-author f-left col-md-2">You: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';
-				} else {
-					echo '<span class="msg-author f-left col-md-2">User: </span> <span class="msg-content f-left col-md-10">' .$msg->msg_content .'</span>';;
+				foreach ( $messages as $msg ){ $date = date_create( $msg->msg_date );?>
+					<div class="msg-record msg-item full">
+							<div class="msg-record msg-item">
+								<div class="col-md-1 no-padding-right col-chat-avatar"><?php echo get_avatar($msg->sender_id);?></div>
+								<div class="col-md-9 no-padding-right col-msg-content">
+									<span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?></span></span>
+								</div>
+								<div class="col-md-2 col-msg-time"><span class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></span></div>
+							</div>
+					</div><?php
 				}
-				echo '</div>';
-				echo '</div>';
-			}
 			echo '</div>';
 		} ?>
 		<form class="swp-send-message"  >

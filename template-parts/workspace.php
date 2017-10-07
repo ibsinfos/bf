@@ -32,11 +32,9 @@
 
 			</div>
 		</div>
-	</div><?php
+	</div>
 
-	_e('Excerpt:','boxtheme'); ?>
-
-	<div class="ws-project-des" ><?php the_excerpt_max_charlength(get_the_content($project->ID), 300); ?></div> 	<?php
+	<?php
 
 	if($project->post_status == DONE){
 		echo '<div class="full review-section">'; ?>

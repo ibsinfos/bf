@@ -348,3 +348,18 @@ a:hover{
 }
 
 .emp-name:first-letter {text-transform: uppercase}
+.msg-record{
+	width: 100%;
+	overflow:hidden;
+	margin-bottom: 10px;
+}
+.msg-record .col-chat-avatar img{
+	border-radius: 50%;
+
+}
+.msg-record .col-msg-content{
+
+}
+.msg-record .col-msg-time{
+	text-align: right;
+}
