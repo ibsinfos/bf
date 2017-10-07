@@ -161,5 +161,7 @@ class BX_Message{
 function is_sent_msg($project_id, $receiver_id){
 	return BX_Conversations::get_instance()->is_sent_msg($project_id, $receiver_id);
 }
-
+function box_get_message($msg_id){
+	return BX_Message::get_instance()->get_message($msg_id);
+}
 ?>

@@ -146,6 +146,7 @@ var single_project = {
 		msg_send.receiver_id = bid_author;
 		msg_send.cvs_id = cvs_id;
 		var success = function(res){
+			console.log('666');
 			var content = '<div id="container_msg">';
 			$.each( res.data, function( key, msg ) {
 				var user_name = 'Freelancer:';
@@ -200,7 +201,7 @@ var single_project = {
 		console.log('close');
 		$('#frame_chat').removeClass('nav-view');
 	},
-	empSendMessage: function(e){
+	empSendMessage: function(e){ // send in list bidding.
 		var _this = $(event.currentTarget);
 
 		msg_send.msg_content = _this.find(".msg_content").val();
@@ -226,8 +227,10 @@ var single_project = {
 	},
 
 	sendMessage: function(e){
-
+		console.log('123');
 		var success = function(res){
+			console.log('999');
+			console.log(res);
         	if ( res.success ){
         		var record = '<div class="msg-record msg-item row"><div class="col-md-12">';
         		record = record + '<span class="msg-author f-left col-md-2"> &nbsp; </span> <span class="msg-content col-md-10">' + res.msg;
@@ -243,16 +246,19 @@ var single_project = {
 
 		var _this = $(event.currentTarget);
 		msg_send.msg_content = _this.find(".msg_content").val();
-		console.log(msg_send);
+
 		window.ajaxSend.Custom(msg_send, success);
 		return false;
 	},
-	sendMessageWSP : function(e){
+	sendMessageWSP : function(e){ // send in worksapce
 		var action = 'sync_message', method = 'insert';
 		var success = function(res){
-	        console.log(res);
-        	if ( res.success ){
-        		//window.location.reload(true);
+
+        	if ( res.success ) {
+        		console.log(res.data);
+        		var frm_send_message = wp.template("msg_record_wsp");
+        		$("#container_msg").append( frm_send_message(res.data) );
+
 	        } else {
 	        	alert(res.msg);
 	        }

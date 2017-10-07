@@ -375,9 +375,19 @@ class BX_AJAX {
 			$message 	= BX_Message::get_instance($cvs_id);
 			$msg_id = $message->sync($request, $method);
 			if( is_wp_error( $msg_id )){
-				$response = array('success' => false,'msg' =>$msg_id->get_error_message());
+				$response = array(
+					'success' => false,
+					'msg' =>$msg_id->get_error_message()
+				);
 				wp_send_json($response );
 			}
+			$data = box_get_message($msg_id);
+			global $user_ID;
+			$data->avatar = get_avatar($user_ID);
+			$response = array(
+					'success' => true,
+					'data' =>$data,
+				);
 		}
 		wp_send_json($response );
 	}

@@ -22,6 +22,19 @@ $list_bid
 	</form>
 </script>
 
+<script type="text/html" id="tmpl-msg_record_wsp">
+	<div class="msg-record msg-item full">
+			<div class="msg-record msg-item">
+				<div class="col-md-1 no-padding-right col-chat-avatar">{{{data.avatar}}}</div>
+				<div class="col-md-9 no-padding-right col-msg-content">
+					<span class="wrap-text "><span class="triangle-border left">{{{data.msg_content}}}</span></span>
+				</div>
+				<div class="col-md-2 col-msg-time"><span class="msg-mdate">{{{data.msg_date}}}</span></div>
+			</div>
+	</div>
+</script>
+
+
 <script type="text/html" id="tmpl-full_info">
 	<div class="full-info">
 		<div class="row">
