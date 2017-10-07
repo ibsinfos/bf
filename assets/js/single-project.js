@@ -259,7 +259,8 @@ var single_project = {
         		var frm_send_message = wp.template("msg_record_wsp");
         		$("#container_msg").append( frm_send_message(res.data) );
         		$("form.swp-send-message").trigger("reset");
-
+        		var textarea = document.getElementById('container_msg');
+				textarea.scrollTop = textarea.scrollHeight;
 	        } else {
 	        	alert(res.msg);
 	        }
