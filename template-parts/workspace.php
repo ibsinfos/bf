@@ -121,7 +121,7 @@
 		    if ( $attachments ) {
 		        foreach ( $attachments as $attachment ) {
 		           echo '<li class="full f-left">';
-		           echo '<label>'.$display[$attachment->post_author] .'</label>';
+		           echo '<label class="full">'.$display[$attachment->post_author] .'</label>';
 		           echo $attachment->post_title;
 		           echo '<span id="'.$attachment->ID.'" class="btn-del-attachment">(x)</span> </li>';
 
