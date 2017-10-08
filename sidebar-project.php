@@ -12,7 +12,7 @@ if( !is_wp_error($ucountry ) ){
 $project_posted = (int) get_user_meta( $project->post_author, 'project_posted', true);
 $fre_hired = (int) get_user_meta( $project->post_author, 'fre_hired', true);
 $total_spent =  get_user_meta( $project->post_author, 'total_spent', true);
-$score = get_user_meta($project->post_author,RATING_SCORE, true);
+$score = (int) get_user_meta($project->post_author,RATING_SCORE, true);
 if(empty($score) || !$score){
 	$score = 0;
 }

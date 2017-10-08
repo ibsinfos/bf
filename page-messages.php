@@ -20,11 +20,17 @@ $avatars = array();
 		<div class="site-content" id="content" >
 			<div class="col-md-12 top-line">&nbsp;</div>
 			<div class="col-md-4 list-conversation">
-				<div class="full-content">
+				<div class="full-content ">
+
 					<?php if( $conversations ){?>
-					<form>
-							<input type="text" name="s" placeholder="Search messsages" class="form-control" />
-					</form>
+						<div class="full search-msg-wrap">
+							<div class="col-md-12">
+								<form>
+										<input type="text" name="s" placeholder="Search messsages" class="form-control" />
+								</form>
+							</div>
+						</div>
+
 					<?php }?>
 					<ul class="none-style" id="list_converstaion">
 					<?php
@@ -62,7 +68,7 @@ $avatars = array();
 				</ul>
 				</div>
 			</div>
-			<div id="box_chat" class="col-md-8 right-message"><?php
+			<div id="box_chat" class="col-md-8 right-message no-padding-right"><?php
 				if( $conversations ){
 					$first_cvs = 0;
 					if( isset($conversations[0]) )
@@ -120,6 +126,11 @@ $avatars = array();
 </script>
 <script type="text/template" id="json_avatar"><?php  echo json_encode($avatars); ?></script>
 <style type="text/css">
+	.search-msg-wrap{
+		background: #f9f9f9;
+		padding: 15px 0;
+		float: left;
+	}
 	.site-content{
 		background: transparent;
 		padding-top: 0;
@@ -195,7 +206,7 @@ $avatars = array();
 		background: #fff;
 	}
 	#container_msg{
-		min-height: 419px;
+		min-height: 450px;
 	    border: 0;
 	    padding-left: 15px;
 	    overflow-y: auto;
