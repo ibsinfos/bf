@@ -125,20 +125,22 @@ $list_bid
     <div class="modal-content">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			<h4 class="modal-title" id="exampleModalLabel">
-			<?php if($role == FREELANCER) {?>
-			  	Review employer of this project
+			<h2 class="modal-title" id="exampleModalLabel">
+			<?php
+			global $project, $user_ID;
+			 if ( $project->post_author == $user_ID ) {?>
+			 	Mark as finish and review this project/freelancer.
 			<?php } else { ?>
-					Mark as finish and review project
+				Review employer of this project
 			<?php }?>
-			</h4>
+			</h2>
 		</div>
       	<div class="modal-body">
       		<?php if($role == FREELANCER){ ?>
       	 	<form id="frm_fre_review">
 	          	<div class="form-group">
 	            	<label for="message-text" class="control-label">Review </label>
-	            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>"></textarea>
+	            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" required placeholder="Let your review here."></textarea>
 	            	Rating:
 	            	<start class="rating-score clear block" title="1">
 		            	<i class="fa fa-star" aria-hidden="true"></i>
@@ -158,7 +160,7 @@ $list_bid
         <form id="frm_emp_review">
           	<div class="form-group">
             	<label for="message-text" class="control-label">Review </label>
-            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>"></textarea>
+            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Let your review here." required></textarea>
             	Rating:
             	<start class="rating-score clear block" title="1">
 	            	<i class="fa fa-star" aria-hidden="true"></i>
@@ -189,24 +191,26 @@ $list_bid
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<?php
-					$lb_reason = __('Let employer your reason','boxtheme');
-					$lb_title = __('Cancel and quyt this job');
+					global $project, $user_ID;
 
-					if($role == EMPLOYER) {
+					if( $project->post_author == $user_ID){
+						$lb_reason = __('Let freelancer the reason. Also, this job will be masked as disputing status and wait admin review and make a decsion.','boxtheme');
+						$lb_title = __('Cancel and quit this job');
+					} else {
 						$lb_reason = __('Let freelancer your reason','boxtheme');
-						$lb_title = __('Cancel and quyt this job');
+						$lb_title = __('Cancel and quit this job');
 					}
 				?>
-				<h4 class="modal-title" id="quytModal"> <?php echo $lb_title;?></h4>
+				<h2 class="modal-title" id="quytModal"> <?php echo $lb_title;?></h2>
 			</div>
 		  	<div class="modal-body">
 		  		<form id="frm_quit_job">
 		          	<div class="form-group">
 		            	<label for="message-text" class="control-label"><?php echo $lb_reason;?></label>
-		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>"></textarea>
+		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
 		            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
 		            </div>
-		            <div class="form-group"><button type="submit" class="btn btn-primary">Confirm and Submit</button> </div>
+		            <div class="form-group text-right"><button type="submit" class="btn btn-primary ">Quit Job</button> </div>
 		        </form>
 		  	</div>
 		</div>

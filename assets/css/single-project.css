@@ -376,3 +376,7 @@ a:hover{
     line-height: 39px;
     text-indent: 10px;
 }
+.modal-content{
+	border-radius: 0;
+	top:100px;
+}
