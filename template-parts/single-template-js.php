@@ -177,7 +177,7 @@ $list_bid
           </div>
         </form>
         <?php }   ?>
-        <button type="button" class="btn btn-default btn-close-modal" data-dismiss="modal">Close</button>
+
       </div>
 
     </div>

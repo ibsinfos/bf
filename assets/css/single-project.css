@@ -380,3 +380,7 @@ a:hover{
 	border-radius: 0;
 	top:100px;
 }
+.modal-content .rating-score  .fa{
+	font-size: 16px;
+	cursor: pointer;
+}
