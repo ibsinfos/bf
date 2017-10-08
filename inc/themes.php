@@ -285,7 +285,7 @@ function heading_project_info($project, $is_workspace){ ?>
       	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),box_get_price_format($project->_budget) ); ?> </div>
       	<div class="col-md-4"> 	<?php
       	global $access_workspace;
-      	var_dump('access_workspace: '.$access_workspace);
+
       	if( $project->post_status != 'publish' && $access_workspace ) {
       		step_process($is_workspace);
       	} else {

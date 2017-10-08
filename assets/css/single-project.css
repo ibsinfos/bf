@@ -306,12 +306,11 @@ li.share-item .fa{
 	color: #fff;
 }
 li.share-item  center span{
-	display: none;
 	color:#fff;
+	display: inline;
 }
 
-li.share-item:hover  center span{
-	display: inline;
+li.share-item:hover  center span{	
 }
 .fb-invisi{
 	position: relative;
