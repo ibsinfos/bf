@@ -56,10 +56,9 @@
         <div class="detail-project">
             <div class="wrap-content"> <?php
 
-       			if (  $is_workspace ) {
-       				get_template_part( 'template-parts/workspace' );?>
-       				<?php
-      			} else if($is_dispute){
+       			if ( $access_workspace &&  $is_workspace ) {
+       				get_template_part( 'template-parts/workspace');
+      			} else if( $access_workspace && $is_dispute ){
       				get_template_part( 'template-parts/dispute' );
 			    } else { ?>
 			    <div class="col-md-8">
