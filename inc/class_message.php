@@ -153,8 +153,14 @@ class BX_Message{
 					AND msg_type = 'message'
 				ORDER BY id ASC";
 
-		$msg =  $wpdb->get_results($sql);
-		return $msg;
+		$msgs =  $wpdb->get_results($sql);
+		$results = array();
+		foreach ($msgs as $key => $msg) {
+			$date = date_create( $msg->msg_date );
+			$msg->msg_date = date_format($date,"m/d/Y");
+			$results[] = $msg;
+		}
+		return $results;
 	}
 }
 
