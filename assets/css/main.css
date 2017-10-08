@@ -1267,9 +1267,13 @@ form.focus .btn-send-message{
 	display: block;
 	clear: both;
 }
+
 .work-status span{
 	float: left;
 	padding-right: 5px;
+}
+.work-status span.currency-icon{
+	padding-right: 0;
 }
 .work-status label{
 	width: 150px;

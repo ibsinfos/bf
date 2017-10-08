@@ -8,10 +8,10 @@ $bid = BX_Bid::get_instance()->convert($post);
 		<small><?php echo get_the_date(); ?></small>
 	</div>
 	<div class="col-md-7">
-		<h5><a href="<?php echo $bid->project_link;?>" class="primary-color"><?php echo box_get_price_format($bid->project_title);?> </a></h5>
+		<h5><a href="<?php echo $bid->project_link;?>" class="primary-color"><?php echo $bid->project_title;?> </a></h5>
 
 	</div>
-	<div class="col-md-2 align-right"><small>$</small><?php echo $bid->_bid_price; ?></div>
+	<div class="col-md-2 align-right"><?php echo box_get_price_format($bid->_bid_price); ?></div>
 	<div class="col-md-9 col-md-offset-3">
 	<?php
 
