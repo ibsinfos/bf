@@ -63,7 +63,7 @@ if( $profile_query->have_posts() ){ ?>
 										<?php } ?>
 									</h5>
 									<span class="absolute abs-top abs-right-15 hour-rate "><?php echo $symbol.' '.$profile->hour_rate;?>/hr</span>
-									<span class="padding-top-15"><span>Join since June, 2017 </span></span>
+									<span class="padding-top-15"><span>Join since <?php echo date( 'M, Y ', strtotime($profile->post_date));?> </span></span>
 									<span class="full">
 										<start class="rating-score <?php echo $start_class;?> ">
 											<i class="fa fa-star" aria-hidden="true"></i>
