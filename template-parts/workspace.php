@@ -38,7 +38,8 @@
 	if($project->post_status == DONE){
 		echo '<div class="full review-section">'; ?>
 
-			<h3 class="no-margin"><?php _e('Review section','boxtheme');?></h3>	<?php
+			<?php
+			echo '<p>'; _e('Job is done.','boxtheme'); echo '</p>';
 
 			// show rating here.
 			$bid_id = get_post_meta($project->ID,BID_ID_WIN, true);
