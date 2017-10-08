@@ -12,7 +12,7 @@ $bid = BX_Bid::get_instance()->convert($post);
 
 	</div>
 	<div class="col-md-2 align-right"><small>$</small><?php echo $bid->_bid_price; ?></div>
-	<div class="col-md-10 col-md-offset-3">
+	<div class="col-md-9 col-md-offset-3">
 	<?php
 
 		$args = array(
