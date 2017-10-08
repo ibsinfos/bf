@@ -61,7 +61,7 @@
 
 		        var me_template = wp.template( 'msg_record_me' );
 	        	if ( res.success ){
-	        		$("#container_msg").append(me_template(msg_submit));
+	        		$("#container_msg").append(me_template(res.data));
 	        		$(".msg_content").html('');
 	        		var textarea = document.getElementById('container_msg');
 					textarea.scrollTop = textarea.scrollHeight;
