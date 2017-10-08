@@ -20,10 +20,7 @@ if( $result->have_posts() ){ ?>
 	<div class ="full-width" id="list_bidding">
 		<div class="row">
 			<div class="col-md-2 no-padding-right">	Date </div>
-			<div class="col-md-6">	Description	</div>
-			<div class="col-md-2">	Client	</div>
-			<div class="col-md-2">	Balance </div>
-		</div>
+			<div class="col-md-6">	Description	</div>		<div class="col-md-2">	Client	</div>		<div class="col-md-2">	Balance </div>		</div>
 
 	<?php
 

@@ -4,15 +4,15 @@ $bid = BX_Bid::get_instance()->convert($post);
 
 ?>
 <div class="row bid-history-item">
-	<div class="col-md-2 no-padding-right">
+	<div class="col-md-3 no-padding-right">
 		<small><?php echo get_the_date(); ?></small>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-7">
 		<h5><a href="<?php echo $bid->project_link;?>"><?php echo $bid->project_title;?> </a></h5>
 
 	</div>
 	<div class="col-md-2 align-right"><small>$</small><?php echo $bid->_bid_price; ?></div>
-	<div class="col-md-10 col-md-offset-2">
+	<div class="col-md-10 col-md-offset-3">
 	<?php
 
 		$args = array(

@@ -60,11 +60,11 @@ function box_get_price_format($price ){
 
 function bx_list_start($score){ ?>
 	<start class="rating-score clear block core-<?php echo $score;?>">
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
-		<span class="glyphicon glyphicon-star"></span>
+		<i class="fa fa-star" aria-hidden="true" title="1"></i>
+    	<i class="fa fa-star" aria-hidden="true" title="2"></i>
+    	<i class="fa fa-star" aria-hidden="true" title="3"></i>
+    	<i class="fa fa-star" aria-hidden="true" title="4"></i>
+    	<i class="fa fa-star" aria-hidden="true" title="5"></i>
 	</start>
 	<?php
 }
