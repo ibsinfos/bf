@@ -384,3 +384,14 @@ a:hover{
 	font-size: 16px;
 	cursor: pointer;
 }
+.fa-trophy {
+    font-size: 28px;
+    color: #ffb200;
+    position: absolute;
+    background: #fff;
+    top: -14px;
+    border-radius: 50%;
+    left: 94px;
+    border: 1px solid #ccc;
+    padding: 5px 6px;
+}

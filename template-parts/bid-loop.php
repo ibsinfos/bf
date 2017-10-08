@@ -22,14 +22,14 @@ $winner_text ='';
 if ( $bid->post_author == $project->{WINNER_ID} ) {
 	$winner = 1;
 	$bid_class = 'bid-winner';
-	$winner_text = __('Winner','boxtheme');
+	$winner_text = '<i class="fa fa-trophy" aria-hidden="true"></i>';
 }
 
 ?>
 <div class ="col-md-12 row-bid-item bid-item <?php echo $bid_class;?>">
 	<div class="col-md-2 no-padding-right">
 		<?php echo  get_avatar($bid->post_author); ?>
-		<label class="full"><center><?php  echo $winner_text;?></center></label>
+		<?php  echo $winner_text;?>
 	</div>
 	<div class ="col-md-10 padding-right-zero">
 		<?php
