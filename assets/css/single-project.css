@@ -294,8 +294,44 @@ ul.list-category li{
 	float: left;
 }
 li.share-item {
-	width: 33%;
+    width: 33.333%;
+    position: relative;
+    float: right;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+}
+li.share-item .fa{
+	border-radius: 50%;
+	color: #fff;
+}
+li.share-item  center span{
+	display: none;
+	color:#fff;
+}
+
+li.share-item:hover  center span{
+	display: inline;
+}
+.fb-invisi{
 	position: relative;
+	left: 0;
+	opacity: 0;
+	top:-25px;
+	width: 100%;
+	z-index: 100;
+}
+.fb-invisi a{
+	z-index: 100;
+}
+.social-shares li.fb-share{
+	background: #3a589e;
+}
+.social-shares li.tw-share{
+	background: #429cd6;
+}
+.social-shares li.gplus-share{
+	background: #df4b37;
 }
 .fb-share-button iframe{
 

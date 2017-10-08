@@ -188,11 +188,25 @@ function box_add_captcha_field(){
 }
 function box_social_share(){ ?>
 	<ul class="social-shares">
-			<li class="share-item fb-share">
-  		<div class="fb-share-button" data-href="<?php the_permalink();?>" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink();?>&amp;src=sdkpreparse">Share</a> </div>
+		<li class="share-item fb-share">
+			<a href="#"><center><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp; <span>Share</span> </center></a>
+			<div class="fb-invisi">
+		  		<div class="fb-share-button " data-href="<?php the_permalink();?>" data-size="small" data-mobile-iframe="true">
+		  			<a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink();?>&amp;src=sdkpreparse"></a>
+		  		</div>
+	  		</div>
   		</li>
-			<li class="share-item gplus-share"><g:plusone align="right"></g:plusone></li>
-		<li class="share-item  tw-share"><a class="twitter popup" href="http://twitter.com/share">Tweet</a></li>
+		<li class="share-item gplus-share">
+			<a href="#"><center><i class="fa fa-google-plus" aria-hidden="true"></i><span> &nbsp; +1</span> </center></a>
+			<div class="fb-invisi">
+				<g:plusone align="right"></g:plusone>
+			</div>
+		</li>
+
+		<li class="share-item  tw-share">
+			<a href="#"><center><i class="fa fa-twitter" aria-hidden="true"></i><span> &nbsp; Tweet</span></center></a>
+			<div class="fb-invisi"><a class="twitter popup" href="http://twitter.com/share">Tweet</a></div>
+		</li>
 	</ul> <?php
 }
 
