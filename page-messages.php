@@ -26,7 +26,7 @@ $avatars = array();
 						<div class="full search-msg-wrap">
 							<div class="col-md-12">
 								<form>
-										<input type="text" name="s" placeholder="Search messsages" class="form-control" />
+										<input type="text" name="s" placeholder="<?php _e('Search conversations','boxtheme');?>" class="form-control" />
 								</form>
 							</div>
 						</div>
