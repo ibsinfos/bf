@@ -76,7 +76,7 @@ Class BX_Profile extends BX_Post{
 		$post->earned_txt = sprintf( __('Earned : %s','boxtheme'), box_get_price($post->{EARNED}) );
 		$post->{RATING_SCORE} 	= floatval(get_user_meta($post->post_author,RATING_SCORE, true) );
 		$post->{PROJECTS_WORKED} = (int) get_user_meta($post->post_author,PROJECTS_WORKED, true);
-		$post->score_class = 'core-'.$post->{RATING_SCORE};
+		$post->score_class = 'score-'.$post->{RATING_SCORE};
 
 
 		$post->{HOUR_RATE_TEXT} = sprintf( __('%s %s/h','boxtheme'), $this->symbol, $post->{HOUR_RATE} );
