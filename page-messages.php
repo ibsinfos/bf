@@ -218,6 +218,7 @@ $avatars = array();
 	    padding-left: 15px;
 	    overflow-y: auto;
 	    border-bottom: 1px solid #e6e6e6;
+	    border-right: 1px solid #e6e6e6;
 	    margin-bottom: 0;
 	}
 	.list-conversation{

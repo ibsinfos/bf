@@ -67,7 +67,7 @@
 			       	</div> <!-- .col-md-8  Job details !-->
 				    <div class="col-md-4 sidebar" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
       				<div class="col-md-12">
-      				<?php get_template_part( 'template-parts/list', 'bid' ); ?>
+      					<?php get_template_part( 'template-parts/list', 'bid' ); ?>
       				</div>
 			    <?php } ?>
             </div> <!-- .wrap-content !-->
