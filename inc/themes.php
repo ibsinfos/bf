@@ -278,3 +278,20 @@ if( ! function_exists( 'box_social_link' ) ){
     	</ul> <?php
 	}
 }
+function heading_project_info($project, $is_workspace){ ?>
+	<div class="full heading">
+		<div class ="col-md-2 no-padding-right"><?php printf(__('Status: %s','boxtheme'),$project->post_status); ?></div>
+      	<div class="col-md-3"><?php printf(__('Post date: %s','boxtheme'),get_the_date() );?></div>
+      	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),box_get_price_format($project->_budget) ); ?> </div>
+      	<div class="col-md-4">
+      	<?php if( $project->post_status == 'publish' ){?>
+      		<?php box_social_share();?>
+      	<?php } else {
+
+      		step_process($is_workspace);
+      	} ?>
+      	</div>
+
+	</div> <!-- full !-->
+	<?php
+}

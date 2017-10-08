@@ -105,9 +105,12 @@
 	padding-bottom: 15px;
 }
 /** WORKSPACE *****************/
+ul.list-attach {
+	border:1px solid #ccc;
+}
 .list-attach li{
 	margin-right: 10px;
-	
+	border-bottom: 1px solid #ccc;
 }
 .btn-del-attachment{
 	cursor: pointer;
@@ -215,7 +218,6 @@ ul.list-category li{
     clear: both;
     width: 100%;
     float: left;
-
 }
 .job-process-heading li{
 	padding: 0;
@@ -223,12 +225,15 @@ ul.list-category li{
 	padding: 0;
 	display: inline-block;
 	padding-right: 10px;
-	width: 50%;
+	width: 33%;
 	float: left;
+	text-transform: uppercase;
+}
+.job-process-heading li.current-section a{
+	border-bottom: 2px solid #17a717;
 }
 .job-process-heading li a{
-
-	display: block;
+	color:#666;
 }
 .job-process-heading span{
 	font-size: 16px;

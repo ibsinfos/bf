@@ -8,7 +8,6 @@
 ?>
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
-		<div class="col-md-7"><h3> <?php _e('Workspace','boxtheme');?> </h3> </div>
 		<div class="col-md-5">
 			<div class="full align-right f-right ws-btn-action"> <?php
 
@@ -83,15 +82,14 @@
 		echo '</div>';
 	} ?>
 
-	<h3> <?php _e('Chat coversation','boxtheme');?></h3>
-	<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
+<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
 <?php show_conversation($winner_id, $project, $cvs_id); ?>
 
 <?php  echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>
 </div> <!-- wrap-workspace !-->
 
 <div class="col-md-4">
-	<?php step_process();?>
+	<?php //step_process();?>
 
 	<div class="full">
 		<?php if( ! $is_fre_review  ){?>

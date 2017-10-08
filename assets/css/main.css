@@ -54,6 +54,7 @@ h1{
 h1.project-title{
 	font-size: 23px;
 	font-family: 'Raleway', sans-serif;
+	padding-bottom: 20px;
 }
 img{
 	max-width: 100%;
@@ -1208,7 +1209,7 @@ form #heading_signup{
 
 }
 #container_msg{
-	height: 239px;
+	height: 350px;
 	overflow-x: hidden;
 	overflow-y:auto;
 	margin-bottom:20px;

@@ -384,6 +384,8 @@ class BX_AJAX {
 			$data = box_get_message($msg_id);
 			global $user_ID;
 			$data->avatar = get_avatar($user_ID);
+			$date = date_create( $data->msg_date );
+			$data->msg_date =date_format($date,"m/d/Y");
 			$response = array(
 					'success' => true,
 					'data' =>$data,

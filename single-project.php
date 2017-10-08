@@ -25,12 +25,19 @@
 		}
 	}
 
-	function step_process(){
+	function step_process( $is_workspace ){
 		global $project, $access_workspace, $winner_id;
+		$class = $detail_section = '';
+		if( $is_workspace ){
+			$class ='current-section';
+		} else {
+			$detail_section = 'current-section';
+		}
 		if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
 	    	<ul class="job-process-heading">
-				<li><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>
-				<li><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
+				<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>
+				<li class="<?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
+				<li class="text-right"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Dispute','boxtheme');?></a>	</li>
 	    	</ul> <?php
 	    }
 	}
@@ -40,42 +47,22 @@
 <div <?php post_class('container single-project site-container');?>>
 	<div id="content" class="site-content">
 
-        <div class="col-md-12">	<h1 class="project-title"><?php the_title();?></h1>  </div>
-
+        <div class="col-md-12"><h1 class="project-title"><?php the_title();?></h1></div>
+        <?php heading_project_info($project, $is_workspace);?>
         <div class="detail-project">
-            <div class="wrap-content">
-       			<div class="full heading">
-       				<div class ="col-md-2 no-padding-right"><?php printf(__('Status: %s','boxtheme'),$project->post_status); ?></div>
-                  	<div class="col-md-3"><?php printf(__('Post date: %s','boxtheme'),get_the_date() );?></div>
-                  	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),box_get_price_format($project->_budget) ); ?> </div>
-                  	<div class="col-md-4">
-                  		<ul class="social-shares">
-                  			<li class="share-item fb-share">
-	                  		<div class="fb-share-button" data-href="<?php the_permalink();?>" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink();?>&amp;src=sdkpreparse">Share</a> </div>
-	                  		</li>
-                  		<li class="share-item gplus-share"><g:plusone align="right"></g:plusone></li>
-						<li class="share-item  tw-share"><a class="twitter popup" href="http://twitter.com/share">Tweet</a></li>
-						</ul>
-
-                  	</div>
-       			</div> <!-- full !-->
-
-       			<?php
+            <div class="wrap-content"> <?php
 
        			if ( ! $is_workspace ) { ?>
        				<div class="col-md-8">
        					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
 
 			       	</div> <!-- .col-md-8  Job details !-->
-				    <div class="col-md-4 sidebar" id="single_sidebar">
-				    	<?php 	step_process();?>
-	          			<?php  	get_sidebar('project');?>
-      				</div>
+				    <div class="col-md-4 sidebar" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
       				<div class="col-md-12">
       				<?php get_template_part( 'template-parts/list', 'bid' ); ?>
       				</div><?php
       			} else {
-			       		get_template_part( 'template-parts/workspace' );
+			       	get_template_part( 'template-parts/workspace' );
 			    } ?>
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
