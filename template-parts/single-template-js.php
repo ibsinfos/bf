@@ -194,7 +194,7 @@ $list_bid
 					global $project, $user_ID;
 
 					if( $project->post_author == $user_ID){
-						$lb_reason = __('Let freelancer the reason. Also, this job will be masked as disputing status and wait admin review and make a decsion.','boxtheme');
+						$lb_reason = __('Write down your reason here. Also, this job will be masked as disputing status and wait admin review and make a decsion.','boxtheme');
 						$lb_title = __('Cancel and quit this job');
 					} else {
 						$lb_reason = __('Let freelancer your reason','boxtheme');
