@@ -8,7 +8,7 @@
 ?>
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-12">
 			<div class="full align-right f-right ws-btn-action"> <?php
 
 				if( $project->post_status =='awarded' ){

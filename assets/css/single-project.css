@@ -278,6 +278,7 @@ ul.list-category li{
 }
 .ws-btn-action .btn, .btn-add-file{
 	padding: 3px 10px;
+	margin-bottom: 20px;
 }
 .ws-btn-action .btn.btn-quit{
 	background: #c7c7c7;

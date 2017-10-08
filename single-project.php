@@ -9,6 +9,7 @@
 	$project = BX_Project::get_instance()->convert($post);
 	$winner_id = $project->{WINNER_ID};
 	$is_workspace = isset($_GET['workspace']) ? (int) $_GET['workspace'] : 0;
+	$is_dispute = isset($_GET['dispute']) ? (int) $_GET['dispute'] : 0;
 
 	if( is_owner_project( $project ) )
 		$is_owner = $project->post_author;
@@ -30,14 +31,17 @@
 		$class = $detail_section = '';
 		if( $is_workspace ){
 			$class ='current-section';
+		} else if($is_dispute) {
+			$dispute_section = 'current-section';
 		} else {
 			$detail_section = 'current-section';
+
 		}
 		if( $access_workspace && $winner_id && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed') ) ) { ?>
 	    	<ul class="job-process-heading">
 				<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>
-				<li class="<?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
-				<li class="text-right"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Dispute','boxtheme');?></a>	</li>
+				<li class=" text-center <?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
+				<li class="text-right <?php echo $dispute_section;?>"><a href="?dispute=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Dispute','boxtheme');?></a>	</li>
 	    	</ul> <?php
 	    }
 	}
@@ -52,18 +56,21 @@
         <div class="detail-project">
             <div class="wrap-content"> <?php
 
-       			if ( ! $is_workspace ) { ?>
-       				<div class="col-md-8">
+       			if (  $is_workspace ) {
+       				get_template_part( 'template-parts/workspace' );?>
+       				<?php
+      			} else if($is_dispute){
+      				get_template_part( 'template-parts/dispute' );
+			    } else { ?>
+			    <div class="col-md-8">
        					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
 
 			       	</div> <!-- .col-md-8  Job details !-->
 				    <div class="col-md-4 sidebar" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
       				<div class="col-md-12">
       				<?php get_template_part( 'template-parts/list', 'bid' ); ?>
-      				</div><?php
-      			} else {
-			       	get_template_part( 'template-parts/workspace' );
-			    } ?>
+      				</div>
+			    <?php } ?>
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
 
