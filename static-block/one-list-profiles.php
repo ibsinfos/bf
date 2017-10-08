@@ -29,7 +29,7 @@ if( $profile_query->have_posts() ){ ?>
 						$profile 	= BX_Profile::get_instance()->convert($post);
 						$profile_id = get_user_meta($post->post_author,'profile_id', true);
 						$rating = get_post_meta($post->ID,RATING_SCORE, true);
-						$start_class = 'core-'.$profile->{RATING_SCORE};
+						$start_class = 'score-'.$profile->{RATING_SCORE};
 						if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 							$start_class = 'score-'.(int)$profile->{RATING_SCORE}.'-half';
 						}

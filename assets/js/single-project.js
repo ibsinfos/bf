@@ -95,7 +95,8 @@ var single_project = {
         $(".fa-star").click(function(event){
         	var _this = $(event.currentTarget);
         	var score = _this.attr('title');
-        	console.log(score);
+        	var css = 'score-'+score;
+        	$(".rating-score").addClass(css);
         	$("#rating_scrore").val(score);
         })
 	},

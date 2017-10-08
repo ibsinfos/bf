@@ -59,7 +59,7 @@ function box_get_price_format($price ){
 }
 
 function bx_list_start($score){ ?>
-	<start class="rating-score clear block core-<?php echo $score;?>">
+	<start class="rating-score clear block score-<?php echo $score;?>">
 		<i class="fa fa-star" aria-hidden="true" title="1"></i>
     	<i class="fa fa-star" aria-hidden="true" title="2"></i>
     	<i class="fa fa-star" aria-hidden="true" title="3"></i>

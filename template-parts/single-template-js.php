@@ -55,7 +55,7 @@ $list_bid
 				<div class="col-md-12">
 					<div class="col-md-9 no-padding">{{{feeback.project_link}}}</div>
 					<div class="col-md-3 no-padding">
-					<start class="rating-score clear block core-{{{feeback.rating}}}">
+					<start class="rating-score clear block score-{{{feeback.rating}}}">
 						<i class="fa fa-star" aria-hidden="true" title="1"></i>
 		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
 		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>

@@ -16,7 +16,7 @@ if ( $skills && ! is_wp_error( $skills ) ){
   }
   $skill_val = join( " ", $draught_links );
 }
-$start_class = 'core-'.$profile->{RATING_SCORE};
+$start_class = 'score-'.$profile->{RATING_SCORE};
 if ((int) $profile->{RATING_SCORE} != $profile->{RATING_SCORE}){
 	$start_class = 'score-'.(int)$profile->{RATING_SCORE}.'-half';
 }

@@ -26,7 +26,7 @@ if(empty($score) || !$score){
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers Hired: %d",'boxtheme'), $fre_hired);?></li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf(__("Total Spent: %s",'boxtheme'), box_get_price_format($total_spent) );?></li>
 
-		<li class="rating rating-score core-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
+		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
 	</ul>
 </div>
 <?php
