@@ -94,8 +94,8 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 					if( $result->have_posts() ){ ?>
 						<div class ="full-width" >
 							<div class="row row-heading">
-								<div class="col-md-2 no-padding-right"><?php _e('Date','boxtheme');?> </div>
-								<div class="col-md-8"> <?php _e('Description','boxtheme');?>	</div>
+								<div class="col-md-3 no-padding-right"><?php _e('Date','boxtheme');?> </div>
+								<div class="col-md-7"> <?php _e('Description','boxtheme');?>	</div>
 								<div class="col-md-2 align-right">	<?php _e('Price','boxtheme');?>	</div>
 							</div> <?php
 							while( $result->have_posts()){ $result->the_post();
