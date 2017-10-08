@@ -96,6 +96,7 @@ var single_project = {
         	var _this = $(event.currentTarget);
         	var score = _this.attr('title');
         	var css = 'score-'+score;
+        	$(".rating-score").removeClass('score-1 score-2 score-3 score-4 score-5');
         	$(".rating-score").addClass(css);
         	$("#rating_scrore").val(score);
         })

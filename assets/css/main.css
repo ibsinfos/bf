@@ -975,7 +975,8 @@ ul.pagination{
 	color: #ffb200;
 }
 
-.rating-score.core-4 i:nth-child(1),
+.rating-score.score-4 i:nth-child(0),
+.rating-score.score-4 i:nth-child(1),
 .rating-score.score-4-half i:nth-child(1),
 .rating-score.score-4 i:nth-child(2),
 .rating-score.sscore-4-half i:nth-child(2),
