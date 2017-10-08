@@ -318,7 +318,7 @@ li.share-item:hover  center span{
 	opacity: 0;
 	top:-25px;
 	width: 100%;
-	z-index: 100;
+	z-index: 1;
 }
 .fb-invisi a{
 	z-index: 100;

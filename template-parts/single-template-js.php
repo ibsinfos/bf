@@ -16,7 +16,7 @@ $list_bid
 </div>
 <script type="text/html" id="tmpl-send_message">
 	<form class="emp-send-message" >
-		<textarea name="cvs_content" class="full msg_content" rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
+		<textarea name="cvs_content" class="full msg_content required" required rows="3" placeholder="<?php _e('Type your message here','boxtheme');?>"></textarea>
 		<br />
 		<button type="submit" class="btn btn-send-message f-right"><?php _e('Send','boxtheme');?></button>
 	</form>
