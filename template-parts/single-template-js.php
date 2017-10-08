@@ -56,11 +56,11 @@ $list_bid
 					<div class="col-md-9 no-padding">{{{feeback.project_link}}}</div>
 					<div class="col-md-3 no-padding">
 					<start class="rating-score clear block core-{{{feeback.rating}}}">
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
-						<i class="fa fa-star" aria-hidden="true"></i>
+						<i class="fa fa-star" aria-hidden="true" title="1"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
 
 					</start>
 					</div>
@@ -143,11 +143,11 @@ $list_bid
 	            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" required placeholder="Let your review here."></textarea>
 	            	Rating:
 	            	<start class="rating-score clear block" title="1">
-		            	<i class="fa fa-star" aria-hidden="true"></i>
-		            	<i class="fa fa-star" aria-hidden="true"></i>
-		            	<i class="fa fa-star" aria-hidden="true"></i>
-		            	<i class="fa fa-star" aria-hidden="true"></i>
-		            	<i class="fa fa-star" aria-hidden="true"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="1"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
 	            	</start>
 	            	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
 	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
@@ -163,11 +163,11 @@ $list_bid
             	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Let your review here." required></textarea>
             	Rating:
             	<start class="rating-score clear block" title="1">
-	            	<i class="fa fa-star" aria-hidden="true"></i>
-	            	<i class="fa fa-star" aria-hidden="true"></i>
-	            	<i class="fa fa-star" aria-hidden="true"></i>
-	            	<i class="fa fa-star" aria-hidden="true"></i>
-	            	<i class="fa fa-star" aria-hidden="true"></i>
+	            	<i class="fa fa-star" aria-hidden="true" title="1"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
+		            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
             	</start>
             	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
             	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">

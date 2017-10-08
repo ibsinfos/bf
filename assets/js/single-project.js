@@ -92,9 +92,10 @@ var single_project = {
             up.refresh();
             up.start();
         });
-        $(".glyphicon-star").click(function(event){
+        $(".fa-star").click(function(event){
         	var _this = $(event.currentTarget);
         	var score = _this.attr('title');
+        	console.log(score);
         	$("#rating_scrore").val(score);
         })
 	},
