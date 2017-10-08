@@ -47,6 +47,7 @@ $avatars = array();
 								$user = get_userdata($cv->sender_id);
 
 							$avatars[$cv->cvs_id] = get_avatar($user->ID );
+
 							$project = get_post($cv->project_id);
 
 							if( $user && $project ){
@@ -57,7 +58,7 @@ $avatars = array();
 									<div class="cv-right">
 										<small class="mdate"><?php echo $date; ?></small>
 										<a href="#" class="render-conv" id="<?php echo $cv->cvs_id;?>"><?php echo $user->display_name;?></a> <span>( <?php  echo $cv->msg_unread;?>)</span>
-										<p><small><?php $project->post_title; ?></small></p>
+										<p><small><?php echo $project->post_title; ?></small></p>
 									</div>
 								</li><?php
 							}
@@ -80,14 +81,20 @@ $avatars = array();
 						echo '<span> To: Kent wp </span>';
 						if($first_cvs){
 
-							$msgs = BX_Message::get_instance()->get_converstaion(array('id' => $first_cvs));
+							$msgs = BX_Message::get_instance()->get_converstaion( array( 'id' => $first_cvs) );
 							foreach ($msgs as $key => $msg) {
+
 								$date = date_create( $msg->msg_date );
 								if( $msg->sender_id != $user_ID ){
 									$user_label = get_avatar($msg->sender_id  ); ?>
 									<div class="msg-record msg-item">
 										<div class="col-md-1 no-padding"><?php echo $user_label;?></div>
-										<div class="col-md-10 no-padding-left"><span class="wrap-text "><span class="triangle-border left"><?php echo $msg->msg_content;?></span> <br /><small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small></span></div>
+										<div class="col-md-10 no-padding-left">
+											<span class="wrap-text ">
+												<span class="triangle-border left"><?php echo $msg->msg_content;?></span>
+												<small class="msg-mdate"><?php echo date_format($date,"m/d/Y");?></small>
+											</span>
+										</div>
 									</div><?php
 								} else { ?>
 									<div class="msg-record msg-item">
