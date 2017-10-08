@@ -2,7 +2,8 @@
 	global $user_ID, $current_user, $profile;
 	$professional_title = !empty($profile->professional_title) ? $profile->professional_title : __('Your professional title','boxtheme');
 	$url = get_user_meta($user_ID,'avatar_url', true);
-
+	global $post;
+	setup_postdata( $profile );
 ?>
 <div id="profile" class="col-md-12 edit-profile-section overview-section">
 
@@ -23,8 +24,8 @@
 	            	<input type="hidden" name ="ID" value="<?php echo $profile->ID;?>">
 	            </div>
 	            <div class="form-group ">
-	            	<div class="static visible-default edit-profile-content author-overview"> <?php if( empty($profile->post_content) ) _e('Update your cover letter here','boxtheme'); else echo $profile->post_content; ?></div>
-	            	<textarea class="update hide form-control" name="post_content" cols="50" rows="6" placeholder="<?php _e("Update your cover letter here","boxtheme");?>" ><?php echo $profile->post_content;?></textarea>
+	            	<div class="static visible-default edit-profile-content author-overview"> <?php if( empty($profile->post_content) ) _e('Update your cover letter here','boxtheme'); else echo get_the_content(); ?></div>
+	            	<textarea class="update hide form-control" name="post_content" cols="50" rows="6" placeholder="<?php _e("Update your cover letter here","boxtheme");?>" ><?php echo get_the_content();?></textarea>
 	            </div>
 
 	      	<div class="form-group">

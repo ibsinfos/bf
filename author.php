@@ -23,6 +23,7 @@ $url = get_user_meta($author_id,'avatar_url', true);
 $projects_worked = (int) get_user_meta($author_id,PROJECTS_WORKED, true);
 $earned = (int) get_user_meta($author_id, EARNED, true);
 $pcountry = get_the_terms( $profile_id, 'country' );
+setup_postdata($profile);
 ?>
 <div class="full-width">
 	<div class="container site-container">
@@ -55,7 +56,7 @@ $pcountry = get_the_terms( $profile_id, 'country' );
 					<div class="full bd-bottom">
 						<div class="col-sm-8 text-justify">
 							<h3>  <?php _e('Overviews','boxtheme');?> </h3>
-							<div class="full author-overview  second-font1"><?php echo $profile->post_content;?></div>
+							<div class="full author-overview  second-font1"><?php the_content();?></div>
 							<?php
 							//$video_id = get_post_meta($profile->ID, 'video_id', true);
 							$video_id = '';
