@@ -211,6 +211,7 @@ Class BX_Project extends BX_Post{
 				$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
 
 				$bid_price 	= (float) get_post_meta($bid_win_id, BID_PRICE, true);
+
 				$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
 
 				$emp_pay = $bid_price;

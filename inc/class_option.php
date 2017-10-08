@@ -274,7 +274,10 @@ function box_get_currency(){
 	return BX_Option::get_instance()->get_currency_option();
 }
 
-function get_commision_fee( $total, $setting ){
+function get_commision_fee( $total, $setting = false){
+	if( ! $setting ){
+		$setting = get_commision_setting();
+	}
 	$number = $setting->number; // fix price
 	if( $setting->type == 'percent' ) {
 		return ( $number/100 ) * (float) $total;

@@ -148,15 +148,15 @@ Class BX_Order {
 	 * @return  [type]             [description]
 	 */
 	function create_draft_order( $package_id ){
-		$curren_user = wp_get_current_user();
+		$current_user = wp_get_current_user();
 		$args = array(
-			'post_title' => $curren_user->user_email . ' buy credit  via '.$this->payment_type . '(' .$this->get_amout( $package_id ) .')',
+			'post_title' => $current_user->user_email . ' buy credit  via '.$this->payment_type . '(' .$this->get_amout( $package_id ) .')',
 			'post_status' => 'draft',
-			'author' => $curren_user->ID,
+			'author' => $current_user->ID,
 			'meta_input' => array(
 				'amout' => $this->get_amout( $package_id ),
-				'payer_id' => $curren_user->ID,
-				'payer_email' => $curren_user->user_email ,
+				'payer_id' => $current_user->ID,
+				'payer_email' => $current_user->user_email ,
 				'order_type' 	=>'buy_credit',
 				'payment_type' 	=>$this->payment_type,
 				//'receiver_id' => 1,// need to update - default is admin.
@@ -167,10 +167,11 @@ Class BX_Order {
 		return $this->create($args);
 	}
 	function create_deposit_order($bid_price, $project){
+		$current_user = wp_get_current_user();
 		$args_order = array(
 			'post_title' => sprintf( __('Deposit for the project %s','boxtheme'),$project->post_title ),
 			'post_status' =>'publish',
-			'author' => $curren_user->ID,
+			'author' => $current_user->ID,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
 				'amout' => $bid_price,
@@ -183,10 +184,11 @@ Class BX_Order {
 		return wp_insert_post($args_order);
 	}
 	function create_undeposit_order($bid_price, $project){
+		global $user_ID;
 		$args_order = array(
 			'post_title' => sprintf( __('Refund for the project %s','boxtheme'),$project->post_title ),
 			'post_status' =>'publish',
-			'author' => $curren_user->ID,
+			'author' => $user_ID,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
 				'amout' => $bid_price,

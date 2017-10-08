@@ -1,7 +1,7 @@
 <?php
 	get_header();
 
-	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid;
 
 	$cvs_id = $is_owner = $access_workspace = 0;
 	$role = bx_get_user_role();
@@ -27,11 +27,11 @@
 	}
 
 	function step_process( $is_workspace ){
-		global $project, $access_workspace, $winner_id;
-		$class = $detail_section = '';
+		global $project, $access_workspace, $winner_id, $is_dispute;
+		$class = $detail_section = $dispute_section = '';
 		if( $is_workspace ){
 			$class ='current-section';
-		} else if($is_dispute) {
+		} else if( $is_dispute) {
 			$dispute_section = 'current-section';
 		} else {
 			$detail_section = 'current-section';
