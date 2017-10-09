@@ -23,7 +23,10 @@ $url = get_user_meta($author_id,'avatar_url', true);
 $projects_worked = (int) get_user_meta($author_id,PROJECTS_WORKED, true);
 $earned = (int) get_user_meta($author_id, EARNED, true);
 $pcountry = get_the_terms( $profile_id, 'country' );
+global $post;
+$post = $profile;
 setup_postdata($profile);
+
 ?>
 <div class="full-width">
 	<div class="container site-container">
