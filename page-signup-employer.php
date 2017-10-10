@@ -29,7 +29,7 @@
 				        <input class="form-control"  name="user_login" required   placeholder="<?php _e('User Name','boxtheme');?> " type="text"  >
 				    </div>
 				</div>
-				<div class="row phone-number">
+				<div class="row phone-number hide">
 				    <div class="form-group col-md-12">
 				        <input class="form-control"  name="phone_number" required  type="text" placeholder="<?php _e('Your Phone Number','boxtheme');?> " >
 				    </div>
@@ -54,7 +54,7 @@
                 </div>
 
 				<div class="form-group row">
-					<div class="col-md-12">	<button class="btn btn-action btn-xlarge" type="submit">SIGN UP</button> </div>
+					<div class="col-md-12">	<button class="btn btn-action btn-xlarge" type="submit"><?php _e('SIGN UP','boxtheme');?></button> </div>
 				</div>
 
 			</form>
