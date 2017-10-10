@@ -241,7 +241,10 @@ get_header(); ?>
 	margin-top: 35px;
 	text-align: center;
 }
-
+.skill-item{
+	padding: 3px 5px;
+	background: #e8e8e8;
+}
 .col-md-6.archive-profile-item .full{
 	-moz-box-shadow:    3px 3px 5px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;

@@ -41,10 +41,10 @@ if( $profile_query->have_posts() ){ ?>
 						  	$draught_links = array();
 						  	foreach ( $skills as $term ) {
 						     	//$draught_links[] = '<a href="'.get_term_link($term).'">'.$term->name.'</a>';
-						     	$draught_links[] = '<span >'.$term->name.'</span>';
+						     	$draught_links[] = '<span class="skill-item" >'.$term->name.'</span>';
 						     	$list_ids[] = $term->term_id;
 						  	}
-						  	$skill_html = join( ", ", $draught_links );
+						  	$skill_html = join( " ", $draught_links );
 						}?>
 
 						<div class="col-md-6 col-xs-12 profile-item" >
@@ -77,7 +77,7 @@ if( $profile_query->have_posts() ){ ?>
 									</span>
 								</div>
 								<div class="right col-md-12 list-skill padding-top-10 ">
-										Skills: <?php echo $skill_html;?>
+										<?php echo $skill_html;?>
 									</div>
 							</div>
 						</div> <?php
