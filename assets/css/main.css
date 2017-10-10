@@ -288,6 +288,7 @@ ul.account-dropdown li{
 	float: right;
 	position: relative;
 	line-height: auto;
+	text-align: left;
 }
 ul.main-login{
 	padding:0;
