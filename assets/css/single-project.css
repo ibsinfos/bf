@@ -6,25 +6,27 @@
 	line-height: 1.75em;
 }
 .full.heading{
-	background: #fff;
-	border-bottom: 1px solid #f4f6f8;
 	overflow: hidden;
-	padding-bottom: 10px;
-	margin-bottom: 10px;
 }
 .wrap-content{
-	background: #fff;
+	background: #f2f2f2;
 	overflow: hidden;
 	width: 100%;
 	padding-top: 10px;
+}
+.left-project-column{
+	background: #fff;
+	border-right: 10px solid #f2f2f2;
+	min-height: 350px;
+	padding-bottom: 15px;
+}
+.right-project-column{
+	background: #fff;
 }
 .full.heading div{
 	padding: 8px auto;
 }
 .list-bid{
-	border-top: 1px solid #ccc;
-	padding-top: 15px;
-	margin-top: 30px;
 	padding-bottom: 30px;
 	overflow: hidden;
 }
@@ -310,7 +312,7 @@ li.share-item  center span{
 	display: inline;
 }
 
-li.share-item:hover  center span{	
+li.share-item:hover  center span{
 }
 .fb-invisi{
 	position: relative;
@@ -351,11 +353,16 @@ li.share-item:hover  center span{
     font-size: 19px;
 
 }
-div.block-employer-info{
-	background: #f3f3f3;
-	padding: 15px 35px;
-	overflow: hidden;
-	margin-top: 25px;
+.row-detail-section{
+	background: #fff;
+	margin-bottom: 5px;
+	float: left;
+}
+div.block-employer-info {
+    background: #fff;
+    padding: 0 15px 35px;
+    overflow: hidden;
+    margin-top: 0;
 }
 .detail-project .btn-login {
     width: 200px;
@@ -389,7 +396,7 @@ a:hover{
 	margin-left: 40px;
 }
 
-.emp-name:first-letter {text-transform: uppercase}
+.emp-name::first-letter{text-transform: uppercase}
 .msg-record{
 	width: 100%;
 	overflow:hidden;

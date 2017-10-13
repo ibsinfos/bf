@@ -51,8 +51,32 @@
 <div <?php post_class('container single-project site-container');?>>
 	<div id="content" class="site-content">
 
-        <div class="col-md-12"><h1 class="project-title"><?php the_title();?></h1></div>
-        <?php heading_project_info($project, $is_workspace);?>
+        <div class="col-md-12">
+        	<h1 class="project-title"><?php the_title();?></h1></div>
+        	<div class="full heading">
+        		<div class="full">
+        			<div class ="col-md-2 no-padding-right"><?php _e('Status','boxtheme');?></div>
+			      	<div class="col-md-3">Post date</div>
+			      	<div class="col-md-3">Budget</div>
+			      	<div class="col-md-4">
+			      	</div>
+        		</div>
+        		<div class="full">
+					<div class ="col-md-2 no-padding-right"> <?php echo $project->post_status; ?></div>
+			      	<div class="col-md-3"><?php echo get_the_date();?></div>
+			      	<div class="col-md-3"><?php echo box_get_price_format($project->_budget); ?> </div>
+			      	<div class="col-md-4"> 	<?php
+			      	global $access_workspace;
+
+			      	if( $project->post_status != 'publish' && $access_workspace ) {
+			      		step_process($is_workspace);
+			      	} else {
+			      		box_social_share();
+			      	} ?>
+			      	</div>
+			    </div>
+
+			</div> <!-- full !-->
         <div class="detail-project">
             <div class="wrap-content"> <?php
 
@@ -61,14 +85,16 @@
       			} else if( $access_workspace && $is_dispute ){
       				get_template_part( 'template-parts/dispute' );
 			    } else { ?>
-			    <div class="col-md-8">
-       					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
+			    	<div class="full row-detail-section">
+				    	<div class="col-md-8 left-project-column">
+		   					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
 
-			       	</div> <!-- .col-md-8  Job details !-->
-				    <div class="col-md-4 sidebar" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
-      				<div class="col-md-12">
-      					<?php get_template_part( 'template-parts/list', 'bid' ); ?>
-      				</div>
+				       	</div> <!-- .col-md-8  Job details !-->
+					    <div class="col-md-4 sidebar right-project-column" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
+					</div>
+					<div class="full row-detail-section">
+		  				<div class="col-md-12">	<?php get_template_part( 'template-parts/list', 'bid' ); ?>				</div>
+	  				</div>
 			    <?php } ?>
             </div> <!-- .wrap-content !-->
         </div> <!-- .detail-project !-->
