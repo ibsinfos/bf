@@ -7,6 +7,7 @@
 }
 .full.heading{
 	overflow: hidden;
+	padding-top: 20px;
 }
 .wrap-content{
 	background: #f2f2f2;
@@ -291,14 +292,14 @@ ul.list-category li{
 	padding-top: 0;
 	overflow:hidden;
 }
-.social-shares{margin:0; padding: 0;}
+.social-shares{margin:0; padding: 0; float: left; width: 100%;}
 .social-shares li{
 	display: inline;
 	list-style: none;
 	float: left;
 }
 li.share-item {
-    width: 33px;
+    width: 33%;
     position: relative;
     float: right;
     height: 25px;

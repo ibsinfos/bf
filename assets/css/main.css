@@ -1473,3 +1473,19 @@ h5.port-title {
 	font-size: 13px;
 
 }
+.large-label{
+	font-size: 16px;
+}
+.job-status{
+	position: relative;
+	top: -7px;
+}
+.label-status{
+	font-size: 23px;
+	text-align: center;
+	display: block;
+}
+.time-job-left{
+	display: block;
+	text-align: center;
+}

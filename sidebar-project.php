@@ -27,7 +27,7 @@ if(empty($score) || !$score){
 }
 
 ?>
-<div class="main-btn-react">
+<div class="main-btn-react hide">
 	<button class="contact-me primary-bg"> Contact me</button>
 </div>
 <div class="block-employer-info">

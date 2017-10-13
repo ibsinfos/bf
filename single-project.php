@@ -52,29 +52,23 @@
         <div class="col-md-12">
         	<h1 class="project-title"><?php the_title();?></h1></div>
         	<div class="full heading">
-        		<div class="full label-line">
-        			<div class ="col-md-2 no-padding-right"><?php _e('Status','boxtheme');?></div>
-			      	<div class="col-md-2">Post date</div>
-			      	<div class="col-md-2">Budget</div>
-			      	<div class="col-md-2">Bids</div>
-			      	<div class="col-md-2">Views</div>
-			      	<div class="col-md-2">
-			      	</div>
-        		</div>
         		<div class="full value-line">
-					<div class ="col-md-2 no-padding-right"> <?php echo $project->post_status; ?></div>
-			      	<div class="col-md-2"><?php echo get_the_date();?></div>
-			      	<div class="col-md-2"><?php echo box_get_price_format($project->_budget); ?> </div>
-			      	<div class="col-md-2">10 Bids</div>
-			      	<div class="col-md-2">3</div>
-			      	<div class="col-md-2"> 	<?php
-			      	global $access_workspace;
+			      	<div class="col-md-2">Budget <br /> <span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
+			      	<div class="col-md-2"> Bids <br />  <span class="primary-color large-label">10</span></div>
+			      	<div class="col-md-2"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
+			      	<div class="col-md-5 pull-right">
+			      		<div class="job-status">
+			      				<span class="time-job-left"> 6 days, 23 hours left</span>
+			      				<span class="label-status primary-color">OPEN</span>
+			      		</div>
+			      		<?php
+			      		global $access_workspace;
 
-			      	if( $project->post_status != 'publish' && $access_workspace ) {
-			      		step_process($is_workspace);
-			      	} else {
-			      		box_social_share();
-			      	} ?>
+			      		if( $project->post_status != 'publish' && $access_workspace ) {
+			      			step_process($is_workspace);
+			      		} else {
+			      			//box_social_share();
+			      		} ?>
 			      	</div>
 			    </div>
 
