@@ -339,12 +339,15 @@ li.share-item:hover  center span{
 	margin: 0;
 }
 .list-employer-info li {
-	padding: 15px 30px 15px 40px;
+	padding: 12px 30px 12px 40px;
 	clear: both;
 	display: block;
 	overflow-y: hidden;
 	border-bottom: 1px solid #f4f6f8;
 
+}
+.list-employer-info li .text-right{
+	font-weight: bold;
 }
 .list-employer-info li.item-avatar{
 	padding-left: 25px;
@@ -367,7 +370,7 @@ li.share-item:hover  center span{
 }
 div.block-employer-info {
     background: #fff;
-    padding: 0 0 35px;
+    padding: 0 0 0px;
     overflow: hidden;
     margin-top: 0;
     border-bottom: 10px solid #f2f2f2;
