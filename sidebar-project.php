@@ -40,7 +40,6 @@ if(empty($score) || !$score){
 				<label class="emp-name"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php echo $user->display_name ;?>  </a> </label>
 				<span class="member-since"> Member Since May 16, 2017</span>
 			</div>
-
 		</li>
 		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php echo $txt_country;?></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted <span class='text-right pull-right'>%d</span>",'boxtheme'), $project_posted);?></li>

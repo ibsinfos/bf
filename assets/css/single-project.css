@@ -14,14 +14,14 @@
 	width: 100%;
 	padding-top: 10px;
 }
-.left-project-column{
+.column-left-detail{
 	background: #fff;
-	min-height: 654px;
-	padding-bottom: 15px;
+	min-height: 579px;
 	border-right: 10px solid #f2f2f2;
+	padding-bottom: 0;
 }
-.right-project-column{
-	background-color: #f2f2f2;
+.column-right-detail{
+	background-color: #fff;
 	padding-right: 0;
 	padding-left: 0;
 }
@@ -244,7 +244,7 @@ ul.list-category li{
 	color: #17a717;
 }
 .wrap-workspace{
-
+	background: #fff;
 }
 .list-bid-heading{
 	padding: 15px 0;
@@ -361,12 +361,7 @@ li.share-item:hover  center span{
     font-size: 19px;
 
 }
-.row-detail-section{
-	background: #fff;
-	margin-bottom: 10px;
-	float: left;
-}
-.row-detail-section .set-bg{
+.column-left-detail .set-bg{
 	background: #fff;
 }
 div.block-employer-info {
@@ -490,4 +485,10 @@ a:hover{
 	width: 250px;
 	float: left;
 	overflow-y: hidden;
+}
+.row-detail-section{
+	background: #fff;
+	float: left;
+	margin-bottom: 10px;
+	padding-bottom: 0;
 }

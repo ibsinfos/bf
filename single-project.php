@@ -85,12 +85,12 @@
       			} else if( $access_workspace && $is_dispute ){
       				get_template_part( 'template-parts/dispute' );
 			    } else { ?>
-			    	<div class="full row-detail-section">
-				    	<div class="col-md-8 left-project-column">
+			    	<div class="full row-detail-section ">
+				    	<div class="col-md-8 column-left-detail">
 		   					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
 
 				       	</div> <!-- .col-md-8  Job details !-->
-					    <div class="col-md-4 sidebar right-project-column" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
+					    <div class="col-md-4 sidebar column-right-detail" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
 					</div>
 					<div class="full row-detail-section">
 		  				<div class="col-md-12 set-bg">	<?php get_template_part( 'template-parts/list', 'bid' ); ?>				</div>
