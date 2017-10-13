@@ -18,7 +18,7 @@ if(empty($score) || !$score){
 }
 ?>
 <div class="block-employer-info">
-<h3> <?php _e('Employer Information','boxtheme');?></h3>
+	<h3> <?php _e('Employer Information','boxtheme');?></h3>
 	<ul class="list-employer-info">
 		<li class="item-avatar">
 			<div class="left-emp-avatar">
@@ -34,11 +34,15 @@ if(empty($score) || !$score){
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted: <span class='text-right pull-right'>%d</span>",'boxtheme'), $project_posted);?></li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers Hired: <span class='text-right pull-right'>%d</span>",'boxtheme'), $fre_hired);?></li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf(__("Total Spent ($): <span class='text-right pull-right'>%s</span>",'boxtheme'), $total_spent );?></li>
-
 		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
 	</ul>
+
+</div>
+<div class="company-pictures">
+		<img src="<?php echo  get_template_directory_uri().'/img/banner.jpg';?>" />
 </div>
 <?php
+
 function show_bid_buton($post){
 	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
 	echo '<a class ="btn-login text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Login to bid','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
