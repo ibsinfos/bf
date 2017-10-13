@@ -205,10 +205,20 @@ class BX_Bid extends BX_Post{
 	}
 	function is_can_bid( $project ) {
 
-		if (  $project->post_status == 'publish' && bx_get_user_role() == FREELANCER ) {
-			return true;
+		if (  $project->post_status == 'publish' ) {
+			if( ! is_user_logged_in() )
+				return '1';
+
+			global $user_ID;
+			if( $project->post_author == $user_ID )
+				return '222';
+
+			if ( bx_get_user_role() == FREELANCER)
+				return true;
+			else
+				return '555';
 		}
-		return false;
+		return '666';
 
 	}
 

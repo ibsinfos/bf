@@ -26,8 +26,6 @@ if(empty($score) || !$score){
 	$score = 0;
 }
 
-
-
 ?>
 <div class="block-employer-info">
 	<h3> <?php _e('Employer Information','boxtheme');?></h3>

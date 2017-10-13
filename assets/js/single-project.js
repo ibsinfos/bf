@@ -44,6 +44,15 @@ var single_project = {
 		}
 		var height = $("body").css("height")-100;
 
+
+		var h_right = $(".column-right-detail").css('height');
+			h_left = $(".column-left-detail").css('height');
+
+		if( parseInt( h_right ) > parseInt( h_left ) ){
+
+			$(".column-left-detail").css('min-height',h_right);
+		}
+
 		$("#frame_chat").css('height',height);
 		var view = this;
 
