@@ -54,14 +54,14 @@
         <div class="col-md-12">
         	<h1 class="project-title"><?php the_title();?></h1></div>
         	<div class="full heading">
-        		<div class="full">
+        		<div class="full label-line">
         			<div class ="col-md-2 no-padding-right"><?php _e('Status','boxtheme');?></div>
 			      	<div class="col-md-3">Post date</div>
 			      	<div class="col-md-3">Budget</div>
 			      	<div class="col-md-4">
 			      	</div>
         		</div>
-        		<div class="full">
+        		<div class="full value-line">
 					<div class ="col-md-2 no-padding-right"> <?php echo $project->post_status; ?></div>
 			      	<div class="col-md-3"><?php echo get_the_date();?></div>
 			      	<div class="col-md-3"><?php echo box_get_price_format($project->_budget); ?> </div>
@@ -77,7 +77,7 @@
 			    </div>
 
 			</div> <!-- full !-->
-        <div class="detail-project">
+        <div class="detail-project second-font">
             <div class="wrap-content"> <?php
 
        			if ( $access_workspace &&  $is_workspace ) {
@@ -93,7 +93,7 @@
 					    <div class="col-md-4 sidebar right-project-column" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
 					</div>
 					<div class="full row-detail-section">
-		  				<div class="col-md-12">	<?php get_template_part( 'template-parts/list', 'bid' ); ?>				</div>
+		  				<div class="col-md-12 set-bg">	<?php get_template_part( 'template-parts/list', 'bid' ); ?>				</div>
 	  				</div>
 			    <?php } ?>
             </div> <!-- .wrap-content !-->

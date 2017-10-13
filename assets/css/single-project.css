@@ -16,12 +16,14 @@
 }
 .left-project-column{
 	background: #fff;
-	border-right: 10px solid #f2f2f2;
 	min-height: 350px;
 	padding-bottom: 15px;
+	border-right: 10px solid #f2f2f2;
 }
 .right-project-column{
-	background: #fff;
+	background-color: #f2f2f2;
+	padding-right: 0;
+	padding-left: 0;
 }
 .full.heading div{
 	padding: 8px auto;
@@ -296,16 +298,20 @@ ul.list-category li{
 	float: left;
 }
 li.share-item {
-    width: 33.333%;
+    width: 33px;
     position: relative;
     float: right;
-    text-align: center;
     height: 25px;
     line-height: 25px;
 }
+li.share-item  a{
+	display: block;
+	text-align: center;
+}
 li.share-item .fa{
 	border-radius: 50%;
-	color: #fff;
+	color: #666;
+	display: block;
 }
 li.share-item  center span{
 	color:#fff;
@@ -326,13 +332,13 @@ li.share-item:hover  center span{
 	z-index: 100;
 }
 .social-shares li.fb-share{
-	background: #3a589e;
+	background1: #3a589e;
 }
 .social-shares li.tw-share{
-	background: #429cd6;
+	background1: #429cd6;
 }
 .social-shares li.gplus-share{
-	background: #df4b37;
+	background1: #df4b37;
 }
 .fb-share-button iframe{
 
@@ -358,11 +364,15 @@ li.share-item:hover  center span{
 	margin-bottom: 5px;
 	float: left;
 }
+.row-detail-section .set-bg{
+	background: #fff;
+}
 div.block-employer-info {
     background: #fff;
     padding: 0 15px 35px;
     overflow: hidden;
     margin-top: 0;
+    border-bottom: 10px solid #f2f2f2;
 }
 .detail-project .btn-login {
     width: 200px;

@@ -22,7 +22,7 @@ $role = bx_get_user_role();
 	<link href="https://fonts.googleapis.com/css?family=Lato|PT+Sans|Raleway|Noto+Sans|Roboto|Josefin+Sans" rel="stylesheet">
 	<style type="text/css">
 		body{
-			font-family: 'Roboto', sans-serif;
+			font-family: 'Raleway', sans-serif;
 			font-size: 14px;
 			color: #666;
 			/*font-family: 'Josefin Sans', sans-serif !important;

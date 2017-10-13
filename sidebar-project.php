@@ -50,6 +50,6 @@ if ( $is_logged ) {
 	}
 } else if ( $project->post_status == 'publish' ) {
 	//is visitor
-	show_bid_buton($project);
+	//show_bid_buton($project);
 }
 ?>
