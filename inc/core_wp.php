@@ -12,12 +12,19 @@ function box_set_favicon( $url, $size, $blog_id ) {
 add_action( 'wp_head', 'box_add_meta_head', 99);
 function box_add_meta_head(){
 
-	global $box_general, $app_api;
+	global $box_general, $app_api, $main_img;
+
 	$gg_captcha = (object) $app_api->gg_captcha;
 	$enable = (int) $gg_captcha->enable;
 
 	if( ! empty ( $box_general->google_analytic ) ){
 		echo stripslashes($box_general->google_analytic);
+	}
+	if( is_home() || is_front_page() ){
+		$main_img = get_theme_mod('main_img',  get_template_directory_uri().'/img/banner.jpg' ); // only query in home page;
+		?>
+		<meta property="og:image" content="<?php echo $main_img;?>">
+		<?php
 	}
 	if( is_singular( PROJECT ) ){
 		if( have_posts() ){

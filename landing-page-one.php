@@ -25,7 +25,8 @@ add_action('after_cover_img','box_after_cover_img' );
 function box_after_cover_img(){
 	echo '</div>';
 }
-$main_img = get_theme_mod('main_img',  get_template_directory_uri().'/img/banner.jpg' );
+global $main_img;
+//$main_img = get_theme_mod('main_img',  get_template_directory_uri().'/img/banner.jpg' );
 get_header(); ?>
 <?php global $role;?>
 <div class="full-width cover-content">
