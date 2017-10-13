@@ -1247,7 +1247,7 @@ form.focus .btn-send-message{
 .col-md-4.port-item{
 	padding-bottom: 30px;
 	margin-top: 25px;
-	height: 166px;
+	height: 200px;
 	overflow: hidden;
 }
 .col-md-4.port-item img:hover{
@@ -1257,8 +1257,8 @@ form.focus .btn-send-message{
 .port-item img{
 	height: auto;
 	max-width: 100%;
-	max-height: 166px;
 	height: auto;
+	overflow-y: hidden;
 }
 .navbar-form.frm-search{
 	padding-left: 0;
