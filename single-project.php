@@ -24,25 +24,7 @@
 		$bidding = is_current_user_bidded($project->ID);
 	}
 
-	function step_process( $is_workspace ){
-		global $project, $access_workspace, $winner_id, $is_dispute;
-		$class = $detail_section = $dispute_section = '';
-		if( $is_workspace ){
-			$class ='current-section';
-		} else if( $is_dispute) {
-			$dispute_section = 'current-section';
-		} else {
-			$detail_section = 'current-section';
-		}
 
-		if( $access_workspace && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ) { ?>
-	    	<ul class="job-process-heading">
-				<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>
-				<li class=" text-center <?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
-				<li class="text-right <?php echo $dispute_section;?>"><a href="?dispute=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Dispute','boxtheme');?></a>	</li>
-	    	</ul> <?php
-	    }
-	}
 	the_post();
 ?>
 
@@ -56,7 +38,7 @@
 			      	<div class="col-md-2">Budget <br /> <span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
 			      	<div class="col-md-2"> Bids <br />  <span class="primary-color large-label">10</span></div>
 			      	<div class="col-md-2"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
-			      	<div class="col-md-5 pull-right">
+			      	<div class="col-md-4 pull-right">
 			      		<div class="job-status">
 			      				<span class="time-job-left"> 6 days, 23 hours left</span>
 			      				<span class="label-status primary-color">OPEN</span>

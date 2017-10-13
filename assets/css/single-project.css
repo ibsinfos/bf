@@ -292,7 +292,15 @@ ul.list-category li{
 	padding-top: 0;
 	overflow:hidden;
 }
-.social-shares{margin:0; padding: 0; float: left; width: 100%;}
+.social-shares {
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 199px;
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
 .social-shares li{
 	display: inline;
 	list-style: none;
