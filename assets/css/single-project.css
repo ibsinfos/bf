@@ -331,15 +331,6 @@ li.share-item:hover  center span{
 .fb-invisi a{
 	z-index: 100;
 }
-.social-shares li.fb-share{
-	background1: #3a589e;
-}
-.social-shares li.tw-share{
-	background1: #429cd6;
-}
-.social-shares li.gplus-share{
-	background1: #df4b37;
-}
 .fb-share-button iframe{
 
 }
@@ -348,23 +339,27 @@ li.share-item:hover  center span{
 	margin: 0;
 }
 .list-employer-info li {
-	padding-bottom: 15px;
-	vertical-align: top;
+	padding: 15px 30px 15px 40px;
 	clear: both;
 	display: block;
 	overflow-y: hidden;
+	border-bottom: 1px solid #f4f6f8;
+
+}
+.list-employer-info li.item-avatar{
+	padding-left: 25px;
 }
 .list-employer-info li i.bcon{
 	position: relative;
 	top: 3px;
-    padding-right: 15px;
+    padding-right: 35px;
     width: 33px;
     font-size: 19px;
 
 }
 .row-detail-section{
 	background: #fff;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	float: left;
 }
 .row-detail-section .set-bg{
@@ -372,7 +367,7 @@ li.share-item:hover  center span{
 }
 div.block-employer-info {
     background: #fff;
-    padding: 0 15px 35px;
+    padding: 0 0 35px;
     overflow: hidden;
     margin-top: 0;
     border-bottom: 10px solid #f2f2f2;
@@ -387,10 +382,11 @@ div.block-employer-info {
     color: #17a717;
 }
 .block-employer-info h3{
-	padding: 7px 0px 14px 0;
+	padding: 15px 0px 15px 30px;
 	font-size: 19px;
 }
-.list-employer-info  .rating{ padding: 0; }
+
+
 .list-employer-info  .rating i{padding-right: 10px; font-size: 19px;}
 .btn-cancel-bid{
 	position: absolute;
