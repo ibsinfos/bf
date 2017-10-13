@@ -54,16 +54,20 @@
         	<div class="full heading">
         		<div class="full label-line">
         			<div class ="col-md-2 no-padding-right"><?php _e('Status','boxtheme');?></div>
-			      	<div class="col-md-3">Post date</div>
-			      	<div class="col-md-3">Budget</div>
-			      	<div class="col-md-4">
+			      	<div class="col-md-2">Post date</div>
+			      	<div class="col-md-2">Budget</div>
+			      	<div class="col-md-2">Bids</div>
+			      	<div class="col-md-2">Views</div>
+			      	<div class="col-md-2">
 			      	</div>
         		</div>
         		<div class="full value-line">
 					<div class ="col-md-2 no-padding-right"> <?php echo $project->post_status; ?></div>
-			      	<div class="col-md-3"><?php echo get_the_date();?></div>
-			      	<div class="col-md-3"><?php echo box_get_price_format($project->_budget); ?> </div>
-			      	<div class="col-md-4"> 	<?php
+			      	<div class="col-md-2"><?php echo get_the_date();?></div>
+			      	<div class="col-md-2"><?php echo box_get_price_format($project->_budget); ?> </div>
+			      	<div class="col-md-2">10 Bids</div>
+			      	<div class="col-md-2">3</div>
+			      	<div class="col-md-2"> 	<?php
 			      	global $access_workspace;
 
 			      	if( $project->post_status != 'publish' && $access_workspace ) {

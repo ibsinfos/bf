@@ -369,7 +369,18 @@ div.block-employer-info {
     padding: 0 0 0px;
     overflow: hidden;
     margin-top: 0;
-    border-bottom: 10px solid #f2f2f2;
+
+}
+.main-btn-react, .block-employer-info {
+	border-bottom: 10px solid #f2f2f2;
+}
+.main-btn-react{
+	padding: 15px;
+}
+.contact-me{
+	border:0;
+	box-shadow: none;
+	padding: 6px 15px;
 }
 .detail-project .btn-login,
 .detail-project .btn-bid-now {
