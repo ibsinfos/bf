@@ -20,7 +20,16 @@ if(empty($score) || !$score){
 <div class="block-employer-info">
 <h3> <?php _e('Employer Information','boxtheme');?></h3>
 	<ul class="list-employer-info">
-		<li><span class="emp-name"><?php echo $user->display_name ;?></span></li>
+		<li class="item-avatar">
+			<div class="left-emp-avatar">
+				<?php echo get_avatar( $user->ID, 33);?> &nbsp;
+			</div>
+			<div class="right-emp-avatar">
+				<label class="emp-name"><?php echo $user->display_name ;?></label>
+				<span class="member-since"> Member Since May 16, 2017</span>
+			</div>
+
+		</li>
 		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php echo $txt_country;?></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted: %d",'boxtheme'), $project_posted);?></li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers Hired: %d",'boxtheme'), $fre_hired);?></li>

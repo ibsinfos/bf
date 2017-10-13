@@ -350,6 +350,9 @@ li.share-item:hover  center span{
 .list-employer-info li {
 	padding-bottom: 15px;
 	vertical-align: top;
+	clear: both;
+	display: block;
+	overflow-y: hidden;
 }
 .list-employer-info li i.bcon{
 	position: relative;
@@ -405,7 +408,15 @@ a:hover{
 .job-content ul, .job-content ol{
 	margin-left: 40px;
 }
-
+.emp-name{
+	display: block;
+	margin: 0;
+}
+.member-since{
+	font-size: 12px;
+	top: -7px;
+	position: relative;
+}
 .emp-name::first-letter{text-transform: uppercase}
 .msg-record{
 	width: 100%;
@@ -446,4 +457,18 @@ a:hover{
     left: 94px;
     border: 1px solid #ccc;
     padding: 5px 6px;
+}
+.left-emp-avatar{
+	width: 50px;
+	float: left;
+}
+.left-emp-avatar img{
+	max-width: 35px;
+	border-radius: 50%;
+	margin-top: 5px;
+}
+.right-emp-avatar{
+	width: 250px;
+	float: left;
+	overflow-y: hidden;
 }
