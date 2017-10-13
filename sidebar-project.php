@@ -2,7 +2,7 @@
 function show_bid_buton($post){
 	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
 	if( is_user_logged_in() ){
-		echo '<a class ="btn-bid-now text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Bid Now','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
+		echo '<button class ="btn-bid-now text-right pull-right" > &nbsp; '.__('Bid Now','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </button>';
 	} else {
 		echo '<a class ="btn-login text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Login to bid','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
 	}
@@ -47,27 +47,12 @@ if(empty($score) || !$score){
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers Hired <span class='text-right pull-right'>%d</span>",'boxtheme'), $fre_hired);?></li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf(__("Total Spent ($) <span class='text-right pull-right'>%f</span>",'boxtheme'), $total_spent );?></li>
 		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
+		<?php if ( $current_user_can_bid && ! $bidding ) { ?>
+			<li><?php show_bid_buton($project);?></li>
+		<?php }?>
 	</ul>
 </div>
 
-<?php
-
-
-if ( $is_logged ) {
-
-	if ( $current_user_can_bid  ) { // chec post_status = publish and freelancer role.
-		// is freelancer and logged
-		if ( ! $bidding){
-			show_bid_buton($project);
-			//get_template_part( 'template-parts/project/bid', 'form' ); //bid_form include bid-form.php file
-		}
-
-	}
-} else if ( $project->post_status == 'publish' ) {
-	//is visitor
-	show_bid_buton($project);
-}
-?>
 <div class="company-pictures">
 		<img src="<?php echo  get_template_directory_uri().'/img/banner.jpg';?>" />
 </div>
