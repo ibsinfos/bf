@@ -376,14 +376,22 @@ div.block-employer-info {
     margin-top: 0;
     border-bottom: 10px solid #f2f2f2;
 }
-.detail-project .btn-login {
-    width: 200px;
-    margin-top: 30px;
+.detail-project .btn-login,
+.detail-project .btn-bid-now {
+    width: 100%;
+    margin-top: 0px;
     text-align: center;
     border: 1px solid #17a717;
-    border-radius: 26px;
+    border-radius: 1px;
     padding: 7px 0;
     color: #17a717;
+    margin-bottom: 10px;
+    float: left;
+    background: #fff;
+}
+.detail-project .btn-bid-now {
+	font-size: 18px;
+	font-weight: bold;
 }
 .block-employer-info h3{
 	padding: 15px 0px 15px 30px;
