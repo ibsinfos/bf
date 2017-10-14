@@ -3,7 +3,7 @@
 
 	get_header();
 
-	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
 
 	$cvs_id = $is_owner = $access_workspace =  0;
 
@@ -29,6 +29,15 @@
 
 	the_post();
 
+	$args = array(
+		'post_type' => BID,
+		'post_parent' => $project->ID,
+		'posts_per_page' => -1,
+	);
+
+	$bid_query = new WP_Query($args);
+	wp_reset_query();
+
 ?>
 
 <div <?php post_class('container single-project site-container');?>>
@@ -41,7 +50,7 @@
         			<div class="col-md-5 col-xs-12 right-top-heading">
 
 				      	<div class="col-md-4 col-xs-4"><span class="heading-label">Budget </span><span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
-				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Bids </span> <span class="primary-color large-label">10</span></div>
+				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Bids </span> <span class="primary-color large-label"><?php echo $bid_query->found_posts;?></span></div>
 				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> 3 </span></div>
 			      	</div>
 			      	<?php
