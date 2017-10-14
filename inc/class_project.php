@@ -313,12 +313,12 @@ Class BX_Project extends BX_Post{
 
 		$project_id = $args['project_id'];
 		$project = get_post($project_id);
-
-		if( $user_ID != $project->post_author ){
-			return new WP_Error( 'unsecurity', __('You don\'t have permissiton to perform this action','boxtheme') );
+		$check = $this->check_workspace_action($project);
+		if ( is_wp_error( $check ) ){
+			return $check;
 		}
 
-		if( $project->post_status != AWARDED ){
+		if ( $project->post_status != AWARDED ){
 			return new WP_Error( 'status_wrong', __('This job is archived','boxtheme') );
 		}
 		$employer_id = $project->post_author;
@@ -335,8 +335,8 @@ Class BX_Project extends BX_Post{
 		BX_Order::get_instance()->create_undeposit_order($bid_price, $project);
 
 		$request['ID'] = $project_id;
-		$request['post_status'] = ARCHIVED;
-		//$request['post_status'] = 'publish';
+		//$request['post_status'] = ARCHIVED;
+		$request['post_status'] = 'publish';
 		$request['meta_input'] = array(
 			WINNER_ID => 0,
 			BID_ID_WIN => 0,

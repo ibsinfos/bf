@@ -70,7 +70,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 					<button class="btn-create-conversation  btn-act-message primary-color" ><img src="<?php echo get_template_directory_uri().'/img/chat.png';?>" /> <?php _e('Send Message','boxtheme');?></button>
 				<?php } ?>
 			 	<button class="inline btn-status-display no-radius btn-toggle-award primary-color" id="<?php echo $bid->ID;?>"> <i class="fa fa-thumbs-o-up primary-colo" aria-hidden="true"></i> <?php _e('Hire Freelancer','boxtheme');?></button>
-			<?php } else if ( $bidding && $bidding->ID == $bid->ID ) { // show cancel bid for current freelancer .
+			<?php } else if ( $bidding && $bidding->ID == $bid->ID && $project->post_status == 'publish' ) { // show cancel bid for current freelancer .
 				echo '<div class="full"><a class="btn-del-bid" rel="'.$bidding->ID.'">'.__('CANCEL (X)','boxtheme').' &nbsp;</a></div>';
 			}?>
 	</div>
