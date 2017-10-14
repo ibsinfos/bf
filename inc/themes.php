@@ -319,7 +319,7 @@ function step_process( $is_workspace ){
 	}
 	function box_project_status($status){
 		$args = array(
-			'public' => __('Open','boxtheme'),
+			'publish' => __('Open','boxtheme'),
 			'pending' => __('Pending','boxtheme'),
 			'draft' => __('Draft','boxtheme'),
 			'awared' => __('Awared','boxtheme'),

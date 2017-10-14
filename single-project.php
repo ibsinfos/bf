@@ -42,7 +42,6 @@
 			      	<div class="col-md-2"> Bids <br />  <span class="primary-color large-label">10</span></div>
 			      	<div class="col-md-2"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
 			      	<?php
-
 	      			if( $access_workspace ){
 	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
 	      					<div class="col-md-2 pull-right no-padding-left">
