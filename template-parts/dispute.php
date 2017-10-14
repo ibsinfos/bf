@@ -13,8 +13,12 @@
 			);
 			foreach ($feebacks as $key => $msg) {
 				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
-
-				echo '<strong>'.$display_name[$msg->sender_id].'</strong> feedback in <small>'.$msg->msg_date.'</small> : <br />';
+				if( $msg->receiver_id != 0 ){ // employer or freelancer send.
+					echo '<strong>'.$display_name[$msg->sender_id].'</strong>';
+				} else {
+					echo '<strong>Administrator </strong>';
+				}
+				echo ' feedback in <small>'.$msg->msg_date.'</small> : <br />';
 				echo $msg->msg_content .'<br />' ;
 
 				# code...

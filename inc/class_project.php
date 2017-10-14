@@ -371,7 +371,10 @@ Class BX_Project extends BX_Post{
 		$act = isset($args['act']) ? $args['act'] : 0;
 		$emp_id = isset($args['emp_id']) ? $args['emp_id'] : 0;
 		$fre_id = isset($args['fre_id']) ? $args['fre_id'] : 0;
-
+		$response = array('success' => true,'msg' => 'done');
+		if( ! current_user_can( 'manage_option' ) ){
+			wp_die('Die');
+		}
 		switch ($act) {
 			case 'ask_fre':
 				$this->insert_disputing_msg($fre_id, $args);
@@ -380,19 +383,25 @@ Class BX_Project extends BX_Post{
 				$this->insert_disputing_msg($emp_id, $args);
 				break;
 			case 'choose_fre':
-				update_post_meta($)
+				update_post_meta($project_id,'choose_dispute_winner', $fre_id);
+				update_post_meta($project_id,'choose_dispute_msg', $args['msg_content']);
+				wp_update_post( array( 'ID'=>$profile_idm, 'post_status' => 'resolved') );
 				break;
 
 			case 'choose_emp':
-				# code...
+				update_post_meta($project_id,'choose_dispute_winner', $fre_id);
+				update_post_meta($project_id,'choose_dispute_msg', $args['msg_content']);
+				wp_update_post( array('ID'=>$profile_idm, 'post_status' => 'resolved'));
 				break;
 
 			default:
-				# code...
+				$response['success'] = false;
+				$response['msg'] = __('Please select 1 option.','boxtheme');
 				break;
 		}
 
 
+		wp_send_json( $response );
 	}
 	function insert_disputing_msg($receive_id, $args ){
 		$cvs_id = isset($args['cvs_id']) ? $args['cvs_id'] : 0;

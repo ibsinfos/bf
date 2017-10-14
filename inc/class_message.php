@@ -158,7 +158,7 @@ class BX_Message{
 				WHERE cvs_id = {$this->cvs_id}
 					AND msg_type = '{$type}'";
 		if( ! current_user_can(  'manage_options' ) )
-			$sql .= " AND receiver_id = '{$user_ID}' ";
+			$sql .= " AND ( receiver_id = '{$user_ID}' OR sender_id = '{$user_ID}') ";
 		$sql .= " ORDER BY id ASC";
 
 		$msgs =  $wpdb->get_results($sql);

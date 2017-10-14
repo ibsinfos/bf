@@ -297,7 +297,7 @@ var single_project = {
 		var success = function(res){
 			console.log(' fre_markascomplete');
         	if ( res.success ){
-        		//window.location.reload(true);
+        		window.location.reload(true);
 	        } else {
 	        	alert(res.msg);
 	        }
