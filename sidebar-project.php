@@ -2,9 +2,9 @@
 function show_bid_buton($post){
 	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
 	if( is_user_logged_in() ){
-		echo '<button class ="btn-bid-now text-right pull-right" > &nbsp; '.__('Bid Now','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </button>';
+		echo '<button class ="btn-bid-now text-right pull-right" > &nbsp; ' . __('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </button>';
 	} else {
-		echo '<a class ="btn-login text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Login to bid','boxtheme').' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
+		echo '<a class ="btn-login text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
 	}
 }
 
@@ -44,7 +44,7 @@ if(empty($score) || !$score){
 		</li>
 		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i>From <span class="pull-right"><?php echo $txt_country;?></span></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted <span class='text-right pull-right'>%d</span>",'boxtheme'), $project_posted);?></li>
-		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers Hired <span class='text-right pull-right'>%d</span>",'boxtheme'), $fre_hired);?></li>
+		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers hired <span class='text-right pull-right'>%d</span>",'boxtheme'), $fre_hired);?></li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf(__("Total Spent ($) <span class='text-right pull-right'>%f</span>",'boxtheme'), $total_spent );?></li>
 		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
 		<?php if ( $current_user_can_bid && ! $bidding ) { ?>
