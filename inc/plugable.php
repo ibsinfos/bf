@@ -66,15 +66,19 @@ function show_conversation( $freelancer_id, $project, $cvs_id = 0) {
 			echo '</div>';
 		} ?>
 		<form class="swp-send-message"  >
-			<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="Leave your message here"></textarea>
 			<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
 			<input type="hidden" name="receiver_id" value="<?php echo $freelancer_id;?>">
 			<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
 			<input type="hidden" name="method" value="insert">
-
-
+			<?php if( $project->post_status != 'disputing' ){ ?>
+			<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="Leave your message here"></textarea>
 			<br />
 			<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+			<?php } else {?>
+			<textarea name="msg_content" disabled class="full msg_content requred" required rows="3" placeholder="Chat is disable"></textarea>
+			<br />
+			<button type="reset" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+			<?php } ?>
 		</form>
 		<?php
 	}
