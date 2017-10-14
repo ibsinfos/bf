@@ -57,12 +57,18 @@
 			      			</div> <?php
 			      		}
 			      	}
-
+			      	$_expired_date = get_post_meta($project->ID,'_expired_date', true);
 			      	?>
 
 			      	<div class="col-md-3 pull-right">
 				      		<div class="job-status">
-				      				<span class="time-job-left"> 6 days, 23 hours left</span>
+				      				<span class="time-job-left">
+					      				<?php if( !empty( $_expired_date)){?>
+					      					 <?php printf(__('%s left',ET_DOMAIN), human_time_diff( time(), strtotime($_expired_date)) ); ?>
+					      				<?php } else {
+					      					printf(__('Posted %s ago','boxtheme'), human_time_diff( get_the_time('U'), time() ) );
+					      				} ?>
+				      				</span>
 				      				<span class="label-status primary-color"><?php echo box_project_status($project->post_status);?></span>
 				      		</div>
 
