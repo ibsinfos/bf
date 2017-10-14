@@ -219,3 +219,34 @@ $list_bid
 		</div>
 	</div>
 </div>
+<!--Begin dispute Modal !-->
+<div class="modal fade" id="disputeModal" tabindex="-1" role="dialog" aria-labelledby="disputeModal">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<?php
+					global $project, $user_ID;
+					$lb_title = __('Send a dispute request.','boxtheme');
+					$lb_reason = __("You are not happy to work on this. Please write your reason here. This job will be masked as disputing status and wait us review.",'boxtheme');
+					if( $user_ID == $project->post_author ){
+						$lb_reason = __('You are not happy to work with freelancer or the result of this contractor. Pleas write down your reason here. This job will be masked as disputing status and wait us review.','boxtheme');
+					}
+
+				?>
+				<h2 class="modal-title" id="disputeModalTitle"> <?php echo $lb_title;?></h2>
+			</div>
+		  	<div class="modal-body">
+		  		<form id="frm_quit_job">
+		          	<div class="form-group">
+		            	<label for="message-text" class="control-label"><?php echo $lb_reason;?></label>
+		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
+		            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
+		            </div>
+		            <div class="form-group text-right"><button type="submit" class="btn btn-primary "><?php _e('Dispute','boxtheme');?></button> </div>
+		        </form>
+		  	</div>
+		</div>
+	</div>
+</div>
+<!--End Dispute Modal !-->

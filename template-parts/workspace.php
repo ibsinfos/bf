@@ -12,7 +12,7 @@
 			if( $project->post_status =='awarded'  ){
 				$fre_markedascomplete = get_post_meta( $project->ID, 'fre_markedascomplete', true);
 				if( $user_ID == $project->post_author ){ // employer  ?>
-					<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
+					<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#disputeModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
 					<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#reviewModal" data-whatever="@mdo"><?php _e('Mark as Finish','box_theme');?></button>
 				<?php } else if( $user_ID == $winner_id  ){
 					if( empty($fre_markedascomplete)){ ?>
@@ -22,7 +22,7 @@
 					<?php if ( empty( $fre_markedascomplete ) ) { ?>
 						<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#freMarkAsComplete" data-whatever="@mdo"><?php _e('Mark as Complete','boxtheme');?></button>
 					<?php } else {?>
-						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
+						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#disputeModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
 					<?php } ?>
 
 				<?php }
@@ -82,7 +82,14 @@
 				}
 			echo '</div>';
 		} ?>
-
+	<div class="fb-history full col-md-12">
+		<h3 class="default-label">History feedback </h3>
+		<?php
+		if(!empty($fre_markedascomplete)){
+			echo 'Freelancer marked as complete in 10/2017';
+		}
+		?>
+	</div>
 	<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
 	<?php show_conversation($winner_id, $project, $cvs_id); ?>
 
