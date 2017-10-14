@@ -36,7 +36,7 @@
 
 		<?php
 
-		if($project->post_status == DONE){
+		if($project->post_status == DONE) {
 			echo '<div class="full review-section">'; ?>
 
 				<?php
@@ -91,8 +91,6 @@
 	</div> <!-- wrap-workspace !-->
 
 	<div class="col-md-4  column-right-detail">
-		<?php //step_process();?>
-
 		<div class="full">
 			<?php if( ! $is_fre_review  ){?>
 				<div id="container_file" class="clear block">

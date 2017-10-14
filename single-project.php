@@ -1,4 +1,6 @@
 <?php
+
+
 	get_header();
 
 	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid;
@@ -26,6 +28,7 @@
 
 
 	the_post();
+
 ?>
 
 <div <?php post_class('container single-project site-container');?>>
@@ -38,19 +41,33 @@
 			      	<div class="col-md-2">Budget <br /> <span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
 			      	<div class="col-md-2"> Bids <br />  <span class="primary-color large-label">10</span></div>
 			      	<div class="col-md-2"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
-			      	<div class="col-md-4 pull-right">
-			      		<div class="job-status">
-			      				<span class="time-job-left"> 6 days, 23 hours left</span>
-			      				<span class="label-status primary-color">OPEN</span>
-			      		</div>
-			      		<?php
-			      		global $access_workspace;
+			      	<?php
 
-			      		if( $project->post_status != 'publish' && $access_workspace ) {
-			      			step_process($is_workspace);
-			      		} else {
-			      			//box_social_share();
-			      		} ?>
+	      			if( $access_workspace ){
+	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
+	      					<div class="col-md-2 pull-right">
+			      				<ul class="job-process-heading">
+
+	      						<?php if( ! $is_workspace  ) { ?>
+			      					<li class=" text-center <?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Go to Workspace','boxtheme');?></a>	</li>
+			      				<?php } else {?>
+			      					<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Back to Detail','boxtheme');?></a></li>
+			      				<?php } ?>
+			      				</ul>
+			      			</div> <?php
+			      		}
+			      	}
+			      	?>
+
+			      	<div class="col-md-3 pull-right">
+
+
+				      		<div class="job-status">
+				      				<span class="time-job-left"> 6 days, 23 hours left</span>
+				      				<span class="label-status primary-color">OPEN</span>
+				      		</div>
+
+
 			      	</div>
 			    </div>
 

@@ -1,35 +1,13 @@
 <?php
-	function step_process( $is_workspace ){
-		global $project, $access_workspace, $winner_id, $is_dispute;
-		$class = $detail_section = $dispute_section = '';
-		if( $is_workspace ){
-			$class ='current-section';
-		} else if( $is_dispute) {
-			$dispute_section = 'current-section';
-		} else {
-			$detail_section = 'current-section';
-		}
 
-		if( $access_workspace && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ) { ?>
-	    	<ul class="job-process-heading">
-				<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>
-				<li class=" text-center <?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Workspace','boxtheme');?></a>	</li>
-				<li class="text-right <?php echo $dispute_section;?>"><a href="?dispute=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Dispute','boxtheme');?></a>	</li>
-	    	</ul> <?php
-	    }
-	}
 
 ?>
 <div class="full job-content second-font">
 <h3> <?php _e('Job details','boxtheme');?> </h3>
 <?php
 	global $access_workspacem, $is_workspace;
+	box_social_share();
 
-	if( $project->post_status != 'publish' && $access_workspace ) {
-		step_process($is_workspace);
-	} else {
-		box_social_share();
-	}
 ?>
 
 <?php the_content(); ?>

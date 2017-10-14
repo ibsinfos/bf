@@ -8,6 +8,7 @@ function show_bid_buton($post){
 	}
 }
 
+
 global $user_ID, $project, $is_owner, $access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding, $is_logged, $current_user_can_bid;
 $user = get_userdata($project->post_author );
 
@@ -27,9 +28,10 @@ if(empty($score) || !$score){
 }
 
 ?>
-<div class="main-btn-react hide">
-	<button class="contact-me primary-bg"> Contact me</button>
-</div>
+	<div class="main-btn-react  hide">
+		<button class="contact-me primary-bg"> WorkSpace</button><button class="contact-me primary-bg">Dispute</button>
+	</div>
+
 <div class="block-employer-info">
 	<h3> <?php _e('Employer Information','boxtheme');?></h3>
 	<ul class="list-employer-info">
