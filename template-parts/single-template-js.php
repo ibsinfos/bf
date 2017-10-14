@@ -193,7 +193,7 @@ $list_bid
 				<h2 class="modal-title" id="freMarkAsCompleteh2"><?php _e('Let employer know that you have completed this job','boxtheme');?>.</h2>
 			</div>
 		  	<div class="modal-body">
-		  		<form id="fre_markascomplete">
+		  		<form id="fre_markascomplete" class="fre_markascomplete">
 		          	<div class="form-group">
 		            	<p for="message-text" class="control-label">Leave your detail message here that help employer know the status of project and your message.</p>
 		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
@@ -215,14 +215,9 @@ $list_bid
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<?php
 					global $project, $user_ID;
+					$lb_reason = __('Write down your reason here. Also, this job will be masked as disputing status and wait admin review and make a decsion.','boxtheme');
+					$lb_title = __('Cancel and quit this job');
 
-					if( $project->post_author == $user_ID){
-						$lb_reason = __('Write down your reason here. Also, this job will be masked as disputing status and wait admin review and make a decsion.','boxtheme');
-						$lb_title = __('Cancel and quit this job');
-					} else {
-						$lb_reason = __('Let freelancer your reason','boxtheme');
-						$lb_title = __('Cancel and quit this job');
-					}
 				?>
 				<h2 class="modal-title" id="quytModal"> <?php echo $lb_title;?></h2>
 			</div>

@@ -38,7 +38,10 @@ var single_project = {
 
 		$( "form#frm_quit_job").on('submit', this.quitJob);
 		$( "form.swp-send-message").on('submit', this.sendMessageWSP); // in workspace section
+		$( "form.fre_markascomplete").on('submit', this.freMarkAsComplete); // in workspace section
+
 		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
+
 		if($("#container_msg").length) {
 			var textarea = document.getElementById('container_msg');
 			textarea.scrollTop = textarea.scrollHeight;
@@ -285,6 +288,7 @@ var single_project = {
 		window.ajaxSend.Form(event, action, method, success);
 		return false;
 	},
+
 	awardProject: function(event){
 		event.preventDefault();
 		var success = function(res){
@@ -350,6 +354,21 @@ var single_project = {
 		var action = 'workspace_action', method = 'quit_job';
 		var success = function(res){
 			console.log(' quit done');
+        	if ( res.success ){
+        		//window.location.reload(true);
+	        } else {
+	        	alert(res.msg);
+	        }
+	        $('#quytModal').modal().hide();
+		}
+		window.ajaxSend.Form(event, action, method, success);
+
+		return false;
+	},
+	freMarkAsComplete : function(){
+		var action = 'workspace_action', method = 'fre_markascomplete';
+		var success = function(res){
+			console.log(' fre_markascomplete');
         	if ( res.success ){
         		//window.location.reload(true);
 	        } else {
