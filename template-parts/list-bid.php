@@ -28,17 +28,14 @@
 
 	if( $bid_query->have_posts() ) : ?>
 		<div class ="col-md-12 header-list-bid row-bid-item">
-			<div class="col-md-2 text-center no-padding-right"> Freelancer Bidding		</div>
-			<div class="col-md-7 "> Description		</div>
-			<div class="col-md-2  text-center">Price		</div>
+			<div class="col-md-2 text-center no-padding-right"> <?php _e('Freelancer Bidding','boxtheme');?> </div>
+			<div class="col-md-7 "><?php _e('Description','boxtheme');?>		</div>
+			<div class="col-md-2  text-center"> <?php _e('Price','boxtheme');?>		</div>
 		</div>
 		<?php
 		while( $bid_query->have_posts() ):
 			$bid_query->the_post();
 			get_template_part( 'template-parts/bid', 'loop' );
-			//get_template_part( 'template-parts/bid', 'loop' );
-			//get_template_part( 'template-parts/bid', 'loop' );
-			//$list_bid[] = $post;
 		endwhile;
 
 		$projet_link = get_the_permalink($project->ID);
