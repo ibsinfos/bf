@@ -28,7 +28,7 @@
 				<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="<?php echo $place_holder;?>"></textarea>
 				<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
 				<input type="hidden" name="receiver_id" value="0">
-				<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
+
 				<input type="hidden" name="msg_type" value="disputing">
 				<input type="hidden" name="method" value="insert">
 				<br />
@@ -36,26 +36,26 @@
 			</form>
 			<?php if( current_user_can( 'manage_options' ) ){ ?>
 				<label> For admin</label>
-				<form class=" frm-admin-act form-inline"  >
+				<form id="frmAdminAct" class="frm-admin-act form-inline"  >
 
 					<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
-					<input type="hidden" name="receiver_id" value="<?php echo $winner_id;?>">
-					<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
+					<input type="hidden" name="fre_id" value="<?php echo $winner_id;?>">
+					<input type="hidden" name="emp_id" value="<?php echo $project->post_author;?>">
 					<input type="hidden" name="msg_type" value="disputing">
 					<input type="hidden" name="method" value="insert">
 					<div class="form-row align-items-center">
 						<div class="col-auto">
 					      	<div class="input-group col-md-12">
 					        	<div class="input-group-addon" style="width: 165px;">
-					        	<select class="custom-select required" style="background: #eeeeee; border:0;" required>
-					        		<option value="0">Select option</option>
+					        	<select name="act" class="custom-select required" style="background: #eeeeee; border:0;" required>
+					        		<option>Select option</option>
 									<option value="ask_fre">Ask Freelancer</option>
 									<option value="ask_emp">Ask Employer</option>
 									<option value="fre_win">Choose employer win</option>
 									<option value="emp_win">Choose freelancer win</option>
 								</select>
 								</div>
-					        <textarea type="text" class="form-control" name="msg_content" id="msg_content" placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>
+					        <textarea type="text" class="form-control required" name="msg_content" id="msg_content" required placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>
 
 					      </div>
 					    </div>

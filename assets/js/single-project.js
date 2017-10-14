@@ -38,6 +38,8 @@ var single_project = {
 
 		$( "form#frm_quit_job").on('submit', this.quitJob);
 		$( "form.swp-send-message").on('submit', this.sendMessageWSP); // in workspace section
+		$( "form#frmAdminAct").on('submit', this.frmAdminAct); // in workspace section
+
 		$( "form#fre_markascomplete").on('submit', this.freMarkAsComplete); // in workspace section
 		$( "form#frm_disputing").on('submit', this.sendDisputing); // in workspace section
 
@@ -290,7 +292,20 @@ var single_project = {
 		window.ajaxSend.Form(event, action, method, success);
 		return false;
 	},
+	frmAdminAct: function(event){
+		var action = 'workspace_action', method = 'frmadminact';
+		var success = function(res){
+			console.log(' fre_markascomplete');
+        	if ( res.success ){
+        		//window.location.reload(true);
+	        } else {
+	        	alert(res.msg);
+	        }
 
+		}
+		window.ajaxSend.Form(event, action, method, success);
+		return false
+	},
 	awardProject: function(event){
 		event.preventDefault();
 		var success = function(res){

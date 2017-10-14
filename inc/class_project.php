@@ -366,6 +366,46 @@ Class BX_Project extends BX_Post{
 		wp_send_json( $respond);
 
 	}
+	function frmadminact($args){
+
+		$act = isset($args['act']) ? $args['act'] : 0;
+		$emp_id = isset($args['emp_id']) ? $args['emp_id'] : 0;
+		$fre_id = isset($args['fre_id']) ? $args['fre_id'] : 0;
+
+		switch ($act) {
+			case 'ask_fre':
+				$this->insert_disputing_msg($fre_id, $args);
+				break;
+			case 'ask_emp':
+				$this->insert_disputing_msg($emp_id, $args);
+				break;
+			case 'choose_fre':
+				
+				break;
+
+			case 'choose_emp':
+				# code...
+				break;
+
+			default:
+				# code...
+				break;
+		}
+
+
+	}
+	function insert_disputing_msg($receive_id, $args ){
+		$cvs_id = isset($args['cvs_id']) ? $args['cvs_id'] : 0;
+		$args = array(
+				'msg_content' => $args['msg_content'],
+				'msg_link' => get_permalink($project_id),
+				'receiver_id' => $receive_id,
+				'msg_is_read' => 0,
+				'msg_type' => 'disputing',
+				);
+
+			$msg_dispute = BX_Message::get_instance($cvs_id)->insert($args);
+	}
 	function submit_disputing($args){
 		global $user_ID;
 		$project_id = $args['project_id'];
@@ -400,6 +440,8 @@ Class BX_Project extends BX_Post{
 	function check_workspace_action($project){
 		global $user_ID;
 		$winner_id 	= get_post_meta($project->ID, WINNER_ID, true);
+		if( current_user_can( 'manage_options' ) )
+			return true;
 		if( $project->post_author == $user_ID || ($winner_id && $winner_id == $user_ID) )
 			return true;
 
