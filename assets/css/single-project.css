@@ -368,6 +368,9 @@ li.share-item:hover  center span{
     font-size: 19px;
 
 }
+.column-left-detail, .column-right-detail{
+	padding-top: 15px;
+}
 .column-left-detail .set-bg{
 	background: #fff;
 }
