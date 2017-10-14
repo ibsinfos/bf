@@ -41,6 +41,8 @@
 					<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
 					<input type="hidden" name="fre_id" value="<?php echo $winner_id;?>">
 					<input type="hidden" name="emp_id" value="<?php echo $project->post_author;?>">
+					<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
+
 					<input type="hidden" name="msg_type" value="disputing">
 					<input type="hidden" name="method" value="insert">
 					<div class="form-row align-items-center">

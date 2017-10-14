@@ -380,7 +380,7 @@ Class BX_Project extends BX_Post{
 				$this->insert_disputing_msg($emp_id, $args);
 				break;
 			case 'choose_fre':
-				
+				update_post_meta($)
 				break;
 
 			case 'choose_emp':
