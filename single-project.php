@@ -45,7 +45,7 @@
 
 	      			if( $access_workspace ){
 	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
-	      					<div class="col-md-2 pull-right">
+	      					<div class="col-md-3 pull-right">
 			      				<ul class="job-process-heading">
 
 	      						<?php if( ! $is_workspace  ) { ?>
@@ -60,8 +60,6 @@
 			      	?>
 
 			      	<div class="col-md-3 pull-right">
-
-
 				      		<div class="job-status">
 				      				<span class="time-job-left"> 6 days, 23 hours left</span>
 				      				<span class="label-status primary-color">OPEN</span>
