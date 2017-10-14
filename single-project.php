@@ -40,9 +40,9 @@
         		<div class="full value-line">
         			<div class="col-md-5 col-xs-12 right-top-heading">
 
-				      	<div class="col-md-4 col-xs-4">Budget <br /> <span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
-				      	<div class="col-md-4 col-xs-4"> Bids <br />  <span class="primary-color large-label">10</span></div>
-				      	<div class="col-md-4 col-xs-4"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
+				      	<div class="col-md-4 col-xs-4"><span class="heading-label">Budget </span><span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
+				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Bids </span> <span class="primary-color large-label">10</span></div>
+				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> 3 </span></div>
 			      	</div>
 			      	<?php
 	      			if( $access_workspace ){

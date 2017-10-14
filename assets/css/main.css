@@ -1471,10 +1471,15 @@ h5.port-title {
 	font-family: "FontAwesome";
 	color:#fff;
 	font-size: 13px;
-
+}
+.heading-label{
+	display: block;
+	text-align: center;
 }
 .large-label{
 	font-size: 16px;
+	text-align: center;
+	display: block;
 }
 .label-status{
 	font-size: 23px;

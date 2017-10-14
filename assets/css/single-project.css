@@ -332,10 +332,11 @@ li.share-item  center span{
 li.share-item:hover  center span{
 }
 .fb-invisi{
-	position: relative;
+	position: absolute;
+	cursor: pointer;
 	left: 0;
 	opacity: 0;
-	top:-25px;
+	top:0;
 	width: 100%;
 	z-index: 1;
 }
