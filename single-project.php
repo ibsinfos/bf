@@ -38,9 +38,12 @@
         	<h1 class="project-title"><?php the_title();?></h1></div>
         	<div class="full heading">
         		<div class="full value-line">
-			      	<div class="col-md-2">Budget <br /> <span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
-			      	<div class="col-md-2"> Bids <br />  <span class="primary-color large-label">10</span></div>
-			      	<div class="col-md-2"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
+        			<div class="col-md-5 right-top-heading">
+
+				      	<div class="col-md-4">Budget <br /> <span class="primary-color large-label"> <?php echo box_get_price_format($project->_budget); ?> </span></div>
+				      	<div class="col-md-4"> Bids <br />  <span class="primary-color large-label">10</span></div>
+				      	<div class="col-md-4"> Views  <br /><span class="primary-color large-label"> 3 </span></div>
+			      	</div>
 			      	<?php
 	      			if( $access_workspace ){
 	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
@@ -59,7 +62,7 @@
 			      	$_expired_date = get_post_meta($project->ID,'_expired_date', true);
 			      	?>
 
-			      	<div class="col-md-3 pull-right">
+			      	<div class="col-md-3 pull-right left-top-heading">
 				      		<div class="job-status">
 				      				<span class="time-job-left">
 					      				<?php if( !empty( $_expired_date)){?>

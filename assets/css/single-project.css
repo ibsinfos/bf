@@ -513,3 +513,16 @@ a:hover{
 	margin-bottom: 10px;
 	padding-bottom: 0;
 }
+.right-top-heading, .left-top-heading{
+	padding: 10px 10px;
+}
+.job-status{
+	border-radius: 5px;
+	border:1px solid #ccc;
+	position: relative;
+	padding: 10px 15px;
+}
+.time-job-left{
+	display: block;
+	text-align: center;
+}
