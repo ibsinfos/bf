@@ -32,9 +32,7 @@
 				<div class ="col-md-1 pull-right text-center"><a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a> <?php
 			echo '</li>';
 		}
-		// if($loadmore){
-		// 	echo '<li class="row list-style-none padding-bottom-10"><center> <button class="load-more" page ="1">Load more</button> </center></li>';
-		// }
+
 		echo '</ul>';
 	}
 ?>

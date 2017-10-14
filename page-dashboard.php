@@ -8,35 +8,8 @@
 	<div class="container site-container">
 		<div class="site-content" id="content" >
 			<div id="profile" class="col-md-12">
-				<ul  class = "nav nav-pills dashboard-tab" id = "heading_dashboard">
-					<li class="active" > <a  href="#tac_active" data-toggle="tab"><?php _e('ACTIVATE','boxtheme');?></a></li>
-					<li><a  href="#tab_pendinga" data-toggle="tab"><?php _e('PENDING','boxtheme');?></a></li>
-					<li><a href="#tab_working" data-toggle="tab"><?php _e('WORKING','boxtheme');?></a>		</li>
-					<li><a href="#tab_done" data-toggle="tab"><?php _e('DONE','boxtheme');?></a></li>
-					<li><a href="#tab_disputing" data-toggle="tab"><?php _e('DISPUTING','boxtheme');?></a></li>
-					<li><a href="#tab_archived" data-toggle="tab"><?php _e('ARCHIVED','boxtheme');?></a></li>
-
-				</ul>
 				<div class="tab-content clearfix">
-					<div class="tab-pane active" id="tac_active">
-						<?php get_template_part( 'template-parts/dashboard/list', 'project-activate' ); ?>
-					</div>
-					<div class="tab-pane " id="tab_pendinga">
-						<?php get_template_part( 'template-parts/dashboard/list', 'project-pending' ); ?>
-					</div>
-			        <div class="tab-pane" id="tab_working">
-			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-working' ); ?>
-					</div>
-					<div class="tab-pane" id="tab_done">
-			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-done' ); ?>
-					</div>
-					<div class="tab-pane " id="tab_disputing">
-						<?php get_template_part( 'template-parts/dashboard/list', 'project-disputing' ); ?>
-					</div>
-					<div class="tab-pane" id="tab_archived">
-			       		<?php get_template_part( 'template-parts/dashboard/list', 'project-archived' ); ?>
-					</div>
-
+					<?php get_template_part( 'template-parts/dashboard/my', 'projects' ); ?>
 				</div>
 			</div> <!-- end left !-->
 
