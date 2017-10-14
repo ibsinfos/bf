@@ -20,6 +20,7 @@
 	min-height: 579px;
 	border-right: 10px solid #f2f2f2;
 	padding-bottom: 0;
+	padding-bottom: 25px;
 }
 .column-right-detail{
 	background-color: #fff;
@@ -420,12 +421,11 @@ div.block-employer-info {
 
 
 .list-employer-info  .rating i{padding-right: 10px; font-size: 19px;}
+.btn-bid{
+	margin-right: 20px;
+}
 .btn-cancel-bid{
-	position: absolute;
-	right: 5px;
-	cursor: pointer;
-	top:0px;
-	text-decoration: none;
+
 }
 a:hover{
 	text-decoration: none;

@@ -22,20 +22,28 @@ if( $emp_pay > $budget ) {
 <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
     <h2> <?php _e('Bid on project','boxtheme');?></h2>
    	<div class="form-group row bd-bottom">
-      	<label  class="col-sm-6 col-form-label"><?php _e('Price','boxtheme') ;?></label>
+      	<div class="col-md-6">
+      		<label  class="full col-form-label"><?php _e('Bid price','boxtheme') ;?></label>
+      		<small class="full">Total amount the client will see on your proposal</small>
+      	</div>
+
       	<div class="col-sm-6 bid-col-right">
       		<span class="f-left col-md-1"><?php echo $symbol;?></span>
         	<input type="number" size="6" class="col-md-10 pull-right inline input-price col-xs-11" step="any" id="_bid_price" name="_bid_price" aria-describedby="" placeholder="<?php _e('Your budget','boxtheme');?>" value="<?php echo $budget;?>">
       </div>
    	</div>
    	<div class="form-group row bd-bottom">
-      	<label for="inputEmail3" class="col-sm-6 col-form-label"><?php _e('Fee service','boxtheme');?> <span class="tooltip" title="<?php echo $label_text;?>">?</span> </label>
+      	<label for="inputEmail3" class="col-sm-6 col-form-label"><?php _e('Fee Service','boxtheme');?> <span class="tooltip" title="<?php echo $label_text;?>">?</span> </label>
       	<div class="col-sm-6 bid-col-right">
          	<span class="f-left col-md-1"><?php echo $symbol;?></span> <input type="text" class="col-xs-11 col-md-10 pull-right" readonly id="fee_servicce" placeholder="<?php _e('Fee service','boxtheme');?>" value="<?php echo $cms_fee;?>" />
       	</div>
    	</div>
    	<div class="form-group row bd-bottom">
-      	<label for="inputEmail5" class="col-sm-6 col-form-label"><?php _e('You\'ll receive','boxtheme');?> </label>
+      	<div for="inputEmail5" class="col-sm-6 col-form-label">
+      		<label> <?php _e('You\'ll be paid','boxtheme');?>  </label>
+      		<small class="text-left  full ">This fund auto release to your ballance after the project finish.</small>
+      	</div>
+
       	<div class="col-sm-6 bid-col-right">
         	<span class="f-left col-md-1"><?php echo $symbol;?></span> <input type="text" class="col-md-10 col-xs-11 input-price pull-right" readonly id="_bid_receive" name="_bid_receive" value="<?php echo $fre_receive;?>" />
       	</div>
@@ -47,12 +55,13 @@ if( $emp_pay > $budget ) {
    	</div>
 
    	<div class="form-group">
-      	<label for="bid_dealine">Dealine</label>
+      	<label for="bid_dealine"><?php _e('How long will this project take?','boxtheme');?></label>
       	<select class="form-control" id="bid_dealine" name="_dealine">
+      		<option><?php _e('Select duration','boxtheme');?></option>
 	        <?php
 	        $list = list_dealine();
 	        foreach ($list as $key => $value) { ?>
-	          <option value="<?php echo $key;?>"> <?php echo $value;?> </option>
+	        	<option value="<?php echo $key;?>"> <?php echo $value;?> </option>
 	        <?php } ?>
       	</select>
    	</div>
@@ -62,7 +71,8 @@ if( $emp_pay > $budget ) {
       	<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
       	<small id="fileHelp" class="form-text text-muted"><?php _e('Send this file to project\'s owner.','boxtheme');?></small>
   	</div>
-  	<button type="submit" class="btn f-right btn-bid"> &nbsp; <?php if($class_bidded) _e('Update','boxtheme'); else _e('Bid','boxtheme');?> &nbsp;</button>
+  	<button type="submit" class="btn btn-action btn-bid pull-left"><?php _e('Bid','boxtheme');?> &nbsp;</button>
+  	<button type="submit" class=" btn-cancel btn-cancel-bid"><?php _e('Cancel','boxtheme');?> &nbsp;</button>
   	<input type="hidden"  name="post_parent" value="<?php echo $project->ID; ?>" />
 </form>
 <?php

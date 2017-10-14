@@ -1,10 +1,13 @@
 <?php
-function show_bid_buton($post){
-	$back_url = add_query_arg( 'redirect', get_the_permalink($post->ID), box_get_static_link('login') );
+function box_bid_buton($post){
+					//add_query_arg( 'key', 'value', 'http://example.com' );
+	$apply_link = 	add_query_arg( 'apply','1' ,  get_the_permalink($post->ID) );
+
+	$back_url = add_query_arg(  'redirect', $apply_link , box_get_static_link('login') );
 	if( is_user_logged_in() ){
-		echo '<button class ="btn-bid-now text-right pull-right" > &nbsp; ' . __('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </button>';
+		echo '<a href="?apply=1" class ="btn-bid-now text-right pull-right" > &nbsp; ' . __('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
 	} else {
-		echo '<a class ="btn-login text-right pull-right" href ="'.$back_url.'"> &nbsp; '.__('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
+		echo '<a class ="btn-login text-right pull-right" href ="'.esc_url($back_url).'"> &nbsp; '.__('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
 	}
 }
 
@@ -50,7 +53,7 @@ if(empty($score) || !$score){
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf(__("Total Spent ($) <span class='text-right pull-right'>%f</span>",'boxtheme'), $total_spent );?></li>
 		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
 		<?php if ( $current_user_can_bid && ! $bidding ) { ?>
-			<li><?php show_bid_buton($project);?></li>
+			<li><?php box_bid_buton($project);?></li>
 		<?php }?>
 	</ul>
 </div>

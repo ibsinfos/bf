@@ -110,6 +110,14 @@ footer .container{
 .btn-primary-bg,  .btn, .btn-action, button.btn-action{
 	background-color: #17a717;
 }
+.btn-cancel{
+	background: none;
+	text-decoration: none;
+	box-shadow: none;
+	border:0px solid #ccc;
+	padding: 9px 12px;
+	float: left;
+}
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#5cb85c}
 .btn{
 	background-color: #17a717;

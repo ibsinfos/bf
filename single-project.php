@@ -95,11 +95,16 @@
        				get_template_part( 'template-parts/workspace');
       			} else if( $access_workspace && $is_dispute ){
       				get_template_part( 'template-parts/dispute' );
-			    } else { ?>
+			    } else {
+			    	$apply  = isset($_GET['apply']) ? $_GET['apply'] : '';
+
+			    ?>
 			    	<div class="full row-detail-section ">
 				    	<div class="col-md-8 column-left-detail">
 		   					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
-
+		   					<?php if( $apply == 1){?>
+		   						<?php 	get_template_part('template-parts/single','project-detail-bid-form' ); ?>
+		   					<?php } ?>
 				       	</div> <!-- .col-md-8  Job details !-->
 					    <div class="col-md-4 sidebar column-right-detail" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
 					</div>
