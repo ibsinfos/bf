@@ -322,7 +322,7 @@ function step_process( $is_workspace ){
 			'publish' => __('Open','boxtheme'),
 			'pending' => __('Pending','boxtheme'),
 			'draft' => __('Draft','boxtheme'),
-			'awared' => __('Awared','boxtheme'),
+			'awarded' => __('Working','boxtheme'),
 			'done' => __('Done','boxtheme'),
 			'archived' => __('Archived','boxtheme'),
 			'disputing' => __('Disputing','boxtheme'),

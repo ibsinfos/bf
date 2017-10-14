@@ -96,10 +96,6 @@
 	height: auto;
 }
 
-.status-awarded  .btn-status-display{
-	display: none;
-}
-
 .bid-form{
 	overflow: hidden;
 }
@@ -543,7 +539,7 @@ a:hover{
 }
 .row-bid-item:hover .btn-act-message,
 .row-bid-item:hover .btn-toggle-award{
-	display: block;
+
 }
 .btn-act-message img,
 .btn-toggle-award .fa{
