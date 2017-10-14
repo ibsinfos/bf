@@ -109,9 +109,10 @@ class BX_Message{
 
 		global $wpdb, $user_ID;
 
-		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']:0;
+		$receiver_id = isset($args['receiver_id'])? $args['receiver_id'] : '';
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
-
+		if(  !empty($receiver_id))
+			$this->receiver_id = $receiver_id;
 		$cvs_project_id = isset($args['cvs_project_id']) ? $args['cvs_project_id'] : 0;
 		if( isset( $args['cvs_id']) )
 			$this->cvs_id = $args['cvs_id'];
@@ -123,10 +124,9 @@ class BX_Message{
 		if( empty($args['sender_id']) ){
 			$sender_id = 0;
 		}
-		if( empty($sender_id) )
+		if( !$sender_id )
 			$sender_id = $user_ID;
-
-		$wpdb->insert( $wpdb->prefix . 'box_messages', array(
+		$default = array(
 				'sender_id' => $sender_id,
 				'msg_content' => $args['msg_content'],
 				'cvs_id' => $this->cvs_id,
@@ -136,8 +136,10 @@ class BX_Message{
 				'msg_link' => $msg_link,
 				'msg_type' => $this->msg_type,
 				'receiver_id' => $this->receiver_id,
-			)
-		);
+			);
+		var_dump($default);
+		$wpdb->insert( $wpdb->prefix . 'box_messages', $default		);
+
 		// update modify time of this conversiaion.
 		$sql = "UPDATE {$wpdb->prefix}box_conversations SET `date_modify` = '".current_time('mysql')."'  WHERE  `ID` = {$cvs_id} ";
 		$wpdb->query( $sql );

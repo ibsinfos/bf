@@ -13,7 +13,8 @@
 			);
 			foreach ($feebacks as $key => $msg) {
 				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
-				if( $msg->receiver_id != 0 ){ // employer or freelancer send.
+
+				if( (int) $msg->receiver_id == 0 ){ // employer or freelancer send.
 					echo '<strong>'.$display_name[$msg->sender_id].'</strong>';
 				} else {
 					echo '<strong>Administrator </strong>';
