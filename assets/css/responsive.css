@@ -57,6 +57,9 @@
 	.hidden-md-up{
 		display: none;
 	}
+	.column-left-detail{
+		border-right: 10px solid #f2f2f2;
+	}
 
 }
 
@@ -621,5 +624,8 @@
 	}
 	#wp-admin-bar-my-account{
 		display: none !important;
+	}
+	.column-left-detail{
+		border-right: 0;
 	}
 }
