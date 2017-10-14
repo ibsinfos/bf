@@ -12,12 +12,9 @@
 		echo '<ul class="db-list-project">'; ?>
 		<li class="heading list-style-none full">
 			<form class="pull-right full">
-				<div class="col-md-1 pull-right">
-					<label> Filter</label>
-				</div>
 				<div class="col-md-3 pull-right">
 					<select class="form-control">
-						<option> Status</option>
+						<option> All status</option>
 						<option> Publish</option>
 						<option> Pending</option>
 						<option> Working</option>
