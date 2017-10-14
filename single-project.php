@@ -91,12 +91,15 @@
         <div class="detail-project second-font">
             <div class="wrap-content"> <?php
 
-       			if ( $access_workspace &&  $is_workspace ) {
-       				get_template_part( 'template-parts/workspace');
-      			} else if( $access_workspace && $is_dispute ){
+       			if ( $access_workspace ){
+       				$cvs_id = is_sent_msg($project->ID, $winner_id);
+       				if( $is_workspace ) {
+       					get_template_part( 'template-parts/workspace');
+      				} else if( $is_dispute ){
       				get_template_part( 'template-parts/dispute' );
-			    } else {
-			    	$apply  = isset($_GET['apply']) ? $_GET['apply'] : '';
+			   		}
+			   	} else {
+			    $apply  = isset($_GET['apply']) ? $_GET['apply'] : '';
 
 			    ?>
 			    	<div class="full row-detail-section ">

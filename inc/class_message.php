@@ -71,6 +71,7 @@ class BX_Conversations{
 		global $wpdb;
 		return $wpdb->get_var( "SELECT ID FROM $wpdb->prefix{$this->table} WHERE project_id = {$project_id} AND receiver_id = {$receiver_id} " );
 	}
+
 }
 
 
@@ -109,10 +110,15 @@ class BX_Message{
 
 		$receiver_id = isset($args['receiver_id'])? $args['receiver_id']:0;
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
-		$msg_type = isset($args['msg_type']) ? $args['msg_type']: 'message';
 
 		$cvs_project_id = isset($args['cvs_project_id']) ? $args['cvs_project_id'] : 0;
-		$cvs_id = isset($args['cvs_id']) ? $args['cvs_id'] : 0;
+		if( isset( $args['cvs_id']) )
+			$this->cvs_id = $args['cvs_id'];
+
+		if( isset( $args['msg_type']) )
+			$this->msg_type = $args['msg_type'];
+
+
 		if( empty($args['sender_id']) ){
 			$sender_id = 0;
 		}
@@ -122,7 +128,7 @@ class BX_Message{
 		$wpdb->insert( $wpdb->prefix . 'box_messages', array(
 				'sender_id' => $sender_id,
 				'msg_content' => $args['msg_content'],
-				'cvs_id' => $cvs_id,
+				'cvs_id' => $this->cvs_id,
 				'msg_date'	=> current_time('mysql'),
 				'msg_unread' => 1,
 				'msg_status' => 'new',
@@ -142,6 +148,23 @@ class BX_Message{
 		$sql = " SELECT * FROM " . $wpdb->prefix . "box_messages WHERE ID = '$msg_id'";
 		return $wpdb->get_row($sql);
 
+	}
+	function get_converstaion_custom($type = 'message'){
+		global $wpdb;
+		$sql = "SELECT *
+				FROM {$wpdb->prefix}box_messages msg
+				WHERE cvs_id = {$this->cvs_id}
+					AND msg_type = '{$type}'
+				ORDER BY id ASC";
+
+		$msgs =  $wpdb->get_results($sql);
+		$results = array();
+		foreach ($msgs as $key => $msg) {
+			$date = date_create( $msg->msg_date );
+			$msg->msg_date = date_format($date,"m/d/Y");
+			$results[] = $msg;
+		}
+		return $results;
 	}
 
 	function get_converstaion($args){

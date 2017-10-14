@@ -1,9 +1,15 @@
 <div class="col-md-8 wrap-workspace">
 	<div class="row">
 		<div class="col-md-12">
-			<h3> This is dispute section </h3>
-			<p>Abc mark as disputed this job in 10/10/2016 and with the reason:</p>
-			<i> I'm not happy with the result - It doesn't match with my requirement </i>
+			<h3>History of Dispute flow </h3>
+			<?php
+			global $project_id, $winner_id, $cvs_id;
+			$feebacks = BX_Message::get_instance($cvs_id)->get_converstaion_custom('disputing');
+			foreach ($feebacks as $key => $msg) {
+				echo $msg->msg_content;
+				# code...
+			}
+			?>
 		</div>
 	</div>
 </div>

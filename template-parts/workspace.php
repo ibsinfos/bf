@@ -1,9 +1,10 @@
 <?php
-	global $user_ID, $project, $winner_id, $is_owner, $convs_id, $role;
+	global $user_ID, $project, $winner_id, $is_owner, $cvs_id, $role;
 	$is_fre_review = get_post_meta( $project->ID,'is_fre_review', true );
 	$bid_id_win = get_post_meta($project->ID, BID_ID_WIN, true);
 
 	$_bid_price = get_post_meta($bid_id_win, BID_PRICE, true);
+
 
 ?>
 <div class="full row-detail-section">
@@ -85,12 +86,17 @@
 	<div class="fb-history full col-md-12">
 		<h3 class="default-label">History feedback </h3>
 		<?php
-		if(!empty($fre_markedascomplete)){
+		if( !empty($fre_markedascomplete) ){
 			echo 'Freelancer marked as complete in 10/2017';
+		}
+		if($project->post_status == 'disputing' ){
+			$user_send_id = get_post_meta($project->ID, 'user_send_dispute', true);
+			$disputor = get_userdata( $user_send_id );
+			printf( __('%s sent a dispute request to system. This job is disputing and wait admin review and make a decsiion. Go to <a href="?dispute=1"> dipute</a> section to see the processing.','boxtheme'), $disputor->display_name );
 		}
 		?>
 	</div>
-	<?php	$cvs_id = is_sent_msg($project->ID, $winner_id);	?>
+
 	<?php show_conversation($winner_id, $project, $cvs_id); ?>
 
 	<?php  echo '<input type="hidden" id="cvs_id" value="'.$cvs_id.'" />';		?>

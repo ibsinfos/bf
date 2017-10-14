@@ -366,13 +366,30 @@ Class BX_Project extends BX_Post{
 		wp_send_json( $respond);
 
 	}
-	function submit_disputing(){
+	function submit_disputing($args){
 		global $user_ID;
 		$project_id = $args['project_id'];
 		$project = get_post($project_id);
-		die();
+
 		if( $project->post_status == 'awarded' ){
-			update_post_meta( $project_id, 'fre_markedascomplete', $args['review_msg'] );
+
+			$winner_id 	= get_post_meta($project->ID, WINNER_ID, true);
+			wp_update_post( array('ID' => $project_id,'post_status' => 'disputing') );
+
+			$cvs_id = is_sent_msg($project_id, $winner_id);
+			$args = array(
+				'sender_id' => 0,
+				'msg_content' => $args['msg_content'],
+				'msg_link' => get_permalink($project_id),
+				'receiver_id' => $project->post_author,
+				'msg_is_read' => 0,
+				'msg_type' => 'disputing',
+				);
+			if( $user_ID == $project->post_author){
+				$args['receiver_id'] = $winner_id;
+			}
+			update_post_meta( $project->ID,'user_send_dispute', $user_ID );
+			$msg_dispute = BX_Message::get_instance($cvs_id)->insert($args);
 		}
 		$respond = array(
 			'success' => true,
