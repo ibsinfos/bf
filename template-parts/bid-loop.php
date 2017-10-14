@@ -70,7 +70,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 
 			</div>
 		<?php } else if ( $bidding && $bidding->ID == $bid->ID ) { // show cancel bid for current freelancer .
-			echo '<div class="full"><a class="btn-cancel-bid" rel="'.$bidding->ID.'">'.__('CANCEL (X)','boxtheme').' &nbsp;</a></div>';
+			echo '<div class="full"><a class="btn-del-bid" rel="'.$bidding->ID.'">'.__('CANCEL (X)','boxtheme').' &nbsp;</a></div>';
 		}?>
 	</div>
 </div>

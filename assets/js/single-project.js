@@ -17,7 +17,8 @@ var single_project = {
 		 project_id: this.project.ID;
 
 		$( '#bid_form' ).on( 'submit', this.submitBid );
-		$(".btn-cancel-bid").on('click',this.cancelBid);
+		$(".btn-cancel-bid").on('click',this.quitBidForm);
+		$(".btn-del-bid").on('click',this.delBid);
 		$( ".btn-toggle-bid-form").on('click', this.toggleBidForm);
 
 		$( ".input-price").on('change keyup', this.generatePrice);
@@ -125,7 +126,13 @@ var single_project = {
 		return false;
 
 	},
-	cancelBid: function(){
+	quitBidForm: function(){
+		var _this = $(event.currentTarget);
+		var res = confirm('Do you want to cancel?');
+		return res;
+
+	},
+	delBid: function(){
 		var _this = $(event.currentTarget);
 		var res = confirm('Do you want to cancel this bi?');
 		if( ! res ){

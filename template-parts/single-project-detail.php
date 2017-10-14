@@ -35,6 +35,8 @@ if( $att_query-> have_posts() ){
     echo '</p>';
 }
 
+
+
 $terms = get_the_terms( $project, 'skill' );
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 	echo '<ul class="list-skill">';
@@ -56,4 +58,5 @@ if ( ! empty( $cats ) && ! is_wp_error( $cats ) ){
 	echo '</ul>';
 }
 
+wp_reset_query();
 ?>

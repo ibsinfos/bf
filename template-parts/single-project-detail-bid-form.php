@@ -72,7 +72,7 @@ if( $emp_pay > $budget ) {
       	<small id="fileHelp" class="form-text text-muted"><?php _e('Send this file to project\'s owner.','boxtheme');?></small>
   	</div>
   	<button type="submit" class="btn btn-action btn-bid pull-left"><?php _e('Bid','boxtheme');?> &nbsp;</button>
-  	<button type="submit" class=" btn-cancel btn-cancel-bid"><?php _e('Cancel','boxtheme');?> &nbsp;</button>
+  	<a href="<?php the_permalink( );?>" class="btn-cancel btn-cancel-bid"><?php _e('Cancel','boxtheme');?> &nbsp;</a>
   	<input type="hidden"  name="post_parent" value="<?php echo $project->ID; ?>" />
 </form>
 <?php
