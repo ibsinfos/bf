@@ -120,7 +120,7 @@ $list_bid
 </script>
 <script type="text/template" id="json_project"><?php  echo json_encode($project); ?></script>
 <script type="text/template" id="json_list_bid"><?php   echo json_encode($list_bid); ?></script>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 		<div class="modal-header">
@@ -183,6 +183,29 @@ $list_bid
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="freMarkAsComplete" tabindex="-1" role="dialog" aria-labelledby="freMarkAsComplete">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h2 class="modal-title" id="freMarkAsCompleteh2">After submit this form. System will notify to employer that this project is compled with the message from you.</h2>
+			</div>
+		  	<div class="modal-body">
+		  		<form id="fre_markascomplete">
+		          	<div class="form-group">
+		            	<p for="message-text" class="control-label">Leave your detail message here. Employer will check the result/message and mark as complete or feedback to you.</p>
+		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
+		            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
+		            </div>
+		            <div class="form-group text-right"><button type="submit" class="btn btn-primary ">Send Job</button> </div>
+		        </form>
+		  	</div>
+		</div>
+	</div>
+</div>
+
 <!-- ENd modal mark ad finish !-->
 
 <div class="modal fade" id="quytModal" tabindex="-1" role="dialog" aria-labelledby="quytModal">
