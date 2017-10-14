@@ -38,7 +38,7 @@ if( $att_query-> have_posts() ){
 $terms = get_the_terms( $project, 'skill' );
 if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 	echo '<ul class="list-skill">';
-	echo '<h3>'.__('Skills Required','boxtheme').'</h3>';
+	echo '<h3 class="default-label">'.__('Skills Required','boxtheme').'</h3>';
 	foreach ( $terms as $term ) {
 	  	echo '<li><a href="' . get_term_link($term).'">' . $term->name . '</a></li>';
 	}
@@ -47,7 +47,7 @@ if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
 
 $cats = get_the_terms( $project, 'project_cat' );
 if ( ! empty( $cats ) && ! is_wp_error( $cats ) ){
-	echo '<h3 class="sb-heading">'.__('Categories','boxtheme').'</h3>';
+	echo '<h3 class="sb-heading default-label">'.__('Categories','boxtheme').'</h3>';
 	echo '<ul class="list-category none-style inline">';
 
 	foreach ( $cats as $cat ) {
