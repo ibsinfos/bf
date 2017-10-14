@@ -341,7 +341,7 @@ Class BX_Project extends BX_Post{
 			WINNER_ID => 0,
 			BID_ID_WIN => 0,
 		);
-
+		wp_delete_post( $bid_id, true );
 		$res = wp_update_post($request);
 		if($res){
 			wp_update_post( array('ID' => $bid_id, 'post_status'=> 'publish') );
