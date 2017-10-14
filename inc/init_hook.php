@@ -408,7 +408,7 @@ function boxtheme_scripts() {
 
 	wp_enqueue_style( 'main-css', get_theme_file_uri( '/assets/css/main.css' ), array( 'boxtheme-style' ), rand() );
 
-	wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.min.css' ), array( 'boxtheme-style' ), '1.0' );
+	wp_enqueue_style( 'bootraps', get_theme_file_uri( '/library/bootstrap/css/bootstrap.css' ), array( 'boxtheme-style' ), '1.0' );
 	wp_enqueue_style( 'box-responsive', get_theme_file_uri( '/assets/css/responsive.css' ), array( 'main-css' ), rand() );
 
 
