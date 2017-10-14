@@ -1227,6 +1227,7 @@ form #heading_signup{
 	margin-bottom:20px;
 	padding-top: 10px;
 	border:1px solid #ececec;
+	width: 100%;
 }
 .msg-author{
 	width: 50px;

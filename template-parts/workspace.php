@@ -8,37 +8,31 @@
 ?>
 <div class="full row-detail-section">
 	<div class="col-md-8 wrap-workspace  column-left-detail">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="full align-right f-right ws-btn-action"> <?php
+		<div class="full align-right f-right ws-btn-action"> <?php
+			if( $project->post_status =='awarded'  ){
+				$fre_markedascomplete = get_post_meta( $project->ID, 'fre_markedascomplete', true);
+				if( $user_ID == $project->post_author ){ // employer  ?>
+					<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
+					<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#reviewModal" data-whatever="@mdo"><?php _e('Mark as Finish','box_theme');?></button>
+				<?php } else if( $user_ID == $winner_id  ){
+					if( empty($fre_markedascomplete)){ ?>
+						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Quit Job','boxtheme');?></button>
+					<?php  }?>
 
-					if( $project->post_status =='awarded'  ){
-						$fre_markedascomplete = get_post_meta( $project->ID, 'fre_markedascomplete', true);
-						if( $user_ID == $project->post_author ){ // employer  ?>
-							<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
-							<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#reviewModal" data-whatever="@mdo"><?php _e('Mark as Finish','box_theme');?></button>
-						<?php } else if( $user_ID == $winner_id  ){
-							if( empty($fre_markedascomplete)){ ?>
-								<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Quit Job','boxtheme');?></button>
-							<?php  }?>
+					<?php if ( empty( $fre_markedascomplete ) ) { ?>
+						<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#freMarkAsComplete" data-whatever="@mdo"><?php _e('Mark as Complete','boxtheme');?></button>
+					<?php } else {?>
+						<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
+					<?php } ?>
 
-							<?php if ( empty( $fre_markedascomplete ) ) { ?>
-								<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#freMarkAsComplete" data-whatever="@mdo"><?php _e('Mark as Complete','boxtheme');?></button>
-							<?php } else {?>
-								<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
-							<?php } ?>
+				<?php }
 
-						<?php }
+			} else if( $project->post_status == 'done' && $user_ID == $winner_id && !$is_fre_review ) { ?>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" data-whatever="@mdo"><?php _e('Review','boxtheme');?></button> <?php
 
-					} else if( $project->post_status == 'done' && $user_ID == $winner_id && !$is_fre_review ) { ?>
-							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal" data-whatever="@mdo"><?php _e('Review','boxtheme');?></button> <?php
+			} ?>
 
-					} ?>
-
-				</div>
-			</div>
 		</div>
-
 		<?php
 
 		if($project->post_status == DONE) {
