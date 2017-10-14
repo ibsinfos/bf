@@ -340,6 +340,7 @@ Class BX_Project extends BX_Post{
 		$request['meta_input'] = array(
 			WINNER_ID => 0,
 			BID_ID_WIN => 0,
+			'fre_markedascomplete'=> '',
 		);
 		wp_delete_post( $bid_id, true );
 		$res = wp_update_post($request);

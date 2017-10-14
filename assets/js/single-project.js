@@ -201,7 +201,8 @@ var single_project = {
 		var _this = $(event.currentTarget);
 
         var bid_id = _this.attr('id');
-        var data = {action: 'sync_profile', method: 'get_full_info', user_id:bid_id};
+        var bid_author = _this.val();
+        var data = {action: 'sync_profile', method: 'get_full_info', user_id: bid_author};
 
 		var award_form = wp.template("award_form");
 

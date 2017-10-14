@@ -100,18 +100,19 @@ Class BX_Profile extends BX_Post{
 	function get_full_info($args){
 		$user_id = $args['user_id'];
 		$full_info = array();
-		$user = get_userdata( $user_id );
+		$user_info  = get_userdata( $user_id );
+		if( ! is_wp_error( $user_info  ) ){
 
-		if( !is_wp_error( $user ) ){
-			$full_info['user_ID'] = $user->ID;
-			$full_info['user_login'] = $user->user_login;
-			$full_info['user_nicename'] = $user->user_nicename;
+			$full_info['user_ID'] = $user_info->ID;
+
+			$full_info['user_login'] = $user_info->user_login;
+			$full_info['user_nicename'] = $user_info->user_nicename;
 			//$full_info['user_email'] = $user->user_email;
-			$full_info['display_name'] = $user->display_name;
-			$full_info['first_name'] = $user->first_name;
-			$full_info['last_name'] = $user->last_name;
-			$full_info['description'] = $user->description;
-			$full_info['avatar'] =  get_avatar($user->user_email, 96 );
+			$full_info['display_name'] = $user_info->display_name;
+			$full_info['first_name'] = $user_info->first_name;
+			$full_info['last_name'] = $user_info->last_name;
+			$full_info['description'] = $user_info->description;
+			$full_info['avatar'] =  get_avatar($user_info->user_email, 96 );
 
 		}
 
