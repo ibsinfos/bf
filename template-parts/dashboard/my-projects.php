@@ -64,7 +64,7 @@
 				echo '</li>';
 			}
 		} else {
-			echo '<li class="full">';
+			echo '<li class="col-md-12" style="padding:15px 20px;">';
 			_e('This query is empty','boxtheme');
 			echo '</li>';
 		}
