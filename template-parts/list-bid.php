@@ -3,7 +3,7 @@
 	global $user_ID, $project, $list_bid, $bid_query;
 	?>
 	<div class="list-bid-heading">
-		<div class="col-md-5 no-padding">
+		<div class="col-md-5">
 			<h3><?php printf(__('Total Bid(s): %s','boxtheme'), $bid_query->found_posts); ?></h3>
 		</div>
 		<div class="col-bid_query-6 f-right no-padding hide">
@@ -21,10 +21,10 @@
 			<?php } ?>
 		</div>
 	</div>
-	<div class ="col-md-12 header-list-bid bid-item">
-		<div class="col-md-3 no-padding-right"> Freelancer Bidding		</div>
-		<div class="col-md-7 no-padding-right"> Description		</div>
-		<div class="col-md-2 no-padding-right text-center">Price		</div>
+	<div class ="col-md-12 header-list-bid row-bid-item">
+		<div class="col-md-2 text-center no-padding-right"> Freelancer Bidding		</div>
+		<div class="col-md-7 "> Description		</div>
+		<div class="col-md-2  text-center">Price		</div>
 	</div>
 	<?php
 	global $cms_setting;

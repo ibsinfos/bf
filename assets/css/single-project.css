@@ -88,7 +88,7 @@
 .row-bid-item {
     border-bottom: 1px solid #e2e2e2;
     margin-bottom: 15px;
-    padding: 15px 0 15px 0;
+    padding: 10px 0 15px 0;
 
 }
 .row-bid-item .avatar{
@@ -549,4 +549,9 @@ a:hover{
 .btn-toggle-award .fa{
 	width: 25px;
 	padding-right: 10px;
+}
+.bid-item .col-avatar img{
+	border-radius: 50%;
+	background: #efefef;
+	padding: 1px;
 }

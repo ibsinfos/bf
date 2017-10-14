@@ -27,11 +27,11 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 
 ?>
 <div class ="col-md-12 row-bid-item bid-item <?php echo $bid_class;?>">
-	<div class="col-md-3 no-padding-right">
+	<div class="col-md-2 no-padding-right text-center col-avatar">
 		<?php echo  get_avatar($bid->post_author); ?>
 		<?php  echo $winner_text;?>
 	</div>
-	<div class ="col-md-7 padding-right-zero">
+	<div class ="col-md-7 ">
 		<?php
 		$list_dealine  = list_dealine();
 		if( empty($bid->_dealine) )
@@ -39,11 +39,11 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 		?>
 		<div class="full clear block">
 			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> </h5>
-			<h5 class="bid-title inline f-left"> - <?php echo $bid->professional_title;?></h5>
+			<h5 class="bid-title inline f-left  primary-color"> - <?php echo $bid->professional_title;?></h5>
 		</div>
 
 		<div class="full clear">
-			<span><?php _e('Deadline: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </span>
+			<span><?php _e('Duration: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </span>
 			<?php if ( $project->post_author == $user_ID || current_user_can( 'manage_options' ) ) { ?>
 
 			<?php } ?>
