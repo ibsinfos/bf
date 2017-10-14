@@ -93,6 +93,7 @@ class BX_Message{
 			$this->cvs_id = $cvs_id;
 		}
 		$this->msg_type = 'message';
+
 	}
 	static function get_instance($cvs_id = 0){
 		if (null === static::$instance) {
