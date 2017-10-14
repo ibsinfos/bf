@@ -237,7 +237,7 @@ $list_bid
 				<h2 class="modal-title" id="disputeModalTitle"> <?php echo $lb_title;?></h2>
 			</div>
 		  	<div class="modal-body">
-		  		<form id="frm_quit_job">
+		  		<form id="frm_disputing">
 		          	<div class="form-group">
 		            	<label for="message-text" class="control-label"><?php echo $lb_reason;?></label>
 		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
