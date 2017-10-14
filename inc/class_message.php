@@ -151,12 +151,15 @@ class BX_Message{
 
 	}
 	function get_converstaion_custom($type = 'message'){
-		global $wpdb;
+		global $wpdb, $user_ID;
+
 		$sql = "SELECT *
 				FROM {$wpdb->prefix}box_messages msg
 				WHERE cvs_id = {$this->cvs_id}
-					AND msg_type = '{$type}'
-				ORDER BY id ASC";
+					AND msg_type = '{$type}'";
+		if( ! current_user_can(  'manage_options' ) )
+			$sql .= " AND receiver_id = '{$user_ID}' ";
+		$sql .= " ORDER BY id ASC";
 
 		$msgs =  $wpdb->get_results($sql);
 		$results = array();

@@ -2,7 +2,7 @@
 		<div class="col-md-12">
 			<h3>History of Dispute flow </h3>
 			<?php
-			global $project, $winner_id, $cvs_id;
+			global $project, $winner_id, $cvs_id, $user_ID;
 			$feebacks = BX_Message::get_instance($cvs_id)->get_converstaion_custom('disputing');
 			$bid_author = get_userdata($winner_id);
 			$employer = get_userdata($project->post_author);
@@ -14,22 +14,67 @@
 			foreach ($feebacks as $key => $msg) {
 				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
 
-				echo '<p>'.$display_name[$msg->sender_id].' feedback in <small>'.$msg->msg_date.'</small> : </p>';
+				echo '<strong>'.$display_name[$msg->sender_id].'</strong> feedback in <small>'.$msg->msg_date.'</small> : <br />';
 				echo $msg->msg_content .'<br />' ;
 
 				# code...
 			}
+			$place_holder = __('Freelancer send feedback to admin here','boxtheme');
+			if ( $user_ID != $winner_id){
+				$place_holder = __('Employer send feedback to admin here','boxtheme');
+			}
 			?>
 			<form class="swp-send-message"  >
-				<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="<?php _e('Leave your feedback here','boxtheme');?>"></textarea>
+				<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="<?php echo $place_holder;?>"></textarea>
 				<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
-				<input type="hidden" name="receiver_id" value="<?php echo $winner_id;?>">
+				<input type="hidden" name="receiver_id" value="0">
 				<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
 				<input type="hidden" name="msg_type" value="disputing">
-
 				<input type="hidden" name="method" value="insert">
 				<br />
 				<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 			</form>
+			<?php if( current_user_can( 'manage_options' ) ){ ?>
+				<label> For admin</label>
+				<form class=" frm-admin-act form-inline"  >
+
+					<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
+					<input type="hidden" name="receiver_id" value="<?php echo $winner_id;?>">
+					<input type="hidden" name="project_id" value="<?php echo $project_id;?>">
+					<input type="hidden" name="msg_type" value="disputing">
+					<input type="hidden" name="method" value="insert">
+					<div class="form-row align-items-center">
+						<div class="col-auto">
+					      	<div class="input-group col-md-12">
+					        	<div class="input-group-addon" style="width: 165px;">
+					        	<select class="custom-select required" style="background: #eeeeee; border:0;" required>
+					        		<option value="0">Select option</option>
+									<option value="ask_fre">Ask Freelancer</option>
+									<option value="ask_emp">Ask Employer</option>
+									<option value="fre_win">Choose employer win</option>
+									<option value="emp_win">Choose freelancer win</option>
+								</select>
+								</div>
+					        <textarea type="text" class="form-control" name="msg_content" id="msg_content" placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>
+
+					      </div>
+					    </div>
+					</div>
+					 <button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+				</form>
+			<?php } ?>
 		</div>
 </div>
+<style type="text/css">
+	.frm-admin-act{
+		position: relative;
+	}
+	.frm-admin-act .btn-send-message {
+	    z-index: 100;
+	    height: 25px;
+	    padding: 2px 9px;
+	}
+	.sl-ask{
+		position: 1absolute;
+	}
+</style>
