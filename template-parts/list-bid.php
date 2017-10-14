@@ -7,7 +7,7 @@
 			<h3><?php printf(__('Total Bid(s): %s','boxtheme'), $bid_query->found_posts); ?></h3>
 		</div>
 		<div class="col-bid_query-6 f-right no-padding hide">
-			<?php if( $query->found_posts > 1) { ?>
+			<?php if( $bid_query->found_posts > 1) { ?>
 			<div class="dropdown f-right sort-bids">
 				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php _e('Order by','boxtheme');?>
 				<span class="caret"></span></button>
@@ -27,7 +27,7 @@
 
 	if( $bid_query->have_posts() ) :
 		while( $bid_query->have_posts() ):
-			$query->the_post();
+			$bid_query->the_post();
 			get_template_part( 'template-parts/bid', 'loop' );
 			//$list_bid[] = $post;
 		endwhile;
