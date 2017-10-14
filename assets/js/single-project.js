@@ -38,7 +38,8 @@ var single_project = {
 
 		$( "form#frm_quit_job").on('submit', this.quitJob);
 		$( "form.swp-send-message").on('submit', this.sendMessageWSP); // in workspace section
-		$( "form.fre_markascomplete").on('submit', this.freMarkAsComplete); // in workspace section
+		$( "form#fre_markascomplete").on('submit', this.freMarkAsComplete); // in workspace section
+		$( "form#frm_disputing").on('submit', this.sendDisputing); // in workspace section
 
 		msg_send.cvs_id = $("#cvs_id").val(); // set default in for workspace page;
 
@@ -366,7 +367,7 @@ var single_project = {
 
 		return false;
 	},
-	freMarkAsComplete : function(){
+	freMarkAsComplete : function(event){
 		var action = 'workspace_action', method = 'fre_markascomplete';
 		var success = function(res){
 			console.log(' fre_markascomplete');
@@ -375,13 +376,27 @@ var single_project = {
 	        } else {
 	        	alert(res.msg);
 	        }
-	        $('#quytModal').modal().hide();
+	        $('#freMarkAsComplete').modal().hide();
 		}
 		window.ajaxSend.Form(event, action, method, success);
 
 		return false;
 	},
+	sendDisputing: function(event){
+		var action = 'workspace_action', method = 'submit_disputing';
+		var success = function(res){
+			console.log(' submit_disputing');
+        	if ( res.success ){
+        		//window.location.reload(true);
+	        } else {
+	        	alert(res.msg);
+	        }
+	        $('#disputeModal').modal().hide();
+		}
+		window.ajaxSend.Form(event, action, method, success);
 
+		return false;
+	},
 	load_more_bid: function(e){
 
 	},

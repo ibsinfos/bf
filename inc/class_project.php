@@ -352,10 +352,9 @@ Class BX_Project extends BX_Post{
 		return true;
 	}
 	function fre_markascomplete($args){
-		$project_id = $args['project_id'];
 
 		global $user_ID;
-
+		$project_id = $args['project_id'];
 		$project = get_post($project_id);
 		if( $project->post_status == 'awarded' ){
 			update_post_meta( $project_id, 'fre_markedascomplete', $args['review_msg'] );
@@ -366,6 +365,20 @@ Class BX_Project extends BX_Post{
 		);
 		wp_send_json( $respond);
 
+	}
+	function submit_disputing(){
+		global $user_ID;
+		$project_id = $args['project_id'];
+		$project = get_post($project_id);
+		die();
+		if( $project->post_status == 'awarded' ){
+			update_post_meta( $project_id, 'fre_markedascomplete', $args['review_msg'] );
+		}
+		$respond = array(
+			'success' => true,
+			'msg' => 'done',
+		);
+		wp_send_json( $respond);
 	}
 	function check_workspace_action($project){
 		global $user_ID;
