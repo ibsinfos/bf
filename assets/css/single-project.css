@@ -555,3 +555,6 @@ a:hover{
 	background: #efefef;
 	padding: 1px;
 }
+.dispute-section .col-avatar{
+	border-radius: 50%;
+}

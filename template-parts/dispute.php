@@ -1,11 +1,22 @@
-<div class="col-md-8 wrap-workspace">
+<div class="col-md-8 wrap-workspace dispute-section">
 		<div class="col-md-12">
 			<h3>History of Dispute flow </h3>
 			<?php
 			global $project, $winner_id, $cvs_id;
 			$feebacks = BX_Message::get_instance($cvs_id)->get_converstaion_custom('disputing');
+			$bid_author = get_userdata($winner_id);
+			$employer = get_userdata($project->post_author);
+
+			$display_name = array(
+				$winner_id => $bid_author->display_name,
+				$project->post_author => $employer->display_name,
+			);
 			foreach ($feebacks as $key => $msg) {
-				echo '<p>'.$msg->msg_content .'</p>' ;
+				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
+
+				echo '<p>'.$display_name[$msg->sender_id].' feedback in <small>'.$msg->msg_date.'</small> : </p>';
+				echo $msg->msg_content .'<br />' ;
+
 				# code...
 			}
 			?>
