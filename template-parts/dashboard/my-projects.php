@@ -1,27 +1,32 @@
 <?php
 	global $user_ID;
+
+	$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
 	$args = array(
 		'post_type' => 'project',
 		'author'=> $user_ID,
 		'posts_per_page' => -1,
 	);
+
+	$args['post_status'] = $status;
 	$query = new WP_Query($args);
 	$loadmore = false;
+	$link =  box_get_static_link('dashboard');
+	add_query_arg('status','publish', $link);
 	if( $query-> have_posts() ){
 		$loadmore = true;
 		echo '<ul class="db-list-project">'; ?>
 		<li class="heading list-style-none full">
-			<form class="pull-right full">
-				<div class="col-md-3 pull-right">
+			<form class="pull-right full dashboard-filter">
+				<div class="col-md-2 pull-right">
 					<select class="form-control">
-						<option> All status</option>
-						<option> Publish</option>
-						<option> Pending</option>
-						<option> Working</option>
-						<option> Done</option>
-						<option> Disputing</option>
-						<option> Archived</option>
-						<option> Archived</option>
+						<option value="all"> All status</option>
+						<option value="<?php echo add_query_arg('status','publish', $link);?>"> Publish</option>
+						<option value="<?php echo add_query_arg('status','pending', $link);?>"> Pending</option>
+						<option value="<?php echo add_query_arg('status','working', $link);?>"> Working</option>
+						<option value="<?php echo add_query_arg('status','done', $link);?>"> Done</option>
+						<option value="<?php echo add_query_arg('status','disputing', $link);?>"> Disputing</option>
+						<option value="<?php echo add_query_arg('status','archived', $link);?>"> Archived</option>
 					</select>
 				</div>
 
