@@ -86,9 +86,10 @@
 	opacity: 1;
 }
 .row-bid-item {
-    border: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
     margin-bottom: 15px;
-    padding: 15px 0 0 0;
+    padding: 15px 0 15px 0;
+
 }
 .row-bid-item .avatar{
 	width: 96px;
@@ -531,4 +532,21 @@ a:hover{
 .time-job-left{
 	display: block;
 	text-align: center;
+}
+.btn-act-message,
+.btn-toggle-award {
+	background: none;
+	text-align: left;
+	border:0;
+	font-weight: bold;
+	display: block;
+}
+.row-bid-item:hover .btn-act-message,
+.row-bid-item:hover .btn-toggle-award{
+	display: block;
+}
+.btn-act-message img,
+.btn-toggle-award .fa{
+	width: 25px;
+	padding-right: 10px;
 }

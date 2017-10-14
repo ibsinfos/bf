@@ -109,7 +109,7 @@
 					    <div class="col-md-4 sidebar column-right-detail" id="single_sidebar"> <?php  	get_sidebar('project');?></div>
 					</div>
 					<div class="full row-detail-section">
-		  				<div class="col-md-12 set-bg">	<?php get_template_part( 'template-parts/list', 'bid' ); ?>				</div>
+		  				<?php get_template_part( 'template-parts/list', 'bid' ); ?>
 	  				</div>
 			    <?php } ?>
             </div> <!-- .wrap-content !-->
