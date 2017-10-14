@@ -21,21 +21,23 @@
 			<?php } ?>
 		</div>
 	</div>
-	<div class ="col-md-12 header-list-bid row-bid-item">
-		<div class="col-md-2 text-center no-padding-right"> Freelancer Bidding		</div>
-		<div class="col-md-7 "> Description		</div>
-		<div class="col-md-2  text-center">Price		</div>
-	</div>
+
 	<?php
 	global $cms_setting;
 	$cms_setting = get_commision_setting();
 
-	if( $bid_query->have_posts() ) :
+	if( $bid_query->have_posts() ) : ?>
+		<div class ="col-md-12 header-list-bid row-bid-item">
+			<div class="col-md-2 text-center no-padding-right"> Freelancer Bidding		</div>
+			<div class="col-md-7 "> Description		</div>
+			<div class="col-md-2  text-center">Price		</div>
+		</div>
+		<?php
 		while( $bid_query->have_posts() ):
 			$bid_query->the_post();
 			get_template_part( 'template-parts/bid', 'loop' );
-			get_template_part( 'template-parts/bid', 'loop' );
-			get_template_part( 'template-parts/bid', 'loop' );
+			//get_template_part( 'template-parts/bid', 'loop' );
+			//get_template_part( 'template-parts/bid', 'loop' );
 			//$list_bid[] = $post;
 		endwhile;
 
