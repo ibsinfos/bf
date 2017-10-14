@@ -37,7 +37,7 @@ if(empty($score) || !$score){
 	<ul class="list-employer-info">
 		<li class="item-avatar">
 			<div class="left-emp-avatar">
-				<?php echo get_avatar( $user->ID, 33);?> &nbsp;
+				<?php echo get_avatar( $user->ID, 39);?> &nbsp;
 			</div>
 			<div class="right-emp-avatar">
 				<label class="emp-name"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php echo $user->display_name ;?>  </a> </label>

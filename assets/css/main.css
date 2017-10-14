@@ -1476,13 +1476,12 @@ h5.port-title {
 .large-label{
 	font-size: 16px;
 }
-
 .label-status{
 	font-size: 23px;
 	text-align: center;
 	display: block;
+	text-transform: uppercase;
 }
-
 .default-label{
 	font-size: 18px;
 	margin:10px 0 10px 0;
