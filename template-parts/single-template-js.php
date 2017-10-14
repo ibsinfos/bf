@@ -190,16 +190,16 @@ $list_bid
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h2 class="modal-title" id="freMarkAsCompleteh2">After submit this form. System will notify to employer that this project is compled with the message from you.</h2>
+				<h2 class="modal-title" id="freMarkAsCompleteh2"><?php _e('Let employer know that you have completed this job','boxtheme');?>.</h2>
 			</div>
 		  	<div class="modal-body">
 		  		<form id="fre_markascomplete">
 		          	<div class="form-group">
-		            	<p for="message-text" class="control-label">Leave your detail message here. Employer will check the result/message and mark as complete or feedback to you.</p>
+		            	<p for="message-text" class="control-label">Leave your detail message here that help employer know the status of project and your message.</p>
 		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
 		            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
 		            </div>
-		            <div class="form-group text-right"><button type="submit" class="btn btn-primary ">Send Job</button> </div>
+		            <div class="form-group text-right"><button type="submit" class="btn btn-primary ">Send</button> </div>
 		        </form>
 		  	</div>
 		</div>
