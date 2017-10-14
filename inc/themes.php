@@ -317,3 +317,20 @@ function step_process( $is_workspace ){
 	    	</ul> <?php
 	    }
 	}
+	function box_project_status($status){
+		$args = array(
+			'public' => __('Open','boxtheme'),
+			'pending' => __('Pending','boxtheme'),
+			'draft' => __('Draft','boxtheme'),
+			'awared' => __('Awared','boxtheme'),
+			'done' => __('Done','boxtheme'),
+			'archived' => __('Archived','boxtheme'),
+			'disputing' => __('Disputing','boxtheme'),
+			'resolved' => __('Resolved','boxtheme'),
+			'inherit' => '',
+
+		);
+		if( isset($args[$status]) )
+			return $args[$status];
+		return '';
+	}

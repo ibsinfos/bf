@@ -57,12 +57,13 @@
 			      			</div> <?php
 			      		}
 			      	}
+
 			      	?>
 
 			      	<div class="col-md-3 pull-right">
 				      		<div class="job-status">
 				      				<span class="time-job-left"> 6 days, 23 hours left</span>
-				      				<span class="label-status primary-color">OPEN</span>
+				      				<span class="label-status primary-color"><?php echo box_project_status($project->post_status);?></span>
 				      		</div>
 
 

@@ -254,6 +254,24 @@ function bx_theme_init() {
 		'label_count'               => _n_noop( 'Done <span class="count">(%s)</span>', 'Done <span class="count">(%s)</span>' ),
 		)
 	);
+	register_post_status( 'disputing', array(
+		'label'                     => _x( 'Disputing', 'post' ),
+		'public'                    => true,
+		'exclude_from_search'       => true,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop( 'Disputing <span class="count">(%s)</span>', 'Done <span class="count">(%s)</span>' ),
+		)
+	);
+	register_post_status( 'Resolved', array(
+		'label'                     => _x( 'Resolved', 'post' ),
+		'public'                    => true,
+		'exclude_from_search'       => true,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop( 'Resolved <span class="count">(%s)</span>', 'Done <span class="count">(%s)</span>' ),
+		)
+	);
 
 	$port_label = array(
 		'name'               => _x( 'Portfolio', 'post type general name', 'your-plugin-boxtheme' ),
