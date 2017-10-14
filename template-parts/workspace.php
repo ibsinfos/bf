@@ -92,7 +92,7 @@
 		if($project->post_status == 'disputing' ){
 			$user_send_id = get_post_meta($project->ID, 'user_send_dispute', true);
 			$disputor = get_userdata( $user_send_id );
-			printf( __('%s sent a dispute request to system. This job is disputing and wait admin review. Go to <a href="?dispute=1"> dispute section </a> to see the processing. In the whole process the disputing case. Chat will be disabled.','boxtheme'), $disputor->display_name );
+			printf( __('%s sent a disputing request. This job is disputing and wait admin review. Go to <a href="?dispute=1"> dispute section </a> to see the processing. In the whole process the disputing case. Chat will be disabled.','boxtheme'), $disputor->display_name );
 		}
 		?>
 	</div>
