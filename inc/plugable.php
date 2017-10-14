@@ -87,7 +87,7 @@ function get_conversation($cvs_id){
 	global $wpdb, $user_ID, $convs_id;
 	$convs = get_conversation_id_of_user($freelancer_id, $project_id);
 
-	if(null !== $convs){
+	if( !empty( $convs ) ) {
 		$convs_id  = $convs->ID;
 		$messages = $wpdb->get_results("
 			SELECT *

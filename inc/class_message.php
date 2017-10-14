@@ -147,6 +147,9 @@ class BX_Message{
 	function get_converstaion($args){
 		$id = $args['id'];
 		global $wpdb;
+		if( empty( $id ) ){
+			return false;
+		}
 		$sql = "SELECT *
 				FROM {$wpdb->prefix}box_messages msg
 				WHERE cvs_id = {$id}
