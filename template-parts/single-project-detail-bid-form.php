@@ -24,7 +24,7 @@ if( $emp_pay > $budget ) {
    	<div class="form-group row bd-bottom">
       	<div class="col-md-6">
       		<label  class="full col-form-label"><?php _e('Bid price','boxtheme') ;?></label>
-      		<small class="full">Total amount the client will see on your proposal</small>
+      		<small class="full"><?php _e('Total amount the client will see on your proposal','boxthem');?></small>
       	</div>
 
       	<div class="col-sm-6 bid-col-right">
@@ -41,7 +41,7 @@ if( $emp_pay > $budget ) {
    	<div class="form-group row bd-bottom">
       	<div for="inputEmail5" class="col-sm-6 col-form-label">
       		<label> <?php _e('You\'ll be paid','boxtheme');?>  </label>
-      		<small class="text-left  full ">This fund auto release to your ballance after the project finish.</small>
+      		<small class="text-left  full "><?php _e('This fund auto release to your ballance after the project finish.','boxtheme');?></small>
       	</div>
 
       	<div class="col-sm-6 bid-col-right">
