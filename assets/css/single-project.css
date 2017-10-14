@@ -236,7 +236,7 @@ ul.list-category li{
 	border-bottom: 2px solid #17a717;
 }
 .job-process-heading li a{
-	color:#666;
+	font-size: 17px;
 }
 .job-process-heading span{
 	font-size: 16px;

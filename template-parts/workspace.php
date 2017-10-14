@@ -16,14 +16,14 @@
 
 						if( $user_ID == $project->post_author ){ // employer  ?>
 
-							<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Quit','boxtheme');?></button>
+							<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php _e('Dispute','boxtheme');?></button>
 							<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Finish</button>
 							<?php }
 
-					} else if( $user_ID == $winner_id && !$is_fre_review) { // freelancer ?>
+					} else if( $user_ID == $winner_id && ! $is_fre_review) { // freelancer ?>
 
 							<button type="button " class="btn btn-finish" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Mark as Complete</button>
-							<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php_e('Quit','boxtheme');?></button> <?php
+							<button type="button" class="btn btn-quit" data-toggle="modal" data-target="#quytModal" data-whatever="@mdo"><?php_e('Dispute','boxtheme');?></button> <?php
 
 					} else if( $project->post_status == 'done' && $user_ID == $winner_id && !$is_fre_review) { ?>
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><?php _e('Review','boxtheme');?></button> <?php

@@ -45,13 +45,13 @@
 
 	      			if( $access_workspace ){
 	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
-	      					<div class="col-md-3 pull-right">
+	      					<div class="col-md-2 pull-right no-padding-left">
 			      				<ul class="job-process-heading">
 
 	      						<?php if( ! $is_workspace  ) { ?>
-			      					<li class=" text-center <?php echo $class;?>"><a href="?workspace=1"> <span class="glyphicon glyphicon-saved"></span> <?php _e('Go to Workspace','boxtheme');?></a>	</li>
+			      					<li class=" text-center <?php echo $class;?>"><a href="?workspace=1" class="primary-color"><i class="fa fa-clipboard" aria-hidden="true"></i> <?php _e('Go to Workspace','boxtheme');?></a>	</li>
 			      				<?php } else {?>
-			      					<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Back to Detail','boxtheme');?></a></li>
+			      					<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>" class="primary-color"><i class="fa fa-file-text-o" aria-hidden="true"></i></span> <?php _e('Back to Detail','boxtheme');?></a></li>
 			      				<?php } ?>
 			      				</ul>
 			      			</div> <?php
