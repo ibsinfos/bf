@@ -52,7 +52,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 		<div class="full clear bid-content">
 			<?php the_content(); ?>
 		</div>
-		<?php if( $user_ID == $project->post_author && $project->post_status == 'publish' ){ ?>
+
 			<div class="full clear align-right">
 				<?php
 				$cvs_id = is_sent_msg($project->ID, $bid->post_author);
@@ -69,12 +69,19 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 	<div class ="col-md-2 no-padding-left padding-right-zero text-center">
 		<span><?php printf(__(' %s','boxtheme'), get_box_price($bid->_bid_price )) ?></span>		<?php
 			echo "<input type='hidden' name='bid_author' class='bid_author'  value ='".$bid->post_author."' />";
-			if( $cvs_id ){ ?>
-				<button class="btn-view-conversation btn-act-message primary-color"><img src="<?php echo get_template_directory_uri().'/img/chat.png';?>" /> <?php _e('Send Message','boxtheme');?></button>
-			<?php } else { ?>
-				<button class="btn-create-conversation  btn-act-message primary-color" ><img src="<?php echo get_template_directory_uri().'/img/chat.png';?>" /> <?php _e('Send Message','boxtheme');?></button>
-			<?php } ?>
-		 	<button class="inline btn-status-display no-radius btn-toggle-award primary-color" id="<?php echo $bid->ID;?>"> <i class="fa fa-thumbs-o-up primary-colo" aria-hidden="true"></i> <?php _e('Hire Freelancer','boxtheme');?></button>
+			<?php
+			$cvs_id = is_sent_msg($project->ID, $bid->post_author);
+			if( !$cvs_id || $cvs_id == null ){
+				$cvs_id = 0;
+			}
+			if( $user_ID == $project->post_author && $project->post_status == 'publish' ){
 
+				if( $cvs_id ){ ?>
+					<button class="btn-view-conversation btn-act-message primary-color"><img src="<?php echo get_template_directory_uri().'/img/chat.png';?>" /> <?php _e('Send Message','boxtheme');?></button>
+				<?php } else { ?>
+					<button class="btn-create-conversation  btn-act-message primary-color" ><img src="<?php echo get_template_directory_uri().'/img/chat.png';?>" /> <?php _e('Send Message','boxtheme');?></button>
+				<?php } ?>
+			 	<button class="inline btn-status-display no-radius btn-toggle-award primary-color" id="<?php echo $bid->ID;?>"> <i class="fa fa-thumbs-o-up primary-colo" aria-hidden="true"></i> <?php _e('Hire Freelancer','boxtheme');?></button>
+			<?php } ?>
 	</div>
 </div>
