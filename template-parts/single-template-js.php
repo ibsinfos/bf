@@ -127,8 +127,12 @@ $list_bid
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h2 class="modal-title" id="exampleModalLabel">
 			<?php
+			$label = '';
+			$frm_id = 'frm_fre_review';
 			global $project, $user_ID;
-			 if ( $project->post_author == $user_ID ) {?>
+			if ( $project->post_author == $user_ID ) {
+				$frm_id = 'frm_emp_review';
+				$label = __('This project mark as done and the fund will be released to freelancer account after submit this form.','boxtheme'); ?>
 			 	Mark as finish and review this project/freelancer.
 			<?php } else { ?>
 				Review employer of this project
@@ -136,19 +140,22 @@ $list_bid
 			</h2>
 		</div>
       	<div class="modal-body">
-      		<?php if($role == FREELANCER){ ?>
-      	 	<form id="frm_fre_review">
+      	 	<form id="<?php echo $frm_id;?>">
 	          	<div class="form-group">
-	            	<label for="message-text" class="control-label">Review </label>
+	            	<label for="message-text" class="control-label"><?php echo $label;?></label>
 	            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" required placeholder="Let your review here."></textarea>
-	            	Rating:
-	            	<start class="rating-score clear block" title="1">
+	            	<p>
+	            	<div class="col-md-2 no-padding-left">Score</div>
+	            	<div class="col-md-6">
+	            		<start class="rating-score clear block" title="1">
 		            	<i class="fa fa-star" aria-hidden="true" title="1"></i>
 		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
 		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
 		            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
 		            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
-	            	</start>
+		            	</start>
+		            </div>
+	            	</p>
 	            	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
 	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
 	          	</div>
@@ -156,28 +163,6 @@ $list_bid
 	        		<button type="submit" class="btn btn-primary">Send</button>
 	          	</div>
         	</form>
-      	<?php } else { ?>
-        <form id="frm_emp_review">
-          	<div class="form-group">
-            	<label for="message-text" class="control-label">Review </label>
-            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Let your review here." required></textarea>
-            	Rating:
-            	<start class="rating-score clear block" title="1">
-	            	<i class="fa fa-star" aria-hidden="true" title="1"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
-            	</start>
-            	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
-            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
-          	</div>
-          	<div class="form-group align-right">
-        	<button type="submit" class="btn btn-primary">Mark as finish</button>
-          </div>
-        </form>
-        <?php }   ?>
-
       </div>
 
     </div>
