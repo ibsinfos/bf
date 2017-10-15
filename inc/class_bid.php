@@ -211,10 +211,8 @@ class BX_Bid extends BX_Post{
 
 			if ( bx_get_user_role() == FREELANCER)
 				return true;
-
 		}
 		return false;
-
 	}
 
 }
