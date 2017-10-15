@@ -236,7 +236,7 @@ function bx_theme_init() {
 		'label_count'               => _n_noop( 'Awarded <span class="count">(%s)</span>', 'Awarded <span class="count">(%s)</span>' ),
 		)
 	);
-		register_post_status( ARCHIVED, array(
+	register_post_status( ARCHIVED, array(
 		'label'                     => _x( 'Archived', 'post' ),
 		'public'                    => true,
 		'exclude_from_search'       => true,
@@ -263,7 +263,7 @@ function bx_theme_init() {
 		'label_count'               => _n_noop( 'Disputing <span class="count">(%s)</span>', 'Done <span class="count">(%s)</span>' ),
 		)
 	);
-	register_post_status( 'Resolved', array(
+	register_post_status( 'resolved', array(
 		'label'                     => _x( 'Resolved', 'post' ),
 		'public'                    => true,
 		'exclude_from_search'       => true,
