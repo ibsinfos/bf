@@ -56,10 +56,10 @@
 					        	<div class="input-group-addon" style="width: 165px;">
 					        	<select name="act" class="custom-select required" style="background: #eeeeee; border:0;" required>
 					        		<option>Select option</option>
-									<option value="ask_fre">Ask Freelancer</option>
-									<option value="ask_emp">Ask Employer</option>
-									<option value="fre_win">Choose employer win</option>
-									<option value="emp_win">Choose freelancer win</option>
+									<option value="ask_fre">Send a messsage to Freelancer</option>
+									<option value="ask_emp">Send a message to Employer</option>
+									<option value="fre_win">Choose employer winner</option>
+									<option value="emp_win">Choose freelancer winner</option>
 								</select>
 								</div>
 					        <textarea type="text" class="form-control required" name="msg_content" id="msg_content" required placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>
