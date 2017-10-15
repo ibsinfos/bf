@@ -1,8 +1,13 @@
 <div class="col-md-8 wrap-workspace dispute-section">
 		<div class="col-md-12">
-			<h3>History of Dispute flow </h3>
+			<?php global $project, $winner_id, $cvs_id, $user_ID; ?>
+			<h3>Dispute section</h3>
+			<label> Base on your feedback. We - adminstrator of website will make a decsion for this case. Please clarify your problem here </label>
+			<h3> Feedback </h3>
+
 			<?php
-			global $project, $winner_id, $cvs_id, $user_ID;
+
+
 			$feebacks = BX_Message::get_instance($cvs_id)->get_converstaion_custom('disputing');
 			$bid_author = get_userdata($winner_id);
 			$employer = get_userdata($project->post_author);
@@ -15,16 +20,16 @@
 				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
 				if( (int) $msg->receiver_id == 0 ){ // employer or freelancer send.
 
-					echo '<strong>'.$display_name[$msg->sender_id].'</strong> send a feedback to admin: ';
+					echo '<strong>'.$display_name[$msg->sender_id].'</strong> send a feedback to admin ';
 				} else {
 					if( (int) $msg->receiver_id == $winner_id ){
-						echo '<strong>Administrator </strong> send a message to freelancer:';
+						echo '<strong>Administrator </strong> send a message to freelancer';
 					} else {
-						echo '<strong>Administrator </strong> send a message to employer:';
+						echo '<strong>Administrator </strong> send a message to employer';
 					}
 
 				}
-				echo '('.$msg->msg_date.') : <br />';
+				echo ' ('.$msg->msg_date.') : <br />';
 				echo $msg->msg_content .'<br />' ;
 
 				# code...
@@ -63,8 +68,8 @@
 					        		<option>Select option</option>
 									<option value="ask_fre">Send a messsage to Freelancer</option>
 									<option value="ask_emp">Send a message to Employer</option>
-									<option value="fre_win">Choose employer winner</option>
-									<option value="emp_win">Choose freelancer winner</option>
+									<option value="choose_fre_win">Choose freelancer winner</option>
+									<option value="choose_emp_win">Choose employer winner</option>
 								</select>
 								</div>
 					        <textarea type="text" class="form-control required" name="msg_content" id="msg_content" required placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>

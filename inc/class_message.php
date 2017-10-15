@@ -127,9 +127,7 @@ class BX_Message{
 		}
 		if( !$sender_id )
 			$sender_id = $user_ID;
-		var_dump($receiver_id);
-		//var_dump($args);
-		//var_dump($this->receiver_id);
+
 		$default = array(
 				'sender_id' => $sender_id,
 				'msg_content' => $args['msg_content'],
@@ -141,7 +139,7 @@ class BX_Message{
 				'msg_type' => $this->msg_type,
 				'receiver_id' => $this->receiver_id,
 			);
-		var_dump($default);
+
 		$wpdb->insert( $wpdb->prefix . 'box_messages', $default		);
 
 		// update modify time of this conversiaion.

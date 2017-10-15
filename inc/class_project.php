@@ -366,13 +366,22 @@ Class BX_Project extends BX_Post{
 		wp_send_json( $respond);
 
 	}
+
+	/**
+	 * admin send a message to employer or freelancer and choose the account winner in dispute case.
+	 * This is a cool function
+	 * @author danng
+	 * @version 1.0
+	 * @param   [type] $args [description]
+	 * @return  [type]       [description]
+	 */
 	function frmadminact($args){
 
 		$act = isset($args['act']) ? $args['act'] : 0;
 		$emp_id = isset($args['emp_id']) ? $args['emp_id'] : 0;
 		$fre_id = isset($args['fre_id']) ? $args['fre_id'] : 0;
 		$response = array('success' => true,'msg' => 'done');
-		if( ! current_user_can( 'manage_option' ) ){
+		if( ! current_user_can( 'manage_options' ) ){
 			wp_die('Die');
 		}
 		switch ($act) {
@@ -382,13 +391,13 @@ Class BX_Project extends BX_Post{
 			case 'ask_emp':
 				$this->insert_disputing_msg($emp_id, $args);
 				break;
-			case 'choose_fre':
+			case 'choose_fre_win':
 				update_post_meta($project_id,'choose_dispute_winner', $fre_id);
 				update_post_meta($project_id,'choose_dispute_msg', $args['msg_content']);
 				wp_update_post( array( 'ID'=>$profile_idm, 'post_status' => 'resolved') );
 				break;
 
-			case 'choose_emp':
+			case 'choose_emp_win':
 				update_post_meta($project_id,'choose_dispute_winner', $fre_id);
 				update_post_meta($project_id,'choose_dispute_msg', $args['msg_content']);
 				wp_update_post( array('ID'=>$profile_idm, 'post_status' => 'resolved'));
