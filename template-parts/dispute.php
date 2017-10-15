@@ -15,11 +15,16 @@
 				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
 				if( (int) $msg->receiver_id == 0 ){ // employer or freelancer send.
 
-					echo '<strong>'.$display_name[$msg->sender_id].'</strong>';
+					echo '<strong>'.$display_name[$msg->sender_id].'</strong> send a feedback to admin: ';
 				} else {
-					echo '<strong>Administrator </strong>';
+					if( (int) $msg->receiver_id == $winner_id ){
+						echo '<strong>Administrator </strong> send a message to freelancer:';
+					} else {
+						echo '<strong>Administrator </strong> send a message to employer:';
+					}
+
 				}
-				echo ' feedback in <small>'.$msg->msg_date.'</small> : <br />';
+				echo '('.$msg->msg_date.') : <br />';
 				echo $msg->msg_content .'<br />' ;
 
 				# code...
