@@ -107,7 +107,7 @@ function is_owner_project( $project ) {
 	}
 	return false;
 }
-function can_access_workspace($project){
+function can_can_access_workspace($project){
 	global $user_ID;
 
 	if( is_owner_project($project) ){
@@ -284,9 +284,9 @@ function heading_project_info($project, $is_workspace){ ?>
       	<div class="col-md-3"><?php printf(__('Post date: %s','boxtheme'),get_the_date() );?></div>
       	<div class="col-md-3"><?php printf(__("Fixed price: %s",'boxtheme'),box_get_price_format($project->_budget) ); ?> </div>
       	<div class="col-md-4"> 	<?php
-      	global $access_workspace;
+      	global $can_access_workspace;
 
-      	if( $project->post_status != 'publish' && $access_workspace ) {
+      	if( $project->post_status != 'publish' && $can_access_workspace ) {
       		step_process($is_workspace);
       	} else {
       		box_social_share();
@@ -297,7 +297,7 @@ function heading_project_info($project, $is_workspace){ ?>
 	<?php
 }
 function step_process( $is_workspace ){
-		global $project, $access_workspace, $winner_id, $is_dispute;
+		global $project, $can_access_workspace, $winner_id, $is_dispute;
 		$class = $detail_section = $dispute_section = '';
 		if( $is_workspace ){
 			$class ='current-section';
@@ -307,7 +307,7 @@ function step_process( $is_workspace ){
 			$detail_section = 'current-section';
 		}
 
-		if( $access_workspace && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ) { ?>
+		if( $can_access_workspace && in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ) { ?>
 	    	<ul class="job-process-heading">
 	    		<?php if( $is_workspace){ ?>
 					<li class="<?php echo $detail_section;?>"><a href="<?php echo get_permalink();?>"> <span class="glyphicon glyphicon-list"></span> <?php _e('Job Detail','boxtheme');?></a></li>

@@ -12,7 +12,7 @@ function box_bid_buton($post){
 }
 
 
-global $user_ID, $project, $is_owner, $access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding, $is_logged, $current_user_can_bid;
+global $user_ID, $project, $is_owner, $can_access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding, $is_logged, $current_user_can_bid;
 $user = get_userdata($project->post_author );
 
 $country_id  = get_user_meta( $project->post_author, 'location', true );

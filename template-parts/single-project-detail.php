@@ -5,7 +5,7 @@
 <div class="full job-content second-font">
 <h3 class="default-label"> <?php _e('Job details','boxtheme');?> </h3>
 <?php
-	global $access_workspacem, $is_workspace;
+	global $can_access_workspacem, $is_workspace;
 	box_social_share();
 
 ?>

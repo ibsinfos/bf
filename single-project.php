@@ -3,9 +3,9 @@
 
 	get_header();
 
-	global $post, $project, $user_ID, $is_owner, $winner_id, $access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $can_can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
 
-	$cvs_id = $is_owner = $access_workspace =  0;
+	$cvs_id = $is_owner = $can_access_workspace =  0;
 
 	$role = bx_get_user_role();
 
@@ -19,8 +19,8 @@
 	if( is_owner_project( $project ) )
 		$is_owner = $project->post_author;
 
-	if( can_access_workspace($project) )
-		$access_workspace = 1;
+	if( can_can_access_workspace($project) )
+		$can_access_workspace = 1;
 
 	if( $current_user_can_bid ){
 		$bidding = is_current_user_bidded($project->ID);
@@ -55,7 +55,7 @@
 			      	</div>
 			      	<?php
 
-	      			if( $access_workspace ){
+	      			if( $can_access_workspace ){
 	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
 	      					<div class="col-md-2 pull-right no-padding-left col-xs-6">
 			      				<ul class="job-process-heading">
@@ -97,17 +97,18 @@
         <div class="detail-project second-font">
             <div class="wrap-content"> <?php
 
-       			if ( $access_workspace ){
+       			if ( $can_access_workspace && ( $is_workspace || $is_dispute ) ){
+
        				$cvs_id = is_sent_msg($project->ID, $winner_id);
        				if( $is_workspace ) {
        					get_template_part( 'template-parts/workspace');
       				} else if( $is_dispute ){
-      				get_template_part( 'template-parts/dispute' );
+      					get_template_part( 'template-parts/dispute' );
 			   		}
 			   	} else {
-			    $apply  = isset($_GET['apply']) ? $_GET['apply'] : '';
 
-			    ?>
+			    	$apply  = isset($_GET['apply']) ? $_GET['apply'] : '';   ?>
+
 			    	<div class="full row-detail-section ">
 				    	<div class="col-md-8 column-left-detail">
 		   					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
