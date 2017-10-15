@@ -2,23 +2,10 @@
 	global $user_ID;
 
 	$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
-
-	if( $status == 'disputing' )
-		$status = array('disputing','resolved');
-	$args = array(
-		'post_type' => 'project',
-		'author'=> $user_ID,
-		'posts_per_page' => -1,
-	);
-
-	$args['post_status'] = $status;
-	$query = new WP_Query($args);
 	$loadmore = false;
-	$link =  box_get_static_link('dashboard');
-	add_query_arg('status','publish', $link);
-	?>
+	$link =  box_get_static_link('dashboard');  ?>
 
-		<ul class="db-list-project">
+	<ul class="db-list-project">
 		<li class="heading list-style-none full">
 			<form class="pull-right full dashboard-filter">
 				<div class="col-md-2 pull-right">
@@ -36,7 +23,16 @@
 			</form>
 		</li>
 		<?php
+			$args = array(
+			'post_type' => 'project',
+			'author'=> $user_ID,
+			'posts_per_page' => -1,
+		);
+		if( $status == 'disputing' )
+			$status = array('disputing','resolved');
 
+		$args['post_status'] = $status;
+		$query = new WP_Query($args);
 
 		echo '<li class="heading list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-4">';				_e('Project Title','boxtheme');				echo '</div>';
