@@ -3,7 +3,7 @@
 
 	get_header();
 
-	global $post, $project, $user_ID, $is_owner, $winner_id, $can_can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
 
 	$cvs_id = $is_owner = $can_access_workspace =  0;
 
@@ -19,7 +19,7 @@
 	if( is_owner_project( $project ) )
 		$is_owner = $project->post_author;
 
-	if( can_can_access_workspace($project) )
+	if( can_access_workspace($project) )
 		$can_access_workspace = 1;
 
 	if( $current_user_can_bid ){

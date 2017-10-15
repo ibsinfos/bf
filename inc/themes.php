@@ -107,7 +107,7 @@ function is_owner_project( $project ) {
 	}
 	return false;
 }
-function can_can_access_workspace($project){
+function can_access_workspace($project){
 	global $user_ID;
 
 	if( is_owner_project($project) ){
