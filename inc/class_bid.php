@@ -207,18 +207,13 @@ class BX_Bid extends BX_Post{
 
 		if (  $project->post_status == 'publish' ) {
 			if( ! is_user_logged_in() )
-				return '1';
-
-			global $user_ID;
-			if( $project->post_author == $user_ID )
-				return '222';
+				return true;
 
 			if ( bx_get_user_role() == FREELANCER)
 				return true;
-			else
-				return '555';
+
 		}
-		return '666';
+		return false;
 
 	}
 
