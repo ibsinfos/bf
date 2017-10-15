@@ -109,10 +109,11 @@ class BX_Message{
 
 		global $wpdb, $user_ID;
 
-		$receiver_id = isset($args['receiver_id'])? $args['receiver_id'] : '';
+		$receiver_id = isset( $args['receiver_id'] ) ? (int) $args['receiver_id'] : '';
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
-		if(  !empty($receiver_id))
+		if(  is_numeric ( $receiver_id ) ) {
 			$this->receiver_id = $receiver_id;
+		}
 		$cvs_project_id = isset($args['cvs_project_id']) ? $args['cvs_project_id'] : 0;
 		if( isset( $args['cvs_id']) )
 			$this->cvs_id = $args['cvs_id'];
@@ -121,11 +122,14 @@ class BX_Message{
 			$this->msg_type = $args['msg_type'];
 
 
-		if( empty($args['sender_id']) ){
+		if( empty( $args['sender_id']) ){
 			$sender_id = 0;
 		}
 		if( !$sender_id )
 			$sender_id = $user_ID;
+		var_dump($receiver_id);
+		//var_dump($args);
+		//var_dump($this->receiver_id);
 		$default = array(
 				'sender_id' => $sender_id,
 				'msg_content' => $args['msg_content'],

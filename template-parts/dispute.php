@@ -8,13 +8,13 @@
 			$employer = get_userdata($project->post_author);
 
 			$display_name = array(
-				$winner_id => $bid_author->display_name,
-				$project->post_author => $employer->display_name,
+				$winner_id => 'Freelancer '.$bid_author->display_name,
+				$project->post_author => 'Employer '. $employer->display_name,
 			);
 			foreach ($feebacks as $key => $msg) {
 				//echo '<div class="col-avatar">'.get_avatar( $msg->sender_id, 39).'<div>';
-
 				if( (int) $msg->receiver_id == 0 ){ // employer or freelancer send.
+
 					echo '<strong>'.$display_name[$msg->sender_id].'</strong>';
 				} else {
 					echo '<strong>Administrator </strong>';
