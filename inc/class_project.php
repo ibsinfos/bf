@@ -395,8 +395,8 @@ Class BX_Project extends BX_Post{
 				$this->insert_disputing_msg($emp_id, $args);
 				break;
 			case 'choose_fre_win':
-				update_post_meta($project_id,'choose_dispute_winner', $fre_id);
-				update_post_meta($project_id,'choose_dispute_msg', $args['msg_content']);
+				update_post_meta( $project_id,'choose_dispute_winner', $fre_id);
+				update_post_meta( $project_id,'choose_dispute_msg', $args['msg_content']);
 				wp_update_post( array( 'ID'=> $project_id, 'post_status' => 'resolved') );
 				break;
 

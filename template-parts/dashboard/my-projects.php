@@ -2,6 +2,9 @@
 	global $user_ID;
 
 	$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
+
+	if( $status == 'disputing' )
+		$status = array('disputing','resolved');
 	$args = array(
 		'post_type' => 'project',
 		'author'=> $user_ID,
