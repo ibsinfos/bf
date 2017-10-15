@@ -54,16 +54,19 @@
 				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> 3 </span></div>
 			      	</div>
 			      	<?php
+
 	      			if( $access_workspace ){
 	      				if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){?>
 	      					<div class="col-md-2 pull-right no-padding-left col-xs-6">
 			      				<ul class="job-process-heading">
 
-	      						<?php if( ! $is_workspace  ) { ?>
+	      						<?php
+
+	      						if( ! $is_workspace ||  $project->post_status == 'resolved'   ) { ?>
 			      					<li class=" text-center "><a href="?workspace=1" class="primary-color"><i class="fa fa-clipboard" aria-hidden="true"></i> <?php _e('Go to Workspace','boxtheme');?></a>	</li>
 			      				<?php } else { ?>
 			      					<li class=""><a href="<?php echo get_permalink();?>" class="primary-color"><i class="fa fa-file-text-o" aria-hidden="true"></i></span> <?php _e('Back to Detail','boxtheme');?></a></li>
-			      					<?php if($project->post_status == 'disputing' ){ ?>
+			      					<?php if( $project->post_status == 'disputing' ){ ?>
 			      						<li class=""><a href="?dispute=1" class="primary-color"><i class="fa fa-file-text-o" aria-hidden="true"></i></span> <?php _e('Disputing section','boxtheme');?></a></li>
 			      					<?php } ?>
 			      				<?php } ?>
