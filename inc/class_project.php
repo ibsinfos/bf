@@ -403,7 +403,7 @@ Class BX_Project extends BX_Post{
 			case 'choose_emp_win':
 				update_post_meta($project_id,'choose_dispute_winner', $fre_id);
 				update_post_meta($project_id,'choose_dispute_msg', $args['msg_content']);
-				wp_update_post( array('ID'=>$project_id, 'post_status' => 'resolved'));
+				wp_update_post( array( 'ID' => $project_id, 'post_status' => 'resolved'));
 				break;
 
 			default:
