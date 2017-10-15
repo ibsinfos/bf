@@ -38,47 +38,57 @@
 			if ( $user_ID != $winner_id){
 				$place_holder = __('Employer send feedback to admin here','boxtheme');
 			}
-			?>
-			<form class="swp-send-message"  >
-				<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="<?php echo $place_holder;?>"></textarea>
-				<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
-				<input type="hidden" name="receiver_id" value="0">
+			if( $project->post_status == 'resolved' ){
 
-				<input type="hidden" name="msg_type" value="disputing">
-				<input type="hidden" name="method" value="insert">
-				<br />
-				<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
-			</form>
-			<?php if( current_user_can( 'manage_options' ) ){ ?>
-				<label> For admin</label>
-				<form id="frmAdminAct" class="frm-admin-act form-inline"  >
-
+				$end_msg = get_post_meta($project->ID, 'choose_dispute_msg', true);
+				echo '<h2> Job is resolved </h2>';
+				if( !empty( $end_msg) ){
+					echo 'Admin resolved this case with the feedback: <br />';
+					echo '"<strong><i>'. $end_msg . '</i></strong>"';
+				}
+			}
+			if($project->post_status == 'awarded' ){ // don't show the form if job is resolved. ?>
+				<form class="swp-send-message"  >
+					<textarea name="msg_content" class="full msg_content" required rows="3" placeholder="<?php echo $place_holder;?>"></textarea>
 					<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
-					<input type="hidden" name="fre_id" value="<?php echo $winner_id;?>">
-					<input type="hidden" name="emp_id" value="<?php echo $project->post_author;?>">
-					<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
+					<input type="hidden" name="receiver_id" value="0">
 
 					<input type="hidden" name="msg_type" value="disputing">
 					<input type="hidden" name="method" value="insert">
-					<div class="form-row align-items-center">
-						<div class="col-auto">
-					      	<div class="input-group col-md-12">
-					        	<div class="input-group-addon" style="width: 165px;">
-					        	<select name="act" class="custom-select required" style="background: #eeeeee; border:0;" required>
-					        		<option>Select option</option>
-									<option value="ask_fre">Send a messsage to Freelancer</option>
-									<option value="ask_emp">Send a message to Employer</option>
-									<option value="choose_fre_win">Choose freelancer winner</option>
-									<option value="choose_emp_win">Choose employer winner</option>
-								</select>
-								</div>
-					        <textarea type="text" class="form-control required" name="msg_content" id="msg_content" required placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>
-
-					      </div>
-					    </div>
-					</div>
-					 <button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+					<br />
+					<button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
 				</form>
+				<?php if( current_user_can( 'manage_options' ) ){ ?>
+					<label> For admin</label>
+					<form id="frmAdminAct" class="frm-admin-act form-inline"  >
+
+						<input type="hidden" name="cvs_id" value="<?php echo $cvs_id;?>">
+						<input type="hidden" name="fre_id" value="<?php echo $winner_id;?>">
+						<input type="hidden" name="emp_id" value="<?php echo $project->post_author;?>">
+						<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
+
+						<input type="hidden" name="msg_type" value="disputing">
+						<input type="hidden" name="method" value="insert">
+						<div class="form-row align-items-center">
+							<div class="col-auto">
+						      	<div class="input-group col-md-12">
+						        	<div class="input-group-addon" style="width: 165px;">
+						        	<select name="act" class="custom-select required" style="background: #eeeeee; border:0;" required>
+						        		<option>Select option</option>
+										<option value="ask_fre">Send a messsage to Freelancer</option>
+										<option value="ask_emp">Send a message to Employer</option>
+										<option value="choose_fre_win">Choose freelancer winner</option>
+										<option value="choose_emp_win">Choose employer winner</option>
+									</select>
+									</div>
+						        <textarea type="text" class="form-control required" name="msg_content" id="msg_content" required placeholder="Admin add feedback here" style="height: 39px; width: 100%;"></textarea>
+
+						      </div>
+						    </div>
+						</div>
+						 <button type="submit" class="btn btn-send-message align-right f-right"><?php _e('Send','boxtheme');?></button>
+					</form>
+				<?php } ?>
 			<?php } ?>
 		</div>
 </div>
