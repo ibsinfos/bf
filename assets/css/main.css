@@ -132,12 +132,15 @@ footer .container{
 .btn.btn-radius:hover, .btn-radius:hover{
 	color: #fff;
 }
-.btn-biggest,.btn.btn-biggest{
-    border-radius: 25px;
+.btn-biggest, .btn.btn-biggest {
+    border-radius: 7px;
     padding: 10px 81px;
     text-align: center;
     vertical-align: middle;
     font-size: 18px;
+    background-color: #058667;
+    text-transform: uppercase;
+    min-width: 255px;
 }
 .btn-action,
 button.btn-action{

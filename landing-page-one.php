@@ -55,7 +55,7 @@ get_header(); ?>
 			            <?php }?>
 			        </div>
 		        <?php } ?>
-	        </div>
+
 	        <!-- POST A PROJECT BUTTON -->
 	        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	        	<?php if( is_user_logged_in() ){ ?>
