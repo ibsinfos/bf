@@ -33,20 +33,20 @@ get_header(); ?>
 	<div class="container">
 		<div class="heading-aligner">
 	        <h1>#JOIN OUR FREELANCE COMMUNITY</h1>
-	        <p>We know it's hard to find a online expert when you need one,
+	        <p class="text-center">We know it's hard to find a online expert when you need one,
 	            which is why we've set on a mission to bring them all to one place.
 	        </p>
 	        <!-- CREATE PRODILE BUTTON -->
 
 	        	<?php if ( !is_user_logged_in() ) { ?>
-	        	 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	        	 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
 	        		<a href="<?php echo box_get_static_link('signup-employer');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('I want to hire','boxtheme');?></a>
 	        	</div>
 	        	 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 	        		<a href="<?php echo box_get_static_link('signup-jobseeker');?>" class="btn btn-action btn-primary-bg btn-biggest"> <?php _e('I want to work','boxtheme');?></a>
 	        	</div>
 	        	<?php } else { ?>
-	        		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	        		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6  text-right">
 
 			        	<?php if($role == EMPLOYER){?>
 			        		<a href="<?php echo get_post_type_archive_link(PROJECT);?>" class="btn btn-action btn-primary-bg btn-biggest"><?php _e('Find a Freelancer','boxtheme');?></a>
