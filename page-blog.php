@@ -4,10 +4,10 @@
  */
 ?>
 <?php get_header(); ?>
-<div class="full-width">
+<div class="full-width" style="background: #fff;">
 	<div class="container site-container">
 		<div class="site-content" id="content" >
-			<div class="col-md-8 detail-project text-justify">
+			<div class="col-md-9 detail-project text-justify">
 				<h1><?php the_title();?></h1>
 				<?php
 				// The Query
@@ -26,7 +26,7 @@
 				}
 				?>
 			</div>
-			<div class="col-md-4 sidebar" id="sidebar">
+			<div class="col-md-3 sidebar no-padding-left" id="sidebar">
 				<?php get_sidebar('blog');?>
 			</div>
 		</div>

@@ -7,7 +7,7 @@
 			}
 		?>
 	</div>
-	<div class="col-md-8 pexcerpt">
+	<div class="col-md-8 pexcerpt no-padding-right">
 		<h3 class="h3 post-title"><a class="ptitle primary-font" href="<?php the_permalink();?>"><?php the_title(); ?></a> </h3>
 		<div class="full pdate"><?php the_date(); ?> | <?php the_author();?></div>
 
