@@ -133,12 +133,12 @@ footer .container{
 	color: #fff;
 }
 .btn-biggest, .btn.btn-biggest {
-    border-radius: 7px;
+    border-radius: 5px;
     padding: 10px 81px;
     text-align: center;
     vertical-align: middle;
-    font-size: 18px;
-    background-color: rgb(55, 171, 132);
+    font-size: 16px;
+    background-color: rgb(30, 159, 173);
     text-transform: uppercase;
     min-width: 255px;
 }

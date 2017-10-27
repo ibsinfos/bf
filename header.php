@@ -23,6 +23,7 @@ $role = bx_get_user_role();
 	<style type="text/css">
 		body{
 			font-family: 'Raleway', sans-serif;
+			2font-family: 'Roboto', sans-serif;
 			font-size: 14px;
 			color: #666;
 			/*font-family: 'Josefin Sans', sans-serif !important;
