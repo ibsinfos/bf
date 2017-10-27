@@ -10,28 +10,24 @@ class BX_Install{
 		$wpdb->hide_errors();
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-		dbDelta( self::get_schema() );
-
+		$t = dbDelta( self::get_schema() );
 		$flag_name = $wpdb->prefix.'_installed';
 		update_option($flag_name, 1);
+		return $t;
 	}
-
-
 	public static function install() {
 		global $wpdb;
-		$flag_name = $wpdb->prefix.'_installed1';
+		$flag_name = $wpdb->prefix.'_installed';
 
 		if( (int) get_option( $flag_name, true ) != 1 ){
-			self::create_tables();
+			return 	self::create_tables();
 		}
-
+		return false;
 	}
 
 	private static function get_schema() {
 
 		global $wpdb;
-
-
 		$collate = '';
 		if ( $wpdb->has_cap( 'collation' ) ) {
 			$collate = $wpdb->get_charset_collate();

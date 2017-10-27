@@ -243,8 +243,12 @@ get_header(); ?>
 	text-align: center;
 }
 .skill-item{
-	padding: 3px 5px;
-	background: #e8e8e8;
+    padding: 3px 5px;
+    background: rgba(182, 214, 214, 0.3);
+    /* border: 1px solid #48b5a8; */
+    border-radius: 5px;
+    color: #666;
+
 }
 .col-md-6.archive-profile-item .full{
 	-moz-box-shadow:    3px 3px 5px 6px #ccc;
@@ -443,7 +447,6 @@ get_header(); ?>
 }
 .list-skill{
     display: inline-block;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
