@@ -93,13 +93,12 @@ footer .container{
 .bg-color, button.primary-bg, div.primary-bg, span.primary-bg , .primary-bg{
 	background-color: rgb(30, 159, 173);
 	color: #fff;
-	border-color: rgb(30, 159, 173);
 }
 .border-color, .btn.border-color{
 	border-color: rgb(30, 159, 173);
 }
-.text-color, .text-color:hover{
-
+.irs-bar,.irs-slider{
+    background-color: rgb(30, 159, 173);
 }
  .primary-color, a.primary-color, span.primary-color, .main-color{
 	color: rgb(30, 159, 173);
