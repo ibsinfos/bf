@@ -97,16 +97,14 @@ footer .container{
 .border-color, .btn.border-color{
 	border-color: rgb(30, 159, 173);
 }
-.irs-bar,.irs-slider{
-    background-color: rgb(30, 159, 173);
-}
+
  .primary-color, a.primary-color, span.primary-color, .main-color{
 	color: rgb(30, 159, 173);
 }
 .pagination.current, .prev.pagination, .next.pagination{
 	color: rgb(30, 159, 173);
 }
-.btn-primary-bg,  .btn, .btn-action, button.btn-action{
+.btn-primary-bg,  .btn, .btn-action, button.btn-action, .irs-bar,.irs-slider, .irs-bar{
 	background-color: rgb(30, 159, 173);
 }
 .btn-cancel{
@@ -1075,9 +1073,7 @@ ul.pagination{
     margin-bottom: 8px;
 }
 /************* END AUTHOR *******************/
-.irs-bar{
-	background: green;
-}
+
 footer{
 	background: #333;
 	font-size: 15px;
