@@ -242,10 +242,12 @@ class BX_Option {
 		$default = $this->get_default('escrow');
 
 		$opt_escrow = get_option('escrow', true);
+		if( is_array($opt_escrow) && !empty( $opt_escrow ) )
+			$opt_escrow['commision'] = wp_parse_args( $opt_escrow['commision'], $default['commision'] );
 
-		$opt_escrow['commision'] = wp_parse_args( $opt_escrow['commision'], $default['commision'] );
+		$result =  (object)wp_parse_args( $opt_escrow, $default );
 
-		return (object)wp_parse_args( $opt_escrow, $default );
+		return $result;
 	}
 	/**
 	 * mailing setting in dashboar and be used in mail content.

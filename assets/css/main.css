@@ -91,24 +91,24 @@ footer .container{
 	background-color: #fff;
 }
 .bg-color, button.primary-bg, div.primary-bg, span.primary-bg , .primary-bg{
-	background-color: #17a717;
+	background-color: rgb(30, 159, 173);
 	color: #fff;
-	border-color:#17a717;
+	border-color: rgb(30, 159, 173);
 }
 .border-color, .btn.border-color{
-	border-color: #17a717;
+	border-color: rgb(30, 159, 173);
 }
 .text-color, .text-color:hover{
 
 }
  .primary-color, a.primary-color, span.primary-color, .main-color{
-	color: #17a717;
+	color: rgb(30, 159, 173);
 }
 .pagination.current, .prev.pagination, .next.pagination{
-	color: #17a717;
+	color: rgb(30, 159, 173);
 }
 .btn-primary-bg,  .btn, .btn-action, button.btn-action{
-	background-color: #17a717;
+	background-color: rgb(30, 159, 173);
 }
 .btn-cancel{
 	background: none;
@@ -120,7 +120,6 @@ footer .container{
 }
 .nav-pills>li.active>a,.nav-pills>li.active>a:focus,.nav-pills>li.active>a:hover{color:#fff;background-color:#5cb85c}
 .btn{
-	background-color: #17a717;
 	border-radius: 5px;
 	padding: 5px 10px;
 	color: #fff;
