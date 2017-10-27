@@ -518,6 +518,9 @@ a:hover{
 	margin-bottom: 10px;
 	padding-bottom: 0;
 }
+.row-detail-section.row-list-bid{
+	margin-bottom: 0;
+}
 .right-top-heading, .left-top-heading{
 	padding: 10px 10px;
 }
