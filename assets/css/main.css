@@ -319,7 +319,8 @@ ul.main-login .sign-text{
     font-size: 13px;
 }
 ul.main-login .btn-login{
-	background-color: #ddd;
+	border:1px solid  rgb(30, 159, 173);
+	background-color: transparent;
 }
 ul.main-login .btn-signup{
 	color: #fff;
