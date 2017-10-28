@@ -23,7 +23,7 @@ if( $result->have_posts() ){ ?>
 						    		<span class="pack-des">	<?php the_content();?> </span>
 								</div>
 								<?php $link = add_query_arg( array('id' =>get_the_ID() ), $buy_link ); ?>
-					            <a class="btn btn-primary btn-xlarge " href="<?php echo esc_url($link);?>">Check out</a>
+					            <a class="btn btn-primary btn-xlarge " href="<?php echo esc_url($link);?>">><?php e_('Buy now','boxtheme');?></a>
 							</div>
 						</div>
 						<?php } ;?>

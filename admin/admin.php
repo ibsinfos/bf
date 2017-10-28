@@ -103,7 +103,7 @@ class BX_Admin{
 
                         ?>
                         <li><a href="<?php echo $general_link;?>">General</a></li>
-                        <li><a href="<?php echo $payment_link;?>">Currency and Package</a></li>
+                        <li><a href="<?php echo $payment_link;?>">Currency and Packages</a></li>
                         <li><a href="<?php echo $gateway_link;?>">Payment Gateway</a></li>
                         <li><a href="<?php echo $escrow_link;?>">Escrrow</a></li>
                         <li><a href="<?php echo $email_link;?>">Email</a></li>
