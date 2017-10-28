@@ -49,9 +49,9 @@
         		<div class="full value-line">
         			<div class="col-md-5 col-xs-12 right-top-heading">
 
-				      	<div class="col-md-4 col-xs-4"><span class="heading-label">Budget($) </span><span class="primary-color large-label"> <?php echo $project->_budget; ?> </span></div>
-				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Bids </span> <span class="primary-color large-label"><?php echo $bid_query->found_posts;?></span></div>
-				      	<div class="col-md-4 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> 3 </span></div>
+				      	<div class="col-md-3 col-xs-4"><span class="heading-label">Budget($) </span><span class="primary-color large-label"> <?php echo $project->_budget; ?> </span></div>
+				      	<div class="col-md-2 col-xs-4"> <span class="heading-label">Bids </span> <span class="primary-color large-label"><?php echo $bid_query->found_posts;?></span></div>
+				      	<div class="col-md-3 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> 3 </span></div>
 			      	</div>
 			      	<?php
 
