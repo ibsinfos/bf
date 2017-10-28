@@ -19,7 +19,7 @@ class BX_Conversations{
 		return $this->$method($args);
 	}
 
-	function insert($args){
+	function insert($args) {
 		global $wpdb, $user_ID;
 		$t = $wpdb->insert( $wpdb->prefix . 'box_conversations', array(
 				'cvs_author' => $user_ID,
@@ -43,6 +43,8 @@ class BX_Conversations{
 		);
 
 		$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
+		//send mail to freelancer
+		Box_ActMail::get_instance()->has_new_conversation( $args['receiver_id'] );
 		return BX_Message::get_instance()->get_message($msg_id);
 	}
 
@@ -111,6 +113,7 @@ class BX_Message{
 
 		$receiver_id = isset( $args['receiver_id'] ) ? (int) $args['receiver_id'] : '';
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
+
 		if(  is_numeric ( $receiver_id ) ) {
 			$this->receiver_id = $receiver_id;
 		}
@@ -121,12 +124,7 @@ class BX_Message{
 		if( isset( $args['msg_type']) )
 			$this->msg_type = $args['msg_type'];
 
-
-		if( empty( $args['sender_id']) ){
-			$sender_id = 0;
-		}
-		if( !$sender_id )
-			$sender_id = $user_ID;
+		$sender_id = !empty( $args['sender_id'] ) ? $args['sender_id'] : $user_ID;
 
 		$default = array(
 				'sender_id' => $sender_id,

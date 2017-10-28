@@ -172,7 +172,7 @@ Class Box_Email{
 
 													$social_link = '';
 													if ( !empty( $general->fb_link ) )
-									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>/a></li>';
+									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>';
 										    		if ( !empty( $general->tw_link ) )
 										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->tw_link).'"><img src="'.get_template_directory_uri().'/img/email-tw.png" /></a></li>';
 
@@ -238,7 +238,8 @@ function box_mail( $to, $subject, $message ) {
 	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
 }
 class Box_ActMail{
-	static function get_instance(){
+	static $_instance;
+	public static function get_instance(){
 		if ( ! isset(self::$instance) ){
 			 self::$_instance = new self();
 		}
@@ -249,18 +250,22 @@ class Box_ActMail{
 	 **/
 	function has_new_bid($project){
 
-		$subject = __("Has new bidding in your project",'boxtheme';);
+		$subject = __("Has new bidding in your project",'boxtheme');
 		$content = 'has new bidding in your project';
 		$author = get_userdata($project->post_author);
 
 		box_mail( $author->user_email, $subject, $content );
 
 	}
-	function has_new_bid($project){
 
-		$subject = __("Has new bidding in your project",'boxtheme';);
-		$content = 'has new bidding in your project';
-		$author = get_userdata($project->post_author);
+	/**
+	 * send an email to freelancer when employer create a conversion with this freelancer
+	**/
+	function has_new_conversation($freelancer_id){
+
+		$subject = __("Employer just send to you a message",'boxtheme');
+		$content = 'Employer just send to you a message';
+		$author = get_userdata($freelancer_id);
 
 		box_mail( $author->user_email, $subject, $content );
 
