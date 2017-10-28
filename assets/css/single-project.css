@@ -527,8 +527,21 @@ a:hover{
 .row-detail-section.row-list-bid{
 	margin-bottom: 0;
 }
+.heading-label{
+	display: block;
+	text-align: center;
+}
 .right-top-heading, .left-top-heading{
 	padding: 10px 10px;
+}
+.right-top-heading .col-md-4:first-child .heading-label,
+.right-top-heading .col-md-4:first-child .large-label{
+	text-align: left;
+}
+
+.right-top-heading .col-md-4:last-child .heading-label,
+.right-top-heading .col-md-4:last-child .large-label{
+	text-align: right;
 }
 .job-status{
 	border-radius: 5px;
