@@ -76,7 +76,7 @@ $list_bid
 	<form id="frm_award" class="frm-award"  method="post">
 		<div class="row">
 			<div class="col-md-12">
-				<h2> <?php _e('Assign task','boxtheme');?> </h2>
+				<h2> <?php _e('Hire','boxtheme');?> </h2>
 			</div>
 		</div>
 		<div class="row">
@@ -102,7 +102,7 @@ $list_bid
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <textarea  class="form-control" name="award_msg" placeholder="<?php _e('Your message','boxtheme');?>" ></textarea>
+		        <textarea  class="form-control required" required name="award_msg" placeholder="<?php _e('Your message','boxtheme');?>" ></textarea>
 		        <input type="hidden" name="bid_id" value="{{{data.ID}}}">
 		        <input type="hidden" name="freelancer_id" value="{{{data.post_author}}}">
 		        <input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
@@ -111,7 +111,7 @@ $list_bid
 		</div>
 		<div class="form-group row">
 		<div class="col-md-12">
-		    <button class="btn btn-xlarge btn-action f-right" type="submit" ><?php _e('Assign task','boxtheme');?></button>
+		    <button class="btn btn-xlarge btn-action f-right" type="submit" ><?php _e('Hire','boxtheme');?></button>
 		</div>
 
 		</div>

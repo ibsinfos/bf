@@ -270,4 +270,14 @@ class Box_ActMail{
 		box_mail( $author->user_email, $subject, $content );
 
 	}
+	function award_job( $freelancer_id ){
+
+		$subject = __("You has been assigned for a job",'boxtheme');
+		$content = 'You has been assigned for a job';
+		$author = get_userdata( $freelancer_id );
+
+		box_mail( $author->user_email, $subject, $content );
+
+	}
+
 }

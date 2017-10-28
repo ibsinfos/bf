@@ -129,7 +129,7 @@ Class BX_Project extends BX_Post{
 	}
 	function call_action($request, $action){
 
-		if( $action == 'award' ){
+		if( $action == 'award' ){ // accept, hire assign task
 			$bid_id = $request['bid_id'];
 			$project_id = $request['project_id'];
 			$freelancer_id = $request['freelancer_id'];
@@ -165,20 +165,42 @@ Class BX_Project extends BX_Post{
 				// create coversation
 				// update bid status to AWARDED
 				wp_update_post( array('ID' => $bid_id, 'post_status'=> AWARDED) );
-				$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
-				$args  = array(
-					'cvs_content' => $cvs_content,
-					'project_id' => $request['project_id'],
-					'receiver_id' => $request['freelancer_id']
-				);
-				BX_Conversations::get_instance()->insert($args);
+
+
 				$order_id = BX_Order::get_instance()->create_deposit_order($bid_price, $project);
 				if(!is_wp_error( $order_id ) ){
 					update_post_meta( $project->ID,'deposit_order_id', $order_id );
 				}
-				//global $user_ID;
+				global $user_ID;
 				$fre_hired = (int) get_user_meta($employer_id, 'fre_hired', true) + 1;
 				update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
+
+				// send message and email
+				$freelancer_id = $request['freelancer_id'];
+				$project_id = $request['project_id'];
+				Box_ActMail::get_instance()->award_job( $freelancer_id );
+
+				$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
+				$cvs_id = is_sent_msg( $project_id, $freelancer_id );
+
+				if( ! $cvs_id ){
+					$args  = array(
+						'cvs_content' => $cvs_content,
+						'project_id' => $project_id,
+						'receiver_id' => $freelancer_id
+					);
+					BX_Conversations::get_instance()->insert($args);
+				} else {
+					$msg_arg = array(
+						'msg_content' 	=> $cvs_content,
+						'cvs_id' 		=> $cvs_id,
+						'receiver_id'=> $freelancer_id,
+						'sender_id' => $user_ID,
+						'msg_type' => 'message',
+					);
+
+					$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
+				}
 
 				return $res;
 			}

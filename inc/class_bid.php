@@ -204,7 +204,7 @@ class BX_Bid extends BX_Post{
 				'msg_type' => 'notify',
 				);
 
-			$notify 	= BX_Message::get_instance()->insert($args);
+			$msg 	= Box_Notify::get_instance()->insert($args);
 
 		}
 		return $post_id;
