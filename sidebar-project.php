@@ -43,7 +43,7 @@ if(empty($score) || !$score){
 				<?php echo get_avatar( $user->ID, 39);?> &nbsp;
 			</div>
 			<div class="right-emp-avatar">
-				<label class="emp-name"><a class="author-url" href="<?php echo esc_url(get_author_posts_url( $project->post_author )); ?>"><?php echo $user->display_name ;?>  </a> </label>
+				<label class="emp-name"><a class="author-url" href="#<?php //echo esc_url(get_author_posts_url( $project->post_author )); ?>"><?php echo $user->display_name ;?>  </a> </label>
 				<span class="member-since"> Member Since May 16, 2017</span>
 			</div>
 		</li>
