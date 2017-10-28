@@ -358,10 +358,38 @@ function bx_theme_init() {
 		)
 	);
 
-
-
+	//global $wp_rewrite;
+	// if ( $wp_rewrite->using_permalinks() ) {
+	// 	$wp_rewrite->author_base      = 'freelancer';
+	// 	$wp_rewrite->author_structure = '/' . $wp_rewrite->author_base . '/%author%';
+	// }
+	//global $wp_rewrite;
+    //$author_levels = array( 'employer', 'freelancer' );
+    // Define the tag and use it in the rewrite rule
+   // add_rewrite_tag( '%author_level%', '(' . implode( '|', $author_levels ) . ')' );
+    //$wp_rewrite->author_base = '%author_level%';
 }
+//add_filter( 'author_rewrite_rules', 'wpse17106_author_rewrite_rules' );
+function wpse17106_author_rewrite_rules( $author_rewrite_rules )
+{
+    foreach ( $author_rewrite_rules as $pattern => $substitution ) {
+        if ( FALSE === strpos( $substitution, 'author_name' ) ) {
+            unset( $author_rewrite_rules[$pattern] );
+        }
+    }
+    return $author_rewrite_rules;
+}
+//add_filter( 'author_link', 'wpse17106_author_link', 10, 2 );
+function wpse17106_author_link( $link, $author_id )
+{
 
+    $author_level = 'freelancer';
+
+    $author_level = 'employer';
+
+    $link = str_replace( '%author_level%', $author_level, $link );
+    return $link;
+}
 function codex_Package_init() {
 	$labels = array(
 		'name'               => _x( 'Packages Plan', 'post type general name', 'boxtheme' ),

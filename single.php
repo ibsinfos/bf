@@ -6,6 +6,7 @@
 				<?php the_post(); ?>
 				<h1 class="h1 primary-font post-title"><?php the_title();?></h1>
 				<div class="full pdate"><?php _e('Posted: ','boxtheme'); the_date(); ?></div>
+				<p>Written by: <?php echo get_the_author_link(); ?></p> <?php global $post; echo get_author_posts_url( $post->post_athor ); ?>
 				<?php the_content(); ?>
 			</div>
 			<div class="col-md-4 sidebar" id="sidebar">
