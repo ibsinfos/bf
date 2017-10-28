@@ -1257,7 +1257,7 @@ form.focus .btn-send-message{
 .col-md-4.port-item{
 	padding-bottom: 30px;
 	margin-top: 25px;
-	height: 200px;
+	height: 216px;
 	overflow: hidden;
 }
 .col-md-4.port-item img:hover{
@@ -1436,12 +1436,16 @@ h1.profile-title{
     height: 45px;
 }
 h5.port-title {
-	display: none;
+    display: none;
     color: #fff;
     text-align: center;
     background: rgba(132, 128, 128, 0.36);
-    padding: 10px;
+    padding: 0;
     font-size: 16px;
+    height: 45px;
+    padding: 0;
+    margin: 0;
+    line-height: 45px;
 }
 .port-item:hover .port-title{
 	display: block;
