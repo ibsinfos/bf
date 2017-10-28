@@ -98,6 +98,10 @@ body .site-content{
 	width: 96px;
 	height: auto;
 }
+.row-bid-item:last-child{
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
 
 .bid-form{
 	overflow: hidden;
