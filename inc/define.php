@@ -25,6 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'DONE', 'done' ); // project status
 	define( 'CLOSE', 'close' ); // project status
 	define( 'ARCHIVED','archived');
+	define ('BOX_VIEWS','_box_views');
 	// publish => awarded => done =>close.
 
 	define( 'DISPUTED', 'disputed' ); // project status
