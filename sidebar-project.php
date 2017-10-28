@@ -59,5 +59,5 @@ if(empty($score) || !$score){
 </div>
 
 <div class="company-pictures">
-		<img src="<?php echo  get_template_directory_uri().'/img/ads.png';?>" />
+		<img src="<?php echo  get_template_directory_uri().'/img/custom-img.png';?>" />
 </div>
