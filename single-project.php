@@ -5,7 +5,7 @@
 
 	global $post, $project, $user_ID, $is_owner, $winner_id, $can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
 
-	$cvs_id = $is_owner = $can_access_workspace =  0;
+	$cvs_id = $is_owner = $can_access_workspace =  $bidding = 0;
 
 	$role = bx_get_user_role();
 
@@ -112,7 +112,7 @@
 			    	<div class="full row-detail-section ">
 				    	<div class="col-md-8 column-left-detail">
 		   					<?php 	get_template_part('template-parts/single','project-detail' ); ?>
-		   					<?php if( $apply == 1){?>
+		   					<?php if ( $apply == 1 ){?>
 		   						<?php 	get_template_part('template-parts/single','project-detail-bid-form' ); ?>
 		   					<?php } ?>
 				       	</div> <!-- .col-md-8  Job details !-->
