@@ -42,7 +42,7 @@
 		//bx_pagenate( $bid_query, array('base'=>$projet_link), 1, 1 );
 		wp_reset_query();
 	else:
-		echo '<div class="col-md-12">';
+		echo '<div class="col-md-12 pb30">';
 			_e('There is no any bid yet.','boxtheme');
 		echo '</div>';
 	endif;
