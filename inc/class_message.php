@@ -114,10 +114,14 @@ class BX_Message{
 		$receiver_id = isset( $args['receiver_id'] ) ? (int) $args['receiver_id'] : '';
 		$msg_link = isset($args['msg_link']) ? $args['msg_link']: '';
 
+		if( empty($args['msg_content'] ) ){
+			return false;
+		}
+
 		if(  is_numeric ( $receiver_id ) ) {
 			$this->receiver_id = $receiver_id;
 		}
-		$cvs_project_id = isset($args['cvs_project_id']) ? $args['cvs_project_id'] : 0;
+
 		if( isset( $args['cvs_id']) )
 			$this->cvs_id = $args['cvs_id'];
 
