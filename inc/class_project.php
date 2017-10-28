@@ -232,6 +232,7 @@ Class BX_Project extends BX_Post{
 				if( $rating_score < 1 ) {
 					$rating_score = 1;
 				}
+				$project = get_post($project_id);
 
 				$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
 
@@ -242,11 +243,17 @@ Class BX_Project extends BX_Post{
 				$emp_pay = $bid_price;
 				$amout_fre_receive = $bid_price - $commision_fee;
 
-				$project_worked = (int) get_user_meta($winner_id,PROJECTS_WORKED, true) + 1;
+				$project_worked = (int) get_user_meta( $winner_id, PROJECTS_WORKED, true) + 1;
 				$earned = (float) get_user_meta( $winner_id,EARNED, true) + $amout_fre_receive;
 
-				update_user_meta($winner_id, PROJECTS_WORKED , $project_worked);
-				update_user_meta($winner_id, EARNED , $earned);
+				$fre_hired = (float) get_user_meta( $project->post_author, 'fre_hired', true) + 1;
+
+				update_user_meta( $winner_id, PROJECTS_WORKED , $project_worked );
+
+				update_user_meta( $winner_id, EARNED , $earned);
+
+				update_user_meta( $project->post_author, 'fre_hired', $fre_hired );
+
 				//approve credit
 				BX_Credit::get_instance()->release($winner_id, $amout_fre_receive);
 
