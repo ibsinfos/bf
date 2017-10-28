@@ -199,8 +199,6 @@ Class Box_Email{
 	}
 	function send_mail( $to, $subject, $message ){
 
-
-
 		$header = $this->get_header($this->option);
 		$footer = $this->get_footer($this->option);
 		$msg = $header.$message.$footer;
@@ -238,4 +236,33 @@ Class Box_Email{
 }
 function box_mail( $to, $subject, $message ) {
 	return Box_Email::get_instance()->send_mail( $to, $subject, $message );
+}
+class Box_ActMail{
+	static function get_instance(){
+		if ( ! isset(self::$instance) ){
+			 self::$_instance = new self();
+		}
+		return self::$_instance;
+	}
+	/**
+	 * Send an email to owner project let he know has new bidding in his project.
+	 **/
+	function has_new_bid($project){
+
+		$subject = __("Has new bidding in your project",'boxtheme';);
+		$content = 'has new bidding in your project';
+		$author = get_userdata($project->post_author);
+
+		box_mail( $author->user_email, $subject, $content );
+
+	}
+	function has_new_bid($project){
+
+		$subject = __("Has new bidding in your project",'boxtheme';);
+		$content = 'has new bidding in your project';
+		$author = get_userdata($project->post_author);
+
+		box_mail( $author->user_email, $subject, $content );
+
+	}
 }

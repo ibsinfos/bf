@@ -19,7 +19,7 @@ class BX_Install{
 		global $wpdb;
 		$flag_name = $wpdb->prefix.'_installed';
 
-		if( (int) get_option( $flag_name, true ) != 1 ){
+		if( (int) get_option( $flag_name, false ) != 1 ){
 			return 	self::create_tables();
 		}
 		return false;

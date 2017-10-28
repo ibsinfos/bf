@@ -61,6 +61,9 @@ class BX_Bid extends BX_Post{
 
 		return $result;
 	}
+	/**
+	 * check to know the current user is bidded on project or not yet.
+	*/
 	function has_bid_on_project( $project_id ){
 		global $wpdb, $user_ID;
 		$type = BID;
@@ -148,10 +151,13 @@ class BX_Bid extends BX_Post{
 		$bid_id 	= wp_insert_post( $args );
 
 		if( ! is_wp_error( $bid_id) ){
+			// all action after bid success will perform here
 			global $user_ID;
 			$current_user = wp_get_current_user();
 			$project_id = $args['post_parent'];
 			$project = get_post($project_id);
+
+			Box_ActMail::get_instance()->has_new_bid($project);
 
 			$args = array(
 				'msg_content' => sprintf( __('%s bid on project <i>%s</i>','boxtheme'), $current_user->display_name, $project->post_title ),
