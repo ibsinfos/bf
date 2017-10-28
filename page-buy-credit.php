@@ -118,7 +118,7 @@
 					    </div>
 					</div>
 					<div class="form-group">
-						<button class="btn f-right no-radius btn-submit disable" type="submit"><?php _e('Buy Credit','boxtheme');?> </button>
+						<button class="btn f-right no-radius btn-submit disable" type="submit"><?php _e('Check Out','boxtheme');?> </button>
 					</div>
 
 				</form>
@@ -238,10 +238,7 @@
 	.frm-buy-credit .record-line.activate span.default{
 		display: none;
 	}
-	.frm-buy-credit .record-line.activate .btn-select{
-		background: #00a200;
-		color: #fff;
-	}
+
 	.frm-buy-credit .step{
 		border: 1px solid #eee;
 		overflow: hidden;

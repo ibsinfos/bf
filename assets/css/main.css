@@ -93,7 +93,7 @@ footer .container{
 .white-bg{
 	background-color: #fff;
 }
-.bg-color, button.primary-bg, div.primary-bg, span.primary-bg , .primary-bg{
+.bg-color, button.primary-bg, div.primary-bg, span.primary-bg , .primary-bg, .frm-buy-credit .record-line.activate .btn-select{
 	background-color: rgb(30, 159, 173);
 	color: #fff;
 }
