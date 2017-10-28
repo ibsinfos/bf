@@ -396,6 +396,8 @@ div.block-employer-info {
 .main-btn-react, .block-employer-info{
 	border-bottom: 10px solid #f2f2f2;
 }
+.company-pictures{
+}
 .main-btn-react{
 	padding: 15px;
 }
@@ -451,9 +453,7 @@ a:hover{
 	font-size: 16px;
 	color: #666;
 }
-.company-pictures{
-	border-bottom: 1px solid #f2f2f2;
-}
+
 .company-pictures img{
 	background: #fff;
 	padding: 0px;
