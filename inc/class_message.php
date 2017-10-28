@@ -105,7 +105,7 @@ class BX_Message{
 		return $this->$method($args);
 	}
 
-	function insert( array $args ) {
+	function insert( array $args ) { // insert message
 
 		global $wpdb, $user_ID;
 
@@ -143,7 +143,7 @@ class BX_Message{
 		$wpdb->insert( $wpdb->prefix . 'box_messages', $default		);
 
 		// update modify time of this conversiaion.
-		$sql = "UPDATE {$wpdb->prefix}box_conversations SET `date_modify` = '".current_time('mysql')."'  WHERE  `ID` = {$cvs_id} ";
+		$sql = "UPDATE {$wpdb->prefix}box_conversations SET `date_modify` = '".current_time('mysql')."'  WHERE  `ID` = {$this->cvs_id} ";
 		$wpdb->query( $sql );
 
 		return $wpdb->insert_id;
