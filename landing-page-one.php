@@ -146,8 +146,8 @@ get_header(); ?>
     line-height: 1.25;
 }
 .theme-background-color-blue {
-    background-color: #009eac;
-    background-image: radial-gradient(circle farthest-side at center bottom,#72b6bb,#037782 125%);
+    background-color: #00717b;
+    background-image: radial-gradient(circle farthest-side at center bottom,#36aab3,#037782 125%);
     color: #fff;
 }
 .theme-background-color-blue a {
