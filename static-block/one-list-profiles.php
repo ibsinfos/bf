@@ -5,10 +5,10 @@ $symbol = box_get_currency_symbol();
 $profile_query = new WP_Query( array (
 	'post_type' => PROFILE,
 	'post_status' => 'publish',
-	'orderby'   => 'meta_value_num',
-	'meta_key'  => RATING_SCORE,
-	'order'     => 'DESC',
-	'orderby'    => 'meta_value_num',
+	//'meta_key'  => RATING_SCORE,
+	//'order'     => 'DESC',
+	//'orderby'    => 'meta_value_num',
+	'orderby'        => 'rand',
 	'order'      => 'DESC',
 	'showposts' => 6
 	)
