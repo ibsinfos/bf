@@ -929,11 +929,13 @@ ul.pagination{
 	left: 0;
 
 }
-.archive-profile-item a.avatar{
-	float: left;
-	max-height: 130px;
-	overflow: hidden;
-	max-width: 130px;
+.archive-profile-item a.avatar {
+    max-height: 130px;
+    overflow: hidden;
+    max-width: 130px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
 }
 .archive-profile-item a.avatar:hover{
 	opacity: 0.8;
@@ -942,6 +944,7 @@ ul.pagination{
     border-radius: 50%;
     background: #ececec;
     padding: 2px;
+    max-width: 100px;
 
 }
 .archive-profile-item  .second-line{
