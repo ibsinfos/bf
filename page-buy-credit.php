@@ -14,7 +14,7 @@
 				<form class="frm-buy-credit">
 					<div class="step step-1">
 						<div class="form-group">
-						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> Select a package</h3>
+						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">1</span> <?php _e('Select a package','boxtheme');?></h3>
 					    	<?php
 					    	 $args = array(
 	                            'post_type' => '_package',
@@ -65,7 +65,7 @@
 					</div>
 					<div class="step step-2">
 						<div class="form-group">
-						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">2</span> Select a payment gateway</h3>
+						    <h3  class="col-sm-12 col-form-label"><span class="bg-color">2</span><?php _e('Select a payment method','boxtheme');?></h3>
 						    <?php
 						    	global $has_payment;
 						    	$has_payment= 0;
@@ -100,7 +100,7 @@
 								    <div class="col-sm-12  gateway-payment record-line">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">
-								    		<p>You will checkout via cash method </p>
+								    		<p><?php _e('You will checkout via cash method','boxtheme');?> </p>
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 									    	<label>
