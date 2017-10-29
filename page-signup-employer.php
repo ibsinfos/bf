@@ -49,7 +49,7 @@
 				<?php signup_nonce_fields(); ?>
 				<div class="row">
 				 	<div class="form-group col-md-12">
-                        <label class="lb-checkbox"><input type="checkbox" required="" name="agree"> <?php printf(__('Yes, I understand and agree <a href="%s" target="_blank">All Terms of Service</a>','boxtheme'),home_url('terms'));?> </label>
+                        <label class="lb-checkbox"><input type="checkbox" required="" name="agree"> <?php printf(__('Yes, I understand and agree <a href="%s" target="_blank">All Terms of Service</a>','boxtheme'),home_url('terms'));?>.</label>
                     </div>
                 </div>
 
