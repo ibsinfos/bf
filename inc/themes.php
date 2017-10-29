@@ -130,6 +130,10 @@ function is_current_user_bidded($project_id){
 	$project_id = (int)$project_id;
 	return BX_bid::get_instance()->has_bid_on_project($project_id);
 }
+function box_has_bid_on_project($project_id, $user_id){
+	$project_id = (int)$project_id;
+	return BX_bid::get_instance()->has_bid_on_project($project_id, $user_id);
+}
 function countr_of_user($profile){
 }
 

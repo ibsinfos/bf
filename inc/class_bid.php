@@ -64,17 +64,21 @@ class BX_Bid extends BX_Post{
 	/**
 	 * check to know the current user is bidded on project or not yet.
 	*/
-	function has_bid_on_project( $project_id ){
+	function has_bid_on_project( $project_id , $user_id = 0){
 		global $wpdb, $user_ID;
+
+		$userID = $user_ID;
+		if( $user_id ){
+			$userID = $user_id;
+		}
 		$type = BID;
 		$sql  = " SELECT * FROM $wpdb->posts p
 			WHERE p.post_type = '{$type}'
 				AND p.post_parent = {$project_id}
-				AND p.post_author = {$user_ID}
+				AND p.post_author = {$userID}
 		";
 		$row = $wpdb->get_row($sql);
 		return $row;
-
 	}
 	function check_before_update($args){
 		$project_id 	= $args['post_parent'];
