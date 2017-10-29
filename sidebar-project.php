@@ -32,7 +32,7 @@ if(empty($score) || !$score){
 $employer = get_userdata($project->post_author);
 ?>
 	<div class="main-btn-react  hide">
-		<button class="contact-me primary-bg"> WorkSpace</button><button class="contact-me primary-bg">Dispute</button>
+		<button class="contact-me primary-bg"> <?php _e('WorkSpace','boxtheme');?></button><button class="contact-me primary-bg"><?php _e('Dispute','boxtheme');?></button>
 	</div>
 
 <div class="block-employer-info">
