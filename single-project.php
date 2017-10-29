@@ -5,7 +5,8 @@
 	if ( $post->post_status == 'publish' ) {
 		$cookie = 'cookie_' . $post->ID . '_visited';
 		if ( ! isset( $_COOKIE[$cookie] ) ) {
-			update_post_meta( $post->ID, BOX_VIEWS , $cviews + 1 );
+			$cviews = $cviews + 1;
+			update_post_meta( $post->ID, BOX_VIEWS , $cviews );
 			setcookie( $cookie, 'is_visited', time() + 3*3600 );
 		}
 	}
