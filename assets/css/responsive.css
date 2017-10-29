@@ -628,4 +628,7 @@
 	.column-left-detail{
 		border-right: 0;
 	}
+	.heading-aligner .text-right, .heading-aligner .col-md-6{
+		text-align: center;
+	}
 }
