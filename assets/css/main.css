@@ -939,6 +939,9 @@ ul.pagination{
 	opacity: 0.8;
 }
 .archive-profile-item a.avatar img{
+    border-radius: 50%;
+    background: #ececec;
+    padding: 2px;
 
 }
 .archive-profile-item  .second-line{

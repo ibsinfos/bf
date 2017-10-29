@@ -49,7 +49,7 @@ if( $profile_id ){
 					        		<h4 class="professional-title no-margin primary-color" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
 					        	</div>
 					        	<div class="full">
-					        		<span class="clear block author-address"><?php echo $profile->address;?></span>
+					        		<span class="clear block author-address"><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $profile->address; if( !empty( $pcountry ) ){ echo ", ".$pcountry[0]->name; };?></span>
 					        		<span class="clear author-skills"><?php echo $skill_text;;?></span>
 					        	</div>
 					      	</div>
@@ -74,7 +74,6 @@ if( $profile_id ){
 								<ul class="work-status">
 									<li><?php printf(__("<label>Job worked:</label> %d",'boxtheme'), $projects_worked);?></li>
 									<li><?php printf(__("<label>Total earn:</label> %s",'boxtheme'), box_get_price_format(max(0,$earned)));?></li>
-									<li><label>Country:</label><?php if( !empty( $pcountry ) ){ echo $pcountry[0]->name; }else { _e('Not set','boxtheme');} ?></li>
 							      	<li><label> Language:</label> English </li>
 								</ul>
 							</div>
