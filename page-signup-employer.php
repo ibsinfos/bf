@@ -31,7 +31,7 @@
 				</div>
 				<div class="row phone-number hide">
 				    <div class="form-group col-md-12">
-				        <input class="form-control"  name="phone_number" required  type="text" placeholder="<?php _e('Your Phone Number','boxtheme');?> " >
+				        <input class="form-control"  name="phone_number" value="9999999" required  type="text" placeholder="<?php _e('Your Phone Number','boxtheme');?> " >
 				    </div>
 				</div>
 				<div class="row">
