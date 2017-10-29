@@ -1,6 +1,4 @@
 <?php
-
-
 	global $post;
 	$views = (int) get_post_meta( $post->ID, BOX_VIEWS );
 
