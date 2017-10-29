@@ -1,12 +1,12 @@
 <?php
 	global $post;
-	$views = (int) get_post_meta( $post->ID, BOX_VIEWS );
+	$cviews = (int) get_post_meta( $post->ID, BOX_VIEWS, true );
 
 	if ( $post->post_status == 'publish' ) {
 		$cookie = 'cookie_' . $post->ID . '_visited';
 		if ( ! isset( $_COOKIE[$cookie] ) ) {
-			update_post_meta( $post->ID, BOX_VIEWS, $views + 1 );
-			setcookie( $cookie, 'is_visited', time() + 3 * 3600 );
+			update_post_meta( $post->ID, BOX_VIEWS , $cviews + 1 );
+			setcookie( $cookie, 'is_visited', time() + 3*3600 );
 		}
 	}
 	global $post, $project, $user_ID, $is_owner, $winner_id, $can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
@@ -59,7 +59,7 @@
 
 				      	<div class="col-md-3 col-xs-4"><span class="heading-label">Budget($) </span><span class="primary-color large-label"> <?php echo $project->_budget; ?> </span></div>
 				      	<div class="col-md-2 col-xs-4"> <span class="heading-label">Bids </span> <span class="primary-color large-label"><?php echo $bid_query->found_posts;?></span></div>
-				      	<div class="col-md-3 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> <?php echo $views;?> </span></div>
+				      	<div class="col-md-3 col-xs-4"> <span class="heading-label">Views  </span><span class="primary-color large-label"> <?php echo $cviews;?> </span></div>
 			      	</div>
 			      	<?php
 
