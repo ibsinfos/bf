@@ -18,6 +18,8 @@ class BX_Facebook{
 
 		if( isset( $facebook->app_id ) )
 			$this->app_id = $facebook->app_id;
+		if( empty( $this->app_id ) )
+			$this->is_active = 0;
 		add_action( 'wp_head', array( $this, 'add_fb_script') );
 	}
 

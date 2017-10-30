@@ -12,6 +12,8 @@ Class Box_Google{
 		$this->is_active = isset($google->enable) ? (int) $google->enable : 0;
 		if( isset($this->client_id) )
 			$this->client_id = $google->client_id;
+		if( empty( $this->client_id ) )
+			$this->is_active = 0;
 
 
 		add_action( 'wp_head', array($this, 'enqueue_google_script') );
