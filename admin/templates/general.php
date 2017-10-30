@@ -108,7 +108,13 @@ $google = (object) $app_api->google;
 </div>
 <?php
 $gg_captcha = (object) $app_api->gg_captcha;
-
+$site_key = $secret_key = "";
+if( isset( $gg_captcha->site_key)){
+	$site_key =  $gg_captcha->site_key;
+}
+if( isset( $gg_captcha->secret_key)){
+	$secret_key =  $gg_captcha->secret_key;
+}
 $item3  = 'gg_captcha';
 ?>
 <h2><?php _e('Google Captcha','boxtheme');?></h2>
@@ -120,11 +126,11 @@ $item3  = 'gg_captcha';
   			<div class="col-md-9 form-group">
   				<div class="form-group">
 			    	<label for="app_id"><?php _e('reCaptcha Site Key','boxtheme');?></label>
-			    	<input type="text" value="<?php echo $gg_captcha->site_key;?>" class="form-control auto-save" level="2" name="site_key" id="site_key" aria-describedby="site_key" placeholder="<?php _e('reCaptcha Site Key','boxtheme');?>">
+			    	<input type="text" value="<?php echo $site_key;?>" class="form-control auto-save" level="2" name="site_key" id="site_key" aria-describedby="site_key" placeholder="<?php _e('reCaptcha Site Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
 		    		<label for="app_id"><?php _e('reCaptcha Secret Key','boxtheme');?></label>
-		    		<input type="text" value="<?php echo $gg_captcha->secret_key;?>" class="form-control auto-save" level="2"  name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
+		    		<input type="text" value="<?php echo $secret_key;?>" class="form-control auto-save" level="2"  name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
 		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $gg_captcha->enable, 2);?>   </div>
