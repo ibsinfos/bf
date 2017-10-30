@@ -14,7 +14,7 @@ class BX_Facebook{
 
 		global $app_api;
 		$facebook = (object) $app_api->facebook;
-		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
+		$this->is_active = isset( $facebook->enable ) ? (int) $facebook->enable : 0;
 
 		if( isset( $facebook->app_id ) )
 			$this->app_id = $facebook->app_id;
