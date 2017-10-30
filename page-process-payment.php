@@ -41,9 +41,9 @@ if($type == 'cash'){
 ?>
 <?php get_header(); ?>
 <div class="full-width">
-	<div class="container site-content-contain">
+	<div class="container site-container">
 		<div class="site-content" id="content" style="background-color: transparent1 !important;" >
-			<div class="col-md-12 detail-project text-justify" style="min-height: 500px; padding-top: 100px; padding-bottom: 250px;">
+			<div class="col-md-12 detail-project text-justify" style="padding-top: 30px;">
 				<div class="" style="width: 450px; min-height: 300px; margin: 0 auto; border:1px solid #ccc; background-color: #fff; border-radius: 10px; padding: 15px 20px;">
 					<h2 style="padding-bottom: 35px;"> Payment Complete</h2>
 					<p> We've sent you an email with all the details of your order</p>
