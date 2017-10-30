@@ -51,17 +51,12 @@ $general = $option->get_general_option();
 	</div>
 </div>
 <?php
-$group_option = "general";
-$section = 'app_api';
-$item1  = 'facebook';
-$item2  = 'google';
+
 $app_id = $app_secret = '';
-$app_api = (object) $general->app_api;
+$app_api = (OBJECT) BX_Option::get_instance()->get_app_api_option($general);
 $facebook = (object) $app_api->facebook;
 $google = (object) $app_api->google;
-// echo '<pre>';
-// var_dump($app_api);
-// echo '</pre>';
+
 
 ?>
 <h2><?php _e('Social Login','boxtheme');?></h2>
@@ -115,6 +110,10 @@ if( isset( $gg_captcha->site_key)){
 if( isset( $gg_captcha->secret_key)){
 	$secret_key =  $gg_captcha->secret_key;
 }
+$gg_enable = 0;
+if( isset( $gg_captcha->enable)){
+	$gg_enable =  $gg_captcha->enable;
+}
 $item3  = 'gg_captcha';
 ?>
 <h2><?php _e('Google Captcha','boxtheme');?></h2>
@@ -133,7 +132,7 @@ $item3  = 'gg_captcha';
 		    		<input type="text" value="<?php echo $secret_key;?>" class="form-control auto-save" level="2"  name="secret_key" id="secret_key" aria-describedby="secret_key" placeholder="<?php _e('reCaptcha Secret Key','boxtheme');?>">
 		    	</div>
 		    	<div class="form-group">
-		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $gg_captcha->enable, 2);?>   </div>
+		    		<div class="form-group toggle-line">  	<?php bx_swap_button($group_option, 'enable', $gg_enable, 2);?>   </div>
 		    		<div class="form-group toggle-line"><span><?php _e('Enable this to help your website security more and safe. Add captcha code in login form and in register form - <a target="_blank" href="https://www.google.com/recaptcha/admin#list" target="_blank" rel="nofollow">get key</a>','boxtheme');?> </span> </div>
 		    	</div>
 		    </div>

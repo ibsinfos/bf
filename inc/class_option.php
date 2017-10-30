@@ -220,7 +220,7 @@ class BX_Option {
 	}
 	function get_app_api_option( $general, $object = true ){
 
-		if( isset($general->app_api) )
+		if( isset( $general->app_api ) )
 			return  wp_parse_args( $general->app_api, $this->get_app_api_default() );
 		return  $this->get_app_api_default();
 
