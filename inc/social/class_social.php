@@ -82,9 +82,10 @@ Class Box_Social{
 }
 
 function bx_social_button_signup(){
-	global $is_social;
+	global $gg_activate, $fb_activate;
 
-	if($is_social){ ?>
+
+	if( $gg_activate || $fb_activate ){ ?>
 	    <p class="hidden-xs text-center ng-scope" >
 	        <label><?php _e('You can also login with','boxtheme');?></label>
 	    	<ul class="social-login none-style inline">

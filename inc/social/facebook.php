@@ -16,9 +16,9 @@ class BX_Facebook{
 		$facebook = (object) $app_api->facebook;
 		$this->is_active = isset($facebook->enable) ? (int) $facebook->enable : 0;
 
-		if( isset($facebook->app_id) )
+		if( isset( $facebook->app_id ) )
 			$this->app_id = $facebook->app_id;
-		add_action( 'wp_head', array($this, 'add_fb_script') );
+		add_action( 'wp_head', array( $this, 'add_fb_script') );
 	}
 
 	public  function add_fb_script(){
