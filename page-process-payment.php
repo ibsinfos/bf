@@ -44,8 +44,8 @@ if($type == 'cash'){
 	<div class="container site-container">
 		<div class="site-content" id="content" style="background-color: transparent1 !important;" >
 			<div class="col-md-12 detail-project text-justify" style="padding-top: 30px;">
-				<div class="" style="width: 450px; min-height: 300px; margin: 0 auto; border:1px solid #ccc; background-color: #fff; border-radius: 10px; padding: 15px 20px;">
-					<h2 style="padding-bottom: 35px;"> Payment Complete</h2>
+				<div class="" style="width: 450px; min-height: 300px; margin: 0 auto; border:1px solid #ccc; background-color: #fff; border-radius: 5px; padding: 15px 20px;">
+					<h2 class="primary-color" style="padding-bottom: 35px;"> Payment Complete <i class="fa fa-check" aria-hidden="true"></i></h2>
 					<p> We've sent you an email with all the details of your order</p>
 					<p> Price($): <label>100</label></p>
 					<p> Order ID:<label> 001</label></p>
@@ -72,41 +72,6 @@ if($type == 'cash'){
 				 		}
 				 	}
 			 		?>
-				</div>
-				<div class="msg hide" style="width: 500px; margin: 0 auto; text-align: left; padding-top: 88px;">
-					<?php
-						if( !empty( $order ) ){
-							global $user_ID;
-							$user_data = get_userdata($user_ID );
-							if(is_user_logged_in() && $order->payer_id == $user_ID ){
-								echo '<p>';
-								printf(__('Hi %s ,','boxtheme') , $user_data->display_name );
-								echo '</p>';
-
-								_e('Thank you for your order and Your credit is depositted.','boxtheme'); ?>
-								<p> </p>
-								<p><label><?php _e('This is detail of your order:','boxtheme'); ?></label></p>
-								<p> Your order ID: <strong><?php echo $order_id;?></strong></p>
-								<p><label> Price: </label> <?php echo $order->amout;?></p>
-								<p><label> Payment method: </label> <?php echo $order->payment_type;?></p>
-								<p><label> Price: </label> <?php echo box_get_price($order->amout);?></p>
-								<?php if( $type == 'cash'){
-									if( $order->post_status == 'publish') {
-										 _e('Your order is approved ','boxtheme');
-									 } else { ?>
-
-										<?php
-											$option = BX_Option::get_instance();
-	        								$payment = $option->get_group_option('payment');
-		        							$cash = (object) $payment->cash;
-			            					if( ! empty( $cash->description) ){
-			            						echo $cash->description;
-			            					}
-						 			}
-						 		}
-						 	}
-					 	} ?>
-
 				</div>
 			</div>
 
