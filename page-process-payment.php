@@ -42,14 +42,35 @@ if($type == 'cash'){
 <?php get_header(); ?>
 <div class="full-width">
 	<div class="container site-content-contain">
-		<div class="site-content" id="content" >
+		<div class="site-content" id="content" style="background-color: transparent1 !important;" >
 			<div class="col-md-12 detail-project text-justify" style="min-height: 500px; padding-top: 100px; padding-bottom: 250px;">
-				<div class="msg" style="width: 500px; margin: 0 auto; text-align: left; padding-top: 88px;">
-					<?php
-					//echo '<pre>';
-					//var_dump($order);
-					//echo '</pre>';
+				<div class="" style="width: 450px; min-height: 300px; margin: 0 auto; border:1px solid #ccc; background-color: #fff; border-radius: 10px; padding: 15px 20px;">
+					<h2 style="padding-bottom: 35px;"> Payment Complete</h2>
+					<p> We've sent you an email with all the details of your order</p>
+					<p> Price($): <label>100</label></p>
+					<p> Order ID:<label> 001</label></p>
 
+					<?php if( $type == 'cash'){
+
+						if( $order->post_status == 'publish') {
+							_e('Your order is approved ','boxtheme');
+						} else { ?>
+
+							<?php
+								$option = BX_Option::get_instance();
+								$payment = $option->get_group_option('payment');
+    							$cash = (object) $payment->cash;
+            					if( ! empty( $cash->description) ){
+            						echo $cash->description;
+            					}
+			 			}
+			 		} else {
+			 			_e('Your order is completed. The credit is depositted to your ballance and you can use your credit now.','boxtheme');
+			 		}
+			 		?>
+				</div>
+				<div class="msg hide" style="width: 500px; margin: 0 auto; text-align: left; padding-top: 88px;">
+					<?php
 						if( !empty( $order ) ){
 							global $user_ID;
 							$user_data = get_userdata($user_ID );

@@ -54,7 +54,7 @@ function box_edit_icon(){?>
                     	echo '<h5 class="footer-list-header">Contact Us</h5><p>Start a 14 Day Free Trial on any of our paid plans. No credit card required.</p>
 								<p>Call us at <a href="tel:+1 855.780.6889">+1 179.170.6889</a></p>';
 						if( current_user_can( 'manage_options' ) ) { ?>
-						<a class="box-customizer-link" href="<?php echo $customier_link;?>"><?php box_edit_icon();?></a>
+						  <a class="box-customizer-link" href="<?php echo $customier_link;?>"><?php box_edit_icon();?></a>
 						<?php }
     				} ?>
                 </div>
