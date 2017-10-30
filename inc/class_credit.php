@@ -43,7 +43,7 @@ Class BX_Credit {
       	$emp_pay = $pay_ifo->emp_pay;
 
 		if( $ballance->available < $emp_pay ){
-			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transasction", "boxtheme" ) );
+			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transaction", "boxtheme" ) );
 		}
 		$new_available = $ballance->available - $emp_pay;
 		global $wpdb;
