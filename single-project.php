@@ -7,7 +7,7 @@
 		if ( ! isset( $_COOKIE[$cookie] ) ) {
 			$cviews = $cviews + 1;
 			update_post_meta( $post->ID, BOX_VIEWS , $cviews );
-			setcookie( $cookie, 'is_visited', time() + 3*3600 );
+			setcookie( $cookie, 'is_visited', time() + 10 );
 		}
 	}
 	global $post, $project, $user_ID, $is_owner, $winner_id, $can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
