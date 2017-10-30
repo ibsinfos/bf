@@ -50,23 +50,27 @@ if($type == 'cash'){
 					<p> Price($): <label>100</label></p>
 					<p> Order ID:<label> 001</label></p>
 
-					<?php if( $type == 'cash'){
+					<?php
 
-						if( $order->post_status == 'publish') {
-							_e('Your order is approved ','boxtheme');
-						} else { ?>
+					if( is_user_logged_in() && $order->payer_id == $user_ID ){
+						if( $type == 'cash'){
 
-							<?php
-								$option = BX_Option::get_instance();
-								$payment = $option->get_group_option('payment');
-    							$cash = (object) $payment->cash;
-            					if( ! empty( $cash->description) ){
-            						echo $cash->description;
-            					}
-			 			}
-			 		} else {
-			 			_e('Your order is completed. The credit is depositted to your ballance and you can use your credit now.','boxtheme');
-			 		}
+							if( $order->post_status == 'publish') {
+								_e('Your order is approved ','boxtheme');
+							} else { ?>
+
+								<?php
+									$option = BX_Option::get_instance();
+									$payment = $option->get_group_option('payment');
+	    							$cash = (object) $payment->cash;
+	            					if( ! empty( $cash->description) ){
+	            						echo $cash->description;
+	            					}
+				 			}
+				 		} else {
+				 			_e('Your order is completed. The credit is depositted to your ballance and you can use your credit now.','boxtheme');
+				 		}
+				 	}
 			 		?>
 				</div>
 				<div class="msg hide" style="width: 500px; margin: 0 auto; text-align: left; padding-top: 88px;">
