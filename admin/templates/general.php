@@ -51,8 +51,12 @@ $general = $option->get_general_option();
 	</div>
 </div>
 <?php
-
+$group_option = "general";
+$section = 'app_api';
+$item1  = 'facebook';
+$item2  = 'google';
 $app_id = $app_secret = '';
+
 $app_api = (OBJECT) BX_Option::get_instance()->get_app_api_option($general);
 $facebook = (object) $app_api->facebook;
 $google = (object) $app_api->google;

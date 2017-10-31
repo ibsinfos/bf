@@ -127,6 +127,7 @@ if( $profile_id ){
 				$args = array(
 					'post_type' 	=> 'portfolio',
 					'author' 		=> $author_id,
+					'posts_per_page' => 6
 				);
 				$result =  new WP_Query($args);
 				$i = 0;
