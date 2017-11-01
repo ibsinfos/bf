@@ -40,5 +40,8 @@ ul.dashboard-tab li:last-child a{
 	border-right:1px solid #f3f3f3;
 }
 .heading-table{
-	font-weight: 500;
+	font-weight: 600;
+    display: block;
+    overflow: hidden;
+    padding: 15px 0;
 }
