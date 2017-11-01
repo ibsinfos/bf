@@ -40,35 +40,29 @@
 		$query = new WP_Query($args);
 
 		echo '<li class="heading list-style-none padding-bottom-10">';
-				echo '<div class ="col-md-4">';				_e('Project Title','boxtheme');				echo '</div>';
-				echo '<div class ="col-md-2">';				_e('Bid(s)','boxtheme');				echo '</div>';
+				echo '<div class ="col-md-2">';				_e('Project Title','boxtheme');				echo '</div>';
+				echo '<div class ="col-md-5">';				_e('Cover letter','boxtheme');				echo '</div>';
 				echo '<div class ="col-md-1">';				_e('Price','boxtheme');				echo '</div>';
 				echo '<div class ="col-md-2">'; _e('Posted date','boxtheme');echo '</div>'; ?>
-				<div class ="col-md-2 text-center">Status</div><?php
-				echo '<div class ="col-md-1 text-center pull-right">'; _e('Action','boxtheme');echo '</div>';
+				<div class ="col-md-2 text-center"><?php _e('Status','boxtheme');?></div><?php
+
 			echo '</li>';
 		if( $query-> have_posts() ){
 			while ($query->have_posts()) {
 				global $post;
 				$query->the_post();
 				$bid = BX_Bid::get_instance()->convert($post);
-				$project = get_post($bid->post_parent);
+				$project = get_post($bid->post_parent); ?>
 
-
-				echo '<li class="list-style-none padding-bottom-10">';
-					echo '<div class ="col-md-4">';	echo '<a href="'.get_permalink($project->ID).'">'. $project->post_title.'</a>';	echo '</div>';
-					echo '<div class ="col-md-2">';				echo count_bids($post->ID);	echo '</div>';
-					echo '<div class ="col-md-1">';				box_price($bid->{BID_PRICE}); echo '</div>';
-					echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
-					?>
+				<li class="list-style-none padding-bottom-10">
+					<div class ="col-md-2"> <a href="<?php echo get_permalink($project->ID);?>"> <?php echo $project->post_title;?></a></div>
+					<div class ="col-md-5"> <?php the_content();?></div>
+					<div class ="col-md-1"> <?php	box_price($bid->{BID_PRICE}); ?></div>
+					<div class ="col-md-2"> <?php	echo get_the_date(); ?></div>
 					<div class ="col-md-2 text-center">
 						<?php echo $bid->post_status;?>
 					</div>
-					<div class ="col-md-1 pull-right text-center">
-						<a href="#" class="btn-board btn-archived-job" id="<?php echo $bid->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $bid->post_titile);?>">
-							<i class="fa fa-trash-o" aria-hidden="true"></i>
-						</a> <?php
-				echo '</li>';
+				</li><?php
 			}
 		} else {
 			echo '<li class="col-md-12" style="padding:15px 20px;">';
