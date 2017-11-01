@@ -907,7 +907,7 @@ class BX_AJAX {
 			$current_key = $current_user->user_activation_key;
 
 			list( $pass_request_time, $pass_key ) = explode( ':', $current_key, 2 );
-			$count_time  = time() - $pass_request_time;// senconds
+			$count_time  = time() - (int)$pass_request_time;// senconds
 
 			if( $count_time < 10*60 ){ // 10 minutes check
 				$response['msg'] = __('Time between of 2 requests has to greater than 10 minutes','boxtheme');

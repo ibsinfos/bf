@@ -171,8 +171,10 @@ Class Box_Email{
 														$general = (object) BX_Option::get_instance()->get_group_option('general');
 
 													$social_link = '';
+
 													if ( !empty( $general->fb_link ) )
-									    				$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg></a></li>';
+										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->fb_link).'"><img src="'.get_template_directory_uri().'/img/email-fb.png" /></a></li>';
+
 										    		if ( !empty( $general->tw_link ) )
 										    			$social_link .='<a class="gg-link"  target="_blank" href="'.esc_url($general->tw_link).'"><img src="'.get_template_directory_uri().'/img/email-tw.png" /></a></li>';
 
