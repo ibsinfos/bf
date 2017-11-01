@@ -415,7 +415,7 @@ class BX_AJAX {
 
 		$response 	= array('success' => false, 'msg' => __('Award job successful','boxtheme'), 'data' => array() );
 		$project 	= BX_Project::get_Instance();
-		$return 	= $project->call_action($args , $method);
+		$return 	= $project->call_action($args , $method); // method in {award,}
 		if ( !is_wp_error( $return ) ) {
 			$response = array(
 				'success' => TRUE,

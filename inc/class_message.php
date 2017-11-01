@@ -20,7 +20,9 @@ class BX_Conversations{
 	}
 
 	function insert($args) {
+
 		global $wpdb, $user_ID;
+		$project_id = $args['project_id'];
 		$t = $wpdb->insert( $wpdb->prefix . 'box_conversations', array(
 				'cvs_author' => $user_ID,
 				'project_id' => $args['project_id'],
@@ -43,8 +45,20 @@ class BX_Conversations{
 		);
 
 		$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
+
 		//send mail to freelancer
 		Box_ActMail::get_instance()->has_new_conversation( $args['receiver_id'] );
+
+		// Add notitication for freelancer
+		$project = get_post($project_id);
+		$args = array(
+			'msg_content' => sprintf( __('%s has just hired you on the job: <i>%s</i>','boxtheme'), $current_user->display_name, $project->post_title ),
+			'msg_link' => get_permalink( $project_id ),
+			'receiver_id' => $args['receiver_id'],
+		);
+
+		$notify = Box_Notify::get_instance()->insert($args);
+
 		return BX_Message::get_instance()->get_message($msg_id);
 	}
 

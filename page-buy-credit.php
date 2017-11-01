@@ -71,13 +71,17 @@
 						    	$has_payment= 0;
 							    $option = BX_Option::get_instance();
 						        $payment = $option->get_group_option('payment');
+
 						        $paypal = array();
 
 						        $paypal = (object)$payment->paypal;
 
 
 						        $cash = (object)$payment->cash;
-
+						  		$cash_enable = 0;
+						  		if( isset($cash->enable) ){
+						  			$cash_enable = $cash->enable;
+						  		}
 						        if( !empty($paypal) && $paypal->enable ) { 	$has_payment= 1;
 							 		?>
 								    <div class="col-sm-12  gateway-payment  record-line"">
@@ -96,7 +100,7 @@
 								    </div>
 							   	<?php } ?>
 
-								<?php if( $cash->enable ){  $has_payment = 1;?>
+								<?php if( $cash_enable ){  $has_payment = 1;?>
 								    <div class="col-sm-12  gateway-payment record-line">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/cash.png');?>" height="69">

@@ -102,7 +102,7 @@ $list_bid
 		</div>
 		<div class="row">
 		    <div class="form-group col-md-12">
-		        <textarea  class="form-control required" required name="award_msg" placeholder="<?php _e('Your message','boxtheme');?>" ></textarea>
+		        <textarea  class="form-control required" required name="cvs_content" placeholder="<?php _e('Your message','boxtheme');?>" ></textarea>
 		        <input type="hidden" name="bid_id" value="{{{data.ID}}}">
 		        <input type="hidden" name="freelancer_id" value="{{{data.post_author}}}">
 		        <input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">

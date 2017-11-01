@@ -192,6 +192,7 @@ Class BX_Project extends BX_Post{
 						'project_id' => $project_id,
 						'receiver_id' => $freelancer_id
 					);
+
 					BX_Conversations::get_instance()->insert($args);
 				} else {
 					$msg_arg = array(
