@@ -17,7 +17,7 @@ $label_text = __('Freelancer pay this fee','boxtheme');
 if( $emp_pay > $budget ) {
 	$label_text = __('Employer pay this fee','boxtheme');
 }
-if( !$bidding ){ ?>
+if ( ! $bidding && $project->post_status == 'publish' ) { ?>
   <form id="bid_form" class="bid-form" <?php echo $class_bidded;?>>
       <h2> <?php _e('Bid on project','boxtheme');?></h2>
      	<div class="form-group row bd-bottom">
