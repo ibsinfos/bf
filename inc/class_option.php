@@ -73,7 +73,7 @@ class BX_Option {
 					'enable' => 0,
 				),
 				'cash' => array(
-					'description' => __("<p>https:// %s to this bank account:</p><p>Number: XXXXXXXXXX.</p><p>Bank: ANZ Bank. Account name: Johnny Cook.</p><p>After get your fund, we will approve your order and you can access your balance.</p",'boxtheme'),
+					'description' => __("<p>Kindly deposite to this bank account:</p><p>Number: XXXXXXXXXX.</p><p>Bank: ANZ Bank.</p><p> Account name: Johnny Cook.</p><p>After get your fund, we will approve your order and you can access your credit.</p",'boxtheme'),
 					'enable' => 1,
 				),
 			),

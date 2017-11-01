@@ -46,7 +46,7 @@ class BX_ajax_backend{
 		$option->set_option( $group, $section, $item, $name, $value, $level);
 		wp_send_json(array('success' => true, 'msg' => 'save done'));
 	}
-	function create_package() {
+	static function create_package() {
 		if( ! self::check_permission() ){
 			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
 			die();
@@ -79,7 +79,7 @@ class BX_ajax_backend{
 			)
 		);
 	}
-	function del_post(){
+	static function del_post(){
 		if( ! self::check_permission() ){
 			wp_send_json( array('success' => false, 'msg' => 'Security declince') );
 			die();
