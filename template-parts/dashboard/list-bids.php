@@ -76,7 +76,7 @@
 			}
 			wp_reset_postdata();
 		} else {
-			echo '<li class="col-md-12" style="padding:15px 20px;">';
+			echo '<li class="col-md-12" style="padding-top: 20px; list-style:none">';
 			_e('This query is empty','boxtheme');
 			echo '</li>';
 		}
