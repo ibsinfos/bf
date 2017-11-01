@@ -45,15 +45,19 @@ if($type == 'cash'){
 		<div class="site-content" id="content" style="background-color: transparent1 !important;" >
 			<div class="col-md-12 detail-project text-justify" style="padding-top: 30px;">
 				<div class="" style="width: 450px; min-height: 300px; margin: 0 auto; border:1px solid #ccc; background-color: #fff; border-radius: 5px; padding: 15px 20px;">
-					<h2 class="primary-color" style="padding-bottom: 35px;"> Payment Complete <i class="fa fa-check" aria-hidden="true"></i></h2>
-					<p> We've sent you an email with all the details of your order</p>
-					<p> Price($): <label>100</label></p>
-					<p> Order ID:<label> 001</label></p>
+
 
 					<?php
-
+					// echo '<pre>';
+					// var_dump($order);
+					// echo '</pre>';
 					if( is_user_logged_in() && $order->payer_id == $user_ID ){
-						if( $type == 'cash'){
+						if( $type == 'cash'){ ?>
+							<h2 class="primary-color" style="padding-bottom: 35px;"> Payment Complete <i class="fa fa-check" aria-hidden="true"></i></h2>
+							<p> We've sent you an email with all the details of your order</p>
+							<p> Price($): <label><?php echo  $order->amout;?></label></p>
+							<p> Order ID:<label> <?php echo $order->ID;?></label></p>
+							<?php
 
 							if( $order->post_status == 'publish') {
 								_e('Your order is approved ','boxtheme');
