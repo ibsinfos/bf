@@ -1,4 +1,9 @@
 <?php
+/**
+ * be included in page-dashboard and list all bidded of current Employer
+ * Only available for Employer or Admin account.
+**/
+
 	global $user_ID;
 
 	$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';

@@ -9,7 +9,21 @@
 		<div class="site-content" id="content" >
 			<div id="profile" class="col-md-12">
 				<div class="tab-content clearfix">
-					<?php get_template_part( 'template-parts/dashboard/my', 'projects' ); ?>
+					<?php
+					if( is_user_logged_in() ){
+						global $user_ID;
+						$profile_id = get_user_meta($user_ID,'profile_id', false);
+
+						if( $profile_id ){
+							get_template_part( 'template-parts/dashboard/list', 'bids' );
+						} else {
+							get_template_part( 'template-parts/dashboard/list', 'projects' );
+						}
+					} else {
+						_e('This content only availble for user logged in','boxtheme');
+					}
+
+					?>
 				</div>
 			</div> <!-- end left !-->
 

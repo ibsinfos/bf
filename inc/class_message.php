@@ -51,6 +51,7 @@ class BX_Conversations{
 
 		// Add notitication for freelancer
 		$project = get_post($project_id);
+		$current_user = wp_get_current_user();
 		$args = array(
 			'msg_content' => sprintf( __('%s has just hired you on the job: <i>%s</i>','boxtheme'), $current_user->display_name, $project->post_title ),
 			'msg_link' => get_permalink( $project_id ),
