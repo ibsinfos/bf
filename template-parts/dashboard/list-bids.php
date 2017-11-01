@@ -5,27 +5,35 @@
 **/
 
 	global $user_ID;
-
-	$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
+	wp_reset_query();
+	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('publish','pending','disputing','resolved','done','awarded');
+	$check = $status;
+	if( is_array($status) )
+		$check = 'any';
 	$loadmore = false;
 	$link =  box_get_static_link('dashboard');  ?>
 
 	<ul class="db-list-project">
 		<li class="heading list-style-none full">
-			<form class="pull-right full dashboard-filter">
-				<div class="col-md-2 pull-right">
-					<select class="form-control">
-						<option <?php selected( $status, 'any' ); ?>  value="<?php echo $link;?>"> <?php _e('All Status','boxtheme');?></option>
-						<option <?php selected( $status, 'publish' ); ?> value="<?php echo add_query_arg('status','publish', $link);?>"> Publish</option>
-						<option <?php selected( $status, 'pending' ); ?>  value="<?php echo add_query_arg('status','pending', $link);?>"> Pending</option>
-						<option <?php selected( $status, 'awarded' ); ?>  value="<?php echo add_query_arg('status','awarded', $link);?>"> Working</option>
-						<option <?php selected( $status, 'done' ); ?>  value="<?php echo add_query_arg('status','done', $link);?>"> Done</option>
-						<option <?php selected( $status, 'disputing' ); ?>  value="<?php echo add_query_arg('status','disputing', $link);?>"> Disputing/Resolved</option>
-						<option <?php selected( $status, 'archived' ); ?>  value="<?php echo add_query_arg('status','archived', $link);?>"> Archived</option>
-					</select>
-				</div>
+			<div class="col-md-10 pull-left">
+				<?php _e('Your bids','boxtheme');?>
+			</div>
+			<div class="col-md-2 pull-right">
+				<form class="pull-right full dashboard-filter">
 
-			</form>
+						<select class="form-control">
+							<option <?php selected( $check, 'publish' ); ?>  value="<?php echo $link;?>"> <?php _e('All Status','boxtheme');?></option>
+							<option <?php selected( $check, 'publish' ); ?> value="<?php echo add_query_arg('status','publish', $link);?>"><?php _e('Activity','boxtheme');?></option>
+							<option <?php selected( $check, 'awarded' ); ?>  value="<?php echo add_query_arg('status','awarded', $link);?>"><?php _e('Working','boxtheme');?></option>
+							<option <?php selected( $check, 'done' ); ?>  value="<?php echo add_query_arg('status','done', $link);?>"> <?php _e('Done','boxtheme');?></option>
+							<option <?php selected( $check, 'disputing' ); ?>  value="<?php echo add_query_arg('status','disputing', $link);?>"><?php _e('Disputing/Resolved','boxtheme');?>
+
+							</option>
+
+						</select>
+					</div>
+				</form>
+			</div>
 		</li>
 		<?php
 			$args = array(
@@ -37,6 +45,7 @@
 			$status = array('disputing','resolved');
 
 		$args['post_status'] = $status;
+
 		$query = new WP_Query($args);
 
 		echo '<li class="heading list-style-none padding-bottom-10">';
@@ -54,7 +63,7 @@
 				$bid = BX_Bid::get_instance()->convert($post);
 				$project = get_post($bid->post_parent); ?>
 
-				<li class="list-style-none padding-bottom-10">
+				<li class="list-style-none padding-bottom-10 full">
 					<div class ="col-md-2"> <a href="<?php echo get_permalink($project->ID);?>"> <?php echo $project->post_title;?></a></div>
 					<div class ="col-md-5"> <?php the_content();?></div>
 					<div class ="col-md-1"> <?php	box_price($bid->{BID_PRICE}); ?></div>
@@ -63,7 +72,9 @@
 						<?php echo $bid->post_status;?>
 					</div>
 				</li><?php
+
 			}
+			wp_reset_postdata();
 		} else {
 			echo '<li class="col-md-12" style="padding:15px 20px;">';
 			_e('This query is empty','boxtheme');
@@ -71,5 +82,6 @@
 		}
 
 		echo '</ul>';
+		wp_reset_query();
 
 ?>

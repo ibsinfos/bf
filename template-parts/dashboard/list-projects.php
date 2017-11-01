@@ -12,8 +12,11 @@
 
 	<ul class="db-list-project">
 		<li class="heading list-style-none full">
-			<form class="pull-right full dashboard-filter">
-				<div class="col-md-2 pull-right">
+			<div class="col-md-10 pull-left">
+				<?php _e('Your bids','boxtheme');?>
+			</div>
+			<div class="col-md-2 pull-right">
+				<form class="pull-right full dashboard-filter">
 					<select class="form-control">
 						<option <?php selected( $status, 'any' ); ?>  value="<?php echo $link;?>"> <?php _e('All Status','boxtheme');?></option>
 						<option <?php selected( $status, 'publish' ); ?> value="<?php echo add_query_arg('status','publish', $link);?>"> Publish</option>
@@ -23,9 +26,8 @@
 						<option <?php selected( $status, 'disputing' ); ?>  value="<?php echo add_query_arg('status','disputing', $link);?>"> Disputing/Resolved</option>
 						<option <?php selected( $status, 'archived' ); ?>  value="<?php echo add_query_arg('status','archived', $link);?>"> Archived</option>
 					</select>
-				</div>
-
-			</form>
+				</form>
+			</div>
 		</li>
 		<?php
 			$args = array(
