@@ -3,11 +3,10 @@
 function box_price($price,$echo = true){
 	echo get_box_price($price);
 }
-function get_box_price($price) {
+function get_box_price( $price ) {
 	global $box_currency;
 
 	$decimals = 2;
-
 	number_format( $price, $decimals, $box_currency->price_decimal_sep, $box_currency->price_thousand_sep );
 
 	$symbol = box_get_currency_symbol($box_currency->code);

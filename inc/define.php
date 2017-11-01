@@ -30,7 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	define( 'DISPUTED', 'disputed' ); // project status
 	define( 'WINNER_ID', '_winner_id');// freelancer ID of this project.
-	//meta field of Bid
+
+	//META field of BID
 	define( 'BID_ID_WIN', 'bid_id_win');
 	define( 'BID_PRICE','_bid_price');
 	define( 'BID_DEALINE','_dealine');

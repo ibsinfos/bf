@@ -29,7 +29,7 @@
 		</li>
 		<?php
 			$args = array(
-			'post_type' => 'project',
+			'post_type' => 'bid',
 			'author'=> $user_ID,
 			'posts_per_page' => -1,
 		);
@@ -51,18 +51,21 @@
 			while ($query->have_posts()) {
 				global $post;
 				$query->the_post();
-				$project = BX_Project::get_instance()->convert($post);
+				$bid = BX_Bid::get_instance()->convert($post);
+				$project = get_post($bid->post_parent);
+
+
 				echo '<li class="list-style-none padding-bottom-10">';
-					echo '<div class ="col-md-4">';	echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
+					echo '<div class ="col-md-4">';	echo '<a href="'.get_permalink($project->ID).'">'. $project->post_title.'</a>';	echo '</div>';
 					echo '<div class ="col-md-2">';				echo count_bids($post->ID);	echo '</div>';
-					echo '<div class ="col-md-1">';				box_price($project->_budget);echo '</div>';
+					echo '<div class ="col-md-1">';				box_price($bid->{BID_PRICE}); echo '</div>';
 					echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';
 					?>
 					<div class ="col-md-2 text-center">
-						<?php echo $project->post_status;?>
+						<?php echo $bid->post_status;?>
 					</div>
 					<div class ="col-md-1 pull-right text-center">
-						<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>">
+						<a href="#" class="btn-board btn-archived-job" id="<?php echo $bid->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $bid->post_titile);?>">
 							<i class="fa fa-trash-o" aria-hidden="true"></i>
 						</a> <?php
 				echo '</li>';
