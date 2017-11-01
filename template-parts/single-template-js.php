@@ -133,29 +133,31 @@ $list_bid
 			if ( $project->post_author == $user_ID ) {
 				$frm_id = 'frm_emp_review';
 				$label = __('This project mark as done and the fund will be released to freelancer account after submit this form.','boxtheme'); ?>
-			 	Mark as finish and review this project/freelancer.
+			 	<?php _e('Mark as finish and review this project/freelancer.','boxtheme');?>
 			<?php } else { ?>
-				Review employer of this project
+				<?php _e('Review employer of this project','boxtheme' );?>
 			<?php }?>
 			</h2>
 		</div>
       	<div class="modal-body">
       	 	<form id="<?php echo $frm_id;?>">
 	          	<div class="form-group">
-	            	<label for="message-text" class="control-label"><?php echo $label;?></label>
-	            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" required placeholder="Let your review here."></textarea>
+
+	            	<textarea class="form-control no-radius required" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" required placeholder="<?php _e('Leave your review here.','boxtheme');?>"></textarea>
 	            	<p>
-	            	<div class="col-md-2 no-padding-left">Score</div>
-	            	<div class="col-md-6">
-	            		<start class="rating-score clear block" title="1">
-		            	<i class="fa fa-star" aria-hidden="true" title="1"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
-		            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
-		            	</start>
-		            </div>
+		            	<div class="col-md-2 no-padding-left"><?php _e('Rating: ','boxtheme');?></div>
+		            	<div class="col-md-6">
+		            		<start class="rating-score clear block" title="1">
+			            	<i class="fa fa-star" aria-hidden="true" title="1"></i>
+			            	<i class="fa fa-star" aria-hidden="true" title="2"></i>
+			            	<i class="fa fa-star" aria-hidden="true" title="3"></i>
+			            	<i class="fa fa-star" aria-hidden="true" title="4"></i>
+			            	<i class="fa fa-star" aria-hidden="true" title="5"></i>
+			            	</start>
+			            </div>
 	            	</p>
+	            	<p> &nbsp;</p>
+	            	<p style="display: block; clear: both;"><small><?php echo $label;?></small></p>
 	            	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
 	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
 	          	</div>
@@ -180,11 +182,11 @@ $list_bid
 		  	<div class="modal-body">
 		  		<form id="fre_markascomplete" class="fre_markascomplete">
 		          	<div class="form-group">
-		            	<p for="message-text" class="control-label">Leave your detail message here that help employer know the status of project and your message.</p>
-		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
+		            	<p for="message-text" class="control-label"><?php _e('Leave your detail message here that help employer know the status of project and your message.','boxtheme');?></p>
+		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="<?php _e('Leave your review here.','boxtheme');?>"></textarea>
 		            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
 		            </div>
-		            <div class="form-group text-right"><button type="submit" class="btn btn-primary ">Send</button> </div>
+		            <div class="form-group text-right"><button type="submit" class="btn btn-primary "><?php _e('Send','boxtheme');?></button> </div>
 		        </form>
 		  	</div>
 		</div>
