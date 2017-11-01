@@ -48,7 +48,7 @@
 
 		$query = new WP_Query($args);
 
-		echo '<li class="heading list-style-none padding-bottom-10">';
+		echo '<li class="heading heading-table list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-2">';				_e('Project Title','boxtheme');				echo '</div>';
 				echo '<div class ="col-md-5">';				_e('Cover letter','boxtheme');				echo '</div>';
 				echo '<div class ="col-md-1">';				_e('Price','boxtheme');				echo '</div>';

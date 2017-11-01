@@ -39,3 +39,6 @@ ul.dashboard-tab li a {
 ul.dashboard-tab li:last-child a{
 	border-right:1px solid #f3f3f3;
 }
+.heading-table{
+	font-weight: 500;
+}
