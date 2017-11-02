@@ -282,7 +282,7 @@ class BX_AJAX {
 				'msg' 		=> __('You have registered successful','boxtheme'),
 				'data' 		=> $user
 			);
-			Box_ActMail::get_instane()->mail_to_register($user);
+			Box_ActMail::get_instance()->mail_to_register($user);
 
 
 		} else {
