@@ -131,7 +131,7 @@ class BX_Option {
 			'new_account' => array(
 				'receiver' => 'register',
 				'subject' =>	'Congratulations! You have successfully registered to #blog_name.',
-				'content' =>	'<p>Hi #user_login, <br />Thank you for register.</p>Click here to active <a href="#link">your account </a>.'
+				'content' =>	'<p>Hello #user_login, <br />Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.<p>If clicking the link doesn\'t work you can copy the link into your browser window or type it there directly.</p><p>Regards,</p>'
 			),
 			'new_job' => array(
 				'receiver' => 'admin',
@@ -140,8 +140,8 @@ class BX_Option {
 			),
 			'new_bidding' => array(
 				'receiver' => 'employer',
-				'subject' =>	'New bidding in your project %s',
-				'content' =>	'Has new bidding'
+				'subject' =>	'Has mew bidding in your project.',
+				'content' =>	'Hello #username, <p>This email to let you that has new a bidding in your project #project_name.</p> You can click <a href="#project_link">here</a> to check the detail.',
 			),
 			'new_message' => array(
 				'receiver' => 'receiver',

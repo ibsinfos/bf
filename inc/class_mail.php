@@ -247,15 +247,20 @@ class Box_ActMail{
 		}
 		return self::$_instance;
 	}
-	function mail_to_register($user){
+	function mail_to_register( $user ){
+
 
 		$activation_key =  get_password_reset_key( $user);
 		$link = box_get_static_link('verify');
 		$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
+
 		$mail = BX_Option::get_instance()->get_mail_settings('new_account');
 
-		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail->subject) );
+		$subject = $mail->subject;
+		$content = $mail->content;
+
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $subject ) );
 		$content = str_replace('#user_login', $user->user_login, $mail->content);
 		$content = str_replace('#link', esc_url($link), $content);
 
@@ -287,8 +292,12 @@ class Box_ActMail{
 	 **/
 	function has_new_bid($project){
 
-		$subject = __("Has new bidding in your project",'boxtheme');
-		$content = __('Hi #username,<br /> has a new bidding in your project #project_link';
+
+		$mail = BX_Option::get_instance()->get_mail_settings('new_bidding');
+
+		$content = str_replace("#project_link", get_permalink( $project->ID), $content);
+		$content = str_replace("#project_name", $project->post_title, $content);
+
 		$author = get_userdata($project->post_author);
 
 		box_mail( $author->user_email, $subject, $content );
