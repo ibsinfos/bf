@@ -131,7 +131,7 @@ class BX_Option {
 			'new_account' => array(
 				'receiver' => 'register',
 				'subject' =>	'Congratulations! You have successfully registered to #blog_name.',
-				'content' =>	'<p>Hello #user_login, <br />Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.<p>If clicking the link doesn\'t work you can copy the link into your browser window or type it there directly.</p><p>Regards,</p>'
+				'content' =>	'<p>Hello #user_login, <br /></p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy the link into your browser window or type it there directly.</p><p>Regards,'
 			),
 			'new_job' => array(
 				'receiver' => 'admin',

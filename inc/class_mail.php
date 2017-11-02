@@ -247,14 +247,20 @@ class Box_ActMail{
 		}
 		return self::$_instance;
 	}
-	function mail_to_register( $userm, $mail_to ){
+	function mail_to_register( $user, $mail_to ){
 
 
-		$link = box_get_static_link('verify');
+		$verify_link = box_get_static_link('verify');
 
 		$activation_key =  get_password_reset_key( $user);
 
-		$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
+		$link = add_query_arg(
+			array(
+				'user_login' => $user->user_login,
+				'key' => $activation_key
+			) ,
+			$verify_link
+		);
 
 
 		$mail = BX_Option::get_instance()->get_mail_settings('new_account');
