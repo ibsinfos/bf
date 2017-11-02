@@ -10,26 +10,33 @@ function box_bid_buton($post){
 		echo '<a class ="btn-login text-right pull-right" href ="'.esc_url($back_url).'"> &nbsp; '.__('Bid Now','boxtheme') . ' &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>';
 	}
 }
+function box_post_buton( $post ){ ?>
+	<li>
+		<a href="<?php echo box_get_static_link('post-project'); ?>" class ="btn-bid-now t" > &nbsp;  <?php  _e('Post new job','boxtheme');?> &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+	</li>
+	<?php
+}
 
 
-global $user_ID, $project, $is_owner, $can_access_workspace, $is_workspace, $winner_id, $class_bidded, $bidding, $is_logged, $current_user_can_bid;
+global $user_ID, $project, $is_owner, $bidding, $is_logged, $current_user_can_bid, $role;
 $user = get_userdata($project->post_author );
 
 $country_id  = get_user_meta( $project->post_author, 'location', true );
 $txt_country = 'Unset';
 $ucountry = get_term( $country_id, 'country' );
 
-if( !is_wp_error($ucountry ) ){
+$score = (int) get_user_meta($project->post_author,RATING_SCORE, true);
+if(empty($score) || !$score){
+	$score = 0;
+}
+if( ! is_wp_error( $ucountry ) ){
 	$txt_country = $ucountry->name;
 }
 $project_posted = (int) get_user_meta( $project->post_author, 'project_posted', true);
 $fre_hired = (int) get_user_meta( $project->post_author, 'fre_hired', true);
 $total_spent = (float) get_user_meta( $project->post_author, 'total_spent', true);
-$score = (int) get_user_meta($project->post_author,RATING_SCORE, true);
-if(empty($score) || !$score){
-	$score = 0;
-}
 $employer = get_userdata($project->post_author);
+
 ?>
 	<div class="main-btn-react  hide">
 		<button class="contact-me primary-bg"> <?php _e('WorkSpace','boxtheme');?></button><button class="contact-me primary-bg"><?php _e('Dispute','boxtheme');?></button>
@@ -54,7 +61,9 @@ $employer = get_userdata($project->post_author);
 		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
 		<?php if ( $current_user_can_bid && ! $bidding ) { ?>
 			<li><?php box_bid_buton($project);?></li>
-		<?php }?>
+		<?php } else if( $role == EMPLOYER){
+			box_post_buton();
+		}?>
 	</ul>
 </div>
 
