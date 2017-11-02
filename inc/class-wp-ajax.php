@@ -531,6 +531,7 @@ class BX_AJAX {
 		  int(220445)
 		}
 		*/
+		do_action( 'box_authentication_upload' );
 
 		if ( isset( $request['post_parent']) )
 			$post_parent_id = $request['post_parent'];
@@ -597,6 +598,7 @@ class BX_AJAX {
 		$post_parent_id = isset( $request['post_parent'] ) ? $request['post_parent']: 0;
 		$cvs_id 	= isset( $request['cvs_id']) ? $request['cvs_id'] : 0;
 
+		do_action( 'box_authentication_upload' );
 
 		$uploaded_file 	= wp_handle_upload( $uploadedfile, $upload_overrides );
 
