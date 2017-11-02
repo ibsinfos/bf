@@ -16,7 +16,7 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
                     <div class="row">
 						<div class="col-xs-12">
 						  	<div class="well" id="login_section">
-						      	<h1 class="margin-b20 margin-t30 span7">Choose your new password</h1>
+						      	<h1 class="margin-b20 margin-t30 span7"><?php _e('Choose your new password','boxtheme');?></h1>
 
 							    <div id="loginErrorMsg" class="alert alert-error alert-warning" style="display: none;"></div>
 							    <form class="span7" id="reset_password_form" method="POST">
@@ -27,7 +27,7 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
 							        <input type="hidden" id="method" name="method" value="setpass">
 
 							        <div class="form-group">
-							            <label for="new_password">New Password:</label>
+							            <label for="new_password"><?php _e('New Password:','boxtheme');?></label>
 							            <div>
 							                <input type="password"  class="required form-control"   required  name="new_password" id="new_password">
 							                <i class="icon-16-green-tick" style="display:none"></i>
@@ -36,7 +36,7 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
 							            </div>
 							        </div>
 							        <div class="form-group">
-							            <label for="confirm_password">Confirm Password:</label>
+							            <label for="confirm_password"><?php _e('Confirm Password:','boxtheme');?></label>
 							            <div>
 							                <input type="password" class="required form-control" required name="confirm_password" id="confirm_password">
 							                <i class="icon-16-green-tick" style="display:none"></i>
