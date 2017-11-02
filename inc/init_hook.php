@@ -600,10 +600,10 @@ function bx_page_template_redirect(){
 			exit();
 		}
 
-		if (current_user_can('manage_options')){
+		if ( current_user_can('manage_options') ){
 			return ;
 		}
-		if(  is_page_template( 'page-verify.php') ){
+		if(  is_page_template( 'page-verify.php' ) ){
 			if( is_account_verified( $user_ID) )  {
 				wp_redirect( home_url() );
 			}
