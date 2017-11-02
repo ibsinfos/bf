@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFreelance v1.0\n"
-"POT-Creation-Date: 2017-11-02 22:58+0700\n"
-"PO-Revision-Date: 2017-11-02 22:58+0700\n"
+"POT-Creation-Date: 2017-11-02 23:03+0700\n"
+"PO-Revision-Date: 2017-11-02 23:03+0700\n"
 "Last-Translator: \n"
 "Language-Team: https://boxthemes.net\n"
 "Language: en\n"
@@ -1645,6 +1645,18 @@ msgid ""
 "can use your credit now."
 msgstr ""
 
+#: page-reset-password.php:19
+msgid "Choose your new password"
+msgstr ""
+
+#: page-reset-password.php:30
+msgid "New Password:"
+msgstr ""
+
+#: page-reset-password.php:39
+msgid "Confirm Password:"
+msgstr ""
+
 #: page-signup-employer.php:14 page-signup-employer.php:57
 #: page-signup-jobseeker.php:15 page-signup-jobseeker.php:54
 #: template-parts/form-signup.php:7
@@ -2338,6 +2350,7 @@ msgstr ""
 
 #: template-parts/single-template-js.php:146
 #: template-parts/single-template-js.php:186
+#: template-parts/single-template-js.php:215
 #: template-parts/single-template-js.php:245
 msgid "Leave your review here."
 msgstr ""
@@ -2366,6 +2379,10 @@ msgstr ""
 msgid "Cancel and quit this job"
 msgstr ""
 
+#: template-parts/single-template-js.php:218 template-parts/workspace.php:20
+msgid "Quit Job"
+msgstr ""
+
 #: template-parts/single-template-js.php:232
 msgid "Send a dispute request."
 msgstr ""
@@ -2385,10 +2402,6 @@ msgstr ""
 
 #: template-parts/workspace.php:17
 msgid "Mark as Finish"
-msgstr ""
-
-#: template-parts/workspace.php:20
-msgid "Quit Job"
 msgstr ""
 
 #: template-parts/workspace.php:24
