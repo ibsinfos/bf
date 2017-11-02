@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPFreelance v1.0\n"
-"POT-Creation-Date: 2017-10-09 22:39+0700\n"
-"PO-Revision-Date: 2017-10-09 22:40+0700\n"
+"POT-Creation-Date: 2017-11-02 22:58+0700\n"
+"PO-Revision-Date: 2017-11-02 22:58+0700\n"
 "Last-Translator: \n"
 "Language-Team: https://boxthemes.net\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.4\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _e;_x;_n;__\n"
@@ -86,13 +86,10 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: admin/templates/currency_package.php:131 author.php:103
-#: template-parts/dashboard/list-project-activate.php:17
-#: template-parts/dashboard/list-project-archived.php:18
-#: template-parts/dashboard/list-project-done.php:22
-#: template-parts/dashboard/list-project-working.php:22
-#: template-parts/dashboard/list-project.php:18 template-parts/list-bid.php:27
-#: template-parts/project/bid-form.php:25
+#: admin/templates/currency_package.php:131 author.php:102
+#: template-parts/dashboard/list-bids.php:54
+#: template-parts/dashboard/list-projects.php:47 template-parts/list-bid.php:17
+#: template-parts/list-bid.php:33
 msgid "Price"
 msgstr ""
 
@@ -105,7 +102,6 @@ msgid "Edit package plan"
 msgstr ""
 
 #: admin/templates/currency_package.php:167
-#: template-parts/project/bid-form.php:65
 msgid "Update"
 msgstr ""
 
@@ -229,31 +225,31 @@ msgstr ""
 msgid "Google Plus link"
 msgstr ""
 
-#: admin/templates/general.php:67
+#: admin/templates/general.php:66
 msgid "Social Login"
 msgstr ""
 
-#: admin/templates/general.php:95
+#: admin/templates/general.php:94
 msgid "Client ID"
 msgstr ""
 
-#: admin/templates/general.php:114
+#: admin/templates/general.php:123
 msgid "Google Captcha"
 msgstr ""
 
-#: admin/templates/general.php:119
+#: admin/templates/general.php:128
 msgid "Settings"
 msgstr ""
 
-#: admin/templates/general.php:122 admin/templates/general.php:123
+#: admin/templates/general.php:131 admin/templates/general.php:132
 msgid "reCaptcha Site Key"
 msgstr ""
 
-#: admin/templates/general.php:126 admin/templates/general.php:127
+#: admin/templates/general.php:135 admin/templates/general.php:136
 msgid "reCaptcha Secret Key"
 msgstr ""
 
-#: admin/templates/general.php:131
+#: admin/templates/general.php:140
 msgid ""
 "Enable this to help your website security more and safe. Add captcha code in "
 "login form and in register form - <a target=\"_blank\" href=\"https://www."
@@ -293,23 +289,19 @@ msgstr ""
 msgid "<label>Total earn:</label> %s"
 msgstr ""
 
-#: author.php:77 inc/class_profile.php:69 inc/class_project.php:106
-msgid "Not set"
-msgstr ""
-
-#: author.php:88
+#: author.php:87
 msgid "Work History and Feedback"
 msgstr ""
 
-#: author.php:101 template-parts/list-bid.php:26
+#: author.php:100 template-parts/list-bid.php:16
 msgid "Date"
 msgstr ""
 
-#: author.php:102
+#: author.php:101 template-parts/list-bid.php:32
 msgid "Description"
 msgstr ""
 
-#: author.php:114
+#: author.php:113
 msgid "There is not any feedback"
 msgstr ""
 
@@ -370,11 +362,11 @@ msgstr ""
 msgid "Footer %d"
 msgstr ""
 
-#: header.php:71 page-login.php:46
+#: header.php:72 page-login.php:46
 msgid "Log In"
 msgstr ""
 
-#: header.php:74 page-login.php:51
+#: header.php:75 page-login.php:51
 msgid "Sign Up"
 msgstr ""
 
@@ -431,110 +423,110 @@ msgstr ""
 msgid "You have registered successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:336
+#: inc/class-wp-ajax.php:328
 msgid "You have updated profile successfull"
 msgstr ""
 
-#: inc/class-wp-ajax.php:401
+#: inc/class-wp-ajax.php:393
 msgid "Create conversation successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:416 inc/class-wp-ajax.php:422
+#: inc/class-wp-ajax.php:408 inc/class-wp-ajax.php:414
 msgid "Award job successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:439 inc/class-wp-ajax.php:466
+#: inc/class-wp-ajax.php:431 inc/class-wp-ajax.php:458
 msgid "Review job"
 msgstr ""
 
-#: inc/class-wp-ajax.php:446 inc/class-wp-ajax.php:472
+#: inc/class-wp-ajax.php:438 inc/class-wp-ajax.php:464
 msgid "Review job done"
 msgstr ""
 
-#: inc/class-wp-ajax.php:491
+#: inc/class-wp-ajax.php:483
 msgid "Update user information successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:508
+#: inc/class-wp-ajax.php:500
 msgid "Update avatar ok"
 msgstr ""
 
-#: inc/class-wp-ajax.php:519
+#: inc/class-wp-ajax.php:511
 msgid "Remove attachment successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:521
+#: inc/class-wp-ajax.php:513
 msgid "Remove attachment fail"
 msgstr ""
 
-#: inc/class-wp-ajax.php:548
+#: inc/class-wp-ajax.php:541
 msgid "secutiry issues"
 msgstr ""
 
-#: inc/class-wp-ajax.php:595 inc/class-wp-ajax.php:661
+#: inc/class-wp-ajax.php:588 inc/class-wp-ajax.php:655
 msgid "Uploaded is successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:655
+#: inc/class-wp-ajax.php:649
 #, php-format
 msgid "Upload new file: %s"
 msgstr ""
 
-#: inc/class-wp-ajax.php:734
+#: inc/class-wp-ajax.php:728
 #, php-format
 msgid "%s job found"
 msgstr ""
 
-#: inc/class-wp-ajax.php:735
+#: inc/class-wp-ajax.php:729
 #, php-format
 msgid "%s profile found"
 msgstr ""
 
-#: inc/class-wp-ajax.php:755
+#: inc/class-wp-ajax.php:749
 msgid "Search result is empty"
 msgstr ""
 
-#: inc/class-wp-ajax.php:821
+#: inc/class-wp-ajax.php:815
 msgid "Add portfolio successful"
 msgstr ""
 
-#: inc/class-wp-ajax.php:872
+#: inc/class-wp-ajax.php:866
 msgid "Your withdrawal request is sent"
 msgstr ""
 
-#: inc/class-wp-ajax.php:889
+#: inc/class-wp-ajax.php:883
 msgid "Update withdraw info done."
 msgstr ""
 
-#: inc/class-wp-ajax.php:895
+#: inc/class-wp-ajax.php:889
 msgid "Can not send new email."
 msgstr ""
 
-#: inc/class-wp-ajax.php:900
+#: inc/class-wp-ajax.php:894
 msgid "Unsecurity request"
 msgstr ""
 
-#: inc/class-wp-ajax.php:913
+#: inc/class-wp-ajax.php:907
 msgid "Time between of 2 requests has to greater than 10 minutes"
 msgstr ""
 
-#: inc/class-wp-ajax.php:924
+#: inc/class-wp-ajax.php:918
 msgid "New email is sent."
 msgstr ""
 
-#: inc/class-wp-ajax.php:929
+#: inc/class-wp-ajax.php:923
 #, php-format
 msgid "New confirmation email from %s."
 msgstr ""
 
-#: inc/class-wp-ajax.php:930
+#: inc/class-wp-ajax.php:924
 #, php-format
 msgid ""
 "<p>Hi %s, <br />New confirmation email.</p>Click <a href=\"%s\">here</a> to "
 "active your account."
 msgstr ""
 
-#: inc/class-wp-ajax.php:978
+#: inc/class-wp-ajax.php:972
 msgid "This is email not available"
 msgstr ""
 
@@ -547,42 +539,42 @@ msgstr ""
 msgid "%s just canceled bid  on the project <i>%s</i>"
 msgstr ""
 
-#: inc/class_bid.php:90
+#: inc/class_bid.php:97
 msgid "Only freelancer can bid."
 msgstr ""
 
-#: inc/class_bid.php:97
+#: inc/class_bid.php:104
 msgid "Project is empty."
 msgstr ""
 
-#: inc/class_bid.php:100
+#: inc/class_bid.php:107
 msgid "Cover letter is empty."
 msgstr ""
 
-#: inc/class_bid.php:107
+#: inc/class_bid.php:114
 msgid "You've bid on this project"
 msgstr ""
 
-#: inc/class_bid.php:117
+#: inc/class_bid.php:124
 msgid "You can not bid on your own project."
 msgstr ""
 
-#: inc/class_bid.php:157
+#: inc/class_bid.php:167
 #, php-format
 msgid "%s bid on project <i>%s</i>"
 msgstr ""
 
-#: inc/class_bid.php:173
+#: inc/class_bid.php:183
 msgid "You can not update this bid"
 msgstr ""
 
-#: inc/class_bid.php:194
+#: inc/class_bid.php:204
 #, php-format
 msgid "%s updated bid"
 msgstr ""
 
 #: inc/class_credit.php:46
-msgid "Your credit are not enough to perform this transasction"
+msgid "Your credit are not enough to perform this transaction"
 msgstr ""
 
 #: inc/class_credit.php:194
@@ -651,12 +643,24 @@ msgstr ""
 msgid "Set contact information"
 msgstr ""
 
-#: inc/class_option.php:76
+#: inc/class_mail.php:320
+msgid "Employer just send to you a message"
+msgstr ""
+
+#: inc/class_mail.php:329
+msgid "You has been assigned for a job"
+msgstr ""
+
+#: inc/class_message.php:56
 #, php-format
+msgid "%s has just hired you on the job: <i>%s</i>"
+msgstr ""
+
+#: inc/class_option.php:76
 msgid ""
-"<p>https:// %s to this bank account:</p><p>Number: XXXXXXXXXX.</p><p>Bank: "
-"ANZ Bank. Account name: Johnny Cook.</p><p>After get your fund, we will "
-"approve your order and you can access your balance.</p"
+"<p>Kindly deposite to this bank account:</p><p>Number: XXXXXXXXXX.</"
+"p><p>Bank: ANZ Bank.</p><p> Account name: Johnny Cook.</p><p>After get your "
+"fund, we will approve your order and you can access your credit.</p"
 msgstr ""
 
 #: inc/class_portfolio.php:34
@@ -679,6 +683,10 @@ msgstr ""
 msgid "Empty job content"
 msgstr ""
 
+#: inc/class_profile.php:69 inc/class_project.php:106
+msgid "Not set"
+msgstr ""
+
 #: inc/class_profile.php:76
 #, php-format
 msgid "Earned : %s"
@@ -689,7 +697,7 @@ msgstr ""
 msgid "%s %s/h"
 msgstr ""
 
-#: inc/class_profile.php:184
+#: inc/class_profile.php:189
 msgid "You don'n have permission to update"
 msgstr ""
 
@@ -707,47 +715,47 @@ msgstr ""
 msgid "Please log in your account again."
 msgstr ""
 
-#: inc/class_project.php:185
+#: inc/class_project.php:211
 msgid "You don't permission to perform this action"
 msgstr ""
 
-#: inc/class_project.php:318
-msgid "You don't have permissiton to perform this action"
-msgstr ""
-
-#: inc/class_project.php:322
+#: inc/class_project.php:354
 msgid "This job is archived"
 msgstr ""
 
-#: inc/class_project.php:359
+#: inc/class_project.php:443
+msgid "Please select 1 option."
+msgstr ""
+
+#: inc/class_project.php:501
 msgid "You are not allowed to perform this action."
 msgstr ""
 
-#: inc/class_project.php:378 inc/class_project.php:403
+#: inc/class_project.php:520 inc/class_project.php:545
 msgid "You are not author of this project."
 msgstr ""
 
-#: inc/class_project.php:381
+#: inc/class_project.php:523
 msgid "This project was awrded."
 msgstr ""
 
-#: inc/class_project.php:384
+#: inc/class_project.php:526
 msgid "Please choose a winner."
 msgstr ""
 
-#: inc/class_project.php:392 inc/class_project.php:410
+#: inc/class_project.php:534 inc/class_project.php:552
 msgid "You have to set score"
 msgstr ""
 
-#: inc/class_project.php:398
+#: inc/class_project.php:540
 msgid "This project is not available"
 msgstr ""
 
-#: inc/class_project.php:416
+#: inc/class_project.php:558
 msgid "You revieded this project."
 msgstr ""
 
-#: inc/class_project.php:422
+#: inc/class_project.php:564
 msgid "You are not winner."
 msgstr ""
 
@@ -759,7 +767,7 @@ msgstr ""
 msgid "User name is empty"
 msgstr ""
 
-#: inc/core_functions.php:177
+#: inc/core_functions.php:176
 msgid "Captcha Invalid"
 msgstr ""
 
@@ -772,7 +780,7 @@ msgid "Project"
 msgstr ""
 
 #: inc/init_hook.php:41 inc/init_hook.php:106 inc/init_hook.php:201
-#: inc/init_hook.php:263 inc/init_hook.php:303 inc/init_hook.php:353
+#: inc/init_hook.php:281 inc/init_hook.php:321 inc/init_hook.php:399
 msgid "Add New"
 msgstr ""
 
@@ -813,12 +821,12 @@ msgid "No Projects found in Trash."
 msgstr ""
 
 #: inc/init_hook.php:55 inc/init_hook.php:120 inc/init_hook.php:215
-#: inc/init_hook.php:277 inc/init_hook.php:317 inc/init_hook.php:367
+#: inc/init_hook.php:295 inc/init_hook.php:335 inc/init_hook.php:413
 msgid "Description."
 msgstr ""
 
 #: inc/init_hook.php:72 inc/init_hook.php:87
-#: template-parts/single-project-detail.php:40
+#: template-parts/single-project-detail.php:52
 msgid "Categories"
 msgstr ""
 
@@ -882,7 +890,7 @@ msgstr ""
 msgid "Add New Profile"
 msgstr ""
 
-#: inc/init_hook.php:108 inc/init_hook.php:265
+#: inc/init_hook.php:108 inc/init_hook.php:283
 msgid "New Profile"
 msgstr ""
 
@@ -987,7 +995,7 @@ msgid "Bids"
 msgstr ""
 
 #: inc/init_hook.php:198 inc/init_hook.php:200
-#: template-parts/project/bid-form.php:65
+#: template-parts/single-project-detail-bid-form.php:73
 msgid "Bid"
 msgstr ""
 
@@ -1031,151 +1039,160 @@ msgstr ""
 msgid "Awarded"
 msgstr ""
 
-#: inc/init_hook.php:240
+#: inc/init_hook.php:240 inc/themes.php:331
 msgid "Archived"
 msgstr ""
 
-#: inc/init_hook.php:249
+#: inc/init_hook.php:249 inc/themes.php:330
+#: template-parts/dashboard/list-bids.php:28
 msgid "Done"
 msgstr ""
 
-#: inc/init_hook.php:259 inc/init_hook.php:260 inc/init_hook.php:262
+#: inc/init_hook.php:258 inc/themes.php:332
+msgid "Disputing"
+msgstr ""
+
+#: inc/init_hook.php:267 inc/themes.php:333
+msgid "Resolved"
+msgstr ""
+
+#: inc/init_hook.php:277 inc/init_hook.php:278 inc/init_hook.php:280
 msgid "Portfolio"
 msgstr ""
 
-#: inc/init_hook.php:261
+#: inc/init_hook.php:279
 msgid "Portfolios"
 msgstr ""
 
-#: inc/init_hook.php:264
+#: inc/init_hook.php:282
 msgid "Add New Portfolio"
 msgstr ""
 
-#: inc/init_hook.php:266
+#: inc/init_hook.php:284
 msgid "Edit Portfolio"
 msgstr ""
 
-#: inc/init_hook.php:267
+#: inc/init_hook.php:285
 msgid "View Portfolio"
 msgstr ""
 
-#: inc/init_hook.php:268
+#: inc/init_hook.php:286
 msgid "All Portfolios"
 msgstr ""
 
-#: inc/init_hook.php:269
+#: inc/init_hook.php:287
 msgid "Search Portfolios"
 msgstr ""
 
-#: inc/init_hook.php:270
+#: inc/init_hook.php:288
 msgid "Parent Portfolios:"
 msgstr ""
 
-#: inc/init_hook.php:271
+#: inc/init_hook.php:289
 msgid "No Portfolios found."
 msgstr ""
 
-#: inc/init_hook.php:272
+#: inc/init_hook.php:290
 msgid "No Portfolios found in Trash."
 msgstr ""
 
-#: inc/init_hook.php:299 inc/init_hook.php:301
+#: inc/init_hook.php:317 inc/init_hook.php:319
 msgid "Orders"
 msgstr ""
 
-#: inc/init_hook.php:300 inc/init_hook.php:302
+#: inc/init_hook.php:318 inc/init_hook.php:320
 msgid "Order"
 msgstr ""
 
-#: inc/init_hook.php:304
+#: inc/init_hook.php:322
 msgid "Add New Order"
 msgstr ""
 
-#: inc/init_hook.php:305
+#: inc/init_hook.php:323
 msgid "New Order"
 msgstr ""
 
-#: inc/init_hook.php:306
+#: inc/init_hook.php:324
 msgid "Edit Order"
 msgstr ""
 
-#: inc/init_hook.php:307
+#: inc/init_hook.php:325
 msgid "View Order"
 msgstr ""
 
-#: inc/init_hook.php:308
+#: inc/init_hook.php:326
 msgid "All Orders"
 msgstr ""
 
-#: inc/init_hook.php:309
+#: inc/init_hook.php:327
 msgid "Search Orders"
 msgstr ""
 
-#: inc/init_hook.php:310
+#: inc/init_hook.php:328
 msgid "Parent Orders:"
 msgstr ""
 
-#: inc/init_hook.php:311
+#: inc/init_hook.php:329
 msgid "No orders found."
 msgstr ""
 
-#: inc/init_hook.php:312
+#: inc/init_hook.php:330
 msgid "No orders found in Trash."
 msgstr ""
 
-#: inc/init_hook.php:334
+#: inc/init_hook.php:352
 msgid "Sandbox"
 msgstr ""
 
-#: inc/init_hook.php:349
+#: inc/init_hook.php:395
 msgid "Packages Plan"
 msgstr ""
 
-#: inc/init_hook.php:350 inc/init_hook.php:352
+#: inc/init_hook.php:396 inc/init_hook.php:398
 msgid "Package"
 msgstr ""
 
-#: inc/init_hook.php:351
+#: inc/init_hook.php:397
 msgid "Packages"
 msgstr ""
 
-#: inc/init_hook.php:354
+#: inc/init_hook.php:400
 msgid "Add New Package"
 msgstr ""
 
-#: inc/init_hook.php:355
+#: inc/init_hook.php:401
 msgid "New Package"
 msgstr ""
 
-#: inc/init_hook.php:356
+#: inc/init_hook.php:402
 msgid "Edit Package"
 msgstr ""
 
-#: inc/init_hook.php:357
+#: inc/init_hook.php:403
 msgid "View Package"
 msgstr ""
 
-#: inc/init_hook.php:358
+#: inc/init_hook.php:404
 msgid "All Packages"
 msgstr ""
 
-#: inc/init_hook.php:359
+#: inc/init_hook.php:405
 msgid "Search Packages"
 msgstr ""
 
-#: inc/init_hook.php:360
+#: inc/init_hook.php:406
 msgid "Parent Packages:"
 msgstr ""
 
-#: inc/init_hook.php:361
+#: inc/init_hook.php:407
 msgid "No Packages found."
 msgstr ""
 
-#: inc/init_hook.php:362
+#: inc/init_hook.php:408
 msgid "No Packages found in Trash."
 msgstr ""
 
-#: inc/init_hook.php:499
+#: inc/init_hook.php:545
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
@@ -1202,25 +1219,27 @@ msgstr ""
 msgid "The order is not equal"
 msgstr ""
 
-#: inc/plugable.php:77 inc/plugable.php:118 page-login.php:70
-#: template-parts/single-template-js.php:21
+#: inc/plugable.php:76 inc/plugable.php:80 inc/plugable.php:122
+#: page-login.php:70 template-parts/dispute.php:59
+#: template-parts/dispute.php:89 template-parts/single-template-js.php:21
+#: template-parts/single-template-js.php:189
 msgid "Send"
 msgstr ""
 
-#: inc/plugable.php:128
+#: inc/plugable.php:132
 msgid "Y/m/d g:i:s a"
 msgstr ""
 
-#: inc/plugable.php:135
+#: inc/plugable.php:139
 #, php-format
 msgid "%s ago"
 msgstr ""
 
-#: inc/plugable.php:137
+#: inc/plugable.php:141
 msgid "Y/m/d"
 msgstr ""
 
-#: inc/plugable.php:200
+#: inc/plugable.php:204
 msgid "Please try again."
 msgstr ""
 
@@ -1228,7 +1247,7 @@ msgstr ""
 msgid "Sorry, that email address is already used!"
 msgstr ""
 
-#: inc/social/class_social.php:89
+#: inc/social/class_social.php:90
 msgid "You can also login with"
 msgstr ""
 
@@ -1281,70 +1300,100 @@ msgstr ""
 msgid "More than 6 months"
 msgstr ""
 
-#: inc/themes.php:222
+#: inc/themes.php:226
 msgid "My Job"
 msgstr ""
 
-#: inc/themes.php:224
+#: inc/themes.php:228
 msgid "My Project"
 msgstr ""
 
-#: inc/themes.php:226
+#: inc/themes.php:230
 msgid "My Credit"
 msgstr ""
 
-#: inc/themes.php:227
-msgid "My profile"
+#: inc/themes.php:231
+msgid "My Profile"
 msgstr ""
 
-#: inc/themes.php:229
+#: inc/themes.php:233
 msgid "Message"
 msgstr ""
 
-#: inc/themes.php:231
+#: inc/themes.php:235
 msgid "Logout"
 msgstr ""
 
-#: inc/themes.php:253
+#: inc/themes.php:257
 msgid "Remove"
 msgstr ""
 
-#: inc/themes.php:258
+#: inc/themes.php:262
 msgid "There is no new notification"
 msgstr ""
 
-#: inc/themes.php:283
+#: inc/themes.php:287
 #, php-format
 msgid "Status: %s"
 msgstr ""
 
-#: inc/themes.php:284
+#: inc/themes.php:288
 #, php-format
 msgid "Post date: %s"
 msgstr ""
 
-#: inc/themes.php:285
+#: inc/themes.php:289
 #, php-format
 msgid "Fixed price: %s"
 msgstr ""
 
-#: landing-page-one.php:42
+#: inc/themes.php:317
+msgid "Job Detail"
+msgstr ""
+
+#: inc/themes.php:319
+msgid "Workspace"
+msgstr ""
+
+#: inc/themes.php:320 sidebar-project.php:42
+#: template-parts/single-template-js.php:248 template-parts/workspace.php:16
+#: template-parts/workspace.php:26
+msgid "Dispute"
+msgstr ""
+
+#: inc/themes.php:326
+msgid "Open"
+msgstr ""
+
+#: inc/themes.php:327 template-parts/dashboard/list-order.php:22
+msgid "Pending"
+msgstr ""
+
+#: inc/themes.php:328 template-parts/dashboard/list-order.php:22
+msgid "Draft"
+msgstr ""
+
+#: inc/themes.php:329 template-parts/dashboard/list-bids.php:27
+msgid "Working"
+msgstr ""
+
+#: landing-page-one.php:43
 msgid "I want to hire"
 msgstr ""
 
-#: landing-page-one.php:45
+#: landing-page-one.php:46
 msgid "I want to work"
 msgstr ""
 
-#: landing-page-one.php:51
+#: landing-page-one.php:52
 msgid "Find a Freelancer"
 msgstr ""
 
-#: landing-page-one.php:53
+#: landing-page-one.php:54
 msgid "Find a Job"
 msgstr ""
 
-#: landing-page-one.php:62
+#: landing-page-one.php:63
 msgid "Post a Job"
 msgstr ""
 
@@ -1377,6 +1426,10 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: page-buy-credit.php:17
+msgid "Select a package"
+msgstr ""
+
 #: page-buy-credit.php:50
 msgid "Select"
 msgstr ""
@@ -1385,15 +1438,23 @@ msgstr ""
 msgid "Selected"
 msgstr ""
 
-#: page-buy-credit.php:116
+#: page-buy-credit.php:68
+msgid "Select a payment method"
+msgstr ""
+
+#: page-buy-credit.php:107
+msgid "You will checkout via cash method"
+msgstr ""
+
+#: page-buy-credit.php:120
 msgid "The is not any payment gateways"
 msgstr ""
 
-#: page-buy-credit.php:121 page-my-credit.php:49
-msgid "Buy Credit"
+#: page-buy-credit.php:125
+msgid "Check Out"
 msgstr ""
 
-#: page-buy-credit.php:126
+#: page-buy-credit.php:130
 msgid "Please login to buy credit"
 msgstr ""
 
@@ -1401,20 +1462,8 @@ msgstr ""
 msgid "List categories is empty"
 msgstr ""
 
-#: page-dashboard.php:12
-msgid "ACTIVATE"
-msgstr ""
-
-#: page-dashboard.php:13
-msgid "WORKING"
-msgstr ""
-
-#: page-dashboard.php:14
-msgid "DONE"
-msgstr ""
-
-#: page-dashboard.php:15
-msgid "ARCHIVED"
+#: page-dashboard.php:23
+msgid "This content only availble for user logged in"
 msgstr ""
 
 #: page-empty.php:49
@@ -1464,6 +1513,10 @@ msgstr ""
 #: page-my-credit.php:48
 #, php-format
 msgid "Avaibale: %s"
+msgstr ""
+
+#: page-my-credit.php:49
+msgid "Buy Credit"
 msgstr ""
 
 #: page-my-credit.php:54
@@ -1582,25 +1635,19 @@ msgstr ""
 msgid "Please login to post project"
 msgstr ""
 
-#: page-process-payment.php:58
-#, php-format
-msgid "Hi %s ,"
-msgstr ""
-
-#: page-process-payment.php:61
-msgid "Thank you for your order and Your credit is depositted."
-msgstr ""
-
 #: page-process-payment.php:63
-msgid "This is detail of your order:"
-msgstr ""
-
-#: page-process-payment.php:70
 msgid "Your order is approved "
 msgstr ""
 
-#: page-signup-employer.php:14 page-signup-jobseeker.php:15
-#: page-signup-jobseeker.php:54 template-parts/form-signup.php:7
+#: page-process-payment.php:75
+msgid ""
+"Your order is completed. The credit is depositted to your ballance and you "
+"can use your credit now."
+msgstr ""
+
+#: page-signup-employer.php:14 page-signup-employer.php:57
+#: page-signup-jobseeker.php:15 page-signup-jobseeker.php:54
+#: template-parts/form-signup.php:7
 msgid "SIGN UP"
 msgstr ""
 
@@ -1633,7 +1680,8 @@ msgstr ""
 #: page-signup-employer.php:52 page-signup-jobseeker.php:48
 #, php-format
 msgid ""
-"I agree  with <a href=\"%s\" target=\"_blank\">All Terms of Services</a>"
+"Yes, I understand and agree <a href=\"%s\" target=\"_blank\">All Terms of "
+"Service</a>"
 msgstr ""
 
 #: page-signup-employer.php:62 page-signup-jobseeker.php:59
@@ -1664,7 +1712,8 @@ msgstr ""
 msgid "Find, collaborate with,<br>and pay an expert."
 msgstr ""
 
-#: page-signup.php:29
+#: page-signup.php:29 template-parts/single-template-js.php:79
+#: template-parts/single-template-js.php:114
 msgid "Hire"
 msgstr ""
 
@@ -1721,27 +1770,45 @@ msgstr ""
 msgid "Freelancer"
 msgstr ""
 
-#: sidebar-project.php:21
+#: sidebar-project.php:8 sidebar-project.php:10
+msgid "Bid Now"
+msgstr ""
+
+#: sidebar-project.php:15
+msgid "Post new job"
+msgstr ""
+
+#: sidebar-project.php:42
+msgid "WorkSpace"
+msgstr ""
+
+#: sidebar-project.php:46
 msgid "Employer Information"
 msgstr ""
 
-#: sidebar-project.php:25
+#: sidebar-project.php:54
 #, php-format
-msgid "Project posted: %d"
+msgid "Member Since %s"
 msgstr ""
 
-#: sidebar-project.php:26
+#: sidebar-project.php:57
 #, php-format
-msgid "Freelancers Hired: %d"
+msgid "From <span class=\"pull-right\"> %s</span>"
 msgstr ""
 
-#: sidebar-project.php:27
+#: sidebar-project.php:58
 #, php-format
-msgid "Total Spent: %s"
+msgid "Project posted <span class='text-right pull-right'>%d</span>"
 msgstr ""
 
-#: sidebar-project.php:35
-msgid "Login to bid"
+#: sidebar-project.php:59
+#, php-format
+msgid "Freelancers hired <span class='text-right pull-right'>%d</span>"
+msgstr ""
+
+#: sidebar-project.php:60
+#, php-format
+msgid "Total spent ($) <span class='text-right pull-right'>%s</span>"
 msgstr ""
 
 #: sidebar/archive-profiles.php:4
@@ -1756,33 +1823,47 @@ msgstr ""
 msgid "The is not any locations"
 msgstr ""
 
-#: single-project.php:42
-msgid "Job Detail"
+#: single-project.php:75
+msgid "Go to Workspace"
 msgstr ""
 
-#: single-project.php:43
-msgid "Workspace"
+#: single-project.php:77
+msgid "Back to Detail"
 msgstr ""
 
-#: single-project.php:44
-msgid "Dispute"
+#: single-project.php:79
+msgid "Disputing section"
 msgstr ""
 
-#: single.php:8 template-parts/post-loop.php:10
+#: single-project.php:93
+#, php-format
+msgid "%s left"
+msgstr ""
+
+#: single-project.php:95
+#, php-format
+msgid "Posted %s ago"
+msgstr ""
+
+#: single.php:8
 msgid "Posted: "
 msgstr ""
 
-#: static-block/one-list-profiles.php:86
+#: static-block/one-list-profiles.php:66
+#, php-format
+msgid "Join since %s"
+msgstr ""
+
+#: static-block/one-list-profiles.php:87
 msgid "View All Profiles"
 msgstr ""
 
-#: template-parts/bid-loop.php:46
-msgid "Deadline: "
+#: static-block/one-package-plan.php:26
+msgid "Buy now"
 msgstr ""
 
-#: template-parts/bid-loop.php:48
-#, php-format
-msgid " - Price: %s"
+#: template-parts/bid-loop.php:46
+msgid "Duration: "
 msgstr ""
 
 #: template-parts/bid-loop.php:50
@@ -1790,16 +1871,62 @@ msgstr ""
 msgid "Date: %s"
 msgstr ""
 
-#: template-parts/bid-loop.php:65 template-parts/bid-loop.php:67
-msgid "Send message"
+#: template-parts/bid-loop.php:57
+#, php-format
+msgid " %s"
 msgstr ""
 
-#: template-parts/bid-loop.php:69
-msgid "Award"
+#: template-parts/bid-loop.php:68 template-parts/bid-loop.php:70
+msgid "Send Message"
 msgstr ""
 
-#: template-parts/bid-loop.php:73
+#: template-parts/bid-loop.php:72
+msgid "Hire Freelancer"
+msgstr ""
+
+#: template-parts/bid-loop.php:74
 msgid "CANCEL (X)"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:19
+#: template-parts/dashboard/list-projects.php:16
+msgid "Your bids"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:25
+#: template-parts/dashboard/list-projects.php:21
+msgid "All Status"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:26
+msgid "Activity"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:29
+msgid "Disputing/Resolved"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:52
+#: template-parts/dashboard/list-projects.php:45
+msgid "Project Title"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:53
+msgid "Cover letter"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:55
+#: template-parts/dashboard/list-projects.php:48
+msgid "Posted date"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:56
+msgid "Status"
+msgstr ""
+
+#: template-parts/dashboard/list-bids.php:80
+#: template-parts/dashboard/list-projects.php:74
+msgid "This query is empty"
 msgstr ""
 
 #: template-parts/dashboard/list-order.php:3
@@ -1807,15 +1934,7 @@ msgid "History of credit"
 msgstr ""
 
 #: template-parts/dashboard/list-order.php:22
-msgid "Pending"
-msgstr ""
-
-#: template-parts/dashboard/list-order.php:22
 msgid "Approved"
-msgstr ""
-
-#: template-parts/dashboard/list-order.php:22
-msgid "Draft"
 msgstr ""
 
 #: template-parts/dashboard/list-order.php:23
@@ -1834,41 +1953,25 @@ msgstr ""
 msgid "Refund"
 msgstr ""
 
-#: template-parts/dashboard/list-project-activate.php:15
-#: template-parts/dashboard/list-project-archived.php:16
-#: template-parts/dashboard/list-project-done.php:16
-#: template-parts/dashboard/list-project-working.php:16
-#: template-parts/dashboard/list-project.php:15
-msgid "Project Title"
-msgstr ""
-
-#: template-parts/dashboard/list-project-activate.php:16
-#: template-parts/dashboard/list-project-archived.php:17
-#: template-parts/dashboard/list-project-done.php:19
-#: template-parts/dashboard/list-project-working.php:19
+#: template-parts/dashboard/list-projects.php:46
 msgid "Bid(s)"
 msgstr ""
 
-#: template-parts/dashboard/list-project-activate.php:18
-#: template-parts/dashboard/list-project-archived.php:19
-#: template-parts/dashboard/list-project-done.php:25
-#: template-parts/dashboard/list-project-working.php:25
-#: template-parts/dashboard/list-project.php:21
-msgid "Posted date"
-msgstr ""
-
-#: template-parts/dashboard/list-project-activate.php:19
-#: template-parts/dashboard/list-project-archived.php:20
+#: template-parts/dashboard/list-projects.php:50
 msgid "Action"
 msgstr ""
 
-#: template-parts/dashboard/list-project-activate.php:31
+#: template-parts/dashboard/list-projects.php:67
 #, php-format
 msgid "Archived %s"
 msgstr ""
 
-#: template-parts/dashboard/list-project-archived.php:36
-msgid "Delete this job"
+#: template-parts/dispute.php:37
+msgid "Freelancer send feedback to admin here"
+msgstr ""
+
+#: template-parts/dispute.php:39
+msgid "Employer send feedback to admin here"
 msgstr ""
 
 #: template-parts/form-signup.php:8
@@ -1889,28 +1992,32 @@ msgstr ""
 msgid "Your email"
 msgstr ""
 
-#: template-parts/list-bid.php:17
+#: template-parts/list-bid.php:7
 #, php-format
 msgid "Total Bid(s): %s"
 msgstr ""
 
-#: template-parts/list-bid.php:22
+#: template-parts/list-bid.php:12
 msgid "Order by"
 msgstr ""
 
-#: template-parts/list-bid.php:25
+#: template-parts/list-bid.php:15
 msgid "Filter by"
 msgstr ""
 
-#: template-parts/list-bid.php:28
+#: template-parts/list-bid.php:18
 msgid "Rating"
 msgstr ""
 
-#: template-parts/list-bid.php:50
+#: template-parts/list-bid.php:31
+msgid "Freelancer Bidding"
+msgstr ""
+
+#: template-parts/list-bid.php:46
 msgid "There is no any bid yet."
 msgstr ""
 
-#: template-parts/post-loop.php:5
+#: template-parts/post-loop.php:17
 msgid "Tags:"
 msgstr ""
 
@@ -1990,7 +2097,7 @@ msgstr ""
 
 #: template-parts/profile/list-bid-done-loop.php:32
 #: template-parts/profile/list-bid-status-loop.php:30
-#: template-parts/workspace.php:66
+#: template-parts/workspace.php:67
 msgid "Employer did not left a review"
 msgstr ""
 
@@ -2023,7 +2130,7 @@ msgid "Not left a review here"
 msgstr ""
 
 #: template-parts/profile/list-project-status-loop.php:25
-#: template-parts/workspace.php:77
+#: template-parts/workspace.php:78
 msgid "Freelancer review:"
 msgstr ""
 
@@ -2037,43 +2144,6 @@ msgstr ""
 
 #: template-parts/profile/list-project-status.php:14
 msgid "List project are done"
-msgstr ""
-
-#: template-parts/project/bid-form.php:15
-msgid "Freelancer pay this fee"
-msgstr ""
-
-#: template-parts/project/bid-form.php:18
-msgid "Employer pay this fee"
-msgstr ""
-
-#: template-parts/project/bid-form.php:23
-msgid "Bid on project"
-msgstr ""
-
-#: template-parts/project/bid-form.php:28
-msgid "Your budget"
-msgstr ""
-
-#: template-parts/project/bid-form.php:32
-#: template-parts/project/bid-form.php:34
-msgid "Fee service"
-msgstr ""
-
-#: template-parts/project/bid-form.php:38
-msgid "You'll receive"
-msgstr ""
-
-#: template-parts/project/bid-form.php:45
-msgid "Cover Letter"
-msgstr ""
-
-#: template-parts/project/bid-form.php:61
-msgid "Attachments (optional)"
-msgstr ""
-
-#: template-parts/project/bid-form.php:63
-msgid "Send this file to project's owner."
 msgstr ""
 
 #: template-parts/project/form-post-project.php:4
@@ -2150,25 +2220,84 @@ msgid ""
 "agree to the Terms & Conditions and Privacy Policy"
 msgstr ""
 
-#: template-parts/single-project-detail.php:2
+#: template-parts/single-project-detail-bid-form.php:15
+msgid "Freelancer pay this fee"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:18
+msgid "Employer pay this fee"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:22
+msgid "Bid on project"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:25
+msgid "Bid price"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:26
+msgid "Total amount the client will see on your proposal"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:31
+msgid "Your budget"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:35
+msgid "Fee Service"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:37
+msgid "Fee service"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:42
+msgid "You'll be paid"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:43
+msgid "This fund auto release to your ballance after the project finish."
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:52
+msgid "Cover Letter"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:57
+msgid "How long will this project take?"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:59
+msgid "Select duration"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:69
+msgid "Attachments (optional)"
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:71
+msgid "Send this file to project's owner."
+msgstr ""
+
+#: template-parts/single-project-detail-bid-form.php:74
+msgid "Cancel"
+msgstr ""
+
+#: template-parts/single-project-detail.php:6
 msgid "Job details"
 msgstr ""
 
-#: template-parts/single-project-detail.php:16
+#: template-parts/single-project-detail.php:26
 msgid "Files attach: "
 msgstr ""
 
-#: template-parts/single-project-detail.php:31
+#: template-parts/single-project-detail.php:43
 msgid "Skills Required"
 msgstr ""
 
 #: template-parts/single-template-js.php:19
 msgid "Type your message here"
-msgstr ""
-
-#: template-parts/single-template-js.php:79
-#: template-parts/single-template-js.php:114
-msgid "Assign task"
 msgstr ""
 
 #: template-parts/single-template-js.php:84
@@ -2193,39 +2322,101 @@ msgstr ""
 msgid "Your message"
 msgstr ""
 
-#: template-parts/single-template-js.php:197
+#: template-parts/single-template-js.php:135
+msgid ""
+"This project mark as done and the fund will be released to freelancer "
+"account after submit this form."
+msgstr ""
+
+#: template-parts/single-template-js.php:136
+msgid "Mark as finish and review this project/freelancer."
+msgstr ""
+
+#: template-parts/single-template-js.php:138
+msgid "Review employer of this project"
+msgstr ""
+
+#: template-parts/single-template-js.php:146
+#: template-parts/single-template-js.php:186
+#: template-parts/single-template-js.php:245
+msgid "Leave your review here."
+msgstr ""
+
+#: template-parts/single-template-js.php:148
+msgid "Rating: "
+msgstr ""
+
+#: template-parts/single-template-js.php:180
+msgid "Let employer know that you have completed this job"
+msgstr ""
+
+#: template-parts/single-template-js.php:185
+msgid ""
+"Leave your detail message here that help employer know the status of project "
+"and your message."
+msgstr ""
+
+#: template-parts/single-template-js.php:205
 msgid ""
 "Write down your reason here. Also, this job will be masked as disputing "
 "status and wait admin review and make a decsion."
 msgstr ""
 
-#: template-parts/single-template-js.php:198
-#: template-parts/single-template-js.php:201
+#: template-parts/single-template-js.php:206
 msgid "Cancel and quit this job"
 msgstr ""
 
-#: template-parts/single-template-js.php:200
-msgid "Let freelancer your reason"
+#: template-parts/single-template-js.php:232
+msgid "Send a dispute request."
 msgstr ""
 
-#: template-parts/workspace.php:18
-msgid "Quit"
+#: template-parts/single-template-js.php:233
+msgid ""
+"You are not happy to work on this. Please write your reason here. This job "
+"will be masked as disputing status and wait us review."
 msgstr ""
 
-#: template-parts/workspace.php:28
+#: template-parts/single-template-js.php:235
+msgid ""
+"You are not happy to work with freelancer or the result of this contractor. "
+"Pleas write down your reason here. This job will be masked as disputing "
+"status and wait us review."
+msgstr ""
+
+#: template-parts/workspace.php:17
+msgid "Mark as Finish"
+msgstr ""
+
+#: template-parts/workspace.php:20
+msgid "Quit Job"
+msgstr ""
+
+#: template-parts/workspace.php:24
+msgid "Mark as Complete"
+msgstr ""
+
+#: template-parts/workspace.php:32
 msgid "Review"
 msgstr ""
 
-#: template-parts/workspace.php:42
+#: template-parts/workspace.php:43
 msgid "Job is done."
 msgstr ""
 
-#: template-parts/workspace.php:56
+#: template-parts/workspace.php:57
 msgid "Employer review:"
 msgstr ""
 
-#: template-parts/workspace.php:62
+#: template-parts/workspace.php:63
 msgid ""
 "Employer reviewed and mark as close this project. <br />You have to  review "
 "the project to see employer's review."
+msgstr ""
+
+#: template-parts/workspace.php:95
+#, php-format
+msgid ""
+"%s sent a disputing request. This job is disputing and wait admin review. Go "
+"to <a href=\"?dispute=1\"> dispute section </a> to see the processing. In "
+"the whole process the disputing case. Chat will be disabled."
 msgstr ""
