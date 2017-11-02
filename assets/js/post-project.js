@@ -55,7 +55,7 @@
 				            view.attach_ids.push(obj.attach_id);
 
 					    } else{
-					    	alert(response.msg);
+					    	alert(obj.msg);
 					    }
 
 					    setTimeout(function(){ $(up.settings.container).removeClass('uploading'); }, 300);
