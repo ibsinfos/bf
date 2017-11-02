@@ -262,8 +262,12 @@ class Box_ActMail{
 
 		box_mail( $request['user_email'], $subject, stripslashes($content) );
 	}
-	function reset_password( $userdata){
+	function mail_reset_password( $userdata){
 		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+		$activation_key =  get_password_reset_key( $user);
+		$link = box_get_static_link('reset-password');
+		$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
+
 
 		$mail_content = '<p>Hi #user_login,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
 				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';

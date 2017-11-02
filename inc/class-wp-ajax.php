@@ -977,12 +977,9 @@ class BX_AJAX {
 					'success' 	=>	true,
 					'msg' => 'Please check your mailbox for instructions to reset your password.',
 				);
-				$activation_key =  get_password_reset_key( $user);
-				$link = box_get_static_link('reset-password');
-				$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
 
-				Box_ActMail::get_instance()->reset_password($user);
+				Box_ActMail::get_instance()->mail_reset_password($user);
 			}
 
 			wp_send_json( $response );
