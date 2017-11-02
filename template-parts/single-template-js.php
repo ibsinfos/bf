@@ -212,10 +212,10 @@ $list_bid
 		  		<form id="frm_quit_job">
 		          	<div class="form-group">
 		            	<label for="message-text" class="control-label"><?php echo $lb_reason;?></label>
-		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="Leave your review here."></textarea>
+		            	<textarea class="form-control no-radius" rows="6" id="message-text" name="<?php echo REVIEW_MSG;?>" placeholder="<?php _e('Leave your review here.','boxtheme');?>"></textarea>
 		            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>">
 		            </div>
-		            <div class="form-group text-right"><button type="submit" class="btn btn-primary ">Quit Job</button> </div>
+		            <div class="form-group text-right"><button type="submit" class="btn btn-primary "><?php _e('Quit Job','boxtheme');?></button> </div>
 		        </form>
 		  	</div>
 		</div>
