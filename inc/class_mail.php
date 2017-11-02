@@ -247,13 +247,44 @@ class Box_ActMail{
 		}
 		return self::$_instance;
 	}
+	function mail_to_register($user){
+
+		$activation_key =  get_password_reset_key( $user);
+		$link = box_get_static_link('verify');
+		$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
+
+		$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail->subject) );
+		$content = str_replace('#user_login', $user->user_login, $mail->content);
+		$content = str_replace('#link', esc_url($link), $content);
+
+
+		box_mail( $request['user_email'], $subject, stripslashes($content) );
+	}
+	function reset_password( $userdata){
+		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+
+		$mail_content = '<p>Hi #user_login,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
+				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
+		$subject = 'Reset your #blog_name password';
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
+
+		$content = str_replace('#user_login', $userdata->user_login, $mail_content);
+		$content = str_replace('#blog_name', get_bloginfo('name'), $content);
+		$content = str_replace('#blog_link', home_url(), $content);
+		$content = str_replace('#reset_link', esc_url($link), $content);
+
+
+		box_mail( $email, $subject, stripslashes($content) );
+	}
 	/**
 	 * Send an email to owner project let he know has new bidding in his project.
 	 **/
 	function has_new_bid($project){
 
 		$subject = __("Has new bidding in your project",'boxtheme');
-		$content = 'has new bidding in your project';
+		$content = __('Hi #username,<br /> has a new bidding in your project #project_link';
 		$author = get_userdata($project->post_author);
 
 		box_mail( $author->user_email, $subject, $content );

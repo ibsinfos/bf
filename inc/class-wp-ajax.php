@@ -282,17 +282,8 @@ class BX_AJAX {
 				'msg' 		=> __('You have registered successful','boxtheme'),
 				'data' 		=> $user
 			);
-			$activation_key =  get_password_reset_key( $user);
-			$link = box_get_static_link('verify');
-			$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
-			$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+			Box_ActMail::get_instane()->mail_to_register($user);
 
-			$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail->subject) );
-			$content = str_replace('#user_login', $user->user_login, $mail->content);
-			$content = str_replace('#link', esc_url($link), $content);
-
-
-			box_mail( $request['user_email'], $subject, stripslashes($content) );
 
 		} else {
 			$response['msg'] =  $user_id->get_error_message();
@@ -990,19 +981,8 @@ class BX_AJAX {
 				$link = box_get_static_link('reset-password');
 				$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
-				//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
-				$mail_content = '<p>Hi #user_login,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
-				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
-				$subject = 'Reset your #blog_name password';
-				$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
 
-				$content = str_replace('#user_login', $user->user_login, $mail_content);
-				$content = str_replace('#blog_name', get_bloginfo('name'), $content);
-				$content = str_replace('#blog_link', home_url(), $content);
-				$content = str_replace('#reset_link', esc_url($link), $content);
-
-
-				box_mail( $email, $subject, stripslashes($content) );
+				Box_ActMail::get_instance()->reset_password($user);
 			}
 
 			wp_send_json( $response );
