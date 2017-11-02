@@ -40,7 +40,6 @@
 		                up.disableBrowse(true);
 		            },
 			        FilesAdded: function(up, files) {
-			        	console.log('123');
 			        	//up.disableBrowse(true);
 			        },
 
@@ -56,7 +55,7 @@
 				            view.attach_ids.push(obj.attach_id);
 
 					    } else{
-					    	console.log(obj);
+					    	alert(response.msg);
 					    }
 
 					    setTimeout(function(){ $(up.settings.container).removeClass('uploading'); }, 300);
