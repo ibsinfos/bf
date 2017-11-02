@@ -54,7 +54,7 @@ $employer = get_userdata($project->post_author);
 				<span class="member-since"><?php printf( __("Member Since %s",'boxtheme'), date( "M d, Y", strtotime($employer->user_registered) ) );?></span>
 			</div>
 		</li>
-		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i>From <span class="pull-right"><?php echo $txt_country;?></span></li>
+		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php printf(__('From <span class="pull-right"> %s</span>','boxtheme'),$txt_country);?></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted <span class='text-right pull-right'>%d</span>",'boxtheme'), $project_posted);?></li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers hired <span class='text-right pull-right'>%d</span>",'boxtheme'), $fre_hired);?></li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf( __( "Total spent ($) <span class='text-right pull-right'>%s</span>",'boxtheme'),floatval( $total_spent )  );?></li>
