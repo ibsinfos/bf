@@ -40,7 +40,8 @@ class Box_Notify extends Box_Custom_Type{
 				'receiver_id' => $receiver_id
 			)
 		);
-		update_user_meta($receiver_id,'has_new_notify', 1);
+		$number_new_notify = (int) get_user_meta( $receiver_id, 'number_new_notify', true ) + 1;
+		update_user_meta( $receiver_id,'number_new_notify', $number_new_notify );
 
 		return $wpdb->insert_id;
 	}
@@ -52,14 +53,14 @@ class Box_Notify extends Box_Custom_Type{
 	}
 	function seen_all(){
 		global $wpdb, $user_ID;
-		update_user_meta($user_ID, 'has_new_notify',0);
-		var_dump($this->table);
+		update_user_meta($user_ID, 'number_new_notify', 0);
+
 		return $wpdb->query( $wpdb->prepare(
 			"
-			UPDATE $this->table
-			SET msg_unread = %d
-			WHERE receiver_id = %d and msg_type = %s
-			",0 , $user_ID, 'notify')
+				UPDATE $this->table
+				SET msg_unread = %d
+				WHERE receiver_id = %d and msg_type = %s
+			", 0 , $user_ID, 'notify')
 		);
 	}
 

@@ -186,13 +186,13 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 	$messages = $notifies = array();
 
-	//$has_new_noti = (int) get_user_meta( $user_ID,'has_new_notify', true );
+	$number_new_notify = (int) get_user_meta( $user_ID,'number_new_notify', true ); //has_new_notify
 
-	$unread_count = $wpdb->get_var(
-		$wpdb->prepare(
-			"SELECT COUNT(*) FROM {$wpdb->prefix}box_messages msg WHERE msg.msg_unread = %d AND msg.msg_type = %s",  1, 'notify'
-		)
-	);
+	// $unread_count = $wpdb->get_var(
+	// 	$wpdb->prepare(
+	// 		"SELECT COUNT(*) FROM {$wpdb->prefix}box_messages msg WHERE msg.msg_unread = %d AND msg.msg_type = %s AND ",  1, 'notify'
+	// 	)
+	// );
 
 	$list_noti  = $wpdb->get_results(
 		$wpdb->prepare(
@@ -214,7 +214,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 
 	$msg_class= 'empty-msg';
-	if( $unread_count > 0 )
+	if( $number_new_notify > 0 )
 		$msg_class = "has-msg-unread"
 
 ?>
@@ -222,7 +222,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		<li class="profile-account dropdown ">
 
 			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->display_name;?></span> <span class="caret"></span>
-			<span class="hide <?php echo $msg_class;?>"><?php echo $count_unread;?></span>
+			<span class="hide <?php echo $msg_class;?>"><?php echo $number_new_notify;?></span>
 			</a>
 			<ul class="dropdown-menu account-link" >
 				<?php if($role == FREELANCER){ ?>
