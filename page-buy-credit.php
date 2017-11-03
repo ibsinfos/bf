@@ -57,7 +57,7 @@
 	                            }
 	                              wp_reset_postdata();
 	                        } else {
-	                        	echo ' No package';
+	                        	_e('There is not any packages yet','boxtheme'); ?>
 	                        }
 
 						?>
@@ -78,22 +78,24 @@
 
 
 						        $cash = (object)$payment->cash;
-						  		$cash_enable = 0;
+						  		$cash_enable =   0;
 						  		if( isset($cash->enable) ){
 						  			$cash_enable = $cash->enable;
 						  		}
-						        if( !empty($paypal) && $paypal->enable ) { 	$has_payment= 1;
+						  		$paypal_enable = 1;
+
+						        if( $paypal_enable ) { 	$has_payment= 1;
 							 		?>
 								    <div class="col-sm-12  gateway-payment  record-line"">
 								    	<div class="col-sm-9">
 								    		<img src="<?php echo get_theme_file_uri('img/PayPal.jpg');?>" width="200">
-								    		<p>You will checkout via paypal payment </p>
+								    		<p> <?php _e('You will checkout via paypal','boxtheme');?> </p>
 
 								    	</div>
 								    	<div class="col-sm-3 align-right">
 								    		<label>
 								    		<input type="radio" class="required radio radio-gateway-item"  name="_gateway" required value="paypal">
-								    		<span class=" no-radius btn align-right btn-select " ><span class="default">Select</span><span class="activate">Selected</span></span>
+								    		<span class=" no-radius btn align-right btn-select " ><span class="default"><?php _e('Select','boxtheme');?></span><span class="activate"><?php _e('Selected','boxtheme');?></span></span>
 								    		</label>
 								    	</div>
 								    	<div class="full f-left"></div>
