@@ -79,6 +79,8 @@ body .site-content{
 	text-transform: uppercase;
 }
 .author-url{
+    color: #666;
+    font-size: 15px;
 
 }
 .author-url:first-letter{

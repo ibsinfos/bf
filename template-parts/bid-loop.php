@@ -38,8 +38,10 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 			$bid->_dealine = 0;
 		?>
 		<div class="full clear block">
-			<h5 class="bid-title inline f-left"><a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a> </h5>
-			<h5 class="bid-title inline f-left  primary-color"> - <?php echo $bid->professional_title;?></h5>
+			<h5 class="bid-title inline f-left">
+				<a class="author-url" href="<?php echo get_author_posts_url($bid->post_author , get_the_author_meta( 'user_nicename' ) ); ?>"><?php the_author(); ?> </a>
+			</h5>
+			<h5 class="bid-title inline f-left  primary-color">&nbsp;&nbsp;&nbsp;<?php echo $bid->professional_title;?></h5>
 		</div>
 
 		<div class="full clear">
@@ -52,7 +54,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 			if( user_can_see_bid_info( $bid, $project ) ) {
 				the_content();
 			} else {
-				_e('Cover letter is hidden','boxtheme');
+				echo '<i>'.__('Cover letter is hidden','boxtheme').'</i>';
 			}
 			?>
 		</div>
