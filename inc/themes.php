@@ -186,7 +186,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 	$messages = $notifies = array();
 
-	$number_new_notify = (int) get_user_meta( $user_ID,'number_new_notify', true ); //has_new_notify
+	$number_new_notify = (int) get_user_meta( $user_ID, 'number_new_notify', true ); //has_new_notify
 
 	$list_noti  = $wpdb->get_results(
 		$wpdb->prepare(
