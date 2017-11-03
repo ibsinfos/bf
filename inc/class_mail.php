@@ -280,7 +280,7 @@ class Box_ActMail{
 
 		$admin_email = get_option( 'admin_email');
 		$subject = 'Has new account registerd in your website';
-		$notify = 'Has new register in yoru website';
+		$notify = 'Has new register in your website';
 		box_mail($admin_email, $subject, $notify);
 	}
 	function mail_reset_password( $userdata){
