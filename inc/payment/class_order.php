@@ -169,7 +169,7 @@ Class BX_Order {
 	/**
 	 * this method run after employer assign 1 job to 1 freelancer.
 	*/
-	function create_deposit_orders( $bid_price, $project ){
+	function create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id )//$bid_price, $project ){
 
 		$current_user = wp_get_current_user();
 
@@ -179,8 +179,8 @@ Class BX_Order {
 			'author' => $current_user->ID,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
-				'amout' => $bid_price,
-				'project_id' => $project->ID,
+				'amout' => $emp_pay,
+				'pay_for_project' => $project->ID,
 				'order_type' => 'deposit',
 				'payment_type' => 'credit',
 				'order_mode' => $this->mode,
@@ -189,13 +189,13 @@ Class BX_Order {
 		wp_insert_post($args_order); // orer for employer
 
 		$args_order = array(
-			'post_title' => sprintf( __('The fund was charge for the project %s','boxtheme'),$project->post_title ),
-			'post_status' =>'publish',
-			'author' => $current_user->ID,
+			'post_title' => sprintf( __('The fund was pay for the project %s','boxtheme'),$project->post_title ),
+			'post_status' =>'pending', // will be publish after the project done - release action.
+			'author' => $freelancer_id,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
-				'amout' => $bid_price,
-				'project_id' => $project->ID,
+				'amout' => $fre_receive,
+				'get_for_project' => $project->ID,
 				'order_type' => 'deposit',
 				'payment_type' => 'credit',
 				'order_mode' => $this->mode,

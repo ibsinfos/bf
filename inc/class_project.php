@@ -147,7 +147,7 @@ Class BX_Project extends BX_Post{
 			$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 			$credit = BX_Credit::get_instance();
 			// perform the action deposite - transfer credit from employer to freelancer account.
-			$transfered = $credit->deposit( $employer_id, $bid_price, $project );
+			$transfered = $credit->deposit( $bid_price, $project , $freelancer_id);
 
 			if ( is_wp_error($transfered) ){
 				return $transfered;
@@ -168,9 +168,7 @@ Class BX_Project extends BX_Post{
 				wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
 
 
-				$order_id = BX_Order::get_instance()->create_deposit_orders( $bid_price, $project );
-
-				$fre_hired = (int) get_user_meta($employer_id, 'fre_hired', true) + 1;
+				$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
 				update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
 
 				// send message and email
@@ -252,7 +250,11 @@ Class BX_Project extends BX_Post{
 
 
 				//approve credit
-				BX_Credit::get_instance()->release($winner_id, $amout_fre_receive);
+				$act_credit = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
+				if( $act_credit ){
+					$fre_order = get_post_meta($project_id, 'get_for_project', true);
+					wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
+				}
 
 				$bid_args = array(
 					'ID' 	=> $bid_win_id,

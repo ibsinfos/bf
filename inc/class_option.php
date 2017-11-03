@@ -304,14 +304,16 @@ function get_commision_setting($object = true){
 		return (object) $commision;
 	return $commision;
 }
-function box_get_pay_info($bid_price){
+function box_get_pay_info( $bid_price ){
+
 	$setting = get_commision_setting();
 	$cms_fee = get_commision_fee( $bid_price, $setting );
 
 	$emp_pay = $bid_price;
+
 	$fre_receive = $bid_price - $cms_fee;
 
-	$result = array( 'emp_pay' => $emp_pay, 'fre_receive' => box_get_price(max($fre_receive, 0) ), 'cms_fee' => box_get_price($cms_fee) );
+	$result = array( 'emp_pay' => $emp_pay, 'fre_receive' => box_get_price( max( $fre_receive, 0 ) ), 'cms_fee' => box_get_price($cms_fee) );
 
 	if( $setting->user_pay == 'emp') {
 

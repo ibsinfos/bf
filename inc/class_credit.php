@@ -34,20 +34,23 @@ Class BX_Credit {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit( $employer_id, $bid_price, $project = 0 ) {
+	function deposit(  $bid_price, $project, $freelancer_id ) {
 
-		$ballance = $this->get_ballance($employer_id);
+		$employer_id = $project->post_author;
+
+		$ballance = $this->get_ballance( $employer_id );
 
 		$pay_ifo = box_get_pay_info($bid_price);
 
       	$emp_pay = $pay_ifo->emp_pay;
+      	$fre_receive = $pay_info->fre_receive;
 
 		if( $ballance->available < $emp_pay ){
 			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transaction.", "boxtheme" ) );
 		}
 		$new_available = $ballance->available - $emp_pay;
 		global $wpdb;
-		$ok = $wpdb->query( $wpdb->prepare(			"
+		$ok = $wpdb->query( $wpdb->prepare("
 				UPDATE $wpdb->usermeta
 				SET  meta_value = %f
 				WHERE user_id = %d AND meta_key ='%s' ",
@@ -57,6 +60,7 @@ Class BX_Credit {
 		if( $ok ){
 			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
 			update_user_meta( $employer_id, 'total_spent', $total_spent );
+			BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
 		}
 		return $ok;
 
@@ -85,7 +89,7 @@ Class BX_Credit {
 	}
 
 	// call this action when employer mark as finish a project.
-	function release( $freelancer_id, $amout ){
+	function release( $freelancer_id, $amout){
 		return $this->increase_credit_available( $amout, $freelancer_id );
 	}
 
@@ -119,7 +123,7 @@ Class BX_Credit {
 	}
 	function increase_credit_available($available, $user_id =0 ){
 
-		if( !$user_id ){
+		if( ! $user_id ){
 			global $user_ID;
 			$user_id = $user_ID;
 		}
@@ -127,6 +131,7 @@ Class BX_Credit {
 
 		$current_available = $this->get_credit_available($user_id);
 		$new_available = $current_available + (float) $available;
+
 		return update_user_meta($user_id, $this->meta_available, $new_available);
 	}
 	function increase_credit_pending( $user_id, $available ){
