@@ -188,12 +188,6 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 	$number_new_notify = (int) get_user_meta( $user_ID,'number_new_notify', true ); //has_new_notify
 
-	// $unread_count = $wpdb->get_var(
-	// 	$wpdb->prepare(
-	// 		"SELECT COUNT(*) FROM {$wpdb->prefix}box_messages msg WHERE msg.msg_unread = %d AND msg.msg_type = %s AND ",  1, 'notify'
-	// 	)
-	// );
-
 	$list_noti  = $wpdb->get_results(
 		$wpdb->prepare(
 			"
@@ -210,8 +204,6 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 			$notifies[] = $noti;
 		}
 	}
-
-
 
 	$msg_class= 'empty-msg';
 	if( $number_new_notify > 0 )
