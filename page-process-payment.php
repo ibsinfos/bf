@@ -51,12 +51,15 @@ if($type == 'cash'){
 					// echo '<pre>';
 					// var_dump($order);
 					// echo '</pre>';
-					if( is_user_logged_in() && $order->payer_id == $user_ID ){
+					if( is_user_logged_in() && $order->payer_id == $user_ID ){ ?>
+						<h2 class="primary-color" style="padding-bottom: 35px;"> Payment Complete <i class="fa fa-check" aria-hidden="true"></i></h2>
+						<p> We've sent you an email with all the details of your order</p>
+						<p> Price($): <label><?php echo  $order->amout;?></label></p>
+						<p> Order ID:<label> <?php echo $order->ID;?></label></p>
+
+						<?php
 						if( $type == 'cash'){ ?>
-							<h2 class="primary-color" style="padding-bottom: 35px;"> Payment Complete <i class="fa fa-check" aria-hidden="true"></i></h2>
-							<p> We've sent you an email with all the details of your order</p>
-							<p> Price($): <label><?php echo  $order->amout;?></label></p>
-							<p> Order ID:<label> <?php echo $order->ID;?></label></p>
+
 							<?php
 
 							if( $order->post_status == 'publish') {
@@ -72,7 +75,7 @@ if($type == 'cash'){
 	            					}
 				 			}
 				 		} else {
-				 			_e('Your order is completed. The credit is depositted to your ballance and you can use your credit now.','boxtheme');
+				 			_e('Your order is completed. The credit is deposited to your ballance and you can use your credit now.','boxtheme');
 				 		}
 				 	}
 			 		?>
