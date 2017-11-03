@@ -173,10 +173,10 @@ Class BX_Order {
 
 		$current_user = wp_get_current_user();
 
-		$args_order = array(
+		$args_order_emp = array(
 			'post_title' => sprintf( __('Deposit for the project %s','boxtheme'),$project->post_title ),
 			'post_status' =>'publish',
-			'author' => $current_user->ID,
+			'post_author' => $current_user->ID,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
 				'amout' => $emp_pay,
@@ -186,23 +186,24 @@ Class BX_Order {
 				'order_mode' => $this->mode,
 			)
 		);
-		wp_insert_post($args_order); // orer for employer
+		wp_insert_post($args_order_emp); // orer for employer
 
-		$args_order = array(
+		$args_order_fre = array(
 			'post_title' => sprintf( __('The fund was pay for the project %s','boxtheme'),$project->post_title ),
 			'post_status' =>'pending', // will be publish after the project done - release action.
-			'author' => $freelancer_id,
+			'post_author' => $freelancer_id,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
 				'amout' => $fre_receive,
-				'get_for_project' => $project->ID,
+				'get_project_id' => $project->ID,
 				'order_type' => 'deposit',
 				'payment_type' => 'credit',
 				'order_mode' => $this->mode,
 			)
 		);
 
-		wp_insert_post($args_order); // orer for freelancer
+		$order_id = wp_insert_post($args_order_fre); // orer for freelancer
+		update_post_meta( $project->ID,  'fre_order_id', $order_id );
 	}
 	/**
 	 * This method run after admin make a descision for employer win and in disputing time.

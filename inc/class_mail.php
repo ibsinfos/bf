@@ -303,12 +303,12 @@ class Box_ActMail{
 
 		$mail = BX_Option::get_instance()->get_mail_settings('new_bidding');
 
-		$content = str_replace("#project_link", get_permalink( $project->ID), $content);
+		$content = str_replace("#project_link", get_permalink( $project->ID), $mail->content);
 		$content = str_replace("#project_name", $project->post_title, $content);
 
 		$author = get_userdata($project->post_author);
 
-		box_mail( $author->user_email, $subject, $content );
+		box_mail( $author->user_email, $mail->subject, $content );
 
 	}
 

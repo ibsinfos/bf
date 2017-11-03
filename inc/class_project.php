@@ -251,10 +251,10 @@ Class BX_Project extends BX_Post{
 
 				//approve credit
 				$act_credit = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
-				box_log( $act_credit );
+
 				if( $act_credit ){
-					$fre_order = get_post_meta( $project_id, 'get_for_project', true);
-					box_log($fre_order);
+					$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
+
 					wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 				}
 
