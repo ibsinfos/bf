@@ -29,7 +29,7 @@
 	if( $bid_query->have_posts() ) : ?>
 		<div class ="col-md-12 header-list-bid row-bid-item">
 			<div class="col-md-2 text-center no-padding-right"> <?php _e('Freelancer Bidding','boxtheme');?> </div>
-			<div class="col-md-7 "><?php _e('Description','boxtheme');?>		</div>
+			<div class="col-md-8 "><?php _e('Description','boxtheme');?>		</div>
 			<div class="col-md-2  text-center"> <?php _e('Price','boxtheme');?>		</div>
 		</div>
 		<?php

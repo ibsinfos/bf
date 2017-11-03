@@ -31,7 +31,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 		<?php echo  get_avatar($bid->post_author); ?>
 		<?php  echo $winner_text;?>
 	</div>
-	<div class ="col-md-7 ">
+	<div class ="col-md-8 ">
 		<?php
 		$list_dealine  = list_dealine();
 		if( empty($bid->_dealine) )
