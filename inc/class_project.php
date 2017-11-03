@@ -184,7 +184,7 @@ Class BX_Project extends BX_Post{
 				if ( ! $cvs_id ) {
 					$args  = array(
 						'project_id' => $project_id,
-						'receiver_id' => $freelancer_id
+						'receiver_id' => $freelancer_id,
 						'cvs_content' => $cvs_content,
 					);
 
@@ -251,8 +251,10 @@ Class BX_Project extends BX_Post{
 
 				//approve credit
 				$act_credit = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
+				box_log( $act_credit );
 				if( $act_credit ){
-					$fre_order = get_post_meta($project_id, 'get_for_project', true);
+					$fre_order = get_post_meta( $project_id, 'get_for_project', true);
+					box_log($fre_order);
 					wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 				}
 
@@ -358,7 +360,7 @@ Class BX_Project extends BX_Post{
 		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 
 		$credit = BX_Credit::get_instance();
-		$transfered = $credit->undeposit( $employer_id, $bid_price, $project_id );
+		$transfered = $credit->undeposit( $employer_id, $bid_price, $freelancer_id );
 
 		if ( is_wp_error($transfered) ){
 			return $transfered;

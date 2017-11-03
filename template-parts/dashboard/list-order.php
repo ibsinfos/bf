@@ -15,12 +15,11 @@
   		$args = array(
   			'post_type' =>'_order',
   			'post_status' => array('pending','publish'),
-  			'post_type' =>'_order',
   			'author' => $user_ID,
   			'posts_per_page' => -1,
   		);
   		$status = array('pending' => __('Pending','boxtheme'),'publish' => __('Approved','boxtheme'),'draft' => __('Draft','boxtheme') );
-		$types = array('buy_credit' => __('Buy credit','boxtheme'),'withdraw' => __('Withdraw','boxtheme') ,'none' =>'None', 'deposit' => __('Deposit','boxtheme'), 'undeposit' => __('Refund','boxtheme') );
+		  $types = array('buy_credit' => __('Buy credit','boxtheme'),'withdraw' => __('Withdraw','boxtheme') ,'none' =>'None', 'deposit' => __('Deposit','boxtheme'), 'undeposit' => __('Refund','boxtheme') );
 
   		$query = new WP_Query($args);
   		if( $query->have_posts() ){

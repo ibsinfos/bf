@@ -40,9 +40,10 @@ Class BX_Credit {
 
 		$ballance = $this->get_ballance( $employer_id );
 
-		$pay_ifo = box_get_pay_info($bid_price);
+		$pay_info = box_get_pay_info( $bid_price );
 
-      	$emp_pay = $pay_ifo->emp_pay;
+      	$emp_pay = $pay_info->emp_pay;
+
       	$fre_receive = $pay_info->fre_receive;
 
 		if( $ballance->available < $emp_pay ){

@@ -169,7 +169,7 @@ Class BX_Order {
 	/**
 	 * this method run after employer assign 1 job to 1 freelancer.
 	*/
-	function create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id )//$bid_price, $project ){
+	function create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id ){ //$bid_price, $project ){
 
 		$current_user = wp_get_current_user();
 
@@ -201,6 +201,7 @@ Class BX_Order {
 				'order_mode' => $this->mode,
 			)
 		);
+
 		wp_insert_post($args_order); // orer for freelancer
 	}
 	/**
