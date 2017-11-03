@@ -127,7 +127,7 @@ Class BX_Project extends BX_Post{
 		}
 		return true;
 	}
-	function call_action($request, $action){
+	function call_action( $request, $action ){
 
 		if( $action == 'award' ){ // accept, hire assign task
 			$bid_id = $request['bid_id'];
@@ -137,7 +137,7 @@ Class BX_Project extends BX_Post{
 
 			$project = get_post($project_id);
 
-			$check = $this->check_before_award($project, $freelancer_id);
+			$check = $this->check_before_award( $project, $freelancer_id );
 			if( is_wp_error( $check ) ){
 				return $check;
 			}
@@ -162,18 +162,14 @@ Class BX_Project extends BX_Post{
 			$res = wp_update_post( $request );
 			if( $res ){
 
+				global $user_ID;
 				// create coversation
 				// update bid status to AWARDED
-				wp_update_post( array('ID' => $bid_id, 'post_status'=> AWARDED) );
+				wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
 
 
-				$order_id = BX_Order::get_instance()->create_deposit_order($bid_price, $project);
+				$order_id = BX_Order::get_instance()->create_deposit_orders( $bid_price, $project );
 
-				if(!is_wp_error( $order_id ) ){
-					update_post_meta( $project->ID,'deposit_order_id', $order_id );
-				}
-
-				global $user_ID;
 				$fre_hired = (int) get_user_meta($employer_id, 'fre_hired', true) + 1;
 				update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
 
@@ -183,14 +179,15 @@ Class BX_Project extends BX_Post{
 
 				Box_ActMail::get_instance()->award_job( $freelancer_id );
 
-				$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
-				$cvs_id = is_sent_msg( $project_id, $freelancer_id );
 
-				if( ! $cvs_id ){
+				$cvs_id = is_sent_msg( $project_id, $freelancer_id );
+				$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
+
+				if ( ! $cvs_id ) {
 					$args  = array(
-						'cvs_content' => $cvs_content,
 						'project_id' => $project_id,
 						'receiver_id' => $freelancer_id
+						'cvs_content' => $cvs_content,
 					);
 
 					BX_Conversations::get_instance()->insert($args);
@@ -520,10 +517,10 @@ Class BX_Project extends BX_Post{
 			return new WP_Error( 'empty', __( "You are not author of this project.", "boxtheme" ) );
 		}
 		if( $project->post_status != 'publish'){
-			return new WP_Error( 'empty', __( "This project was awrded.", "boxtheme" ) );
+			return new WP_Error( 'empty', __( "This job is not available.", "boxtheme" ) );
 		}
-		if( empty($freelancer_id) ){
-			return new WP_Error( 'empty', __( "Please choose a winner.", "boxtheme" ) );
+		if( empty( $freelancer_id ) ){
+			return new WP_Error( 'empty', __( "Please choose a freelancer.", "boxtheme" ) );
 		}
 
 		return true;

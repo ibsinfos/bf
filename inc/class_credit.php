@@ -34,7 +34,7 @@ Class BX_Credit {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit($employer_id, $bid_price, $project = 0) {
+	function deposit( $employer_id, $bid_price, $project = 0 ) {
 
 		$ballance = $this->get_ballance($employer_id);
 
@@ -43,7 +43,7 @@ Class BX_Credit {
       	$emp_pay = $pay_ifo->emp_pay;
 
 		if( $ballance->available < $emp_pay ){
-			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transaction", "boxtheme" ) );
+			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transaction.", "boxtheme" ) );
 		}
 		$new_available = $ballance->available - $emp_pay;
 		global $wpdb;
@@ -61,7 +61,7 @@ Class BX_Credit {
 		return $ok;
 
 	}
-	function undeposit($employer_id, $bid_price, $project_id = 0) {
+	function undeposit( $employer_id, $bid_price, $project_id = 0 ) {
 
 		$ballance = $this->get_ballance($employer_id);
 
@@ -85,7 +85,7 @@ Class BX_Credit {
 	}
 
 	// call this action when employer mark as finish a project.
-	function release($freelancer_id, $amout){
+	function release( $freelancer_id, $amout ){
 		return $this->increase_credit_available( $amout, $freelancer_id );
 	}
 
@@ -99,8 +99,8 @@ Class BX_Credit {
 	 */
 	function process_verified_order( $user_receice_id, $amout ){
 		$return =  $this->increase_credit_available($amout, $user_receice_id);
-		box_log('User Receiver ID Input:'.$user_receice_id);
-		box_log('Amout order:'.$amout);
+		// box_log('User Receiver ID Input:'.$user_receice_id);
+		// box_log('Amout order:'.$amout);
 		if($return){
 			box_log('Process verified order : OK');
 		} else {

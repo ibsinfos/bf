@@ -166,8 +166,13 @@ Class BX_Order {
 			);
 		return $this->create($args);
 	}
-	function create_deposit_order($bid_price, $project){
+	/**
+	 * this method run after employer assign 1 job to 1 freelancer.
+	*/
+	function create_deposit_orders( $bid_price, $project ){
+
 		$current_user = wp_get_current_user();
+
 		$args_order = array(
 			'post_title' => sprintf( __('Deposit for the project %s','boxtheme'),$project->post_title ),
 			'post_status' =>'publish',
@@ -181,8 +186,26 @@ Class BX_Order {
 				'order_mode' => $this->mode,
 			)
 		);
-		return wp_insert_post($args_order);
+		wp_insert_post($args_order); // orer for employer
+
+		$args_order = array(
+			'post_title' => sprintf( __('The fund was charge for the project %s','boxtheme'),$project->post_title ),
+			'post_status' =>'publish',
+			'author' => $current_user->ID,
+			'post_type' => $this->post_type,
+			'meta_input' => array(
+				'amout' => $bid_price,
+				'project_id' => $project->ID,
+				'order_type' => 'deposit',
+				'payment_type' => 'credit',
+				'order_mode' => $this->mode,
+			)
+		);
+		wp_insert_post($args_order); // orer for freelancer
 	}
+	/**
+	 * This method run after admin make a descision for employer win and in disputing time.
+	*/
 	function create_undeposit_order($bid_price, $project){
 		global $user_ID;
 		$args_order = array(
