@@ -57,7 +57,7 @@
 	                            }
 	                              wp_reset_postdata();
 	                        } else {
-	                        	_e('There is not any packages yet','boxtheme'); ?>
+	                        	_e('There is not any packages yet','boxtheme');
 	                        }
 
 						?>
