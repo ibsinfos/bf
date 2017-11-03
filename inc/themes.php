@@ -186,32 +186,35 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 
 	$messages = $notifies = array();
 
-	$has_new_noti = (int) get_user_meta($user_ID,'has_new_notify', true);
+	//$has_new_noti = (int) get_user_meta( $user_ID,'has_new_notify', true );
 
-	if(  $has_new_noti ){
+	$unread_count = $wpdb->get_var(
+		$wpdb->prepare(
+			"SELECT COUNT(*) FROM {$wpdb->prefix}box_messages msg WHERE msg.msg_unread = %d AND msg.msg_type = %s",  1, 'notify'
+		)
+	);
 
-		$list_unread  = $wpdb->get_results( $wpdb->prepare(
-			"SELECT msg.ID, msg.msg_unread, msg.sender_id, msg.msg_date , msg.msg_content, msg.msg_type, msg.msg_link
-			FROM {$wpdb->prefix}box_messages msg
-			WHERE msg_unread = 1 AND receiver_id = %d ", $user_ID)
-		);
+	$list_noti  = $wpdb->get_results(
+		$wpdb->prepare(
+			"
+				SELECT msg.ID, msg.msg_unread, msg.sender_id, msg.msg_date , msg.msg_content, msg.msg_type, msg.msg_link
+				FROM {$wpdb->prefix}box_messages msg
+				WHERE receiver_id = %d AND msg_type = %s LIMIT 6",
+				$user_ID, 'notify'
+		)
+	);
 
-		if( $list_unread){
 
-			foreach ($list_unread as $custom) {
-
-				if( $custom->msg_type == 'message' )
-					$messages[] = $custom;
-
-				if( $custom->msg_type  == 'notify' )
-					$notifies[] = $custom;
-			}
+	if( $list_noti){
+		foreach ($list_noti as $noti) {
+			$notifies[] = $noti;
 		}
 	}
 
-	$number_new_msg = count($messages);
+
+
 	$msg_class= 'empty-msg';
-	if( $number_new_msg > 0 )
+	if( $unread_count > 0 )
 		$msg_class = "has-msg-unread"
 
 ?>
@@ -219,7 +222,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		<li class="profile-account dropdown ">
 
 			<a rel="nofollow" class="dropdown-toggle account-name" data-toggle="dropdown" href="#"><div class="head-avatar"><?php echo get_avatar($user_ID);?></div><span class="username"><?php echo $current_user->display_name;?></span> <span class="caret"></span>
-			<span class="hide <?php echo $msg_class;?>"><?php echo $number_new_msg;?></span>
+			<span class="hide <?php echo $msg_class;?>"><?php echo $count_unread;?></span>
 			</a>
 			<ul class="dropdown-menu account-link" >
 				<?php if($role == FREELANCER){ ?>
@@ -230,7 +233,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 				<li><i class="fa fa-credit-card" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('my-credit');?>"><?php _e('My Credit','boxtheme');?></a></li>
 				<li> <i class="fa fa-user-circle-o" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('my-profile');?>"><?php _e('My Profile','boxtheme');?></a></li>
 
-				<li> <i class="fa fa-envelope" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a> <span class="<?php echo $msg_class;?> hide"><?php echo $number_new_msg ?></span></li>
+				<li> <i class="fa fa-envelope" aria-hidden="true"></i> <a href="<?php echo box_get_static_link('messages');?>"><?php _e('Message','boxtheme');?></a> <span class="<?php echo $msg_class;?> hide"><?php //echo $number_new_msg ?></span></li>
 
 				<li> <i class="fa fa-sign-out" aria-hidden="true"></i>  <a href="<?php echo wp_logout_url( home_url() ); ?>"><?php _e('Logout','boxtheme');?></a></li>
 			</ul>
