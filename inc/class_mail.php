@@ -247,7 +247,10 @@ class Box_ActMail{
 		}
 		return self::$_instance;
 	}
-	function mail_to_register( $user, $mail_to ){
+	/**
+	 * send 2 emails. 1 to register. 1 to admin.
+	**/
+	function act_signup_mail( $user, $mail_to ){
 
 
 		$verify_link = box_get_static_link('verify');
@@ -274,6 +277,11 @@ class Box_ActMail{
 
 
 		box_mail( $mail_to, $subject, stripslashes($content) );
+
+		$admin_email = get_option( 'admin_email');
+		$subject = 'Has new account registerd in your website';
+		$notify = 'Has new register in yoru website';
+		box_mail($admin_email, $subject, $notify);
 	}
 	function mail_reset_password( $userdata){
 		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');

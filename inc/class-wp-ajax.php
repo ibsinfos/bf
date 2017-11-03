@@ -283,7 +283,7 @@ class BX_AJAX {
 				'data' 		=> $user
 			);
 			$mail_to = $request['user_email'];
-			Box_ActMail::get_instance()->mail_to_register($user, $mail_to);
+			Box_ActMail::get_instance()->act_signup_mail($user, $mail_to);
 
 
 		} else {
