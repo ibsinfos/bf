@@ -333,3 +333,19 @@ function step_process( $is_workspace ){
 			return $args[$status];
 		return '';
 	}
+	/**
+	 * check role of current user can view bid info or not.
+	 * Default: bid author, owner project or admin can see this.
+	 *@return boolean true or false
+	*/
+	function user_can_see_bid_info( $bid, $project, $user_id = 0 ) {
+		if( ! $user_id ){
+			global $user_ID;
+			$user_id = $user_ID;
+		}
+		if ( $bid->post_author == $user_id || $project->post_author == $user_ID || current_user_can( 'administrator' ) ){
+			return true;
+		}
+		return false;
+
+	}

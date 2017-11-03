@@ -44,20 +44,24 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 
 		<div class="full clear">
 			<span><?php _e('Duration: ','boxtheme'); echo isset( $list_dealine[$bid->_dealine]) ? $list_dealine[$bid->_dealine] : '';?> </span>
-			<?php if ( $project->post_author == $user_ID || current_user_can( 'manage_options' ) ) { ?>
-
-			<?php } ?>
 			<span><?php printf(__('Date: %s','boxtheme'), get_the_date() ); ?></span>
 		</div>
 		<div class="full clear bid-content">
-			<?php the_content(); ?>
+			<?php
+
+			if( user_can_see_bid_info( $bid, $project ) ) {
+				the_content();
+			} else {
+				_e('Cover letter is hidden','boxtheme');
+			}
+			?>
 		</div>
 	</div>
 	<div class ="col-md-2 no-padding-left padding-right-zero text-center">
 		<span><?php printf(__(' %s','boxtheme'), get_box_price($bid->_bid_price )) ?></span>		<?php
 			echo "<input type='hidden' name='bid_author' class='bid_author'  value ='".$bid->post_author."' />";
 
-			$cvs_id = is_sent_msg($project->ID, $bid->post_author);
+			$cvs_id = is_sent_msg( $project->ID, $bid->post_author );
 			if( ! $cvs_id || $cvs_id == null ){
 				$cvs_id = 0;
 			}
