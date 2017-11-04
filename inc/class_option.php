@@ -136,7 +136,7 @@ class BX_Option {
 			'reset_password' => array(
 				'content' =>  '<p>Hi #display_name,</p><p><a href="#home_url">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
 						<p>Click <a href="#reset_link"> here </a> to reset your password now.</p><p>Regards,</p>',
-				'subject' => __('Reset your #blog_name password','boxtheme'),
+				'subject' => __('Reset password at #blog_name','boxtheme'),
 			),
 			'new_job' => array(
 				'receiver' => 'admin',
