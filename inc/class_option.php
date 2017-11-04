@@ -136,7 +136,7 @@ class BX_Option {
 			'verified_success' => array(
 				'receiver' => 'register',
 				'subject' =>	'Congratulations!  You have successfully verified your account at #blog_name',
-				'content' =>	'<p>Hello #user_login,</p><p>Congratulations!  You have successfully verified your account at #blog_name.</p>Regards,'
+				'content' =>	'<p>Hello #user_login,</p><p>Congratulations!  You have successfully verified your account at #blog_name.</p><p> Here are detail of your account:<br /> Username: <strong>#user_login</strong><br />Email: <strong>#user_email</strong></p>Regards,'
 			),
 			'new_account_noti' => array(
 				'receiver' => 'register',

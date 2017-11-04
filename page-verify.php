@@ -29,7 +29,9 @@
 						$wpdb->update( $wpdb->users, array( 'user_status' => 1 ), array( 'user_login' => $user_login ) );
 						$wpdb->update( $wpdb->users, array( 'user_activation_key' => '' ), array( 'user_login' => $user_login ) );
 
-						$redirect_link = '';					$user_id = $user->ID;				$role =  bx_get_user_role($user->ID);
+						$redirect_link = '';
+						$user_id = $user->ID;
+						$role =  bx_get_user_role($user->ID);
 
 						// add default credit for new acccount.
 						$default_credit = (int) BX_Option::get_instance()->get_group_option('opt_credit')->number_credit_default;
@@ -56,7 +58,7 @@
 						} else {
 							$redirect_link = home_url();
 						}
-						Box_ActMail::get_instance()->verified_success( $current_user );
+						Box_ActMail::get_instance()->verified_success( $current_user , $redirect_link);
 						?>
 						<form name="redirect">
 							<center>

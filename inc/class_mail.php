@@ -294,7 +294,7 @@ class Box_ActMail{
 
 		box_mail( $admin_email, $subject, $noti_content);
 	}
-	function verified_success( $user ){
+	function verified_success( $user, $redirect_link ){
 		$mail = BX_Option::get_instance()->get_mail_settings('verified_success');
 
 		$subject = $mail->subject;
@@ -303,12 +303,13 @@ class Box_ActMail{
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $subject ) );
 
 		$content = str_replace('#display_name', $user->display_name, $content);
-		$content = str_replace('#home_url', home_url(), $content );
+		$content = str_replace('#blog_name', get_bloginfo('name'), $content);
 		$content = str_replace('#user_login', $user->user_login, $content);
-		$content = str_replace('#link', esc_url($link), $content);
+		$content = str_replace('#user_email', $user->user_email, $content);
+		$content = str_replace('#home_url', home_url(), $content );
 
 
-		return box_mail( $mail_to, $subject, stripslashes($content) );
+		return box_mail( $user->user_email, $subject, stripslashes($content) );
 	}
 	function send_reconfirm_email( $current_user ){
 
