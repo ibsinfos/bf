@@ -544,19 +544,18 @@
 	}
 	.archive-profile-item .col-avatar a img{
 		border-radius: 50%;
-		border:1px solid #ccc;
+		border:0 solid #ccc;
 	}
 	.col-md-4.port-item{
-		background: #ccc;
+		background: none;
 		text-align: center;
-		margin-bottom: 15px;
-		height: 188px;
+		margin-bottom: 10px;
 	}
 	.port-item img{
 		max-height: 100%;
 	}
 	.col-md-4.port-item{
-		padding: 0;
+		padding: 0 15px;
 		margin-top: 0;
 	}
 	.bg-section{
