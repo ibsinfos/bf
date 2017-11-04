@@ -49,7 +49,7 @@ if( $profile_id ){
 					        		<h4 class="professional-title no-margin primary-color" ><?php echo !empty ($profile->professional_title) ? $profile->professional_title : __('Empty professinal title','boxtheme');?></h4>
 					        	</div>
 					        	<div class="full">
-					        		<span class="clear block author-address"><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $profile->address; if( !empty( $pcountry ) ){ echo ", ".$pcountry[0]->name; };?></span>
+					        		<span class="clear block author-address"><i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo ! empty( $profile->address ) ? $profile->address .',' : ''; if( !empty( $pcountry ) ){ echo $pcountry[0]->name; };?></span>
 					        		<span class="clear author-skills"><?php echo $skill_text;;?></span>
 					        	</div>
 					      	</div>

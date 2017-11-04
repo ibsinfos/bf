@@ -131,7 +131,7 @@ class BX_Option {
 			'new_account' => array(
 				'receiver' => 'register',
 				'subject' =>	'Congratulations! You have successfully registered to #blog_name.',
-				'content' =>	'<p>Hello #user_login, <br /></p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy the link into your browser window or type it there directly.</p><p>Regards,'
+				'content' =>	'<p>Hello #user_login,</p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy this link #link into your browser window or type it there directly.</p>Regards,'
 			),
 			'new_job' => array(
 				'receiver' => 'admin',
@@ -141,7 +141,7 @@ class BX_Option {
 			'new_bidding' => array(
 				'receiver' => 'employer',
 				'subject' =>	'Has mew bidding in your project.',
-				'content' =>	'Hello #username, <p>This email to let you that has new a bidding in your project #project_name.</p> You can click <a href="#project_link">here</a> to check the detail.',
+				'content' =>	'Hello #username, <p>This email to let you that has new a bidding in your project #project_name.</p> <p>You can click <a href="#project_link">here</a> to check the detail. </p> Regards,',
 			),
 			'new_message' => array(
 				'receiver' => 'receiver',
@@ -156,7 +156,7 @@ class BX_Option {
 			'request_withdrawal' => array(
 				'receiver' => 'Admin',
 				'subject' =>	'Has a new withdrawal request',
-				'content' =>	'<p><h1>This is the detail of this request</h1></p><p><label> Amout:</label> #amount</p><p><label>Method:</label> #method </p> <p> <label> Notes:</label> #notes </p><p> Detail of method: #detail'
+				'content' =>	'<p>Has a new withdrawal in %blog_name and here are the detail<h1>This is the detail of this request</h1></p><p><label> Amout:</label> #amount</p><p><label>Method:</label> #method </p> <p> <label> Notes:</label> #notes </p><p> Detail of method: #detail'
 			),
 		);
 	}

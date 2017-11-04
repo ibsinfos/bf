@@ -272,7 +272,7 @@ class Box_ActMail{
 		$content = $mail->content;
 
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $subject ) );
-		$content = str_replace('#user_login', $user->user_login, $mail->content);
+		$content = str_replace('#display_name', $user->display_name, $mail->content);
 		$content = str_replace('#link', esc_url($link), $content);
 
 
@@ -290,12 +290,12 @@ class Box_ActMail{
 		$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
 
-		$mail_content = '<p>Hi #user_login,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
+		$mail_content = '<p>Hi #display_name,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
 				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
 		$subject = 'Reset your #blog_name password';
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
 
-		$content = str_replace('#user_login', $userdata->user_login, $mail_content);
+		$content = str_replace('#user_login', $userdata->display_name, $mail_content);
 		$content = str_replace('#blog_name', get_bloginfo('name'), $content);
 		$content = str_replace('#blog_link', home_url(), $content);
 		$content = str_replace('#reset_link', esc_url($link), $content);
@@ -315,6 +315,8 @@ class Box_ActMail{
 		$content = str_replace("#project_name", $project->post_title, $content);
 
 		$author = get_userdata($project->post_author);
+
+		$content = str_replace("#display_name", $author->display_name, $content);
 
 		box_mail( $author->user_email, $mail->subject, $content );
 
