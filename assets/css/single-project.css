@@ -431,7 +431,7 @@ div.block-employer-info {
 }
 
 
-.list-employer-info  .rating i{padding-right: 10px; font-size: 19px;}
+.list-employer-info  .rating i{padding-right: 10px; font-size: 15px;}
 .btn-bid{
 	margin-right: 20px;
 }
@@ -460,11 +460,7 @@ a:hover{
 	background: #fff;
 	padding: 0px;
 }
-.member-since{
-	font-size: 12px;
-	top: -7px;
-	position: relative;
-}
+
 .emp-name::first-letter1{text-transform: uppercase}
 .msg-record{
 	width: 100%;
@@ -507,18 +503,32 @@ a:hover{
     padding: 5px 6px;
 }
 .left-emp-avatar{
-	width: 50px;
+	width: 62px;
 	float: left;
+	margin-right: 15px;
 }
 .left-emp-avatar img{
-	max-width: 39px;
+	width: 62px;
 	border-radius: 50%;
 	margin-top: 5px;
 }
 .right-emp-avatar{
-	min-width: 150px;
+	min-width: 180px;
 	float: left;
 	overflow-y: hidden;
+}
+.right-emp-avatar span{
+	float: left;
+	clear:  both;
+	line-height: 14px;
+}
+.right-emp-avatar .rating{
+	display: block;
+	padding-top: 5px;
+}
+.member-since{
+	font-size: 12px;
+	position: relative;
 }
 .row-detail-section{
 	background: #fff;

@@ -52,17 +52,19 @@ $employer = get_userdata($project->post_author);
 			<div class="right-emp-avatar">
 				<label class="emp-name"><a class="author-url" href="#<?php //echo esc_url(get_author_posts_url( $project->post_author )); ?>"><?php echo $user->display_name ;?>  </a> </label>
 				<span class="member-since"><?php printf( __("Member Since %s",'boxtheme'), date( "M d, Y", strtotime($employer->user_registered) ) );?></span>
+				<span class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></span>
 			</div>
 		</li>
 		<li><i class="fa fa-map-marker bcon" aria-hidden="true"></i><?php printf(__('From <span class="pull-right"> %s</span>','boxtheme'),$txt_country);?></li>
 		<li><i class="fa fa-flag bcon" aria-hidden="true"></i><?php printf(__("Project posted <span class='text-right pull-right'>%d</span>",'boxtheme'), $project_posted);?></li>
 		<li><i class="fa fa-address-book-o bcon" aria-hidden="true"></i><?php printf(__("Freelancers hired <span class='text-right pull-right'>%d</span>",'boxtheme'), $fre_hired);?></li>
 		<li><i class="fa fa-money bcon" aria-hidden="true"></i><?php printf( __( "Total spent ($) <span class='text-right pull-right'>%s</span>",'boxtheme'),floatval( $total_spent )  );?></li>
-		<li class="rating rating-score score-<?php echo $score;?>"><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></li>
+
 		<?php if ( $current_user_can_bid && ! $bidding ) { ?>
 			<li><?php box_bid_buton($project);?></li>
-		<?php } else if( $role == EMPLOYER){
-			box_post_buton();
+		<?php } else if( $role !== EMPLOYER || current_user_can( 'manage_options' ) ){
+			box_post_buton($project);
+
 		}?>
 	</ul>
 </div>
