@@ -232,7 +232,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 		</li>
 		<li class="icon-bell first-sub no-padding-left pull-left"">
 			<div class="dropdown">
-			  	<span class="dropdown-toggle <?php if ( $has_new_noti)  echo 'toggle-msg';?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell  " aria-hidden="true"></i></span> <?php
+			  	<span class="dropdown-toggle <?php if ( $number_new_notify)  echo 'toggle-msg';?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell  " aria-hidden="true"></i></span> <?php
 			  	echo '<ul class=" dropdown-menu ul-notification">';
 			  	$unread = 0;
 				if( !empty ( $notifies) ) {
