@@ -45,22 +45,22 @@
 	      		<div class="col-sm-12"><span class="btn-edit btn-edit-default btn-emp-edit"> Edit</span></div>
 	      		<div class="full is-view">
 		      		<div class="form-group ">
-		      			<label>First name</label>: <span><?php echo $user_data->first_name;?></span>
+		      			<label><?php _e('First name','boxtheme');?></label>: <span><?php echo $user_data->first_name;?></span>
 		      		</div>
 		      		<div class="form-group ">
-		      			<label>Last name</label>: <span><?php echo $user_data->last_name;?></span>
+		      			<label><?php _e('Last name','boxtheme');?></label>: <span><?php echo $user_data->last_name;?></span>
 		      		</div>
 		      		<div class="form-group ">
-		      			<label>Display name</label>: <span><?php echo $user_data->display_name ;?></span>
+		      			<label><?php _e('Display name','boxtheme');?></label>: <span><?php echo $user_data->display_name ;?></span>
 		      		</div>
 		      		<div class="form-group ">
-		      			<label>Username</label>: <span><?php echo $user_data->user_login;?></span>
+		      			<label><?php _e('Username','boxtheme');?></label>: <span><?php echo $user_data->user_login;?></span>
 		      		</div>
 		      		<div class="form-group ">
-		      			<label>Email</label>: <span><?php echo $user_data->user_email;?></span>
+		      			<label><?php _e('Email','boxtheme');?></label>: <span><?php echo $user_data->user_email;?></span>
 		      		</div>
 		      		<div class="form-group ">
-		      			<label>Country</label>: <span><?php echo $txt_country;?></span>
+		      			<label><?php _e('Country','boxtheme');?></label>: <span><?php echo $txt_country;?></span>
 		      		</div>
 		      	</div>
 		      	<div class="is-edit full">
@@ -79,7 +79,7 @@
 
 					<div class="form-group">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username','boxtheme');?></label>
-						<input class="form-control" type="text" required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="userlogin-text-input">
+						<input class="form-control" type="text" disabled required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="userlogin-text-input">
 					</div>
 					<div class="form-group">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email','boxtheme');?></label>

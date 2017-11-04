@@ -86,7 +86,7 @@
             <div class="form-group row">
                   <label class="col-sm-3 col-form-label">&nbsp;</label>
                   <div class="col-sm-9 align-right">
-                     <button type="submit" class="btn btn-primary"> Save</button>
+                     <button type="submit" class="btn btn-primary"><?php _e('Save','boxtheme');?></button>
                   </div>
             </div>
          </form>
@@ -97,7 +97,7 @@
    		<div class="col-md-12 clear">
    				<h2> <?php _e('Profile info','boxtheme');?></h2>
 			<form id="update_profile_meta" class="update-profile row-section">
-			<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</span>
+			<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><?php _e('Edit','boxtheme');?></span>
 			<div class="form-group row">
 			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Email','boxtheme');?></label>
 			 	<div class="col-sm-9">
