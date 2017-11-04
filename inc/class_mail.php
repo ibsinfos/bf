@@ -301,7 +301,7 @@ class Box_ActMail{
 		$link = add_query_arg( array( 'user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
 		if ( ! is_wp_error( $activation_key ) ){
 			$subject = sprintf( __('Re-confirmation email from %s','boxtheme'), get_bloginfo('name') );
-			$message = sprintf( __( 'Hello %s,<p>This is new confirmation email from %s.</p>Kindly click <a href="%s">here</a> to active your account.<p>Regards,','boxtheme'), $current_user->user_login, get_bloginfo('name'), $link );
+			$message = sprintf( __( 'Hello %s,<p>This is new confirmation email from %s.</p>Kindly click <a href="%s">here</a> to active your account.<p>Regards,','boxtheme'), $current_user->display_name, get_bloginfo('name'), $link );
 			return box_mail( $current_user->user_email, $subject, $message );
 		}
 		return $activation_key;
