@@ -146,7 +146,7 @@ class BX_Option {
 			'new_bidding' => array(
 				'receiver' => 'employer',
 				'subject' =>	'Has mew bidding in your project.',
-				'content' =>	'Hello #display_name, <p>This email to let you that has new a bidding in your project #project_name.</p> <p>You can click <a href="#project_link">here</a> to check the detail. </p> Regards,',
+				'content' =>	'Hello #display_name, <p>This email to let you that has new a bidding in your project <i>#project_name</i>.</p> <p>You can click <a href="#project_link">here</a> to check the detail. </p> Regards,',
 			),
 			'new_message' => array(
 				'receiver' => 'receiver',
