@@ -284,7 +284,7 @@ class Box_ActMail{
 		$mail = BX_Option::get_instance()->get_mail_settings('new_account_noti' );
 
 		$admin_email = get_option( 'admin_email');
-		
+
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $mail->subject ) );
 
 		$noti_content = str_replace('#user_login', $user->user_login, $mail->content);
