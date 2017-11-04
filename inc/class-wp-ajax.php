@@ -903,29 +903,18 @@ class BX_AJAX {
 			list( $pass_request_time, $pass_key ) = explode( ':', $current_key, 2 );
 			$count_time  = time() - (int)$pass_request_time;// senconds
 
-			if( $count_time < 10*60 ){ // 10 minutes check
-				$response['msg'] = __('Time between of 2 requests has to greater than 10 minutes','boxtheme');
-				wp_send_json( $response );
-			}
+			// if( $count_time < 10*60 ){ // 10 minutes check
+			// 	$response['msg'] = __('Time between of 2 requests has to greater than 10 minutes','boxtheme');
+			// 	wp_send_json( $response );
+			// }
 
+			$response = array(
+				'success' => Box_ActMail::get_instance()->send_reconfirm_email( $current_user ),
+				'msg' => __( 'New email is sent.','boxtheme')
+			);
 
-			//$activation_key =  bx_get_verify_key( $current_user->user_login );
-			$activation_key = get_password_reset_key($current_user);
+			wp_send_json( $response );
 
-
-			if ( ! is_wp_error( $activation_key ) ){
-
-				$response = array( 'success' => true, 'msg' => __( 'New email is sent.','boxtheme') );
-
-				$link = box_get_static_link('verify');
-				$link = add_query_arg( array('user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
-
-				$subject = sprintf( __('New confirmation email from %s.','boxtheme'), get_bloginfo('name') );
-				$message = sprintf( __('<p>Hi %s, <br />New confirmation email.</p>Click <a href="%s">here</a> to active your account.','boxtheme'),$current_user->user_login, $link );
-
-				box_mail( $current_user->user_email, $subject, $message );
-				wp_send_json( $response );
-			}
 		}
 		wp_send_json( $response );
 	}

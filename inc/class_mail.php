@@ -294,6 +294,18 @@ class Box_ActMail{
 
 		box_mail( $admin_email, $subject, $noti_content);
 	}
+	function send_reconfirm_email( $current_user ){
+
+		$activation_key = get_password_reset_key($current_user);
+		$link = box_get_static_link('verify');
+		$link = add_query_arg( array( 'user_login' => $current_user->user_login ,  'key' => $activation_key) , $link );
+		if ( ! is_wp_error( $activation_key ) ){
+			$subject = sprintf( __('Re-confirmation email from %s','boxtheme'), get_bloginfo('name') );
+			$message = sprintf( __( 'Hello %s,<p>This is new confirmation email from %s.</p>Kindly click <a href="%s">here</a> to active your account.<p>Regards,','boxtheme'), $current_user->user_login, get_bloginfo('name'), $link );
+			return box_mail( $current_user->user_email, $subject, $message );
+		}
+		return $activation_key;
+	}
 	function mail_reset_password( $user){
 		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
 		$activation_key =  get_password_reset_key( $user);
