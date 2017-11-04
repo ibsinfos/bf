@@ -266,7 +266,7 @@ class Box_ActMail{
 		);
 
 
-		$mail = BX_Option::get_instance()->get_mail_settings('new_account');
+		$mail = BX_Option::get_instance()->get_mail_settings('new_account_confirm');
 
 		$subject = $mail->subject;
 		$content = $mail->content;
@@ -281,10 +281,16 @@ class Box_ActMail{
 
 		box_mail( $mail_to, $subject, stripslashes($content) );
 
+		$mail = BX_Option::get_instance()->get_mail_settings('new_account_noti' );
+
 		$admin_email = get_option( 'admin_email');
-		$subject = 'Has new account registerd in your website';
-		$notify = 'Has new register in your website';
-		box_mail($admin_email, $subject, $notify);
+		
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $mail->subject ) );
+
+		$noti_content = str_replace('#user_login', $user->user_login, $mail->content);
+		//$content = str_replace('#user_', $user->user_login, $mail->content);
+
+		box_mail( $admin_email, $subject, $noti_content);
 	}
 	function mail_reset_password( $user){
 		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
