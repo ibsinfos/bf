@@ -317,7 +317,7 @@ class Box_ActMail{
 		$content = str_replace("#project_link", get_permalink( $project->ID), $mail->content);
 		$content = str_replace("#project_name", $project->post_title, $content);
 
-		$author = get_userdata($project->post_author);
+		$author = get_userdata( $project->post_author );
 
 		$content = str_replace("#display_name", $author->display_name, $content);
 
