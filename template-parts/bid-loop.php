@@ -51,7 +51,7 @@ if ( $bid->post_author == $project->{WINNER_ID} ) {
 		<div class="full clear bid-content">
 			<?php
 
-			if( user_can_see_bid_info( $bid, $project ) ) {
+			if ( user_can_see_bid_info( $bid, $project ) ) {
 				the_content();
 			} else {
 				echo '<i>'.__('Cover letter is hidden','boxtheme').'</i>';
