@@ -288,6 +288,8 @@ class Box_ActMail{
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $mail->subject ) );
 
 		$noti_content = str_replace('#user_login', $user->user_login, $mail->content);
+		$noti_content = str_replace('#blog_name', get_bloginfo('name'), $noti_content);
+		$noti_content = str_replace( '#user_email', $user->user_email, $noti_content );
 		//$content = str_replace('#user_', $user->user_login, $mail->content);
 
 		box_mail( $admin_email, $subject, $noti_content);

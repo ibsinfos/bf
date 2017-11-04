@@ -128,7 +128,7 @@ class BX_Option {
 	}
 	function get_default_mails_content(){
 		return array(
-			'new_account_cofirm' => array(
+			'new_account_confirm' => array(
 				'receiver' => 'register',
 				'subject' =>	'Congratulations! You have successfully registered to #blog_name',
 				'content' =>	'<p>Hello #user_login,</p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy this link <a href="#link">#link</a> into your web browser window or type it there directly.</p>Regards,'
@@ -136,7 +136,7 @@ class BX_Option {
 			'new_account_noti' => array(
 				'receiver' => 'register',
 				'subject' =>	'Has new register in #blog_name site',
-				'content' =>	'<p>Hello administrator,</p> <p>This email to let you know that has a new register in #blog_name. <p> Here are the detail: </p><p> Username: #user_login.</p>,Sincerely,'
+				'content' =>	'<p>Hello administrator,</p> <p>This email to let you know that has a new register in #blog_name.</p><p>Here are the detail: </p><p> Username: <strong>#user_login</strong>.</p><p> Email: <strong>#user_email</strong>.</p>Sincerely,'
 			),
 			'reset_password' => array(
 				'content' =>  '<p>Hi #display_name,</p><p><a href="#home_url">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
