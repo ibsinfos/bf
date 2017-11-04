@@ -516,6 +516,7 @@ a:hover{
 	min-width: 180px;
 	float: left;
 	overflow-y: hidden;
+	padding-top: 6px;
 }
 .right-emp-avatar span{
 	float: left;
@@ -524,7 +525,7 @@ a:hover{
 }
 .right-emp-avatar .rating{
 	display: block;
-	padding-top: 5px;
+	padding-top: 3px;
 }
 .member-since{
 	font-size: 12px;
