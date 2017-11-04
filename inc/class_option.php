@@ -148,6 +148,12 @@ class BX_Option {
 				'subject' =>	'Has mew bidding in your project.',
 				'content' =>	'Hello #display_name, <p>This email to let you that has new a bidding in your project <i>#project_name</i>.</p> <p>You can click <a href="#project_link">here</a> to check the detail. </p> Regards,',
 			),
+			'new_converstaion' => array(
+
+				'receiver' => 'freelancer',
+				'subject' =>	'Have a new message to you',
+				'content' =>	__('Hello #display_name, <p>#employer_name just sent a new message for you in the project: <i>#project_name<i/>. You can click <a href="#project_link">here</a> to check the detail.</p> <p>Regards, </p.','boxtheme'),
+			),
 			'new_message' => array(
 				'receiver' => 'receiver',
 				'subject' =>	'Have a new message for you',

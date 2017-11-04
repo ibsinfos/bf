@@ -328,13 +328,21 @@ class Box_ActMail{
 	/**
 	 * send an email to freelancer when employer create a conversion with this freelancer
 	**/
-	function has_new_conversation($freelancer_id){
+	function has_new_conversation($freelancer_id, $employer, $project){
 
-		$subject = __("Employer just send to you a message",'boxtheme');
-		$content = 'Employer just send to you a message';
-		$author = get_userdata($freelancer_id);
+		$mail = BX_Option::get_instance()->get_mail_settings('new_converstaion');
+		$freelancer = get_userdata($freelancer_id);
 
-		box_mail( $author->user_email, $subject, $content );
+		$subject =  $mail->subject;
+
+		$content = str_replace("#project_name", $project->post_title, $mail->content);
+		$content = str_replace("#project_link", get_permalink( $project->ID), $content);
+
+		$content = str_replace("#employer_name", $employer->display_name, $content);
+
+		$content = str_replace("#display_name", $freelancer->display_name, $content);
+
+		box_mail( $freelancer->user_email, $subject, $content );
 
 	}
 	function award_job( $freelancer_id ){

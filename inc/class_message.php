@@ -36,24 +36,27 @@ class BX_Conversations{
 			)
 		);
 		$cvs_id = $wpdb->insert_id;  // cvs_id just inserted
+		$freelancer_id = $args['receiver_id'];
 		$msg_arg = array(
+			'msg_type' => 'message',
+			'sender_id' => $user_ID,
+			'receiver_id'=> $freelancer_id, //only freelancer_id
 			'msg_content' 	=> $args['cvs_content'],
 			'cvs_id' 		=> $cvs_id,
-			'receiver_id'=> $args['receiver_id'],
-			'sender_id' => $user_ID,
-			'msg_type' => 'message',
 		);
 
 		$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
 
 		//send mail to freelancer
-		Box_ActMail::get_instance()->has_new_conversation( $args['receiver_id'] );
+		$project = get_post($project_id);
+		$employer = wp_get_current_user();
+		Box_ActMail::get_instance()->has_new_conversation( $freelancer_id,  $employer ,$project );
 
 		// Add notitication for freelancer
-		$project = get_post($project_id);
-		$current_user = wp_get_current_user();
+
+
 		$args = array(
-			'msg_content' => sprintf( __('%s has just hired you on the job: <i>%s</i>','boxtheme'), $current_user->display_name, $project->post_title ),
+			'msg_content' => sprintf( __('%s has just hired you on the job: <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
 			'msg_link' => get_permalink( $project_id ),
 			'receiver_id' => $args['receiver_id'],
 		);
