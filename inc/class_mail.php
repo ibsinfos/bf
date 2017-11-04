@@ -272,7 +272,10 @@ class Box_ActMail{
 		$content = $mail->content;
 
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $subject ) );
+
 		$content = str_replace('#display_name', $user->display_name, $mail->content);
+		$content = str_replace('#home_url', home_url(), $content );
+		$content = str_replace('#user_login', $user->user_login, $content);
 		$content = str_replace('#link', esc_url($link), $content);
 
 
@@ -283,25 +286,25 @@ class Box_ActMail{
 		$notify = 'Has new register in your website';
 		box_mail($admin_email, $subject, $notify);
 	}
-	function mail_reset_password( $userdata){
+	function mail_reset_password( $user){
 		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
 		$activation_key =  get_password_reset_key( $user);
 		$link = box_get_static_link('reset-password');
 		$link = add_query_arg( array('user_login' => $user->user_login,  'key' => $activation_key) , $link );
 
 
-		$mail_content = '<p>Hi #display_name,</p><p><a href="#blog_link">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
-				<p>Click <a href="#reset_link"> here </a> to reset your password now</p>';
-		$subject = 'Reset your #blog_name password';
-		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($subject) );
+		$mail =BX_Option::get_instance()->get_mail_settings('reset_password');
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ($mail->subject) );
 
-		$content = str_replace('#user_login', $userdata->display_name, $mail_content);
+		$content = str_replace('#user_login', $user->display_name, $mail->content);
+
+		$content = str_replace('#display_name', $user->display_name, $content);
 		$content = str_replace('#blog_name', get_bloginfo('name'), $content);
-		$content = str_replace('#blog_link', home_url(), $content);
+		$content = str_replace('#home_url', home_url(), $content);
 		$content = str_replace('#reset_link', esc_url($link), $content);
 
 
-		box_mail( $email, $subject, stripslashes($content) );
+		box_mail( $user->user_email, $subject, stripslashes($content) );
 	}
 	/**
 	 * Send an email to owner project let he know has new bidding in his project.

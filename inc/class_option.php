@@ -130,8 +130,13 @@ class BX_Option {
 		return array(
 			'new_account' => array(
 				'receiver' => 'register',
-				'subject' =>	'Congratulations! You have successfully registered to #blog_name.',
-				'content' =>	'<p>Hello #user_login,</p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy this link <a href="#link">#link</a> into your browser window or type it there directly.</p>Regards,'
+				'subject' =>	'Congratulations! You have successfully registered to <a href="#home_url">#blog_name</a>.',
+				'content' =>	'<p>Hello #user_login,</p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy this link <a href="#link">#link</a> into your web browser window or type it there directly.</p>Regards,'
+			),
+			'reset_password' => array(
+				'content' =>  '<p>Hi #display_name,</p><p><a href="#home_url">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
+						<p>Click <a href="#reset_link"> here </a> to reset your password now.</p><p>Regards,</p>',
+				'subject' => __('Reset your #blog_name password','boxtheme'),
 			),
 			'new_job' => array(
 				'receiver' => 'admin',

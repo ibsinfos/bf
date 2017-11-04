@@ -93,7 +93,7 @@ $user_login = isset($_GET['user_login']) ? $_GET['user_login'] : '';
 	            success : function(res){
 	            	form.find(".btn-submit").removeClass("loading");
 	                if ( res.success ){
-	                	$("#login_section").html('Your password is update. Please relogin to access your account');
+	                	$("#login_section").html('Your password is updated. Please relogin to access your account');
 	                } else {
 	                	$("#loginErrorMsg").html(res.msg);
 	                	$("#loginErrorMsg").show();
