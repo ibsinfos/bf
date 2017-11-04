@@ -133,6 +133,11 @@ class BX_Option {
 				'subject' =>	'Congratulations! You have successfully registered to #blog_name',
 				'content' =>	'<p>Hello #user_login,</p><p>Thank you for register.</p><p> To finally activate your account please click the following link <a href="#link"> here</a>.</p><p>If clicking the link doesn\'t work you can copy this link <a href="#link">#link</a> into your web browser window or type it there directly.</p>Regards,'
 			),
+			'verified_success' => array(
+				'receiver' => 'register',
+				'subject' =>	'Congratulations!  You have successfully verified your account at #blog_name',
+				'content' =>	'<p>Hello #user_login,</p><p>Congratulations!  You have successfully verified your account at #blog_name.</p>Regards,'
+			),
 			'new_account_noti' => array(
 				'receiver' => 'register',
 				'subject' =>	'Has new register in #blog_name site',

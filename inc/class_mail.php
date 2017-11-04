@@ -273,7 +273,7 @@ class Box_ActMail{
 
 		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $subject ) );
 
-		$content = str_replace('#display_name', $user->display_name, $mail->content);
+		$content = str_replace('#display_name', $user->display_name, $content);
 		$content = str_replace('#home_url', home_url(), $content );
 		$content = str_replace('#user_login', $user->user_login, $content);
 		$content = str_replace('#link', esc_url($link), $content);
@@ -294,6 +294,22 @@ class Box_ActMail{
 
 		box_mail( $admin_email, $subject, $noti_content);
 	}
+	function verified_success( $user ){
+		$mail = BX_Option::get_instance()->get_mail_settings('verified_success');
+
+		$subject = $mail->subject;
+		$content = $mail->content;
+
+		$subject = str_replace('#blog_name', get_bloginfo('name'), stripslashes ( $subject ) );
+
+		$content = str_replace('#display_name', $user->display_name, $content);
+		$content = str_replace('#home_url', home_url(), $content );
+		$content = str_replace('#user_login', $user->user_login, $content);
+		$content = str_replace('#link', esc_url($link), $content);
+
+
+		return box_mail( $mail_to, $subject, stripslashes($content) );
+	}
 	function send_reconfirm_email( $current_user ){
 
 		$activation_key = get_password_reset_key($current_user);
@@ -306,6 +322,8 @@ class Box_ActMail{
 		}
 		return $activation_key;
 	}
+
+
 	function mail_reset_password( $user){
 		//$mail = BX_Option::get_instance()->get_mail_settings('new_account');
 		$activation_key =  get_password_reset_key( $user);
