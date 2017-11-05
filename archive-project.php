@@ -57,7 +57,7 @@ get_header(); ?>
 		<div class="col-md-12"><h3 class="project-title "><a class="primary-color second-font" href="{{{data.guid}}}">{{{data.post_title}}}</a></div>
 		<div class="col-md-12 project-second-line">
 			<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
-			   	<span class="js-type">Fixed-Price</span>
+			   	<span class="js-type">Price</span>
 		        <span class="js-budget">-<span  data-itemprop="baseSalary">{{{data.budget_txt}}} </span></span>
 			</span>
 			<span class="js-posted"> - <time>{{{data.time_txt}}}</time></span>
@@ -66,10 +66,10 @@ get_header(); ?>
 		<div class="col-md-12 employer-info">
 			<span>
 	            <strong class="text-muted display-inline-block m-sm-top">Client:</strong>
-				<span class="inline"><span class="client-spendings display-inline-block">{{{data.spent_txt}}}</span></span>
+				<span class="inline"><span class="client-spendings display-inline-block">{{{data.total_spent_txt}}}</span></span>
 				<span  class="nowrap">
 					<span class="glyphicon glyphicon-md air-icon-location m-0"></span>
-				    <span class="text-muted client-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{{data.country}}}</span>
+				    <span class="text-muted client-location"><i class="fa fa-map-marker" aria-hidden="true"></i> {{{data.location_txt}}}</span>
 				</span><!---->
 	        </span>
 		</div> <!-- . employer-info !-->

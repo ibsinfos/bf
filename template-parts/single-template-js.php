@@ -162,7 +162,7 @@ $list_bid
 	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
 	          	</div>
 	          	<div class="form-group align-right">
-	        		<button type="submit" class="btn btn-primary">Send</button>
+	        		<button type="submit" class="btn btn-primary"><?php _('Send','boxtheme');?></button>
 	          	</div>
         	</form>
       </div>

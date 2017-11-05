@@ -45,6 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'INDIVIDUAL','individual');
 	define( 'COMPANY','company');
 	define( 'SPENT', 'spent');
+	define('TOTAL_SPENT_TEXT','total_spent');
 	define( 'EARNED', 'earned' );
 	define( 'EARNED_TXT', 'earned_txt' );
 

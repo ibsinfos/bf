@@ -334,6 +334,7 @@ class BX_AJAX {
 
 		if( is_wp_error( $result ) ){
 			$response = array('success' => false,'msg' =>$profile_id->get_error_message());
+
 		}
 
 		wp_send_json($response );
