@@ -58,7 +58,7 @@ get_header(); ?>
 		<div class="col-md-12 project-second-line">
 			<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
 			   	<span class="js-type">Fixed price</span>
-		        <span class="js-budget">-<span  data-itemprop="baseSalary">{{{data.budget_txt}}} </span></span>
+		        <span class="js-budget"> - <span  data-itemprop="baseSalary">{{{data.budget_txt}}} </span></span>
 			</span>
 			<span class="js-posted"> - <time>{{{data.time_txt}}}</time></span>
 		</div>
