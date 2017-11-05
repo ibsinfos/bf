@@ -81,7 +81,7 @@
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username','boxtheme');?></label>
 						<input class="form-control" type="text" disabled required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="userlogin-text-input">
 					</div>
-					<div class="form-group">
+					<div class="form-group hide">
 						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email','boxtheme');?></label>
 						<input class="form-control" type="email" required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Email','boxtheme');?> " id="email-text-input">
 						<input type="hidden" name="is_emp" value="1">
