@@ -100,8 +100,11 @@ Class BX_Project extends BX_Post{
 		global $currency_sign;
 		$spent = (float) get_user_meta( $post->post_author, SPENT, true);
 
+
 		$result->spent_txt = sprintf( __( 'Spent %s','boxtheme'),box_get_price_format($spent) );
 		$result->budget_txt = sprintf( __( 'Budget: %s','boxtheme'), box_get_price_format($result->_budget) );
+
+		$result->location_txt =  get_user_meta( $post->post_author, 'location_txt', true);
 
 		$not_set = __('Not set','boxtheme');
 		$result->country = $not_set;
@@ -110,13 +113,14 @@ Class BX_Project extends BX_Post{
 
 		if( $profile_id ){
 
-			$pcountry = get_the_terms( $profile_id, 'country' );
+			$pcountry = get_the_terms( $profile_id, LOCATION_CAT );
 
 			if( !empty( $pcountry ) ){
 				$result->country =  $pcountry[0]->name;
 			}
 
 		}
+
 		return $result;
 	}
 

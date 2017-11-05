@@ -27,7 +27,7 @@ $project = BX_Project::get_instance()->convert($post);
 				<span><?php echo $project->spent_txt;?></span>
 			</span>
 			<span  class="nowrap">
-			    <span> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $project->country;?></span>
+			    <span> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php echo $project->location_txt;?></span>
 			</span><!---->
         </span>
 	</div> <!-- . employer-info !-->

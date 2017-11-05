@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	define( 'PROJECTS_WORKED', 'projects_worked' );
 
 	define( 'COUNTRY','country');
-
+	define('LOCATION_CAT','country');// replace for the country field
 
 
 	// meta field of project

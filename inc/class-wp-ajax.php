@@ -315,7 +315,12 @@ class BX_AJAX {
 				'user_email' => $user_email,
 				'display_name' => $display_name,
 			);
-			wp_update_user($new_arrgs);
+			$emp_id = wp_update_user($new_arrgs);
+			if ( !is_wp_error( $emp_id ) ){
+				// udate static location here;
+				$location = get_term( $country );
+				update_user_meta( $emp_id, 'location_txt', $location->name );
+			}
 
 			$response = array('success' => true, 'msg' => 'OK');
 			wp_send_json($response );
