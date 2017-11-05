@@ -1450,6 +1450,9 @@ ul.pagination{
 	text-decoration: none;
 	font-size: 15px;
 }
+.bid-history-item .emp-review-bid{
+	font-size: 13px;
+}
 .row-heading {
     font-weight: bold;
     font-size: 13px;

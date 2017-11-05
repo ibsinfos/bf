@@ -29,7 +29,7 @@ if( $result->have_posts() ){ ?>
 		$result->the_post();
 		get_template_part( 'template-parts/profile/list-bid-status', 'loop' );
 	}
-
+	wp_reset_query();
 	echo '</div>';
 	bx_pagenate($result);
 }

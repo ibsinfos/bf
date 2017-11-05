@@ -103,7 +103,7 @@ if( $profile_id ){
 								</div> <?php
 								while( $result->have_posts()){ $result->the_post();
 									global $post;
-									get_template_part( 'template-parts/profile/list-bid-done', 'loop' );
+									get_template_part( 'template-parts/profile/list-bid-done', 'loop' ); // list-bid-done-loop.php
 								} ?>
 
 							</div> <!-- end list_bidding !-->

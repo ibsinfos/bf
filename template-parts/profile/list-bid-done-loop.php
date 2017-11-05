@@ -26,7 +26,7 @@ $bid = BX_Bid::get_instance()->convert($post);
 			echo '<div class="full rating-line">';
 				$rating_score = get_comment_meta( $comment[0]->comment_ID, RATING_SCORE, true );
 				bx_list_start($rating_score);
-				echo '<i>'.$comment[0]->comment_content.'</i>';
+				echo '<i class="emp-review-bid">'.$comment[0]->comment_content.'</i>';
 			echo '</div>';
 		} else {
 			__('Employer did not left a review','boxtheme');

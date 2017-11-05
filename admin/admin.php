@@ -135,24 +135,40 @@ class BX_Admin{
             'title' => __('BoxThemes Settings'),
         ),
     ));
-    $admin_bar->add_menu( array(
-        'id'    => 'my-sub-item',
-        'parent' => 'box-settings',
-        'title' => 'List Credit Order',
-        'href'  => admin_url('admin.php?page=credit-setting'),
-        'meta'  => array(
-            'title' => __('List Credit Order'),
-            //'target' => '_blank',
-            'class' => 'my_menu_item_class'
-        ),
-    ));
+    $admin_bar->add_menu(
+        array(
+            'id'    => 'main-setting',
+            'parent' => 'box-settings',
+            'title' => 'Box Settings',
+            'href'  => admin_url('admin.php?page=box-settings'),
+            'meta'  => array(
+                'title' => __('Box Settings','boxtheme'),
+
+                'class' => 'my_menu_item_class'
+            ),
+        )
+    );
+
+    $admin_bar->add_menu(
+        array(
+            'id'    => 'my-sub-item',
+            'parent' => 'box-settings',
+            'title' => 'Credit Order',
+            'href'  => admin_url('admin.php?page=credit-setting'),
+            'meta'  => array(
+                'title' => __('Credit Order'),
+                //'target' => '_blank',
+                'class' => 'my_menu_item_class'
+            ),
+        )
+    );
     $admin_bar->add_menu( array(
         'id'    => 'my-second-sub-item',
         'parent' => 'box-settings',
-        'title' => 'List Withdrawal Order',
+        'title' => 'Withdrawal Order',
        	'href'  => admin_url('admin.php?page=widthraw-order'),
         'meta'  => array(
-            'title' => __('List Withdrawal Order'),
+            'title' => __('Withdrawal Order'),
            // 'target' => '_blank',
             'class' => 'my_menu_item_class'
         ),
