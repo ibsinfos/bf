@@ -9,7 +9,7 @@ $project = BX_Project::get_instance()->convert($post);
 	</div>
 	<div class="col-md-12 project-second-line">
 		<span class="text-muted display-inline-block m-sm-bottom m-sm-top">
-		    <span>Fixed-Price</span>
+		    <span>Fixed price</span>
             <span >
 	            <span class="js-budget">-<span  data-itemprop="baseSalary"><?php echo $project->budget_txt; ?> </span></span>
 			</span>
