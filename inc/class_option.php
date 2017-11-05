@@ -79,7 +79,7 @@ class BX_Option {
 			),
 
 			'escrow' => array(
-				'activate' => 'credit',
+				'active' => 'credit',
 				'commision' => array(
 					'number' => '10',
 					'type'   => 'fit',
@@ -90,6 +90,12 @@ class BX_Option {
 			),
 			'opt_credit'=>array(
 				'number_credit_default' => 10,
+			),
+			'paypal_adaptive' => array(
+					'api_appid' => 'APP-80W284485P519543T',
+					'api_userid' => 'employer_api1.etteam.com',
+					'app_signarute' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31A34rWCcmcj5MTfA8FTdjkQJj-JDg',
+					'api_userpassword' => '824SVG8UC4VKBHTG',
 			),
 			'box_mail_content' => $this->list_email(),
 

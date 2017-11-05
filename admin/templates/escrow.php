@@ -2,12 +2,12 @@
 
 $group_option = "escrow";
 $option = BX_Option::get_instance();
-$escrow = $option->get_escrow_setting($group_option);
+$escrow = $option->get_escrow_setting();
 $commision = (object) $escrow->commision;
-// echo '<pre>';
-// var_dump($escrow);
+ echo '<pre>';
+//var_dump($escrow);
 // var_dump($commision);
-// echo '</pre>';
+ echo '</pre>';
 
 ?>
 <div id="<?php echo $group_option;?>" class="main-group">
@@ -45,16 +45,67 @@ $commision = (object) $escrow->commision;
 </div>
 <?php
 $opt_credit = BX_Option::get_instance()->get_group_option('opt_credit');
+$active = 'credit';
+if( isset( $active ) && ! empty( $escrow->active ) ){
+	$active = $escrow->active;
+}
 
 ?>
-<div class="sub-section " id="opt_credit" >
-	<h2> <?php _e('Credit System','boxtheme');?> </h2> <br />
-   	<div class="sub-item" id="opt_credit">
-		<form style="max-width: 600px;">
-			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Number Credit Auto Deposit for new account','boxtheme');?></label>
-				<div class="col-md-8"><input class="form-control auto-save" type="number_credit_default" multi="0" value="<?php echo $opt_credit->number_credit_default;?>" name = "number_credit_default" id="number_credit_default"></div>
-			</div>
-		</form>
+
+	<div class="full">
+		<label class="form-label">Select the Eccrow system</label>
+		<select class="form-control auto-save" name="active">
+			<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
+			<option value="paypal_adaptive" <?php selected( $active,'paypal_adaptive' ) ?>>PayPal Adaptive</option>
+		</select>
+	</div>
+	<div class="sub-section " id="opt_credit" >
+
+		<h2> <?php _e('Credit System','boxtheme');?> </h2> <br />
+	   	<div class="sub-item" id="opt_credit">
+			<form style="max-width: 600px;">
+				<div class="form-group row">
+					<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Number Credit Auto Deposit for new account','boxtheme');?></label>
+					<div class="col-md-8"><input class="form-control auto-save" type="number_credit_default" multi="0" value="<?php echo $opt_credit->number_credit_default;?>" name = "number_credit_default" id="number_credit_default"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="main-group " id="paypal_adaptive" >
+		<?php
+		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
+
+
+		$api_appid = $api_userid = $app_signarute = $api_userpassword = '';
+
+		if( !empty( $paypal_adaptive ) ){
+			$api_appid = $paypal_adaptive->api_appid;
+			$api_userid = $paypal_adaptive->api_userid;
+			$app_signarute = $paypal_adaptive->app_signarute;
+			$api_userpassword = $paypal_adaptive->api_userpassword;
+		}
+
+		?>
+		<h2> <?php _e('PayPal Adaptive Settings','boxtheme');?> </h2> <br />
+	   	<div class="sub-item" id="opt_credit">
+			<form style="max-width: 600px;">
+				<div class="form-group row">
+					<label for="example-text-input" class="col-md-4 col-form-label">API User ID</label>
+					<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_userid;?>" name = "api_userid" id="api_userid"></div>
+				</div>
+				<div class="form-group row">
+					<label for="example-text-input" class="col-md-4 col-form-label">API Password</label>
+					<div class="col-md-8"><input class="form-control auto-save" type="api_userpassword" multi="0" value="<?php echo $api_userpassword;?>" name = "api_userpassword" id="api_userpassword"></div>
+				</div>
+				<div class="form-group row">
+					<label for="example-text-input" class="col-md-4 col-form-label">API Signarute</label>
+					<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $app_signarute;?>" name = "app_signarute" id="app_signarute"></div>
+				</div>
+				<div class="form-group row">
+					<label for="example-text-input" class="col-md-4 col-form-label">API App ID</label>
+					<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_appid;?>" name = "api_appid" id="api_appid"></div>
+				</div>
+			</form>
+		</div>
 	</div>
 </div>

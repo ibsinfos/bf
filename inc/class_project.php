@@ -137,77 +137,39 @@ Class BX_Project extends BX_Post{
 			$bid_id = $request['bid_id'];
 			$project_id = $request['project_id'];
 			$freelancer_id = $request['freelancer_id'];
-
-
 			$project = get_post($project_id);
 
 			$check = $this->check_before_award( $project, $freelancer_id );
 			if( is_wp_error( $check ) ){
 				return $check;
 			}
-			// check balance and deducts.
-
 			$employer_id = $project->post_author;
 			$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
-			$credit = BX_Credit::get_instance();
-			// perform the action deposite - transfer credit from employer to freelancer account.
-			$transfered = $credit->deposit( $bid_price, $project , $freelancer_id);
 
-			if ( is_wp_error($transfered) ){
-				return $transfered;
-			}
-			$request['ID'] = $project_id;
-			$request['post_status'] = AWARDED;
-			$request['meta_input'] = array(
-				WINNER_ID => $freelancer_id,
-				BID_ID_WIN => $bid_id,
+
+			$escrow =  BX_Option::get_instance()->get_escrow_setting();
+
+			$type = $escrow->active;
+			$response  = array('
+				success' => false,
+				'msg' => "fail",
 			);
+			// check balance and deducts.
+			switch ($type) {
+				case 'credit':
+					$response = BX_Credit::get_instance()->act_award();
+					break;
+				case 'paypal_adaptive':
+					$response = PP_Adaptive::get_instance()->act_award($freelancer_id, $bid_price, $project);
+					break;
 
-			$res = wp_update_post( $request );
-			if( $res ){
-
-				global $user_ID;
-				// create coversation
-				// update bid status to AWARDED
-				wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
-
-
-				$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
-				update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
-
-				// send message and email
-				$freelancer_id = $request['freelancer_id'];
-				$project_id = $request['project_id'];
-
-				Box_ActMail::get_instance()->award_job( $freelancer_id );
-
-
-				$cvs_id = is_sent_msg( $project_id, $freelancer_id );
-				$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
-
-				if ( ! $cvs_id ) {
-					$args  = array(
-						'project_id' => $project_id,
-						'receiver_id' => $freelancer_id,
-						'cvs_content' => $cvs_content,
-					);
-
-					BX_Conversations::get_instance()->insert($args);
-				} else {
-					$msg_arg = array(
-						'msg_content' 	=> $cvs_content,
-						'cvs_id' 		=> $cvs_id,
-						'receiver_id'=> $freelancer_id,
-						'sender_id' => $user_ID,
-						'msg_type' => 'message',
-					);
-
-					$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
-				}
-
-				return $res;
+				default:
+					# code...
+					break;
 			}
-			return new WP_Error( 'award_fail', __( "You don't permission to perform this action", "boxtheme" ) );
+			wp_send_json( $response);
+
+
 			//wp_update
 			// update post status and  freelancer of this project
 		} else if($action == 'review_fre'){

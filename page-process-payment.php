@@ -12,7 +12,7 @@ box_log($_POST);
 
 
 $order = BX_Order::get_instance()->get_order($order_id);
-if($type == 'cash'){
+if( $type == 'cash'){
 	global $user_ID;
 
 	$is_access = get_post_meta($order->ID,'is_access', true);

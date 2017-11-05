@@ -58,8 +58,8 @@
 	      		<!-- end test !-->
 	      		</div>
 	      		<div class="modal-footer">
-		        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
-		        <button type="submit" class="btn btn-primary upload-result">Save changes</button>
+		        <button type="button" class="btn btn-close" data-dismiss="modal"><?php _e('Close','boxtheme');?></button>
+		        <button type="submit" class="btn btn-primary upload-result"><?php _e('Save changes','boxtheme');?></button>
 		    	</div>
 		    </div>
 		</form>

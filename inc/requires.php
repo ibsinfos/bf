@@ -16,6 +16,7 @@ require get_parent_theme_file_path( '/inc/class_post.php' );
 
 require get_parent_theme_file_path( '/inc/payment/requires.php' );
 require get_parent_theme_file_path( '/inc/class_credit.php' );
+require get_parent_theme_file_path( '/inc/escrow/paypal_adaptive.php' );
 
 require get_parent_theme_file_path( '/inc/class_custom_type.php' );
 require get_parent_theme_file_path( '/inc/class_message.php' );

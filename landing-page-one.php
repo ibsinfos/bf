@@ -68,6 +68,115 @@ get_header(); ?>
 	</div>
 </div>
 <?php do_action('after_cover_img' );?>
+
+<?php
+
+$url = "https://svcs.sandbox.paypal.com/AdaptivePayments/Pay";
+$url .="?actionType=PAY_PRIMARY";     //#The PAY_PRIMARY action type delays payment to non-primary receivers
+$url .= "&clientDetails.applicationId=APP-80W284485P519543T";//     #Standard Sandbox App ID
+$url .="&clientDetails.ipAddress=127.0.0.1";     #Address from which request is sent
+$url .="&cyCode=USD";    #The currency, e.g. US dollars
+$url .="&feesPayer=EACHRECEIVER";
+$url .="&memo=Example";
+$url .="&receiverList.receiver(0).amount=25.00";    #The payment amount for the first receiver
+$url .="&receiverList.receiver(0).email=fre@employer.com";
+$url .="&receiverList.receiver(0).primary=true";    #Receiver designation (there can be only 1 primary receiver)
+$url .="&receiverList.receiver(1).amount=5.00";    #The payment amount for the second receiver
+$url .="&receiverList.receiver(1).email=fre@etteam.com";
+$url .="&receiverList.receiver(1).primary=false";
+$url .="&requestEnvelope.errorLanguage=en_US";
+$url .="&returnUrl=https://localhost/et/fb/";   #For use if the consumer proceeds with payment
+$url .="&cancelUrl=https://localhost/et/fb/";    #For use if the consumer decides not to proceed with payment
+
+$h1 = PP_Adaptive::get_instance()->get_headers();
+$body = array(
+			'actionType'=>'PAY_PRIMARY',
+			'clientDetails.applicationId'=>'APP-80W284485P519543T',
+			'clientDetails.ipAddress='=>'127.0.0.1',
+			'currencyCode'=>'USD',
+			'feesPayer'=>'EACHRECEIVER',
+			'receiverList.receiver(0).amount'=> '10',
+			'receiverList.receiver(0).email'=> 'employer@etteam.com',
+			'receiverList.receiver(0).primary'=> true,
+			'receiverList.receiver(1).amount'=> 5,
+			'receiverList.receiver(1).email'=> 'freelancer@etteam.com',
+			'receiverList.receiver(1).primary'=> false,
+			'requestEnvelope.errorLanguage'=>'US',
+			'returnUrl'=>'https://localhost/et/fb/',
+			'cancelUrl'=>'https://localhost/et/fb/',
+		);
+
+echo '<pre>';
+var_dump($h1);
+echo '</pre>';
+$pay = wp_remote_post(
+		'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
+		array(
+			'headers' => $h1,
+			'body' => $body,
+		)
+	);
+echo '<pre>';
+var_dump($pay['body']);
+echo '</pre>';
+
+
+$headers = array(
+	    	'X-PAYPAL-SECURITY-USERID' => 'employer_api1.etteam.com',
+	    	'X-PAYPAL-SECURITY-PASSWORD' =>'824SVG8UC4VKBHTG',
+	    	'X-PAYPAL-SECURITY-SIGNATURE' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31A34rWCcmcj5MTfA8FTdjkQJj-JDg',
+            'X-PAYPAL-REQUEST-DATA-FORMAT' => 'NV',
+            'X-PAYPAL-RESPONSE-DATA-FORMAT' => 'JSON',
+			'X-PAYPAL-APPLICATION-ID' => 'APP-80W284485P519543T' ,
+		);
+
+//$response->payKey;
+
+// $payKey = 'AP-49M7601829093745G';
+// $check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
+
+	// $detail = wp_remote_post(
+	// 	$check_endpoint,
+	// 	array(
+	// 		'headers' => $headers,
+	// 		'body' => array(
+	// 			'payKey' => $payKey,
+	// 			'requestEnvelope.errorLanguage'=>'en_US',
+	// 		)
+	// 	)
+	// );
+
+	// $release_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment';
+
+	// $release = wp_remote_post(
+	// 	$release_endpoint,
+	// 	array(
+	// 		'headers' => $headers,
+	// 		'body' => array(
+	// 			'payKey' => $payKey,
+	// 			'requestEnvelope.errorLanguage'=>'en_US',
+	// 		)
+	// 	)
+	// );
+
+echo '<pre>';
+//var_dump($release);
+//var_dump($release['body']);
+
+echo '</pre>';
+?>
+admin_api1.fretesting.com
+Password:
+H8T7QQQYNL93XMD9
+Signature:
+AFcWxV21C7fd0v3bYYYRCpSSRl31AzD-7IyMgZ892sv7xaYk7tBW0Vby
+
+<form action="<?php echo $url;?>" method="GET">
+	<label> Test</label>
+	<input type="text" name="test1223">
+	<button type="submit">Submit</button>
+</form>
+
 <?php get_template_part( 'static-block/one', 'how-we-work' );?>
 <?php get_template_part( 'static-block/one', 'why-us' );?>
 <?php get_template_part( 'static-block/one', 'package-plan' );?>

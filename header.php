@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -86,3 +87,4 @@ $role = bx_get_user_role();
 		</div>
 	</div>	<!-- .navigation-top -->
 </div>
+

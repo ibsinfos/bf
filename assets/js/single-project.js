@@ -309,11 +309,17 @@ var single_project = {
 	awardProject: function(event){
 		event.preventDefault();
 		var success = function(res){
-
+			console.log(res);
         	if ( res.success ){
 
-        		window.location.reload(true);
+        		if( res.url_redirect ){
+        			console.log('123');
+	        		window.location.href = res.url_redirect; // redirect to paypal to pay
+	        	} else {
+        			//window.location.reload(true);
+        		}
 	        } else {
+	        	console.log(res);
 
 	        	alert(res.msg);
 	        }
