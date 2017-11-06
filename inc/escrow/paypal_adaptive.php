@@ -186,8 +186,8 @@ class PP_Adaptive extends Box_Escrow{
 
       	$respond = array('success' => false, 'msg' =>'Failse');
       	try{
-      		$withdraw_info = BX_Credit::get_instance()->get_withdraw_info($frelancer_id);
-      		$fre_receive_email = trim($withdraw_info->paypal_email);
+
+      		$fre_receive_email = get_user_meta( $frelancer_id,  'paypal_email',false )
       		$respond  = $this->pay( $fre_receive_email, $emp_pay, $fre_receive, $project->ID);
       	} catch (Exception $e) {
       		$respond['msg'] = $e->getMessage();

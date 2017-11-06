@@ -316,7 +316,7 @@ class BX_AJAX {
 				'display_name' => $display_name,
 			);
 			$emp_id = wp_update_user($new_arrgs);
-			if ( !is_wp_error( $emp_id ) ){
+			if ( ! is_wp_error( $emp_id ) ){
 				// udate static location here;
 				$location = get_term( $country );
 				update_user_meta( $emp_id, 'location_txt', $location->name );
@@ -333,6 +333,7 @@ class BX_AJAX {
 		$response 	= array('success' => true, 'msg'=> __('You have updated profile successfull','boxtheme'), 'result' => $result);
 
 		if( is_wp_error( $result ) ){
+
 			$response = array('success' => false,'msg' =>$profile_id->get_error_message());
 
 		}

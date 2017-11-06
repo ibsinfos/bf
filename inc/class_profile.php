@@ -156,7 +156,7 @@ Class BX_Profile extends BX_Post{
 
 		$id = parent::update($args);
 
-		if( !is_wp_error($id)){
+		if( !is_wp_error( $id )){
 
 			if( isset($args['professional_title']) ){
 				update_post_meta( $id, 'professional_title', $args['professional_title'] );
@@ -171,6 +171,9 @@ Class BX_Profile extends BX_Post{
 			if( isset($args['user_email']) ){
 				// update user email of user
 				wp_update_user(array('ID' => $user_ID, 'user_email' => $args['user_email']) );
+			}
+			if( isset($args['paypal_email']) ){
+				update_user_meta( $user_ID, 'paypal_email', $args['paypal_email'] );
 			}
 
 		}

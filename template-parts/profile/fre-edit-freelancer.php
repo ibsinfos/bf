@@ -97,69 +97,85 @@
    		<div class="col-md-12 clear">
    				<h2> <?php _e('Profile info','boxtheme');?></h2>
 			<form id="update_profile_meta" class="update-profile row-section">
-			<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><?php _e('Edit','boxtheme');?></span>
-			<div class="form-group row hide">
-			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Email','boxtheme');?></label>
-			 	<div class="col-sm-9">
-			    <span class="visible-default"><?php echo $user_data->user_email ;?></span>
-			    <div class="invisible-default">
-			       <input type="text"  class="update form-control" value="<?php echo $user_data->user_email;?>" name="user_email">
-			    </div>
-			 </div>
-			</div>
+				<span class="btn-edit btn-edit-second"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><?php _e('Edit','boxtheme');?></span>
+				<div class="form-group row hide">
+				 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Email','boxtheme');?></label>
+				 	<div class="col-sm-9">
+				    <span class="visible-default"><?php echo $user_data->user_email ;?></span>
+				    <div class="invisible-default">
+				       <input type="text"  class="update form-control" value="<?php echo $user_data->user_email;?>" name="user_email">
+				    </div>
+				 </div>
+				</div>
 
-			<div class="form-group row">
-			 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
-			 	<div class="col-sm-9">
-			    <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
-			    <div class="invisible-default">
-			       <input type="number" min="1"  class="update form-control" value="<?php echo $profile->hour_rate;?>" name="hour_rate">
-			    </div>
-			 </div>
-			</div>
-			<div class="form-group row">
-			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Phone','boxtheme');?></label>
-			 <div class="col-sm-9">
-			    <span class="visible-default"><?php echo  $profile->phone_number ;?></span>
-			    <div class="invisible-default">
-			       <input type="text" class="update form-control " value="<?php echo $profile->phone_number;?>" name="phone_number">
-			    </div>
-			 </div>
-			</div>
-			<div class="form-group row">
-			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Address','boxtheme');?></label>
-			 <div class="col-sm-9">
-			    <span class="visible-default"><?php echo $profile->address ;?></span>
-			    <div class="invisible-default">
-			        <input type="text" class="update form-control" value="<?php echo $profile->address;?>" name="address">
-			    </div>
-			 </div>
-			</div>
+				<div class="form-group row">
+				 	<label for="country" class="col-sm-3 col-form-label"><?php _e('Hour rate','boxtheme');?></label>
+				 	<div class="col-sm-9">
+				    <span class="visible-default"><?php echo  $profile->hour_rate ;?></span>
+				    <div class="invisible-default">
+				       <input type="number" min="1"  class="update form-control" value="<?php echo $profile->hour_rate;?>" name="hour_rate">
+				    </div>
+				 </div>
+				</div>
+				<div class="form-group row">
+				 <label for="country" class="col-sm-3 col-form-label"><?php _e('Phone','boxtheme');?></label>
+				 <div class="col-sm-9">
+				    <span class="visible-default"><?php echo  $profile->phone_number ;?></span>
+				    <div class="invisible-default">
+				       <input type="text" class="update form-control " value="<?php echo $profile->phone_number;?>" name="phone_number">
+				    </div>
+				 </div>
+				</div>
+				<div class="form-group row">
+				 <label for="country" class="col-sm-3 col-form-label"><?php _e('Address','boxtheme');?></label>
+				 <div class="col-sm-9">
+				    <span class="visible-default"><?php echo $profile->address ;?></span>
+				    <div class="invisible-default">
+				        <input type="text" class="update form-control" value="<?php echo $profile->address;?>" name="address">
+				    </div>
+				 </div>
+				</div>
 
 
-			<div class="form-group row">
-			 <label for="country" class="col-sm-3 col-xs-12 col-form-label"><?php _e('Country','boxtheme');?></label>
-			 <div class="col-sm-9 set-relative">
-			    <span class="visible-default"><?php echo !empty($txt_country) ? $txt_country : __('Unset','boxtheme');?></span>
-			    <div class="chosen-edit-wrap">
-			       <?php echo $country_select;?>
-			    </div>
-			 </div>
-			</div>
-			<div class="form-group row">
-			 <label for="country" class="col-sm-3 col-form-label"><?php _e('Skill','boxtheme');?></label>
-			 <div class="col-sm-9 set-relative">
-			    <span class="visible-default"><?php echo  $skill_val ;?></span>
-			    <div class="chosen-edit-wrap">  <?php echo $skill_list;?></div>
-			 </div>
-			 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
-			</div>
+				<div class="form-group row">
+				 <label for="country" class="col-sm-3 col-xs-12 col-form-label"><?php _e('Country','boxtheme');?></label>
+				 <div class="col-sm-9 set-relative">
+				    <span class="visible-default"><?php echo !empty($txt_country) ? $txt_country : __('Unset','boxtheme');?></span>
+				    <div class="chosen-edit-wrap">
+				       <?php echo $country_select;?>
+				    </div>
+				 </div>
+				</div>
+				<div class="form-group row">
+					 <label for="country" class="col-sm-3 col-form-label"><?php _e('Skill','boxtheme');?></label>
+					 <div class="col-sm-9 set-relative">
+					    <span class="visible-default"><?php echo  $skill_val ;?></span>
+					    <div class="chosen-edit-wrap">  <?php echo $skill_list;?></div>
+					 </div>
+					 <input type="hidden" name="ID" value="<?php echo $profile_id;?>" >
+				</div>
+				<?php
+				global $escrow;
 
-			<div class="form-group row invisible-default">
-			 <div class="offset-sm-10 col-sm-12 align-right">
-			   <button type="submit" class="btn btn-primary"> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
-			 </div>
-			</div>
+				if( $escrow->active == 'paypal_adaptive'){
+					$paypal_email = get_user_meta($user_ID, 'paypal_email', true);
+					?>
+				<div class="form-group row">
+				 <label for="country" class="col-sm-3 col-form-label"><?php _e('PayPal Email','boxtheme');?></label>
+				 <div class="col-sm-9">
+				    <span class="visible-default"><?php echo $paypal_email ;?></span>
+				    <div class="invisible-default">
+				        <input type="email" class="update form-control" value="<?php echo $paypal_email;?>" name="paypal_email">
+				    </div>
+				 </div>
+				</div>
+				<?php } ?>
+
+				<div class="form-group row invisible-default">
+				 <div class="offset-sm-10 col-sm-12 align-right">
+				   <button type="submit" class="btn btn-primary"> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
+				 </div>
+				</div>
 
 			</form>
 		</div>
