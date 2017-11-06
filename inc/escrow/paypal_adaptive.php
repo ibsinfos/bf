@@ -213,14 +213,14 @@ class PP_Adaptive extends Box_Escrow{
 			if( !is_wp_error( $trans_status ) ){
 				if( $trans_status == 'INCOMPLETE' ){
 					//'Fund is paid but receiver not receive - holding in system';
-					$this->perform_after_deposit( $project_id);
+					$this->do_after_deposit( $project_id);
 				}
 			}
 
 		}
 	}
 
-	function perform_after_deposit($project_id){
+	function do_after_deposit($project_id){
 
 		global $user_ID;
 		$project = get_post($project_id);
