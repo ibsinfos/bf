@@ -220,6 +220,40 @@ class PP_Adaptive extends Box_Escrow{
 		$this->excutePayment($paykey);
 		$this->perform_after_release();
 	}
+	function perform_after_deposit($bid_id, $project_id){
+
+		global $user_ID;
+		$project = get_post($project_id);
+		if( $project ){
+
+			$employer_id = $project->post_author;
+
+			$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+
+			$pay_info = box_get_pay_info( $bid_price );
+	      	$emp_pay = $pay_info->emp_pay;
+
+
+
+			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
+			update_user_meta( $employer_id, 'total_spent', $total_spent );
+
+			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
+			update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
+
+			$bid = get_post($bid_id);
+			$request['post_status'] = AWARDED;
+			$request['meta_input'] = array(
+				WINNER_ID => $bid->post_author,
+				BID_ID_WIN => $bid_id,
+			);
+			$res = wp_update_post( $request );
+			$freelancer_id = $bid->post_author;
+
+			$this->send_mail_noti_award( $project_id, $freelancer_id )
+		}
+
+	}
 
 }
 // freelancer@etteam.com

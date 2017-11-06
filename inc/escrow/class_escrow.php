@@ -45,32 +45,7 @@ Class Box_Escrow{
 			// update bid status to AWARDED
 			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
 
-			Box_ActMail::get_instance()->award_job( $freelancer_id );
-
-			$cvs_id = is_sent_msg( $project_id, $freelancer_id );
-			$request = $_REQUEST['request'];
-			$cvs_content = isset( $request['cvs_content'])? $request['cvs_content']: '';
-
-			if ( ! $cvs_id ) {
-				$args  = array(
-					'project_id' => $project_id,
-					'receiver_id' => $freelancer_id,
-					'cvs_content' => $cvs_content,
-				);
-
-				BX_Conversations::get_instance()->insert($args);
-
-			} else {
-				$msg_arg = array(
-					'msg_content' 	=> $cvs_content,
-					'cvs_id' 		=> $cvs_id,
-					'receiver_id'=> $freelancer_id,
-					'sender_id' => $user_ID,
-					'msg_type' => 'message',
-				);
-
-				$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
-			}
+			$this->send_mail_noti_award($project_id, $freelancer_id);
 
 			return $res;
 		}
@@ -79,5 +54,34 @@ Class Box_Escrow{
 	function perform_after_release(){
 		//update bid status;
 		//update user meta job_hired, total_spend, rating/review.
+	}
+	function send_mail_noti_award( $project_id, $freelancer_id){
+
+		Box_ActMail::get_instance()->award_job( $freelancer_id );
+		$cvs_content = isset( $request['cvs_content'])? $request['cvs_content']: '';
+		$cvs_id = is_sent_msg( $project_id, $freelancer_id );
+		$request = $_REQUEST['request'];
+
+
+		if ( ! $cvs_id ) {
+			$args  = array(
+				'project_id' => $project_id,
+				'receiver_id' => $freelancer_id,
+				'cvs_content' => $cvs_content,
+			);
+
+			BX_Conversations::get_instance()->insert($args);
+
+		} else {
+			$msg_arg = array(
+				'msg_content' 	=> $cvs_content,
+				'cvs_id' 		=> $cvs_id,
+				'receiver_id'=> $freelancer_id,
+				'sender_id' => $user_ID,
+				'msg_type' => 'message',
+			);
+
+			$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
+		}
 	}
 }
