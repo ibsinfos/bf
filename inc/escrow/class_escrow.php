@@ -20,8 +20,8 @@ Class Box_Escrow{
 			WINNER_ID => $freelancer_id,
 			BID_ID_WIN => $bid_id,
 		);
-
 		$res = wp_update_post( $request );
+
 		if( $res ){
 
 			global $user_ID;

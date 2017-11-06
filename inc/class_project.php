@@ -148,9 +148,9 @@ Class BX_Project extends BX_Post{
 
 			$escrow =  BX_Option::get_instance()->get_escrow_setting();
 			$type = $escrow->active;
-			$respond  = array('
-				success' => false,
-				'msg' => "fail",
+			$respond  = array(
+				'success' => true,
+				'msg' => __('Assign job successful.','boxtheme'),
 			);
 			// check balance and deducts.
 			switch ($type) {
@@ -160,13 +160,13 @@ Class BX_Project extends BX_Post{
 				case 'paypal_adaptive':
 					$response = PP_Adaptive::get_instance()->act_award( $bid_id, $freelancer_id,  $project );
 					break;
-
 				default:
 					# code...
 					break;
 			}
 
 			if( is_wp_error( $response ) ){
+				$respond['success'] = false;
 				$respond['msg'] = $response->get_error_message();
 			}
 			wp_send_json( $respond);

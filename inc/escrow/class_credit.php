@@ -74,8 +74,8 @@ Class BX_Credit extends Box_Escrow {
 		if ( is_wp_error($transfered) ){
 			return $transfered;
 		}
-		return $this->perform_after_deposit( $bid_id, $freelancer_id,  $project );
 
+		return $this->perform_after_deposit( $bid_id, $freelancer_id,  $project );
 	}
 	function undeposit( $employer_id, $bid_price, $project_id = 0 ) {
 

@@ -313,10 +313,9 @@ var single_project = {
         	if ( res.success ){
 
         		if( res.url_redirect ){
-        			console.log('123');
 	        		window.location.href = res.url_redirect; // redirect to paypal to pay
 	        	} else {
-        			//window.location.reload(true);
+        			window.location.reload(true);
         		}
 	        } else {
 	        	console.log(res);
