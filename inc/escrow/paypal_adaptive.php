@@ -28,12 +28,11 @@ class PP_Adaptive extends Box_Escrow{
 
 	function __construct(){
 		self::$return_url = add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
-		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
-
 		$this->sandbox_mode = 1;
 
+		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
 		if( isset( $paypal_adaptive->sandbox_mode ) )
-			$this->sandbox_mode = $paypal_adaptive->$sandbox_mode;
+			$this->sandbox_mode = (int) $paypal_adaptive->sandbox_mode;
 
 		if($this->sandbox_mode ){
 			$this->api_userid = $paypal_adaptive->api_userid_sandbox;
@@ -198,6 +197,7 @@ class PP_Adaptive extends Box_Escrow{
       	if( ! is_wp_error( $respond ) ){
 
 	      	$res = json_decode($respond['body']);
+
 			if ( !empty( $res->payKey ) ) {
 				//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
 				//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);

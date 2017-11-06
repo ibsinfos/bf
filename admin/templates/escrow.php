@@ -81,7 +81,7 @@ if( $active == 'paypal_adaptive'){
 </div>
 <div class="main-group <?php echo $hide_pp;?>" id="paypal_adaptive" >
 	<?php
-	$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
+
 
 
 	$api_appid = $api_userid = $app_signarute = $api_userpassword = '';
@@ -90,6 +90,7 @@ if( $active == 'paypal_adaptive'){
 	$api_userid_name = 'api_userid_sandbox';
 	$app_signarute_name = 'app_signarute_sandbox';
 	$api_userpassword_name = 'api_userpassword_sandbox';
+	$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
 
 	if( ! empty( $paypal_adaptive ) ){
 		if(  isset( $paypal_adaptive->pp_sandbox_mode) )
