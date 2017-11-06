@@ -32,10 +32,10 @@ class PP_Adaptive extends Box_Escrow{
     	return static::$instance;
 	}
 	protected function getEndPoint($operation)	{
-		return ($this->sandbox ? static::SANDBOX_END_POINT : static::LIVE_END_POINT) . $operation;
+		return ($this->sandbox_mode ? static::SANDBOX_END_POINT : static::LIVE_END_POINT) . $operation;
 	}
 	protected function getWebScrUrl(){
-		return $this->sandbox ? static::SANDBOX_WEBSCR_URL : static::LIVE_WEBSCR_URL;
+		return $this->sandbox_mode ? static::SANDBOX_WEBSCR_URL : static::LIVE_WEBSCR_URL;
 	}
 	function get_headers(){
 
