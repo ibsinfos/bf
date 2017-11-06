@@ -206,20 +206,18 @@ class PP_Adaptive extends Box_Escrow{
 			box_log($trans_status);
 			if( !is_wp_error( $trans_status ) ){
 				if( $trans_status == 'INCOMPLETE' ){
-					//'Fund is paid but receiver not receive';
+					//'Fund is paid but receiver not receive - holding in system';
 					$this->perform_after_deposit( $project_id);
-				} else{
-					var_dump($trans_status);
 				}
 			}
 
 		}
 	}
-	function release($project_id){
-		$paykey = get_post_meta( $project_id, 'pp_paykey', true);
-		$this->excutePayment($paykey);
-		$this->perform_after_release();
-	}
+	// function release($project_id){
+	// 	$paykey = get_post_meta( $project_id, 'pp_paykey', true);
+	// 	$this->excutePayment($paykey);
+	// 	$this->perform_after_release();
+	// }
 	function perform_after_deposit($project_id){
 
 		global $user_ID;
@@ -256,77 +254,29 @@ class PP_Adaptive extends Box_Escrow{
 		}
 
 	}
-	function emp_mark_as_complete(){
+	function emp_mark_as_complete($request){
 		// release and insert review;
 		$request['ID'] = $request['project_id'];
 		$request['post_status'] = DONE;
 		$check = $this->check_before_emp_review($request);
+
+
 		if ( is_wp_error($check) ){
 			return $check;
 		}
-		$project_id = wp_update_post($request);
+		$pp_paykey = get_post_meta($project_id,'pp_paykey', true);
+		try{
 
-		if( !is_wp_error($project_id) ){
+			$release = $this->excutePayment($paykey);
+		} catch (Exception $e){
+			wp_die($e);
+		}
+		if( !is_wp_error( $release ) && $release->paymentExecStatus == 'COMPLETED' ){
 
-			global $current_user;
-			$bid_win_id = get_post_meta($project_id, BID_ID_WIN, true);
-			$review_msg = $request[REVIEW_MSG];
-			$rating_score = (int) $request[RATING_SCORE];
-			if($rating_score > 5){
-				$rating_score = 5;
-			}
-			if( $rating_score < 1 ) {
-				$rating_score = 1;
-			}
-			//$project = get_post($project_id);
+			$project_id = wp_update_post($request);
+			if( !is_wp_error($project_id) ){
 
-			$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
-
-			$bid_price 	= (float) get_post_meta($bid_win_id, BID_PRICE, true);
-
-			$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
-
-			$emp_pay = $bid_price;
-			$amout_fre_receive = $bid_price - $commision_fee;
-
-			$project_worked = (int) get_user_meta( $winner_id, PROJECTS_WORKED, true) + 1;
-			$earned = (float) get_user_meta( $winner_id,EARNED, true) + $amout_fre_receive;
-
-
-			update_user_meta( $winner_id, PROJECTS_WORKED , $project_worked );
-
-			update_user_meta( $winner_id, EARNED , $earned);
-
-
-			$pp_paykey = get_posst_meta($project_id,'pp_paykey', true);
-			//release the fund.
-			$this->excutePayment($paykey);
-
-			$bid_args = array(
-				'ID' 	=> $bid_win_id,
-				'post_status' => DONE,
-
-			);
-			$bid = wp_update_post( $bid_args);
-
-			$current_user = wp_get_current_user();
-			$time = current_time('mysql');
-			$data = array(
-			    'comment_post_ID' => $bid_win_id,
-			    'comment_author' => $current_user->user_login,
-			    'comment_author_email' => $current_user->user_email,
-			    'comment_content' => $review_msg,
-			    'comment_type' => 'emp_review',
-			    'comment_approved' => 1,
-			    'user_id' => $winner_id,
-			    'comment_date' => $time,
-			);
-
-			$cmn_id = wp_insert_comment($data);
-			if( !is_wp_error($cmn_id)){
-				add_comment_meta($cmn_id, RATING_SCORE, $rating_score);
-				$rating_score = count_rating($winner_id);
-				update_user_meta($winner_id,RATING_SCORE,$rating_score);
+				$this->mark_as_complete($project_id, $request);
 			}
 		}
 	}
