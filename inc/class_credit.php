@@ -343,7 +343,7 @@ Class BX_Credit {
 		}
 		return (object) get_user_meta( $user_id, 'withdraw_info', true );
 	}
-	function act_award(){
+	function act_award( $bid_price, $project , $freelancer_id){
 		$transfered = $this->deposit( $bid_price, $project , $freelancer_id);
 		if ( is_wp_error($transfered) ){
 			return $transfered;

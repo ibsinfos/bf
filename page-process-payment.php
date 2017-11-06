@@ -25,9 +25,10 @@ if( $type == 'cash'){
 } else {
 	if( $type == 'pp_adaptive' ){
 		box_log($_REQUEST);
-		$project_id = $_REQUEST['project_id'];
+		$project_id = isset($_GET['project_id']) ? $_GET['project_id'] : 0;
+		box_log('$_GET["project_id"] : '.$project_id);
 		if( $project_id ){
-			PP_Adaptive::get_instance()->award_complete($project_id);
+			PP_Adaptive::get_instance()->award_complete( $project_id );
 		}
 
 	} else {

@@ -157,10 +157,10 @@ Class BX_Project extends BX_Post{
 			// check balance and deducts.
 			switch ($type) {
 				case 'credit':
-					$response = BX_Credit::get_instance()->act_award();
+					$response = BX_Credit::get_instance()->act_award($bid_price, $project , $freelancer_id );
 					break;
 				case 'paypal_adaptive':
-					$response = PP_Adaptive::get_instance()->act_award($freelancer_id, $bid_price, $project);
+					$response = PP_Adaptive::get_instance()->act_award( $freelancer_id, $bid_price, $project);
 					break;
 
 				default:

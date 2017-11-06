@@ -11,7 +11,7 @@ Primary Receiver Amount = $100.00
 Secondary Receiver Amount = $50.00
 Secondary Receiver Amount = $30.00
 */
-class PP_Adaptive{
+class PP_Adaptive extends Box_Escrow{
 	static $return_url;
 	static $paypal_adaptive;
 	static $instance;
@@ -42,8 +42,12 @@ class PP_Adaptive{
 		return $headers;
 	}
 	function get_body( $fre_receive_email, $emp_pay, $fre_receive ,$project_id ){
+		$process_payment = box_get_static_link('process-payment');
 
-		$return_url =  add_query_arg('project_id',$project_id, self::$return_url);
+		$return_url =  add_query_arg( array(
+			'type' =>'pp_adaptive',
+			'project_id' =>$project_id
+		), esc_url( $process_payment) );
 
 		return array(
 			'actionType'=>'PAY_PRIMARY',
@@ -58,8 +62,8 @@ class PP_Adaptive{
 			'receiverList.receiver(1).email'=> $fre_receive_email,
 			'receiverList.receiver(1).primary'=> false,
 			'requestEnvelope.errorLanguage'=>'US',
-			'returnUrl'=>esc_url($return_url),
-			'cancelUrl'=>esc_url($return_url),
+			'returnUrl'=>$return_url,
+			'cancelUrl'=>$return_url,
 		);
 
 	}
@@ -131,8 +135,8 @@ class PP_Adaptive{
 
 	}
 
-	function act_award($frelancer_id, $bid_price, $project ){
-
+	function act_award( $frelancer_id, $bid_price, $project ){
+		//var_dump($project->ID);
 		$freelancer = get_userdata($frelancer_id);
 
 		$pay_info = box_get_pay_info( $bid_price );
@@ -163,16 +167,16 @@ class PP_Adaptive{
 					'payKey' => $res->payKey,
 					'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
 				);
-				$detail = $this->check_status_via_paykey($res->payKey);
-
-				update_post_meta( $project->ID, 'pp_payKey', $res->payKey );
+				box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
+				$t = update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
+				box_log("update return: ".$t);
 				return  $response;
 			}
 		}
 		return $respond;
 	}
 
-	function get_trans_status_via_paykey( $payKey ){
+	function get_trans_status_via_paykey( $paykey ){
 		 $check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
 
 		$detail = wp_remote_post(
@@ -180,7 +184,7 @@ class PP_Adaptive{
 			array(
 				'headers' => $this->get_headers(),
 				'body' => array(
-					'payKey' => $payKey,
+					'payKey' => $paykey,
 					'requestEnvelope.errorLanguage'=>'en_US',
 				)
 			)
@@ -191,16 +195,28 @@ class PP_Adaptive{
 		}
 		return $detail;
 	}
-	function award_complete($product_id ){
-		$paykey = get_post_meta( $product_id, 'pp_payKey', false);
+	function award_complete($project_id ){
+		box_log("Project ID: ".$project_id);
+		$paykey = get_post_meta( $project_id, 'pp_paykey', true);
+		box_log("pp_paykey in db: ".$paykey);
 		if( $paykey ){
 			$trans_status = $this->get_trans_status_via_paykey($paykey);
+			box_log($trans_status);
 			if( !is_wp_error( $trans_status ) ){
-				if( $trans_status == 'COMPLETED' ){
-					// the fund is paid and perform award job here.
+				if( $trans_status == 'INCOMPLETE ' ){
+					//'Fund is paid but receiver not receive';
+					$this->perform_after_assign($project_id);
+				} else{
+					var_dump($trans_status);
 				}
 			}
+			var_dump($trans_status);
 		}
+	}
+	function release($project_id){
+		$paykey = get_post_meta( $project_id, 'pp_paykey', true);
+		$this->excutePayment($paykey);
+		$this->perform_after_release();
 	}
 
 }
