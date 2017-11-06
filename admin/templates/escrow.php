@@ -46,7 +46,7 @@ $commision = (object) $escrow->commision;
 <?php
 $opt_credit = BX_Option::get_instance()->get_group_option('opt_credit');
 $active = 'credit';
-if( isset( $active ) && ! empty( $escrow->active ) ){
+if( isset( $escrow->active ) ){
 	$active = $escrow->active;
 }
 
