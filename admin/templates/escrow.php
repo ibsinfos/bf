@@ -98,6 +98,7 @@ if( $active == 'paypal_adaptive'){
 		if( $pp_sandbox_mode ){
 
 			$api_appid = $paypal_adaptive->api_appid_sandbox;
+			$api_appid = 'APP-80W284485P519543T';
 			$api_userid = $paypal_adaptive->api_userid_sandbox;
 			$app_signarute = $paypal_adaptive->app_signarute_sandbox;
 			$api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
@@ -141,7 +142,7 @@ if( $active == 'paypal_adaptive'){
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API App ID</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" <?php if($pp_sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
 			</div>
 		</form>
 	</div>

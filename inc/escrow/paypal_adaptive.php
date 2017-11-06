@@ -39,7 +39,7 @@ class PP_Adaptive extends Box_Escrow{
 			$this->api_userid = $paypal_adaptive->api_userid_sandbox;
 			$this->api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
 			$this->app_signarute = $paypal_adaptive->app_signarute_sandbox;
-			$this->api_appid = $paypal_adaptive->api_appid_sandbox;
+			$this->api_appid = 'APP-80W284485P519543T';
 		} else {
 			$this->api_userid = $paypal_adaptive->api_userid;
 			$this->api_userpassword = $paypal_adaptive->api_userpassword;
