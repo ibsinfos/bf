@@ -132,19 +132,22 @@ $headers = array(
 
 //$response->payKey;
 
-// $payKey = 'AP-49M7601829093745G';
-// $check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
+	$payKey = 'AP-49M7601829093745G';
+	$check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
 
-	// $detail = wp_remote_post(
-	// 	$check_endpoint,
-	// 	array(
-	// 		'headers' => $headers,
-	// 		'body' => array(
-	// 			'payKey' => $payKey,
-	// 			'requestEnvelope.errorLanguage'=>'en_US',
-	// 		)
-	// 	)
-	// );
+	$detail = wp_remote_post(
+		$check_endpoint,
+		array(
+			'headers' => $headers,
+			'body' => array(
+				'payKey' => $payKey,
+				'requestEnvelope.errorLanguage'=>'en_US',
+			)
+		)
+	);
+	echo '<pre>';
+	var_dump($detail);
+	echo '</pre>';
 
 	// $release_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment';
 

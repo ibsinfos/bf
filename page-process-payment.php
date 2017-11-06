@@ -23,8 +23,13 @@ if( $type == 'cash'){
 		update_post_meta($order->ID,'is_access', 1);
 	}
 } else {
-	if($type == 'pp_adaptive'){
+	if( $type == 'pp_adaptive' ){
 		box_log($_REQUEST);
+		$project_id = $_REQUEST['project_id'];
+		if( $project_id ){
+			PP_Adaptive::get_instance()->award_complete($project_id);
+		}
+
 	} else {
 		$verified = BX_Paypal::get_instance()->verifyIPN();
 		if ($verified) {
