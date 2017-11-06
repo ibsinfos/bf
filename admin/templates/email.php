@@ -9,11 +9,15 @@ $box_mail = (object)$option->get_mailing_setting();
 $list = $option->list_email();
 
 $label = array(
-	'new_account' =>'New account register',
-	'new_job' => 'New project',
+	'new_account_confirm' =>'New account register',
+	'verified_success' => 'Verified success',
+	'new_account_noti' => 'new_account_noti',
+	'reset_password' => 'reset_password',
+ 	'new_job' => 'Has New project',
 	'new_bidding' => 'New bidding',
+	'new_converstaion' => 'Has new conversation',
+	'new_message' => 'New message',
 	'assign_job' => 'Assign job',
-	'new_message' => "New Message",
 	'request_withdrawal' => __('New withdrawal request','boxtheme'),
 );
 $settings = array(
@@ -38,6 +42,7 @@ $settings = array(
        		<?php
        		foreach ($list as $key=> $email) {
        			$mail = (object)$email;
+
        			$edit_link = add_query_arg('name',$key, $email_link);
        			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="'.$edit_link.'" class="btn-config"><i class="fa fa-cog" aria-hidden="true"></i></a></td></tr>';
        			echo '<tr class="tr-config-cotent hide"> <td colspan = "4" class="td-config-content">';

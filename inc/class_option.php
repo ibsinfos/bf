@@ -157,6 +157,7 @@ class BX_Option {
 				'content' =>	'<p>Hello administrator,</p> <p>This email to let you know that has a new register in <i> #blog_name </i> site.</p><p>Here are the detail:<br />Username: <strong>#user_login</strong>.<br />Email: <strong>#user_email</strong>.</p>Sincerely,'
 			),
 			'reset_password' => array(
+				'receiver' => 'User request',
 				'content' =>  '<p>Hi #display_name,</p><p><a href="#home_url">#blog_name</a> has received a request to reset the password for your account. If you did not request to reset your password, please ignore this email.</p>
 						<p>Click <a href="#reset_link"> here </a> to reset your password now.</p><p>Regards,</p>',
 				'subject' => __('Reset password at #blog_name','boxtheme'),
