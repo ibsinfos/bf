@@ -1,7 +1,7 @@
 <?php
 /**
- * document: https://developer.paypal.com/docs/classic/adaptive-payments/ht_ap-delayedChainedPayment-curl-etc/
-
+ * https://developer.paypal.com/docs/classic/adaptive-payments/ht_ap-delayedChainedPayment-curl-etc/
+ * https://github.com/uestla/PayPal-API/blob/master/API/AdaptivePayments.php
 accepted
 Sounds like you just have the amounts wrong. When working with chained payments the primary receiver amount should be the total amount of all payments. Then the secondary amounts would just be what they are supposed to get.
 
@@ -15,6 +15,11 @@ class PP_Adaptive extends Box_Escrow{
 	static $return_url;
 	static $paypal_adaptive;
 	static $instance;
+	const SANDBOX_END_POINT = 'https://svcs.sandbox.paypal.com/AdaptivePayments/';
+	const SANDBOX_WEBSCR_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
+	const SANDBOX_APP_ID = 'APP-80W284485P519543T';
+	const LIVE_END_POINT = 'https://svcs.paypal.com/AdaptivePayments/';
+	const LIVE_WEBSCR_URL = 'https://www.paypal.com/cgi-bin/webscr';
 
 	function __construct(){
 		self::$return_url = add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
@@ -26,8 +31,11 @@ class PP_Adaptive extends Box_Escrow{
     	}
     	return static::$instance;
 	}
-	function return_url(){
-
+	protected function getEndPoint($operation)	{
+		return ($this->sandbox ? static::SANDBOX_END_POINT : static::LIVE_END_POINT) . $operation;
+	}
+	protected function getWebScrUrl(){
+		return $this->sandbox ? static::SANDBOX_WEBSCR_URL : static::LIVE_WEBSCR_URL;
 	}
 	function get_headers(){
 
