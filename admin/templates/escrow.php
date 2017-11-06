@@ -14,7 +14,7 @@ $commision = (object) $escrow->commision;
 	<div class="sub-section " id="commision" >
 		<h2> <?php _e('Config Escrow system','boxtheme');?> </h2> <br />
 	   	<div class="sub-item" id="commision">
-			<form style="max-width: 700px;">
+			<form style="max-width: 900px;">
 				<div class="form-group row">
 					<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Commision','boxtheme');?></label>
 					<div class="col-md-8"><input class="form-control auto-save" type="number" value="<?php echo $commision->number;?>" name = "number" min="1"  level="1" step="any" id="example-text-input"></div>
@@ -60,7 +60,7 @@ if( $active == 'paypal_adaptive'){
 
 ?>
 
-<div id="<?php echo $group_option;?>" class="main-group "  style="max-width: 700px;">
+<div id="<?php echo $group_option;?>" class="main-group "  style="max-width: 900px;">
 	<h2> <?php _e('Select the Eccrow system','boxtheme');?> </h2>
 	<select class="form-control auto-save" name="active">
 		<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
@@ -71,7 +71,7 @@ if( $active == 'paypal_adaptive'){
 
 	<h2> <?php _e('Credit System','boxtheme');?> </h2>
    	<div class="sub-item" id="opt_credit">
-		<form style="max-width: 700px;">
+		<form style="max-width: 900px;">
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('Number Credit Auto Deposit for new account','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="number_credit_default" multi="0" value="<?php echo $opt_credit->number_credit_default;?>" name = "number_credit_default" id="number_credit_default"></div>
@@ -121,7 +121,7 @@ if( $active == 'paypal_adaptive'){
 	?>
 
    	<div class="sub-item" id="paypal_adaptive">
-		<form style="max-width: 700px; padding-top: 50px;">
+		<form style="max-width: 900px; padding-top: 50px;">
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><h2>Sandbox mode </h2></label>
 				<div class="col-md-8" style="padding-top: 15px;"><?php bx_swap_button('paypal_adaptive','pp_sandbox_mode', $pp_sandbox_mode, 0);?></div>
