@@ -9,7 +9,12 @@
 	//$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
 	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('publish','pending','disputing','resolved','done','awarded');
 	$loadmore = false;
-	$link =  box_get_static_link('dashboard');  ?>
+	$link =  box_get_static_link('dashboard');
+	$check = $status;
+	if( is_array($status) )
+		$check = 'any';
+
+	?>
 
 	<ul class="db-list-project">
 		<li class="heading list-style-none full">
@@ -19,13 +24,13 @@
 			<div class="col-md-2 pull-right">
 				<form class="pull-right full dashboard-filter">
 					<select class="form-control">
-						<option <?php selected( $status, 'any' ); ?>  value="<?php echo $link;?>"> <?php _e('All Status','boxtheme');?></option>
-						<option <?php selected( $status, 'publish' ); ?> value="<?php echo add_query_arg('status','publish', $link);?>"> Publish</option>
-						<option <?php selected( $status, 'pending' ); ?>  value="<?php echo add_query_arg('status','pending', $link);?>"> Pending</option>
-						<option <?php selected( $status, 'awarded' ); ?>  value="<?php echo add_query_arg('status','awarded', $link);?>"> Working</option>
-						<option <?php selected( $status, 'done' ); ?>  value="<?php echo add_query_arg('status','done', $link);?>"> Done</option>
-						<option <?php selected( $status, 'disputing' ); ?>  value="<?php echo add_query_arg('status','disputing', $link);?>"> Disputing/Resolved</option>
-						<option <?php selected( $status, 'archived' ); ?>  value="<?php echo add_query_arg('status','archived', $link);?>"> Archived</option>
+						<option <?php selected( $check, 'any' ); ?>  value="<?php echo $link;?>"> <?php _e('All Status','boxtheme');?></option>
+						<option <?php selected( $check, 'publish' ); ?> value="<?php echo add_query_arg('status','publish', $link);?>"> Publish</option>
+						<option <?php selected( $check, 'pending' ); ?>  value="<?php echo add_query_arg('status','pending', $link);?>"> Pending</option>
+						<option <?php selected( $check, 'awarded' ); ?>  value="<?php echo add_query_arg('status','awarded', $link);?>"> Working</option>
+						<option <?php selected( $check, 'done' ); ?>  value="<?php echo add_query_arg('status','done', $link);?>"> Done</option>
+						<option <?php selected( $check, 'disputing' ); ?>  value="<?php echo add_query_arg('status','disputing', $link);?>"> Disputing/Resolved</option>
+						<option <?php selected( $check, 'archived' ); ?>  value="<?php echo add_query_arg('status','archived', $link);?>"> Archived</option>
 					</select>
 				</form>
 			</div>
