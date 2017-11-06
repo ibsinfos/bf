@@ -5,11 +5,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 function setup_enroviment() {
 
 	BX_User::add_role();
-	global $box_general, $box_currency, $app_api, $checkout_mode;
+	global $box_general, $box_currency, $app_api, $checkout_mode, $escrow;
 	$box_general = BX_Option::get_instance()->get_general_option(); // return not an object - arrray.
 	$box_currency = (OBJECT) BX_Option::get_instance()->get_currency_option($box_general);
 	$app_api = (OBJECT) BX_Option::get_instance()->get_app_api_option($box_general);
 	$checkout_mode = (int) $box_general->checkout_mode; // 0 - sandbox. 1- real
+
+	$escrow = (object) BX_Option::get_instance()->get_escrow_setting();
+
 }
 add_action( 'after_setup_theme','setup_enroviment');
 function bx_pre_get_filter( $query ) {
