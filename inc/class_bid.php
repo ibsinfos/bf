@@ -113,6 +113,14 @@ class BX_Bid extends BX_Post{
 		if( $this->has_bid_on_project($project_id) && empty($args['update']) ){
 			return new WP_Error( 'exists', __( "You've bid on this project", "boxtheme" ) );
 		}
+		global $escrow;
+		if( $escrow->activate == 'paypal_adaptive' ){
+			$pp_email = get_user_meta( $user_id, 'paypal_email', true );
+			if( empty($pp_email) || ! is_email( $pp_email) ){
+				return new WP_Error( 'empty_ppmail', __( "Please set your PayPal email.", "boxtheme" ) );
+			}
+		}
+
 		$project = get_post( $project_id );
 		if( $project->post_status == 'publish' && $project->post_author != $user_id ) {
 			// project is publish.
