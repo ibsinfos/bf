@@ -146,11 +146,9 @@ Class BX_Project extends BX_Post{
 			$employer_id = $project->post_author;
 
 
-
 			$escrow =  BX_Option::get_instance()->get_escrow_setting();
-
 			$type = $escrow->active;
-			$response  = array('
+			$respond  = array('
 				success' => false,
 				'msg' => "fail",
 			);
@@ -167,7 +165,11 @@ Class BX_Project extends BX_Post{
 					# code...
 					break;
 			}
-			wp_send_json( $response);
+
+			if( is_wp_error( $response ) ){
+				$respond['msg'] = $response->get_error_message();
+			}
+			wp_send_json( $respond);
 
 
 			//wp_update
