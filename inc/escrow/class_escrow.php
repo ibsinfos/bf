@@ -7,7 +7,7 @@ Class Box_Escrow{
 	 * call this function when employer award job done and paid to system( not release)
 	 * for paypal: after pay and the transaction has the "INCOMPLETE" status
 	*/
-	function perform_after_deposit($project_id, $bid_id){
+	function perform_after_deposit($bid_id, $project_id){
 		//update bid status
 		//update user meta
 

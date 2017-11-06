@@ -136,7 +136,7 @@ class PP_Adaptive extends Box_Escrow{
 	}
 
 	function act_award($bid_id, $frelancer_id, $project ){
-		//var_dump($project->ID);
+
 		$freelancer = get_userdata($frelancer_id);
 		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
 
@@ -207,7 +207,7 @@ class PP_Adaptive extends Box_Escrow{
 			if( !is_wp_error( $trans_status ) ){
 				if( $trans_status == 'INCOMPLETE ' ){
 					//'Fund is paid but receiver not receive';
-					$this->perform_after_deposit($project_id);
+					$this->perform_after_deposit($bid_id, $project_id);
 				} else{
 					var_dump($trans_status);
 				}

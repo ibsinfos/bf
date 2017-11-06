@@ -34,7 +34,7 @@ Class BX_Credit extends Box_Escrow {
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit(  $bid_price, $project, $freelancer_id ) {
+	function deposit(  $bid_price, $freelancer_id,  $project ) {
 
 		$employer_id = $project->post_author;
 
@@ -64,6 +64,17 @@ Class BX_Credit extends Box_Escrow {
 			BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
 		}
 		return $ok;
+
+	}
+	function act_award( $bid_id, $freelancer_id,  $project){
+
+		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+
+		$transfered = $this->deposit( $bid_price, $freelancer_id,  $project );
+		if ( is_wp_error($transfered) ){
+			return $transfered;
+		}
+		return $this->perform_after_deposit($bid_id, $project->ID);
 
 	}
 	function undeposit( $employer_id, $bid_price, $project_id = 0 ) {
@@ -343,16 +354,6 @@ Class BX_Credit extends Box_Escrow {
 		}
 		return (object) get_user_meta( $user_id, 'withdraw_info', true );
 	}
-	function act_award( $bid_id,  $project , $freelancer_id){
 
-		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
-
-		$transfered = $this->deposit( $bid_price, $project , $freelancer_id);
-		if ( is_wp_error($transfered) ){
-			return $transfered;
-		}
-		return $this->perform_after_deposit($project->ID);
-
-	}
 
 }
