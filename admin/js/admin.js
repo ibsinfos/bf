@@ -104,7 +104,7 @@ var ajaxSend = {};
 	        	_this.attr('value',data.value);
 	        	_this.removeClass('loadinggif');
 	        	_this.closest("div").addClass('field-control-success');
-	        	if( data.name == 'active' || data.name =='pp_sandbox_mode'){
+	        	if( data.name == 'active' || data.name =='sandbox_mode'){
 	        		window.location.reload(true);
 	        	}
 
