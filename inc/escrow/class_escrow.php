@@ -10,11 +10,12 @@ Class Box_Escrow{
 	function perform_after_deposit( $bid_id, $freelancer_id,  $project){
 		//update bid status
 		//update user meta
-		if( is_numeric($project) ){
+		if( is_numeric( $project ) ){
 			$project = get_post($project);
 		}
 		$project_id = $project->ID;
 		$request['ID'] = $project_id;
+
 		$request['post_status'] = AWARDED;
 		$request['meta_input'] = array(
 			WINNER_ID => $freelancer_id,
@@ -29,6 +30,7 @@ Class Box_Escrow{
 			// update bid status to AWARDED
 			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
 
+			$employer_id = $project->post_author;
 
 			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
 			update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
