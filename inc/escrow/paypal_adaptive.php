@@ -96,6 +96,7 @@ class PP_Adaptive extends Box_Escrow{
 		$release = wp_remote_post(
 			$release_endpoint,
 			array(
+				'timeout' => 50,
 				'headers' =>$this->get_headers(),
 				'body' => array(
 					'payKey' => $payKey,
@@ -122,7 +123,7 @@ class PP_Adaptive extends Box_Escrow{
 			$respond = wp_remote_post(
 				'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
 					array(
-						//'timeout' => 45,
+						'timeout' => 50,
 					    'headers' => $this->get_headers(),
 						'body' => $body,
 				    )
@@ -188,6 +189,7 @@ class PP_Adaptive extends Box_Escrow{
 		$detail = wp_remote_post(
 			$check_endpoint,
 			array(
+				'timeout' => 50,
 				'headers' => $this->get_headers(),
 				'body' => array(
 					'payKey' => $paykey,
@@ -217,11 +219,7 @@ class PP_Adaptive extends Box_Escrow{
 
 		}
 	}
-	// function release($project_id){
-	// 	$paykey = get_post_meta( $project_id, 'pp_paykey', true);
-	// 	$this->excutePayment($paykey);
-	// 	$this->perform_after_release();
-	// }
+
 	function perform_after_deposit($project_id){
 
 		global $user_ID;
@@ -272,7 +270,7 @@ class PP_Adaptive extends Box_Escrow{
 		try{
 
 			$release = $this->excutePayment($pp_paykey);
-			
+
 		} catch (Exception $e){
 			wp_die($e);
 		}
