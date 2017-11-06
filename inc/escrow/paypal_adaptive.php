@@ -250,7 +250,7 @@ class PP_Adaptive extends Box_Escrow{
 			$res = wp_update_post( $request );
 			$freelancer_id = $bid->post_author;
 
-			$this->send_mail_noti_award( $project_id, $freelancer_id )
+			$this->send_mail_noti_award( $project_id, $freelancer_id );
 		}
 
 	}
