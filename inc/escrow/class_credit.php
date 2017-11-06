@@ -59,8 +59,6 @@ Class BX_Credit extends Box_Escrow {
 			)
 		);
 		if( $ok ){
-			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
-			update_user_meta( $employer_id, 'total_spent', $total_spent );
 			BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
 		}
 		return $ok;
@@ -75,7 +73,7 @@ Class BX_Credit extends Box_Escrow {
 			return $transfered;
 		}
 
-		return $this->perform_after_deposit( $bid_id, $freelancer_id,  $project );
+		return $this->perform_after_deposit( $bid_id, $bid_price, $freelancer_id,  $project );
 	}
 	function undeposit( $employer_id, $bid_price, $project_id = 0 ) {
 
