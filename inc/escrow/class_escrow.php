@@ -58,9 +58,11 @@ Class Box_Escrow{
 	function send_mail_noti_award( $project_id, $freelancer_id){
 
 		Box_ActMail::get_instance()->award_job( $freelancer_id );
+
+		$request = $_REQUEST['request'];
 		$cvs_content = isset( $request['cvs_content'])? $request['cvs_content']: '';
 		$cvs_id = is_sent_msg( $project_id, $freelancer_id );
-		$request = $_REQUEST['request'];
+
 
 
 		if ( ! $cvs_id ) {
