@@ -7,7 +7,7 @@ Class Box_Escrow{
 	 * call this function when employer award job done and paid to system( not release)
 	 * for paypal: after pay and the transaction has the "INCOMPLETE" status
 	*/
-	function perform_after_deposit($bid_id, $freelancer_id,  $project){
+	function perform_after_deposit( $bid_id, $freelancer_id,  $project){
 		//update bid status
 		//update user meta
 		if( is_numeric($project) ){
@@ -65,7 +65,7 @@ Class Box_Escrow{
 
 			return $res;
 		}
-		return new WP_Error( 'award_fail', __( "You don't permission to perform this action", "boxtheme" ) );
+		return new WP_Error( 'award_fail', __( "Has something wrong", "boxtheme" ) );
 	}
 	function perform_after_release(){
 		//update bid status;
