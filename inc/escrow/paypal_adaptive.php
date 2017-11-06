@@ -79,33 +79,7 @@ class PP_Adaptive{
 		);
 
 	}
-	function pay( $fre_receive_email, $emp_pay, $fre_receive ){
 
-		$return_url =  add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
-		$body = $this->get_body( $fre_receive_email, $emp_pay, $fre_receive  );
-		//$body = $this->get_body_default( );
-
-
-		try{
-			$respond = wp_remote_post(
-				'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
-					array(
-						//'timeout' => 45,
-					    'headers' => $this->get_headers(),
-						'body' => $body,
-				    )
-			);
-
-		} catch(Exception $e) {
-			$respond = array(
-				'success' => false,
-				'msg' => $e->getMessage(),
-			);
-		}
-
-		return $respond;
-
-	}
 	/**
 	 * Release payment after projest is done
 	*/
@@ -144,8 +118,9 @@ class PP_Adaptive{
       		$respond['msg'] = $e->getMessage();
       	}
 
+      	//var_dump($respond);
+      	$res = json_decode($respond['body']);
 
-      	$res = json_encode($respond['body']);
 		if( !empty( $res->payKey ) ){
 			//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
 			//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
@@ -154,10 +129,38 @@ class PP_Adaptive{
 				'payKey' => $res->payKey,
 				'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
 			);
+			var_dump($res);
 			update_post_meta( $project->ID, 'payKey', $res->payKey );
 			return  $response;
 		}
 		return $respond;
+	}
+	function pay( $fre_receive_email, $emp_pay, $fre_receive ){
+
+		$return_url =  add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
+		$body = $this->get_body( $fre_receive_email, $emp_pay, $fre_receive  );
+		//$body = $this->get_body_default( );
+
+
+		try{
+			$respond = wp_remote_post(
+				'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
+					array(
+						//'timeout' => 45,
+					    'headers' => $this->get_headers(),
+						'body' => $body,
+				    )
+			);
+
+		} catch(Exception $e) {
+			$respond = array(
+				'success' => false,
+				'msg' => $e->getMessage(),
+			);
+		}
+
+		return $respond;
+
 	}
 }
 // freelancer@etteam.com
