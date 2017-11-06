@@ -144,7 +144,7 @@ Class BX_Project extends BX_Post{
 				return $check;
 			}
 			$employer_id = $project->post_author;
-			$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+
 
 
 			$escrow =  BX_Option::get_instance()->get_escrow_setting();
@@ -157,10 +157,10 @@ Class BX_Project extends BX_Post{
 			// check balance and deducts.
 			switch ($type) {
 				case 'credit':
-					$response = BX_Credit::get_instance()->act_award($bid_price, $project , $freelancer_id );
+					$response = BX_Credit::get_instance()->act_award( $bid_id, $freelancer_id,  $project );
 					break;
 				case 'paypal_adaptive':
-					$response = PP_Adaptive::get_instance()->act_award( $freelancer_id, $bid_price, $project);
+					$response = PP_Adaptive::get_instance()->act_award( $bid_id, $freelancer_id,  $project );
 					break;
 
 				default:

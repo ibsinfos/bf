@@ -15,7 +15,7 @@ require get_parent_theme_file_path( '/inc/class_user.php' );
 require get_parent_theme_file_path( '/inc/class_post.php' );
 
 require get_parent_theme_file_path( '/inc/payment/requires.php' );
-require get_parent_theme_file_path( '/inc/class_credit.php' );
+//require get_parent_theme_file_path( '/inc/class_credit.php' );
 require get_parent_theme_file_path( '/inc/escrow/requires.php' );
 
 require get_parent_theme_file_path( '/inc/class_custom_type.php' );

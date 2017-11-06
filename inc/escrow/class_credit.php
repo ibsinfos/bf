@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-Class BX_Credit {
+Class BX_Credit extends Box_Escrow {
 
 	static private $instance;
 	public $meta_available;
@@ -343,63 +343,16 @@ Class BX_Credit {
 		}
 		return (object) get_user_meta( $user_id, 'withdraw_info', true );
 	}
-	function act_award( $bid_price, $project , $freelancer_id){
+	function act_award( $bid_id,  $project , $freelancer_id){
+
+		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+
 		$transfered = $this->deposit( $bid_price, $project , $freelancer_id);
 		if ( is_wp_error($transfered) ){
 			return $transfered;
 		}
-		$request['ID'] = $project_id;
-		$request['post_status'] = AWARDED;
-		$request['meta_input'] = array(
-			WINNER_ID => $freelancer_id,
-			BID_ID_WIN => $bid_id,
-		);
+		return $this->perform_after_deposit($project->ID);
 
-		$res = wp_update_post( $request );
-		if( $res ){
-
-			global $user_ID;
-			// create coversation
-			// update bid status to AWARDED
-			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
-
-
-			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
-			update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
-
-			// send message and email
-			$freelancer_id = $request['freelancer_id'];
-			$project_id = $request['project_id'];
-
-			Box_ActMail::get_instance()->award_job( $freelancer_id );
-
-
-			$cvs_id = is_sent_msg( $project_id, $freelancer_id );
-			$cvs_content = isset($request['cvs_content'])? $request['cvs_content']: '';
-
-			if ( ! $cvs_id ) {
-				$args  = array(
-					'project_id' => $project_id,
-					'receiver_id' => $freelancer_id,
-					'cvs_content' => $cvs_content,
-				);
-
-				BX_Conversations::get_instance()->insert($args);
-			} else {
-				$msg_arg = array(
-					'msg_content' 	=> $cvs_content,
-					'cvs_id' 		=> $cvs_id,
-					'receiver_id'=> $freelancer_id,
-					'sender_id' => $user_ID,
-					'msg_type' => 'message',
-				);
-
-				$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
-			}
-
-			return $res;
-		}
-		return new WP_Error( 'award_fail', __( "You don't permission to perform this action", "boxtheme" ) );
 	}
 
 }
