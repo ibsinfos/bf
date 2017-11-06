@@ -132,6 +132,8 @@ Class BX_Project extends BX_Post{
 		return true;
 	}
 	function call_action( $request, $action ){
+		$escrow =  BX_Option::get_instance()->get_escrow_setting();
+		$type = $escrow->active;
 
 		if( $action == 'award' ){ // accept, hire assign task
 			$bid_id = $request['bid_id'];
@@ -146,8 +148,7 @@ Class BX_Project extends BX_Post{
 			$employer_id = $project->post_author;
 
 
-			$escrow =  BX_Option::get_instance()->get_escrow_setting();
-			$type = $escrow->active;
+
 			$respond  = array(
 				'success' => true,
 				'type' => $type,
@@ -186,84 +187,21 @@ Class BX_Project extends BX_Post{
 			//wp_update
 			// update post status and  freelancer of this project
 		} else if($action == 'review_fre'){
+			switch ($type) {
+				case 'credit':
+					BX_Credit::get_instance()->emp_mark_as_complete($request);
+					break;
+				case 'paypal_adaptive':
+					PP_Adaptive::get_instance()->emp_mark_as_complete($request);
+					break;
+
+				default:
+					# code...
+					break;
+			}
 			// action of employer
 			// mark as close project
-			$request['ID'] = $request['project_id'];
-			$request['post_status'] = DONE;
-			$check = $this->check_before_emp_review($request);
-			if ( is_wp_error($check) ){
-				return $check;
-			}
-			$project_id = wp_update_post($request);
 
-			if( !is_wp_error($project_id) ){
-				global $current_user;
-				$bid_win_id = get_post_meta($project_id, BID_ID_WIN, true);
-				$review_msg = $request[REVIEW_MSG];
-				$rating_score = (int) $request[RATING_SCORE];
-				if($rating_score > 5){
-					$rating_score = 5;
-				}
-				if( $rating_score < 1 ) {
-					$rating_score = 1;
-				}
-				//$project = get_post($project_id);
-
-				$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
-
-				$bid_price 	= (float) get_post_meta($bid_win_id, BID_PRICE, true);
-
-				$commision_fee = get_commision_fee($bid_price); // web owner will get this amout.
-
-				$emp_pay = $bid_price;
-				$amout_fre_receive = $bid_price - $commision_fee;
-
-				$project_worked = (int) get_user_meta( $winner_id, PROJECTS_WORKED, true) + 1;
-				$earned = (float) get_user_meta( $winner_id,EARNED, true) + $amout_fre_receive;
-
-
-				update_user_meta( $winner_id, PROJECTS_WORKED , $project_worked );
-
-				update_user_meta( $winner_id, EARNED , $earned);
-
-
-
-				//approve credit
-				$act_credit = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
-
-				if( $act_credit ){
-					$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
-
-					wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
-				}
-
-				$bid_args = array(
-					'ID' 	=> $bid_win_id,
-					'post_status' => DONE,
-
-				);
-				$bid = wp_update_post( $bid_args);
-
-				$current_user = wp_get_current_user();
-				$time = current_time('mysql');
-				$data = array(
-				    'comment_post_ID' => $bid_win_id,
-				    'comment_author' => $current_user->user_login,
-				    'comment_author_email' => $current_user->user_email,
-				    'comment_content' => $review_msg,
-				    'comment_type' => 'emp_review',
-				    'comment_approved' => 1,
-				    'user_id' => $winner_id,
-				    'comment_date' => $time,
-				);
-
-				$cmn_id = wp_insert_comment($data);
-				if( !is_wp_error($cmn_id)){
-					add_comment_meta($cmn_id, RATING_SCORE, $rating_score);
-					$rating_score = count_rating($winner_id);
-					update_user_meta($winner_id,RATING_SCORE,$rating_score);
-				}
-			}
 			// update project status
 			// update bid status
 		} else if($action == 'review_emp'){
