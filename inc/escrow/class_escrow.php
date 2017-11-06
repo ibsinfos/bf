@@ -1,11 +1,9 @@
 <?php
 Class Box_Escrow{
-	public $sandbox_mode;
+
 	function __construct(){
 		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
-		$this->sandbox_mode = 1;
-		if( isset($paypal_adaptive->sandbox_mode) )
-			$this->sandbox_mode = $paypal_adaptive->$sandbox_mo;
+
 	}
 	/**
 	 * call this function when employer award job done and paid to system( not release)

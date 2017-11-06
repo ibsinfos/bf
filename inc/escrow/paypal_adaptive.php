@@ -20,10 +20,33 @@ class PP_Adaptive extends Box_Escrow{
 	const SANDBOX_APP_ID = 'APP-80W284485P519543T';
 	const LIVE_END_POINT = 'https://svcs.paypal.com/AdaptivePayments/';
 	const LIVE_WEBSCR_URL = 'https://www.paypal.com/cgi-bin/webscr';
+	protected $sandbox_mode;
+	protected $api_userid;
+	protected $api_userpassword;
+	protected $app_signarute;
+	protected $api_appid;
 
 	function __construct(){
 		self::$return_url = add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
-		self::$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
+		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
+
+		$this->sandbox_mode = 1;
+
+		if( isset( $paypal_adaptive->sandbox_mode ) )
+			$this->sandbox_mode = $paypal_adaptive->$sandbox_mode;
+
+		if($this->sandbox_mode ){
+			$this->api_userid = $paypal_adaptive->api_userid_sandbox;
+			$this->api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
+			$this->app_signarute = $paypal_adaptive->app_signarute_sandbox;
+			$this->api_appid = $paypal_adaptive->api_appid_sandbox;
+		} else {
+			$this->api_userid = $paypal_adaptive->api_userid;
+			$this->api_userpassword = $paypal_adaptive->api_userpassword;
+			$this->app_signarute = $paypal_adaptive->app_signarute;
+			$this->api_appid = $paypal_adaptive->api_appid;
+		}
+
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -40,12 +63,12 @@ class PP_Adaptive extends Box_Escrow{
 	function get_headers(){
 
 		$headers = array(
-	    	'X-PAYPAL-SECURITY-USERID' => self::$paypal_adaptive->api_userid,
-	    	'X-PAYPAL-SECURITY-PASSWORD' => self::$paypal_adaptive->api_userpassword,
-	    	'X-PAYPAL-SECURITY-SIGNATURE' => self::$paypal_adaptive->app_signarute,
+	    	'X-PAYPAL-SECURITY-USERID' => $this->api_userid,
+	    	'X-PAYPAL-SECURITY-PASSWORD' => $this->api_userpassword,
+	    	'X-PAYPAL-SECURITY-SIGNATURE' => $this->app_signarute,
             'X-PAYPAL-REQUEST-DATA-FORMAT' => 'NV',
             'X-PAYPAL-RESPONSE-DATA-FORMAT' => 'JSON',
-			'X-PAYPAL-APPLICATION-ID' => self::$paypal_adaptive->api_appid,
+			'X-PAYPAL-APPLICATION-ID' => $this->api_appid,
 		);
 		return $headers;
 	}
@@ -166,7 +189,6 @@ class PP_Adaptive extends Box_Escrow{
       	try{
       		$withdraw_info = BX_Credit::get_instance()->get_withdraw_info($frelancer_id);
       		$fre_receive_email = trim($withdraw_info->paypal_email);
-
       		$respond  = $this->pay( $fre_receive_email, $emp_pay, $fre_receive, $project->ID);
       	} catch (Exception $e) {
       		$respond['msg'] = $e->getMessage();
@@ -176,21 +198,31 @@ class PP_Adaptive extends Box_Escrow{
       	if( ! is_wp_error( $respond ) ){
 
 	      	$res = json_decode($respond['body']);
+	      	var_dump($res->error);
+	      	if( $res->ack == 'Success'){
+				if( !empty( $res->payKey ) ){
+					//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
+					//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
+					$url_redirect = $this->getWebScrUrl();
 
-			if( !empty( $res->payKey ) ){
-				//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
-				//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
-				$url_redirect = $this->getWebScrUrl();
-				$response = array(
-					'success' => true,
-					'payKey' => $res->payKey,
-					'url_redirect' =>$url_redirect."?cmd=_ap-payment&paykey=".$res->payKey,
-				);
-				box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
-				update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
-				update_post_meta( $project->ID,'bid_assigning', $bid_id);
-				return  $response;
+					$response = array(
+						'success' => true,
+						'payKey' => $res->payKey,
+						'url_redirect' => $url_redirect."?cmd=_ap-payment&paykey=".$res->payKey,
+					);
+					box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
+					update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
+					update_post_meta( $project->ID,'bid_assigning', $bid_id);
+					return  $response;
+				}
 			}
+			var_dump($res);
+			// return array(
+			// 	'success' => false,
+			// 	'payKey' => $res->payKey,
+			// 	'msg' => $res->msg;
+			// );
+
 		}
 		return $respond;
 	}
