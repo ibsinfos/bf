@@ -50,16 +50,24 @@ if( isset( $active ) && ! empty( $escrow->active ) ){
 	$active = $escrow->active;
 }
 
+$hide_credit = $hide_pp = '';
+if($active == 'credit'){
+	$hide_pp = ' hide ';
+}
+if( $active == 'paypal_adaptive'){
+	$hide_credit = ' hide ';
+}
+
 ?>
 
-<div id="<?php echo $group_option;?>" class="main-group" >
+<div id="<?php echo $group_option;?>" class="main-group " >
 	<label class="form-label">Select the Eccrow system</label>
 	<select class="form-control auto-save" name="active">
 		<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
 		<option value="paypal_adaptive" <?php selected( $active,'paypal_adaptive' ) ?>>PayPal Adaptive</option>
 	</select>
 </div>
-<div class="sub-section " id="opt_credit" >
+<div class="sub-section <?php echo $hide_credit;?>" id="opt_credit" >
 
 	<h2> <?php _e('Credit System','boxtheme');?> </h2> <br />
    	<div class="sub-item" id="opt_credit">
@@ -71,7 +79,7 @@ if( isset( $active ) && ! empty( $escrow->active ) ){
 		</form>
 	</div>
 </div>
-<div class="main-group " id="paypal_adaptive" >
+<div class="main-group <?php echo $hide_pp;?>" id="paypal_adaptive" >
 	<?php
 	$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
 
@@ -86,7 +94,7 @@ if( isset( $active ) && ! empty( $escrow->active ) ){
 	}
 
 	?>
-	<h2> <?php _e('PayPal Adaptive Settings','boxtheme');?> </h2> <br />
+	<h2> <?php _e('PayPal Adaptive Sandbox Mode Settings','boxtheme');?> </h2> <br />
    	<div class="sub-item" id="opt_credit">
 		<form style="max-width: 600px;">
 			<div class="form-group row">

@@ -37,7 +37,7 @@
 			$(".toggle-check").click(function(event){
 				var block = $(this).closest(".block");
 				var display =block.find("ul").css( "display" );
-				console.log(display);
+
 				block.find("ul").slideToggle(300);
 				if(display=='block'){
 					$(this).removeClass('glyphicon-menu-down cs');

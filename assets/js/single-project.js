@@ -122,7 +122,6 @@ var single_project = {
 		var action = "sync_bid", method = "insert";
 		var successRes = function(res){
         	if ( res.success ){
-        		console.log(res.success);
         		window.location.reload(true);
 	        } else {
 	        	console.log(res.msg);

@@ -104,6 +104,9 @@ var ajaxSend = {};
 	        	_this.attr('value',data.value);
 	        	_this.removeClass('loadinggif');
 	        	_this.closest("div").addClass('field-control-success');
+	        	if( data.name == 'active'){
+	        		window.location.reload(true);
+	        	}
 
 	        },
 	        beforeSend  : function(event){
