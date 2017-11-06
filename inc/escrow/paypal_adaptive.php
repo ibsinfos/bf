@@ -99,7 +99,9 @@ class PP_Adaptive extends Box_Escrow{
 	 * Release payment after projest is done
 	*/
 	function excutePayment($payKey){
-		$release_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment';
+
+		//$release_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment';
+		$release_endpoint  = $this->getEndPoint('ExecutePayment');
 
 		$release = wp_remote_post(
 			$release_endpoint,
@@ -126,15 +128,16 @@ class PP_Adaptive extends Box_Escrow{
 		$body = $this->get_body( $fre_receive_email, $emp_pay, $fre_receive, $project_id  );
 		//$body = $this->get_body_default( );
 
+		$end_point= $this->getEndPoint('Pay');
 
 		try{
 			$respond = wp_remote_post(
-				'https://svcs.sandbox.paypal.com/AdaptivePayments/Pay',
-					array(
-						'timeout' => 50,
-					    'headers' => $this->get_headers(),
-						'body' => $body,
-				    )
+				$end_point,
+				array(
+					'timeout' => 50,
+				    'headers' => $this->get_headers(),
+					'body' => $body,
+			    )
 			);
 
 		} catch(Exception $e) {
@@ -177,10 +180,11 @@ class PP_Adaptive extends Box_Escrow{
 			if( !empty( $res->payKey ) ){
 				//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
 				//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
+				$url_redirect = $this->getWebScrUrl();
 				$response = array(
 					'success' => true,
 					'payKey' => $res->payKey,
-					'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
+					'url_redirect' =>$url_redirect."?cmd=_ap-payment&paykey=".$res->payKey,
 				);
 				box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
 				update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
@@ -192,7 +196,9 @@ class PP_Adaptive extends Box_Escrow{
 	}
 
 	function get_trans_status_via_paykey( $paykey ){
-		 $check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
+
+		//$check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
+		$check_endpoint = $thiss->getEndPoint('PaymentDetails');
 
 		$detail = wp_remote_post(
 			$check_endpoint,
