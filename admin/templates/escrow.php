@@ -60,8 +60,8 @@ if( $active == 'paypal_adaptive'){
 
 ?>
 
-<div id="<?php echo $group_option;?>" class="main-group " >
-	<label class="form-label">Select the Eccrow system</label>
+<div id="<?php echo $group_option;?>" class="main-group "  style="max-width: 600px;">
+	<h2> <?php _e('Select the Eccrow system','boxtheme');?> </h2>	
 	<select class="form-control auto-save" name="active">
 		<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
 		<option value="paypal_adaptive" <?php selected( $active,'paypal_adaptive' ) ?>>PayPal Adaptive</option>
@@ -69,7 +69,7 @@ if( $active == 'paypal_adaptive'){
 </div>
 <div class="sub-section <?php echo $hide_credit;?>" id="opt_credit" >
 
-	<h2> <?php _e('Credit System','boxtheme');?> </h2> <br />
+	<h2> <?php _e('Credit System','boxtheme');?> </h2>
    	<div class="sub-item" id="opt_credit">
 		<form style="max-width: 600px;">
 			<div class="form-group row">
