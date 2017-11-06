@@ -228,7 +228,7 @@ class PP_Adaptive extends Box_Escrow{
 	function get_trans_status_via_paykey( $paykey ){
 
 		//$check_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/PaymentDetails';
-		$check_endpoint = $thiss->getEndPoint('PaymentDetails');
+		$check_endpoint = $this->getEndPoint('PaymentDetails');
 
 		$detail = wp_remote_post(
 			$check_endpoint,
