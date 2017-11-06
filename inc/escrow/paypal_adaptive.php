@@ -119,19 +119,22 @@ class PP_Adaptive{
       	}
 
       	//var_dump($respond);
-      	$res = json_decode($respond['body']);
+      	if( ! is_wp_error( $respond ) ){
 
-		if( !empty( $res->payKey ) ){
-			//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
-			//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
-			$response = array(
-				'success' => true,
-				'payKey' => $res->payKey,
-				'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
-			);
-			var_dump($res);
-			update_post_meta( $project->ID, 'payKey', $res->payKey );
-			return  $response;
+	      	$res = json_decode($respond['body']);
+
+			if( !empty( $res->payKey ) ){
+				//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
+				//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
+				$response = array(
+					'success' => true,
+					'payKey' => $res->payKey,
+					'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
+				);
+				var_dump($res);
+				update_post_meta( $project->ID, 'payKey', $res->payKey );
+				return  $response;
+			}
 		}
 		return $respond;
 	}
