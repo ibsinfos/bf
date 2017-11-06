@@ -90,21 +90,25 @@ class PP_Adaptive extends Box_Escrow{
 	/**
 	 * Release payment after projest is done
 	*/
-	function excutePayment(){
+	function excutePayment($payKey){
 		$release_endpoint = 'https://svcs.sandbox.paypal.com/AdaptivePayments/ExecutePayment';
 
 		$release = wp_remote_post(
 			$release_endpoint,
 			array(
-				'headers' => $headers,
+				'headers' =>$this->get_headers(),
 				'body' => array(
 					'payKey' => $payKey,
 					'requestEnvelope.errorLanguage'=>'en_US',
 				)
 			)
 		);
-		$body = $release['body'];
-		return json_decode($body);
+		if ( ! is_wp_error( $release ) ){
+
+			$body = $release['body'];
+			return json_decode($body);
+		}
+		return $release;
 	}
 
 	function pay( $fre_receive_email, $emp_pay, $fre_receive, $project_id){
@@ -256,10 +260,10 @@ class PP_Adaptive extends Box_Escrow{
 	}
 	function emp_mark_as_complete($request){
 		// release and insert review;
-		$request['ID'] = $request['project_id'];
-		$request['post_status'] = DONE;
+
 		$check = $this->check_before_emp_review($request);
 
+		$project_id = $request['project_id'];
 
 		if ( is_wp_error($check) ){
 			return $check;
@@ -267,12 +271,14 @@ class PP_Adaptive extends Box_Escrow{
 		$pp_paykey = get_post_meta($project_id,'pp_paykey', true);
 		try{
 
-			$release = $this->excutePayment($paykey);
+			$release = $this->excutePayment($pp_paykey);
+			
 		} catch (Exception $e){
 			wp_die($e);
 		}
 		if( !is_wp_error( $release ) && $release->paymentExecStatus == 'COMPLETED' ){
-
+			$request['ID'] = $request['project_id'];
+			$request['post_status'] = DONE;
 			$project_id = wp_update_post($request);
 			if( !is_wp_error($project_id) ){
 
