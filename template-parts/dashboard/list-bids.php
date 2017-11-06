@@ -15,10 +15,10 @@
 
 	<ul class="db-list-project">
 		<li class="heading list-style-none full">
-			<div class="col-md-9 pull-left">
+			<div class="col-md-8 pull-left">
 				<?php _e('Your bids','boxtheme');?>
 			</div>
-			<div class="col-md-3 pull-right">
+			<div class="col-md-4 pull-right">
 				<form class="pull-right full dashboard-filter">
 
 						<select class="form-control">
