@@ -29,7 +29,7 @@ class BX_Conversations{
 				'receiver_id' =>  $args['receiver_id'],
 				'cvs_content'	=> $args['cvs_content'],
 
-				'cvs_status' => 1,
+				'cvs_status' => 'publish',
 				'msg_unread' => 0,
 				'date_created' => current_time('mysql'),
 				'date_modify' => current_time('mysql'),

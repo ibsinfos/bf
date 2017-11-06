@@ -171,7 +171,7 @@ class PP_Adaptive extends Box_Escrow{
 				);
 				box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
 				update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
-
+				update_post_meta( $project->ID,'bid_assigning', $bid_id);
 				return  $response;
 			}
 		}
@@ -205,9 +205,9 @@ class PP_Adaptive extends Box_Escrow{
 			$trans_status = $this->get_trans_status_via_paykey($paykey);
 			box_log($trans_status);
 			if( !is_wp_error( $trans_status ) ){
-				if( $trans_status == 'INCOMPLETE ' ){
+				if( $trans_status == 'INCOMPLETE' ){
 					//'Fund is paid but receiver not receive';
-					$this->perform_after_deposit($bid_id, $project_id);
+					$this->perform_after_deposit( $project_id);
 				} else{
 					var_dump($trans_status);
 				}
@@ -220,15 +220,16 @@ class PP_Adaptive extends Box_Escrow{
 		$this->excutePayment($paykey);
 		$this->perform_after_release();
 	}
-	function perform_after_deposit($bid_id, $project_id){
+	function perform_after_deposit($project_id){
 
 		global $user_ID;
 		$project = get_post($project_id);
 		if( $project ){
+			$bid_id = get_post_meta($project_id,'bid_assigning', true);
 
 			$employer_id = $project->post_author;
 
-			$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+			$bid_price = (float) get_post_meta( $bid_id, BID_PRICE, true );
 
 			$pay_info = box_get_pay_info( $bid_price );
 	      	$emp_pay = $pay_info->emp_pay;
@@ -243,6 +244,7 @@ class PP_Adaptive extends Box_Escrow{
 
 			$bid = get_post($bid_id);
 			$request['post_status'] = AWARDED;
+			$request['ID'] = $project_id;
 			$request['meta_input'] = array(
 				WINNER_ID => $bid->post_author,
 				BID_ID_WIN => $bid_id,
@@ -250,7 +252,7 @@ class PP_Adaptive extends Box_Escrow{
 			$res = wp_update_post( $request );
 			$freelancer_id = $bid->post_author;
 
-			$this->send_mail_noti_award( $project_id, $freelancer_id );
+			$this->send_mail_noti_assign( $project, $freelancer_id );
 		}
 
 	}

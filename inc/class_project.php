@@ -163,7 +163,7 @@ Class BX_Project extends BX_Post{
 				case 'paypal_adaptive':
 					$response = PP_Adaptive::get_instance()->act_award( $bid_id, $freelancer_id,  $project );
 
-					$respond['url_redirect'] = $response['url_redirect'];
+
 					break;
 				default:
 					# code...
@@ -171,9 +171,13 @@ Class BX_Project extends BX_Post{
 			}
 
 			if( is_wp_error( $response ) ){
+
 				$respond['success'] = false;
 				$respond['msg'] = $response->get_error_message();
+			} else if( isset($response['url_redirect']) ){
+				$respond['url_redirect'] = $response['url_redirect'];
 			}
+
 
 
 			wp_send_json( $respond);

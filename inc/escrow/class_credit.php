@@ -352,6 +352,50 @@ Class BX_Credit extends Box_Escrow {
 		}
 		return (object) get_user_meta( $user_id, 'withdraw_info', true );
 	}
+	function perform_after_deposit(  $bid_id, $bid_price, $freelancer_id,  $project){
+		//update bid status
+		//update user meta
+		if( is_numeric( $project ) ){
+			$project = get_post($project);
+		}
+		$project_id = $project->ID;
+		$pay_info = box_get_pay_info( $bid_price );
+
+      	$emp_pay = $pay_info->emp_pay;
+
+		$employer_id = $project->post_author;
+
+		$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
+		update_user_meta( $employer_id, 'total_spent', $total_spent );
+
+		$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
+		update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
+
+		$request['ID'] = $project_id;
+
+		$request['post_status'] = AWARDED;
+		$request['meta_input'] = array(
+			WINNER_ID => $freelancer_id,
+			BID_ID_WIN => $bid_id,
+			'tem' => '123',
+		);
+		$res = wp_update_post( $request );
+
+
+
+		if( $res ){
+
+			global $user_ID;
+			// create coversation
+			// update bid status to AWARDED
+			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
+
+			$this->send_mail_noti_assign( $project_id, $freelancer_id );
+
+			return $res;
+		}
+		return new WP_Error( 'award_fail', __( "Has something wrong", "boxtheme" ) );
+	}
 
 
 }
