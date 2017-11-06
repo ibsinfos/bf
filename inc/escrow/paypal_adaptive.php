@@ -198,31 +198,29 @@ class PP_Adaptive extends Box_Escrow{
       	if( ! is_wp_error( $respond ) ){
 
 	      	$res = json_decode($respond['body']);
-	      	var_dump($res->error);
-	      	if( $res->ack == 'Success'){
-				if( !empty( $res->payKey ) ){
-					//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
-					//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
-					$url_redirect = $this->getWebScrUrl();
+			if ( !empty( $res->payKey ) ) {
+				//https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=InsertPayKeyHere
+				//wp_redirect('https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey='.$respond->payKey);
+				$url_redirect = $this->getWebScrUrl();
 
-					$response = array(
-						'success' => true,
-						'payKey' => $res->payKey,
-						'url_redirect' => $url_redirect."?cmd=_ap-payment&paykey=".$res->payKey,
-					);
-					box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
-					update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
-					update_post_meta( $project->ID,'bid_assigning', $bid_id);
-					return  $response;
-				}
+				$response = array(
+					'success' => true,
+					'payKey' => $res->payKey,
+					'url_redirect' => $url_redirect."?cmd=_ap-payment&paykey=".$res->payKey,
+				);
+
+				update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
+				update_post_meta( $project->ID,'bid_assigning', $bid_id);
+				return  $response;
+			} else  if( isset( $res->error ) ){
+				$respond = array(
+					'errorId' => $res->error[0]->errorId,
+					'msg' => $res->error[0]->message,
+					'success' => false,
+				);
+				return new WP_Error( $res->error[0]->errorId, $res->error[0]->message );
+
 			}
-			var_dump($res);
-			// return array(
-			// 	'success' => false,
-			// 	'payKey' => $res->payKey,
-			// 	'msg' => $res->msg;
-			// );
-
 		}
 		return $respond;
 	}
@@ -256,7 +254,7 @@ class PP_Adaptive extends Box_Escrow{
 		if( $paykey ){
 			$trans_status = $this->get_trans_status_via_paykey($paykey);
 			box_log($trans_status);
-			if( !is_wp_error( $trans_status ) ){
+			if( ! is_wp_error( $trans_status ) ){
 				if( $trans_status == 'INCOMPLETE' ){
 					//'Fund is paid but receiver not receive - holding in system';
 					$this->do_after_deposit( $project_id);
