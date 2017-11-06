@@ -34,7 +34,7 @@ class PP_Adaptive extends Box_Escrow{
 		if( isset( $paypal_adaptive->sandbox_mode ) )
 			$this->sandbox_mode = (int) $paypal_adaptive->sandbox_mode;
 
-		if($this->sandbox_mode ){
+		if( $this->sandbox_mode ){
 			$this->api_userid = $paypal_adaptive->api_userid_sandbox;
 			$this->api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
 			$this->app_signarute = $paypal_adaptive->app_signarute_sandbox;
@@ -187,7 +187,7 @@ class PP_Adaptive extends Box_Escrow{
       	$respond = array('success' => false, 'msg' =>'Failse');
       	try{
 
-      		$fre_receive_email = get_user_meta( $frelancer_id,  'paypal_email', false );
+      		$fre_receive_email = get_user_meta( $frelancer_id,  'paypal_email', true );
       		$respond  = $this->pay( $fre_receive_email, $emp_pay, $fre_receive, $project->ID);
       	} catch (Exception $e) {
       		$respond['msg'] = $e->getMessage();

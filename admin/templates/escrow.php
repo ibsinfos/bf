@@ -85,7 +85,7 @@ if( $active == 'paypal_adaptive'){
 
 
 	$api_appid = $api_userid = $app_signarute = $api_userpassword = '';
-	$pp_sandbox_mode = 1;
+	$sandbox_mode = 1;
 	$api_appid_name = 'api_appid_sandbox';
 	$api_userid_name = 'api_userid_sandbox';
 	$app_signarute_name = 'app_signarute_sandbox';
@@ -93,10 +93,10 @@ if( $active == 'paypal_adaptive'){
 	$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
 
 	if( ! empty( $paypal_adaptive ) ){
-		if(  isset( $paypal_adaptive->pp_sandbox_mode) )
-			$pp_sandbox_mode = (int) $paypal_adaptive->pp_sandbox_mode;
+		if(  isset( $paypal_adaptive->sandbox_mode) )
+			$sandbox_mode = (int) $paypal_adaptive->sandbox_mode;
 
-		if( $pp_sandbox_mode ){
+		if( $sandbox_mode ){
 
 			$api_appid = $paypal_adaptive->api_appid_sandbox;
 			$api_appid = 'APP-80W284485P519543T';
@@ -124,10 +124,10 @@ if( $active == 'paypal_adaptive'){
 		<form style="max-width: 900px; padding-top: 50px;">
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><h2>Sandbox mode </h2></label>
-				<div class="col-md-8" style="padding-top: 15px;"><?php bx_swap_button('paypal_adaptive','pp_sandbox_mode', $pp_sandbox_mode, 0);?></div>
+				<div class="col-md-8" style="padding-top: 15px;"><?php bx_swap_button('paypal_adaptive','sandbox_mode', $sandbox_mode, 0);?></div>
 			</div>
 			<div class="form-group">
-				<h2> <?php if($pp_sandbox_mode)  _e('PayPal Adaptive Sandbox Mode Settings','boxtheme'); else _e('PayPal Adaptive Live Mode Settings','boxtheme'); ?> </h2> <br />
+				<h2> <?php if($sandbox_mode)  _e('PayPal Adaptive Sandbox Mode Settings','boxtheme'); else _e('PayPal Adaptive Live Mode Settings','boxtheme'); ?> </h2> <br />
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API User ID</label>
@@ -143,7 +143,7 @@ if( $active == 'paypal_adaptive'){
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API App ID</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" <?php if($pp_sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" <?php if($sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
 			</div>
 		</form>
 	</div>
