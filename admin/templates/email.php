@@ -42,9 +42,12 @@ $settings = array(
        		<?php
        		foreach ($list as $key=> $email) {
        			$mail = (object)$email;
-
+       			$receiver = '';
+       			if( !empty($mail->receiver) ){
+       				$receiver = $mail->receiver;
+       			}
        			$edit_link = add_query_arg('name',$key, $email_link);
-       			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$mail->receiver.'</td><td><a href="'.$edit_link.'" class="btn-config"><i class="fa fa-cog" aria-hidden="true"></i></a></td></tr>';
+       			echo '<tr><td>'.$label[$key].'<td>'.$mail->subject.'</td><td>'.$receiver.'</td><td><a href="'.$edit_link.'" class="btn-config"><i class="fa fa-cog" aria-hidden="true"></i></a></td></tr>';
        			echo '<tr class="tr-config-cotent hide"> <td colspan = "4" class="td-config-content">';
        			echo '<div class="form-group row"><form class="frm-update-mail"><div class="col-md-12"><h3> Update Email </h3><label> Subject </label><input type="text" class="form-control " name="subject" value="'.$mail->subject.'" /></div>';
        			echo '<div class="col-md-12"><label> Mail content </label>';
