@@ -61,7 +61,7 @@ if( $active == 'paypal_adaptive'){
 ?>
 
 <div id="<?php echo $group_option;?>" class="main-group "  style="max-width: 600px;">
-	<h2> <?php _e('Select the Eccrow system','boxtheme');?> </h2>	
+	<h2> <?php _e('Select the Eccrow system','boxtheme');?> </h2>
 	<select class="form-control auto-save" name="active">
 		<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
 		<option value="paypal_adaptive" <?php selected( $active,'paypal_adaptive' ) ?>>PayPal Adaptive</option>
@@ -85,33 +85,60 @@ if( $active == 'paypal_adaptive'){
 
 
 	$api_appid = $api_userid = $app_signarute = $api_userpassword = '';
+	$pp_sandbox_mode = 1;
+	$api_appid_name = 'api_appid_sandbox';
+	$api_userid_name = 'api_userid_sandbox';
+	$app_signarute_name = 'app_signarute_sandbox';
+	$api_userpassword_name = 'api_userpassword_sandbox';
 
-	if( !empty( $paypal_adaptive ) ){
-		$api_appid = $paypal_adaptive->api_appid;
-		$api_userid = $paypal_adaptive->api_userid;
-		$app_signarute = $paypal_adaptive->app_signarute;
-		$api_userpassword = $paypal_adaptive->api_userpassword;
+	if( ! empty( $paypal_adaptive ) ){
+		if(  isset( $paypal_adaptive->pp_sandbox_mode) )
+			$pp_sandbox_mode = (int) $paypal_adaptive->pp_sandbox_mode;
+
+		if( $pp_sandbox_mode ){
+
+			$api_appid = $paypal_adaptive->api_appid_sandbox;
+			$api_userid = $paypal_adaptive->api_userid_sandbox;
+			$app_signarute = $paypal_adaptive->app_signarute_sandbox;
+			$api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
+
+		} else {
+			$api_appid_name = 'api_appid';
+			$api_userid_name = 'api_userid';
+			$app_signarute_name = 'app_signarute';
+			$api_userpassword_name = 'api_userpassword';
+
+			$api_appid = $paypal_adaptive->api_appid;
+			$api_userid = $paypal_adaptive->api_userid;
+			$app_signarute = $paypal_adaptive->app_signarute;
+			$api_userpassword = $paypal_adaptive->api_userpassword;
+		}
+
 	}
 
 	?>
 	<h2> <?php _e('PayPal Adaptive Sandbox Mode Settings','boxtheme');?> </h2> <br />
-   	<div class="sub-item" id="opt_credit">
+   	<div class="sub-item" id="paypal_adaptive">
 		<form style="max-width: 600px;">
 			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label">Sandbox mode</label>
+				<div class="col-md-8"><?php bx_swap_button('paypal_adaptive','pp_sandbox_mode', $pp_sandbox_mode, 0);?></div>
+			</div>
+			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API User ID</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_userid;?>" name = "api_userid" id="api_userid"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_userid;?>" name = "<?php echo $api_userid_name;?>" id="api_userid"></div>
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API Password</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="api_userpassword" multi="0" value="<?php echo $api_userpassword;?>" name = "api_userpassword" id="api_userpassword"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="api_userpassword" multi="0" value="<?php echo $api_userpassword;?>" name = "<?php echo $api_userpassword_name;?>" id="api_userpassword"></div>
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API Signarute</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $app_signarute;?>" name = "app_signarute" id="app_signarute"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $app_signarute;?>" name = "<?php echo $app_signarute_name;?>" id="app_signarute"></div>
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API App ID</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_appid;?>" name = "api_appid" id="api_appid"></div>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
 			</div>
 		</form>
 	</div>

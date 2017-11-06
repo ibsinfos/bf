@@ -92,10 +92,17 @@ class BX_Option {
 				'number_credit_default' => 10,
 			),
 			'paypal_adaptive' => array(
-					'api_appid' => 'APP-80W284485P519543T',
-					'api_userid' => 'employer_api1.etteam.com',
-					'app_signarute' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31A34rWCcmcj5MTfA8FTdjkQJj-JDg',
-					'api_userpassword' => '824SVG8UC4VKBHTG',
+				'pp_sandbox_mode' => 1,
+				'api_appid_sandbox' => 'APP-80W284485P519543T',
+				'api_userid_sandbox' => 'employer_api1.etteam.com',
+				'app_signarute_sandbox' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31A34rWCcmcj5MTfA8FTdjkQJj-JDg',
+				'api_userpassword_sandbox' => '824SVG8UC4VKBHTG',
+
+				'api_appid' => '',
+				'api_userid' => '',
+				'app_signarute' => '',
+				'api_userpassword' => '',
+
 			),
 			'box_mail_content' => $this->list_email(),
 
