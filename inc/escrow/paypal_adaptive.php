@@ -187,7 +187,7 @@ class PP_Adaptive extends Box_Escrow{
       	$respond = array('success' => false, 'msg' =>'Failse');
       	try{
 
-      		$fre_receive_email = get_user_meta( $frelancer_id,  'paypal_email',false )
+      		$fre_receive_email = get_user_meta( $frelancer_id,  'paypal_email', false );
       		$respond  = $this->pay( $fre_receive_email, $emp_pay, $fre_receive, $project->ID);
       	} catch (Exception $e) {
       		$respond['msg'] = $e->getMessage();
