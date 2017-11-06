@@ -119,9 +119,9 @@ if( $active == 'paypal_adaptive'){
 	?>
 
    	<div class="sub-item" id="paypal_adaptive">
-		<form style="max-width: 700px;">
+		<form style="max-width: 700px; padding-top: 50px;">
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label">Sandbox mode</label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><h2>Sandbox mode </h2></label>
 				<div class="col-md-8"><?php bx_swap_button('paypal_adaptive','pp_sandbox_mode', $pp_sandbox_mode, 0);?></div>
 			</div>
 			<div class="form-group">
