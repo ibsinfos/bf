@@ -19,9 +19,12 @@ Class Box_Escrow{
       	$emp_pay = $pay_info->emp_pay;
 
 		$employer_id = $project->post_author;
+
 		$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
 		update_user_meta( $employer_id, 'total_spent', $total_spent );
 
+		$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
+		update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
 
 		$request['ID'] = $project_id;
 
@@ -44,8 +47,6 @@ Class Box_Escrow{
 
 
 
-			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
-			update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
 
 			Box_ActMail::get_instance()->award_job( $freelancer_id );
 
