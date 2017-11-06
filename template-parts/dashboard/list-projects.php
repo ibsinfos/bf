@@ -6,7 +6,8 @@
 
 	global $user_ID;
 
-	$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
+	//$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
+	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('publish','pending','disputing','resolved','done','awarded');
 	$loadmore = false;
 	$link =  box_get_static_link('dashboard');  ?>
 
