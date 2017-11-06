@@ -170,8 +170,8 @@ class PP_Adaptive extends Box_Escrow{
 					'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
 				);
 				box_log('save pp_key:'.$res->payKey . " Project ID: ".$project->ID);
-				$t = update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
-				box_log("update return: ".$t);
+				update_post_meta( $project->ID, 'pp_paykey', $res->payKey );
+
 				return  $response;
 			}
 		}

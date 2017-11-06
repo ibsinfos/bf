@@ -150,15 +150,20 @@ Class BX_Project extends BX_Post{
 			$type = $escrow->active;
 			$respond  = array(
 				'success' => true,
+				'type' => $type,
 				'msg' => __('Assign job successful.','boxtheme'),
+				'url_redirect' => '',
 			);
 			// check balance and deducts.
 			switch ($type) {
 				case 'credit':
 					$response = BX_Credit::get_instance()->act_award( $bid_id, $freelancer_id,  $project );
+
 					break;
 				case 'paypal_adaptive':
 					$response = PP_Adaptive::get_instance()->act_award( $bid_id, $freelancer_id,  $project );
+
+					$respond['url_redirect'] = $response['url_redirect'];
 					break;
 				default:
 					# code...
@@ -169,6 +174,8 @@ Class BX_Project extends BX_Post{
 				$respond['success'] = false;
 				$respond['msg'] = $response->get_error_message();
 			}
+
+
 			wp_send_json( $respond);
 
 

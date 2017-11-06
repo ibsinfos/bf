@@ -45,9 +45,6 @@ Class Box_Escrow{
 			// update bid status to AWARDED
 			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
 
-
-
-
 			Box_ActMail::get_instance()->award_job( $freelancer_id );
 
 			$cvs_id = is_sent_msg( $project_id, $freelancer_id );
