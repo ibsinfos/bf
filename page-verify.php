@@ -21,7 +21,7 @@
 					$user = check_password_reset_key( $verify_key, $user_login ); // return userdata if match
 
 					if ( ! $user || is_wp_error( $user ) ) {
-						if ( $check_match && $check_match->get_error_code() === 'expired_key' ) {
+						if ( $user && $user->get_error_code() === 'expired_key' ) {
 							_e('Key is expired', 'boxtheme');
 						}
 					} else {
