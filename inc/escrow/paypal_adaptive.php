@@ -55,8 +55,8 @@ class PP_Adaptive{
 			'receiverList.receiver(1).email'=> $fre_receive_email,
 			'receiverList.receiver(1).primary'=> false,
 			'requestEnvelope.errorLanguage'=>'US',
-			'returnUrl'=>'http://localhost/et/fb/',
-			'cancelUrl'=>'http://localhost/et/fb/',
+			'returnUrl'=>self::$return_url,
+			'cancelUrl'=>self::$return_url,
 		);
 
 	}
@@ -131,7 +131,7 @@ class PP_Adaptive{
 					'payKey' => $res->payKey,
 					'url_redirect' =>"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=".$res->payKey,
 				);
-				var_dump($res);
+
 				update_post_meta( $project->ID, 'payKey', $res->payKey );
 				return  $response;
 			}
@@ -168,5 +168,5 @@ class PP_Adaptive{
 }
 // freelancer@etteam.com
 // employer@etteam.com
-//danhoat-buyer@gmail.com
+// danhoat-buyer@gmail.com
 ?>

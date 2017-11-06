@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function box_log($input, $file_store = ''){
 	$file_store =LOG_FILE;
 	//WP_CONTENT_DIR.'/ipn.log');
-	if( is_array($input) ){
+	if( is_array($input) || is_object( $input ) ){
 		error_log( print_r($input, TRUE), 3, $file_store );
 	}else {
 		error_log($input . "\n" , 3, $file_store);

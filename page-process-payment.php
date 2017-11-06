@@ -23,19 +23,23 @@ if( $type == 'cash'){
 		update_post_meta($order->ID,'is_access', 1);
 	}
 } else {
+	if($type == 'pp_adaptive'){
+		box_log($_REQUEST);
+	} else {
+		$verified = BX_Paypal::get_instance()->verifyIPN();
+		if ($verified) {
+			box_log('verified');
+			// appove order_status and add amout of this order to ballance of payer.
+			//box_log('Verified successful');
+			bx_process_payment($order_id);
+		    /*
+		     * Process IPN
+		     * A list of variables is available here:
+		     * https://developer.paypal.com/webapps/developer/docs/classic/ipn/integration-guide/IPNandPDTVariables/
+		     */
+		 }
+	}
 
-	$verified = BX_Paypal::get_instance()->verifyIPN();
-	if ($verified) {
-		box_log('verified');
-		// appove order_status and add amout of this order to ballance of payer.
-		//box_log('Verified successful');
-		bx_process_payment($order_id);
-	    /*
-	     * Process IPN
-	     * A list of variables is available here:
-	     * https://developer.paypal.com/webapps/developer/docs/classic/ipn/integration-guide/IPNandPDTVariables/
-	     */
-	 }
 }
 
 ?>

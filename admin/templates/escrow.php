@@ -52,7 +52,7 @@ if( isset( $active ) && ! empty( $escrow->active ) ){
 
 ?>
 
-	<div class="full">
+	<div id="<?php echo $group_option;?>" class="main-group" >
 		<label class="form-label">Select the Eccrow system</label>
 		<select class="form-control auto-save" name="active">
 			<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>

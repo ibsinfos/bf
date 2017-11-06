@@ -14,6 +14,7 @@
 	<div class="container site-container">
 		<div class="site-content" id="content" >
 			<div class="col-md-12  text-justify mt50" style="min-height: 450px; padding-top: 100px;">
+				<div id="verify_content">
 				<?php
 				global $user_ID;
 				if( !empty( $verify_key) && !empty( $user_login) ) {
@@ -23,6 +24,8 @@
 					if ( ! $user || is_wp_error( $user ) ) {
 						if ( $user && $user->get_error_code() === 'expired_key' ) {
 							_e('Key is expired', 'boxtheme');
+						} else {
+							echo $user->get_error_message();
 						}
 					} else {
 
@@ -87,17 +90,16 @@
 
 					}
 				} else if( is_user_logged_in() ) {
-					$user 	= wp_get_current_user();
-				 ?>
-				<div id="verify_content">
+					$user 	= wp_get_current_user(); ?>
 					<h2 class="primary-font"><?php _e('Verify your account to access website','boxtheme');?></h2>
 					<div class="col-md-12 mt50">
 						<?php printf (__('We\'ve sent an email to your address: <strong>%s</strong><br /> Please check your email and click on the link provided to verify your account.','boxtheme'), $user->user_email) ; ?>
 						<p class="show-btn"><?php _e('If you did not receive that email. You can click <a href="#" class="btn-resend"> here</a> to resend a new email','boxtheme');?>
 						<input type="hidden" id="nonce_new_email" value="<?php echo wp_create_nonce('new_confirm_email');?>" name="nonce_new_email">
-					</div>
-				</div>
-				<?php } ?>
+
+					</div><?php
+				} ?>
+				</div> <!-- #verify_content !-->
 			</div>
 		</div>
 	</div>
