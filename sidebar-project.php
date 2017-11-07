@@ -69,6 +69,6 @@ $employer = get_userdata($project->post_author);
 	</ul>
 </div>
 
-<div class="company-pictures">
+<div class="company-pictures hide">
 	<img src="<?php echo  get_template_directory_uri().'/img/custom-img.png';?>" title = "Your custom image" alt ="Your custom image" />
 </div>

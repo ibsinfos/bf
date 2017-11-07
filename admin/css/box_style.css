@@ -17,6 +17,9 @@
 	bottom: 22px;
 	right: 15px;
 }
+.toggle.field-control-success::after{
+	display: none;
+}
 .form-group{
 	position: relative;
 }
@@ -254,4 +257,7 @@ thead:nth-child,thead th,thead tr, thead{
 }
 .glyphicon{
 	font-size: 16px;
+}
+.toggle-handle{
+	background-color: #ccc;
 }
