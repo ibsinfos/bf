@@ -3,14 +3,15 @@
 
 ?>
 <div class="full job-content second-font">
-<h3 class="default-label"> <?php _e('Job details','boxtheme');?> </h3>
-<?php
-	global $can_access_workspacem, $is_workspace;
-	box_social_share();
+	<h3 class="default-label"> <?php _e('Job details','boxtheme');?> </h3>
+	<?php
+		global $can_access_workspacem, $is_workspace;
+		box_social_share();
 
-?>
-
-<?php the_content(); ?>
+	?>
+	<div class="job-detail-content">
+		<?php the_content(); ?>
+	</div>
 </div>
 <?php
 global $project;
