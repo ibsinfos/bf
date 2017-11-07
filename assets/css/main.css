@@ -1161,6 +1161,7 @@ content: "";
 .archive-profile-item .overview-profile{
 	font-size: 1em;
 	padding: 7px 0;
+	line-height: 1.8em;
 }
 .archive-profile-item .overview-profile p{
 	margin-bottom: 0;

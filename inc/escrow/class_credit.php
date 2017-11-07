@@ -97,6 +97,10 @@ Class BX_Credit extends Box_Escrow {
 		return true;
 
 	}
+	// call this action when employer mark as finish a project.
+	function release( $freelancer_id, $amout){
+		return $this->increase_credit_available( $amout, $freelancer_id );
+	}
 	function emp_mark_as_complete($request){
 
 			$request['ID'] = $request['project_id'];
@@ -125,10 +129,7 @@ Class BX_Credit extends Box_Escrow {
 		}
 	}
 
-	// call this action when employer mark as finish a project.
-	function release( $freelancer_id, $amout){
-		return $this->increase_credit_available( $amout, $freelancer_id );
-	}
+
 
 	/**
 	 * add more available credit to the account.
