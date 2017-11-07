@@ -12,7 +12,7 @@ function box_bid_buton($post){
 }
 function box_post_buton( $post ){ ?>
 	<li>
-		<a href="<?php echo box_get_static_link('post-project'); ?>" class ="btn-bid-now" > &nbsp;  <?php  _e('Post new job','boxtheme');?> &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
+		<a href="<?php echo box_get_static_link('post-project'); ?>" class ="btn-bid-now t" > &nbsp;  <?php  _e('Post new job','boxtheme');?> &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i> </a>
 	</li>
 	<?php
 }
@@ -37,7 +37,6 @@ $fre_hired = (int) get_user_meta( $project->post_author, 'fre_hired', true);
 $total_spent = (float) get_user_meta( $project->post_author, 'total_spent', true);
 $employer = get_userdata($project->post_author);
 
-global $is_workspace, $can_access_workspace;
 ?>
 	<div class="main-btn-react  hide">
 		<button class="contact-me primary-bg"> <?php _e('WorkSpace','boxtheme');?></button><button class="contact-me primary-bg"><?php _e('Dispute','boxtheme');?></button>
@@ -67,23 +66,6 @@ global $is_workspace, $can_access_workspace;
 			box_post_buton($project);
 
 		}?>
-		<?php
-		if( $can_access_workspace ){
-			if( in_array( $project->post_status, array('awarded','done','dispute','finish','disputing', 'disputed','archived') ) ){
-				if( ! $is_workspace ||  $project->post_status == 'resolved'   ) { ?>
-			<li class=" text-center ">
-				<a href="?workspace=1" class="btn-bid-now primary-color">
-					<i class="fa fa-clipboard" aria-hidden="true"></i> <?php _e('Go to Workspace','boxtheme');?>  &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i>  </a>	</li>
-				<?php } else { ?>
-			<li class=""><a href="<?php echo get_permalink();?>" class="primary-color"><i class="fa fa-file-text-o" aria-hidden="true"></i></span> <?php _e('Back to Detail','boxtheme');?></a></li>
-			<?php if( $project->post_status == 'disputing' ){ ?>
-				<li class=""><a href="?dispute=1" class="primary-color"><i class="fa fa-file-text-o" aria-hidden="true"></i></span> <?php _e('Disputing section','boxtheme');?>  &nbsp; &nbsp;  <i class="fa fa-angle-right" aria-hidden="true"></i>  </a></li>
-			<?php } ?>
-		<?php }
-  			}
-      	}
-      	?>
-
 	</ul>
 </div>
 
