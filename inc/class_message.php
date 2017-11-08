@@ -59,7 +59,7 @@ class BX_Conversations{
 			'receiver_id' => $args['receiver_id'],
 		);
 		if ( $is_assign ) {
-			$args['msg_content'] = sprintf( __('%s assigned you in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
+			$args['msg_content'] = sprintf( __('%s assigned you in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title );
 		}
 
 		$notify = Box_Notify::get_instance()->insert($args);
