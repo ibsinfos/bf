@@ -113,7 +113,6 @@ class PP_Adaptive extends Box_Escrow{
 			'returnUrl'=>'http://localhost/et/fb/',
 			'cancelUrl'=>'http://localhost/et/fb/',
 		);
-
 	}
 
 	/**
