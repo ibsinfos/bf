@@ -19,7 +19,7 @@
 	<ul class="db-list-project">
 		<li class="heading list-style-none full">
 			<div class="col-md-8 pull-left">
-				<?php _e('Your bids','boxtheme');?>
+				<?php _e('Your projects','boxtheme');?>
 			</div>
 			<div class="col-md-4 pull-right">
 				<form class="pull-right full dashboard-filter">
