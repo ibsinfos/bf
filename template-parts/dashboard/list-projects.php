@@ -22,6 +22,7 @@
 		</div>
 		<?php get_template_part( 'template-parts/dashboard/list-projects', 'processing' ); ?>
 		<?php get_template_part( 'template-parts/dashboard/list-projects', 'active' ); ?>
+		<?php get_template_part( 'template-parts/dashboard/list-projects', 'other' ); ?>
 	</div>
 
 <style type="text/css">
