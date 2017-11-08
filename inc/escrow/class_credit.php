@@ -172,7 +172,7 @@ Class BX_Credit extends Box_Escrow {
 			}
 			$release = 0;
 
-			try{
+			try {
 				//$winner_id 	= get_post_meta($project_id, WINNER_ID, true); // freelancer_id
 				$trans_id = get_post_meta( $project_id, 'transaction_id', true );
 
@@ -185,7 +185,7 @@ Class BX_Credit extends Box_Escrow {
 			}
 
 			if( $release && !is_wp_error( $release ) ){
-				wp_update_post( array('ID' => $release,'post_status' => 'publish') );
+				wp_update_post( array('ID' => $trans_id,'post_status' => 'publish') );
 				$request['ID'] = $request['project_id'];
 				$request['post_status'] = DONE;
 				$project_id = wp_update_post($request);
@@ -196,7 +196,7 @@ Class BX_Credit extends Box_Escrow {
 				$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
 				return wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 			}
-			return new WP_Error('failse',__('Review failse','boxtheme') );
+			return new WP_Error('failse',__('Review fail','boxtheme') );
 	}
 
 	// call this action when employer mark as finish a project.
