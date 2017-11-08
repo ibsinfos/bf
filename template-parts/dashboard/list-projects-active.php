@@ -36,7 +36,7 @@
 				echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-3">';	echo get_the_date();	echo '</div>';	?>
 				<div class ="col-md-2 pull-right text-center">
-					<a href="<?php echo  get_the_permalink();?>" class="btn">Details</a>
+					<a href="<?php echo  get_the_permalink();?>" class="btn"><?php _e('View detail','boxtheme');?></a>
 				</div>
 
 			</li><?php		}
