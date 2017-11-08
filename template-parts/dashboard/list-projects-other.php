@@ -57,7 +57,7 @@
 					$query->the_post();
 					$project = BX_Project::get_instance()->convert($post); ?>
 					<li class="list-style-none padding-bottom-10">
-						<div class ="col-md-5"><a href="<?php echo get_permalink();?>"><?php echo get_the_title()?></a></div>
+						<div class ="col-md-5"><a class="primary-color" href="<?php echo get_permalink();?>"><?php echo get_the_title()?></a></div>
 						<div class ="col-md-2"><?php echo count_bids($post->ID); ?></div>
 						<div class ="col-md-2"><?php echo get_the_date(); ?></div>
 						<div class ="col-md-2 text-center">
