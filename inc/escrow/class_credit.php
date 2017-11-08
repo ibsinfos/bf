@@ -45,23 +45,31 @@ Class BX_Credit extends Box_Escrow {
       	$emp_pay = $pay_info->emp_pay;
 
       	$fre_receive = $pay_info->fre_receive;
+      	$new_available = $ballance->available - $emp_pay;
 
-		if( $ballance->available < $emp_pay ){
+		if( $new_available <= 0 ){
 			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transaction.", "boxtheme" ) );
 		}
-		$new_available = $ballance->available - $emp_pay;
-		global $wpdb;
-		$ok = $wpdb->query( $wpdb->prepare("
-				UPDATE $wpdb->usermeta
-				SET  meta_value = %f
-				WHERE user_id = %d AND meta_key ='%s' ",
-			    $new_available, $employer_id, $this->meta_available
-			)
-		);
-		if( $ok ){
-			BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
+
+
+		$args = array(
+			//'total' => $args['total'],
+			'emp_pay' => $emp_pay,
+			'payer_id' => $employer_id,
+			'user_pay' => $pay_info->user_pay, // user pay commision fee
+			'receiver_id' => $args['receiver_id'],
+			'fre_receive' => $fre_receive,
+			'commision_fee' => $fre_receive,
+
+		)
+		$trans = BOX_Transaction::get_instance()->create($args);
+		if( $trans && !is_wp_error( $trans ) ){
+			update_post_meta($employer_od, $this->meta_available, $new_available );
+			if( $ok ){
+				BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
+			}
 		}
-		return $ok;
+		return $trans;
 
 	}
 	function act_award( $bid_id, $freelancer_id,  $project){
