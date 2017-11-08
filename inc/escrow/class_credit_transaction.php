@@ -46,6 +46,7 @@ class BOX_Transaction{
 					)
 			)
 		);
+		$this->id = $id;
 		return $id;
 	}
 	function update_status($id, $){
@@ -54,6 +55,9 @@ class BOX_Transaction{
 				'ID' => '',
 			)
 		);
+	}
+	function delete(){
+		wp_delete_post( $this->id, true);
 	}
 	function release($id){
 		$this->update_status('publish');
