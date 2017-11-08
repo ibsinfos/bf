@@ -1,6 +1,6 @@
 <?php
 class BOX_Transaction{
-	protected $id:
+	protected $id;
 	protected $project_id;
 	protected $payer_id; // payer for this transaction.
 	protected $receiver_id; // receiver for this transaction.
