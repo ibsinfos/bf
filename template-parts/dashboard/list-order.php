@@ -19,7 +19,14 @@
   			'posts_per_page' => -1,
   		);
   		$status = array('pending' => __('Pending','boxtheme'),'publish' => __('Approved','boxtheme'),'draft' => __('Draft','boxtheme') );
-		  $types = array('buy_credit' => __('Buy credit','boxtheme'),'withdraw' => __('Withdraw','boxtheme') ,'none' =>'None', 'deposit' => __('Deposit','boxtheme'), 'undeposit' => __('Refund','boxtheme') );
+		  $types = array(
+        'buy_credit' => __('Buy credit','boxtheme'),
+        'withdraw' => __('Withdraw','boxtheme') ,
+        'none' =>'None',
+        'deposit' => __('Deposit','boxtheme'),
+        'undeposit' => __('Refund','boxtheme'),
+        'receive' => __('Receive','boxtheme'),
+      );
 
   		$query = new WP_Query($args);
   		if( $query->have_posts() ){

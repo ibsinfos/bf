@@ -175,7 +175,7 @@ Class BX_Order {
 
 		$args_order_emp = array(
 			'post_title' => sprintf( __('Deposit for the project %s','boxtheme'),$project->post_title ),
-			'post_status' =>'publish',
+			'post_status' =>'pending',
 			'post_author' => $current_user->ID,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
