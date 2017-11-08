@@ -181,7 +181,7 @@ Class BX_Credit extends Box_Escrow {
 				}
 			} catch(Exeption $e){
 				return $e;
-				wp_die('die');
+
 			}
 
 			if( $release && !is_wp_error( $release ) ){

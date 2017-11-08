@@ -197,11 +197,7 @@ Class BX_Project extends BX_Post{
 					# code...
 					break;
 			}
-			// action of employer
-			// mark as close project
 
-			// update project status
-			// update bid status
 			$respond = array('success' => true,'msg'=>'DONE');
 			if( is_wp_error( $response ) ){
 				$respond['success'] = false;
@@ -209,8 +205,8 @@ Class BX_Project extends BX_Post{
 			} else if( isset($response['url_redirect']) ){
 				$respond['url_redirect'] = $response['url_redirect'];
 			}
-			var_dump($respond);
 			wp_send_json( $respond);
+			
 		} else if($action == 'review_emp'){
 			// action of freelancer.
 			global $current_user;
