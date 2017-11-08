@@ -26,17 +26,17 @@
 	<?php
 	if( $query-> have_posts() ){
 		while ($query->have_posts()) {
-			$link  = get_the_permalink( );
-			$ws_link = add_query_arg( 'workspace',1,$link );
+
 			global $post;
 			$query->the_post();
-			$project = BX_Project::get_instance()->convert($post);
+			$project = BX_Project::get_instance()->convert( $post );
+
 			echo '<li class="list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-5">';	echo '<a class="primary-color" href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
 				echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-3">';	echo get_the_date();	echo '</div>';	?>
 				<div class ="col-md-2 pull-right text-center">
-					<a href="<?php echo $ws_link;?>" class="btn">Details</a>
+					<a href="<?php echo  get_the_permalink();?>" class="btn">Details</a>
 				</div>
 
 			</li><?php		}
