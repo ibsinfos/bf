@@ -10,13 +10,7 @@ Class Box_Escrow{
 	 * for paypal: after pay and the transaction has the "INCOMPLETE" status
 	*/
 
-	function perform_after_release(){
-		//update bid status;
-		//update user meta job_hired, total_spend, rating/review.
-	}
 	function send_mail_noti_assign( $project, $freelancer_id, $cvs_status = 'publish'){
-
-
 
 		Box_ActMail::get_instance()->award_job( $freelancer_id );
 		if( is_numeric( $project ) ){
@@ -39,7 +33,7 @@ Class Box_Escrow{
 				'cvs_status' => $cvs_status,
 			);
 
-			BX_Conversations::get_instance()->insert($args);
+			BX_Conversations::get_instance()->insert( $args, $assign = 1 );
 
 		} else {
 			$msg_arg = array(
@@ -49,7 +43,6 @@ Class Box_Escrow{
 				'sender_id' => $project->post_author,
 				'msg_type' => 'message',
 			);
-
 			$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
 		}
 	}

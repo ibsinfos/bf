@@ -118,7 +118,7 @@ Class Box_Transaction_Backen {
 			<div class="row">Transaction ID :<?php the_ID();?></div>
 			<?php
 			$project = get_post($this->trans->project_id);
-			echo '<div class="row"> Deated Create : '.date('M d, Y', strtotime( $this->trans->date_create) ) .'</div>';
+			echo '<div class="row"> Deated Create : '.date('M d, Y', strtotime( $this->trans->date_create ) ) .'</div>';
 			echo '<div class="row"> Payer ID(Employer ID): '.$this->trans->payer_id .'</div>';
 			echo '<div class="row"> Freelancer ID: '.$this->trans->receiver_id.'</div>';
 			echo '<div class="row"> Employer Pay: '.$this->trans->emp_pay.'</div>';

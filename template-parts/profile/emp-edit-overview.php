@@ -7,9 +7,10 @@
 	$txt_country = 'Unset';
 	$ucountry = get_term( $country_id, 'country' );
 
-	if( !is_wp_error($ucountry ) ){
+	if( ! is_wp_error($ucountry ) && ! empty( $ucountry ) ){
 		$txt_country = $ucountry->name;
 	}
+
 	$country_select = '';
 	$countries = get_terms( 'country', array(
     	'hide_empty' => false)

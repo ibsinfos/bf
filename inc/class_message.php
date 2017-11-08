@@ -19,7 +19,7 @@ class BX_Conversations{
 		return $this->$method($args);
 	}
 
-	function insert($args) {
+	function insert($args, $is_assign = 0) {
 
 		global $wpdb, $user_ID;
 		$project_id = $args['project_id'];
@@ -53,13 +53,14 @@ class BX_Conversations{
 		Box_ActMail::get_instance()->has_new_conversation( $freelancer_id,  $employer ,$project );
 
 		// Add notitication for freelancer
-
-
 		$args = array(
-			'msg_content' => sprintf( __('%s has just hired you on the job: <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
+			'msg_content' => sprintf( __('%s sent you a message in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
 			'msg_link' => get_permalink( $project_id ),
 			'receiver_id' => $args['receiver_id'],
 		);
+		if ( $is_assign ) {
+			$args['msg_content'] = sprintf( __('%s assigned you in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
+		}
 
 		$notify = Box_Notify::get_instance()->insert($args);
 
