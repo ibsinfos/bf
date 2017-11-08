@@ -10,7 +10,7 @@
 			setcookie( $cookie, 'is_visited', time() + 10 );
 		}
 	}
-	global $post, $project, $user_ID, $is_owner, $winner_id, $can_access_workspace, $is_workspace,$is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
+	global $post, $project, $user_ID, $is_owner, $winner_id, $can_access_workspace, $is_workspace, $is_dispute, $role, $cvs_id, $list_bid, $bidding, $is_logged , $current_user_can_bid, $bid_query;
 
 	get_header();
 
@@ -22,14 +22,23 @@
 	$current_user_can_bid  = current_user_can_bid( $project);
 
 	$winner_id = $project->{WINNER_ID};
+
 	$is_workspace = isset($_GET['workspace']) ? (int) $_GET['workspace'] : 0;
+
+	if( can_access_workspace($project) )
+		$can_access_workspace = 1;
+
+
+	if ( in_array ( $project->post_status, array('publish','pending','archived' ) ) || ! $can_access_workspace ){
+		$is_workspace = 0;
+	}
+
 	$is_dispute = isset($_GET['dispute']) ? (int) $_GET['dispute'] : 0;
 
 	if( is_owner_project( $project ) )
 		$is_owner = $project->post_author;
 
-	if( can_access_workspace($project) )
-		$can_access_workspace = 1;
+
 
 	if( $current_user_can_bid ){
 		$bidding = is_current_user_bidded($project->ID);
