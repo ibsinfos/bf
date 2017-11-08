@@ -3,20 +3,11 @@
  * be included in page-dashboard and list all bidded of current Employer
  * Only available for Employer or Admin account.
 **/
+global $user_ID, $active_class;
 
-	global $user_ID;
+?>
 
-	//$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
-	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('publish','pending','disputing','resolved','done','awarded');
-	$loadmore = false;
-	$link =  box_get_static_link('dashboard');
-	$check = $status;
-	if( is_array($status) )
-		$check = 'any';
-
-	?>
-
-<ul class="db-list-project ul-list-project active" id="ul-processing">
+<ul class="db-list-project ul-list-project <?php echo $active_class;?>" id="ul-processing">
 	<?php
 		$args = array(
 		'post_type' => 'project',

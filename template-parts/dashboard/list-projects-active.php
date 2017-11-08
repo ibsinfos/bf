@@ -5,15 +5,6 @@
 **/
 
 	global $user_ID;
-
-	//$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
-	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('publish','pending','disputing','resolved','done','awarded');
-	$loadmore = false;
-	$link =  box_get_static_link('dashboard');
-	$check = $status;
-	if( is_array($status) )
-		$check = 'any';
-
 	?>
 
 <ul class="db-list-project ul-list-project" id="ul-active">

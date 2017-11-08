@@ -1,6 +1,6 @@
 <?php
 /**
- *	Template Name: Dashboard System Of User
+ *	Template Name: My Projects
  */
 ?>
 <?php get_header(); ?>

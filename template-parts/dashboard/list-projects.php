@@ -4,21 +4,22 @@
  * Only available for Employer or Admin account.
 **/
 
-	global $user_ID;
-
-	//$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
-	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('publish','pending','disputing','resolved','done','awarded');
-	$loadmore = false;
-	$link =  box_get_static_link('dashboard');
-	$check = $status;
-	if( is_array($status) )
-		$check = 'any';
-
+	global $user_ID, $in_other, $active_class;
+	$status = isset( $_GET['status'] ) ? $_GET['status'] : '';
+	$in_other = '';
+	$active_class = 'active';
+	if( in_array( $status, array('disputing','pending','done','archived') ) ){
+		$in_other = 'active';
+		$active_class = '';
+	}
 	?>
 	<div class="my-project full">
 		<div class="col-md-12 heading-top">
 			<h1 class="text-center"> <?php _e('My Projects','boxtheme');?> </h1>
-			<ul class="tab-heading inline"> <li id="processing" class="active">Processing</li><li id="active">Active</li><li id="other">Other</li></ul>
+			<ul class="tab-heading inline">
+				<li id="processing" class="<?php echo $active_class;?>"><?php _e('Processing','boxtheme');?></li>
+				<li id="active"><?php _e('Active','boxtheme');?></li>
+				<li id="other" class="<?php echo $in_other;?>">Other</li></ul>
 		</div>
 		<?php get_template_part( 'template-parts/dashboard/list-projects', 'processing' ); ?>
 		<?php get_template_part( 'template-parts/dashboard/list-projects', 'active' ); ?>
@@ -33,7 +34,7 @@
 		margin-top: 30px;
 	}
 	ul.tab-heading li{
-		width: 33%;
+		width: 32%;
 		display: inline-block;
 		font-size: 18px;
 		cursor: pointer;

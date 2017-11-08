@@ -6,7 +6,7 @@
 
 	global $user_ID;
 
-	//$status = isset( $_GET['status'] ) ? $_GET['status'] : 'any';
+	global $in_other;
 	$status = isset( $_GET['status'] ) ? $_GET['status'] : array('pending','disputing','resolved','done','archived');
 	$loadmore = false;
 	$link =  box_get_static_link('dashboard');
@@ -16,7 +16,7 @@
 
 	?>
 
-		<ul class="db-list-project ul-list-project" id="ul-other">
+		<ul class="db-list-project ul-list-project <?php echo $in_other;?>" id="ul-other">
 			<li class="heading list-style-none full">
 				<div class="col-md-4 pull-right">
 					<form class="pull-right full dashboard-filter">
