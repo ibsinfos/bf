@@ -9,9 +9,13 @@ Class BX_Credit extends Box_Escrow {
 	public $meta_available;
 	public $meta_pending;
 	private $mode;
+	protected $transaction;
 	function __construct(){
+
 		global $checkout_mode; // 0 = sandbox, 1 == real
 		$this->mode = $checkout_mode;
+		$this->transaction = Box_Transaction::get_instance();
+
 		if( $checkout_mode === 1 ) {
 			$this->meta_total = '_credit_total';
 			$this->meta_pending = '_credit_pending';
@@ -61,7 +65,7 @@ Class BX_Credit extends Box_Escrow {
 
 		);
 		$update_ballance = false;
-		$trans = BOX_Transaction::get_instance()->create($args);
+		$trans = $this->transaction->create($args);
 		if ( $trans && !is_wp_error( $trans ) ) {
 
 			$update_ballance = update_post_meta( $employer_id, $this->meta_available, $new_available ); // most improtant action.
@@ -144,12 +148,13 @@ Class BX_Credit extends Box_Escrow {
 			    $new_available, $employer_id, $this->meta_available
 			)
 		);
-		// should update order of this deposit // not implement.
+		// should update order of this deposit // not yet implement.
 		return true;
 
 	}
 	// call this action when employer mark as finish a project.
 	function release( $freelancer_id, $amout){
+		//$trans = $this->transaction->update_status();
 		return $this->increase_credit_available( $amout, $freelancer_id );
 	}
 	function emp_mark_as_complete($request){

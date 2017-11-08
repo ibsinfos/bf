@@ -1,5 +1,5 @@
 <?php
-class BOX_Transaction{
+class Box_Transaction{
 	protected $id;
 	protected $project_id;
 	protected $payer_id; // payer for this transaction.
@@ -49,10 +49,11 @@ class BOX_Transaction{
 		$this->id = $id;
 		return $id;
 	}
-	function update_status($id, $){
-		$id = wp_update_post(
+	function update_status($trans_id, $status ){
+		return wp_update_post(
 			array(
-				'ID' => '',
+				'ID' => $trans_id,
+				'post_status' => $status,
 			)
 		);
 	}
