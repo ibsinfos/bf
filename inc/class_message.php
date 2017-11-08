@@ -168,7 +168,7 @@ class BX_Message{
 		$wpdb->query( $sql );
 
 		if( $wpdb->insert_id ) {
-			do_action('box_after_insert_msg_success', $wpdb->insert_id, $$args['msg_content'], $this->cvs_id );
+			//do_action('box_after_insert_msg_success', $wpdb->insert_id, $$args['msg_content'], $this->cvs_id );
 		}
 		return $wpdb->insert_id;
 	}

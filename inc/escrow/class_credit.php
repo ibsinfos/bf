@@ -55,22 +55,25 @@ Class BX_Credit extends Box_Escrow {
 		}
 
 		$args = array(
-			//'total' => $args['total'],
+			'total' => $emp_pay,
 			'emp_pay' => $emp_pay,
 			'payer_id' => $employer_id,
 			'user_pay' => $pay_info->user_pay, // user pay commision fee
 			'receiver_id' => $freelance_id,
 			'fre_receive' => $fre_receive,
-			'commision_fee' => $pay_info->commision_fee,
+			'commision_fee' => $pay_info->cms_fee,
 
 		);
 		$update_ballance = false;
+
 		$trans = $this->transaction->create($args);
+
 		if ( $trans && !is_wp_error( $trans ) ) {
 
 			$update_ballance = update_post_meta( $employer_id, $this->meta_available, $new_available ); // most improtant action.
 
 			if( $update_ballance ){
+				update_post_meta( $project->ID, 'transaction_id', $trans->id );
 				return $trans;
 			} else {
 				$trans->delete();
@@ -83,7 +86,7 @@ Class BX_Credit extends Box_Escrow {
 	}
 	function act_award( $bid_id, $freelancer_id,  $project){
 
-		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+		$bid_price = (float) get_post_meta( $bid_id, BID_PRICE, true );
 		$employer_id = $project->post_author;
 		$project_id = $project->ID;
 
@@ -106,11 +109,13 @@ Class BX_Credit extends Box_Escrow {
 
 			global $user_ID;
 
-			$pay_info = box_get_pay_info( $bid_price );
+
 	      	$emp_pay = $pay_info->emp_pay;
 			$employer_id = $project->post_author;
+			$fre_receive = $pay_info->fre_receive;
 
 			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
+
 			update_user_meta( $employer_id, 'total_spent', $total_spent );
 
 			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
@@ -119,7 +124,9 @@ Class BX_Credit extends Box_Escrow {
 			// create coversation
 			// update bid status to AWARDED
 			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
+
 			BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
+
 			$this->send_mail_noti_assign( $project_id, $freelancer_id );
 
 			return $res;
@@ -152,11 +159,7 @@ Class BX_Credit extends Box_Escrow {
 		return true;
 
 	}
-	// call this action when employer mark as finish a project.
-	function release( $freelancer_id, $amout){
-		//$trans = $this->transaction->update_status();
-		return $this->increase_credit_available( $amout, $freelancer_id );
-	}
+
 	function emp_mark_as_complete($request){
 
 
@@ -168,8 +171,11 @@ Class BX_Credit extends Box_Escrow {
 			$release = 0;
 			$project_id = $request['project_id'];
 			try{
-				$winner_id 	= get_post_meta($project_id, WINNER_ID, true); // freelancer_id
-				$release = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
+				//$winner_id 	= get_post_meta($project_id, WINNER_ID, true); // freelancer_id
+				$trans_id = get_post_meta( $project_id, 'transaction_id', true );
+				if( $trans_id ){
+					$release = BX_Credit::get_instance()->release( $trans_id );
+				}
 			} catch(Exeption $e){
 				return $e;
 				wp_die('die');
@@ -188,7 +194,12 @@ Class BX_Credit extends Box_Escrow {
 			}
 	}
 
-
+	// call this action when employer mark as finish a project.
+	function release( $trans_id ){
+		$trans = Box_Transaction::get_instance($trans_id);
+		//$trans = $this->transaction->update_status();
+		return $this->increase_credit_available( $trans->fre_receive, $trans->receiver_id );
+	}
 
 	/**
 	 * add more available credit to the account.

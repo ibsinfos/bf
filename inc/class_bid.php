@@ -114,7 +114,9 @@ class BX_Bid extends BX_Post{
 			return new WP_Error( 'exists', __( "You've bid on this project", "boxtheme" ) );
 		}
 		global $escrow;
-		if( $escrow->activate == 'paypal_adaptive' ){
+		$activate = isset($escrow->activate) ? $escrow->activate : 'credit';
+
+		if( $activate == 'paypal_adaptive' ){
 			$pp_email = get_user_meta( $user_id, 'paypal_email', true );
 			if( empty($pp_email) || ! is_email( $pp_email) ){
 				return new WP_Error( 'empty_ppmail', __( "Please set your PayPal email.", "boxtheme" ) );
