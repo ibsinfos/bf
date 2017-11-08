@@ -27,9 +27,9 @@ class PP_Adaptive extends Box_Escrow{
 	function __construct(){
 
 		$this->sandbox_mode = 1;
-
 		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
-		if( isset( $paypal_adaptive->sandbox_mode ) )
+
+		if( isset ( $paypal_adaptive->sandbox_mode ) )
 			$this->sandbox_mode = (int) $paypal_adaptive->sandbox_mode;
 
 		if( $this->sandbox_mode ){
