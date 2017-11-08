@@ -41,27 +41,25 @@
 
 			$args['post_status'] = $status;
 			$query = new WP_Query($args);
+			?>
+			<li class="heading heading-table list-style-none padding-bottom-10">
+					<div class ="col-md-5"> <?php _e('JOB TITLE','boxtheme');?></div>
+					<div class ="col-md-2"> <?php _e('PROPOSALS','boxtheme'); ?></div>
 
-			echo '<li class="heading heading-table list-style-none padding-bottom-10">';
-					echo '<div class ="col-md-5">';				_e('JOB TITLE','boxtheme');				echo '</div>';
-					echo '<div class ="col-md-2">';				_e('PROPOSALS','boxtheme');				echo '</div>';
-
-					echo '<div class ="col-md-2">'; _e('DATE POSTED','boxtheme');echo '</div>'; ?>
-					 <div class ="col-md-2 text-center">Status</div> !-->
-					<?php
-					echo '<div class ="col-md-1 text-center pull-right">'; _e('Action','boxtheme');echo '</div>';
-			echo '</li>';
+					<div class ="col-md-2"><?php _e('DATE POSTED','boxtheme'); ?> </div>
+					<div class ="col-md-2 text-center"><?php _e('Status','boxtheme');?></div>
+					<div class ="col-md-1 text-center pull-right"><?php _e('Action','boxtheme');?></div>
+			</li>
+			<?php
 			if( $query-> have_posts() ){
 				while ($query->have_posts()) {
 					global $post;
 					$query->the_post();
-					$project = BX_Project::get_instance()->convert($post);
-					echo '<li class="list-style-none padding-bottom-10">';
-						echo '<div class ="col-md-5">';	echo '<a href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
-						echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';
-
-						echo '<div class ="col-md-2">';	echo get_the_date();	echo '</div>';						?>
-
+					$project = BX_Project::get_instance()->convert($post); ?>
+					<li class="list-style-none padding-bottom-10">
+						<div class ="col-md-5"><a href="<?php echo get_permalink();?>"><?php echo get_the_title()?></a></div>
+						<div class ="col-md-2"><?php echo count_bids($post->ID); ?></div>
+						<div class ="col-md-2"><?php echo get_the_date(); ?></div>
 						<div class ="col-md-2 text-center">
 							<?php echo $project->post_status;?>
 						</div>
@@ -69,13 +67,14 @@
 						<div class ="col-md-1 pull-right text-center">
 							<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>">
 								<i class="fa fa-trash-o" aria-hidden="true"></i>
-							</a> <?php
-					echo '</li>';
+							</a>
+						</div>
+					</li> <?php
 				}
-			} else {
-				echo '<li class="col-md-12" style="padding-top: 20px; list-style:none">';
-				_e('This query is empty','boxtheme');
-				echo '</li>';
+			} else {?>
+				<li class="col-md-12" style="padding-top: 20px; list-style:none">
+					<?php _e('This query is empty','boxtheme'); ?>
+				</li> <?php
 			}
 
 		echo '</ul>';?>
