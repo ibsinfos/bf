@@ -29,7 +29,7 @@ $score = (int) get_user_meta($project->post_author,RATING_SCORE, true);
 if(empty($score) || !$score){
 	$score = 0;
 }
-if( ! is_wp_error( $ucountry ) ){
+if( ! is_wp_error( $ucountry ) && $ucountry ){
 	$txt_country = $ucountry->name;
 }
 $project_posted = (int) get_user_meta( $project->post_author, 'project_posted', true);
