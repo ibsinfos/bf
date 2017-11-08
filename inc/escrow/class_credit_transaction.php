@@ -7,7 +7,9 @@ class Box_Transaction{
 	public $emp_pay;
 	public $fre_receive;
 	public $status;
+	public $date_create;
 	static $instance;
+
 	function __construct ($trans_id){
 
 		$this->id = $trans_id;
@@ -22,6 +24,7 @@ class Box_Transaction{
 			$this->fre_receive = get_post_meta($trans_id, 'fre_receive', true);
 			$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
 			$this->project_id = $trans->post_parent;
+			$this->date_create = $trans->post_date;
 		}
 	}
 	static function get_instance( $trans_id = 0){
@@ -79,14 +82,17 @@ class Box_Transaction{
 		$trans = get_post($trans_id);
 
 		$this->status = $trans->post_status;
-		$this->status = $trans->post_status;
+
+
 		$this->total = get_post_meta($trans_id, 'total', true);
-		$this->payer_id = get_post_meta($trans_id, 'payer_id', true);
-		$this->receiver_id = get_post_meta($trans_id, 'receiver_id', true);
 		$this->emp_pay = get_post_meta($trans_id, 'emp_pay', true);
+		$this->payer_id = get_post_meta($trans_id, 'payer_id', true);
+		$this->project_id = $trans->post_parent;
+		$this->receiver_id = get_post_meta($trans_id, 'receiver_id', true);
+		$this->date_create = $trans->post_date;
 		$this->fre_receive = get_post_meta($trans_id, 'fre_receive', true);
 		$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
-		$this->project_id = $trans->post_parent;
+
 		return $this;
 	}
 
@@ -112,6 +118,7 @@ Class Box_Transaction_Backen {
 			<div class="row">Transaction ID :<?php the_ID();?></div>
 			<?php
 			$project = get_post($this->trans->project_id);
+			echo '<div class="row"> Deated Create : '.date('M d, Y', strtotime($this->trans->date_create) ) .'</div>';
 			echo '<div class="row"> Payer ID(Employer ID): '.$this->trans->payer_id .'</div>';
 			echo '<div class="row"> Freelancer ID: '.$this->trans->receiver_id.'</div>';
 			echo '<div class="row"> Employer Pay: '.$this->trans->emp_pay.'</div>';
@@ -132,6 +139,10 @@ Class Box_Transaction_Backen {
 					padding-bottom: 15px;
 				}
 				#side-sortables { display: none; }
+				.wrap .trans-detail h1{
+					font-size: 23px;
+					padding-bottom: 30px;
+				}
 			</style>
 			<?php
 		}
