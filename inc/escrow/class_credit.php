@@ -30,45 +30,44 @@ Class BX_Credit extends Box_Escrow {
 	}
 
 	/**
-	 * Tranfer credit in employer account to freelancer account with status pending.
+	 * ONLY deduct credit number in ballance of Employer account.
 	 * @param int $employer_id
 	 * @param int $bidding  bidding id
 	*/
-	function deposit(  $bid_price, $freelancer_id,  $project ) {
+	function deposit(  $bid_price, $pay_info, $project , $freelance_id) {
 
 		$employer_id = $project->post_author;
 
 		$ballance = $this->get_ballance( $employer_id );
 
-		$pay_info = box_get_pay_info( $bid_price );
-
-      	$emp_pay = $pay_info->emp_pay;
+     	$emp_pay = $pay_info->emp_pay;
 
       	$fre_receive = $pay_info->fre_receive;
+
       	$new_available = $ballance->available - $emp_pay;
 
 		if( $new_available <= 0 ){
 			return new WP_Error( 'not_enough', __( "Your credit is not enough to perform this transaction.", "boxtheme" ) );
 		}
 
-
 		$args = array(
 			//'total' => $args['total'],
 			'emp_pay' => $emp_pay,
 			'payer_id' => $employer_id,
 			'user_pay' => $pay_info->user_pay, // user pay commision fee
-			'receiver_id' => $args['receiver_id'],
+			'receiver_id' => $freelance_id,
 			'fre_receive' => $fre_receive,
-			'commision_fee' => $fre_receive,
+			'commision_fee' => $pay_info->commision_fee,
 
 		);
 		$update_ballance = false;
 		$trans = BOX_Transaction::get_instance()->create($args);
-		if( $trans && !is_wp_error( $trans ) ){
+		if ( $trans && !is_wp_error( $trans ) ) {
+
 			$update_ballance = update_post_meta( $employer_id, $this->meta_available, $new_available ); // most improtant action.
 
 			if( $update_ballance ){
-				BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
+				return $trans;
 			} else {
 				$trans->delete();
 				return false;
@@ -81,13 +80,51 @@ Class BX_Credit extends Box_Escrow {
 	function act_award( $bid_id, $freelancer_id,  $project){
 
 		$bid_price = (float) get_post_meta($bid_id, BID_PRICE, true);
+		$employer_id = $project->post_author;
+		$project_id = $project->ID;
 
-		$transfered = $this->deposit( $bid_price, $freelancer_id,  $project );
-		if ( is_wp_error($transfered) ){
-			return $transfered;
+		$pay_info = box_get_pay_info( $bid_price );
+
+		$trans = $this->deposit( $bid_price, $pay_info, $project, $freelancer_id);
+		if ( is_wp_error($trans) ){
+			return $trans;
 		}
 
-		return $this->perform_after_deposit( $bid_id, $bid_price, $freelancer_id,  $project );
+		$request['ID'] = $project_id;
+		$request['post_status'] = AWARDED;
+		$request['meta_input'] = array(
+			WINNER_ID => $freelancer_id,
+			BID_ID_WIN => $bid_id,
+		);
+		$res = wp_update_post( $request );
+
+		if( $res ){
+
+			$pay_info = box_get_pay_info( $bid_price );
+
+	      	$emp_pay = $pay_info->emp_pay;
+
+			$employer_id = $project->post_author;
+
+			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
+			update_user_meta( $employer_id, 'total_spent', $total_spent );
+
+			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
+			update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
+			global $user_ID;
+			// create coversation
+			// update bid status to AWARDED
+			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
+			BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
+			$this->send_mail_noti_assign( $project_id, $freelancer_id );
+
+			return $res;
+		} else {
+			$this->undeposit( $employer_id, $bid_price, $project_id );
+			$trans->delete(); // delete transaction
+		}
+		return new WP_Error( 'award_fail', __( "Has something wrong", "boxtheme" ) );
+
 	}
 	function undeposit( $employer_id, $bid_price, $project_id = 0 ) {
 
