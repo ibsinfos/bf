@@ -103,30 +103,43 @@ Class BX_Credit extends Box_Escrow {
 	}
 	function emp_mark_as_complete($request){
 
-			$request['ID'] = $request['project_id'];
-			$request['post_status'] = DONE;
+
 			$check = $this->check_before_emp_review($request);
 
 			if ( is_wp_error($check) ){
 				return $check;
 			}
+			$release = 0;
+			$project_id = $request['project_id'];
 			try{
-				$act_credit = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
+				$winner_id 	= get_post_meta($project_id, WINNER_ID, true); // freelancer_id
+				$release = BX_Credit::get_instance()->release( $winner_id, $amout_fre_receive );
 			} catch(Exeption $e){
 				return $e;
 				wp_die('die');
 			}
-			if( $act_credit ){
-					$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
-					wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
+			if( $release && !is_wp_error( $release ) ){
+				$request['ID'] = $request['project_id'];
+				$request['post_status'] = DONE;
+				$project_id = wp_update_post($request);
 
-
-			$project_id = wp_update_post($request);
-
-			if( !is_wp_error($project_id) ){
-				return $this->mark_as_complete($project_id, $request);
+				if( !is_wp_error($project_id) ){
+					return $this->mark_as_complete( $project_id, $request );
+				}
+				$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
+				wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 			}
-		}
+		// if( !is_wp_error( $release ) && $release->paymentExecStatus == 'COMPLETED' ){
+
+		// 	$request['ID'] = $request['project_id'];
+		// 	$request['post_status'] = DONE;
+		// 	$project_id = wp_update_post($request);
+
+		// 	if( !is_wp_error($project_id) ){
+
+		// 		$this->mark_as_complete($project_id, $request);
+		// 	}
+		// }
 	}
 
 

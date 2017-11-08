@@ -53,7 +53,7 @@ Class Box_Escrow{
 			$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id
 		}
 	}
-	function mark_as_complete($project_id, $request){
+	function mark_as_complete( $project_id, $request){
 		global $current_user;
 		$bid_win_id = get_post_meta($project_id, BID_ID_WIN, true);
 		$review_msg = $request[REVIEW_MSG];
@@ -65,7 +65,7 @@ Class Box_Escrow{
 			$rating_score = 1;
 		}
 
-		$winner_id 	= get_post_meta($project_id, WINNER_ID, true);
+		$winner_id 	= get_post_meta($project_id, WINNER_ID, true); // freelancer_id
 
 		$bid_price 	= (float) get_post_meta($bid_win_id, BID_PRICE, true);
 

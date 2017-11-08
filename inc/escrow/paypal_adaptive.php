@@ -310,7 +310,7 @@ class PP_Adaptive extends Box_Escrow{
 		if ( is_wp_error($check) ){
 			return $check;
 		}
-		$pp_paykey = get_post_meta($project_id,'pp_paykey', true);
+		$pp_paykey = get_post_meta( $project_id,'pp_paykey', true );
 
 		try{
 			$release = $this->excutePayment($pp_paykey);
