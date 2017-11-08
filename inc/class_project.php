@@ -206,7 +206,7 @@ Class BX_Project extends BX_Post{
 				$respond['url_redirect'] = $response['url_redirect'];
 			}
 			wp_send_json( $respond);
-			
+
 		} else if($action == 'review_emp'){
 			// action of freelancer.
 			global $current_user;

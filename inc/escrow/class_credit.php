@@ -135,7 +135,7 @@ Class BX_Credit extends Box_Escrow {
 			$this->undeposit( $employer_id, $bid_price, $project_id );
 			$trans->delete(); // delete transaction
 		}
-		return new WP_Error( 'award_fail', __( "Has something wrong", "boxtheme" ) );
+		return new WP_Error( 'award_fail', __( "Assign job failse", "boxtheme" ) );
 
 	}
 	function undeposit( $employer_id, $bid_price, $project_id = 0 ) {
@@ -185,10 +185,10 @@ Class BX_Credit extends Box_Escrow {
 			}
 
 			if( $release && !is_wp_error( $release ) ){
+				wp_update_post( array('ID' => $release,'post_status' => 'publish') );
 				$request['ID'] = $request['project_id'];
 				$request['post_status'] = DONE;
 				$project_id = wp_update_post($request);
-
 
 				if( !is_wp_error( $project_id ) ){
 					return $this->mark_as_complete( $project_id, $request );
@@ -196,7 +196,7 @@ Class BX_Credit extends Box_Escrow {
 				$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
 				return wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 			}
-			return new WP_Error('failse',__('Has something wrong','boxtheme') );
+			return new WP_Error('failse',__('Review failse','boxtheme') );
 	}
 
 	// call this action when employer mark as finish a project.
@@ -498,7 +498,7 @@ Class BX_Credit extends Box_Escrow {
 
 			return $res;
 		}
-		return new WP_Error( 'award_fail', __( "Has something wrong", "boxtheme" ) );
+		return new WP_Error( 'award_fail', __( "Depossit has something wrong", "boxtheme" ) );
 	}
 
 }
