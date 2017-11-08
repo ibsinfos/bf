@@ -118,6 +118,7 @@ Class BX_Credit extends Box_Escrow {
 				return $e;
 				wp_die('die');
 			}
+
 			if( $release && !is_wp_error( $release ) ){
 				$request['ID'] = $request['project_id'];
 				$request['post_status'] = DONE;
@@ -129,17 +130,6 @@ Class BX_Credit extends Box_Escrow {
 				$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
 				wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 			}
-		// if( !is_wp_error( $release ) && $release->paymentExecStatus == 'COMPLETED' ){
-
-		// 	$request['ID'] = $request['project_id'];
-		// 	$request['post_status'] = DONE;
-		// 	$project_id = wp_update_post($request);
-
-		// 	if( !is_wp_error($project_id) ){
-
-		// 		$this->mark_as_complete($project_id, $request);
-		// 	}
-		// }
 	}
 
 
