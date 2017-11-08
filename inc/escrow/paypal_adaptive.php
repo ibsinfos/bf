@@ -299,8 +299,10 @@ class PP_Adaptive extends Box_Escrow{
 		}
 
 	}
+
 	function emp_mark_as_complete($request){
-		// release and insert review;
+
+		// release the fund  and add new review;
 
 		$check = $this->check_before_emp_review($request);
 
@@ -317,11 +319,11 @@ class PP_Adaptive extends Box_Escrow{
 			wp_die($e);
 		}
 		if( !is_wp_error( $release ) && $release->paymentExecStatus == 'COMPLETED' ){
-			
+
 			$request['ID'] = $request['project_id'];
 			$request['post_status'] = DONE;
 			$project_id = wp_update_post($request);
-			
+
 			if( !is_wp_error($project_id) ){
 
 				$this->mark_as_complete($project_id, $request);
