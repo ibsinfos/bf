@@ -194,7 +194,7 @@ function box_account_dropdow_menu(){ global $role; global $user_ID; $current_use
 			"
 				SELECT msg.ID, msg.msg_unread, msg.sender_id, msg.msg_date , msg.msg_content, msg.msg_type, msg.msg_link
 				FROM {$wpdb->prefix}box_messages msg
-				WHERE receiver_id = %d AND msg_type = %s LIMIT 6",
+				WHERE receiver_id = %d AND msg_type = %s ORDER BY msg_date DESC LIMIT 6 ",
 				$user_ID, 'notify'
 		)
 	);
