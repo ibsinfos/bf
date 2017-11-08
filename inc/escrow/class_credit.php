@@ -11,7 +11,7 @@ Class BX_Credit extends Box_Escrow {
 	private $mode;
 	protected $transaction;
 	function __construct(){
-		add_action('init',array($this,'register_postype') );
+		//add_action('init',array($this,'register_postype') );
 
 		global $checkout_mode; // 0 = sandbox, 1 == real
 		$this->mode = $checkout_mode;
@@ -27,13 +27,7 @@ Class BX_Credit extends Box_Escrow {
 			$this->meta_available = '_sandbox_credit_available';
 		}
 	}
-	function register_postype(){
-		$args = array(
-	      'public' => true,
-	      'label'  => 'Books'
-	    );
-    	register_post_type( 'transaction', $args );
-	}
+
 	static function get_instance(){
 		if (null === static::$instance) {
         	static::$instance = new static();
@@ -506,6 +500,5 @@ Class BX_Credit extends Box_Escrow {
 		}
 		return new WP_Error( 'award_fail', __( "Has something wrong", "boxtheme" ) );
 	}
-
 
 }

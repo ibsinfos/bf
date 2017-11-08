@@ -55,7 +55,7 @@ function bx_theme_init() {
 
 	$args = array(
 		'labels'             => $labels,
-                'description'        => __( 'Description.', 'boxthemes' ),
+         'description'        => __( 'Description.', 'boxthemes' ),
 		'public'             => true,
 		'publicly_queryable' => true,
 		'show_ui'            => true,
@@ -312,10 +312,18 @@ function bx_theme_init() {
 	register_post_type( 'portfolio', $args );
 
 
+	//global $escrow;
+	//$active = isset($escrow->active) ? $escrow->active : 'credit';
 
-
-
-
+	//if( $active == 'credit'){
+	$args = array(
+      'public' => false,
+      'label'  => 'Transactions',
+      'show_ui' => true,
+      'menu_position' => 25,
+    );
+	register_post_type( 'transaction', $args );
+    //}
 	$labels = array(
 		'name'               => _x( 'Orders', 'post type general name', 'boxtheme' ),
 		'singular_name'      => _x( 'Order', 'post type singular name', 'boxtheme' ),
@@ -335,7 +343,7 @@ function bx_theme_init() {
 
 	$args = array(
 		'labels'             => $labels,
-         'description'        => __( 'Description.', 'boxtheme' ),
+        'description'        => __( 'Description.', 'boxtheme' ),
 		'public'             => false,
 		'publicly_queryable' => false,
 		'show_ui'            => true,
@@ -361,16 +369,7 @@ function bx_theme_init() {
 		)
 	);
 
-	//global $wp_rewrite;
-	// if ( $wp_rewrite->using_permalinks() ) {
-	// 	$wp_rewrite->author_base      = 'freelancer';
-	// 	$wp_rewrite->author_structure = '/' . $wp_rewrite->author_base . '/%author%';
-	// }
-	//global $wp_rewrite;
-    //$author_levels = array( 'employer', 'freelancer' );
-    // Define the tag and use it in the rewrite rule
-   // add_rewrite_tag( '%author_level%', '(' . implode( '|', $author_levels ) . ')' );
-    //$wp_rewrite->author_base = '%author_level%';
+
 }
 //add_filter( 'author_rewrite_rules', 'wpse17106_author_rewrite_rules' );
 function wpse17106_author_rewrite_rules( $author_rewrite_rules )
