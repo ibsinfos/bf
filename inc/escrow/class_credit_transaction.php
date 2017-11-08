@@ -111,11 +111,15 @@ Class Box_Transaction_Backen {
 			<h1> Detail of transaction </h1>
 			<div class="row">Transaction ID :<?php the_ID();?></div>
 			<?php
-
+			$project = get_post($this->trans->project_id);
 			echo '<div class="row"> Payer ID(Employer ID):'.$this->trans->payer_id .'</div>';
 			echo '<div class="row"> Freelancer ID:'.$this->trans->receiver_id.'</div>';
 			echo '<div class="row"> Employer pay:'.$this->trans->emp_pay.'</div>';
 			echo '<div class="row"> Freelancer receive :'.$this->trans->fre_receive.'</div>';
+			if( $project ){
+				echo '<div class="row"> Project : <a target="_blank" href="'.get_permalink($project->ID).'">'.$project->post_title.'</a></div>';
+			}
+
 			echo '</div>';
 			?>
 			<style type="text/css">
