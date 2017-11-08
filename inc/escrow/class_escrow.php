@@ -48,7 +48,7 @@ Class Box_Escrow{
 			$args = array(
 				'msg_content' => sprintf( __( '%s assigned you in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
 				'msg_link' => get_permalink( $project_id ),
-				'receiver_id' => $args['receiver_id'],
+				'receiver_id' => $freelancer_id,
 			);
 			$notify = Box_Notify::get_instance()->insert ($args );
 		}
