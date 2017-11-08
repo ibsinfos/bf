@@ -1,5 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
+
 Class BX_Project extends BX_Post{
 	static protected $instance;
 	function __construct(){
@@ -172,14 +173,11 @@ Class BX_Project extends BX_Post{
 			}
 
 			if( is_wp_error( $response ) ){
-
 				$respond['success'] = false;
 				$respond['msg'] = $response->get_error_message();
 			} else if( isset($response['url_redirect']) ){
 				$respond['url_redirect'] = $response['url_redirect'];
 			}
-
-
 
 			wp_send_json( $respond);
 
@@ -189,10 +187,10 @@ Class BX_Project extends BX_Post{
 		} else if($action == 'review_fre'){
 			switch ($type) {
 				case 'credit':
-					BX_Credit::get_instance()->emp_mark_as_complete($request);
+					$response = BX_Credit::get_instance()->emp_mark_as_complete($request);
 					break;
 				case 'paypal_adaptive':
-					PP_Adaptive::get_instance()->emp_mark_as_complete($request);
+					$response = PP_Adaptive::get_instance()->emp_mark_as_complete($request);
 					break;
 
 				default:
@@ -204,6 +202,15 @@ Class BX_Project extends BX_Post{
 
 			// update project status
 			// update bid status
+			$respond = array('success' => true,'msg'=>'DONE');
+			if( is_wp_error( $response ) ){
+				$respond['success'] = false;
+				$respond['msg'] = $response->get_error_message();
+			} else if( isset($response['url_redirect']) ){
+				$respond['url_redirect'] = $response['url_redirect'];
+			}
+			var_dump($respond);
+			wp_send_json( $respond);
 		} else if($action == 'review_emp'){
 			// action of freelancer.
 			global $current_user;
@@ -246,7 +253,11 @@ Class BX_Project extends BX_Post{
 				update_user_meta( $project->post_author,RATING_SCORE,$rating_score );
 
 			}
-
+			$respond = array(
+				'success' => true,
+				'msg' => 'DONE'
+			);
+			wp_send_json( $respond);
 		}
 	}
 	function workspace_action($args, $act){

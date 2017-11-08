@@ -11,6 +11,7 @@ Class BX_Credit extends Box_Escrow {
 	private $mode;
 	protected $transaction;
 	function __construct(){
+		add_action('init',array($this,'register_postype') );
 
 		global $checkout_mode; // 0 = sandbox, 1 == real
 		$this->mode = $checkout_mode;
@@ -25,6 +26,13 @@ Class BX_Credit extends Box_Escrow {
 			$this->meta_pending = '_sandbox_credit_pending';
 			$this->meta_available = '_sandbox_credit_available';
 		}
+	}
+	function register_postype(){
+		$args = array(
+	      'public' => true,
+	      'label'  => 'Books'
+	    );
+    	register_post_type( 'transaction', $args );
 	}
 	static function get_instance(){
 		if (null === static::$instance) {
@@ -71,9 +79,8 @@ Class BX_Credit extends Box_Escrow {
 		if ( $trans && !is_wp_error( $trans ) ) {
 
 			$update_ballance = update_post_meta( $employer_id, $this->meta_available, $new_available ); // most improtant action.
-
 			if( $update_ballance ){
-				update_post_meta( $project->ID, 'transaction_id', $trans->id );
+				$t = update_post_meta( $project->ID, 'transaction_id', $trans->id );
 				return $trans;
 			} else {
 				$trans->delete();
@@ -162,17 +169,19 @@ Class BX_Credit extends Box_Escrow {
 
 	function emp_mark_as_complete($request){
 
-
+			$project_id = $request['project_id'];
+			var_dump($project_id);
 			$check = $this->check_before_emp_review($request);
 
 			if ( is_wp_error($check) ){
 				return $check;
 			}
 			$release = 0;
-			$project_id = $request['project_id'];
+
 			try{
 				//$winner_id 	= get_post_meta($project_id, WINNER_ID, true); // freelancer_id
 				$trans_id = get_post_meta( $project_id, 'transaction_id', true );
+
 				if( $trans_id ){
 					$release = BX_Credit::get_instance()->release( $trans_id );
 				}
@@ -186,17 +195,20 @@ Class BX_Credit extends Box_Escrow {
 				$request['post_status'] = DONE;
 				$project_id = wp_update_post($request);
 
-				if( !is_wp_error($project_id) ){
+
+				if( !is_wp_error( $project_id ) ){
 					return $this->mark_as_complete( $project_id, $request );
 				}
 				$fre_order = get_post_meta( $project_id, 'fre_order_id', true);
-				wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
+				return wp_update_post( array('ID' => $fre_order, 'post_status' =>'publish'));
 			}
+			return new WP_Error('failse',__('Has something wrong','boxtheme') );
 	}
 
 	// call this action when employer mark as finish a project.
 	function release( $trans_id ){
-		$trans = Box_Transaction::get_instance($trans_id);
+		$trans = Box_Transaction::get_instance()->get_transaction($trans_id);
+
 		//$trans = $this->transaction->update_status();
 		return $this->increase_credit_available( $trans->fre_receive, $trans->receiver_id );
 	}

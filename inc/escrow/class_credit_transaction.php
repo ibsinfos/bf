@@ -1,14 +1,14 @@
 <?php
 class Box_Transaction{
 	public $id;
-	protected $project_id;
-	protected $payer_id; // payer for this transaction.
-	protected $receiver_id; // receiver for this transaction.
-	protected $emp_pay;
-	protected $fre_receive;
-	protected $status;
+	public $project_id;
+	public $payer_id; // payer for this transaction.
+	public $receiver_id; // receiver for this transaction.
+	public $emp_pay;
+	public $fre_receive;
+	public $status;
 	static $instance;
-	function __contruct($trans_id){
+	function __construct ($trans_id){
 
 		$this->id = $trans_id;
 		if( $this->id ) {
@@ -22,8 +22,11 @@ class Box_Transaction{
 			$this->fre_receive = get_post_meta($trans_id, 'fre_receive', true);
 			$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
 		}
+		var_dump('construct'.$this->id);
 	}
 	static function get_instance( $trans_id = 0){
+		var_dump('trans_id in get_inscate');
+		var_dump($trans_id);
 		if( self::$instance == null){
 			self::$instance =  new static($trans_id);
 		}
