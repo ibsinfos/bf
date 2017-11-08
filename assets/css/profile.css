@@ -312,9 +312,12 @@ form.is-edit{
 .profile-info-section form .form-group.row{
 	min-height: 33px;
 }
-.edit-em-profile label{
-	width: 79;
-	float: left;
+.edit-em-profile label {
+    width: 79;
+    float: left;
+    min-width: 96px;
+    text-align: right;
+    padding-right: 10px;
 }
 .edit-em-profile .form-group{
 	clear: both;
@@ -345,4 +348,7 @@ form.is-edit{
 }
 .edit-em-profile .chosen-container{
 	width: 100% !important;
+}
+body .chosen-container-single .chosen-single{
+    height: 34px;margin-bottom: 15px;
 }

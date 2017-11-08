@@ -28,7 +28,7 @@
    }
 ?>
 <div id="profile" class="col-md-12 edit-profile-section edit-em-profile">
-	<form id="update_profile" class="">
+	<form id="update_profile" class="frm-overview-emp">
 		<div class="form-group "><div class="col-md-3 text-center"> <h2><?php _e('Your Profile','boxtheme');?></h2></div></div>
 	    <div class="form-group ">
 	    	<div class="col-md-3 update-avatar">
@@ -44,53 +44,58 @@
 	    	</div>
 	      	<div class="col-md-9 col-sm-12">
 	      		<div class="col-sm-12"><span class="btn-edit btn-edit-default btn-emp-edit"> Edit</span></div>
-	      		<div class="full is-view">
+	      		<div class="full">
 		      		<div class="form-group ">
-		      			<label><?php _e('First name','boxtheme');?></label>: <span><?php echo $user_data->first_name;?></span>
+		      			<label class="col-md-2"><?php _e('First name','boxtheme');?>: </label>
+		      			<div class="col-md-9">
+		      				<div class="line default-show"><span><?php echo $user_data->first_name;?></span> </div>
+		      				<div class="line default-hidden">
+			      				<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->first_name;?>"  placeholder="<?php _e('First Name','boxtheme');?> " id="first-text-input">
+			      			</div>
+		      			</div>
 		      		</div>
 		      		<div class="form-group ">
-		      			<label><?php _e('Last name','boxtheme');?></label>: <span><?php echo $user_data->last_name;?></span>
+		      			<label class="col-md-2"><?php _e('Last name','boxtheme');?></label>
+			      		<div class="col-md-9">
+			      			<div class="line default-show"><span><?php echo $user_data->last_name;?></span></div>
+		      				<div class="line default-hidden">
+			      				<input class="form-control " type="text" required name="last_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="last-text-input">
+			      			</div>
+			      		</div>
 		      		</div>
+
 		      		<div class="form-group ">
-		      			<label><?php _e('Display name','boxtheme');?></label>: <span><?php echo $user_data->display_name ;?></span>
+		      			<label class="col-md-2"><?php _e('Display name','boxtheme');?></label>
+		      			<div class="col-md-9">
+		      				<div class="line default-show"><span><?php echo $user_data->display_name ;?></span></div>
+		      				<div class="line default-hidden">
+			      				<input class="form-control " type="text" required name="display_name" value="<?php  echo $user_data->display_name;?>"  placeholder="<?php _e('Display name','boxtheme');?> " id="display-text-input">
+			      			</div>
+			      		</div>
 		      		</div>
+
 		      		<div class="form-group ">
-		      			<label><?php _e('Username','boxtheme');?></label>: <span><?php echo $user_data->user_login;?></span>
+		      			<label class="col-md-2"><?php _e('Email','boxtheme');?></label>
+		      			<div class="col-md-9">
+		      				<div class="line default-show"><span><?php echo $user_data->user_email ;?></span></div>
+		      				<div class="line default-hidden">
+			      				<input class="form-control " type="text" disabled required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Your email','boxtheme');?> " id="user_email-text-input">
+			      			</div>
+			      		</div>
 		      		</div>
+
 		      		<div class="form-group ">
-		      			<label><?php _e('Email','boxtheme');?></label>: <span><?php echo $user_data->user_email;?></span>
+		      			<label class="col-md-2"><?php _e('Country','boxtheme');?></label>
+		      			<div class="col-md-9">
+		      				<div class="line default-show"><span><?php echo $txt_country; ?></span></div>
+		      				<div class="line default-hidden">
+			      				<?php echo $country_select;?>
+			      			</div>
+			      		</div>
 		      		</div>
-		      		<div class="form-group ">
-		      			<label><?php _e('Country','boxtheme');?></label>: <span><?php echo $txt_country;?></span>
-		      		</div>
+		      		<input type="hidden" name="is_emp" value="1">
 		      	</div>
 		      	<div class="is-edit full">
-		      		<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('First name','boxtheme');?></label>
-						<input class="form-control" type="text" required name="first_name" value="<?php  echo $user_data->first_name;?>"  placeholder="<?php _e('First Name','boxtheme');?> " id="first-text-input">
-					</div>
-					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Last name','boxtheme');?></label>
-						<input class="form-control" type="text" required name="last_name" value="<?php  echo $user_data->last_name;?>"  placeholder="<?php _e('Last Name','boxtheme');?> " id="last-text-input">
-					</div>
-					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Display name','boxtheme');?></label>
-						<input class="form-control" type="text" required name="display_name" value="<?php  echo $user_data->display_name;?>"  placeholder="<?php _e('Display Name','boxtheme');?> " id="display-text-input">
-					</div>
-
-					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Username','boxtheme');?></label>
-						<input class="form-control" type="text" disabled required name="user_login" value="<?php  echo $user_data->user_login;?>"  placeholder="<?php _e('Username','boxtheme');?> " id="userlogin-text-input">
-					</div>
-					<div class="form-group hide">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Email','boxtheme');?></label>
-						<input class="form-control" type="email" required name="user_email" value="<?php  echo $user_data->user_email;?>"  placeholder="<?php _e('Email','boxtheme');?> " id="email-text-input">
-						<input type="hidden" name="is_emp" value="1">
-					</div>
-					<div class="form-group">
-						<label for="example-text-input" class="col-3  col-form-label"><?php _e('Country:','boxtheme');?></label>
-						<?php echo $country_select;?>
-					</div>
 					<div class="form-group">
 				      	<div class="offset-sm-10 col-sm-12 pull-right align-right no-padding-right">
 				        	<button type="submit" class="btn btn-primary update hide "> &nbsp; <?php _e('Save','boxtheme');?> &nbsp;</button>
@@ -102,3 +107,27 @@
 	    </div>
 	</form>
 </div> <!-- end left !-->
+<style type="text/css">
+	.default-hidden{
+		display: none;
+	}
+	.is-edit .default-hidden{
+		display: block;
+	}
+	.default-show{
+		width: 100%;
+		display: block;
+	}
+	.is-edit .default-show{
+		display: none;
+	}
+	.1frm-overview-emp .col-md-9{
+		height: 30px;
+		overflow: hidden;
+		display: block;
+		float: left;
+	}
+	.edit-em-profile .form-group{
+		min-height: 23px;
+	}
+</style>
