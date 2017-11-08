@@ -315,6 +315,7 @@ class PP_Adaptive extends Box_Escrow{
 		try{
 			$release = $this->excutePayment($pp_paykey);
 		} catch (Exception $e){
+			wp_send_json( array('success'=>false,'msg' => $e->get_error_message() )  );
 			wp_die($e);
 		}
 		if( !is_wp_error( $release ) && $release->paymentExecStatus == 'COMPLETED' ){

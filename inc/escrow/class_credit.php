@@ -68,7 +68,7 @@ Class BX_Credit extends Box_Escrow {
 		);
 		$update_ballance = false;
 
-		$trans = $this->transaction->create($args);
+		$trans = $this->transaction->create($args, $project);
 
 		if ( $trans && !is_wp_error( $trans ) ) {
 
@@ -164,7 +164,7 @@ Class BX_Credit extends Box_Escrow {
 	function emp_mark_as_complete($request){
 
 			$project_id = $request['project_id'];
-			var_dump($project_id);
+
 			$check = $this->check_before_emp_review($request);
 
 			if ( is_wp_error($check) ){

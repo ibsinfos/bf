@@ -21,6 +21,7 @@ class Box_Transaction{
 			$this->emp_pay = get_post_meta($trans_id, 'emp_pay', true);
 			$this->fre_receive = get_post_meta($trans_id, 'fre_receive', true);
 			$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
+			$this->project_id = $trans->post_parent;
 		}
 	}
 	static function get_instance( $trans_id = 0){
@@ -30,11 +31,12 @@ class Box_Transaction{
 		}
 		return self::$instance;
 	}
-	function create($args){
+	function create($args, $project){
 		$default = array(
-			'post_title' => 'Transaction of project ',
+			'post_title' => 'Transaction of project '.$project->post_title,
 			'post_type' => 'transaction',
 			'post_status' => 'pending',
+			'post_parent' => $project->ID,
 			'meta_input' =>
 				array(
 					'total' => $args['total'],
@@ -84,6 +86,7 @@ class Box_Transaction{
 		$this->emp_pay = get_post_meta($trans_id, 'emp_pay', true);
 		$this->fre_receive = get_post_meta($trans_id, 'fre_receive', true);
 		$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
+		$this->project_id = $trans->post_parent;
 		return $this;
 	}
 
