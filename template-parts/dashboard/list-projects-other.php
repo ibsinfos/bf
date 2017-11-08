@@ -48,7 +48,7 @@
 
 					<div class ="col-md-2"><?php _e('DATE POSTED','boxtheme'); ?> </div>
 					<div class ="col-md-2 text-center"><?php _e('Status','boxtheme');?></div>
-					<div class ="col-md-1 text-center pull-right"><?php _e('Action','boxtheme');?></div>
+					<div class ="col-md-1 text-center pull-right"></div>
 			</li>
 			<?php
 			if( $query-> have_posts() ){
