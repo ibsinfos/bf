@@ -12,8 +12,6 @@ Secondary Receiver Amount = $50.00
 Secondary Receiver Amount = $30.00
 */
 class PP_Adaptive extends Box_Escrow{
-	static $return_url;
-	static $paypal_adaptive;
 	static $instance;
 	const SANDBOX_END_POINT = 'https://svcs.sandbox.paypal.com/AdaptivePayments/';
 	const SANDBOX_WEBSCR_URL = 'https://www.sandbox.paypal.com/cgi-bin/webscr';
@@ -25,9 +23,9 @@ class PP_Adaptive extends Box_Escrow{
 	protected $api_userpassword;
 	protected $app_signarute;
 	protected $api_appid;
-
+	protected $return_url;
 	function __construct(){
-		self::$return_url = add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
+
 		$this->sandbox_mode = 1;
 
 		$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
@@ -45,6 +43,7 @@ class PP_Adaptive extends Box_Escrow{
 			$this->app_signarute = $paypal_adaptive->app_signarute;
 			$this->api_appid = $paypal_adaptive->api_appid;
 		}
+		//$this->return_url = add_query_arg( 'type','pp_adaptive',box_get_static_link('process-payment') );
 
 	}
 	static function get_instance(){
