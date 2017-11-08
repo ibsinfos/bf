@@ -22,11 +22,9 @@ class Box_Transaction{
 			$this->fre_receive = get_post_meta($trans_id, 'fre_receive', true);
 			$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
 		}
-		var_dump('construct'.$this->id);
 	}
 	static function get_instance( $trans_id = 0){
-		var_dump('trans_id in get_inscate');
-		var_dump($trans_id);
+
 		if( self::$instance == null){
 			self::$instance =  new static($trans_id);
 		}
@@ -92,5 +90,53 @@ class Box_Transaction{
 		$this->commision_fee = get_post_meta($trans_id, 'commision_fee', true);
 		return $this;
 	}
+
+}
+Class Box_Transaction_Backen {
+	protected $trans;
+	function __construct(){
+		$this->trans = 0;
+		add_action('edit_form_after_editor', array($this,'show_detail_transaction') );
+		add_action('save_post', array( $this, 'disable_publish_in_admin'), 10 ,2  );
+	}
+	function disable_publish_in_admin($trans_id, $post){
+		// echo '<pre>';
+		// var_dump($post);
+		// var_dump($_REQUEST);
+		// echo '</pre>';
+		wp_die();
+	}
+	function show_detail_transaction($post){
+		if($post->post_type == 'transaction' ){
+			$this->trans = Box_Transaction::get_instance( $post->ID );
+			echo '<div class="trans-detail">';
+			?>
+			<h1> Detail of transaction </h1>
+			<div class="row">Transaction ID :<?php the_ID();?></div>
+			<?php
+
+			echo '<div class="row"> Payer ID(Employer ID):'.$this->trans->payer_id .'</div>';
+			echo '<div class="row"> Freelancer ID:'.$this->trans->receiver_id.'</div>';
+			echo '<div class="row"> Employer pay:'.$this->trans->emp_pay.'</div>';
+			echo '<div class="row"> Freelancer receive :'.$this->trans->fre_receive.'</div>';
+			echo '</div>';
+			?>
+			<style type="text/css">
+				.trans-detail{
+					background-color: #fff;
+					padding: 30px;
+				}
+				.trans-detail .row{
+					display: block;
+					padding-bottom: 15px;
+				}
+				#side-sortables { display: none; }
+			</style>
+			<?php
+		}
+	}
+}
+if( is_admin() && ! wp_doing_ajax() ) {
+	new Box_Transaction_Backen();
 }
 ?>

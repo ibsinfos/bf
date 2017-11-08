@@ -317,10 +317,11 @@ function bx_theme_init() {
 
 	//if( $active == 'credit'){
 	$args = array(
-      'public' => false,
-      'label'  => 'Transactions',
-      'show_ui' => true,
-      'menu_position' => 25,
+      	'public' => false,
+      	'label'  => 'Transactions',
+      	'show_ui' => true,
+      	'menu_position' => 25,
+      	'supports'           => array( 'title' ),
     );
 	register_post_type( 'transaction', $args );
     //}
