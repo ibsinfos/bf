@@ -104,10 +104,10 @@ Class BX_Credit extends Box_Escrow {
 
 		if( $res ){
 
+			global $user_ID;
+
 			$pay_info = box_get_pay_info( $bid_price );
-
 	      	$emp_pay = $pay_info->emp_pay;
-
 			$employer_id = $project->post_author;
 
 			$total_spent = (float) get_user_meta($employer_id, 'total_spent', true) + $emp_pay;
@@ -115,7 +115,7 @@ Class BX_Credit extends Box_Escrow {
 
 			$fre_hired = (int) get_user_meta( $employer_id, 'fre_hired', true) + 1;
 			update_user_meta( $employer_id, 'fre_hired',  $fre_hired );
-			global $user_ID;
+
 			// create coversation
 			// update bid status to AWARDED
 			wp_update_post( array( 'ID' => $bid_id, 'post_status'=> AWARDED) );
