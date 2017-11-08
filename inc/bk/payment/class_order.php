@@ -189,14 +189,14 @@ Class BX_Order {
 		wp_insert_post($args_order_emp); // orer for employer
 
 		$args_order_fre = array(
-			'post_title' => sprintf( __('The fund was pay for the project %s','boxtheme'),$project->post_title ),
+			'post_title' => sprintf( __('The fund was paid for the project %s','boxtheme'),$project->post_title ),
 			'post_status' =>'pending', // will be publish after the project done - release action.
 			'post_author' => $freelancer_id,
 			'post_type' => $this->post_type,
 			'meta_input' => array(
 				'amout' => $fre_receive,
 				'get_project_id' => $project->ID,
-				'order_type' => 'deposit',
+				'order_type' => 'receive',
 				'payment_type' => 'credit',
 				'order_mode' => $this->mode,
 			)

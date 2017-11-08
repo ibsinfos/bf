@@ -61,18 +61,21 @@ Class BX_Credit extends Box_Escrow {
 			'fre_receive' => $fre_receive,
 			'commision_fee' => $fre_receive,
 
-		)
+		);
+		$update_ballance = false;
 		$trans = BOX_Transaction::get_instance()->create($args);
 		if( $trans && !is_wp_error( $trans ) ){
-			$update_ballance = update_post_meta( $employer_id, $this->meta_available, $new_available );
+			$update_ballance = update_post_meta( $employer_id, $this->meta_available, $new_available ); // most improtant action.
+
 			if( $update_ballance ){
 				BX_Order::get_instance()->create_deposit_orders( $emp_pay, $fre_receive, $project, $freelancer_id );
 			} else {
 				$trans->delete();
+				return false;
 				wp_die('Can not update ballance of employer');
 			}
 		}
-		return $trans;
+		return $update_ballance;
 
 	}
 	function act_award( $bid_id, $freelancer_id,  $project){
