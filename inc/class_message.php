@@ -158,14 +158,18 @@ class BX_Message{
 				'msg_link' => $msg_link,
 				'msg_type' => $this->msg_type,
 				'receiver_id' => $this->receiver_id,
+				'time' => time(),
 			);
 
-		$wpdb->insert( $wpdb->prefix . 'box_messages', $default		);
+		$wpdb->insert( $wpdb->prefix . 'box_messages', $default	);
 
 		// update modify time of this conversiaion.
 		$sql = "UPDATE {$wpdb->prefix}box_conversations SET `date_modify` = '".current_time('mysql')."'  WHERE  `ID` = {$this->cvs_id} ";
 		$wpdb->query( $sql );
 
+		if( $wpdb->insert_id ) {
+			do_action('box_after_insert_msg_success', $wpdb->insert_id, $this->cvs_id );
+		}
 		return $wpdb->insert_id;
 	}
 	function get_message($msg_id){

@@ -1,5 +1,8 @@
 <?php
 
+$time = time();
+var_dump($time);
+die();
 /**
  * The header for our theme
  *
