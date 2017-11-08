@@ -22,7 +22,7 @@ class BX_Admin{
         return static::$instance;
     }
     public function bx_register_my_custom_menu_page() {
-        add_menu_page(__( 'Theme Options', 'boxtheme' ),'Box settings','manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),get_stylesheet_directory_uri().'/ico.png',6);
+        add_menu_page( __( 'Theme Options', 'boxtheme' ),'Box settings','manage_options', self::$main_setting_slug, array('BX_Admin','box_custom_menu_page'),get_template_directory_uri().'/ico.png',6);
 	}
 
     public function box_enqueue_scripts($hook) {
@@ -129,7 +129,7 @@ class BX_Admin{
     function add_toolbar_items($admin_bar){
     $admin_bar->add_menu( array(
         'id'    => 'box-settings',
-        'title' => '<img src="'.get_stylesheet_directory_uri().'/ico.png" /> BoxThemes Settings',
+        'title' => '<img src="'.get_template_directory_uri() ().'/ico.png" /> BoxThemes Settings',
         'href'  => admin_url('admin.php?page=box-settings'),
         'meta'  => array(
             'title' => __('BoxThemes Settings'),

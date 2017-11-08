@@ -157,7 +157,7 @@ $list_bid
 			            </div>
 	            	</p>
 	            	<p> &nbsp;</p>
-	            	<p style="display: block; clear: both;"><small><?php echo $label;?></small></p>
+	            	<p style="display: block; clear: both;"><?php echo $label;?></p>
 	            	<input type="hidden" name="<?php echo RATING_SCORE;?>" id="rating_scrore" value="">
 	            	<input type="hidden" name="project_id" value="<?php echo $project->ID;?>" value="">
 	          	</div>
