@@ -1,18 +1,4 @@
 <?php
-
-// $time = time();
-// var_dump($time);
-// $timestamp = time()+date("Z");
-// echo '<br />';
-// echo $timestamp;
-// date_default_timezone_set("America/New_York");
-// $time = time();
-// echo '<br />';
-// echo $time;
-// echo '<br />';
-// echo gmdate("Y/m/d H:i:s",$timestamp);
-
-//die();
 /**
  * The header for our theme
  *
