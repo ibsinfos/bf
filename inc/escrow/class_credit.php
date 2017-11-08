@@ -48,7 +48,7 @@ Class BX_Credit extends Box_Escrow {
       	$new_available = $ballance->available - $emp_pay;
 
 		if( $new_available <= 0 ){
-			return new WP_Error( 'not_enough', __( "Your credit are not enough to perform this transaction.", "boxtheme" ) );
+			return new WP_Error( 'not_enough', __( "Your credit is not enough to perform this transaction.", "boxtheme" ) );
 		}
 
 
