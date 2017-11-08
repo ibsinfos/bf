@@ -46,7 +46,7 @@ Class Box_Escrow{
 			$msg_id =  BX_Message::get_instance($cvs_id)->insert($msg_arg); // msg_id\
 			$employer = get_userdata( $project->post_author );
 			$args = array(
-				$args['msg_content'] => sprintf( __('%s assigned you in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
+				$args['msg_content'] => sprintf( __( '%s assigned you in project <i>%s</i>','boxtheme'), $employer->display_name, $project->post_title ),
 				'msg_link' => get_permalink( $project_id ),
 				'receiver_id' => $args['receiver_id'],
 			);
