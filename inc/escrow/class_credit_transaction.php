@@ -68,11 +68,7 @@ class Box_Transaction{
 		$this->update_status('publish');
 		// update total_spent, erned here.
 	}
-	function deposit(){
-		// 1: create 1 transaction with status pending.
-		//  	1.2) tru tien từ payer.
-		//done.
-	}
+
 	function refund($trans_id){
 		$this->update_status('');
 	}
@@ -100,11 +96,9 @@ Class Box_Transaction_Backen {
 		add_action('save_post', array( $this, 'disable_publish_in_admin'), 10 ,2  );
 	}
 	function disable_publish_in_admin($trans_id, $post){
-		// echo '<pre>';
-		// var_dump($post);
-		// var_dump($_REQUEST);
-		// echo '</pre>';
-		wp_die();
+		if( $post->post_type == 'transaction'){
+			wp_die('This action is disabled.');
+		}
 	}
 	function show_detail_transaction($post){
 		if($post->post_type == 'transaction' ){
