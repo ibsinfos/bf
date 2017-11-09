@@ -773,27 +773,31 @@ class BX_AJAX {
 		$package_id = $request['package_id'];
 		$price = get_post_meta($package_id, PRICE, true);
 
+
+
 		if( $gateway == 'paypal' ){
 			$url = BX_PayPal::get_instance()->create_pending_order($package_id);
 
 			wp_send_json( array(
 				'msg' => 'Check done',
 				'success'=> true,
-				'redirect_url' => $url
+				'redirect_url' => $url,
+				'popop' => false,
 				)
 			);
 			exit;
-		}
-		if($gateway == 'cash'){
+		} else if( $gateway == 'cash' ){
 			$order_id = BX_Cash::get_instance()->create_pending_order($package_id);
 
 			wp_send_json( array(
 				'msg' => 'Check done',
 				'success'=> true,
 				'redirect_url' => BX_Cash::get_instance()->get_redirect_link($order_id),
+				'popop' => false,
 				)
 			);
 		}
+		do_action( 'create_pending_order', $gateway );
 	}
 	static function sync_msg(){
 

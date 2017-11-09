@@ -10,11 +10,19 @@
 
 			var success = function(res){
 
-				if(res.success){
-					window.location.href = res.redirect_url;
+				if( res.success ){
+
+					if( !res.popup ){
+						window.location.href = res.redirect_url;
+					} else {
+						console.log('access popup herer');
+					}
+
+				} else {
+					alert(res.msg);
 				}
 			}
-			window.ajaxSend.Form(event,action,method,success);
+			window.ajaxSend.Form( event, action, method, success );
 			return false;
 		});
 

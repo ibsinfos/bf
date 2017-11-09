@@ -118,7 +118,8 @@
 								    </div>
 								    <input type="radio" class="required radio radio-gateway-item" name="_gateway" id="free" required value="free">
 								<?php } ?>
-							<?php if( !$has_payment){ ?>
+								<?php do_action('insert_payment_gateway') ; ?>
+							<?php if( ! $has_payment){ ?>
 								<?php _e('The is not any payment gateways','boxtheme');?>
 							<?php } ?>
 					    </div>
