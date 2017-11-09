@@ -16,6 +16,9 @@
 						window.location.href = res.redirect_url;
 					} else {
 						console.log('access popup herer');
+						//res.scrip_method;
+						//script = $(data).text();
+   						$.globalEval(res.scrip_method);
 					}
 
 				} else {
