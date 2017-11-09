@@ -7,7 +7,7 @@
 			$('.toggle-menu' ).on( 'click', this.toggleMenu );
 			$( "#search_type").on( 'change',this.setSearchUrl );
 			$(".btn-del-noti").on('click',this.delNotify );
-			$(".toggle-msg").on( 'click', this.setNotifySeen);
+			$("#toggle-msg").on( 'click', this.setNotifySeen);
 			//$( ".pagination").on('click',this.pagingProject);
 			var view = this;
 			$(".menu-hamburger").click(function(){
