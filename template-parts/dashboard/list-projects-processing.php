@@ -36,7 +36,7 @@ global $user_ID, $active_class;
 				echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-3">';	echo get_the_date();	echo '</div>';	?>
 				<div class ="col-md-2 pull-right text-center">
-					<a href="<?php echo $ws_link;?>" class="btn">Workspace</a>
+					<a class="workspace-link" href="<?php echo $ws_link;?>" class="btn"><?php _e('Workspace','boxtheme');?></a>
 				</div>
 
 			</li><?php		}
