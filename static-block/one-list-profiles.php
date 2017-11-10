@@ -55,7 +55,7 @@ if( $profile_query->have_posts() ){ ?>
 								</div>
 								<div class="right col-md-8 col-xs-8">
 									<h3 class="profile-title no-margin">
-										<?php echo '<a class="" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
+										<?php echo '<a class="profile-link" href = " '.get_author_posts_url($profile->post_author).'">'.$profile->post_title.'</a>';?>
 									</h3>
 									<h5 class="professional-title primary-color">
 										<?php if( !empty($profile->professional_title) ){ ?>

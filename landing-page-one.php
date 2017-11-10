@@ -441,6 +441,9 @@ get_header(); ?>
 .profile-title:first-letter{
 	text-transform: uppercase;
 }
+.profile-title a{
+	color: #666;
+}
 .rating-score{
 	font-size: 18px;
 	margin-top: 3px;
