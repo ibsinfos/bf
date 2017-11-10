@@ -32,11 +32,11 @@ global $user_ID, $active_class;
 			$query->the_post();
 			$project = BX_Project::get_instance()->convert($post);
 			echo '<li class="list-style-none padding-bottom-10">';
-				echo '<div class ="col-md-5">';	echo '<a class="primary-color" href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
+				echo '<div class ="col-md-5">';	echo '<a class="primary-color project-title" href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
 				echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-3">';	echo get_the_date();	echo '</div>';	?>
 				<div class ="col-md-2 pull-right text-center">
-					<a class="workspace-link" href="<?php echo $ws_link;?>" class="btn"><?php _e('Workspace','boxtheme');?></a>
+					<a class="workspace-link btn act-link" href="<?php echo $ws_link;?>" ><?php _e('Workspace','boxtheme');?></a>
 				</div>
 
 			</li><?php		}

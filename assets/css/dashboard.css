@@ -16,7 +16,7 @@ ul.db-list-project li.item-chan{
 ul.db-list-project li div{
 	overflow: hidden;
 }
-ul.db-list-project li a{
+ul.db-list-project li a.project-title{
 	white-space:nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
@@ -44,4 +44,10 @@ ul.dashboard-tab li:last-child a{
     display: block;
     overflow: hidden;
     padding: 15px 0;
+}
+a.act-link{
+	padding: 5px 10px;
+}
+a.act-link:hover{
+	color: #fff;
 }
