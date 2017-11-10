@@ -74,7 +74,7 @@ if( $profile_query->have_posts() ){ ?>
 											<i class="fa fa-star" aria-hidden="true"></i>
 										</start>
 										<span></span>
-										<!--<span class="absolute  abs-right-15"><img src="<?php echo //get_stylesheet_directory_uri();?>/img/flag.png"></span> !-->
+										<!--<span class="absolute  abs-right-15"><img src="<?php // echo get_stylesheet_directory_uri();?>/img/flag.png"></span> !-->
 									</span>
 								</div>
 								<div class="right col-md-12 list-skill padding-top-10 ">
