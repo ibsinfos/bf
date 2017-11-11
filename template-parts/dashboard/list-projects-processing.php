@@ -26,11 +26,13 @@ global $user_ID, $active_class;
 	<?php
 	if( $query-> have_posts() ){
 		while ($query->have_posts()) {
-			$link  = get_the_permalink( );
-			$ws_link = add_query_arg( 'workspace',1,$link );
 			global $post;
 			$query->the_post();
 			$project = BX_Project::get_instance()->convert($post);
+
+			$link  = get_the_permalink( );
+			$ws_link = add_query_arg( 'workspace',1,$link );
+
 			echo '<li class="list-style-none padding-bottom-10">';
 				echo '<div class ="col-md-5">';	echo '<a class="primary-color project-title" href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
 				echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';

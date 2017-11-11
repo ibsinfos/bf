@@ -159,6 +159,7 @@ class BX_Message{
 				'msg_link' => $msg_link,
 				'msg_type' => $this->msg_type,
 				'receiver_id' => $this->receiver_id,
+				'time_gmt' => current_time( 'timestamp',1),
 				//'time' => time(),
 			);
 
@@ -169,7 +170,7 @@ class BX_Message{
 		$wpdb->query( $sql );
 
 		if( $wpdb->insert_id ) {
-			//do_action('box_after_insert_msg_success', $wpdb->insert_id, $$args['msg_content'], $this->cvs_id );
+			do_action('box_after_insert_msg_success', $wpdb->insert_id, $args['msg_content'], $this->cvs_id );
 		}
 		return $wpdb->insert_id;
 	}

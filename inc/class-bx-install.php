@@ -45,6 +45,7 @@ class BX_Install{
 			  	msg_unread  bigint(20) NULL,
 			  	msg_content longtext NOT NULL,
 			  	msg_date datetime NULL default null,
+			  	time_gmt int NOT NULL,
 			  	msg_link varchar(256) NULL,
 			  	PRIMARY KEY  (ID),
 			 	 UNIQUE KEY ID (ID)
