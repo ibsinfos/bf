@@ -261,3 +261,7 @@ thead:nth-child,thead th,thead tr, thead{
 .toggle-handle{
 	background-color: #ccc;
 }
+input.auto-save,
+select.auto-save{
+	height: 35px;
+}

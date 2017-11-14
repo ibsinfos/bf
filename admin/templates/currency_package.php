@@ -134,8 +134,8 @@ $payment = BX_Option::get_instance()->get_group_option($group_option);
                         	<textarea id="post_content" name="post_content" class="" placeholder="<?php _e('Description of new package','boxtheme');?>"></textarea>
                         	 <input type="hidden" name="ID" id="ID" value="0" />
                         </div>
-                        <div class="col-sm-2 align-right one-line">
-                        	<button class="btn">Create</button>
+                        <div class="col-sm-2 align-right one-line pull-right">
+                        	<button class="btn"><?php _e('Create','boxtheme');?></button>
                         </div>
                    	</div>
                 </form>
