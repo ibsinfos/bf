@@ -46,7 +46,7 @@ $item = 'email';
                 <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
                 <div class="col-sm-9">
                     <input type="email" class="form-control auto-save" alt="paypal" value="<?php if(! empty($paypal->email) ) echo $paypal->email;?>" level="1" name="email" placeholder="<?php _e('Your Paypal email','boxtheme');?>">
-                     <span class="f-right"><?php _e('Set PayPal email','boxtheme');?></span>
+                     <span class="f-right"><?php _e('Set PayPal Email','boxtheme');?></span>
                 </div>
                 <div class="col-sm-9">
                 </div>
