@@ -73,6 +73,7 @@ if( $active == 'paypal_adaptive'){
 		</div>
 	</div>
 </div>
+<div class="sub-item"> &nbsp; <p><br /> <br /> <br /></p></div>
 <div class="sub-section <?php echo $hide_credit;?>" id="opt_credit" >
 
 	<h2> <?php _e('Credit System','boxtheme');?> </h2>
