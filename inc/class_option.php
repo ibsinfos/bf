@@ -94,11 +94,13 @@ class BX_Option {
 			'paypal_adaptive' => array(
 				'sandbox_mode' => 1,
 				'api_appid_sandbox' => 'APP-80W284485P519543T',
+				'api_useremail_sandbox' => 'employer@etteam.com',
 				'api_userid_sandbox' => 'employer_api1.etteam.com',
 				'app_signarute_sandbox' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31A34rWCcmcj5MTfA8FTdjkQJj-JDg',
 				'api_userpassword_sandbox' => '824SVG8UC4VKBHTG',
 
 				'api_appid' => '',
+				'api_useremail' => '',
 				'api_userid' => '',
 				'app_signarute' => '',
 				'api_userpassword' => '',

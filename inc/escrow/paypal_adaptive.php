@@ -18,7 +18,9 @@ class PP_Adaptive extends Box_Escrow{
 	const SANDBOX_APP_ID = 'APP-80W284485P519543T';
 	const LIVE_END_POINT = 'https://svcs.paypal.com/AdaptivePayments/';
 	const LIVE_WEBSCR_URL = 'https://www.paypal.com/cgi-bin/webscr';
+
 	protected $sandbox_mode;
+	protected $api_useremail; // this will receive the commision fee.
 	protected $api_userid;
 	protected $api_userpassword;
 	protected $app_signarute;
@@ -34,11 +36,13 @@ class PP_Adaptive extends Box_Escrow{
 
 		if( $this->sandbox_mode ){
 			$this->api_userid = $paypal_adaptive->api_userid_sandbox;
+			$this->api_useremail = $paypal_adaptive->api_useremail_sandbox;
 			$this->api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
 			$this->app_signarute = $paypal_adaptive->app_signarute_sandbox;
 			$this->api_appid = 'APP-80W284485P519543T';
 		} else {
 			$this->api_userid = $paypal_adaptive->api_userid;
+			$this->api_useremail = $paypal_adaptive->api_useremail;
 			$this->api_userpassword = $paypal_adaptive->api_userpassword;
 			$this->app_signarute = $paypal_adaptive->app_signarute;
 			$this->api_appid = $paypal_adaptive->api_appid;

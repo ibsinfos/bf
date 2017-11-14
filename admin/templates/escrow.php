@@ -60,12 +60,18 @@ if( $active == 'paypal_adaptive'){
 
 ?>
 
-<div id="<?php echo $group_option;?>" class="main-group "  style="max-width: 900px;">
-	<h2> <?php _e('Select the Eccrow system','boxtheme');?> </h2>
-	<select class="form-control auto-save" name="active">
-		<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
-		<option value="paypal_adaptive" <?php selected( $active,'paypal_adaptive' ) ?>>PayPal Adaptive</option>
-	</select>
+<div id="<?php echo $group_option;?>" class="main-group " style="max-width: 900px;">
+	<div class="row">
+		<div class="col-md-4">
+			<h2> <?php _e('Select the Eccrow system','boxtheme');?> </h2>
+		</div>
+		<div class="col-md-8" style="padding-top: 20px;">
+			<select class="form-control auto-save" name="active">
+				<option value="credit" <?php selected( $active,'credit' ) ?> >Credit System</option>
+				<option value="paypal_adaptive" <?php selected( $active,'paypal_adaptive' ) ?>>PayPal Adaptive</option>
+			</select>
+		</div>
+	</div>
 </div>
 <div class="sub-section <?php echo $hide_credit;?>" id="opt_credit" >
 
@@ -88,6 +94,7 @@ if( $active == 'paypal_adaptive'){
 	$sandbox_mode = 1;
 	$api_appid_name = 'api_appid_sandbox';
 	$api_userid_name = 'api_userid_sandbox';
+	$api_useremail_name = 'api_api_useremail'; // user will receive commision fee.
 	$app_signarute_name = 'app_signarute_sandbox';
 	$api_userpassword_name = 'api_userpassword_sandbox';
 	$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
@@ -103,6 +110,7 @@ if( $active == 'paypal_adaptive'){
 			$api_userid = $paypal_adaptive->api_userid_sandbox;
 			$app_signarute = $paypal_adaptive->app_signarute_sandbox;
 			$api_userpassword = $paypal_adaptive->api_userpassword_sandbox;
+			$api_useremail = $paypal_adaptive->api_useremail_sandbox; // account will receive commison fee.
 
 		} else {
 			$api_appid_name = 'api_appid';
@@ -110,8 +118,10 @@ if( $active == 'paypal_adaptive'){
 			$app_signarute_name = 'app_signarute';
 			$api_userpassword_name = 'api_userpassword';
 
+
 			$api_appid = $paypal_adaptive->api_appid;
 			$api_userid = $paypal_adaptive->api_userid;
+			$api_useremail = $paypal_adaptive->api_useremail;
 			$app_signarute = $paypal_adaptive->app_signarute;
 			$api_userpassword = $paypal_adaptive->api_userpassword;
 		}
@@ -132,6 +142,10 @@ if( $active == 'paypal_adaptive'){
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API User ID</label>
 				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_userid;?>" name = "<?php echo $api_userid_name;?>" id="api_userid"></div>
+			</div>
+			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label">PayPal Account</label>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_useremail;?>" name = "<?php echo $api_useremail;?>" id="api_useremail"></div>
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label">API Password</label>
