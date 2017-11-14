@@ -30,7 +30,7 @@ if(isset($paypal->enable) )
 
 	<div class="form-group -row">
 		<div class="col-md-3"><label>Checkout out mode</label></div>
-		<div class="col-md-9">Live mode is <?php  bx_swap_button('general','checkout_mode', $checkout_mode, 0);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
+		<div class="col-md-9"><?php _e('Live mode is','boxtheme');?> <?php  bx_swap_button('general','checkout_mode', $checkout_mode, 0);?>  <br /><span>if enable this option, all job only appearances in the site after admin manually approve it.</span></div>
 	</div>
 
 </div>
@@ -45,7 +45,7 @@ $item = 'email';
      		<div class="sub-section" id="paypal">
                 <label for="inputEmail3" class="col-sm-3 col-form-label">PayPal</label>
                 <div class="col-sm-9">
-                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php if(! empty($paypal->email) ) echo $paypal->email;?>" level="1" name="email" placeholder="Email">
+                    <input type="email" class="form-control auto-save" alt="paypal" value="<?php if(! empty($paypal->email) ) echo $paypal->email;?>" level="1" name="email" placeholder="<?php _e('Your Paypal email','boxtheme');?>">
                      <span class="f-right"><?php _e('Set PayPal email','boxtheme');?></span>
                 </div>
                 <div class="col-sm-9">
