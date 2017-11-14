@@ -37,6 +37,7 @@ class Box_Notify extends Box_Custom_Type{
 				'msg_status' => 'new',
 				'msg_link' => $msg_link,
 				'msg_type' => $this->type,
+				'time_gmt' => current_time( 'timestamp', 1),
 				'receiver_id' => $receiver_id
 			)
 		);
