@@ -151,7 +151,6 @@ class PP_Adaptive extends Box_Escrow{
 
 		$body = $this->get_body( $fre_receive_email, $emp_pay, $fre_receive, $project_id  );
 		//$body = $this->get_body_default( );
-
 		$end_point= $this->getEndPoint('Pay');
 
 		try{
