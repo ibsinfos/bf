@@ -63,11 +63,11 @@
 						<div class ="col-md-5"><a class="primary-color" href="<?php echo get_permalink();?>"><?php echo get_the_title()?></a></div>
 						<div class ="col-md-2"><?php echo count_bids($post->ID); ?></div>
 						<div class ="col-md-2"><?php echo get_the_date(); ?></div>
-						<div class ="col-md-2 text-center">
+						<div class ="col-md-2 text-center text-capitalize">
 							<?php echo $project->post_status;?>
 						</div>
 
-						<div class ="col-md-1 pull-right text-center">
+						<div class ="col-md-1 pull-right text-center ">
 							<?php if( in_array( $status, array('archived','peding') ) ){ ?>
 								<a href="<?php echo $renew_link;?>" class="btn-board " id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Renew %s','boxtheme'), $project->post_titile);?>">
 									<i class="fa fa-refresh" aria-hidden="true"></i>
