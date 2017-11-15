@@ -39,7 +39,7 @@ $section = 'paypal';
 $item = 'email';
 ?>
 <div id="<?php echo $group_option;?>" class="main-group">
-	<div class="sub-section " id="<?php echo $section;?>">
+	<div class="full">
 		<div class="full sub-item" id="<?php echo $section;?>" >
 
      		<div class="sub-section" id="paypal">

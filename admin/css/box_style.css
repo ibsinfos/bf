@@ -125,12 +125,22 @@ ul.box-table li.li-heading{
 	overflow: hidden;
 	background: #fff;
 }
+.sub-item{
+	display: block;
+    padding-bottom: 25px;
+    overflow: hidden;
 
+    margin-bottom: 26px;
+
+}
 .sub-section{
 	margin-bottom: 25px;
     clear: both;
     display: block;
     overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 25px;
+    padding-top: 20px;
 }
 .sub-wrap{
 	padding: 20px 0 20px 20px;
@@ -142,14 +152,7 @@ textarea{
 	height: 120px;
 	padding-top: 15px;
 }
-.sub-item{
-	display: block;
-    padding-bottom: 4px;
-    overflow: hidden;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 26px;
 
-}
 ul.block li{
 	display: block;
 	float: none;
@@ -270,5 +273,5 @@ select.auto-save{
 .row-explain{
 	padding-top: 5px;
 	padding-bottom: 8px;
-	text-indent: 6px;
+	text-indent: 3px;
 }
