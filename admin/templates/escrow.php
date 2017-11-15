@@ -145,6 +145,9 @@ if( $active == 'paypal_adaptive'){
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('PayPal Account','boxtheme');?></label>
 				<div class="col-md-8">
 					<input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_useremail;?>" name = "<?php echo $api_useremail_name;?>" id="api_useremail">
+
+				</div>
+				<div class="col-md-8 pull-right">
 					<small class="full row-expalain"> <?php _e('Account use to get/set API and use to receive the commision fee if have.','boxtheme');?> </small>
 				</div>
 			</div>
@@ -166,7 +169,7 @@ if( $active == 'paypal_adaptive'){
 				<div class="col-md-8">
 					<input class="form-control auto-save" type="text" multi="0" <?php if($sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid">
 					<?php if($sandbox_mode){?>
-						<small class="full row-expalain"> <?php _e('Default APP ID for sandbox mode.','boxtheme');?> </small>
+						<small class="full row-expalain"> <?php _e('APP-80W284485P519543T is default APP ID for sandbox mode.','boxtheme');?> </small>
 					<?php }?>
 				</div>
 			</div>
