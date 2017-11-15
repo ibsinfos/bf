@@ -1,5 +1,6 @@
 <?php
 
+//var_dump($_REQUEST);
 /**
  * BoxFreeancer Theme functions and definitions
  *

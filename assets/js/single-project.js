@@ -226,9 +226,9 @@ var single_project = {
 		console.log('close');
 		$('#frame_chat').removeClass('nav-view');
 	},
-	empSendMessage: function(e){ // send in list bidding.
-		var _this = $(event.currentTarget);
+	empSendMessage: function(event){ // send in list bidding.
 
+		var _this = $(event.currentTarget);
 		msg_send.msg_content = _this.find(".msg_content").val();
 
 		var success = function(res){
