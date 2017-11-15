@@ -55,7 +55,8 @@
 				while ($query->have_posts()) {
 					global $post;
 					$query->the_post();
-					$project = BX_Project::get_instance()->convert($post); ?>
+					$project = BX_Project::get_instance()->convert($post);
+					$status = $project->post_status; ?>
 					<li class="list-style-none padding-bottom-10">
 						<div class ="col-md-5"><a class="primary-color" href="<?php echo get_permalink();?>"><?php echo get_the_title()?></a></div>
 						<div class ="col-md-2"><?php echo count_bids($post->ID); ?></div>
@@ -65,9 +66,14 @@
 						</div>
 
 						<div class ="col-md-1 pull-right text-center">
-							<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>">
-								<i class="fa fa-trash-o" aria-hidden="true"></i>
-							</a>
+							<?php if( in_array( $status, array('archived','peding') ) ){ ?>
+								<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Renew %s','boxtheme'), $project->post_titile);?>">
+									<i class="fa fa-trash-o" aria-hidden="true"></i>
+								</a>
+								<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Delete %s','boxtheme'), $project->post_titile);?>">
+									<i class="fa fa-trash-o" aria-hidden="true"></i>
+								</a>
+							<?php } ?>
 						</div>
 					</li> <?php
 				}
