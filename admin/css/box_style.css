@@ -265,3 +265,9 @@ input.auto-save,
 select.auto-save{
 	height: 35px;
 }
+.row-expalain{
+	padding-top: 5px;
+	padding-bottom: 8px;
+	text-indent: 6px;
+	text-align: right;
+}

@@ -142,13 +142,17 @@ if( $active == 'paypal_adaptive'){
 				<h2> <?php if($sandbox_mode)  _e('PayPal Adaptive Sandbox Mode Settings','boxtheme'); else _e('PayPal Adaptive Live Mode Settings','boxtheme'); ?> </h2> <br />
 			</div>
 			<div class="form-group row">
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('PayPal Account','boxtheme');?></label>
+				<div class="col-md-8">
+					<input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_useremail;?>" name = "<?php echo $api_useremail_name;?>" id="api_useremail">
+					<small class="full row-expalain"> <?php _e('Account use to get/set API and use to receive the commision fee if have.','boxtheme');?> </small>
+				</div>
+			</div>
+			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API User ID','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_userid;?>" name = "<?php echo $api_userid_name;?>" id="api_userid"></div>
 			</div>
-			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('PayPal Account','boxtheme');?></label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_useremail;?>" name = "<?php echo $api_useremail_name;?>" id="api_useremail"></div>
-			</div>
+
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API Password','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="api_userpassword" multi="0" value="<?php echo $api_userpassword;?>" name = "<?php echo $api_userpassword_name;?>" id="api_userpassword"></div>
@@ -159,7 +163,12 @@ if( $active == 'paypal_adaptive'){
 			</div>
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API App ID','boxtheme');?></label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" <?php if($sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
+				<div class="col-md-8">
+					<input class="form-control auto-save" type="text" multi="0" <?php if($sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid">
+					<?php if($sandbox_mode){?>
+						<small class="full row-expalain"> <?php _e('Default APP ID for sandbox mode.','boxtheme');?> </small>
+					<?php }?>
+				</div>
 			</div>
 		</form>
 	</div>
