@@ -13,7 +13,6 @@
 				echo '<pre>';
 				$blog_id = get_current_blog_id();
 				var_dump($blog_id);
-
 				echo '</pre>';
 				?>
 			</div>
