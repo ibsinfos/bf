@@ -127,8 +127,10 @@ ul.box-table li.li-heading{
 }
 
 .sub-section{
-	margin-bottom: 55px;
+	margin-bottom: 25px;
     clear: both;
+    display: block;
+    overflow: hidden;
 }
 .sub-wrap{
 	padding: 20px 0 20px 20px;
