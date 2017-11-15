@@ -125,6 +125,7 @@ var single_project = {
         		window.location.reload(true);
 	        } else {
 	        	console.log(res.msg);
+	        	alert(res.msg);
 	        }
 	    }
 		window.ajaxSend.Form(event, action, method, successRes);
