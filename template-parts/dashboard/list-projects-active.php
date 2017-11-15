@@ -35,7 +35,7 @@
 				echo '<div class ="col-md-5">';	echo '<a class="primary-color project-title" href="'.get_permalink().'">'. get_the_title().'</a>';	echo '</div>';
 				echo '<div class ="col-md-2">';echo count_bids($post->ID);	echo '</div>';
 				echo '<div class ="col-md-3">';	echo get_the_date();	echo '</div>';	?>
-				<div class ="col-md-2 pull-right text-center">
+				<div class ="col-md-2 pull-right text-right">
 
 					<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>">
 						<i class="fa fa-archive" aria-hidden="true"></i>
