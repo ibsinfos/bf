@@ -95,7 +95,7 @@ if( $active == 'paypal_adaptive'){
 	$sandbox_mode = 1;
 	$api_appid_name = 'api_appid_sandbox';
 	$api_userid_name = 'api_userid_sandbox';
-	$api_useremail_name = 'api_api_useremail'; // user will receive commision fee.
+	$api_useremail_name = 'api_useremail'; // user will receive commision fee.
 	$app_signarute_name = 'app_signarute_sandbox';
 	$api_userpassword_name = 'api_userpassword_sandbox';
 	$paypal_adaptive = (OBJECT) BX_Option::get_instance()->get_group_option('paypal_adaptive');
@@ -116,6 +116,7 @@ if( $active == 'paypal_adaptive'){
 		} else {
 			$api_appid_name = 'api_appid';
 			$api_userid_name = 'api_userid';
+			$api_useremail_name = 'api_useremail';
 			$app_signarute_name = 'app_signarute';
 			$api_userpassword_name = 'api_userpassword';
 
@@ -134,30 +135,30 @@ if( $active == 'paypal_adaptive'){
    	<div class="sub-item" id="paypal_adaptive">
 		<form style="max-width: 900px; padding-top: 50px;">
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label"><h2>Sandbox mode </h2></label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><h2><?php _e('Sandbox Mode','boxtheme');?> </h2></label>
 				<div class="col-md-8" style="padding-top: 15px;"><?php bx_swap_button('paypal_adaptive','sandbox_mode', $sandbox_mode, 0);?></div>
 			</div>
 			<div class="form-group">
 				<h2> <?php if($sandbox_mode)  _e('PayPal Adaptive Sandbox Mode Settings','boxtheme'); else _e('PayPal Adaptive Live Mode Settings','boxtheme'); ?> </h2> <br />
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label">API User ID</label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API User ID','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_userid;?>" name = "<?php echo $api_userid_name;?>" id="api_userid"></div>
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label">PayPal Account</label>
-				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_useremail;?>" name = "<?php echo $api_useremail;?>" id="api_useremail"></div>
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('PayPal Account','boxtheme');?></label>
+				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $api_useremail;?>" name = "<?php echo $api_useremail_name;?>" id="api_useremail"></div>
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label">API Password</label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API Password','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="api_userpassword" multi="0" value="<?php echo $api_userpassword;?>" name = "<?php echo $api_userpassword_name;?>" id="api_userpassword"></div>
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label">API Signarute</label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API Signarute','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" value="<?php echo $app_signarute;?>" name = "<?php echo $app_signarute_name;?>" id="app_signarute"></div>
 			</div>
 			<div class="form-group row">
-				<label for="example-text-input" class="col-md-4 col-form-label">API App ID</label>
+				<label for="example-text-input" class="col-md-4 col-form-label"><?php _e('API App ID','boxtheme');?></label>
 				<div class="col-md-8"><input class="form-control auto-save" type="text" multi="0" <?php if($sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid"></div>
 			</div>
 		</form>
