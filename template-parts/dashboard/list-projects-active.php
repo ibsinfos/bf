@@ -38,7 +38,7 @@
 				<div class ="col-md-2 pull-right text-center">
 
 					<a href="#" class="btn-board btn-archived-job" id="<?php echo $project->ID;?>"  data-toggle="tooltip" title="<?php printf(__('Archived %s','boxtheme'), $project->post_titile);?>">
-						<i class="fa fa-trash-o" aria-hidden="true"></i>
+						<i class="fa fa-archive" aria-hidden="true"></i>
 					</a>
 
 				</div>
