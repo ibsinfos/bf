@@ -89,7 +89,7 @@ class PP_Adaptive extends Box_Escrow{
 			'currencyCode'=>'USD',
 			'feesPayer'=>'EACHRECEIVER',
 			'receiverList.receiver(0).amount'=> $emp_pay,
-			'receiverList.receiver(0).email'=> 'employer@etteam.com',
+			'receiverList.receiver(0).email'=>$this->api_useremail, // 'employer@etteam.com',
 			'receiverList.receiver(0).primary'=> true,
 			'receiverList.receiver(1).amount'=> $fre_receive,
 			'receiverList.receiver(1).email'=> $fre_receive_email,
