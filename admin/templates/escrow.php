@@ -136,7 +136,13 @@ if( $active == 'paypal_adaptive'){
 		<form style="max-width: 900px; padding-top: 50px;">
 			<div class="form-group row">
 				<label for="example-text-input" class="col-md-4 col-form-label"><h2><?php _e('Sandbox Mode','boxtheme');?> </h2></label>
-				<div class="col-md-8" style="padding-top: 15px;"><?php bx_swap_button('paypal_adaptive','sandbox_mode', $sandbox_mode, 0);?></div>
+				<div class="col-md-8" style="padding-top: 15px;"><?php bx_swap_button('paypal_adaptive','sandbox_mode', $sandbox_mode, 0);?>
+					<?php if( !$sandbox_mode ){?>
+						<small class="full row-explain text-left"> <?php _e('Live mode is enabling.','boxtheme');?> </small>
+					<?php } else {?>
+					<small class="full row-explain text-left"> <?php _e('Sandbox mode is enabling.','boxtheme');?> </small>
+					<?php } ?>
+				</div>
 			</div>
 			<div class="form-group">
 				<h2> <?php if($sandbox_mode)  _e('PayPal Adaptive Sandbox Mode Settings','boxtheme'); else _e('PayPal Adaptive Live Mode Settings','boxtheme'); ?> </h2> <br />
@@ -148,7 +154,7 @@ if( $active == 'paypal_adaptive'){
 
 				</div>
 				<div class="col-md-8 pull-right">
-					<small class="full row-expalain"> <?php _e('Account use to get/set API and use to receive the commision fee if have.','boxtheme');?> </small>
+					<small class="full row-explain text-right"> <?php _e('Account use to get/set API and use to receive the commision fee if have.','boxtheme');?> </small>
 				</div>
 			</div>
 			<div class="form-group row">
@@ -169,7 +175,7 @@ if( $active == 'paypal_adaptive'){
 				<div class="col-md-8">
 					<input class="form-control auto-save" type="text" multi="0" <?php if($sandbox_mode) echo 'disabled';?>  value="<?php echo $api_appid;?>" name = "<?php echo $api_appid_name;?>" id="api_appid">
 					<?php if($sandbox_mode){?>
-						<small class="full row-expalain"> <?php _e('APP-80W284485P519543T is default APP ID for sandbox mode.','boxtheme');?> </small>
+						<small class="full row-explain text-right"> <?php _e('APP-80W284485P519543T is default APP ID for sandbox mode.','boxtheme');?> </small>
 					<?php }?>
 				</div>
 			</div>
